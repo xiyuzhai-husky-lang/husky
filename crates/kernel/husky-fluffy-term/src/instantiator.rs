@@ -53,7 +53,10 @@ impl Instantiator {
         }
         match term {
             EtherealTerm::Literal(_) => todo!(),
-            EtherealTerm::Symbol(_) => todo!(),
+            EtherealTerm::Symbol(symbol) => match self.symbol_map.get_entry(symbol) {
+                Some((_, instantiated_term)) => *instantiated_term,
+                None => todo!(),
+            },
             EtherealTerm::Variable(_) => todo!(),
             EtherealTerm::EntityPath(_) => term.into(),
             EtherealTerm::Category(_) => todo!(),

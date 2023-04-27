@@ -31,7 +31,7 @@ impl ImplicitParameterDeclarativeSignature {
                     symbol: region
                         .current_symbol_term(symbol)
                         .expect("not none")
-                        .symbol()
+                        .term_symbol()
                         .expect("should have term"),
                     // ad hoc
                     traits: vec![],
@@ -44,7 +44,7 @@ impl ImplicitParameterDeclarativeSignature {
                     symbol: region
                         .current_symbol_term(symbol)
                         .expect("not none")
-                        .symbol()
+                        .term_symbol()
                         .expect("should have term"),
                     // ad hoc
                     traits: vec![],

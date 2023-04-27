@@ -2259,6 +2259,42 @@ Ok(
             ),
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::AssociatedItem(
+                        AssociatedItemPath::TypeItem(
+                            TypeItemPath {
+                                parent_ty: TypePath(`core::num::f32`, `Extern`),
+                                ident: `sqrt`,
+                                item_kind: MethodFn,
+                            },
+                        ),
+                    ),
+                ),
+                Some(
+                    AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            MethodFn,
+                        ),
+                    },
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::f32`, `Extern`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
             TokenInfo::Entity(
                 Some(
                     EntityPath::ModuleItem(

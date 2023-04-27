@@ -12,7 +12,7 @@ Ok(
                                 TypePath(`core::num::i8`, `Extern`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 31,
+                            ast_idx: 32,
                             ident_token: IdentToken {
                                 ident: `i8`,
                                 token_idx: TokenIdx(
@@ -31,7 +31,7 @@ Ok(
                                 TypePath(`core::num::i16`, `Extern`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 36,
+                            ast_idx: 37,
                             ident_token: IdentToken {
                                 ident: `i16`,
                                 token_idx: TokenIdx(
@@ -50,7 +50,7 @@ Ok(
                                 TypePath(`core::num::i32`, `Extern`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 41,
+                            ast_idx: 42,
                             ident_token: IdentToken {
                                 ident: `i32`,
                                 token_idx: TokenIdx(
@@ -69,7 +69,7 @@ Ok(
                                 TypePath(`core::num::i64`, `Extern`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 46,
+                            ast_idx: 47,
                             ident_token: IdentToken {
                                 ident: `i64`,
                                 token_idx: TokenIdx(
@@ -88,7 +88,7 @@ Ok(
                                 TypePath(`core::num::i128`, `Extern`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 51,
+                            ast_idx: 52,
                             ident_token: IdentToken {
                                 ident: `i128`,
                                 token_idx: TokenIdx(
@@ -107,7 +107,7 @@ Ok(
                                 TypePath(`core::num::isize`, `Extern`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 56,
+                            ast_idx: 57,
                             ident_token: IdentToken {
                                 ident: `isize`,
                                 token_idx: TokenIdx(
@@ -126,7 +126,7 @@ Ok(
                                 TypePath(`core::num::u8`, `Extern`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 61,
+                            ast_idx: 62,
                             ident_token: IdentToken {
                                 ident: `u8`,
                                 token_idx: TokenIdx(
@@ -145,7 +145,7 @@ Ok(
                                 TypePath(`core::num::u16`, `Extern`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 66,
+                            ast_idx: 67,
                             ident_token: IdentToken {
                                 ident: `u16`,
                                 token_idx: TokenIdx(
@@ -164,7 +164,7 @@ Ok(
                                 TypePath(`core::num::u32`, `Extern`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 71,
+                            ast_idx: 72,
                             ident_token: IdentToken {
                                 ident: `u32`,
                                 token_idx: TokenIdx(
@@ -183,7 +183,7 @@ Ok(
                                 TypePath(`core::num::u64`, `Extern`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 76,
+                            ast_idx: 77,
                             ident_token: IdentToken {
                                 ident: `u64`,
                                 token_idx: TokenIdx(
@@ -202,7 +202,7 @@ Ok(
                                 TypePath(`core::num::u128`, `Extern`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 81,
+                            ast_idx: 82,
                             ident_token: IdentToken {
                                 ident: `u128`,
                                 token_idx: TokenIdx(
@@ -221,7 +221,7 @@ Ok(
                                 TypePath(`core::num::usize`, `Extern`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 86,
+                            ast_idx: 87,
                             ident_token: IdentToken {
                                 ident: `usize`,
                                 token_idx: TokenIdx(
@@ -240,7 +240,7 @@ Ok(
                                 TypePath(`core::num::f32`, `Extern`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 91,
+                            ast_idx: 92,
                             ident_token: IdentToken {
                                 ident: `f32`,
                                 token_idx: TokenIdx(
@@ -259,11 +259,11 @@ Ok(
                                 TypePath(`core::num::f64`, `Extern`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 96,
+                            ast_idx: 97,
                             ident_token: IdentToken {
                                 ident: `f64`,
                                 token_idx: TokenIdx(
-                                    702,
+                                    710,
                                 ),
                             },
                         },
@@ -274,7 +274,7 @@ Ok(
         use_one_trackers: UseExprRules(
             [
                 UseExprRule {
-                    ast_idx: 28,
+                    ast_idx: 29,
                     use_expr_idx: 2,
                     visibility: Scope::PubUnder(
                         `core::num`,

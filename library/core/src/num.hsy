@@ -127,6 +127,8 @@ pub extern f32;
 impl f32:
     pub fn abs() -> f32;
 
+    pub fn sqrt() -> f32;
+
 impl Add f32 for f32:
     fn add(other: f32) -> f32;
 

@@ -31,6 +31,7 @@ impl SolidTerm {
                 None => todo!(),
             },
             SolidTermData::Curry { .. } | SolidTermData::Ritchie { .. } => Nothing,
+            SolidTermData::PlaceSymbol {} => todo!(),
         }
     }
 }

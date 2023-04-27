@@ -3022,6 +3022,46 @@ Ok(
                 ),
             ),
             Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
+                Keyword::Form(
+                    Fn,
+                ),
+            ),
+            Token::Ident(
+                `sqrt`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        Curry,
+                    ),
+                ),
+            ),
+            Token::Ident(
+                `f32`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Semicolon,
+                ),
+            ),
+            Token::Keyword(
                 Keyword::Impl,
             ),
             Token::Ident(
@@ -3420,14 +3460,15 @@ Ok(
             653,
             656,
             664,
-            670,
-            680,
-            687,
-            700,
-            704,
-            707,
+            672,
+            678,
+            688,
+            695,
+            708,
+            712,
             715,
-            721,
+            723,
+            729,
         ],
         indents: [
             0,
@@ -3519,6 +3560,7 @@ Ok(
             0,
             0,
             0,
+            4,
             4,
             0,
             4,

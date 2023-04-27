@@ -16,7 +16,7 @@ Ok(
                                 path: TypePath(`core::num::i8`, `Extern`),
                                 decl: ExternTypeDecl {
                                     path: TypePath(`core::num::i8`, `Extern`),
-                                    ast_idx: 31,
+                                    ast_idx: 32,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
                                             parent: None,
@@ -90,7 +90,7 @@ Ok(
                                 path: TypePath(`core::num::i16`, `Extern`),
                                 decl: ExternTypeDecl {
                                     path: TypePath(`core::num::i16`, `Extern`),
-                                    ast_idx: 36,
+                                    ast_idx: 37,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
                                             parent: None,
@@ -164,7 +164,7 @@ Ok(
                                 path: TypePath(`core::num::i32`, `Extern`),
                                 decl: ExternTypeDecl {
                                     path: TypePath(`core::num::i32`, `Extern`),
-                                    ast_idx: 41,
+                                    ast_idx: 42,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
                                             parent: None,
@@ -238,7 +238,7 @@ Ok(
                                 path: TypePath(`core::num::i64`, `Extern`),
                                 decl: ExternTypeDecl {
                                     path: TypePath(`core::num::i64`, `Extern`),
-                                    ast_idx: 46,
+                                    ast_idx: 47,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
                                             parent: None,
@@ -312,7 +312,7 @@ Ok(
                                 path: TypePath(`core::num::i128`, `Extern`),
                                 decl: ExternTypeDecl {
                                     path: TypePath(`core::num::i128`, `Extern`),
-                                    ast_idx: 51,
+                                    ast_idx: 52,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
                                             parent: None,
@@ -386,7 +386,7 @@ Ok(
                                 path: TypePath(`core::num::isize`, `Extern`),
                                 decl: ExternTypeDecl {
                                     path: TypePath(`core::num::isize`, `Extern`),
-                                    ast_idx: 56,
+                                    ast_idx: 57,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
                                             parent: None,
@@ -460,7 +460,7 @@ Ok(
                                 path: TypePath(`core::num::u8`, `Extern`),
                                 decl: ExternTypeDecl {
                                     path: TypePath(`core::num::u8`, `Extern`),
-                                    ast_idx: 61,
+                                    ast_idx: 62,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
                                             parent: None,
@@ -534,7 +534,7 @@ Ok(
                                 path: TypePath(`core::num::u16`, `Extern`),
                                 decl: ExternTypeDecl {
                                     path: TypePath(`core::num::u16`, `Extern`),
-                                    ast_idx: 66,
+                                    ast_idx: 67,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
                                             parent: None,
@@ -608,7 +608,7 @@ Ok(
                                 path: TypePath(`core::num::u32`, `Extern`),
                                 decl: ExternTypeDecl {
                                     path: TypePath(`core::num::u32`, `Extern`),
-                                    ast_idx: 71,
+                                    ast_idx: 72,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
                                             parent: None,
@@ -682,7 +682,7 @@ Ok(
                                 path: TypePath(`core::num::u64`, `Extern`),
                                 decl: ExternTypeDecl {
                                     path: TypePath(`core::num::u64`, `Extern`),
-                                    ast_idx: 76,
+                                    ast_idx: 77,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
                                             parent: None,
@@ -756,7 +756,7 @@ Ok(
                                 path: TypePath(`core::num::u128`, `Extern`),
                                 decl: ExternTypeDecl {
                                     path: TypePath(`core::num::u128`, `Extern`),
-                                    ast_idx: 81,
+                                    ast_idx: 82,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
                                             parent: None,
@@ -830,7 +830,7 @@ Ok(
                                 path: TypePath(`core::num::usize`, `Extern`),
                                 decl: ExternTypeDecl {
                                     path: TypePath(`core::num::usize`, `Extern`),
-                                    ast_idx: 86,
+                                    ast_idx: 87,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
                                             parent: None,
@@ -904,7 +904,7 @@ Ok(
                                 path: TypePath(`core::num::f32`, `Extern`),
                                 decl: ExternTypeDecl {
                                     path: TypePath(`core::num::f32`, `Extern`),
-                                    ast_idx: 91,
+                                    ast_idx: 92,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
                                             parent: None,
@@ -978,7 +978,7 @@ Ok(
                                 path: TypePath(`core::num::f64`, `Extern`),
                                 decl: ExternTypeDecl {
                                     path: TypePath(`core::num::f64`, `Extern`),
-                                    ast_idx: 96,
+                                    ast_idx: 97,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
                                             parent: None,
@@ -1051,14 +1051,14 @@ Ok(
                     Defn::ImplBlock(
                         ImplBlockDecl::Type(
                             TypeImplBlockDecl {
-                                ast_idx: 32,
+                                ast_idx: 33,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
                                         module_path: `core::num`,
                                         ty_path: TypePath(`core::num::i8`, `Extern`),
                                         disambiguator: 0,
                                     },
-                                    ast_idx: 32,
+                                    ast_idx: 33,
                                     impl_token: ImplToken {
                                         token_idx: TokenIdx(
                                             30,
@@ -1248,7 +1248,7 @@ Ok(
                                                         ty_path: TypePath(`core::num::i8`, `Extern`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 32,
+                                                    ast_idx: 33,
                                                     impl_token: ImplToken {
                                                         token_idx: TokenIdx(
                                                             30,
@@ -1447,6 +1447,7 @@ Ok(
                                                 ),
                                             ),
                                             self_parameter: None,
+                                            comma_after_self_parameter: None,
                                             regular_parameters: [],
                                             commas: [],
                                             rpar: RightParenthesisToken(
@@ -1720,7 +1721,7 @@ Ok(
                     Defn::ImplBlock(
                         ImplBlockDecl::TraitForType(
                             TraitForTypeImplBlockDecl {
-                                ast_idx: 33,
+                                ast_idx: 34,
                                 impl_block: TraitForTypeImplBlock {
                                     id: TraitForTypeImplBlockId {
                                         module_path: `core::num`,
@@ -1728,7 +1729,7 @@ Ok(
                                         ty_path: TypePath(`core::num::i8`, `Extern`),
                                         disambiguator: 0,
                                     },
-                                    ast_idx: 33,
+                                    ast_idx: 34,
                                     impl_token: ImplToken {
                                         token_idx: TokenIdx(
                                             41,
@@ -1974,7 +1975,7 @@ Ok(
                                                         ty_path: TypePath(`core::num::i8`, `Extern`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 33,
+                                                    ast_idx: 34,
                                                     impl_token: ImplToken {
                                                         token_idx: TokenIdx(
                                                             41,
@@ -2299,6 +2300,7 @@ Ok(
                                                 ),
                                             ),
                                             self_parameter: None,
+                                            comma_after_self_parameter: None,
                                             regular_parameters: [
                                                 RegularParameterDeclPattern {
                                                     pattern: 0,
@@ -2717,14 +2719,14 @@ Ok(
                     Defn::ImplBlock(
                         ImplBlockDecl::Type(
                             TypeImplBlockDecl {
-                                ast_idx: 37,
+                                ast_idx: 38,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
                                         module_path: `core::num`,
                                         ty_path: TypePath(`core::num::i16`, `Extern`),
                                         disambiguator: 0,
                                     },
-                                    ast_idx: 37,
+                                    ast_idx: 38,
                                     impl_token: ImplToken {
                                         token_idx: TokenIdx(
                                             82,
@@ -2914,7 +2916,7 @@ Ok(
                                                         ty_path: TypePath(`core::num::i16`, `Extern`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 37,
+                                                    ast_idx: 38,
                                                     impl_token: ImplToken {
                                                         token_idx: TokenIdx(
                                                             82,
@@ -3113,6 +3115,7 @@ Ok(
                                                 ),
                                             ),
                                             self_parameter: None,
+                                            comma_after_self_parameter: None,
                                             regular_parameters: [],
                                             commas: [],
                                             rpar: RightParenthesisToken(
@@ -3386,7 +3389,7 @@ Ok(
                     Defn::ImplBlock(
                         ImplBlockDecl::TraitForType(
                             TraitForTypeImplBlockDecl {
-                                ast_idx: 38,
+                                ast_idx: 39,
                                 impl_block: TraitForTypeImplBlock {
                                     id: TraitForTypeImplBlockId {
                                         module_path: `core::num`,
@@ -3394,7 +3397,7 @@ Ok(
                                         ty_path: TypePath(`core::num::i16`, `Extern`),
                                         disambiguator: 0,
                                     },
-                                    ast_idx: 38,
+                                    ast_idx: 39,
                                     impl_token: ImplToken {
                                         token_idx: TokenIdx(
                                             93,
@@ -3640,7 +3643,7 @@ Ok(
                                                         ty_path: TypePath(`core::num::i16`, `Extern`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 38,
+                                                    ast_idx: 39,
                                                     impl_token: ImplToken {
                                                         token_idx: TokenIdx(
                                                             93,
@@ -3965,6 +3968,7 @@ Ok(
                                                 ),
                                             ),
                                             self_parameter: None,
+                                            comma_after_self_parameter: None,
                                             regular_parameters: [
                                                 RegularParameterDeclPattern {
                                                     pattern: 0,
@@ -4383,14 +4387,14 @@ Ok(
                     Defn::ImplBlock(
                         ImplBlockDecl::Type(
                             TypeImplBlockDecl {
-                                ast_idx: 42,
+                                ast_idx: 43,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
                                         module_path: `core::num`,
                                         ty_path: TypePath(`core::num::i32`, `Extern`),
                                         disambiguator: 0,
                                     },
-                                    ast_idx: 42,
+                                    ast_idx: 43,
                                     impl_token: ImplToken {
                                         token_idx: TokenIdx(
                                             134,
@@ -4580,7 +4584,7 @@ Ok(
                                                         ty_path: TypePath(`core::num::i32`, `Extern`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 42,
+                                                    ast_idx: 43,
                                                     impl_token: ImplToken {
                                                         token_idx: TokenIdx(
                                                             134,
@@ -4779,6 +4783,7 @@ Ok(
                                                 ),
                                             ),
                                             self_parameter: None,
+                                            comma_after_self_parameter: None,
                                             regular_parameters: [],
                                             commas: [],
                                             rpar: RightParenthesisToken(
@@ -5052,7 +5057,7 @@ Ok(
                     Defn::ImplBlock(
                         ImplBlockDecl::TraitForType(
                             TraitForTypeImplBlockDecl {
-                                ast_idx: 43,
+                                ast_idx: 44,
                                 impl_block: TraitForTypeImplBlock {
                                     id: TraitForTypeImplBlockId {
                                         module_path: `core::num`,
@@ -5060,7 +5065,7 @@ Ok(
                                         ty_path: TypePath(`core::num::i32`, `Extern`),
                                         disambiguator: 0,
                                     },
-                                    ast_idx: 43,
+                                    ast_idx: 44,
                                     impl_token: ImplToken {
                                         token_idx: TokenIdx(
                                             145,
@@ -5306,7 +5311,7 @@ Ok(
                                                         ty_path: TypePath(`core::num::i32`, `Extern`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 43,
+                                                    ast_idx: 44,
                                                     impl_token: ImplToken {
                                                         token_idx: TokenIdx(
                                                             145,
@@ -5633,6 +5638,7 @@ Ok(
                                                 ),
                                             ),
                                             self_parameter: None,
+                                            comma_after_self_parameter: None,
                                             regular_parameters: [
                                                 RegularParameterDeclPattern {
                                                     pattern: 0,
@@ -6051,14 +6057,14 @@ Ok(
                     Defn::ImplBlock(
                         ImplBlockDecl::Type(
                             TypeImplBlockDecl {
-                                ast_idx: 47,
+                                ast_idx: 48,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
                                         module_path: `core::num`,
                                         ty_path: TypePath(`core::num::i64`, `Extern`),
                                         disambiguator: 0,
                                     },
-                                    ast_idx: 47,
+                                    ast_idx: 48,
                                     impl_token: ImplToken {
                                         token_idx: TokenIdx(
                                             185,
@@ -6248,7 +6254,7 @@ Ok(
                                                         ty_path: TypePath(`core::num::i64`, `Extern`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 47,
+                                                    ast_idx: 48,
                                                     impl_token: ImplToken {
                                                         token_idx: TokenIdx(
                                                             185,
@@ -6447,6 +6453,7 @@ Ok(
                                                 ),
                                             ),
                                             self_parameter: None,
+                                            comma_after_self_parameter: None,
                                             regular_parameters: [],
                                             commas: [],
                                             rpar: RightParenthesisToken(
@@ -6720,7 +6727,7 @@ Ok(
                     Defn::ImplBlock(
                         ImplBlockDecl::TraitForType(
                             TraitForTypeImplBlockDecl {
-                                ast_idx: 48,
+                                ast_idx: 49,
                                 impl_block: TraitForTypeImplBlock {
                                     id: TraitForTypeImplBlockId {
                                         module_path: `core::num`,
@@ -6728,7 +6735,7 @@ Ok(
                                         ty_path: TypePath(`core::num::i64`, `Extern`),
                                         disambiguator: 0,
                                     },
-                                    ast_idx: 48,
+                                    ast_idx: 49,
                                     impl_token: ImplToken {
                                         token_idx: TokenIdx(
                                             196,
@@ -6974,7 +6981,7 @@ Ok(
                                                         ty_path: TypePath(`core::num::i64`, `Extern`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 48,
+                                                    ast_idx: 49,
                                                     impl_token: ImplToken {
                                                         token_idx: TokenIdx(
                                                             196,
@@ -7299,6 +7306,7 @@ Ok(
                                                 ),
                                             ),
                                             self_parameter: None,
+                                            comma_after_self_parameter: None,
                                             regular_parameters: [
                                                 RegularParameterDeclPattern {
                                                     pattern: 0,
@@ -7717,14 +7725,14 @@ Ok(
                     Defn::ImplBlock(
                         ImplBlockDecl::Type(
                             TypeImplBlockDecl {
-                                ast_idx: 52,
+                                ast_idx: 53,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
                                         module_path: `core::num`,
                                         ty_path: TypePath(`core::num::i128`, `Extern`),
                                         disambiguator: 0,
                                     },
-                                    ast_idx: 52,
+                                    ast_idx: 53,
                                     impl_token: ImplToken {
                                         token_idx: TokenIdx(
                                             237,
@@ -7914,7 +7922,7 @@ Ok(
                                                         ty_path: TypePath(`core::num::i128`, `Extern`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 52,
+                                                    ast_idx: 53,
                                                     impl_token: ImplToken {
                                                         token_idx: TokenIdx(
                                                             237,
@@ -8113,6 +8121,7 @@ Ok(
                                                 ),
                                             ),
                                             self_parameter: None,
+                                            comma_after_self_parameter: None,
                                             regular_parameters: [],
                                             commas: [],
                                             rpar: RightParenthesisToken(
@@ -8386,7 +8395,7 @@ Ok(
                     Defn::ImplBlock(
                         ImplBlockDecl::TraitForType(
                             TraitForTypeImplBlockDecl {
-                                ast_idx: 53,
+                                ast_idx: 54,
                                 impl_block: TraitForTypeImplBlock {
                                     id: TraitForTypeImplBlockId {
                                         module_path: `core::num`,
@@ -8394,7 +8403,7 @@ Ok(
                                         ty_path: TypePath(`core::num::i128`, `Extern`),
                                         disambiguator: 0,
                                     },
-                                    ast_idx: 53,
+                                    ast_idx: 54,
                                     impl_token: ImplToken {
                                         token_idx: TokenIdx(
                                             248,
@@ -8640,7 +8649,7 @@ Ok(
                                                         ty_path: TypePath(`core::num::i128`, `Extern`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 53,
+                                                    ast_idx: 54,
                                                     impl_token: ImplToken {
                                                         token_idx: TokenIdx(
                                                             248,
@@ -8965,6 +8974,7 @@ Ok(
                                                 ),
                                             ),
                                             self_parameter: None,
+                                            comma_after_self_parameter: None,
                                             regular_parameters: [
                                                 RegularParameterDeclPattern {
                                                     pattern: 0,
@@ -9383,14 +9393,14 @@ Ok(
                     Defn::ImplBlock(
                         ImplBlockDecl::Type(
                             TypeImplBlockDecl {
-                                ast_idx: 57,
+                                ast_idx: 58,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
                                         module_path: `core::num`,
                                         ty_path: TypePath(`core::num::isize`, `Extern`),
                                         disambiguator: 0,
                                     },
-                                    ast_idx: 57,
+                                    ast_idx: 58,
                                     impl_token: ImplToken {
                                         token_idx: TokenIdx(
                                             289,
@@ -9580,7 +9590,7 @@ Ok(
                                                         ty_path: TypePath(`core::num::isize`, `Extern`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 57,
+                                                    ast_idx: 58,
                                                     impl_token: ImplToken {
                                                         token_idx: TokenIdx(
                                                             289,
@@ -9779,6 +9789,7 @@ Ok(
                                                 ),
                                             ),
                                             self_parameter: None,
+                                            comma_after_self_parameter: None,
                                             regular_parameters: [],
                                             commas: [],
                                             rpar: RightParenthesisToken(
@@ -10052,7 +10063,7 @@ Ok(
                     Defn::ImplBlock(
                         ImplBlockDecl::TraitForType(
                             TraitForTypeImplBlockDecl {
-                                ast_idx: 58,
+                                ast_idx: 59,
                                 impl_block: TraitForTypeImplBlock {
                                     id: TraitForTypeImplBlockId {
                                         module_path: `core::num`,
@@ -10060,7 +10071,7 @@ Ok(
                                         ty_path: TypePath(`core::num::isize`, `Extern`),
                                         disambiguator: 0,
                                     },
-                                    ast_idx: 58,
+                                    ast_idx: 59,
                                     impl_token: ImplToken {
                                         token_idx: TokenIdx(
                                             300,
@@ -10306,7 +10317,7 @@ Ok(
                                                         ty_path: TypePath(`core::num::isize`, `Extern`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 58,
+                                                    ast_idx: 59,
                                                     impl_token: ImplToken {
                                                         token_idx: TokenIdx(
                                                             300,
@@ -10631,6 +10642,7 @@ Ok(
                                                 ),
                                             ),
                                             self_parameter: None,
+                                            comma_after_self_parameter: None,
                                             regular_parameters: [
                                                 RegularParameterDeclPattern {
                                                     pattern: 0,
@@ -11049,14 +11061,14 @@ Ok(
                     Defn::ImplBlock(
                         ImplBlockDecl::Type(
                             TypeImplBlockDecl {
-                                ast_idx: 62,
+                                ast_idx: 63,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
                                         module_path: `core::num`,
                                         ty_path: TypePath(`core::num::u8`, `Extern`),
                                         disambiguator: 0,
                                     },
-                                    ast_idx: 62,
+                                    ast_idx: 63,
                                     impl_token: ImplToken {
                                         token_idx: TokenIdx(
                                             341,
@@ -11246,7 +11258,7 @@ Ok(
                                                         ty_path: TypePath(`core::num::u8`, `Extern`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 62,
+                                                    ast_idx: 63,
                                                     impl_token: ImplToken {
                                                         token_idx: TokenIdx(
                                                             341,
@@ -11445,6 +11457,7 @@ Ok(
                                                 ),
                                             ),
                                             self_parameter: None,
+                                            comma_after_self_parameter: None,
                                             regular_parameters: [],
                                             commas: [],
                                             rpar: RightParenthesisToken(
@@ -11718,7 +11731,7 @@ Ok(
                     Defn::ImplBlock(
                         ImplBlockDecl::TraitForType(
                             TraitForTypeImplBlockDecl {
-                                ast_idx: 63,
+                                ast_idx: 64,
                                 impl_block: TraitForTypeImplBlock {
                                     id: TraitForTypeImplBlockId {
                                         module_path: `core::num`,
@@ -11726,7 +11739,7 @@ Ok(
                                         ty_path: TypePath(`core::num::u8`, `Extern`),
                                         disambiguator: 0,
                                     },
-                                    ast_idx: 63,
+                                    ast_idx: 64,
                                     impl_token: ImplToken {
                                         token_idx: TokenIdx(
                                             352,
@@ -11972,7 +11985,7 @@ Ok(
                                                         ty_path: TypePath(`core::num::u8`, `Extern`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 63,
+                                                    ast_idx: 64,
                                                     impl_token: ImplToken {
                                                         token_idx: TokenIdx(
                                                             352,
@@ -12297,6 +12310,7 @@ Ok(
                                                 ),
                                             ),
                                             self_parameter: None,
+                                            comma_after_self_parameter: None,
                                             regular_parameters: [
                                                 RegularParameterDeclPattern {
                                                     pattern: 0,
@@ -12715,14 +12729,14 @@ Ok(
                     Defn::ImplBlock(
                         ImplBlockDecl::Type(
                             TypeImplBlockDecl {
-                                ast_idx: 67,
+                                ast_idx: 68,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
                                         module_path: `core::num`,
                                         ty_path: TypePath(`core::num::u16`, `Extern`),
                                         disambiguator: 0,
                                     },
-                                    ast_idx: 67,
+                                    ast_idx: 68,
                                     impl_token: ImplToken {
                                         token_idx: TokenIdx(
                                             393,
@@ -12912,7 +12926,7 @@ Ok(
                                                         ty_path: TypePath(`core::num::u16`, `Extern`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 67,
+                                                    ast_idx: 68,
                                                     impl_token: ImplToken {
                                                         token_idx: TokenIdx(
                                                             393,
@@ -13111,6 +13125,7 @@ Ok(
                                                 ),
                                             ),
                                             self_parameter: None,
+                                            comma_after_self_parameter: None,
                                             regular_parameters: [],
                                             commas: [],
                                             rpar: RightParenthesisToken(
@@ -13384,7 +13399,7 @@ Ok(
                     Defn::ImplBlock(
                         ImplBlockDecl::TraitForType(
                             TraitForTypeImplBlockDecl {
-                                ast_idx: 68,
+                                ast_idx: 69,
                                 impl_block: TraitForTypeImplBlock {
                                     id: TraitForTypeImplBlockId {
                                         module_path: `core::num`,
@@ -13392,7 +13407,7 @@ Ok(
                                         ty_path: TypePath(`core::num::u16`, `Extern`),
                                         disambiguator: 0,
                                     },
-                                    ast_idx: 68,
+                                    ast_idx: 69,
                                     impl_token: ImplToken {
                                         token_idx: TokenIdx(
                                             404,
@@ -13638,7 +13653,7 @@ Ok(
                                                         ty_path: TypePath(`core::num::u16`, `Extern`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 68,
+                                                    ast_idx: 69,
                                                     impl_token: ImplToken {
                                                         token_idx: TokenIdx(
                                                             404,
@@ -13963,6 +13978,7 @@ Ok(
                                                 ),
                                             ),
                                             self_parameter: None,
+                                            comma_after_self_parameter: None,
                                             regular_parameters: [
                                                 RegularParameterDeclPattern {
                                                     pattern: 0,
@@ -14381,14 +14397,14 @@ Ok(
                     Defn::ImplBlock(
                         ImplBlockDecl::Type(
                             TypeImplBlockDecl {
-                                ast_idx: 72,
+                                ast_idx: 73,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
                                         module_path: `core::num`,
                                         ty_path: TypePath(`core::num::u32`, `Extern`),
                                         disambiguator: 0,
                                     },
-                                    ast_idx: 72,
+                                    ast_idx: 73,
                                     impl_token: ImplToken {
                                         token_idx: TokenIdx(
                                             445,
@@ -14578,7 +14594,7 @@ Ok(
                                                         ty_path: TypePath(`core::num::u32`, `Extern`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 72,
+                                                    ast_idx: 73,
                                                     impl_token: ImplToken {
                                                         token_idx: TokenIdx(
                                                             445,
@@ -14777,6 +14793,7 @@ Ok(
                                                 ),
                                             ),
                                             self_parameter: None,
+                                            comma_after_self_parameter: None,
                                             regular_parameters: [],
                                             commas: [],
                                             rpar: RightParenthesisToken(
@@ -15050,7 +15067,7 @@ Ok(
                     Defn::ImplBlock(
                         ImplBlockDecl::TraitForType(
                             TraitForTypeImplBlockDecl {
-                                ast_idx: 73,
+                                ast_idx: 74,
                                 impl_block: TraitForTypeImplBlock {
                                     id: TraitForTypeImplBlockId {
                                         module_path: `core::num`,
@@ -15058,7 +15075,7 @@ Ok(
                                         ty_path: TypePath(`core::num::u32`, `Extern`),
                                         disambiguator: 0,
                                     },
-                                    ast_idx: 73,
+                                    ast_idx: 74,
                                     impl_token: ImplToken {
                                         token_idx: TokenIdx(
                                             456,
@@ -15304,7 +15321,7 @@ Ok(
                                                         ty_path: TypePath(`core::num::u32`, `Extern`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 73,
+                                                    ast_idx: 74,
                                                     impl_token: ImplToken {
                                                         token_idx: TokenIdx(
                                                             456,
@@ -15629,6 +15646,7 @@ Ok(
                                                 ),
                                             ),
                                             self_parameter: None,
+                                            comma_after_self_parameter: None,
                                             regular_parameters: [
                                                 RegularParameterDeclPattern {
                                                     pattern: 0,
@@ -16047,14 +16065,14 @@ Ok(
                     Defn::ImplBlock(
                         ImplBlockDecl::Type(
                             TypeImplBlockDecl {
-                                ast_idx: 77,
+                                ast_idx: 78,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
                                         module_path: `core::num`,
                                         ty_path: TypePath(`core::num::u64`, `Extern`),
                                         disambiguator: 0,
                                     },
-                                    ast_idx: 77,
+                                    ast_idx: 78,
                                     impl_token: ImplToken {
                                         token_idx: TokenIdx(
                                             497,
@@ -16244,7 +16262,7 @@ Ok(
                                                         ty_path: TypePath(`core::num::u64`, `Extern`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 77,
+                                                    ast_idx: 78,
                                                     impl_token: ImplToken {
                                                         token_idx: TokenIdx(
                                                             497,
@@ -16443,6 +16461,7 @@ Ok(
                                                 ),
                                             ),
                                             self_parameter: None,
+                                            comma_after_self_parameter: None,
                                             regular_parameters: [],
                                             commas: [],
                                             rpar: RightParenthesisToken(
@@ -16716,7 +16735,7 @@ Ok(
                     Defn::ImplBlock(
                         ImplBlockDecl::TraitForType(
                             TraitForTypeImplBlockDecl {
-                                ast_idx: 78,
+                                ast_idx: 79,
                                 impl_block: TraitForTypeImplBlock {
                                     id: TraitForTypeImplBlockId {
                                         module_path: `core::num`,
@@ -16724,7 +16743,7 @@ Ok(
                                         ty_path: TypePath(`core::num::u64`, `Extern`),
                                         disambiguator: 0,
                                     },
-                                    ast_idx: 78,
+                                    ast_idx: 79,
                                     impl_token: ImplToken {
                                         token_idx: TokenIdx(
                                             508,
@@ -16970,7 +16989,7 @@ Ok(
                                                         ty_path: TypePath(`core::num::u64`, `Extern`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 78,
+                                                    ast_idx: 79,
                                                     impl_token: ImplToken {
                                                         token_idx: TokenIdx(
                                                             508,
@@ -17295,6 +17314,7 @@ Ok(
                                                 ),
                                             ),
                                             self_parameter: None,
+                                            comma_after_self_parameter: None,
                                             regular_parameters: [
                                                 RegularParameterDeclPattern {
                                                     pattern: 0,
@@ -17713,14 +17733,14 @@ Ok(
                     Defn::ImplBlock(
                         ImplBlockDecl::Type(
                             TypeImplBlockDecl {
-                                ast_idx: 82,
+                                ast_idx: 83,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
                                         module_path: `core::num`,
                                         ty_path: TypePath(`core::num::u128`, `Extern`),
                                         disambiguator: 0,
                                     },
-                                    ast_idx: 82,
+                                    ast_idx: 83,
                                     impl_token: ImplToken {
                                         token_idx: TokenIdx(
                                             549,
@@ -17910,7 +17930,7 @@ Ok(
                                                         ty_path: TypePath(`core::num::u128`, `Extern`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 82,
+                                                    ast_idx: 83,
                                                     impl_token: ImplToken {
                                                         token_idx: TokenIdx(
                                                             549,
@@ -18109,6 +18129,7 @@ Ok(
                                                 ),
                                             ),
                                             self_parameter: None,
+                                            comma_after_self_parameter: None,
                                             regular_parameters: [],
                                             commas: [],
                                             rpar: RightParenthesisToken(
@@ -18382,7 +18403,7 @@ Ok(
                     Defn::ImplBlock(
                         ImplBlockDecl::TraitForType(
                             TraitForTypeImplBlockDecl {
-                                ast_idx: 83,
+                                ast_idx: 84,
                                 impl_block: TraitForTypeImplBlock {
                                     id: TraitForTypeImplBlockId {
                                         module_path: `core::num`,
@@ -18390,7 +18411,7 @@ Ok(
                                         ty_path: TypePath(`core::num::u128`, `Extern`),
                                         disambiguator: 0,
                                     },
-                                    ast_idx: 83,
+                                    ast_idx: 84,
                                     impl_token: ImplToken {
                                         token_idx: TokenIdx(
                                             560,
@@ -18636,7 +18657,7 @@ Ok(
                                                         ty_path: TypePath(`core::num::u128`, `Extern`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 83,
+                                                    ast_idx: 84,
                                                     impl_token: ImplToken {
                                                         token_idx: TokenIdx(
                                                             560,
@@ -18961,6 +18982,7 @@ Ok(
                                                 ),
                                             ),
                                             self_parameter: None,
+                                            comma_after_self_parameter: None,
                                             regular_parameters: [
                                                 RegularParameterDeclPattern {
                                                     pattern: 0,
@@ -19379,14 +19401,14 @@ Ok(
                     Defn::ImplBlock(
                         ImplBlockDecl::Type(
                             TypeImplBlockDecl {
-                                ast_idx: 87,
+                                ast_idx: 88,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
                                         module_path: `core::num`,
                                         ty_path: TypePath(`core::num::usize`, `Extern`),
                                         disambiguator: 0,
                                     },
-                                    ast_idx: 87,
+                                    ast_idx: 88,
                                     impl_token: ImplToken {
                                         token_idx: TokenIdx(
                                             601,
@@ -19576,7 +19598,7 @@ Ok(
                                                         ty_path: TypePath(`core::num::usize`, `Extern`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 87,
+                                                    ast_idx: 88,
                                                     impl_token: ImplToken {
                                                         token_idx: TokenIdx(
                                                             601,
@@ -19775,6 +19797,7 @@ Ok(
                                                 ),
                                             ),
                                             self_parameter: None,
+                                            comma_after_self_parameter: None,
                                             regular_parameters: [],
                                             commas: [],
                                             rpar: RightParenthesisToken(
@@ -20048,7 +20071,7 @@ Ok(
                     Defn::ImplBlock(
                         ImplBlockDecl::TraitForType(
                             TraitForTypeImplBlockDecl {
-                                ast_idx: 88,
+                                ast_idx: 89,
                                 impl_block: TraitForTypeImplBlock {
                                     id: TraitForTypeImplBlockId {
                                         module_path: `core::num`,
@@ -20056,7 +20079,7 @@ Ok(
                                         ty_path: TypePath(`core::num::usize`, `Extern`),
                                         disambiguator: 0,
                                     },
-                                    ast_idx: 88,
+                                    ast_idx: 89,
                                     impl_token: ImplToken {
                                         token_idx: TokenIdx(
                                             612,
@@ -20302,7 +20325,7 @@ Ok(
                                                         ty_path: TypePath(`core::num::usize`, `Extern`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 88,
+                                                    ast_idx: 89,
                                                     impl_token: ImplToken {
                                                         token_idx: TokenIdx(
                                                             612,
@@ -20627,6 +20650,7 @@ Ok(
                                                 ),
                                             ),
                                             self_parameter: None,
+                                            comma_after_self_parameter: None,
                                             regular_parameters: [
                                                 RegularParameterDeclPattern {
                                                     pattern: 0,
@@ -21045,14 +21069,14 @@ Ok(
                     Defn::ImplBlock(
                         ImplBlockDecl::Type(
                             TypeImplBlockDecl {
-                                ast_idx: 92,
+                                ast_idx: 93,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
                                         module_path: `core::num`,
                                         ty_path: TypePath(`core::num::f32`, `Extern`),
                                         disambiguator: 0,
                                     },
-                                    ast_idx: 92,
+                                    ast_idx: 93,
                                     impl_token: ImplToken {
                                         token_idx: TokenIdx(
                                             653,
@@ -21062,7 +21086,7 @@ Ok(
                                     body: Type(
                                         TypeItems {
                                             ast_idx_range: ArenaIdxRange(
-                                                24..25,
+                                                24..26,
                                             ),
                                         },
                                     ),
@@ -21242,7 +21266,7 @@ Ok(
                                                         ty_path: TypePath(`core::num::f32`, `Extern`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 92,
+                                                    ast_idx: 93,
                                                     impl_token: ImplToken {
                                                         token_idx: TokenIdx(
                                                             653,
@@ -21252,7 +21276,7 @@ Ok(
                                                     body: Type(
                                                         TypeItems {
                                                             ast_idx_range: ArenaIdxRange(
-                                                                24..25,
+                                                                24..26,
                                                             ),
                                                         },
                                                     ),
@@ -21441,6 +21465,7 @@ Ok(
                                                 ),
                                             ),
                                             self_parameter: None,
+                                            comma_after_self_parameter: None,
                                             regular_parameters: [],
                                             commas: [],
                                             rpar: RightParenthesisToken(
@@ -21700,6 +21725,537 @@ Ok(
                 ),
             ),
             (
+                DefnRegionPath::AssociatedItem(
+                    AssociatedItemId {
+                        impl_block_id: ImplBlockId::Type(
+                            TypeImplBlockId {
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                                disambiguator: 0,
+                            },
+                        ),
+                        ident: `sqrt`,
+                    },
+                ),
+                Ok(
+                    Defn::AssociatedItem(
+                        AssociatedItemDefn::TypeItem(
+                            TypeItemDefn::MethodFn(
+                                TypeMethodFnDefn {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module_path: `core::num`,
+                                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `sqrt`,
+                                    },
+                                    decl: TypeMethodFnDecl {
+                                        id: AssociatedItemId {
+                                            impl_block_id: ImplBlockId::Type(
+                                                TypeImplBlockId {
+                                                    module_path: `core::num`,
+                                                    ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                            ident: `sqrt`,
+                                        },
+                                        path: Some(
+                                            TypeItemPath {
+                                                parent_ty: TypePath(`core::num::f32`, `Extern`),
+                                                ident: `sqrt`,
+                                                item_kind: MethodFn,
+                                            },
+                                        ),
+                                        associated_item: AssociatedItem {
+                                            id: AssociatedItemId {
+                                                impl_block_id: ImplBlockId::Type(
+                                                    TypeImplBlockId {
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                                ident: `sqrt`,
+                                            },
+                                            path: Some(
+                                                AssociatedItemPath::TypeItem(
+                                                    TypeItemPath {
+                                                        parent_ty: TypePath(`core::num::f32`, `Extern`),
+                                                        ident: `sqrt`,
+                                                        item_kind: MethodFn,
+                                                    },
+                                                ),
+                                            ),
+                                            impl_block: ImplBlock::Type(
+                                                TypeImplBlock {
+                                                    id: TypeImplBlockId {
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ast_idx: 93,
+                                                    impl_token: ImplToken {
+                                                        token_idx: TokenIdx(
+                                                            653,
+                                                        ),
+                                                    },
+                                                    ty_expr: 36,
+                                                    body: Type(
+                                                        TypeItems {
+                                                            ast_idx_range: ArenaIdxRange(
+                                                                24..26,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
+                                            ),
+                                            ast_idx: 25,
+                                            ident: `sqrt`,
+                                            associated_item_kind: TypeItem(
+                                                MethodFn,
+                                            ),
+                                            visibility: Scope::Pub,
+                                            is_generic: false,
+                                        },
+                                        ast_idx: 25,
+                                        expr_region: ExprRegion {
+                                            data: ExprRegionData {
+                                                parent: Some(
+                                                    ExprRegion {
+                                                        data: ExprRegionData {
+                                                            parent: None,
+                                                            path: RegionPath::Decl(
+                                                                DeclRegionPath::ImplBlock(
+                                                                    ImplBlockId::Type(
+                                                                        TypeImplBlockId {
+                                                                            module_path: `core::num`,
+                                                                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            expr_arena: Arena {
+                                                                data: [
+                                                                    Expr::EntityPath {
+                                                                        entity_path_expr: 0,
+                                                                        path: Some(
+                                                                            EntityPath::ModuleItem(
+                                                                                ModuleItemPath::Type(
+                                                                                    TypePath(`core::num::f32`, `Extern`),
+                                                                                ),
+                                                                            ),
+                                                                        ),
+                                                                    },
+                                                                ],
+                                                            },
+                                                            entity_path_expr_arena: Arena {
+                                                                data: [
+                                                                    EntityPathExpr::Root {
+                                                                        token_idx: TokenIdx(
+                                                                            654,
+                                                                        ),
+                                                                        ident: `f32`,
+                                                                        entity_path: EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`core::num::f32`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    },
+                                                                ],
+                                                            },
+                                                            stmt_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_expr_region: PatternExprRegion {
+                                                                pattern_expr_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                pattern_expr_contracts: ArenaMap {
+                                                                    data: [],
+                                                                },
+                                                                pattern_infos: [],
+                                                                pattern_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                pattern_symbol_maps: [],
+                                                                pattern_symbol_modifiers: ArenaMap {
+                                                                    data: [],
+                                                                },
+                                                            },
+                                                            symbol_region: SymbolRegion {
+                                                                inherited_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                current_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                allow_self_type: True,
+                                                                allow_self_value: False,
+                                                                pattern_ty_constraints: [],
+                                                            },
+                                                            roots: [
+                                                                ExprRoot {
+                                                                    kind: SelfType,
+                                                                    expr: 0,
+                                                                },
+                                                            ],
+                                                        },
+                                                    },
+                                                ),
+                                                path: RegionPath::Decl(
+                                                    DeclRegionPath::AssociatedItem(
+                                                        AssociatedItemId {
+                                                            impl_block_id: ImplBlockId::Type(
+                                                                TypeImplBlockId {
+                                                                    module_path: `core::num`,
+                                                                    ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                            ident: `sqrt`,
+                                                        },
+                                                    ),
+                                                ),
+                                                expr_arena: Arena {
+                                                    data: [
+                                                        Expr::EntityPath {
+                                                            entity_path_expr: 0,
+                                                            path: Some(
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`core::num::f32`, `Extern`),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                entity_path_expr_arena: Arena {
+                                                    data: [
+                                                        EntityPathExpr::Root {
+                                                            token_idx: TokenIdx(
+                                                                670,
+                                                            ),
+                                                            ident: `f32`,
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                stmt_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_region: PatternExprRegion {
+                                                    pattern_expr_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_expr_contracts: ArenaMap {
+                                                        data: [],
+                                                    },
+                                                    pattern_infos: [],
+                                                    pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_modifiers: ArenaMap {
+                                                        data: [],
+                                                    },
+                                                },
+                                                symbol_region: SymbolRegion {
+                                                    inherited_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    current_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    allow_self_type: True,
+                                                    allow_self_value: True,
+                                                    pattern_ty_constraints: [],
+                                                },
+                                                roots: [
+                                                    ExprRoot {
+                                                        kind: ReturnType,
+                                                        expr: 0,
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                        implicit_parameter_decl_list: None,
+                                        explicit_parameter_decl_list: ExplicitParameterDeclList {
+                                            lpar: LeftParenthesisToken(
+                                                TokenIdx(
+                                                    667,
+                                                ),
+                                            ),
+                                            self_parameter: None,
+                                            comma_after_self_parameter: None,
+                                            regular_parameters: [],
+                                            commas: [],
+                                            rpar: RightParenthesisToken(
+                                                TokenIdx(
+                                                    668,
+                                                ),
+                                            ),
+                                        },
+                                        curry_token: Some(
+                                            CurryToken(
+                                                TokenIdx(
+                                                    669,
+                                                ),
+                                            ),
+                                        ),
+                                        return_ty: Some(
+                                            ReturnTypeExpr {
+                                                expr: 0,
+                                            },
+                                        ),
+                                        eol_colon: EolToken::Semicolon(
+                                            EolSemicolonToken {
+                                                token_idx: TokenIdx(
+                                                    671,
+                                                ),
+                                            },
+                                        ),
+                                    },
+                                    expr_region: ExprRegion {
+                                        data: ExprRegionData {
+                                            parent: Some(
+                                                ExprRegion {
+                                                    data: ExprRegionData {
+                                                        parent: Some(
+                                                            ExprRegion {
+                                                                data: ExprRegionData {
+                                                                    parent: None,
+                                                                    path: RegionPath::Decl(
+                                                                        DeclRegionPath::ImplBlock(
+                                                                            ImplBlockId::Type(
+                                                                                TypeImplBlockId {
+                                                                                    module_path: `core::num`,
+                                                                                    ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                                                    disambiguator: 0,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                    expr_arena: Arena {
+                                                                        data: [
+                                                                            Expr::EntityPath {
+                                                                                entity_path_expr: 0,
+                                                                                path: Some(
+                                                                                    EntityPath::ModuleItem(
+                                                                                        ModuleItemPath::Type(
+                                                                                            TypePath(`core::num::f32`, `Extern`),
+                                                                                        ),
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ],
+                                                                    },
+                                                                    entity_path_expr_arena: Arena {
+                                                                        data: [
+                                                                            EntityPathExpr::Root {
+                                                                                token_idx: TokenIdx(
+                                                                                    654,
+                                                                                ),
+                                                                                ident: `f32`,
+                                                                                entity_path: EntityPath::ModuleItem(
+                                                                                    ModuleItemPath::Type(
+                                                                                        TypePath(`core::num::f32`, `Extern`),
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ],
+                                                                    },
+                                                                    stmt_arena: Arena {
+                                                                        data: [],
+                                                                    },
+                                                                    pattern_expr_region: PatternExprRegion {
+                                                                        pattern_expr_arena: Arena {
+                                                                            data: [],
+                                                                        },
+                                                                        pattern_expr_contracts: ArenaMap {
+                                                                            data: [],
+                                                                        },
+                                                                        pattern_infos: [],
+                                                                        pattern_symbol_arena: Arena {
+                                                                            data: [],
+                                                                        },
+                                                                        pattern_symbol_maps: [],
+                                                                        pattern_symbol_modifiers: ArenaMap {
+                                                                            data: [],
+                                                                        },
+                                                                    },
+                                                                    symbol_region: SymbolRegion {
+                                                                        inherited_symbol_arena: Arena {
+                                                                            data: [],
+                                                                        },
+                                                                        current_symbol_arena: Arena {
+                                                                            data: [],
+                                                                        },
+                                                                        allow_self_type: True,
+                                                                        allow_self_value: False,
+                                                                        pattern_ty_constraints: [],
+                                                                    },
+                                                                    roots: [
+                                                                        ExprRoot {
+                                                                            kind: SelfType,
+                                                                            expr: 0,
+                                                                        },
+                                                                    ],
+                                                                },
+                                                            },
+                                                        ),
+                                                        path: RegionPath::Decl(
+                                                            DeclRegionPath::AssociatedItem(
+                                                                AssociatedItemId {
+                                                                    impl_block_id: ImplBlockId::Type(
+                                                                        TypeImplBlockId {
+                                                                            module_path: `core::num`,
+                                                                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    ),
+                                                                    ident: `sqrt`,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        expr_arena: Arena {
+                                                            data: [
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 0,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`core::num::f32`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        entity_path_expr_arena: Arena {
+                                                            data: [
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        670,
+                                                                    ),
+                                                                    ident: `f32`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`core::num::f32`, `Extern`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        stmt_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_region: PatternExprRegion {
+                                                            pattern_expr_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_expr_contracts: ArenaMap {
+                                                                data: [],
+                                                            },
+                                                            pattern_infos: [],
+                                                            pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_modifiers: ArenaMap {
+                                                                data: [],
+                                                            },
+                                                        },
+                                                        symbol_region: SymbolRegion {
+                                                            inherited_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            current_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            allow_self_type: True,
+                                                            allow_self_value: True,
+                                                            pattern_ty_constraints: [],
+                                                        },
+                                                        roots: [
+                                                            ExprRoot {
+                                                                kind: ReturnType,
+                                                                expr: 0,
+                                                            },
+                                                        ],
+                                                    },
+                                                },
+                                            ),
+                                            path: RegionPath::Defn(
+                                                DefnRegionPath::AssociatedItem(
+                                                    AssociatedItemId {
+                                                        impl_block_id: ImplBlockId::Type(
+                                                            TypeImplBlockId {
+                                                                module_path: `core::num`,
+                                                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        ident: `sqrt`,
+                                                    },
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            entity_path_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_region: PatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [],
+                                                },
+                                                pattern_infos: [],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_symbol_maps: [],
+                                                pattern_symbol_modifiers: ArenaMap {
+                                                    data: [],
+                                                },
+                                            },
+                                            symbol_region: SymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                allow_self_type: True,
+                                                allow_self_value: True,
+                                                pattern_ty_constraints: [],
+                                            },
+                                            roots: [],
+                                        },
+                                    },
+                                    body: None,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+            (
                 DefnRegionPath::Impl(
                     ImplBlockId::TraitForType(
                         TraitForTypeImplBlockId {
@@ -21714,7 +22270,7 @@ Ok(
                     Defn::ImplBlock(
                         ImplBlockDecl::TraitForType(
                             TraitForTypeImplBlockDecl {
-                                ast_idx: 93,
+                                ast_idx: 94,
                                 impl_block: TraitForTypeImplBlock {
                                     id: TraitForTypeImplBlockId {
                                         module_path: `core::num`,
@@ -21722,28 +22278,28 @@ Ok(
                                         ty_path: TypePath(`core::num::f32`, `Extern`),
                                         disambiguator: 0,
                                     },
-                                    ast_idx: 93,
+                                    ast_idx: 94,
                                     impl_token: ImplToken {
                                         token_idx: TokenIdx(
-                                            664,
+                                            672,
                                         ),
                                     },
                                     trai_expr: 37,
                                     for_token: TokenIdx(
-                                        667,
+                                        675,
                                     ),
                                     ty_expr: 38,
                                     body: TraitForType(
                                         TraitForTypeItems {
                                             ast_idx_range: ArenaIdxRange(
-                                                25..26,
+                                                26..27,
                                             ),
                                         },
                                     ),
                                 },
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
-                                        664,
+                                        672,
                                     ),
                                 },
                                 implicit_parameter_decl_list: None,
@@ -21752,7 +22308,7 @@ Ok(
                                 },
                                 for_token: ConnectionForToken {
                                     token_idx: TokenIdx(
-                                        667,
+                                        675,
                                     ),
                                 },
                                 ty_expr: TypeExpr {
@@ -21761,7 +22317,7 @@ Ok(
                                 eol_colon: EolToken::Colon(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            669,
+                                            677,
                                         ),
                                     },
                                 ),
@@ -21822,7 +22378,7 @@ Ok(
                                             data: [
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        665,
+                                                        673,
                                                     ),
                                                     ident: `Add`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -21833,7 +22389,7 @@ Ok(
                                                 },
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        666,
+                                                        674,
                                                     ),
                                                     ident: `f32`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -21844,7 +22400,7 @@ Ok(
                                                 },
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        668,
+                                                        676,
                                                     ),
                                                     ident: `f32`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -21968,27 +22524,27 @@ Ok(
                                                         ty_path: TypePath(`core::num::f32`, `Extern`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 93,
+                                                    ast_idx: 94,
                                                     impl_token: ImplToken {
                                                         token_idx: TokenIdx(
-                                                            664,
+                                                            672,
                                                         ),
                                                     },
                                                     trai_expr: 37,
                                                     for_token: TokenIdx(
-                                                        667,
+                                                        675,
                                                     ),
                                                     ty_expr: 38,
                                                     body: TraitForType(
                                                         TraitForTypeItems {
                                                             ast_idx_range: ArenaIdxRange(
-                                                                25..26,
+                                                                26..27,
                                                             ),
                                                         },
                                                     ),
                                                 },
                                             ),
-                                            ast_idx: 25,
+                                            ast_idx: 26,
                                             ident: `add`,
                                             associated_item_kind: TraitForTypeItem(
                                                 MethodFn,
@@ -21998,7 +22554,7 @@ Ok(
                                             ),
                                             is_generic: false,
                                         },
-                                        ast_idx: 25,
+                                        ast_idx: 26,
                                         expr_region: ExprRegion {
                                             data: ExprRegionData {
                                                 parent: Some(
@@ -22059,7 +22615,7 @@ Ok(
                                                                 data: [
                                                                     EntityPathExpr::Root {
                                                                         token_idx: TokenIdx(
-                                                                            665,
+                                                                            673,
                                                                         ),
                                                                         ident: `Add`,
                                                                         entity_path: EntityPath::ModuleItem(
@@ -22070,7 +22626,7 @@ Ok(
                                                                     },
                                                                     EntityPathExpr::Root {
                                                                         token_idx: TokenIdx(
-                                                                            666,
+                                                                            674,
                                                                         ),
                                                                         ident: `f32`,
                                                                         entity_path: EntityPath::ModuleItem(
@@ -22081,7 +22637,7 @@ Ok(
                                                                     },
                                                                     EntityPathExpr::Root {
                                                                         token_idx: TokenIdx(
-                                                                            668,
+                                                                            676,
                                                                         ),
                                                                         ident: `f32`,
                                                                         entity_path: EntityPath::ModuleItem(
@@ -22178,7 +22734,7 @@ Ok(
                                                     data: [
                                                         EntityPathExpr::Root {
                                                             token_idx: TokenIdx(
-                                                                675,
+                                                                683,
                                                             ),
                                                             ident: `f32`,
                                                             entity_path: EntityPath::ModuleItem(
@@ -22189,7 +22745,7 @@ Ok(
                                                         },
                                                         EntityPathExpr::Root {
                                                             token_idx: TokenIdx(
-                                                                678,
+                                                                686,
                                                             ),
                                                             ident: `f32`,
                                                             entity_path: EntityPath::ModuleItem(
@@ -22211,7 +22767,7 @@ Ok(
                                                                 ident_token: IdentToken {
                                                                     ident: `other`,
                                                                     token_idx: TokenIdx(
-                                                                        673,
+                                                                        681,
                                                                     ),
                                                                 },
                                                             },
@@ -22255,7 +22811,7 @@ Ok(
                                                             CurrentSymbol {
                                                                 modifier: Pure,
                                                                 access_start: TokenIdx(
-                                                                    674,
+                                                                    682,
                                                                 ),
                                                                 access_end: None,
                                                                 variant: CurrentSymbolVariant::ExplicitParameter {
@@ -22291,10 +22847,11 @@ Ok(
                                         explicit_parameter_decl_list: ExplicitParameterDeclList {
                                             lpar: LeftParenthesisToken(
                                                 TokenIdx(
-                                                    672,
+                                                    680,
                                                 ),
                                             ),
                                             self_parameter: None,
+                                            comma_after_self_parameter: None,
                                             regular_parameters: [
                                                 RegularParameterDeclPattern {
                                                     pattern: 0,
@@ -22303,7 +22860,7 @@ Ok(
                                                     ),
                                                     colon: ColonToken(
                                                         TokenIdx(
-                                                            674,
+                                                            682,
                                                         ),
                                                     ),
                                                     ty: 0,
@@ -22312,14 +22869,14 @@ Ok(
                                             commas: [],
                                             rpar: RightParenthesisToken(
                                                 TokenIdx(
-                                                    676,
+                                                    684,
                                                 ),
                                             ),
                                         },
                                         curry_token: Some(
                                             CurryToken(
                                                 TokenIdx(
-                                                    677,
+                                                    685,
                                                 ),
                                             ),
                                         ),
@@ -22331,7 +22888,7 @@ Ok(
                                         eol_colon: EolToken::Semicolon(
                                             EolSemicolonToken {
                                                 token_idx: TokenIdx(
-                                                    679,
+                                                    687,
                                                 ),
                                             },
                                         ),
@@ -22399,7 +22956,7 @@ Ok(
                                                                         data: [
                                                                             EntityPathExpr::Root {
                                                                                 token_idx: TokenIdx(
-                                                                                    665,
+                                                                                    673,
                                                                                 ),
                                                                                 ident: `Add`,
                                                                                 entity_path: EntityPath::ModuleItem(
@@ -22410,7 +22967,7 @@ Ok(
                                                                             },
                                                                             EntityPathExpr::Root {
                                                                                 token_idx: TokenIdx(
-                                                                                    666,
+                                                                                    674,
                                                                                 ),
                                                                                 ident: `f32`,
                                                                                 entity_path: EntityPath::ModuleItem(
@@ -22421,7 +22978,7 @@ Ok(
                                                                             },
                                                                             EntityPathExpr::Root {
                                                                                 token_idx: TokenIdx(
-                                                                                    668,
+                                                                                    676,
                                                                                 ),
                                                                                 ident: `f32`,
                                                                                 entity_path: EntityPath::ModuleItem(
@@ -22518,7 +23075,7 @@ Ok(
                                                             data: [
                                                                 EntityPathExpr::Root {
                                                                     token_idx: TokenIdx(
-                                                                        675,
+                                                                        683,
                                                                     ),
                                                                     ident: `f32`,
                                                                     entity_path: EntityPath::ModuleItem(
@@ -22529,7 +23086,7 @@ Ok(
                                                                 },
                                                                 EntityPathExpr::Root {
                                                                     token_idx: TokenIdx(
-                                                                        678,
+                                                                        686,
                                                                     ),
                                                                     ident: `f32`,
                                                                     entity_path: EntityPath::ModuleItem(
@@ -22551,7 +23108,7 @@ Ok(
                                                                         ident_token: IdentToken {
                                                                             ident: `other`,
                                                                             token_idx: TokenIdx(
-                                                                                673,
+                                                                                681,
                                                                             ),
                                                                         },
                                                                     },
@@ -22595,7 +23152,7 @@ Ok(
                                                                     CurrentSymbol {
                                                                         modifier: Pure,
                                                                         access_start: TokenIdx(
-                                                                            674,
+                                                                            682,
                                                                         ),
                                                                         access_end: None,
                                                                         variant: CurrentSymbolVariant::ExplicitParameter {
@@ -22713,31 +23270,31 @@ Ok(
                     Defn::ImplBlock(
                         ImplBlockDecl::Type(
                             TypeImplBlockDecl {
-                                ast_idx: 97,
+                                ast_idx: 98,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
                                         module_path: `core::num`,
                                         ty_path: TypePath(`core::num::f64`, `Extern`),
                                         disambiguator: 0,
                                     },
-                                    ast_idx: 97,
+                                    ast_idx: 98,
                                     impl_token: ImplToken {
                                         token_idx: TokenIdx(
-                                            704,
+                                            712,
                                         ),
                                     },
                                     ty_expr: 39,
                                     body: Type(
                                         TypeItems {
                                             ast_idx_range: ArenaIdxRange(
-                                                26..27,
+                                                27..28,
                                             ),
                                         },
                                     ),
                                 },
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
-                                        704,
+                                        712,
                                     ),
                                 },
                                 implicit_parameter_decl_list: None,
@@ -22747,7 +23304,7 @@ Ok(
                                 eol_colon: EolToken::Colon(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            706,
+                                            714,
                                         ),
                                     },
                                 ),
@@ -22783,7 +23340,7 @@ Ok(
                                             data: [
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        705,
+                                                        713,
                                                     ),
                                                     ident: `f64`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -22910,23 +23467,23 @@ Ok(
                                                         ty_path: TypePath(`core::num::f64`, `Extern`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 97,
+                                                    ast_idx: 98,
                                                     impl_token: ImplToken {
                                                         token_idx: TokenIdx(
-                                                            704,
+                                                            712,
                                                         ),
                                                     },
                                                     ty_expr: 39,
                                                     body: Type(
                                                         TypeItems {
                                                             ast_idx_range: ArenaIdxRange(
-                                                                26..27,
+                                                                27..28,
                                                             ),
                                                         },
                                                     ),
                                                 },
                                             ),
-                                            ast_idx: 26,
+                                            ast_idx: 27,
                                             ident: `abs`,
                                             associated_item_kind: TypeItem(
                                                 MethodFn,
@@ -22934,7 +23491,7 @@ Ok(
                                             visibility: Scope::Pub,
                                             is_generic: false,
                                         },
-                                        ast_idx: 26,
+                                        ast_idx: 27,
                                         expr_region: ExprRegion {
                                             data: ExprRegionData {
                                                 parent: Some(
@@ -22970,7 +23527,7 @@ Ok(
                                                                 data: [
                                                                     EntityPathExpr::Root {
                                                                         token_idx: TokenIdx(
-                                                                            705,
+                                                                            713,
                                                                         ),
                                                                         ident: `f64`,
                                                                         entity_path: EntityPath::ModuleItem(
@@ -23052,7 +23609,7 @@ Ok(
                                                     data: [
                                                         EntityPathExpr::Root {
                                                             token_idx: TokenIdx(
-                                                                713,
+                                                                721,
                                                             ),
                                                             ident: `f64`,
                                                             entity_path: EntityPath::ModuleItem(
@@ -23105,22 +23662,23 @@ Ok(
                                         explicit_parameter_decl_list: ExplicitParameterDeclList {
                                             lpar: LeftParenthesisToken(
                                                 TokenIdx(
-                                                    710,
+                                                    718,
                                                 ),
                                             ),
                                             self_parameter: None,
+                                            comma_after_self_parameter: None,
                                             regular_parameters: [],
                                             commas: [],
                                             rpar: RightParenthesisToken(
                                                 TokenIdx(
-                                                    711,
+                                                    719,
                                                 ),
                                             ),
                                         },
                                         curry_token: Some(
                                             CurryToken(
                                                 TokenIdx(
-                                                    712,
+                                                    720,
                                                 ),
                                             ),
                                         ),
@@ -23132,7 +23690,7 @@ Ok(
                                         eol_colon: EolToken::Semicolon(
                                             EolSemicolonToken {
                                                 token_idx: TokenIdx(
-                                                    714,
+                                                    722,
                                                 ),
                                             },
                                         ),
@@ -23175,7 +23733,7 @@ Ok(
                                                                         data: [
                                                                             EntityPathExpr::Root {
                                                                                 token_idx: TokenIdx(
-                                                                                    705,
+                                                                                    713,
                                                                                 ),
                                                                                 ident: `f64`,
                                                                                 entity_path: EntityPath::ModuleItem(
@@ -23257,7 +23815,7 @@ Ok(
                                                             data: [
                                                                 EntityPathExpr::Root {
                                                                     token_idx: TokenIdx(
-                                                                        713,
+                                                                        721,
                                                                     ),
                                                                     ident: `f64`,
                                                                     entity_path: EntityPath::ModuleItem(
@@ -23382,7 +23940,7 @@ Ok(
                     Defn::ImplBlock(
                         ImplBlockDecl::TraitForType(
                             TraitForTypeImplBlockDecl {
-                                ast_idx: 98,
+                                ast_idx: 99,
                                 impl_block: TraitForTypeImplBlock {
                                     id: TraitForTypeImplBlockId {
                                         module_path: `core::num`,
@@ -23390,28 +23948,28 @@ Ok(
                                         ty_path: TypePath(`core::num::f64`, `Extern`),
                                         disambiguator: 0,
                                     },
-                                    ast_idx: 98,
+                                    ast_idx: 99,
                                     impl_token: ImplToken {
                                         token_idx: TokenIdx(
-                                            715,
+                                            723,
                                         ),
                                     },
                                     trai_expr: 40,
                                     for_token: TokenIdx(
-                                        718,
+                                        726,
                                     ),
                                     ty_expr: 41,
                                     body: TraitForType(
                                         TraitForTypeItems {
                                             ast_idx_range: ArenaIdxRange(
-                                                27..28,
+                                                28..29,
                                             ),
                                         },
                                     ),
                                 },
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
-                                        715,
+                                        723,
                                     ),
                                 },
                                 implicit_parameter_decl_list: None,
@@ -23420,7 +23978,7 @@ Ok(
                                 },
                                 for_token: ConnectionForToken {
                                     token_idx: TokenIdx(
-                                        718,
+                                        726,
                                     ),
                                 },
                                 ty_expr: TypeExpr {
@@ -23429,7 +23987,7 @@ Ok(
                                 eol_colon: EolToken::Colon(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            720,
+                                            728,
                                         ),
                                     },
                                 ),
@@ -23490,7 +24048,7 @@ Ok(
                                             data: [
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        716,
+                                                        724,
                                                     ),
                                                     ident: `Add`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -23501,7 +24059,7 @@ Ok(
                                                 },
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        717,
+                                                        725,
                                                     ),
                                                     ident: `f64`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -23512,7 +24070,7 @@ Ok(
                                                 },
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        719,
+                                                        727,
                                                     ),
                                                     ident: `f64`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -23636,27 +24194,27 @@ Ok(
                                                         ty_path: TypePath(`core::num::f64`, `Extern`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 98,
+                                                    ast_idx: 99,
                                                     impl_token: ImplToken {
                                                         token_idx: TokenIdx(
-                                                            715,
+                                                            723,
                                                         ),
                                                     },
                                                     trai_expr: 40,
                                                     for_token: TokenIdx(
-                                                        718,
+                                                        726,
                                                     ),
                                                     ty_expr: 41,
                                                     body: TraitForType(
                                                         TraitForTypeItems {
                                                             ast_idx_range: ArenaIdxRange(
-                                                                27..28,
+                                                                28..29,
                                                             ),
                                                         },
                                                     ),
                                                 },
                                             ),
-                                            ast_idx: 27,
+                                            ast_idx: 28,
                                             ident: `add`,
                                             associated_item_kind: TraitForTypeItem(
                                                 MethodFn,
@@ -23664,7 +24222,7 @@ Ok(
                                             visibility: Scope::Pub,
                                             is_generic: false,
                                         },
-                                        ast_idx: 27,
+                                        ast_idx: 28,
                                         expr_region: ExprRegion {
                                             data: ExprRegionData {
                                                 parent: Some(
@@ -23725,7 +24283,7 @@ Ok(
                                                                 data: [
                                                                     EntityPathExpr::Root {
                                                                         token_idx: TokenIdx(
-                                                                            716,
+                                                                            724,
                                                                         ),
                                                                         ident: `Add`,
                                                                         entity_path: EntityPath::ModuleItem(
@@ -23736,7 +24294,7 @@ Ok(
                                                                     },
                                                                     EntityPathExpr::Root {
                                                                         token_idx: TokenIdx(
-                                                                            717,
+                                                                            725,
                                                                         ),
                                                                         ident: `f64`,
                                                                         entity_path: EntityPath::ModuleItem(
@@ -23747,7 +24305,7 @@ Ok(
                                                                     },
                                                                     EntityPathExpr::Root {
                                                                         token_idx: TokenIdx(
-                                                                            719,
+                                                                            727,
                                                                         ),
                                                                         ident: `f64`,
                                                                         entity_path: EntityPath::ModuleItem(
@@ -23844,7 +24402,7 @@ Ok(
                                                     data: [
                                                         EntityPathExpr::Root {
                                                             token_idx: TokenIdx(
-                                                                727,
+                                                                735,
                                                             ),
                                                             ident: `f64`,
                                                             entity_path: EntityPath::ModuleItem(
@@ -23855,7 +24413,7 @@ Ok(
                                                         },
                                                         EntityPathExpr::Root {
                                                             token_idx: TokenIdx(
-                                                                730,
+                                                                738,
                                                             ),
                                                             ident: `f64`,
                                                             entity_path: EntityPath::ModuleItem(
@@ -23877,7 +24435,7 @@ Ok(
                                                                 ident_token: IdentToken {
                                                                     ident: `other`,
                                                                     token_idx: TokenIdx(
-                                                                        725,
+                                                                        733,
                                                                     ),
                                                                 },
                                                             },
@@ -23921,7 +24479,7 @@ Ok(
                                                             CurrentSymbol {
                                                                 modifier: Pure,
                                                                 access_start: TokenIdx(
-                                                                    726,
+                                                                    734,
                                                                 ),
                                                                 access_end: None,
                                                                 variant: CurrentSymbolVariant::ExplicitParameter {
@@ -23957,10 +24515,11 @@ Ok(
                                         explicit_parameter_decl_list: ExplicitParameterDeclList {
                                             lpar: LeftParenthesisToken(
                                                 TokenIdx(
-                                                    724,
+                                                    732,
                                                 ),
                                             ),
                                             self_parameter: None,
+                                            comma_after_self_parameter: None,
                                             regular_parameters: [
                                                 RegularParameterDeclPattern {
                                                     pattern: 0,
@@ -23969,7 +24528,7 @@ Ok(
                                                     ),
                                                     colon: ColonToken(
                                                         TokenIdx(
-                                                            726,
+                                                            734,
                                                         ),
                                                     ),
                                                     ty: 0,
@@ -23978,14 +24537,14 @@ Ok(
                                             commas: [],
                                             rpar: RightParenthesisToken(
                                                 TokenIdx(
-                                                    728,
+                                                    736,
                                                 ),
                                             ),
                                         },
                                         curry_token: Some(
                                             CurryToken(
                                                 TokenIdx(
-                                                    729,
+                                                    737,
                                                 ),
                                             ),
                                         ),
@@ -23997,7 +24556,7 @@ Ok(
                                         eol_colon: EolToken::Semicolon(
                                             EolSemicolonToken {
                                                 token_idx: TokenIdx(
-                                                    731,
+                                                    739,
                                                 ),
                                             },
                                         ),
@@ -24065,7 +24624,7 @@ Ok(
                                                                         data: [
                                                                             EntityPathExpr::Root {
                                                                                 token_idx: TokenIdx(
-                                                                                    716,
+                                                                                    724,
                                                                                 ),
                                                                                 ident: `Add`,
                                                                                 entity_path: EntityPath::ModuleItem(
@@ -24076,7 +24635,7 @@ Ok(
                                                                             },
                                                                             EntityPathExpr::Root {
                                                                                 token_idx: TokenIdx(
-                                                                                    717,
+                                                                                    725,
                                                                                 ),
                                                                                 ident: `f64`,
                                                                                 entity_path: EntityPath::ModuleItem(
@@ -24087,7 +24646,7 @@ Ok(
                                                                             },
                                                                             EntityPathExpr::Root {
                                                                                 token_idx: TokenIdx(
-                                                                                    719,
+                                                                                    727,
                                                                                 ),
                                                                                 ident: `f64`,
                                                                                 entity_path: EntityPath::ModuleItem(
@@ -24184,7 +24743,7 @@ Ok(
                                                             data: [
                                                                 EntityPathExpr::Root {
                                                                     token_idx: TokenIdx(
-                                                                        727,
+                                                                        735,
                                                                     ),
                                                                     ident: `f64`,
                                                                     entity_path: EntityPath::ModuleItem(
@@ -24195,7 +24754,7 @@ Ok(
                                                                 },
                                                                 EntityPathExpr::Root {
                                                                     token_idx: TokenIdx(
-                                                                        730,
+                                                                        738,
                                                                     ),
                                                                     ident: `f64`,
                                                                     entity_path: EntityPath::ModuleItem(
@@ -24217,7 +24776,7 @@ Ok(
                                                                         ident_token: IdentToken {
                                                                             ident: `other`,
                                                                             token_idx: TokenIdx(
-                                                                                725,
+                                                                                733,
                                                                             ),
                                                                         },
                                                                     },
@@ -24261,7 +24820,7 @@ Ok(
                                                                     CurrentSymbol {
                                                                         modifier: Pure,
                                                                         access_start: TokenIdx(
-                                                                            726,
+                                                                            734,
                                                                         ),
                                                                         access_end: None,
                                                                         variant: CurrentSymbolVariant::ExplicitParameter {

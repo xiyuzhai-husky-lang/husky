@@ -48,16 +48,6 @@ DiagnosticSheet {
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "Type Error: no method named `push` for type `FluffyTerm::Solid(SolidTerm(0))`",
-                severity: Error,
-                range: [34:17, 34:21),
-            },
-            Diagnostic {
-                message: "Type Error: no method named `push` for type `FluffyTerm::Solid(SolidTerm(0))`",
-                severity: Error,
-                range: [35:17, 35:21),
-            },
-            Diagnostic {
                 message: "type path mismatch: expect core::option::Option, but got core::mem::Leash instead",
                 severity: Error,
                 range: [36:25, 36:32),

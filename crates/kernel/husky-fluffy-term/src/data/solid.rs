@@ -17,6 +17,7 @@ pub enum SolidTermData {
         arguments: SmallVec<[FluffyTerm; 2]>,
         base_ty_term: Option<EtherealTerm>,
     },
+    PlaceSymbol {},
     Curry {
         curry_kind: CurryKind,
         variance: Variance,
@@ -76,6 +77,7 @@ impl<'a> From<&'a SolidTermData> for FluffyTermData<'a> {
                 arguments: argument_tys,
                 base_ty_ethereal_term: *base_ty_term,
             },
+            SolidTermData::PlaceSymbol {} => todo!(),
         }
     }
 }

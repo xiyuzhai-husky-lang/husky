@@ -43,10 +43,10 @@ pub(crate) struct DB {
 
 impl salsa::Database for DB {}
 
-fn module_signatures(
+fn module_declarative_signature_templates(
     db: &DB,
     module_path: ModulePath,
-) -> Vec<DeclarativeSignatureResult<Signature>> {
+) -> Vec<DeclarativeSignatureResult<SignatureTemplate>> {
     let Ok(decl_sheet) = db.decl_sheet(module_path) else {
         return vec![]
     };
@@ -58,14 +58,17 @@ fn module_signatures(
                 .as_ref()
                 .ok()
                 .copied()
-                .map(|decl| signature_from_decl(db, decl))
+                .map(|decl| signature_template_from_decl(db, decl))
         })
         .collect()
 }
 
 #[test]
-fn module_signatures_works() {
-    DB::default().ast_expect_test_debug_with_db("signature", module_signatures)
+fn module_declarative_signature_templates_works() {
+    DB::default().ast_expect_test_debug_with_db(
+        "module_declarative_signature",
+        module_declarative_signature_templates,
+    )
 }
 
 #[test]

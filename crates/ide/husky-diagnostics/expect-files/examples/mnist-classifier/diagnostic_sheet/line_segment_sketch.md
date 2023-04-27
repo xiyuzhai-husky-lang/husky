@@ -48,16 +48,6 @@ DiagnosticSheet {
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "Type Error: no method named `sqrt` for type `FluffyTerm::EntityPath(TermEntityPath::TypeOntology(TypePath(`core::num::f32`, `Extern`)))`",
-                severity: Error,
-                range: [64:31, 64:35),
-            },
-            Diagnostic {
-                message: "Type Error: no method named `sqrt` for type `FluffyTerm::EntityPath(TermEntityPath::TypeOntology(TypePath(`core::num::f32`, `Extern`)))`",
-                severity: Error,
-                range: [72:31, 72:35),
-            },
-            Diagnostic {
                 message: "OriginalFluffyTermExpectationError::Todo",
                 severity: Error,
                 range: [155:29, 155:31),

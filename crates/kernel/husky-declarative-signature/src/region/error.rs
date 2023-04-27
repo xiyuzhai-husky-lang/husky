@@ -36,6 +36,7 @@ pub enum DerivedDeclarativeTermError2 {
     SelfTypeNotAllowedInThisRegion,
     // should have been reported as syntax error
     SelfValueNotAllowedInThisRegion,
+    InheritedSymbolIsNotValidTerm,
 }
 
 pub type DeclarativeTermResult2<T> = Result<T, DeclarativeTermError2>;

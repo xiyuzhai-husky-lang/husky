@@ -102,15 +102,73 @@ Ok(
                     PunctuationMapped::Semicolon,
                 ),
             ),
+            Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
+                Keyword::Form(
+                    Fn,
+                ),
+            ),
+            Token::Ident(
+                `push`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Modifier(
+                    Mut,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Comma,
+                ),
+            ),
+            Token::Ident(
+                `e`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Colon,
+                ),
+            ),
+            Token::Ident(
+                `E`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Semicolon,
+                ),
+            ),
         ],
         group_starts: [
             0,
             8,
             15,
+            23,
         ],
         indents: [
             0,
             0,
+            4,
             4,
         ],
     },

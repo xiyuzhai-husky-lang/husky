@@ -59,7 +59,7 @@ impl FluffyTerm {
         match self {
             FluffyTerm::Literal(_) => todo!(),
             FluffyTerm::Symbol(_) => todo!(),
-            FluffyTerm::Hole(_) => todo!(),
+            FluffyTerm::Variable(_) => todo!(),
             FluffyTerm::EntityPath(path) => match path {
                 TermEntityPath::Form(_) => todo!(),
                 TermEntityPath::Trait(_) => todo!(),

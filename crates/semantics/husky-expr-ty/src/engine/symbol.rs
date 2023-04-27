@@ -13,7 +13,7 @@ impl<'a> ExprTypeEngine<'a> {
                 .current_symbol_signature(current_symbol_idx) else {
                 return
             };
-            if let Some(symbol) = signature.symbol() {
+            if let Some(symbol) = signature.term_symbol() {
                 if let Ok(symbol) = EtherealTermSymbol::from_raw(self.db, symbol) {
                     self.symbol_terms
                         .insert_new(current_symbol_idx, symbol.into())
