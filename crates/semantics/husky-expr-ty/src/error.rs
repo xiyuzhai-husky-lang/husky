@@ -42,8 +42,6 @@ pub enum OriginalExprTypeError {
     TypeCallTypeError,
     #[error("TodoScopeResolution")]
     TodoScopeResolution,
-    #[error("TodoSuffix")]
-    TodoSuffix,
     #[error("TodoBoxColon")]
     TodoBoxColon,
     #[error("final destination")]

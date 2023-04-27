@@ -111,9 +111,6 @@ impl Diagnose for (ExprIdx, &'_ OriginalExprTypeError) {
             OriginalExprTypeError::TodoScopeResolution => {
                 format!("Type Error: TodoScopeResolution")
             }
-            OriginalExprTypeError::TodoSuffix => {
-                format!("Type Error: TodoSuffix")
-            }
             OriginalExprTypeError::TodoBoxColon => {
                 format!("Type Error: TodoBoxColon")
             }
