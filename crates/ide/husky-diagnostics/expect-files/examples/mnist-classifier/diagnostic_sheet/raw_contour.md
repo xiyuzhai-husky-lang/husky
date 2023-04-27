@@ -58,11 +58,6 @@ DiagnosticSheet {
                 range: [218:33, 218:38),
             },
             Diagnostic {
-                message: "Type Error: no method named `push` for type `FluffyTerm::Solid(SolidTerm(0))`",
-                severity: Error,
-                range: [219:33, 219:37),
-            },
-            Diagnostic {
                 message: "Type Error: no method named `lastx` for type `FluffyTerm::Solid(SolidTerm(0))`",
                 severity: Error,
                 range: [225:33, 225:38),
@@ -71,11 +66,6 @@ DiagnosticSheet {
                 message: "Type Error: no method named `lastx` for type `FluffyTerm::Solid(SolidTerm(0))`",
                 severity: Error,
                 range: [232:33, 232:38),
-            },
-            Diagnostic {
-                message: "Type Error: no method named `push` for type `FluffyTerm::Solid(SolidTerm(0))`",
-                severity: Error,
-                range: [236:33, 236:37),
             },
             Diagnostic {
                 message: "Type Error: no method named `popx` for type `FluffyTerm::Solid(SolidTerm(0))`",

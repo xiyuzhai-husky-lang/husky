@@ -49,10 +49,12 @@ impl<'a> RequestDispatcher<'a> {
             None => return Ok(self),
         };
         let snapshot = self.server.db.snapshot();
-        let result = panic::catch_unwind(move || {
-            let _pctx = error_utils::panic_context::enter(panic_context);
-            f(snapshot, params)
-        });
+        // let result = panic::catch_unwind(move || {
+        //     let _pctx = error_utils::panic_context::enter(panic_context);
+        //     f(snapshot, params)
+        // });
+        // ad hoc: avoid catch_unwind for debugging purposes
+        let result = Ok(f(snapshot, params));
         let response = thread_result_to_response::<R>(id, result);
 
         self.server.client_comm.respond(response);
@@ -75,14 +77,15 @@ impl<'a> RequestDispatcher<'a> {
         };
 
         let snapshot = self.server.db.snapshot();
-        match panic::catch_unwind(move || {
-            let _pctx = error_utils::panic_context::enter(panic_context);
-            f(snapshot, params)
-        }) {
-            Ok(control_signal) => self.control_signal = control_signal,
-            Err(_) => todo!(),
-        }
-
+        // match panic::catch_unwind(move || {
+        //     let _pctx = error_utils::panic_context::enter(panic_context);
+        //     f(snapshot, params)
+        // }) {
+        //     Ok(control_signal) => self.control_signal = control_signal,
+        //     Err(_) => todo!(),
+        // }
+        // ad hoc: avoid catch_unwind for debugging purposes
+        self.control_signal = f(snapshot, params);
         Ok(self)
     }
 

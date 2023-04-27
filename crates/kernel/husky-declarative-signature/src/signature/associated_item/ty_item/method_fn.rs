@@ -1,4 +1,5 @@
 use husky_entity_tree::{ImplBlock, ImplBlockId};
+use husky_expr::SelfParameterDeclPattern;
 
 use crate::*;
 
@@ -43,7 +44,12 @@ pub fn ty_method_fn_declarative_signature_template(
     };
     let self_ty = impl_block.declarative_signature_template(db)?.ty(db);
     let contract = match decl.self_parameter(db) {
-        Some(self_parameter) => todo!(),
+        Some(self_parameter) => match self_parameter {
+            SelfParameterDeclPattern::Pure { .. } => Contract::Pure,
+            SelfParameterDeclPattern::Owned { .. } => todo!(),
+            SelfParameterDeclPattern::Mut { .. } => Contract::BorrowMut,
+            SelfParameterDeclPattern::MutOwned { .. } => todo!(),
+        },
         None => Contract::Pure,
     };
     let self_parameter = ExplicitParameterDeclarativeSignatureTemplate::new(contract, self_ty);

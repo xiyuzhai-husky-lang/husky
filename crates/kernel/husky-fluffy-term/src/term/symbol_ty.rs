@@ -48,8 +48,12 @@ impl SymbolType {
         };
         Self(match ty {
             FluffyTerm::Literal(_) => todo!(),
-            FluffyTerm::Symbol(_) => todo!(),
-            FluffyTerm::Hole(_) => todo!(),
+            FluffyTerm::Symbol(_) => SolidTerm::new(
+                engine.fluffy_term_region_mut().solid_terms_mut(),
+                SolidTermData::PlaceSymbol {},
+            )
+            .into(),
+            FluffyTerm::Variable(_) => todo!(),
             FluffyTerm::EntityPath(path) => match path {
                 TermEntityPath::Form(_) => todo!(),
                 TermEntityPath::Trait(_) => todo!(),

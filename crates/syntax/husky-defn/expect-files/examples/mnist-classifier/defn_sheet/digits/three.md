@@ -2111,6 +2111,7 @@ Ok(
                                             ),
                                         ),
                                         self_parameter: None,
+                                        comma_after_self_parameter: None,
                                         regular_parameters: [
                                             RegularParameterDeclPattern {
                                                 pattern: 0,
@@ -2791,6 +2792,7 @@ Ok(
                                             ),
                                         ),
                                         self_parameter: None,
+                                        comma_after_self_parameter: None,
                                         regular_parameters: [
                                             RegularParameterDeclPattern {
                                                 pattern: 0,
@@ -3471,6 +3473,7 @@ Ok(
                                             ),
                                         ),
                                         self_parameter: None,
+                                        comma_after_self_parameter: None,
                                         regular_parameters: [
                                             RegularParameterDeclPattern {
                                                 pattern: 0,

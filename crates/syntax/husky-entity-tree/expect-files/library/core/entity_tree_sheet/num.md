@@ -12,7 +12,7 @@ Ok(
                                 TypePath(`core::num::i8`, `Extern`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 31,
+                            ast_idx: 32,
                             ident_token: IdentToken {
                                 ident: `i8`,
                                 token_idx: TokenIdx(
@@ -31,7 +31,7 @@ Ok(
                                 TypePath(`core::num::i16`, `Extern`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 36,
+                            ast_idx: 37,
                             ident_token: IdentToken {
                                 ident: `i16`,
                                 token_idx: TokenIdx(
@@ -50,7 +50,7 @@ Ok(
                                 TypePath(`core::num::i32`, `Extern`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 41,
+                            ast_idx: 42,
                             ident_token: IdentToken {
                                 ident: `i32`,
                                 token_idx: TokenIdx(
@@ -69,7 +69,7 @@ Ok(
                                 TypePath(`core::num::i64`, `Extern`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 46,
+                            ast_idx: 47,
                             ident_token: IdentToken {
                                 ident: `i64`,
                                 token_idx: TokenIdx(
@@ -88,7 +88,7 @@ Ok(
                                 TypePath(`core::num::i128`, `Extern`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 51,
+                            ast_idx: 52,
                             ident_token: IdentToken {
                                 ident: `i128`,
                                 token_idx: TokenIdx(
@@ -107,7 +107,7 @@ Ok(
                                 TypePath(`core::num::isize`, `Extern`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 56,
+                            ast_idx: 57,
                             ident_token: IdentToken {
                                 ident: `isize`,
                                 token_idx: TokenIdx(
@@ -126,7 +126,7 @@ Ok(
                                 TypePath(`core::num::u8`, `Extern`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 61,
+                            ast_idx: 62,
                             ident_token: IdentToken {
                                 ident: `u8`,
                                 token_idx: TokenIdx(
@@ -145,7 +145,7 @@ Ok(
                                 TypePath(`core::num::u16`, `Extern`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 66,
+                            ast_idx: 67,
                             ident_token: IdentToken {
                                 ident: `u16`,
                                 token_idx: TokenIdx(
@@ -164,7 +164,7 @@ Ok(
                                 TypePath(`core::num::u32`, `Extern`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 71,
+                            ast_idx: 72,
                             ident_token: IdentToken {
                                 ident: `u32`,
                                 token_idx: TokenIdx(
@@ -183,7 +183,7 @@ Ok(
                                 TypePath(`core::num::u64`, `Extern`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 76,
+                            ast_idx: 77,
                             ident_token: IdentToken {
                                 ident: `u64`,
                                 token_idx: TokenIdx(
@@ -202,7 +202,7 @@ Ok(
                                 TypePath(`core::num::u128`, `Extern`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 81,
+                            ast_idx: 82,
                             ident_token: IdentToken {
                                 ident: `u128`,
                                 token_idx: TokenIdx(
@@ -221,7 +221,7 @@ Ok(
                                 TypePath(`core::num::usize`, `Extern`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 86,
+                            ast_idx: 87,
                             ident_token: IdentToken {
                                 ident: `usize`,
                                 token_idx: TokenIdx(
@@ -240,7 +240,7 @@ Ok(
                                 TypePath(`core::num::f32`, `Extern`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 91,
+                            ast_idx: 92,
                             ident_token: IdentToken {
                                 ident: `f32`,
                                 token_idx: TokenIdx(
@@ -259,11 +259,11 @@ Ok(
                                 TypePath(`core::num::f64`, `Extern`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 96,
+                            ast_idx: 97,
                             ident_token: IdentToken {
                                 ident: `f64`,
                                 token_idx: TokenIdx(
-                                    702,
+                                    710,
                                 ),
                             },
                         },
@@ -299,7 +299,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 28,
+                            ast_idx: 29,
                             use_expr_idx: 0,
                         },
                     ),
@@ -314,7 +314,7 @@ Ok(
                         ty_path: TypePath(`core::num::i8`, `Extern`),
                         disambiguator: 0,
                     },
-                    ast_idx: 32,
+                    ast_idx: 33,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             30,
@@ -338,7 +338,7 @@ Ok(
                         ty_path: TypePath(`core::num::i8`, `Extern`),
                         disambiguator: 0,
                     },
-                    ast_idx: 33,
+                    ast_idx: 34,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             41,
@@ -365,7 +365,7 @@ Ok(
                         ty_path: TypePath(`core::num::i16`, `Extern`),
                         disambiguator: 0,
                     },
-                    ast_idx: 37,
+                    ast_idx: 38,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             82,
@@ -389,7 +389,7 @@ Ok(
                         ty_path: TypePath(`core::num::i16`, `Extern`),
                         disambiguator: 0,
                     },
-                    ast_idx: 38,
+                    ast_idx: 39,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             93,
@@ -416,7 +416,7 @@ Ok(
                         ty_path: TypePath(`core::num::i32`, `Extern`),
                         disambiguator: 0,
                     },
-                    ast_idx: 42,
+                    ast_idx: 43,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             134,
@@ -440,7 +440,7 @@ Ok(
                         ty_path: TypePath(`core::num::i32`, `Extern`),
                         disambiguator: 0,
                     },
-                    ast_idx: 43,
+                    ast_idx: 44,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             145,
@@ -467,7 +467,7 @@ Ok(
                         ty_path: TypePath(`core::num::i64`, `Extern`),
                         disambiguator: 0,
                     },
-                    ast_idx: 47,
+                    ast_idx: 48,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             185,
@@ -491,7 +491,7 @@ Ok(
                         ty_path: TypePath(`core::num::i64`, `Extern`),
                         disambiguator: 0,
                     },
-                    ast_idx: 48,
+                    ast_idx: 49,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             196,
@@ -518,7 +518,7 @@ Ok(
                         ty_path: TypePath(`core::num::i128`, `Extern`),
                         disambiguator: 0,
                     },
-                    ast_idx: 52,
+                    ast_idx: 53,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             237,
@@ -542,7 +542,7 @@ Ok(
                         ty_path: TypePath(`core::num::i128`, `Extern`),
                         disambiguator: 0,
                     },
-                    ast_idx: 53,
+                    ast_idx: 54,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             248,
@@ -569,7 +569,7 @@ Ok(
                         ty_path: TypePath(`core::num::isize`, `Extern`),
                         disambiguator: 0,
                     },
-                    ast_idx: 57,
+                    ast_idx: 58,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             289,
@@ -593,7 +593,7 @@ Ok(
                         ty_path: TypePath(`core::num::isize`, `Extern`),
                         disambiguator: 0,
                     },
-                    ast_idx: 58,
+                    ast_idx: 59,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             300,
@@ -620,7 +620,7 @@ Ok(
                         ty_path: TypePath(`core::num::u8`, `Extern`),
                         disambiguator: 0,
                     },
-                    ast_idx: 62,
+                    ast_idx: 63,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             341,
@@ -644,7 +644,7 @@ Ok(
                         ty_path: TypePath(`core::num::u8`, `Extern`),
                         disambiguator: 0,
                     },
-                    ast_idx: 63,
+                    ast_idx: 64,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             352,
@@ -671,7 +671,7 @@ Ok(
                         ty_path: TypePath(`core::num::u16`, `Extern`),
                         disambiguator: 0,
                     },
-                    ast_idx: 67,
+                    ast_idx: 68,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             393,
@@ -695,7 +695,7 @@ Ok(
                         ty_path: TypePath(`core::num::u16`, `Extern`),
                         disambiguator: 0,
                     },
-                    ast_idx: 68,
+                    ast_idx: 69,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             404,
@@ -722,7 +722,7 @@ Ok(
                         ty_path: TypePath(`core::num::u32`, `Extern`),
                         disambiguator: 0,
                     },
-                    ast_idx: 72,
+                    ast_idx: 73,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             445,
@@ -746,7 +746,7 @@ Ok(
                         ty_path: TypePath(`core::num::u32`, `Extern`),
                         disambiguator: 0,
                     },
-                    ast_idx: 73,
+                    ast_idx: 74,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             456,
@@ -773,7 +773,7 @@ Ok(
                         ty_path: TypePath(`core::num::u64`, `Extern`),
                         disambiguator: 0,
                     },
-                    ast_idx: 77,
+                    ast_idx: 78,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             497,
@@ -797,7 +797,7 @@ Ok(
                         ty_path: TypePath(`core::num::u64`, `Extern`),
                         disambiguator: 0,
                     },
-                    ast_idx: 78,
+                    ast_idx: 79,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             508,
@@ -824,7 +824,7 @@ Ok(
                         ty_path: TypePath(`core::num::u128`, `Extern`),
                         disambiguator: 0,
                     },
-                    ast_idx: 82,
+                    ast_idx: 83,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             549,
@@ -848,7 +848,7 @@ Ok(
                         ty_path: TypePath(`core::num::u128`, `Extern`),
                         disambiguator: 0,
                     },
-                    ast_idx: 83,
+                    ast_idx: 84,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             560,
@@ -875,7 +875,7 @@ Ok(
                         ty_path: TypePath(`core::num::usize`, `Extern`),
                         disambiguator: 0,
                     },
-                    ast_idx: 87,
+                    ast_idx: 88,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             601,
@@ -899,7 +899,7 @@ Ok(
                         ty_path: TypePath(`core::num::usize`, `Extern`),
                         disambiguator: 0,
                     },
-                    ast_idx: 88,
+                    ast_idx: 89,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             612,
@@ -926,7 +926,7 @@ Ok(
                         ty_path: TypePath(`core::num::f32`, `Extern`),
                         disambiguator: 0,
                     },
-                    ast_idx: 92,
+                    ast_idx: 93,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             653,
@@ -936,7 +936,7 @@ Ok(
                     body: Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                24..25,
+                                24..26,
                             ),
                         },
                     ),
@@ -950,21 +950,21 @@ Ok(
                         ty_path: TypePath(`core::num::f32`, `Extern`),
                         disambiguator: 0,
                     },
-                    ast_idx: 93,
+                    ast_idx: 94,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            664,
+                            672,
                         ),
                     },
                     trai_expr: 37,
                     for_token: TokenIdx(
-                        667,
+                        675,
                     ),
                     ty_expr: 38,
                     body: TraitForType(
                         TraitForTypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                25..26,
+                                26..27,
                             ),
                         },
                     ),
@@ -977,17 +977,17 @@ Ok(
                         ty_path: TypePath(`core::num::f64`, `Extern`),
                         disambiguator: 0,
                     },
-                    ast_idx: 97,
+                    ast_idx: 98,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            704,
+                            712,
                         ),
                     },
                     ty_expr: 39,
                     body: Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                26..27,
+                                27..28,
                             ),
                         },
                     ),
@@ -1001,21 +1001,21 @@ Ok(
                         ty_path: TypePath(`core::num::f64`, `Extern`),
                         disambiguator: 0,
                     },
-                    ast_idx: 98,
+                    ast_idx: 99,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            715,
+                            723,
                         ),
                     },
                     trai_expr: 40,
                     for_token: TokenIdx(
-                        718,
+                        726,
                     ),
                     ty_expr: 41,
                     body: TraitForType(
                         TraitForTypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                27..28,
+                                28..29,
                             ),
                         },
                     ),
@@ -1025,7 +1025,7 @@ Ok(
         use_expr_rules: UseExprRules(
             [
                 UseExprRule {
-                    ast_idx: 28,
+                    ast_idx: 29,
                     use_expr_idx: 2,
                     visibility: Scope::PubUnder(
                         `core::num`,
@@ -1050,7 +1050,7 @@ Ok(
                     },
                 },
                 UseExprRule {
-                    ast_idx: 28,
+                    ast_idx: 29,
                     use_expr_idx: 1,
                     visibility: Scope::PubUnder(
                         `core::num`,
@@ -1090,7 +1090,7 @@ Ok(
                     },
                 },
                 UseExprRule {
-                    ast_idx: 28,
+                    ast_idx: 29,
                     use_expr_idx: 0,
                     visibility: Scope::PubUnder(
                         `core::num`,

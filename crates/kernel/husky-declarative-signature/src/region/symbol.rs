@@ -13,14 +13,14 @@ pub struct SymbolDeclarativeTermRegion {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct SymbolSignature {
-    symbol: Option<DeclarativeTermSymbol>,
+    term_symbol: Option<DeclarativeTermSymbol>,
     modifier: SymbolModifier,
     ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,
 }
 
 impl SymbolSignature {
-    pub fn symbol(self) -> Option<DeclarativeTermSymbol> {
-        self.symbol
+    pub fn term_symbol(self) -> Option<DeclarativeTermSymbol> {
+        self.term_symbol
     }
 
     pub fn modifier(&self) -> SymbolModifier {
@@ -45,7 +45,7 @@ impl SymbolDeclarativeTermRegion {
             db,
             idx,
             SymbolSignature {
-                symbol: Some(symbol),
+                term_symbol: Some(symbol),
                 ty,
                 modifier: SymbolModifier::Const,
             },
@@ -70,7 +70,7 @@ impl SymbolDeclarativeTermRegion {
             SymbolSignature {
                 modifier,
                 ty,
-                symbol,
+                term_symbol: symbol,
             },
         )
     }
@@ -157,7 +157,9 @@ impl SymbolDeclarativeTermRegion {
         {
             self_ty = self_ty.apply(
                 db,
-                current_symbol_signature.symbol().expect("should have term"),
+                current_symbol_signature
+                    .term_symbol()
+                    .expect("should have term"),
             )
         }
         self_ty

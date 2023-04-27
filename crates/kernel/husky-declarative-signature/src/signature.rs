@@ -16,10 +16,10 @@ pub use self::variant::*;
 
 use crate::*;
 
-pub(crate) fn signature_from_decl(
+pub(crate) fn signature_template_from_decl(
     db: &dyn DeclarativeSignatureDb,
     decl: Decl,
-) -> DeclarativeSignatureResult<Signature> {
+) -> DeclarativeSignatureResult<SignatureTemplate> {
     match decl {
         Decl::Type(decl) => ty_declarative_signature_template(db, decl).map(Into::into),
         Decl::Form(decl) => decl.declarative_signature_template(db).map(Into::into),
@@ -35,7 +35,7 @@ pub(crate) fn signature_from_decl(
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 #[enum_class::from_variants]
-pub enum Signature {
+pub enum SignatureTemplate {
     Type(TypeDeclarativeSignatureTemplate),
     Form(FugitiveDeclarativeSignatureTemplate),
     Trait(TraitDeclarativeSignatureTemplate),

@@ -116,6 +116,51 @@ Ok(
                 None,
             ),
             TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::AssociatedItem(
+                        AssociatedItemPath::TypeItem(
+                            TypeItemPath {
+                                parent_ty: TypePath(`core::list::List`, `Extern`),
+                                ident: `push`,
+                                item_kind: MethodFn,
+                            },
+                        ),
+                    ),
+                ),
+                Some(
+                    AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            MethodFn,
+                        ),
+                    },
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSymbolKind::Parameter {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
+                inherited_symbol_idx: 0,
+                inherited_symbol_kind: InheritedSymbolKind::ImplicitParameter(
+                    InheritedImplicitParameterSymbol::Type {
+                        ident: `E`,
+                    },
+                ),
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::None,
         ],
     },
 )

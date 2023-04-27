@@ -4,3 +4,5 @@ pub extern List<covariant E>;
 
 impl<E> List E:
     pub fn ilen() -> i32;
+
+    pub fn push(mut self, e: E);

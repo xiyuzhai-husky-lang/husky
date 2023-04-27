@@ -829,7 +829,40 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        91,
+                        90,
+                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    664,
+                                ),
+                            },
+                        },
+                    },
+                    entity_kind: AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            MethodFn,
+                        ),
+                    },
+                    ident_token: IdentToken {
+                        ident: `sqrt`,
+                        token_idx: TokenIdx(
+                            666,
+                        ),
+                    },
+                    is_generic: false,
+                    saved_stream_state: TokenIdx(
+                        667,
+                    ),
+                    block: AssociatedItem {
+                        body: None,
+                    },
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        92,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: PubUnder(
@@ -849,12 +882,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `add`,
                         token_idx: TokenIdx(
-                            671,
+                            679,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        672,
+                        680,
                     ),
                     block: AssociatedItem {
                         body: None,
@@ -862,14 +895,14 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        96,
+                        97,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: Pub,
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    707,
+                                    715,
                                 ),
                             },
                         },
@@ -882,12 +915,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `abs`,
                         token_idx: TokenIdx(
-                            709,
+                            717,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        710,
+                        718,
                     ),
                     block: AssociatedItem {
                         body: None,
@@ -895,14 +928,14 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        98,
+                        99,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: Pub,
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    721,
+                                    729,
                                 ),
                             },
                         },
@@ -915,12 +948,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `add`,
                         token_idx: TokenIdx(
-                            723,
+                            731,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        724,
+                        732,
                     ),
                     block: AssociatedItem {
                         body: None,
@@ -1887,44 +1920,44 @@ Ok(
                     items: Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                24..25,
+                                24..26,
                             ),
                         },
                     ),
                 },
                 Ast::ImplBlock {
                     token_group_idx: TokenGroupIdx(
-                        90,
+                        91,
                     ),
                     items: TraitForType(
                         TraitForTypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                25..26,
+                                26..27,
                             ),
                         },
                     ),
                 },
                 Ast::Attr {
                     token_group_idx: TokenGroupIdx(
-                        92,
+                        93,
                     ),
                 },
                 Ast::Decr {
                     token_group_idx: TokenGroupIdx(
-                        93,
+                        94,
                     ),
                     ident: `derive`,
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        94,
+                        95,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: Pub,
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    700,
+                                    708,
                                 ),
                             },
                         },
@@ -1938,12 +1971,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `f64`,
                         token_idx: TokenIdx(
-                            702,
+                            710,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        703,
+                        711,
                     ),
                     block: Type {
                         path: TypePath(
@@ -1956,24 +1989,24 @@ Ok(
                 },
                 Ast::ImplBlock {
                     token_group_idx: TokenGroupIdx(
-                        95,
+                        96,
                     ),
                     items: Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                26..27,
+                                27..28,
                             ),
                         },
                     ),
                 },
                 Ast::ImplBlock {
                     token_group_idx: TokenGroupIdx(
-                        97,
+                        98,
                     ),
                     items: TraitForType(
                         TraitForTypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                27..28,
+                                28..29,
                             ),
                         },
                     ),
@@ -1981,7 +2014,7 @@ Ok(
             ],
         },
         top_level_asts: ArenaIdxRange(
-            28..99,
+            29..100,
         ),
         siblings: [
             ArenaIdxRange(
@@ -2132,13 +2165,10 @@ Ok(
                 24..24,
             ),
             ArenaIdxRange(
-                24..25,
+                24..24,
             ),
             ArenaIdxRange(
-                25..25,
-            ),
-            ArenaIdxRange(
-                25..26,
+                24..26,
             ),
             ArenaIdxRange(
                 26..26,
@@ -2153,7 +2183,13 @@ Ok(
                 27..28,
             ),
             ArenaIdxRange(
-                28..99,
+                28..28,
+            ),
+            ArenaIdxRange(
+                28..29,
+            ),
+            ArenaIdxRange(
+                29..100,
             ),
         ],
     },

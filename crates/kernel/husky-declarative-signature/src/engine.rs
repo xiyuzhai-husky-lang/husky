@@ -12,7 +12,7 @@ pub(super) struct DeclarativeTermEngine<'a> {
     db: &'a dyn DeclarativeSignatureDb,
     expr_region_data: &'a ExprRegionData,
     declarative_term_menu: &'a DeclarativeTermMenu,
-    raw_term_symbol_region: SymbolDeclarativeTermRegion,
+    symbol_declarative_term_region: SymbolDeclarativeTermRegion,
     expr_terms: ExprMap<DeclarativeTermResult2<DeclarativeTerm>>,
     /// todo: change this to ordered
     pattern_expr_ty_infos: PatternExprMap<PatternExprDeclarativeTypeInfo>,
@@ -47,7 +47,7 @@ impl<'a> DeclarativeTermEngine<'a> {
             db,
             expr_region_data,
             declarative_term_menu,
-            raw_term_symbol_region: SymbolDeclarativeTermRegion::new(
+            symbol_declarative_term_region: SymbolDeclarativeTermRegion::new(
                 parent_term_symbol_region,
                 expr_region_data.symbol_region(),
             ),
@@ -63,7 +63,7 @@ impl<'a> DeclarativeTermEngine<'a> {
 
     fn infer_all(mut self) -> DeclarativeTermRegion {
         self.init_current_symbol_terms();
-        self.raw_term_symbol_region.init_self_ty_and_value(
+        self.symbol_declarative_term_region.init_self_ty_and_value(
             self.db,
             self.expr_region_data.path(),
             self.expr_region_data.symbol_region(),
@@ -101,7 +101,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                         }
                         _ => todo!(),
                     };
-                    self.raw_term_symbol_region
+                    self.symbol_declarative_term_region
                         .add_new_implicit_parameter_symbol_signature(self.db, symbols.start(), ty)
                 }
                 PatternTypeConstraint::ExplicitParameter { pattern_expr, ty } => self
@@ -131,7 +131,7 @@ impl<'a> DeclarativeTermEngine<'a> {
         let Ok(ty) = self.infer_new_expr_term(ty) else {
             for symbol in symbols {
                 let modifier = self.expr_region_data[symbol].modifier();
-                self.raw_term_symbol_region.add_new_explicit_parameter_symbol_signature(
+                self.symbol_declarative_term_region.add_new_explicit_parameter_symbol_signature(
                     self.db,
                     symbol,
                     modifier,
@@ -157,7 +157,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                 pattern_symbol_idx,
             } => {
                 let base_ty = self.pattern_symbol_ty_infos[pattern_symbol_idx].base_ty();
-                self.raw_term_symbol_region
+                self.symbol_declarative_term_region
                     .add_new_explicit_parameter_symbol_signature(
                         self.db,
                         current_symbol_idx,
@@ -206,7 +206,7 @@ impl<'a> DeclarativeTermEngine<'a> {
     pub(crate) fn finish(self) -> DeclarativeTermRegion {
         DeclarativeTermRegion::new(
             self.expr_region_data.path(),
-            self.raw_term_symbol_region,
+            self.symbol_declarative_term_region,
             self.expr_terms,
             self.pattern_expr_ty_infos,
             self.pattern_symbol_ty_infos,
@@ -244,27 +244,30 @@ impl<'a> DeclarativeTermEngine<'a> {
                 None => Err(DerivedDeclarativeTermError2::InvalidEntityPath.into()),
             },
             Expr::InheritedSymbol {
-                ident: _,
-                token_idx: _,
-                inherited_symbol_idx: _,
-                inherited_symbol_kind: _,
-            } => todo!(),
+                inherited_symbol_idx,
+                ..
+            } => self
+                .symbol_declarative_term_region
+                .inherited_symbol_signature(inherited_symbol_idx)
+                .term_symbol()
+                .map(Into::into)
+                .ok_or(DerivedDeclarativeTermError2::InheritedSymbolIsNotValidTerm.into()),
             Expr::CurrentSymbol {
                 current_symbol_idx, ..
             } => Ok(self
-                .raw_term_symbol_region
+                .symbol_declarative_term_region
                 .current_symbol_signature(current_symbol_idx)
                 .expect("not none")
-                .symbol()
+                .term_symbol()
                 .ok_or(OriginalDeclarativeTermError2::InvalidSymbolForTerm)?
                 .into()),
             Expr::FrameVarDecl { .. } => unreachable!(),
             Expr::SelfType(_) => self
-                .raw_term_symbol_region
+                .symbol_declarative_term_region
                 .self_ty_term()
                 .ok_or(DerivedDeclarativeTermError2::SelfTypeNotAllowedInThisRegion.into()),
             Expr::SelfValue(_) => self
-                .raw_term_symbol_region
+                .symbol_declarative_term_region
                 .self_ty_term()
                 .ok_or(DerivedDeclarativeTermError2::SelfValueNotAllowedInThisRegion.into()),
             Expr::Binary {
@@ -418,7 +421,8 @@ impl<'a> DeclarativeTermEngine<'a> {
     }
 
     pub(crate) fn current_symbol_term(&self, symbol: CurrentSymbolIdx) -> Option<SymbolSignature> {
-        self.raw_term_symbol_region.current_symbol_signature(symbol)
+        self.symbol_declarative_term_region
+            .current_symbol_signature(symbol)
     }
 
     pub(crate) fn declarative_term_menu(&self) -> &DeclarativeTermMenu {
