@@ -65,52 +65,6 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Type Error: TodoSuffix",
-                severity: Error,
-                range: [7:5, 12:7),
-            },
-            Diagnostic {
-                message: "Type Error: TodoSuffix",
-                severity: Error,
-                range: [15:9, 19:11),
-            },
-            Diagnostic {
-                message: "Type Error: TodoSuffix",
-                severity: Error,
-                range: [31:13, 35:15),
-            },
-            Diagnostic {
-                message: "Type Error: TodoSuffix",
-                severity: Error,
-                range: [40:9, 47:11),
-            },
-            Diagnostic {
-                message: "Type Error: TodoSuffix",
-                severity: Error,
-                range: [48:9, 53:11),
-            },
-            Diagnostic {
-                message: "Type Error: TodoSuffix",
-                severity: Error,
-                range: [60:13, 66:15),
-            },
-            Diagnostic {
-                message: "Type Error: TodoSuffix",
-                severity: Error,
-                range: [67:13, 72:15),
-            },
-            Diagnostic {
-                message: "Type Error: TodoSuffix",
-                severity: Error,
-                range: [74:13, 80:15),
-            },
-            Diagnostic {
-                message: "Type Error: TodoSuffix",
-                severity: Error,
-                range: [87:9, 92:11),
-            },
-        ],
+        diagnostics: [],
     },
 }

@@ -154,6 +154,8 @@ pub enum DerivedExprTypeError {
     BinaryShiftRightOperandTypeNotInferred,
     #[error("Fluffy term error")]
     FluffyTermError(#[from] FluffyTermError),
+    #[error("SuffixOperandTypeNotInferred")]
+    SuffixOperandTypeNotInferred,
 }
 
 pub type ExprTypeResult<T> = Result<T, ExprTypeError>;

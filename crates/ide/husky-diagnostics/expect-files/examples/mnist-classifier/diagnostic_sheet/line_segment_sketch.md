@@ -58,26 +58,6 @@ DiagnosticSheet {
                 range: [72:31, 72:35),
             },
             Diagnostic {
-                message: "Type Error: TodoSuffix",
-                severity: Error,
-                range: [85:9, 85:14),
-            },
-            Diagnostic {
-                message: "Type Error: TodoSuffix",
-                severity: Error,
-                range: [107:9, 107:14),
-            },
-            Diagnostic {
-                message: "Type Error: TodoSuffix",
-                severity: Error,
-                range: [117:9, 117:16),
-            },
-            Diagnostic {
-                message: "Type Error: TodoSuffix",
-                severity: Error,
-                range: [145:13, 145:20),
-            },
-            Diagnostic {
                 message: "OriginalFluffyTermExpectationError::Todo",
                 severity: Error,
                 range: [155:29, 155:31),

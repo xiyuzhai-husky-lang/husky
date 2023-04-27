@@ -25,12 +25,6 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Type Error: TodoSuffix",
-                severity: Error,
-                range: [21:5, 27:7),
-            },
-        ],
+        diagnostics: [],
     },
 }
