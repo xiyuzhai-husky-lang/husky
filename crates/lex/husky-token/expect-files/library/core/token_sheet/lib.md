@@ -136,6 +136,15 @@ Ok(
             Token::Ident(
                 `option`,
             ),
+            Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
+                Keyword::Mod,
+            ),
+            Token::Ident(
+                `visual`,
+            ),
         ],
         group_starts: [
             0,
@@ -153,8 +162,10 @@ Ok(
             36,
             39,
             42,
+            45,
         ],
         indents: [
+            0,
             0,
             0,
             0,

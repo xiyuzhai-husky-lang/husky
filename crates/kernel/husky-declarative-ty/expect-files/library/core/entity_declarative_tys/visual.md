@@ -1,0 +1,12 @@
+[
+    (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Trait(
+                TraitPath(`core::visual::Visualize`),
+            ),
+        ),
+        Ok(
+            DeclarativeTerm(`core::basic::Trait`),
+        ),
+    ),
+]

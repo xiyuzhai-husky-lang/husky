@@ -1,5 +1,5 @@
 DiagnosticSheet {
-    [salsa id]: 36,
+    [salsa id]: 37,
     entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {
         diagnostics: [],
     },
@@ -9,9 +9,9 @@ DiagnosticSheet {
     ast_diagnostic_sheet: AstDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "Syntax Error: expected identifier",
+                message: "Syntax Error: unexpected stmt inside impl",
                 severity: Error,
-                range: [84:11, 84:12),
+                range: [84:5, 84:12),
             },
             Diagnostic {
                 message: "Syntax Error: excessive indent",

@@ -117,7 +117,7 @@ impl Diagnose for OriginalDeclExprError {
             | OriginalDeclExprError::ExpectRightParenthesisInParameterList(token_idx)
             | OriginalDeclExprError::ExpectVariableType(token_idx)
             | OriginalDeclExprError::ExpectEqTokenForVariable(token_idx) => {
-                ctx.ranged_token_sheet().token_text_range(*token_idx)
+                ctx.token_text_range(*token_idx)
             }
         }
     }

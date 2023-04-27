@@ -318,7 +318,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 33,
+                                    value: 34,
                                 },
                             ),
                         ),
@@ -334,7 +334,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 33,
+                                    value: 34,
                                 },
                             ),
                         ),
@@ -379,7 +379,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 33,
+                                    value: 34,
                                 },
                             ),
                         ),
@@ -424,7 +424,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 33,
+                                    value: 34,
                                 },
                             ),
                         ),
@@ -469,7 +469,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 33,
+                                    value: 34,
                                 },
                             ),
                         ),
@@ -514,7 +514,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 24,
+                                    value: 25,
                                 },
                             ),
                         ),

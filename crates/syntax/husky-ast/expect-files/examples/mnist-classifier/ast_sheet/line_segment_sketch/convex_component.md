@@ -7,11 +7,7 @@ Ok(
                         3,
                     ),
                     error: AstError::Original(
-                        OriginalAstError::ExpectedIdent(
-                            TokenIdx(
-                                26,
-                            ),
-                        ),
+                        OriginalAstError::UnexpectedStmtInsideImplBlock,
                     ),
                 },
                 Ast::Err {
@@ -30,7 +26,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 39,
+                                    value: 40,
                                 },
                             ),
                         ),
@@ -46,7 +42,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 39,
+                                    value: 40,
                                 },
                             ),
                         ),

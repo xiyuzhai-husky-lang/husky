@@ -497,14 +497,47 @@ Ok(
                         ),
                     },
                 },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        15,
+                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    45,
+                                ),
+                            },
+                        },
+                    },
+                    entity_kind: Module,
+                    ident_token: IdentToken {
+                        ident: `visual`,
+                        token_idx: TokenIdx(
+                            47,
+                        ),
+                    },
+                    is_generic: false,
+                    saved_stream_state: TokenIdx(
+                        48,
+                    ),
+                    block: Submodule {
+                        path: ModulePath(
+                            Id {
+                                value: 17,
+                            },
+                        ),
+                    },
+                },
             ],
         },
         top_level_asts: ArenaIdxRange(
-            0..15,
+            0..16,
         ),
         siblings: [
             ArenaIdxRange(
-                0..15,
+                0..16,
             ),
         ],
     },

@@ -260,6 +260,23 @@ Ok(
                                 },
                             ),
                         },
+                        EntitySymbolEntry {
+                            ident: `visual`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::Submodule(
+                                SubmoduleSymbol {
+                                    path: `core::visual`,
+                                    visibility: Scope::Pub,
+                                    ast_idx: 15,
+                                    ident_token: IdentToken {
+                                        ident: `visual`,
+                                        token_idx: TokenIdx(
+                                            47,
+                                        ),
+                                    },
+                                },
+                            ),
+                        },
                     ],
                 ),
                 impl_blocks: [],
@@ -2654,8 +2671,8 @@ Ok(
                                         ),
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 4,
-                                    use_expr_idx: 12,
+                                    ast_idx: 5,
+                                    use_expr_idx: 15,
                                 },
                             ),
                         },
@@ -2685,8 +2702,8 @@ Ok(
                                         ),
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 4,
-                                    use_expr_idx: 12,
+                                    ast_idx: 5,
+                                    use_expr_idx: 15,
                                 },
                             ),
                         },
@@ -2716,8 +2733,8 @@ Ok(
                                         ),
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 5,
-                                    use_expr_idx: 15,
+                                    ast_idx: 6,
+                                    use_expr_idx: 18,
                                 },
                             ),
                         },
@@ -2747,8 +2764,8 @@ Ok(
                                         ),
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 6,
-                                    use_expr_idx: 18,
+                                    ast_idx: 7,
+                                    use_expr_idx: 21,
                                 },
                             ),
                         },
@@ -2778,8 +2795,8 @@ Ok(
                                         ),
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 6,
-                                    use_expr_idx: 18,
+                                    ast_idx: 7,
+                                    use_expr_idx: 21,
                                 },
                             ),
                         },
@@ -2809,8 +2826,8 @@ Ok(
                                         ),
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 6,
-                                    use_expr_idx: 18,
+                                    ast_idx: 7,
+                                    use_expr_idx: 21,
                                 },
                             ),
                         },
@@ -2840,8 +2857,8 @@ Ok(
                                         ),
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 6,
-                                    use_expr_idx: 18,
+                                    ast_idx: 7,
+                                    use_expr_idx: 21,
                                 },
                             ),
                         },
@@ -3012,6 +3029,29 @@ Ok(
                             },
                         },
                         UseExprRule {
+                            ast_idx: 7,
+                            use_expr_idx: 23,
+                            visibility: Scope::Pub,
+                            variant: UseExprRuleVariant::Parent {
+                                parent_name_token: NameToken::Crate(
+                                    CrateToken {
+                                        token_idx: TokenIdx(
+                                            51,
+                                        ),
+                                    },
+                                ),
+                                children: ArenaIdxRange(
+                                    22..23,
+                                ),
+                            },
+                            parent: None,
+                            state: UseExprRuleState::Resolved {
+                                original_symbol: EntitySymbol::CrateRoot {
+                                    root_module_path: `core`,
+                                },
+                            },
+                        },
+                        UseExprRule {
                             ast_idx: 0,
                             use_expr_idx: 1,
                             visibility: Scope::Pub,
@@ -3170,7 +3210,7 @@ Ok(
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
-                                        ident: `marker`,
+                                        ident: `visual`,
                                         token_idx: TokenIdx(
                                             32,
                                         ),
@@ -3178,6 +3218,44 @@ Ok(
                                 ),
                                 children: ArenaIdxRange(
                                     12..13,
+                                ),
+                            },
+                            parent: Some(
+                                EntityPath::Module(
+                                    `core`,
+                                ),
+                            ),
+                            state: UseExprRuleState::Resolved {
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `core::visual`,
+                                        visibility: Scope::Pub,
+                                        ast_idx: 15,
+                                        ident_token: IdentToken {
+                                            ident: `visual`,
+                                            token_idx: TokenIdx(
+                                                47,
+                                            ),
+                                        },
+                                    },
+                                ),
+                            },
+                        },
+                        UseExprRule {
+                            ast_idx: 5,
+                            use_expr_idx: 16,
+                            visibility: Scope::Pub,
+                            variant: UseExprRuleVariant::Parent {
+                                parent_name_token: NameToken::Ident(
+                                    IdentToken {
+                                        ident: `marker`,
+                                        token_idx: TokenIdx(
+                                            39,
+                                        ),
+                                    },
+                                ),
+                                children: ArenaIdxRange(
+                                    15..16,
                                 ),
                             },
                             parent: Some(
@@ -3202,20 +3280,20 @@ Ok(
                             },
                         },
                         UseExprRule {
-                            ast_idx: 5,
-                            use_expr_idx: 16,
+                            ast_idx: 6,
+                            use_expr_idx: 19,
                             visibility: Scope::Pub,
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `clone`,
                                         token_idx: TokenIdx(
-                                            39,
+                                            46,
                                         ),
                                     },
                                 ),
                                 children: ArenaIdxRange(
-                                    15..16,
+                                    18..19,
                                 ),
                             },
                             parent: Some(
@@ -3240,20 +3318,20 @@ Ok(
                             },
                         },
                         UseExprRule {
-                            ast_idx: 6,
-                            use_expr_idx: 19,
+                            ast_idx: 7,
+                            use_expr_idx: 22,
                             visibility: Scope::Pub,
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `cmp`,
                                         token_idx: TokenIdx(
-                                            46,
+                                            53,
                                         ),
                                     },
                                 ),
                                 children: ArenaIdxRange(
-                                    18..19,
+                                    21..22,
                                 ),
                             },
                             parent: Some(
@@ -3324,10 +3402,20 @@ Ok(
                         UseAllRule {
                             parent: KinshipedModulePath {
                                 kinship: Inside,
-                                path: `core::marker`,
+                                path: `core::visual`,
                             },
                             ast_idx: 4,
                             use_expr_idx: 12,
+                            visibility: Scope::Pub,
+                            progress: 0,
+                        },
+                        UseAllRule {
+                            parent: KinshipedModulePath {
+                                kinship: Inside,
+                                path: `core::marker`,
+                            },
+                            ast_idx: 5,
+                            use_expr_idx: 15,
                             visibility: Scope::Pub,
                             progress: 2,
                         },
@@ -3336,8 +3424,8 @@ Ok(
                                 kinship: Inside,
                                 path: `core::clone`,
                             },
-                            ast_idx: 5,
-                            use_expr_idx: 15,
+                            ast_idx: 6,
+                            use_expr_idx: 18,
                             visibility: Scope::Pub,
                             progress: 1,
                         },
@@ -3346,8 +3434,8 @@ Ok(
                                 kinship: Inside,
                                 path: `core::cmp`,
                             },
-                            ast_idx: 6,
-                            use_expr_idx: 18,
+                            ast_idx: 7,
+                            use_expr_idx: 21,
                             visibility: Scope::Pub,
                             progress: 4,
                         },
@@ -3736,6 +3824,20 @@ Ok(
                             ),
                         },
                     ],
+                ),
+                impl_blocks: [],
+                use_expr_rules: UseExprRules(
+                    [],
+                ),
+                use_all_rules: UseAllRules(
+                    [],
+                ),
+                errors: [],
+            },
+            EntityTreeSheet {
+                module_path: `core::visual`,
+                symbols: EntitySymbolTable(
+                    [],
                 ),
                 impl_blocks: [],
                 use_expr_rules: UseExprRules(

@@ -139,6 +139,25 @@ Ok(
                     parent: None,
                     state: UseExprRuleState::Unresolved,
                 },
+                UseExprRule {
+                    ast_idx: 7,
+                    use_expr_idx: 23,
+                    visibility: Scope::Pub,
+                    variant: UseExprRuleVariant::Parent {
+                        parent_name_token: NameToken::Crate(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    51,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
+                            22..23,
+                        ),
+                    },
+                    parent: None,
+                    state: UseExprRuleState::Unresolved,
+                },
             ],
         ),
         use_all_trackers: UseAllRules(
@@ -373,7 +392,7 @@ Ok(
                     ParentUseExpr {
                         parent_name_token: NameToken::Ident(
                             IdentToken {
-                                ident: `marker`,
+                                ident: `visual`,
                                 token_idx: TokenIdx(
                                     32,
                                 ),
@@ -427,7 +446,7 @@ Ok(
                     ParentUseExpr {
                         parent_name_token: NameToken::Ident(
                             IdentToken {
-                                ident: `clone`,
+                                ident: `marker`,
                                 token_idx: TokenIdx(
                                     39,
                                 ),
@@ -481,7 +500,7 @@ Ok(
                     ParentUseExpr {
                         parent_name_token: NameToken::Ident(
                             IdentToken {
-                                ident: `cmp`,
+                                ident: `clone`,
                                 token_idx: TokenIdx(
                                     46,
                                 ),
@@ -520,6 +539,60 @@ Ok(
                         children: Ok(
                             UseExprChildren::Single {
                                 child: 19,
+                            },
+                        ),
+                    },
+                ),
+                UseExpr::All {
+                    star_token: StarToken(
+                        TokenIdx(
+                            55,
+                        ),
+                    ),
+                },
+                UseExpr::Parent(
+                    ParentUseExpr {
+                        parent_name_token: NameToken::Ident(
+                            IdentToken {
+                                ident: `cmp`,
+                                token_idx: TokenIdx(
+                                    53,
+                                ),
+                            },
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    54,
+                                ),
+                            ),
+                        ),
+                        children: Ok(
+                            UseExprChildren::Single {
+                                child: 21,
+                            },
+                        ),
+                    },
+                ),
+                UseExpr::Parent(
+                    ParentUseExpr {
+                        parent_name_token: NameToken::Crate(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    51,
+                                ),
+                            },
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    52,
+                                ),
+                            ),
+                        ),
+                        children: Ok(
+                            UseExprChildren::Single {
+                                child: 22,
                             },
                         ),
                     },

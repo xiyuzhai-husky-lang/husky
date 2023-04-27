@@ -18,7 +18,7 @@ Ok(
             TokenInfo::UseExpr {
                 use_expr_idx: 1,
                 rule_idx: UseExprRuleIdx(
-                    7,
+                    8,
                 ),
                 state: UseExprRuleState::Resolved {
                     original_symbol: EntitySymbol::Submodule(
@@ -55,7 +55,7 @@ Ok(
             TokenInfo::UseExpr {
                 use_expr_idx: 4,
                 rule_idx: UseExprRuleIdx(
-                    8,
+                    9,
                 ),
                 state: UseExprRuleState::Resolved {
                     original_symbol: EntitySymbol::Submodule(
@@ -92,7 +92,7 @@ Ok(
             TokenInfo::UseExpr {
                 use_expr_idx: 7,
                 rule_idx: UseExprRuleIdx(
-                    9,
+                    10,
                 ),
                 state: UseExprRuleState::Resolved {
                     original_symbol: EntitySymbol::Submodule(
@@ -129,7 +129,7 @@ Ok(
             TokenInfo::UseExpr {
                 use_expr_idx: 10,
                 rule_idx: UseExprRuleIdx(
-                    10,
+                    11,
                 ),
                 state: UseExprRuleState::Resolved {
                     original_symbol: EntitySymbol::Submodule(
@@ -166,18 +166,18 @@ Ok(
             TokenInfo::UseExpr {
                 use_expr_idx: 13,
                 rule_idx: UseExprRuleIdx(
-                    11,
+                    12,
                 ),
                 state: UseExprRuleState::Resolved {
                     original_symbol: EntitySymbol::Submodule(
                         SubmoduleSymbol {
-                            path: `core::marker`,
+                            path: `core::visual`,
                             visibility: Scope::Pub,
-                            ast_idx: 10,
+                            ast_idx: 15,
                             ident_token: IdentToken {
-                                ident: `marker`,
+                                ident: `visual`,
                                 token_idx: TokenIdx(
-                                    32,
+                                    47,
                                 ),
                             },
                         },
@@ -203,18 +203,18 @@ Ok(
             TokenInfo::UseExpr {
                 use_expr_idx: 16,
                 rule_idx: UseExprRuleIdx(
-                    12,
+                    13,
                 ),
                 state: UseExprRuleState::Resolved {
                     original_symbol: EntitySymbol::Submodule(
                         SubmoduleSymbol {
-                            path: `core::clone`,
+                            path: `core::marker`,
                             visibility: Scope::Pub,
-                            ast_idx: 9,
+                            ast_idx: 10,
                             ident_token: IdentToken {
-                                ident: `clone`,
+                                ident: `marker`,
                                 token_idx: TokenIdx(
-                                    29,
+                                    32,
                                 ),
                             },
                         },
@@ -240,7 +240,44 @@ Ok(
             TokenInfo::UseExpr {
                 use_expr_idx: 19,
                 rule_idx: UseExprRuleIdx(
-                    13,
+                    14,
+                ),
+                state: UseExprRuleState::Resolved {
+                    original_symbol: EntitySymbol::Submodule(
+                        SubmoduleSymbol {
+                            path: `core::clone`,
+                            visibility: Scope::Pub,
+                            ast_idx: 9,
+                            ident_token: IdentToken {
+                                ident: `clone`,
+                                token_idx: TokenIdx(
+                                    29,
+                                ),
+                            },
+                        },
+                    ),
+                },
+            },
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::UseExpr {
+                use_expr_idx: 23,
+                rule_idx: UseExprRuleIdx(
+                    7,
+                ),
+                state: UseExprRuleState::Resolved {
+                    original_symbol: EntitySymbol::CrateRoot {
+                        root_module_path: `core`,
+                    },
+                },
+            },
+            TokenInfo::None,
+            TokenInfo::UseExpr {
+                use_expr_idx: 22,
+                rule_idx: UseExprRuleIdx(
+                    15,
                 ),
                 state: UseExprRuleState::Resolved {
                     original_symbol: EntitySymbol::Submodule(

@@ -124,8 +124,8 @@ Ok(
                     PunctuationMapped::Colon,
                 ),
             ),
-            Token::Keyword(
-                Keyword::Visual,
+            Token::Ident(
+                `visual`,
             ),
             Token::Punctuation(
                 Punctuation(

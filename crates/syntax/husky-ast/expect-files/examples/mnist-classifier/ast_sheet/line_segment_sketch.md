@@ -16,7 +16,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 37,
+                                    value: 38,
                                 },
                             ),
                         ),
@@ -73,7 +73,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 37,
+                                    value: 38,
                                 },
                             ),
                         ),
@@ -112,7 +112,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 37,
+                                    value: 38,
                                 },
                             ),
                         ),
@@ -241,7 +241,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 37,
+                                    value: 38,
                                 },
                             ),
                         ),
@@ -280,7 +280,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 37,
+                                    value: 38,
                                 },
                             ),
                         ),
@@ -319,7 +319,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 37,
+                                    value: 38,
                                 },
                             ),
                         ),
@@ -355,11 +355,7 @@ Ok(
                         39,
                     ),
                     error: AstError::Original(
-                        OriginalAstError::ExpectedIdent(
-                            TokenIdx(
-                                351,
-                            ),
-                        ),
+                        OriginalAstError::UnexpectedStmtInsideImplBlock,
                     ),
                 },
                 Ast::Err {
@@ -1375,7 +1371,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 37,
+                                    value: 38,
                                 },
                             ),
                         ),
@@ -1395,7 +1391,7 @@ Ok(
                     block: Submodule {
                         path: ModulePath(
                             Id {
-                                value: 38,
+                                value: 39,
                             },
                         ),
                     },
@@ -1408,7 +1404,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 37,
+                                    value: 38,
                                 },
                             ),
                         ),
@@ -1428,7 +1424,7 @@ Ok(
                     block: Submodule {
                         path: ModulePath(
                             Id {
-                                value: 39,
+                                value: 40,
                             },
                         ),
                     },
@@ -1441,7 +1437,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 37,
+                                    value: 38,
                                 },
                             ),
                         ),
@@ -1461,7 +1457,7 @@ Ok(
                     block: Submodule {
                         path: ModulePath(
                             Id {
-                                value: 40,
+                                value: 41,
                             },
                         ),
                     },
@@ -1474,7 +1470,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 37,
+                                    value: 38,
                                 },
                             ),
                         ),
@@ -1494,7 +1490,7 @@ Ok(
                     block: Submodule {
                         path: ModulePath(
                             Id {
-                                value: 41,
+                                value: 42,
                             },
                         ),
                     },
@@ -1567,7 +1563,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 37,
+                                    value: 38,
                                 },
                             ),
                         ),
@@ -1583,7 +1579,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 37,
+                                    value: 38,
                                 },
                             ),
                         ),
@@ -1599,7 +1595,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 37,
+                                    value: 38,
                                 },
                             ),
                         ),
@@ -1729,7 +1725,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 37,
+                                    value: 38,
                                 },
                             ),
                         ),
@@ -1774,7 +1770,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 37,
+                                    value: 38,
                                 },
                             ),
                         ),
@@ -1819,7 +1815,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 37,
+                                    value: 38,
                                 },
                             ),
                         ),
@@ -1864,7 +1860,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 37,
+                                    value: 38,
                                 },
                             ),
                         ),
@@ -1909,7 +1905,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 37,
+                                    value: 38,
                                 },
                             ),
                         ),

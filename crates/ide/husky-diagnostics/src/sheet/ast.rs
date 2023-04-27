@@ -248,7 +248,7 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
                 OriginalVisibilityExprError::NoSuperForRoot(token_idx)
                 | OriginalVisibilityExprError::ExpectRightParenthesis(token_idx)
                 | OriginalVisibilityExprError::ExpectCrateOrSuper(token_idx),
-            ) => ctx.ranged_token_sheet().token_text_range(*token_idx),
+            ) => ctx.token_text_range(*token_idx),
         }
     }
 }

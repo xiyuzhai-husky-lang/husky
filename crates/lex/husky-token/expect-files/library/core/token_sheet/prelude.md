@@ -152,6 +152,39 @@ Ok(
                 ),
             ),
             Token::Ident(
+                `visual`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        ScopeResolution,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Star,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
+                Keyword::Use,
+            ),
+            Token::Keyword(
+                Keyword::Pronoun(
+                    Crate,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        ScopeResolution,
+                    ),
+                ),
+            ),
+            Token::Ident(
                 `marker`,
             ),
             Token::Punctuation(
@@ -241,8 +274,10 @@ Ok(
             28,
             35,
             42,
+            49,
         ],
         indents: [
+            0,
             0,
             0,
             0,

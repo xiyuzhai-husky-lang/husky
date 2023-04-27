@@ -142,14 +142,34 @@ Ok(
                         ),
                     ),
                 },
+                Ast::Use {
+                    token_group_idx: TokenGroupIdx(
+                        7,
+                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    49,
+                                ),
+                            },
+                        },
+                    },
+                    state_after_visibility_expr: Some(
+                        TokenIdx(
+                            50,
+                        ),
+                    ),
+                },
             ],
         },
         top_level_asts: ArenaIdxRange(
-            0..7,
+            0..8,
         ),
         siblings: [
             ArenaIdxRange(
-                0..7,
+                0..8,
             ),
         ],
     },

@@ -1985,16 +1985,464 @@ Ok(
             ),
             (
                 DeclRegionPath::ImplBlock(
-                    ImplBlockId::IllFormed(
-                        IllFormedImplBlockId {
-                            module: `mnist_classifier::line_segment_sketch`,
+                    ImplBlockId::TraitForType(
+                        TraitForTypeImplBlockId {
+                            module_path: `mnist_classifier::line_segment_sketch`,
+                            trai_path: TraitPath(`core::visual::Visualize`),
+                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                             disambiguator: 0,
                         },
                     ),
                 ),
-                Err(
-                    DeclError::Derived(
-                        DerivedDeclError::ImplErr,
+                Ok(
+                    Decl::ImplBlock(
+                        ImplBlockDecl::TraitForType(
+                            TraitForTypeImplBlockDecl {
+                                ast_idx: 170,
+                                impl_block: TraitForTypeImplBlock {
+                                    id: TraitForTypeImplBlockId {
+                                        module_path: `mnist_classifier::line_segment_sketch`,
+                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ast_idx: 170,
+                                    impl_token: ImplToken {
+                                        token_idx: TokenIdx(
+                                            81,
+                                        ),
+                                    },
+                                    trai_expr: 7,
+                                    for_token: TokenIdx(
+                                        83,
+                                    ),
+                                    ty_expr: 8,
+                                    body: TraitForType(
+                                        TraitForTypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                1..2,
+                                            ),
+                                        },
+                                    ),
+                                },
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        81,
+                                    ),
+                                },
+                                implicit_parameter_decl_list: None,
+                                trai_expr: TraitExpr {
+                                    expr: 0,
+                                },
+                                for_token: ConnectionForToken {
+                                    token_idx: TokenIdx(
+                                        83,
+                                    ),
+                                },
+                                ty_expr: TypeExpr {
+                                    expr: 1,
+                                },
+                                eol_colon: EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            85,
+                                        ),
+                                    },
+                                ),
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: None,
+                                        path: RegionPath::Decl(
+                                            DeclRegionPath::ImplBlock(
+                                                ImplBlockId::TraitForType(
+                                                    TraitForTypeImplBlockId {
+                                                        module_path: `mnist_classifier::line_segment_sketch`,
+                                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 0,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Trait(
+                                                                TraitPath(`core::visual::Visualize`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 1,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        82,
+                                                    ),
+                                                    ident: `Visualize`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Trait(
+                                                            TraitPath(`core::visual::Visualize`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        84,
+                                                    ),
+                                                    ident: `LineSegmentStroke`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_contracts: ArenaMap {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_modifiers: ArenaMap {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: True,
+                                            allow_self_value: False,
+                                            pattern_ty_constraints: [],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: Trait,
+                                                expr: 0,
+                                            },
+                                            ExprRoot {
+                                                kind: SelfType,
+                                                expr: 1,
+                                            },
+                                        ],
+                                    },
+                                },
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            (
+                DeclRegionPath::AssociatedItem(
+                    AssociatedItemId {
+                        impl_block_id: ImplBlockId::TraitForType(
+                            TraitForTypeImplBlockId {
+                                module_path: `mnist_classifier::line_segment_sketch`,
+                                trai_path: TraitPath(`core::visual::Visualize`),
+                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                disambiguator: 0,
+                            },
+                        ),
+                        ident: `visualize`,
+                    },
+                ),
+                Ok(
+                    Decl::AssociatedItem(
+                        AssociatedItemDecl::TraitForTypeItem(
+                            TraitForTypeItemDecl::MethodFn(
+                                TraitForTypeMethodFnDecl {
+                                    path: Some(
+                                        TraitForTypeItemPath {
+                                            parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                            trai: TraitPath(`core::visual::Visualize`),
+                                            ident: `visualize`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                    associated_item: AssociatedItem {
+                                        id: AssociatedItemId {
+                                            impl_block_id: ImplBlockId::TraitForType(
+                                                TraitForTypeImplBlockId {
+                                                    module_path: `mnist_classifier::line_segment_sketch`,
+                                                    trai_path: TraitPath(`core::visual::Visualize`),
+                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                            ident: `visualize`,
+                                        },
+                                        path: Some(
+                                            AssociatedItemPath::TraitForTypeItem(
+                                                TraitForTypeItemPath {
+                                                    parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                    trai: TraitPath(`core::visual::Visualize`),
+                                                    ident: `visualize`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
+                                        ),
+                                        impl_block: ImplBlock::TraitForType(
+                                            TraitForTypeImplBlock {
+                                                id: TraitForTypeImplBlockId {
+                                                    module_path: `mnist_classifier::line_segment_sketch`,
+                                                    trai_path: TraitPath(`core::visual::Visualize`),
+                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                    disambiguator: 0,
+                                                },
+                                                ast_idx: 170,
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        81,
+                                                    ),
+                                                },
+                                                trai_expr: 7,
+                                                for_token: TokenIdx(
+                                                    83,
+                                                ),
+                                                ty_expr: 8,
+                                                body: TraitForType(
+                                                    TraitForTypeItems {
+                                                        ast_idx_range: ArenaIdxRange(
+                                                            1..2,
+                                                        ),
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                        ast_idx: 1,
+                                        ident: `visualize`,
+                                        associated_item_kind: TraitForTypeItem(
+                                            MethodFn,
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `mnist_classifier::line_segment_sketch`,
+                                        ),
+                                        is_generic: false,
+                                    },
+                                    ast_idx: 1,
+                                    expr_region: ExprRegion {
+                                        data: ExprRegionData {
+                                            parent: Some(
+                                                ExprRegion {
+                                                    data: ExprRegionData {
+                                                        parent: None,
+                                                        path: RegionPath::Decl(
+                                                            DeclRegionPath::ImplBlock(
+                                                                ImplBlockId::TraitForType(
+                                                                    TraitForTypeImplBlockId {
+                                                                        module_path: `mnist_classifier::line_segment_sketch`,
+                                                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        expr_arena: Arena {
+                                                            data: [
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 0,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Trait(
+                                                                                TraitPath(`core::visual::Visualize`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 1,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        entity_path_expr_arena: Arena {
+                                                            data: [
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        82,
+                                                                    ),
+                                                                    ident: `Visualize`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Trait(
+                                                                            TraitPath(`core::visual::Visualize`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        84,
+                                                                    ),
+                                                                    ident: `LineSegmentStroke`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        stmt_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_region: PatternExprRegion {
+                                                            pattern_expr_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_expr_contracts: ArenaMap {
+                                                                data: [],
+                                                            },
+                                                            pattern_infos: [],
+                                                            pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_modifiers: ArenaMap {
+                                                                data: [],
+                                                            },
+                                                        },
+                                                        symbol_region: SymbolRegion {
+                                                            inherited_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            current_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            allow_self_type: True,
+                                                            allow_self_value: False,
+                                                            pattern_ty_constraints: [],
+                                                        },
+                                                        roots: [
+                                                            ExprRoot {
+                                                                kind: Trait,
+                                                                expr: 0,
+                                                            },
+                                                            ExprRoot {
+                                                                kind: SelfType,
+                                                                expr: 1,
+                                                            },
+                                                        ],
+                                                    },
+                                                },
+                                            ),
+                                            path: RegionPath::Decl(
+                                                DeclRegionPath::AssociatedItem(
+                                                    AssociatedItemId {
+                                                        impl_block_id: ImplBlockId::TraitForType(
+                                                            TraitForTypeImplBlockId {
+                                                                module_path: `mnist_classifier::line_segment_sketch`,
+                                                                trai_path: TraitPath(`core::visual::Visualize`),
+                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        ident: `visualize`,
+                                                    },
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            entity_path_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_region: PatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [],
+                                                },
+                                                pattern_infos: [],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_symbol_maps: [],
+                                                pattern_symbol_modifiers: ArenaMap {
+                                                    data: [],
+                                                },
+                                            },
+                                            symbol_region: SymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                allow_self_type: True,
+                                                allow_self_value: True,
+                                                pattern_ty_constraints: [],
+                                            },
+                                            roots: [],
+                                        },
+                                    },
+                                    implicit_parameter_decl_list: None,
+                                    explicit_parameter_decl_list: ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
+                                            TokenIdx(
+                                                88,
+                                            ),
+                                        ),
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        regular_parameters: [],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                89,
+                                            ),
+                                        ),
+                                    },
+                                    curry_token: None,
+                                    return_ty: None,
+                                    eol_colon: EolToken::Colon(
+                                        EolColonToken {
+                                            token_idx: TokenIdx(
+                                                90,
+                                            ),
+                                        },
+                                    ),
+                                },
+                            ),
+                        ),
                     ),
                 ),
             ),
@@ -2025,7 +2473,7 @@ Ok(
                                             108,
                                         ),
                                     },
-                                    ty_expr: 7,
+                                    ty_expr: 9,
                                     body: Type(
                                         TypeItems {
                                             ast_idx_range: ArenaIdxRange(
@@ -2697,7 +3145,7 @@ Ok(
                                                         108,
                                                     ),
                                                 },
-                                                ty_expr: 7,
+                                                ty_expr: 9,
                                                 body: Type(
                                                     TypeItems {
                                                         ast_idx_range: ArenaIdxRange(
@@ -2953,7 +3401,7 @@ Ok(
                                             183,
                                         ),
                                     },
-                                    ty_expr: 8,
+                                    ty_expr: 10,
                                     body: Type(
                                         TypeItems {
                                             ast_idx_range: ArenaIdxRange(
@@ -3122,7 +3570,7 @@ Ok(
                                                         183,
                                                     ),
                                                 },
-                                                ty_expr: 8,
+                                                ty_expr: 10,
                                                 body: Type(
                                                     TypeItems {
                                                         ast_idx_range: ArenaIdxRange(
@@ -3414,7 +3862,7 @@ Ok(
                                                         183,
                                                     ),
                                                 },
-                                                ty_expr: 8,
+                                                ty_expr: 10,
                                                 body: Type(
                                                     TypeItems {
                                                         ast_idx_range: ArenaIdxRange(

@@ -29,7 +29,6 @@ impl NormalAstChildren for FormBody {
             EntityKindKeywordGroup::TypeEntity(token) => token.type_kind().into(),
             EntityKindKeywordGroup::Type(_) => todo!(),
             EntityKindKeywordGroup::Trait(_) => todo!(),
-            EntityKindKeywordGroup::Visual(_) => todo!(),
             EntityKindKeywordGroup::Val(_) => FugitiveKind::Val.into(),
             EntityKindKeywordGroup::Memo(_) => {
                 Err(OriginalAstError::UnexpectedMemoFieldInsideForm)?

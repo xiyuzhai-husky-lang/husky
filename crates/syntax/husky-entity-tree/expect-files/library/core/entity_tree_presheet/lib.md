@@ -258,6 +258,23 @@ Ok(
                         },
                     ),
                 },
+                NativeEntitySymbolEntry {
+                    ident: `visual`,
+                    visibility: Scope::Pub,
+                    symbol: NativeEntitySymbol::Submodule(
+                        SubmoduleSymbol {
+                            path: `core::visual`,
+                            visibility: Scope::Pub,
+                            ast_idx: 15,
+                            ident_token: IdentToken {
+                                ident: `visual`,
+                                token_idx: TokenIdx(
+                                    47,
+                                ),
+                            },
+                        },
+                    ),
+                },
             ],
         ),
         use_one_trackers: UseExprRules(
