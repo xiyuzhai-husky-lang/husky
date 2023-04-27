@@ -222,10 +222,16 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             | OriginalAstError::UnexpectedImplInsideForm
             | OriginalAstError::UnexpectedTraitInsideForm
             | OriginalAstError::UnexpectedEndKeywordAsFirstNonCommentToken
-            | OriginalAstError::UnexpectedTypeDefnInsideTypeImplBlock => {
-                let token_idx_range = ctx.token_sheet_data().token_group_token_idx_range(self.0);
-                ctx.ranged_token_sheet().tokens_text_range(token_idx_range)
-            }
+            | OriginalAstError::UnexpectedTypeDefnInsideTypeImplBlock
+            | OriginalAstError::ExpectedEntityKeywordGroup(_)
+            | OriginalAstError::UnexpectedMemoFieldInsideForm
+            | OriginalAstError::UnexpectedStmtInsideModule
+            | OriginalAstError::ExpectedTraitForTypeItems(_)
+            | OriginalAstError::ExpectedTypeItems(_)
+            | OriginalAstError::ExpectedTypeVariants(_)
+            | OriginalAstError::ExpectedIdentForTypeVariant(_)
+            | OriginalAstError::ExpectedFormBodyForConfig(_)
+            | OriginalAstError::ExpectedFormBodyForMain(_) => ctx.token_group_text_range(self.0),
             OriginalAstError::ExpectedIdent(token_idx)
             | OriginalAstError::UnexpectedEndOfTokenGroupAfterPubKeyword(token_idx)
             | OriginalAstError::UnexpectedTokenForTraitItem(token_idx)
@@ -243,15 +249,6 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
                 | OriginalVisibilityExprError::ExpectRightParenthesis(token_idx)
                 | OriginalVisibilityExprError::ExpectCrateOrSuper(token_idx),
             ) => ctx.ranged_token_sheet().token_text_range(*token_idx),
-            OriginalAstError::ExpectedEntityKeywordGroup(_) => todo!(),
-            OriginalAstError::UnexpectedMemoFieldInsideForm => todo!(),
-            OriginalAstError::UnexpectedStmtInsideModule => todo!(),
-            OriginalAstError::ExpectedTraitForTypeItems(_) => todo!(),
-            OriginalAstError::ExpectedTypeItems(_) => todo!(),
-            OriginalAstError::ExpectedTypeVariants(_) => todo!(),
-            OriginalAstError::ExpectedIdentForTypeVariant(_) => todo!(),
-            OriginalAstError::ExpectedFormBodyForConfig(_) => todo!(),
-            OriginalAstError::ExpectedFormBodyForMain(_) => todo!(),
         }
     }
 }

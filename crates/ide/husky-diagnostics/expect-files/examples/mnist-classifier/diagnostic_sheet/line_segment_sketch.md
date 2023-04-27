@@ -1,7 +1,13 @@
 DiagnosticSheet {
     [salsa id]: 40,
     entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "IllFormedImplBlock",
+                severity: Error,
+                range: [20:1, 22:58),
+            },
+        ],
     },
     token_diagnostic_sheet: TokenDiagnosticSheet {
         diagnostics: [],
@@ -11,22 +17,12 @@ DiagnosticSheet {
             Diagnostic {
                 message: "Syntax Error: expected identifier",
                 severity: Error,
-                range: [28:11, 28:12),
+                range: [61:11, 61:12),
             },
             Diagnostic {
                 message: "Syntax Error: excessive indent",
                 severity: Error,
-                range: [29:9, 29:58),
-            },
-            Diagnostic {
-                message: "Syntax Error: expected identifier",
-                severity: Error,
-                range: [60:11, 60:12),
-            },
-            Diagnostic {
-                message: "Syntax Error: excessive indent",
-                severity: Error,
-                range: [61:9, 61:21),
+                range: [62:9, 62:21),
             },
         ],
     },
@@ -50,7 +46,7 @@ DiagnosticSheet {
             Diagnostic {
                 message: "OriginalFluffyTermExpectationError::Todo",
                 severity: Error,
-                range: [155:29, 155:31),
+                range: [156:29, 156:31),
             },
         ],
     },
