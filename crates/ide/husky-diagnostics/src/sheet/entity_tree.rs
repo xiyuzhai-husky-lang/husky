@@ -84,7 +84,6 @@ impl Diagnose for IllFormedImplBlock {
     }
 
     fn range(&self, ctx: &Self::Context<'_>) -> TextRange {
-        ctx.ranged_token_sheet()
-            .tokens_text_range(ctx.ast_token_idx_range_sheet()[self.ast_idx(ctx.db())])
+        ctx.ast_text_range(self.ast_idx(ctx.db()))
     }
 }

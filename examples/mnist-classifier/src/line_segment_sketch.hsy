@@ -17,6 +17,10 @@ pub struct LineSegmentStroke {
     end: Point2d := points.last()!.clone(),
 }
 
+impl Visualize for LineSegmentStroke:
+    fn visualize():
+        <LineSegment start={this.start} end={this.end} />
+
 impl LineSegmentStroke:
     static fn new(ct: ~RawContour, from: i32, to: i32) -> LineSegmentStroke:
         assert from <= to
@@ -24,9 +28,6 @@ impl LineSegmentStroke:
 
     fn displacement() -> Vector2d:
         self.start.to(self.end)
-
-    visual:
-        <LineSegment start={this.start} end={this.end} />
 
 pub struct LineSegmentSketch {
     contour: ~RawContour,

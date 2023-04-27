@@ -202,11 +202,11 @@ Ok(
                                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 171,
+                                    ast_idx: 172,
                                     ident_token: IdentToken {
                                         ident: `LineSegmentSketch`,
                                         token_idx: TokenIdx(
-                                            161,
+                                            169,
                                         ),
                                     },
                                 },
@@ -239,11 +239,11 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
-                                    ast_idx: 173,
+                                    ast_idx: 174,
                                     ident_token: IdentToken {
                                         ident: `go_right`,
                                         token_idx: TokenIdx(
-                                            348,
+                                            356,
                                         ),
                                     },
                                 },
@@ -276,11 +276,11 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
-                                    ast_idx: 174,
+                                    ast_idx: 175,
                                     ident_token: IdentToken {
                                         ident: `go_left`,
                                         token_idx: TokenIdx(
-                                            445,
+                                            453,
                                         ),
                                     },
                                 },
@@ -313,11 +313,11 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
-                                    ast_idx: 175,
+                                    ast_idx: 176,
                                     ident_token: IdentToken {
                                         ident: `extend_end`,
                                         token_idx: TokenIdx(
-                                            542,
+                                            550,
                                         ),
                                     },
                                 },
@@ -350,11 +350,11 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
-                                    ast_idx: 176,
+                                    ast_idx: 177,
                                     ident_token: IdentToken {
                                         ident: `extend_start`,
                                         token_idx: TokenIdx(
-                                            775,
+                                            783,
                                         ),
                                     },
                                 },
@@ -387,11 +387,11 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
-                                    ast_idx: 177,
+                                    ast_idx: 178,
                                     ident_token: IdentToken {
                                         ident: `find_line_segments`,
                                         token_idx: TokenIdx(
-                                            1041,
+                                            1049,
                                         ),
                                     },
                                 },

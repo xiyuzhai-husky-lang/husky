@@ -2026,11 +2026,11 @@ Ok(
                                                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 171,
+                                                    ast_idx: 172,
                                                     ident_token: IdentToken {
                                                         ident: `LineSegmentSketch`,
                                                         token_idx: TokenIdx(
-                                                            161,
+                                                            169,
                                                         ),
                                                     },
                                                 },
