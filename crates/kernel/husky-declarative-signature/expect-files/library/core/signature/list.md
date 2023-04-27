@@ -53,7 +53,7 @@
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
-                        self_parameter: ExplicitParameterSignature {
+                        self_parameter: ExplicitParameterDeclarativeSignatureTemplate {
                             contract: Pure,
                             ty: ExplicitApplication(
                                 DeclarativeTermExplicitApplication(
@@ -64,7 +64,7 @@
                             ),
                         },
                         nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
-                            parameters: [],
+                            data: [],
                         },
                         return_ty: DeclarativeTerm(`core::num::i32`),
                     },

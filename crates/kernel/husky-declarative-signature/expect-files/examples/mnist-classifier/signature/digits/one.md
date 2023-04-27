@@ -25,8 +25,8 @@
                         data: [],
                     },
                     parameters: ExplicitParameterDeclarativeSignatureTemplates {
-                        parameters: [
-                            ExplicitParameterSignature {
+                        data: [
+                            ExplicitParameterDeclarativeSignatureTemplate {
                                 contract: Pure,
                                 ty: ExplicitApplication(
                                     DeclarativeTermExplicitApplication(
@@ -51,8 +51,8 @@
                         data: [],
                     },
                     parameters: ExplicitParameterDeclarativeSignatureTemplates {
-                        parameters: [
-                            ExplicitParameterSignature {
+                        data: [
+                            ExplicitParameterDeclarativeSignatureTemplate {
                                 contract: Pure,
                                 ty: ExplicitApplication(
                                     DeclarativeTermExplicitApplication(
@@ -77,8 +77,8 @@
                         data: [],
                     },
                     parameters: ExplicitParameterDeclarativeSignatureTemplates {
-                        parameters: [
-                            ExplicitParameterSignature {
+                        data: [
+                            ExplicitParameterDeclarativeSignatureTemplate {
                                 contract: Pure,
                                 ty: ExplicitApplication(
                                     DeclarativeTermExplicitApplication(

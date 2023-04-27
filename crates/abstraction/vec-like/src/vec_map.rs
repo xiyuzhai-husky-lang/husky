@@ -243,6 +243,14 @@ where
         }
     }
 
+    pub fn insert_new_unchecked(&mut self, new: Entry)
+    where
+        K: Copy,
+    {
+        debug_assert!(!self.has(new.key()));
+        self.entries.push(new)
+    }
+
     pub fn insert(&mut self, value: Entry)
     where
         K: Copy,

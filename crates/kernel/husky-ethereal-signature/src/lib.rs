@@ -6,6 +6,7 @@ mod signature;
 
 pub use self::db::*;
 pub use self::error::*;
+pub use self::parameter::*;
 pub use self::signature::*;
 
 use self::parameter::*;

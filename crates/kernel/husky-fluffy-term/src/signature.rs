@@ -1,14 +1,12 @@
 /// a card contains checked information from signature
 mod error;
 mod field;
-mod instantiator;
 mod method;
 
 pub use self::error::*;
 pub use self::field::*;
 pub use self::method::*;
 
-use self::instantiator::*;
 use crate::*;
 use husky_ethereal_signature::*;
 use husky_scope::*;

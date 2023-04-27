@@ -14,10 +14,12 @@ pub(crate) fn trai_for_ty_method_fn_declarative_signature_template(
             None => Contract::Pure,
         };
         match impl_block {
-            ImplBlock::TraitForType(impl_block) => ExplicitParameterSignature::new(
-                contract,
-                impl_block.declarative_signature_template(db)?.ty(db),
-            ),
+            ImplBlock::TraitForType(impl_block) => {
+                ExplicitParameterDeclarativeSignatureTemplate::new(
+                    contract,
+                    impl_block.declarative_signature_template(db)?.ty(db),
+                )
+            }
             ImplBlock::Type(_) | ImplBlock::IllFormed(_) => unreachable!(),
         }
     };
@@ -55,7 +57,7 @@ pub struct TraitForTypeMethodFnDeclarativeSignatureTemplateTemplate {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterDeclarativeSignatures,
     #[return_ref]
-    pub self_parameter: ExplicitParameterSignature,
+    pub self_parameter: ExplicitParameterDeclarativeSignatureTemplate,
     #[return_ref]
     pub nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates,
     pub return_ty: DeclarativeTerm,

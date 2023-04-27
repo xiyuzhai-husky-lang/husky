@@ -7,6 +7,7 @@ use original_error::OriginalError;
 use std::convert::Infallible;
 
 /// composition of option and result
+#[must_use]
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy)]
 pub enum MaybeResult<T, E> {
     JustOk(T),

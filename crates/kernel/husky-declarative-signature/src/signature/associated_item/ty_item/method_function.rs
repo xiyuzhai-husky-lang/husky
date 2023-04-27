@@ -7,7 +7,7 @@ pub struct TypeMethodFunctionDeclarativeSignatureTemplate {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterDeclarativeSignatures,
     #[return_ref]
-    pub self_parameter: ExplicitParameterSignature,
+    pub self_parameter: ExplicitParameterDeclarativeSignatureTemplate,
     #[return_ref]
     pub nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates,
     pub return_ty: DeclarativeTerm,
@@ -30,7 +30,7 @@ pub fn ty_method_function_declarative_signature_template(
             None => Contract::Pure,
         };
         match impl_block {
-            ImplBlock::Type(impl_block) => ExplicitParameterSignature::new(
+            ImplBlock::Type(impl_block) => ExplicitParameterDeclarativeSignatureTemplate::new(
                 contract,
                 impl_block.declarative_signature_template(db)?.ty(db),
             ),

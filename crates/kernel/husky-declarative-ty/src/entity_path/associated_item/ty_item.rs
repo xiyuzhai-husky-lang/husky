@@ -32,7 +32,7 @@ fn ty_associated_fn_path_declarative_ty(
         .parameters(db)
         .iter()
         .copied()
-        .map(ExplicitParameterSignature::into_ritchie_parameter_contracted_ty)
+        .map(ExplicitParameterDeclarativeSignatureTemplate::into_ritchie_parameter_contracted_ty)
         .collect();
     let return_declarative_ty = signature.return_ty(db);
     Ok(curry_from_implicit_parameters(

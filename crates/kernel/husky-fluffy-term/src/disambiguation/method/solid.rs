@@ -24,7 +24,7 @@ impl SolidTerm {
                 Some(base_ty_term) => {
                     indirections.push(FluffyIndirection::Place(*place));
                     JustOk(
-                        ethereal_ty_method_disambiguation(engine.db(), *base_ty_term, ident)?
+                        ethereal_ty_method_disambiguation(engine, *base_ty_term, ident)?
                             .merge(indirections),
                     )
                 }

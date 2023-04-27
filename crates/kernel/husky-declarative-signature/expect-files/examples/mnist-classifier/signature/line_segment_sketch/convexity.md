@@ -7,8 +7,8 @@
                         data: [],
                     },
                     parameters: ExplicitParameterDeclarativeSignatureTemplates {
-                        parameters: [
-                            ExplicitParameterSignature {
+                        data: [
+                            ExplicitParameterDeclarativeSignatureTemplate {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(
@@ -20,7 +20,7 @@
                                     ),
                                 ),
                             },
-                            ExplicitParameterSignature {
+                            ExplicitParameterDeclarativeSignatureTemplate {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(

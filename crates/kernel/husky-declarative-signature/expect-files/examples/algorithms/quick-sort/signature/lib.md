@@ -17,8 +17,8 @@
                         ],
                     },
                     parameters: ExplicitParameterDeclarativeSignatureTemplates {
-                        parameters: [
-                            ExplicitParameterSignature {
+                        data: [
+                            ExplicitParameterDeclarativeSignatureTemplate {
                                 contract: Move,
                                 ty: ExplicitApplication(
                                     DeclarativeTermExplicitApplication(
@@ -53,8 +53,8 @@
                         ],
                     },
                     parameters: ExplicitParameterDeclarativeSignatureTemplates {
-                        parameters: [
-                            ExplicitParameterSignature {
+                        data: [
+                            ExplicitParameterDeclarativeSignatureTemplate {
                                 contract: Move,
                                 ty: ExplicitApplication(
                                     DeclarativeTermExplicitApplication(
@@ -64,7 +64,7 @@
                                     ),
                                 ),
                             },
-                            ExplicitParameterSignature {
+                            ExplicitParameterDeclarativeSignatureTemplate {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(
@@ -76,7 +76,7 @@
                                     ),
                                 ),
                             },
-                            ExplicitParameterSignature {
+                            ExplicitParameterDeclarativeSignatureTemplate {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(
@@ -113,8 +113,8 @@
                         ],
                     },
                     parameters: ExplicitParameterDeclarativeSignatureTemplates {
-                        parameters: [
-                            ExplicitParameterSignature {
+                        data: [
+                            ExplicitParameterDeclarativeSignatureTemplate {
                                 contract: Move,
                                 ty: ExplicitApplication(
                                     DeclarativeTermExplicitApplication(
@@ -124,7 +124,7 @@
                                     ),
                                 ),
                             },
-                            ExplicitParameterSignature {
+                            ExplicitParameterDeclarativeSignatureTemplate {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(
@@ -136,7 +136,7 @@
                                     ),
                                 ),
                             },
-                            ExplicitParameterSignature {
+                            ExplicitParameterDeclarativeSignatureTemplate {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(

@@ -58,19 +58,9 @@ DiagnosticSheet {
                 range: [72:31, 72:35),
             },
             Diagnostic {
-                message: "Type Error: no method named `displacement` for type `FluffyTerm::Solid(SolidTerm(0))`",
-                severity: Error,
-                range: [81:21, 81:33),
-            },
-            Diagnostic {
                 message: "Type Error: TodoSuffix",
                 severity: Error,
                 range: [85:9, 85:14),
-            },
-            Diagnostic {
-                message: "Type Error: no method named `displacement` for type `FluffyTerm::Solid(SolidTerm(0))`",
-                severity: Error,
-                range: [86:17, 86:29),
             },
             Diagnostic {
                 message: "Type Error: TodoSuffix",
@@ -78,29 +68,9 @@ DiagnosticSheet {
                 range: [107:9, 107:14),
             },
             Diagnostic {
-                message: "Type Error: no method named `displacement` for type `FluffyTerm::Solid(SolidTerm(0))`",
-                severity: Error,
-                range: [108:17, 108:29),
-            },
-            Diagnostic {
-                message: "Type Error: no method named `displacement` for type `FluffyTerm::Solid(SolidTerm(0))`",
-                severity: Error,
-                range: [114:22, 114:34),
-            },
-            Diagnostic {
                 message: "Type Error: TodoSuffix",
                 severity: Error,
                 range: [117:9, 117:16),
-            },
-            Diagnostic {
-                message: "Type Error: no method named `displacement` for type `FluffyTerm::Solid(SolidTerm(0))`",
-                severity: Error,
-                range: [118:18, 118:30),
-            },
-            Diagnostic {
-                message: "Type Error: no method named `displacement` for type `FluffyTerm::Solid(SolidTerm(0))`",
-                severity: Error,
-                range: [125:21, 125:33),
             },
             Diagnostic {
                 message: "Type Error: TodoSuffix",

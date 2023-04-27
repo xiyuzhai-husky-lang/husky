@@ -16,6 +16,14 @@ pub struct FluffyMemberDisambiguation<S> {
 }
 
 impl<S> FluffyMemberDisambiguation<S> {
+    pub fn indirections(&self) -> &[FluffyIndirection] {
+        &self.indirections
+    }
+
+    pub fn signature(&self) -> &S {
+        &self.signature
+    }
+
     fn merge(&self, mut indirections: SmallVec<[FluffyIndirection; 2]>) -> Self
     where
         S: Clone,

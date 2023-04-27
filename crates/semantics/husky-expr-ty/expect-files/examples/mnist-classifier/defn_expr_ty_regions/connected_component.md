@@ -5718,7 +5718,7 @@
                                                         ty: Application(
                                                             EtherealTermApplication(
                                                                 Id {
-                                                                    value: 11,
+                                                                    value: 12,
                                                                 },
                                                             ),
                                                         ),
@@ -5747,7 +5747,7 @@
                                         ty: Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 11,
+                                                    value: 12,
                                                 },
                                             ),
                                         ),
@@ -5781,7 +5781,7 @@
                                     expected: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 10,
+                                                value: 11,
                                             },
                                         ),
                                     ),
