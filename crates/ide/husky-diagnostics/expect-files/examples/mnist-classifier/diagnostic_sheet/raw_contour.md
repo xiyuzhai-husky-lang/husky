@@ -78,11 +78,6 @@ DiagnosticSheet {
                 range: [236:33, 236:37),
             },
             Diagnostic {
-                message: "Type Error: TodoSuffix",
-                severity: Error,
-                range: [261:21, 261:37),
-            },
-            Diagnostic {
                 message: "Type Error: no method named `popx` for type `FluffyTerm::Solid(SolidTerm(0))`",
                 severity: Error,
                 range: [263:25, 263:29),

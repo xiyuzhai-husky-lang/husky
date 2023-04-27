@@ -178,10 +178,9 @@ impl<'a> ExprTypeEngine<'a> {
             Expr::Prefix { opr, opd, .. } => {
                 self.calc_prefix_expr_ty(opr, opd, expr_ty_expectation.final_destination(self))
             }
-            Expr::Suffix { opd, opr, .. } => Ok((
-                ExprDisambiguation::Trivial,
-                self.calc_suffix_expr_ty(opd, opr),
-            )),
+            Expr::Suffix { opd, opr, .. } => {
+                self.calc_suffix_expr_ty(opd, opr, expr_ty_expectation.final_destination(self))
+            }
             Expr::ExplicitApplicationOrRitchieCall {
                 function,
                 ref implicit_arguments,

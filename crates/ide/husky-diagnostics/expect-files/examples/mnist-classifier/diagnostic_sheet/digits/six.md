@@ -42,26 +42,6 @@ DiagnosticSheet {
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "Type Error: TodoSuffix",
-                severity: Error,
-                range: [16:9, 21:11),
-            },
-            Diagnostic {
-                message: "Type Error: TodoSuffix",
-                severity: Error,
-                range: [32:13, 36:15),
-            },
-            Diagnostic {
-                message: "Type Error: TodoSuffix",
-                severity: Error,
-                range: [41:9, 48:11),
-            },
-            Diagnostic {
-                message: "Type Error: TodoSuffix",
-                severity: Error,
-                range: [53:5, 57:7),
-            },
-            Diagnostic {
                 message: "type path mismatch: expect core::basic::unit, but got mnist::MnistLabel instead",
                 severity: Error,
                 range: [37:13, 37:28),

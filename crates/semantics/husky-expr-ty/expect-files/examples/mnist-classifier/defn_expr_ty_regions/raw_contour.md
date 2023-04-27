@@ -8483,8 +8483,21 @@
                     (
                         Trivial,
                         Err(
-                            Original(
-                                TodoSuffix,
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                SuffixOperandTypeNotInferred,
                             ),
                         ),
                     ),
