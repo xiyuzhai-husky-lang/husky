@@ -319,12 +319,10 @@ impl<'a> ExprTypeEngine<'a> {
                 self.infer_new_block(stmts, expr_ty_expectation.clone())
                     .ok_or(DerivedExprTypeError::BlockTypeError.into()),
             )),
-            Expr::EmptyHtmlTag {
-                langle_token_idx,
-                function_ident,
-                ref arguments,
-                empty_html_ket,
-            } => todo!(),
+            Expr::EmptyHtmlTag { .. } => Ok((
+                ExprDisambiguation::Trivial,
+                Ok(self.term_menu.html_ty_ontology().into()),
+            )),
             Expr::Err(_) => Err(DerivedExprTypeError::ExprError.into()),
         }
     }

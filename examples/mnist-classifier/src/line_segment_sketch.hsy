@@ -19,7 +19,7 @@ pub struct LineSegmentStroke {
 
 impl Visualize for LineSegmentStroke:
     fn visualize():
-        <LineSegment start={this.start} end={this.end} />
+        <LineSegment {start} {end} />
 
 impl LineSegmentStroke:
     static fn new(ct: ~RawContour, from: i32, to: i32) -> LineSegmentStroke:
@@ -33,6 +33,10 @@ pub struct LineSegmentSketch {
     contour: ~RawContour,
     strokes: []LineSegmentStroke,
 }
+
+impl Visualize for LineSegmentSketch:
+    fn visualize() -> Html:
+        self.strokes.visualize()
 
 impl LineSegmentSketch:
     memo concave_components: []ConcaveComponent =:
@@ -57,9 +61,6 @@ impl LineSegmentSketch:
 
     static fn new(ct: ~RawContour, r: f32) -> LineSegmentSketch:
         LineSegmentSketch(ct, find_line_segments(ct, r))
-
-    visual:
-        this.strokes
 
 fn go_right(u: Vector2d, r: f32) -> Vector2d:
     let L = (u.x*u.x+u.y*u.y).sqrt()

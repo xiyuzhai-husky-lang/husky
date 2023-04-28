@@ -460,23 +460,29 @@ fn right_angle_bracket_token_works() {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = TokenDb)]
-pub struct EmptyHmtlKetToken(TokenIdx);
+pub struct EmptyHtmlKetToken(TokenIdx);
 
-impl<'a, Context> parsec::ParseFromStream<Context> for EmptyHmtlKetToken
+impl EmptyHtmlKetToken {
+    pub fn token_idx(self) -> TokenIdx {
+        self.0
+    }
+}
+
+impl<'a, Context> parsec::ParseFromStream<Context> for EmptyHtmlKetToken
 where
     Context: TokenParseContext<'a>,
 {
     type Error = TokenError;
 
     fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
-        parse_specific_punctuation_from(ctx, Punctuation::EMPTY_HTML_KET, EmptyHmtlKetToken)
+        parse_specific_punctuation_from(ctx, Punctuation::EMPTY_HTML_KET, EmptyHtmlKetToken)
     }
 }
 
 #[test]
 fn empty_html_ket_token_works() {
     let db = DB::default();
-    fn t(db: &DB, input: &str) -> TokenResult<Option<RightAngleBracketToken>> {
+    fn t(db: &DB, input: &str) -> TokenResult<Option<EmptyHtmlKetToken>> {
         quick_parse(db, input)
     }
 

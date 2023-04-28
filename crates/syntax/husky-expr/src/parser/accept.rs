@@ -297,8 +297,8 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
     }
 
     pub(super) fn accept_list_start(&mut self, bra: Bracket, bra_token_idx: TokenIdx) {
-        self.replace_top_expr(|this, finished_expr| {
-            let finished_expr = finished_expr.map(|expr| this.alloc_expr(expr));
+        self.replace_top_expr(|parser, finished_expr| -> TopExpr {
+            let finished_expr = finished_expr.map(|expr| parser.alloc_expr(expr));
             match bra {
                 Bracket::Par => match finished_expr {
                     Some(function) => UnfinishedExpr::List {
@@ -345,20 +345,24 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 Bracket::Curl => todo!(),
                 Bracket::Lambda => todo!(),
                 Bracket::HtmlAngle => {
-                    let Ok(Some(function_ident)) = this.parse() else {
+                    let Ok(Some(function_ident)) = parser.parse() else {
                         todo!()
                     };
-                    let arguments = match parse_consecutive_vec_map(this) {
+                    let arguments = match parse_consecutive_vec_map(parser) {
                         Ok(arguments) => arguments,
                         Err(e) => todo!(),
                     };
-                    Expr::EmptyHtmlTag {
-                        langle_token_idx: bra_token_idx,
-                        function_ident,
-                        arguments,
-                        empty_html_ket: todo!(),
+                    match parser.parse::<EmptyHtmlKetToken>() {
+                        Ok(Some(empty_html_ket)) => Expr::EmptyHtmlTag {
+                            empty_html_bra_idx: bra_token_idx,
+                            function_ident,
+                            arguments,
+                            empty_html_ket,
+                        }
+                        .into(),
+                        Ok(None) => todo!(),
+                        Err(_) => todo!(),
                     }
-                    .into()
                 }
             }
         })

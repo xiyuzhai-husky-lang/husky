@@ -65,6 +65,7 @@ pub struct TermMenu0 {
     f32_ty_ontology: EtherealTerm,
     f64_ty_ontology: EtherealTerm,
     bool_ty_ontology: EtherealTerm,
+    html_ty_ontology: EtherealTerm,
     lifetime_ty_ontology: EtherealTerm,
     trai_ty_ontology: EtherealTerm,
     module_ty_ontology: EtherealTerm,
@@ -154,6 +155,7 @@ impl TermMenu0 {
             r128_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.r128_ty_path()).into(),
             rsize_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.rsize_ty_path())
                 .into(),
+            html_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.html_ty_path()).into(),
             clone_trai: TermEntityPath::Trait(entity_path_menu.clone_trai_path()).into(),
             copy_trai: TermEntityPath::Trait(entity_path_menu.copy_trai_path()).into(),
             default_trai: TermEntityPath::Trait(entity_path_menu.default_trai_path()).into(),
@@ -402,5 +404,9 @@ impl TermMenu0 {
 
     pub fn default_trai(&self) -> EtherealTerm {
         self.default_trai
+    }
+
+    pub fn html_ty_ontology(&self) -> EtherealTerm {
+        self.html_ty_ontology
     }
 }

@@ -217,10 +217,10 @@ pub enum Expr {
     },
     // todo: handle container
     EmptyHtmlTag {
-        langle_token_idx: TokenIdx,
+        empty_html_bra_idx: TokenIdx,
         function_ident: IdentToken,
         arguments: IdentMap<HtmlArgumentExpr>,
-        empty_html_ket: EmptyHmtlKetToken,
+        empty_html_ket: EmptyHtmlKetToken,
     },
     Err(ExprError),
 }

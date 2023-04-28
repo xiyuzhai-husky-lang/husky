@@ -80,7 +80,7 @@
                                     TypeOntologyDeclError {
                                         path: TypePath(
                                             Id {
-                                                value: 82,
+                                                value: 84,
                                             },
                                         ),
                                     },

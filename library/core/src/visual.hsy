@@ -1,2 +1,4 @@
 pub trait Visualize:
     fn visualize() -> Html;
+
+pub extern Html;

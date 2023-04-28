@@ -346,11 +346,22 @@ impl<'a> InferContext<'a> {
                 rpar_token_idx,
             } => todo!(),
             Expr::EmptyHtmlTag {
-                langle_token_idx,
+                empty_html_bra_idx,
                 function_ident,
                 ref arguments,
                 empty_html_ket,
-            } => todo!(),
+            } => {
+                self.sheet
+                    .add(function_ident.token_idx(), TokenInfo::HtmlFunctionIdent);
+                for argument in arguments.iter() {
+                    match argument {
+                        HtmlArgumentExpr::Expanded { property_ident, .. }
+                        | HtmlArgumentExpr::Shortened { property_ident, .. } => self
+                            .sheet
+                            .add(property_ident.token_idx(), TokenInfo::HtmlPropertyIdent),
+                    }
+                }
+            }
         }
     }
 

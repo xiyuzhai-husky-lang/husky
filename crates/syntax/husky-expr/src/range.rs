@@ -311,6 +311,11 @@ impl<'a> ExprRangeCalculator<'a> {
                 TokenIdxRangeEnd::new_after(*rbox_token_idx),
             ),
             Expr::Block { stmts } => self.calc_block_range(*stmts),
+            Expr::EmptyHtmlTag {
+                empty_html_bra_idx,
+                empty_html_ket,
+                ..
+            } => TokenIdxRange::new_closed(*empty_html_bra_idx, empty_html_ket.token_idx()),
             Expr::Err(error) => match error {
                 ExprError::Original(error) => match error {
                     OriginalExprError::MismatchingBracket {
@@ -375,12 +380,14 @@ impl<'a> ExprRangeCalculator<'a> {
                     }
                     | OriginalExprError::ExpectedExprBeforeDot {
                         dot_token_idx: token_idx,
-                    } => TokenIdxRange::new_single(*token_idx),
+                    }
+                    | OriginalExprError::HtmlTodo(token_idx) => {
+                        TokenIdxRange::new_single(*token_idx)
+                    }
                     OriginalExprError::ExpectBlock(_) => todo!(),
                 },
                 ExprError::Derived(_) => todo!(),
             },
-            Expr::EmptyHtmlTag { .. } => todo!(),
         }
     }
 

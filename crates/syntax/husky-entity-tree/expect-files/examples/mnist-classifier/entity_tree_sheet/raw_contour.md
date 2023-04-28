@@ -856,11 +856,11 @@ Ok(
                                         FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 126,
+                                    ast_idx: 127,
                                     ident_token: IdentToken {
                                         ident: `find_connected_components`,
                                         token_idx: TokenIdx(
-                                            646,
+                                            662,
                                         ),
                                     },
                                 },
@@ -930,7 +930,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `LineSegmentSketch`,
                                         token_idx: TokenIdx(
-                                            169,
+                                            161,
                                         ),
                                     },
                                 },
@@ -1607,7 +1607,7 @@ Ok(
                             38,
                         ),
                     },
-                    ty_expr: 1,
+                    ty_expr: 3,
                     body: Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(

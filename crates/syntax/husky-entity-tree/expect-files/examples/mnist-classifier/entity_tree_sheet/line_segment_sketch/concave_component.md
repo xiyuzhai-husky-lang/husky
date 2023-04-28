@@ -505,7 +505,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `LineSegmentSketch`,
                                         token_idx: TokenIdx(
-                                            169,
+                                            161,
                                         ),
                                     },
                                 },
@@ -538,11 +538,11 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
-                                    ast_idx: 174,
+                                    ast_idx: 175,
                                     ident_token: IdentToken {
                                         ident: `go_right`,
                                         token_idx: TokenIdx(
-                                            356,
+                                            362,
                                         ),
                                     },
                                 },
@@ -575,11 +575,11 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
-                                    ast_idx: 175,
+                                    ast_idx: 176,
                                     ident_token: IdentToken {
                                         ident: `go_left`,
                                         token_idx: TokenIdx(
-                                            453,
+                                            459,
                                         ),
                                     },
                                 },
@@ -612,11 +612,11 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
-                                    ast_idx: 176,
+                                    ast_idx: 177,
                                     ident_token: IdentToken {
                                         ident: `extend_end`,
                                         token_idx: TokenIdx(
-                                            550,
+                                            556,
                                         ),
                                     },
                                 },
@@ -649,11 +649,11 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
-                                    ast_idx: 177,
+                                    ast_idx: 178,
                                     ident_token: IdentToken {
                                         ident: `extend_start`,
                                         token_idx: TokenIdx(
-                                            783,
+                                            789,
                                         ),
                                     },
                                 },
@@ -686,11 +686,11 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
-                                    ast_idx: 178,
+                                    ast_idx: 179,
                                     ident_token: IdentToken {
                                         ident: `find_line_segments`,
                                         token_idx: TokenIdx(
-                                            1049,
+                                            1055,
                                         ),
                                     },
                                 },
@@ -1811,11 +1811,11 @@ Ok(
                                                 FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
                                             ),
                                             visibility: Scope::Pub,
-                                            ast_idx: 126,
+                                            ast_idx: 127,
                                             ident_token: IdentToken {
                                                 ident: `find_connected_components`,
                                                 token_idx: TokenIdx(
-                                                    646,
+                                                    662,
                                                 ),
                                             },
                                         },
@@ -1896,7 +1896,7 @@ Ok(
                             49,
                         ),
                     },
-                    ty_expr: 9,
+                    ty_expr: 15,
                     body: Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(

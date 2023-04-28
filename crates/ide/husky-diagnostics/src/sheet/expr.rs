@@ -168,6 +168,9 @@ impl Diagnose for OriginalExprError {
             OriginalExprError::ExpectedExprBeforeDot { .. } => {
                 format!("Syntax Error: ExpectedExprBeforeDot")
             }
+            OriginalExprError::HtmlTodo(_) => {
+                format!("Syntax Error: HtmlTodo")
+            }
         }
     }
 
@@ -241,7 +244,8 @@ impl Diagnose for OriginalExprError {
             }
             | OriginalExprError::ExpectedExprBeforeDot {
                 dot_token_idx: token_idx,
-            } => ctx.token_text_range(*token_idx),
+            }
+            | OriginalExprError::HtmlTodo(token_idx) => ctx.token_text_range(*token_idx),
             OriginalExprError::ExpectBlock(_) => todo!(),
         }
     }

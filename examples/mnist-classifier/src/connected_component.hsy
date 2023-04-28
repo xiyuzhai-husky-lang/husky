@@ -22,6 +22,10 @@ pub struct ConnectedComponent {
     mask: BinaryImage28
 }
 
+impl Visualize for ConnectedComponent:
+    fn visualize() -> Html:
+        self.mask.visualize()
+
 impl ConnectedComponent:
     memo raw_contours: []RawContour =:
         find_raw_contours(self)
@@ -110,9 +114,6 @@ impl ConnectedComponent:
         for i <= j < i + k:
             top_k_row_span_sum += self.mask[j].right_mass()
         return top_k_row_span_sum as f32
-
-    visual:
-        mask
 
 fn horizontal_extend(a: r32, x: r32) -> r32:
     let mut y = a & (x | (x << 1) | (x >> 1))

@@ -33,6 +33,8 @@ pub enum TokenInfo {
         rule_idx: UseExprRuleIdx,
         state: UseExprRuleState,
     },
+    HtmlFunctionIdent,
+    HtmlPropertyIdent,
 }
 
 /// the purpose is to avoid extra debug with db in expr region

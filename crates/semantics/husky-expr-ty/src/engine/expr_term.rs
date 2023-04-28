@@ -95,7 +95,7 @@ impl<'a> ExprTypeEngine<'a> {
                 rbox_token_idx,
             } => Err(todo!()),
             Expr::EmptyHtmlTag {
-                langle_token_idx,
+                empty_html_bra_idx: langle_token_idx,
                 function_ident,
                 ref arguments,
                 empty_html_ket,

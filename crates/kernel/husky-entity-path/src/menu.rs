@@ -70,6 +70,7 @@ pub struct EntityPathMenu {
     u64_ty_path: TypePath,
     u128_ty_path: TypePath,
     usize_ty_path: TypePath,
+    html_ty_path: TypePath,
     trai_ty_path: TypePath,
     lifetime_ty_path: TypePath,
     module_ty_path: TypePath,
@@ -91,6 +92,7 @@ impl EntityPathMenu {
         let core_raw_bits = path_menu.core_raw_bits();
         let core_mem = path_menu.core_mem();
         let core_list = path_menu.core_list();
+        let core_visual = path_menu.core_visual();
         let option_ty_path = TypePath::new(
             db,
             core_option,
@@ -270,6 +272,13 @@ impl EntityPathMenu {
             db,
             core_basic,
             ident_menu.module_ident(),
+            ModuleItemConnection::Connected,
+            TypeKind::Extern,
+        );
+        let html_ty_path = TypePath::new(
+            db,
+            core_visual,
+            db.it_ident_borrowed("Html").unwrap(),
             ModuleItemConnection::Connected,
             TypeKind::Extern,
         );
@@ -464,6 +473,7 @@ impl EntityPathMenu {
             str_ty_path,
             ref_ty_path,
             ref_mut_ty_path,
+            html_ty_path,
             list_ty_path,
             leash_ty_path,
             core_ops_add,
@@ -688,6 +698,10 @@ impl EntityPathMenu {
 
     pub fn default_trai_path(&self) -> TraitPath {
         self.default_trai_path
+    }
+
+    pub fn html_ty_path(&self) -> TypePath {
+        self.html_ty_path
     }
 }
 
