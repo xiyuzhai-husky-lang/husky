@@ -382,6 +382,48 @@
     ),
     Ok(
         SignatureTemplate::ImplBlock(
+            ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
+                TraitForTypeImplBlockDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                        data: [],
+                    },
+                    trai: DeclarativeTerm(`core::visual::Visualize`),
+                    ty: DeclarativeTerm(`mnist_classifier::raw_contour::RawContour`),
+                },
+            ),
+        ),
+    ),
+    Ok(
+        SignatureTemplate::AssociatedItem(
+            AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
+                TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
+                    TraitForTypeMethodFnDeclarativeSignatureTemplateTemplate {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                            data: [],
+                        },
+                        self_parameter: ExplicitParameterDeclarativeSignatureTemplate {
+                            contract: Pure,
+                            ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 75,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            data: [],
+                        },
+                        return_ty: DeclarativeTerm(`core::visual::Html`),
+                    },
+                ),
+            ),
+        ),
+    ),
+    Ok(
+        SignatureTemplate::ImplBlock(
             ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                 TypeImplBlockDeclarativeSignatureTemplate {
                     implicit_parameters: ImplicitParameterDeclarativeSignatures {

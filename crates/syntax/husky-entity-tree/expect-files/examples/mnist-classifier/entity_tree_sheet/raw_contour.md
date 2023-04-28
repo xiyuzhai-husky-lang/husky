@@ -35,11 +35,11 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 205,
+                            ast_idx: 206,
                             ident_token: IdentToken {
                                 ident: `Direction`,
                                 token_idx: TokenIdx(
-                                    391,
+                                    401,
                                 ),
                             },
                         },
@@ -58,11 +58,11 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 206,
+                            ast_idx: 207,
                             ident_token: IdentToken {
                                 ident: `get_pixel_pair`,
                                 token_idx: TokenIdx(
-                                    401,
+                                    411,
                                 ),
                             },
                         },
@@ -81,11 +81,11 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 207,
+                            ast_idx: 208,
                             ident_token: IdentToken {
                                 ident: `get_pixel_to_the_left`,
                                 token_idx: TokenIdx(
-                                    426,
+                                    436,
                                 ),
                             },
                         },
@@ -104,11 +104,11 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 208,
+                            ast_idx: 209,
                             ident_token: IdentToken {
                                 ident: `get_pixel_to_the_right`,
                                 token_idx: TokenIdx(
-                                    447,
+                                    457,
                                 ),
                             },
                         },
@@ -127,11 +127,11 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 209,
+                            ast_idx: 210,
                             ident_token: IdentToken {
                                 ident: `get_inward_direction`,
                                 token_idx: TokenIdx(
-                                    472,
+                                    482,
                                 ),
                             },
                         },
@@ -150,11 +150,11 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 210,
+                            ast_idx: 211,
                             ident_token: IdentToken {
                                 ident: `get_angle_change`,
                                 token_idx: TokenIdx(
-                                    618,
+                                    628,
                                 ),
                             },
                         },
@@ -173,11 +173,11 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 211,
+                            ast_idx: 212,
                             ident_token: IdentToken {
                                 ident: `get_outward_direction`,
                                 token_idx: TokenIdx(
-                                    682,
+                                    692,
                                 ),
                             },
                         },
@@ -196,11 +196,11 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 212,
+                            ast_idx: 213,
                             ident_token: IdentToken {
                                 ident: `StreakCache`,
                                 token_idx: TokenIdx(
-                                    909,
+                                    919,
                                 ),
                             },
                         },
@@ -219,11 +219,11 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 213,
+                            ast_idx: 214,
                             ident_token: IdentToken {
                                 ident: `get_concave_middle_point`,
                                 token_idx: TokenIdx(
-                                    921,
+                                    931,
                                 ),
                             },
                         },
@@ -238,11 +238,11 @@ Ok(
                                 FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 214,
+                            ast_idx: 215,
                             ident_token: IdentToken {
                                 ident: `find_raw_contours`,
                                 token_idx: TokenIdx(
-                                    987,
+                                    997,
                                 ),
                             },
                         },
@@ -1594,10 +1594,11 @@ Ok(
             ],
         ),
         impl_blocks: [
-            ImplBlock::Type(
-                TypeImplBlock {
-                    id: TypeImplBlockId {
+            ImplBlock::TraitForType(
+                TraitForTypeImplBlock {
+                    id: TraitForTypeImplBlockId {
                         module_path: `mnist_classifier::raw_contour`,
+                        trai_path: TraitPath(`core::visual::Visualize`),
                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                         disambiguator: 0,
                     },
@@ -1607,11 +1608,38 @@ Ok(
                             38,
                         ),
                     },
-                    ty_expr: 3,
+                    trai_expr: 3,
+                    for_token: TokenIdx(
+                        40,
+                    ),
+                    ty_expr: 4,
+                    body: TraitForType(
+                        TraitForTypeItems {
+                            ast_idx_range: ArenaIdxRange(
+                                1..2,
+                            ),
+                        },
+                    ),
+                },
+            ),
+            ImplBlock::Type(
+                TypeImplBlock {
+                    id: TypeImplBlockId {
+                        module_path: `mnist_classifier::raw_contour`,
+                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                        disambiguator: 0,
+                    },
+                    ast_idx: 205,
+                    impl_token: ImplToken {
+                        token_idx: TokenIdx(
+                            60,
+                        ),
+                    },
+                    ty_expr: 5,
                     body: Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                27..34,
+                                29..34,
                             ),
                         },
                     ),

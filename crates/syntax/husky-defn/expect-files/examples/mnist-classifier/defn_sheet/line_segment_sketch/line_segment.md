@@ -215,7 +215,7 @@ Ok(
                                             19,
                                         ),
                                     },
-                                    ty_expr: 20,
+                                    ty_expr: 22,
                                     body: Type(
                                         TypeItems {
                                             ast_idx_range: ArenaIdxRange(
@@ -405,7 +405,7 @@ Ok(
                                                             19,
                                                         ),
                                                     },
-                                                    ty_expr: 20,
+                                                    ty_expr: 22,
                                                     body: Type(
                                                         TypeItems {
                                                             ast_idx_range: ArenaIdxRange(
@@ -1011,7 +1011,7 @@ Ok(
                                                             19,
                                                         ),
                                                     },
-                                                    ty_expr: 20,
+                                                    ty_expr: 22,
                                                     body: Type(
                                                         TypeItems {
                                                             ast_idx_range: ArenaIdxRange(
