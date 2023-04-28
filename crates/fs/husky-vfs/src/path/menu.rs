@@ -12,6 +12,7 @@ pub struct VfsPathMenu {
     core_basic: ModulePath,
     core_clone: ModulePath,
     core_default: ModulePath,
+    core_list: ModulePath,
     core_marker: ModulePath,
     core_mem: ModulePath,
     /// core::num
@@ -22,7 +23,7 @@ pub struct VfsPathMenu {
     core_option: ModulePath,
     core_prelude: ModulePath,
     core_raw_bits: ModulePath,
-    core_list: ModulePath,
+    core_visual: ModulePath,
 }
 
 #[salsa::tracked(jar = VfsJar, return_ref)]
@@ -55,6 +56,7 @@ impl VfsPathMenu {
             ModulePath::new_child(db, core, db.it_ident_borrowed("raw_bits").unwrap());
         let core_slice = ModulePath::new_child(db, core, db.it_ident_borrowed("slice").unwrap());
         let core_str = ModulePath::new_child(db, core, db.it_ident_borrowed("str").unwrap());
+        let core_visual = ModulePath::new_child(db, core, db.it_ident_borrowed("visual").unwrap());
         Self {
             core_package,
             std_package,
@@ -75,6 +77,7 @@ impl VfsPathMenu {
             core_slice,
             core_str,
             core_list,
+            core_visual,
         }
     }
 
@@ -130,9 +133,14 @@ impl VfsPathMenu {
         self.core_raw_bits
     }
 
-    /// core::vec
+    /// core::list
     pub fn core_list(&self) -> ModulePath {
         self.core_list
+    }
+
+    /// core::visual
+    pub fn core_visual(&self) -> ModulePath {
+        self.core_visual
     }
 
     pub fn std(&self) -> ModulePath {
@@ -180,4 +188,5 @@ fn vfs_path_menu_works() {
         "core::raw_bits"
     );
     assert_eq!(menu.core_list().to_string_with_db(&db), "core::list");
+    assert_eq!(menu.core_visual().to_string_with_db(&db), "core::visual");
 }

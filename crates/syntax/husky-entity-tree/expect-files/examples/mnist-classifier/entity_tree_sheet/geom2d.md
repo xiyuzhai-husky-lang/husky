@@ -133,7 +133,7 @@ Ok(
                             13,
                         ),
                     },
-                    ty_expr: 2,
+                    ty_expr: 4,
                     body: Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
@@ -156,7 +156,7 @@ Ok(
                             168,
                         ),
                     },
-                    ty_expr: 3,
+                    ty_expr: 5,
                     body: Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
@@ -179,7 +179,7 @@ Ok(
                             499,
                         ),
                     },
-                    ty_expr: 4,
+                    ty_expr: 6,
                     body: Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
@@ -202,7 +202,7 @@ Ok(
                             609,
                         ),
                     },
-                    ty_expr: 5,
+                    ty_expr: 7,
                     body: Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
@@ -225,7 +225,7 @@ Ok(
                             743,
                         ),
                     },
-                    ty_expr: 6,
+                    ty_expr: 8,
                     body: Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(

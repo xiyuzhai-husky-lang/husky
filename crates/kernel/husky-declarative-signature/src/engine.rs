@@ -418,7 +418,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                 rpar_token_idx,
             } => todo!(),
             Expr::EmptyHtmlTag {
-                langle_token_idx,
+                empty_html_bra_idx: langle_token_idx,
                 function_ident,
                 ref arguments,
                 empty_html_ket,

@@ -7,18 +7,7 @@ DiagnosticSheet {
         diagnostics: [],
     },
     ast_diagnostic_sheet: AstDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Syntax Error: unexpected stmt inside impl",
-                severity: Error,
-                range: [114:5, 114:12),
-            },
-            Diagnostic {
-                message: "Syntax Error: excessive indent",
-                severity: Error,
-                range: [115:9, 115:13),
-            },
-        ],
+        diagnostics: [],
     },
     expr_diagnostic_sheet: ExprDiagnosticSheet {
         diagnostics: [
@@ -30,12 +19,12 @@ DiagnosticSheet {
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [125:39, 125:52),
+                range: [126:39, 126:52),
             },
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [132:28, 132:41),
+                range: [133:28, 133:41),
             },
         ],
     },
@@ -50,7 +39,7 @@ DiagnosticSheet {
             Diagnostic {
                 message: "type path mismatch: expect core::option::Option, but got core::mem::Leash instead",
                 severity: Error,
-                range: [36:25, 36:32),
+                range: [40:25, 40:32),
             },
         ],
     },

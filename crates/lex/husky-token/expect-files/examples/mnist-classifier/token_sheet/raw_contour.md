@@ -1890,7 +1890,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::XmlKet,
+                    PunctuationMapped::EmptyHtmlKet,
                 ),
             ),
             Token::Keyword(

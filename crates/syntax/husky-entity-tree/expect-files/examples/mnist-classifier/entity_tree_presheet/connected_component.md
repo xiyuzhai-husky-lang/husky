@@ -96,11 +96,11 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::connected_component`,
                             ),
-                            ast_idx: 125,
+                            ast_idx: 126,
                             ident_token: IdentToken {
                                 ident: `horizontal_extend`,
                                 token_idx: TokenIdx(
-                                    560,
+                                    576,
                                 ),
                             },
                         },
@@ -115,11 +115,11 @@ Ok(
                                 FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 126,
+                            ast_idx: 127,
                             ident_token: IdentToken {
                                 ident: `find_connected_components`,
                                 token_idx: TokenIdx(
-                                    646,
+                                    662,
                                 ),
                             },
                         },

@@ -119,6 +119,8 @@ impl<'a> HoverResultCalculator<'a> {
             TokenInfo::UseExprStar => format!("use expr star"),
             TokenInfo::SelfType => format!("self type"),
             TokenInfo::SelfValue => format!("self value"),
+            TokenInfo::HtmlFunctionIdent => format!("html function ident"),
+            TokenInfo::HtmlPropertyIdent => format!("html property ident"),
         };
         format!(
             r#"

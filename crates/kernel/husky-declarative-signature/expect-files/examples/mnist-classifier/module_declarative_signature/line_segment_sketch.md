@@ -35,7 +35,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 78,
+                                                value: 80,
                                             },
                                         ),
                                     ),
@@ -47,7 +47,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 54,
+                                                value: 55,
                                             },
                                         ),
                                     ),
@@ -75,7 +75,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 78,
+                                                value: 80,
                                             },
                                         ),
                                     ),
@@ -87,7 +87,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 54,
+                                                value: 55,
                                             },
                                         ),
                                     ),
@@ -125,7 +125,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 44,
+                                                value: 45,
                                             },
                                         ),
                                     ),
@@ -137,7 +137,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 54,
+                                                value: 55,
                                             },
                                         ),
                                     ),
@@ -175,7 +175,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 44,
+                                                value: 45,
                                             },
                                         ),
                                     ),
@@ -187,7 +187,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 44,
+                                                value: 45,
                                             },
                                         ),
                                     ),
@@ -199,7 +199,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 54,
+                                                value: 55,
                                             },
                                         ),
                                     ),
@@ -237,7 +237,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 54,
+                                                value: 55,
                                             },
                                         ),
                                     ),
@@ -277,7 +277,7 @@
                                 Type(
                                     TypePath(
                                         Id {
-                                            value: 82,
+                                            value: 84,
                                         },
                                     ),
                                 ),
@@ -330,7 +330,7 @@
                                         Type(
                                             TypePath(
                                                 Id {
-                                                    value: 44,
+                                                    value: 45,
                                                 },
                                             ),
                                         ),
@@ -342,7 +342,7 @@
                                         Type(
                                             TypePath(
                                                 Id {
-                                                    value: 44,
+                                                    value: 45,
                                                 },
                                             ),
                                         ),
@@ -371,7 +371,7 @@
                                 Type(
                                     TypePath(
                                         Id {
-                                            value: 82,
+                                            value: 84,
                                         },
                                     ),
                                 ),
@@ -381,6 +381,48 @@
                             data: [],
                         },
                         return_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
+                    },
+                ),
+            ),
+        ),
+    ),
+    Ok(
+        SignatureTemplate::ImplBlock(
+            ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
+                TraitForTypeImplBlockDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                        data: [],
+                    },
+                    trai: DeclarativeTerm(`core::visual::Visualize`),
+                    ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
+                },
+            ),
+        ),
+    ),
+    Ok(
+        SignatureTemplate::AssociatedItem(
+            AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
+                TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
+                    TraitForTypeMethodFnDeclarativeSignatureTemplateTemplate {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                            data: [],
+                        },
+                        self_parameter: ExplicitParameterDeclarativeSignatureTemplate {
+                            contract: Pure,
+                            ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 85,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            data: [],
+                        },
+                        return_ty: DeclarativeTerm(`core::visual::Html`),
                     },
                 ),
             ),
@@ -446,7 +488,7 @@
                                         Type(
                                             TypePath(
                                                 Id {
-                                                    value: 54,
+                                                    value: 55,
                                                 },
                                             ),
                                         ),

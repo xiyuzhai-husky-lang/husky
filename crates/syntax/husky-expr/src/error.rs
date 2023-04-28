@@ -112,6 +112,8 @@ pub enum OriginalExprError {
     ExpectedIdentAfterDot { dot_token_idx: TokenIdx },
     #[error("ExpectedExprBeforeDot")]
     ExpectedExprBeforeDot { dot_token_idx: TokenIdx },
+    #[error("HtmlTodo")]
+    HtmlTodo(TokenIdx),
 }
 
 impl OriginalError for OriginalExprError {

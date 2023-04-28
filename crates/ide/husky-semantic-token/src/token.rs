@@ -44,6 +44,8 @@ pub enum SemanticToken {
     WordOpr,
     SelfType,
     SelfValue,
+    HtmlFunctionIdent,
+    HtmlPropertyIdent,
 }
 
 impl SemanticToken {
@@ -117,6 +119,8 @@ impl SemanticToken {
             SemanticToken::WordOpr => ext::SemanticTokenType::KEYWORD,
             SemanticToken::SelfType => ext::SemanticTokenType::TYPE,
             SemanticToken::SelfValue => ext::SemanticTokenType::KEYWORD,
+            SemanticToken::HtmlFunctionIdent => ext::SemanticTokenType::FUNCTION,
+            SemanticToken::HtmlPropertyIdent => ext::SemanticTokenType::PROPERTY,
         })
     }
 

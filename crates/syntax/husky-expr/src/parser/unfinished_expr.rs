@@ -38,7 +38,23 @@ impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for HtmlArgumentExpr {
     fn parse_from_without_guaranteed_rollback(
         sp: &mut ExprParseContext<'a, 'b>,
     ) -> Result<Option<Self>, Self::Error> {
-        todo!()
+        if let Some(lcurl) = sp.parse::<LeftCurlyBraceToken>()? {
+            Ok(Some(HtmlArgumentExpr::Shortened {
+                lcurl,
+                property_ident: sp.parse_expected(OriginalExprError::HtmlTodo)?,
+                rcurl: sp.parse_expected(OriginalExprError::HtmlTodo)?,
+            }))
+        } else if let Some(argument_ident) = sp.parse::<IdentToken>()? {
+            Ok(Some(HtmlArgumentExpr::Expanded {
+                property_ident: argument_ident,
+                eq: sp.parse_expected(OriginalExprError::HtmlTodo)?,
+                lcurl: sp.parse_expected(OriginalExprError::HtmlTodo)?,
+                expr: sp.parse_expr_expected2(None, OriginalExprError::HtmlTodo),
+                rcurl: sp.parse_expected(OriginalExprError::HtmlTodo)?,
+            }))
+        } else {
+            Ok(None)
+        }
     }
 }
 

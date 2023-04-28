@@ -1,7 +1,83 @@
 Ok(
     TokenSheetData {
-        tokens: [],
-        group_starts: [],
-        indents: [],
+        tokens: [
+            Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
+                Keyword::Trait,
+            ),
+            Token::Ident(
+                `Visualize`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Colon,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Form(
+                    Fn,
+                ),
+            ),
+            Token::Ident(
+                `visualize`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        Curry,
+                    ),
+                ),
+            ),
+            Token::Ident(
+                `Html`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Semicolon,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
+                Keyword::TypeEntity(
+                    Extern,
+                ),
+            ),
+            Token::Ident(
+                `Html`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Semicolon,
+                ),
+            ),
+        ],
+        group_starts: [
+            0,
+            4,
+            11,
+        ],
+        indents: [
+            0,
+            4,
+            0,
+        ],
     },
 )

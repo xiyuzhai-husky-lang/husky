@@ -655,6 +655,68 @@ Ok(
                     ),
                 },
                 EntitySymbolEntry {
+                    ident: `Visualize`,
+                    visibility: Scope::Pub,
+                    symbol: EntitySymbol::Use(
+                        UseSymbol {
+                            original_symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Trait(
+                                        TraitPath(`core::visual::Visualize`),
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 1,
+                                    ident_token: IdentToken {
+                                        ident: `Visualize`,
+                                        token_idx: TokenIdx(
+                                            2,
+                                        ),
+                                    },
+                                },
+                            ),
+                            path: EntityPath::ModuleItem(
+                                ModuleItemPath::Trait(
+                                    TraitPath(`core::visual::Visualize`),
+                                ),
+                            ),
+                            visibility: Scope::Pub,
+                            ast_idx: 4,
+                            use_expr_idx: 12,
+                        },
+                    ),
+                },
+                EntitySymbolEntry {
+                    ident: `Html`,
+                    visibility: Scope::Pub,
+                    symbol: EntitySymbol::Use(
+                        UseSymbol {
+                            original_symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Type(
+                                        TypePath(`core::visual::Html`, `Extern`),
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 2,
+                                    ident_token: IdentToken {
+                                        ident: `Html`,
+                                        token_idx: TokenIdx(
+                                            13,
+                                        ),
+                                    },
+                                },
+                            ),
+                            path: EntityPath::ModuleItem(
+                                ModuleItemPath::Type(
+                                    TypePath(`core::visual::Html`, `Extern`),
+                                ),
+                            ),
+                            visibility: Scope::Pub,
+                            ast_idx: 4,
+                            use_expr_idx: 12,
+                        },
+                    ),
+                },
+                EntitySymbolEntry {
                     ident: `Copy`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::Use(
@@ -1416,7 +1478,7 @@ Ok(
                     ast_idx: 4,
                     use_expr_idx: 12,
                     visibility: Scope::Pub,
-                    progress: 0,
+                    progress: 2,
                 },
                 UseAllRule {
                     parent: KinshipedModulePath {

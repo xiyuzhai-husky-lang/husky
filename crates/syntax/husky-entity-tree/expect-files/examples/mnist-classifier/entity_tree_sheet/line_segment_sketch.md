@@ -119,7 +119,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `LineSegmentSketch`,
                                 token_idx: TokenIdx(
-                                    169,
+                                    161,
                                 ),
                             },
                         },
@@ -138,11 +138,11 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            ast_idx: 174,
+                            ast_idx: 175,
                             ident_token: IdentToken {
                                 ident: `go_right`,
                                 token_idx: TokenIdx(
-                                    356,
+                                    362,
                                 ),
                             },
                         },
@@ -161,11 +161,11 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            ast_idx: 175,
+                            ast_idx: 176,
                             ident_token: IdentToken {
                                 ident: `go_left`,
                                 token_idx: TokenIdx(
-                                    453,
+                                    459,
                                 ),
                             },
                         },
@@ -184,11 +184,11 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            ast_idx: 176,
+                            ast_idx: 177,
                             ident_token: IdentToken {
                                 ident: `extend_end`,
                                 token_idx: TokenIdx(
-                                    550,
+                                    556,
                                 ),
                             },
                         },
@@ -207,11 +207,11 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            ast_idx: 177,
+                            ast_idx: 178,
                             ident_token: IdentToken {
                                 ident: `extend_start`,
                                 token_idx: TokenIdx(
-                                    783,
+                                    789,
                                 ),
                             },
                         },
@@ -230,11 +230,11 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            ast_idx: 178,
+                            ast_idx: 179,
                             ident_token: IdentToken {
                                 ident: `find_line_segments`,
                                 token_idx: TokenIdx(
-                                    1049,
+                                    1055,
                                 ),
                             },
                         },
@@ -581,36 +581,31 @@ Ok(
             ],
         ),
         impl_blocks: [
-            ImplBlock::IllFormed(
-                IllFormedImplBlock {
-                    id: IllFormedImplBlockId {
-                        module: `mnist_classifier::line_segment_sketch`,
+            ImplBlock::TraitForType(
+                TraitForTypeImplBlock {
+                    id: TraitForTypeImplBlockId {
+                        module_path: `mnist_classifier::line_segment_sketch`,
+                        trai_path: TraitPath(`core::visual::Visualize`),
+                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                         disambiguator: 0,
                     },
+                    ast_idx: 170,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             81,
                         ),
                     },
-                    ast_idx: 170,
+                    trai_expr: 9,
+                    for_token: TokenIdx(
+                        83,
+                    ),
+                    ty_expr: 10,
                     body: TraitForType(
                         TraitForTypeItems {
                             ast_idx_range: ArenaIdxRange(
                                 1..2,
                             ),
                         },
-                    ),
-                    ill_form: ImplBlockIllForm::MajorPath(
-                        MajorPathExprError::Original(
-                            OriginalMajorPathExprError::UnrecognizedIdent(
-                                IdentToken {
-                                    ident: `Visualize`,
-                                    token_idx: TokenIdx(
-                                        82,
-                                    ),
-                                },
-                            ),
-                        ),
                     ),
                 },
             ),
@@ -624,14 +619,42 @@ Ok(
                     ast_idx: 171,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            108,
+                            100,
                         ),
                     },
-                    ty_expr: 7,
+                    ty_expr: 11,
                     body: Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
                                 5..7,
+                            ),
+                        },
+                    ),
+                },
+            ),
+            ImplBlock::TraitForType(
+                TraitForTypeImplBlock {
+                    id: TraitForTypeImplBlockId {
+                        module_path: `mnist_classifier::line_segment_sketch`,
+                        trai_path: TraitPath(`core::visual::Visualize`),
+                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                        disambiguator: 0,
+                    },
+                    ast_idx: 173,
+                    impl_token: ImplToken {
+                        token_idx: TokenIdx(
+                            175,
+                        ),
+                    },
+                    trai_expr: 12,
+                    for_token: TokenIdx(
+                        177,
+                    ),
+                    ty_expr: 13,
+                    body: TraitForType(
+                        TraitForTypeItems {
+                            ast_idx_range: ArenaIdxRange(
+                                8..9,
                             ),
                         },
                     ),
@@ -644,17 +667,17 @@ Ok(
                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                         disambiguator: 0,
                     },
-                    ast_idx: 173,
+                    ast_idx: 174,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            183,
+                            194,
                         ),
                     },
-                    ty_expr: 8,
+                    ty_expr: 14,
                     body: Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                21..26,
+                                23..26,
                             ),
                         },
                     ),

@@ -210,7 +210,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `LineSegmentSketch`,
                                         token_idx: TokenIdx(
-                                            169,
+                                            161,
                                         ),
                                     },
                                 },
@@ -243,11 +243,11 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
-                                    ast_idx: 174,
+                                    ast_idx: 175,
                                     ident_token: IdentToken {
                                         ident: `go_right`,
                                         token_idx: TokenIdx(
-                                            356,
+                                            362,
                                         ),
                                     },
                                 },
@@ -280,11 +280,11 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
-                                    ast_idx: 175,
+                                    ast_idx: 176,
                                     ident_token: IdentToken {
                                         ident: `go_left`,
                                         token_idx: TokenIdx(
-                                            453,
+                                            459,
                                         ),
                                     },
                                 },
@@ -317,11 +317,11 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
-                                    ast_idx: 176,
+                                    ast_idx: 177,
                                     ident_token: IdentToken {
                                         ident: `extend_end`,
                                         token_idx: TokenIdx(
-                                            550,
+                                            556,
                                         ),
                                     },
                                 },
@@ -354,11 +354,11 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
-                                    ast_idx: 177,
+                                    ast_idx: 178,
                                     ident_token: IdentToken {
                                         ident: `extend_start`,
                                         token_idx: TokenIdx(
-                                            783,
+                                            789,
                                         ),
                                     },
                                 },
@@ -391,11 +391,11 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
-                                    ast_idx: 178,
+                                    ast_idx: 179,
                                     ident_token: IdentToken {
                                         ident: `find_line_segments`,
                                         token_idx: TokenIdx(
-                                            1049,
+                                            1055,
                                         ),
                                     },
                                 },
@@ -913,7 +913,7 @@ Ok(
                             22,
                         ),
                     },
-                    ty_expr: 10,
+                    ty_expr: 16,
                     body: Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(

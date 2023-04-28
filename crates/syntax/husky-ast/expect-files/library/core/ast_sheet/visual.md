@@ -78,10 +78,49 @@ Ok(
                         ),
                     },
                 },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        2,
+                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    11,
+                                ),
+                            },
+                        },
+                    },
+                    entity_kind: ModuleItem {
+                        module_item_kind: Type(
+                            Extern,
+                        ),
+                        connection: Connected,
+                    },
+                    ident_token: IdentToken {
+                        ident: `Html`,
+                        token_idx: TokenIdx(
+                            13,
+                        ),
+                    },
+                    is_generic: false,
+                    saved_stream_state: TokenIdx(
+                        14,
+                    ),
+                    block: Type {
+                        path: TypePath(
+                            Id {
+                                value: 31,
+                            },
+                        ),
+                        variants: None,
+                    },
+                },
             ],
         },
         top_level_asts: ArenaIdxRange(
-            1..2,
+            1..3,
         ),
         siblings: [
             ArenaIdxRange(
@@ -91,7 +130,7 @@ Ok(
                 0..1,
             ),
             ArenaIdxRange(
-                1..2,
+                1..3,
             ),
         ],
     },

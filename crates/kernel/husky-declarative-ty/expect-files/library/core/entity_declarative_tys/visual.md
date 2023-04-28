@@ -9,4 +9,14 @@
             DeclarativeTerm(`core::basic::Trait`),
         ),
     ),
+    (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Type(
+                TypePath(`core::visual::Html`, `Extern`),
+            ),
+        ),
+        Ok(
+            DeclarativeTerm(`Type`),
+        ),
+    ),
 ]

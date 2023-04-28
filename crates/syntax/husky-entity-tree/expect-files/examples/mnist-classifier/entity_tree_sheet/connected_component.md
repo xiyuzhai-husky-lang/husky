@@ -96,11 +96,11 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::connected_component`,
                             ),
-                            ast_idx: 125,
+                            ast_idx: 126,
                             ident_token: IdentToken {
                                 ident: `horizontal_extend`,
                                 token_idx: TokenIdx(
-                                    560,
+                                    576,
                                 ),
                             },
                         },
@@ -115,11 +115,11 @@ Ok(
                                 FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 126,
+                            ast_idx: 127,
                             ident_token: IdentToken {
                                 ident: `find_connected_components`,
                                 token_idx: TokenIdx(
-                                    646,
+                                    662,
                                 ),
                             },
                         },
@@ -1045,7 +1045,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `LineSegmentSketch`,
                                                 token_idx: TokenIdx(
-                                                    169,
+                                                    161,
                                                 ),
                                             },
                                         },
@@ -1261,10 +1261,11 @@ Ok(
             ],
         ),
         impl_blocks: [
-            ImplBlock::Type(
-                TypeImplBlock {
-                    id: TypeImplBlockId {
+            ImplBlock::TraitForType(
+                TraitForTypeImplBlock {
+                    id: TraitForTypeImplBlockId {
                         module_path: `mnist_classifier::connected_component`,
+                        trai_path: TraitPath(`core::visual::Visualize`),
                         ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                         disambiguator: 0,
                     },
@@ -1274,11 +1275,38 @@ Ok(
                             77,
                         ),
                     },
-                    ty_expr: 0,
+                    trai_expr: 0,
+                    for_token: TokenIdx(
+                        79,
+                    ),
+                    ty_expr: 1,
+                    body: TraitForType(
+                        TraitForTypeItems {
+                            ast_idx_range: ArenaIdxRange(
+                                4..5,
+                            ),
+                        },
+                    ),
+                },
+            ),
+            ImplBlock::Type(
+                TypeImplBlock {
+                    id: TypeImplBlockId {
+                        module_path: `mnist_classifier::connected_component`,
+                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                        disambiguator: 0,
+                    },
+                    ast_idx: 125,
+                    impl_token: ImplToken {
+                        token_idx: TokenIdx(
+                            96,
+                        ),
+                    },
+                    ty_expr: 2,
                     body: Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                67..79,
+                                69..79,
                             ),
                         },
                     ),

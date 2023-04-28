@@ -82,7 +82,7 @@
                                     TypeOntologyDeclError {
                                         path: TypePath(
                                             Id {
-                                                value: 82,
+                                                value: 84,
                                             },
                                         ),
                                     },
@@ -386,14 +386,14 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 78,
+                                        value: 80,
                                     },
                                 ),
                                 refined_path: Left(
                                     CustomTypePath(
                                         TypePath(
                                             Id {
-                                                value: 78,
+                                                value: 80,
                                             },
                                         ),
                                     ),
@@ -404,7 +404,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 78,
+                                                    value: 80,
                                                 },
                                             ),
                                         ),
@@ -421,7 +421,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 54,
+                                        value: 55,
                                     },
                                 ),
                                 refined_path: Right(
@@ -437,7 +437,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 54,
+                                                    value: 55,
                                                 },
                                             ),
                                         ),
@@ -580,14 +580,14 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 78,
+                                        value: 80,
                                     },
                                 ),
                                 refined_path: Left(
                                     CustomTypePath(
                                         TypePath(
                                             Id {
-                                                value: 78,
+                                                value: 80,
                                             },
                                         ),
                                     ),
@@ -598,7 +598,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 78,
+                                                    value: 80,
                                                 },
                                             ),
                                         ),
@@ -615,7 +615,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 54,
+                                        value: 55,
                                     },
                                 ),
                                 refined_path: Right(
@@ -631,7 +631,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 54,
+                                                    value: 55,
                                                 },
                                             ),
                                         ),
@@ -784,7 +784,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 41,
+                                        value: 42,
                                     },
                                 ),
                                 refined_path: Right(
@@ -797,7 +797,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 73,
+                                                    value: 75,
                                                 },
                                             ),
                                         ),
@@ -823,7 +823,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 44,
+                                        value: 45,
                                     },
                                 ),
                                 refined_path: Right(
@@ -839,7 +839,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 44,
+                                                    value: 45,
                                                 },
                                             ),
                                         ),
@@ -856,7 +856,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 54,
+                                        value: 55,
                                     },
                                 ),
                                 refined_path: Right(
@@ -872,7 +872,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 54,
+                                                    value: 55,
                                                 },
                                             ),
                                         ),
@@ -1035,7 +1035,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 41,
+                                        value: 42,
                                     },
                                 ),
                                 refined_path: Right(
@@ -1048,7 +1048,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 73,
+                                                    value: 75,
                                                 },
                                             ),
                                         ),
@@ -1074,7 +1074,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 44,
+                                        value: 45,
                                     },
                                 ),
                                 refined_path: Right(
@@ -1090,7 +1090,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 44,
+                                                    value: 45,
                                                 },
                                             ),
                                         ),
@@ -1107,7 +1107,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 44,
+                                        value: 45,
                                     },
                                 ),
                                 refined_path: Right(
@@ -1123,7 +1123,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 44,
+                                                    value: 45,
                                                 },
                                             ),
                                         ),
@@ -1140,7 +1140,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 54,
+                                        value: 55,
                                     },
                                 ),
                                 refined_path: Right(
@@ -1156,7 +1156,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 54,
+                                                    value: 55,
                                                 },
                                             ),
                                         ),
@@ -1248,7 +1248,7 @@
                                     TypeOntologyDeclError {
                                         path: TypePath(
                                             Id {
-                                                value: 82,
+                                                value: 84,
                                             },
                                         ),
                                     },
@@ -1338,7 +1338,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 41,
+                                        value: 42,
                                     },
                                 ),
                                 refined_path: Right(
@@ -1351,7 +1351,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 73,
+                                                    value: 75,
                                                 },
                                             ),
                                         ),
@@ -1377,7 +1377,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 54,
+                                        value: 55,
                                     },
                                 ),
                                 refined_path: Right(
@@ -1393,7 +1393,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 54,
+                                                    value: 55,
                                                 },
                                             ),
                                         ),
@@ -1498,6 +1498,183 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclRegionPath::ImplBlock(
+                ImplBlockId::TraitForType(
+                    TraitForTypeImplBlockId {
+                        module_path: `mnist_classifier::line_segment_sketch`,
+                        trai_path: TraitPath(`core::visual::Visualize`),
+                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                        disambiguator: 0,
+                    },
+                ),
+            ),
+        ),
+        expr_ty_infos: [
+            ExprTypeInfo {
+                variant_and_ty_result: Ok(
+                    (
+                        TypePath(
+                            Constructor,
+                        ),
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 70,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    0,
+                ),
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Err(
+                    Derived(
+                        TypeError(
+                            DeclarativeTypeError(
+                                Derived(
+                                    TypeOntologyDeclError {
+                                        path: TypePath(
+                                            Id {
+                                                value: 84,
+                                            },
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+        ],
+        extra_expr_errors: [],
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [],
+                    },
+                },
+            },
+            expectations: Expectations {
+                arena: Arena {
+                    data: [
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 0,
+                                kind: Expr,
+                            },
+                            expectee: EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 70,
+                                        },
+                                    ),
+                                ),
+                            ),
+                            data: AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            resolve_progress: Unresolved,
+                        },
+                    ],
+                },
+                first_unresolved_expectation: 0,
+            },
+        },
+        return_ty: None,
+        self_ty: None,
+    },
+    ExprTypeRegion {
+        path: RegionPath::Decl(
+            DeclRegionPath::AssociatedItem(
+                AssociatedItemId {
+                    impl_block_id: ImplBlockId::TraitForType(
+                        TraitForTypeImplBlockId {
+                            module_path: `mnist_classifier::line_segment_sketch`,
+                            trai_path: TraitPath(`core::visual::Visualize`),
+                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                            disambiguator: 0,
+                        },
+                    ),
+                    ident: `visualize`,
+                },
+            ),
+        ),
+        expr_ty_infos: [],
+        extra_expr_errors: [],
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [],
+                    },
+                },
+            },
+            expectations: Expectations {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
+        },
+        return_ty: None,
+        self_ty: Some(
+            EtherealTerm(`TypeOntology(mnist_classifier::line_segment_sketch::LineSegmentStroke)`),
+        ),
+    },
+    ExprTypeRegion {
+        path: RegionPath::Decl(
+            DeclRegionPath::ImplBlock(
                 ImplBlockId::Type(
                     TypeImplBlockId {
                         module_path: `mnist_classifier::line_segment_sketch`,
@@ -1517,7 +1694,7 @@
                                     TypeOntologyDeclError {
                                         path: TypePath(
                                             Id {
-                                                value: 82,
+                                                value: 84,
                                             },
                                         ),
                                     },
@@ -1594,7 +1771,7 @@
                                     TypeOntologyDeclError {
                                         path: TypePath(
                                             Id {
-                                                value: 82,
+                                                value: 84,
                                             },
                                         ),
                                     },
@@ -1675,7 +1852,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 41,
+                                        value: 42,
                                     },
                                 ),
                                 refined_path: Right(
@@ -1688,7 +1865,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 73,
+                                                    value: 75,
                                                 },
                                             ),
                                         ),
@@ -1714,7 +1891,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 44,
+                                        value: 45,
                                     },
                                 ),
                                 refined_path: Right(
@@ -1730,7 +1907,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 44,
+                                                    value: 45,
                                                 },
                                             ),
                                         ),
@@ -1747,7 +1924,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 44,
+                                        value: 45,
                                     },
                                 ),
                                 refined_path: Right(
@@ -1763,7 +1940,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 44,
+                                                    value: 45,
                                                 },
                                             ),
                                         ),
@@ -1894,6 +2071,265 @@
         return_ty: None,
         self_ty: Some(
             EtherealTerm(`TypeOntology(mnist_classifier::line_segment_sketch::LineSegmentStroke)`),
+        ),
+    },
+    ExprTypeRegion {
+        path: RegionPath::Decl(
+            DeclRegionPath::ImplBlock(
+                ImplBlockId::TraitForType(
+                    TraitForTypeImplBlockId {
+                        module_path: `mnist_classifier::line_segment_sketch`,
+                        trai_path: TraitPath(`core::visual::Visualize`),
+                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                        disambiguator: 0,
+                    },
+                ),
+            ),
+        ),
+        expr_ty_infos: [
+            ExprTypeInfo {
+                variant_and_ty_result: Ok(
+                    (
+                        TypePath(
+                            Constructor,
+                        ),
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 70,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    0,
+                ),
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Ok(
+                    (
+                        TypePath(
+                            Ontology,
+                        ),
+                        Ok(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    1,
+                ),
+            },
+        ],
+        extra_expr_errors: [],
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [],
+                    },
+                },
+            },
+            expectations: Expectations {
+                arena: Arena {
+                    data: [
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 0,
+                                kind: Expr,
+                            },
+                            expectee: EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 70,
+                                        },
+                                    ),
+                                ),
+                            ),
+                            data: AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            resolve_progress: Unresolved,
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 1,
+                                kind: Expr,
+                            },
+                            expectee: Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                            data: EqsSort(
+                                ExpectEqsCategory {
+                                    smallest_universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    EqsSort(
+                                        TermUniverse(
+                                            1,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ],
+                },
+                first_unresolved_expectation: 0,
+            },
+        },
+        return_ty: None,
+        self_ty: None,
+    },
+    ExprTypeRegion {
+        path: RegionPath::Decl(
+            DeclRegionPath::AssociatedItem(
+                AssociatedItemId {
+                    impl_block_id: ImplBlockId::TraitForType(
+                        TraitForTypeImplBlockId {
+                            module_path: `mnist_classifier::line_segment_sketch`,
+                            trai_path: TraitPath(`core::visual::Visualize`),
+                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                            disambiguator: 0,
+                        },
+                    ),
+                    ident: `visualize`,
+                },
+            ),
+        ),
+        expr_ty_infos: [
+            ExprTypeInfo {
+                variant_and_ty_result: Ok(
+                    (
+                        TypePath(
+                            Ontology,
+                        ),
+                        Ok(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    0,
+                ),
+            },
+        ],
+        extra_expr_errors: [],
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [],
+                    },
+                },
+            },
+            expectations: Expectations {
+                arena: Arena {
+                    data: [
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 0,
+                                kind: Expr,
+                            },
+                            expectee: Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                            data: EqsSort(
+                                ExpectEqsCategory {
+                                    smallest_universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    EqsSort(
+                                        TermUniverse(
+                                            1,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ],
+                },
+                first_unresolved_expectation: 0,
+            },
+        },
+        return_ty: None,
+        self_ty: Some(
+            EtherealTerm(`TypeOntology(mnist_classifier::line_segment_sketch::LineSegmentSketch)`),
         ),
     },
     ExprTypeRegion {
@@ -2402,7 +2838,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 41,
+                                        value: 42,
                                     },
                                 ),
                                 refined_path: Right(
@@ -2415,7 +2851,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 73,
+                                                    value: 75,
                                                 },
                                             ),
                                         ),
@@ -2441,7 +2877,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 54,
+                                        value: 55,
                                     },
                                 ),
                                 refined_path: Right(
@@ -2457,7 +2893,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 54,
+                                                    value: 55,
                                                 },
                                             ),
                                         ),

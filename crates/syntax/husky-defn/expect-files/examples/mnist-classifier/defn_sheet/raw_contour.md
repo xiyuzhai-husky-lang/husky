@@ -12168,7 +12168,7 @@ Ok(
                                             38,
                                         ),
                                     },
-                                    ty_expr: 1,
+                                    ty_expr: 3,
                                     body: Type(
                                         TypeItems {
                                             ast_idx_range: ArenaIdxRange(
@@ -12345,7 +12345,7 @@ Ok(
                                                             38,
                                                         ),
                                                     },
-                                                    ty_expr: 1,
+                                                    ty_expr: 3,
                                                     body: Type(
                                                         TypeItems {
                                                             ast_idx_range: ArenaIdxRange(
@@ -12953,7 +12953,7 @@ Ok(
                                                             38,
                                                         ),
                                                     },
-                                                    ty_expr: 1,
+                                                    ty_expr: 3,
                                                     body: Type(
                                                         TypeItems {
                                                             ast_idx_range: ArenaIdxRange(
@@ -14677,7 +14677,7 @@ Ok(
                                                             38,
                                                         ),
                                                     },
-                                                    ty_expr: 1,
+                                                    ty_expr: 3,
                                                     body: Type(
                                                         TypeItems {
                                                             ast_idx_range: ArenaIdxRange(
@@ -15301,7 +15301,7 @@ Ok(
                                                             38,
                                                         ),
                                                     },
-                                                    ty_expr: 1,
+                                                    ty_expr: 3,
                                                     body: Type(
                                                         TypeItems {
                                                             ast_idx_range: ArenaIdxRange(
@@ -16973,7 +16973,7 @@ Ok(
                                                             38,
                                                         ),
                                                     },
-                                                    ty_expr: 1,
+                                                    ty_expr: 3,
                                                     body: Type(
                                                         TypeItems {
                                                             ast_idx_range: ArenaIdxRange(
