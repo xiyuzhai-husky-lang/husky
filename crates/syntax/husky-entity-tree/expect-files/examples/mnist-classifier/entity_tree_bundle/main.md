@@ -751,11 +751,11 @@ Ok(
                                                         FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 76,
+                                                    ast_idx: 77,
                                                     ident_token: IdentToken {
                                                         ident: `find_concave_components`,
                                                         token_idx: TokenIdx(
-                                                            522,
+                                                            538,
                                                         ),
                                                     },
                                                 },
@@ -2651,11 +2651,11 @@ Ok(
                                                                 FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                                             ),
                                                             visibility: Scope::Pub,
-                                                            ast_idx: 76,
+                                                            ast_idx: 77,
                                                             ident_token: IdentToken {
                                                                 ident: `find_concave_components`,
                                                                 token_idx: TokenIdx(
-                                                                    522,
+                                                                    538,
                                                                 ),
                                                             },
                                                         },
@@ -3948,11 +3948,11 @@ Ok(
                                                         FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 76,
+                                                    ast_idx: 77,
                                                     ident_token: IdentToken {
                                                         ident: `find_concave_components`,
                                                         token_idx: TokenIdx(
-                                                            522,
+                                                            538,
                                                         ),
                                                     },
                                                 },
@@ -5368,11 +5368,11 @@ Ok(
                                                 FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                             ),
                                             visibility: Scope::Pub,
-                                            ast_idx: 76,
+                                            ast_idx: 77,
                                             ident_token: IdentToken {
                                                 ident: `find_concave_components`,
                                                 token_idx: TokenIdx(
-                                                    522,
+                                                    538,
                                                 ),
                                             },
                                         },
@@ -6183,11 +6183,11 @@ Ok(
                                         FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 76,
+                                    ast_idx: 77,
                                     ident_token: IdentToken {
                                         ident: `find_concave_components`,
                                         token_idx: TokenIdx(
-                                            522,
+                                            538,
                                         ),
                                     },
                                 },
@@ -8035,10 +8035,11 @@ Ok(
                     ],
                 ),
                 impl_blocks: [
-                    ImplBlock::Type(
-                        TypeImplBlock {
-                            id: TypeImplBlockId {
+                    ImplBlock::TraitForType(
+                        TraitForTypeImplBlock {
+                            id: TraitForTypeImplBlockId {
                                 module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                trai_path: TraitPath(`core::visual::Visualize`),
                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                 disambiguator: 0,
                             },
@@ -8048,11 +8049,38 @@ Ok(
                                     49,
                                 ),
                             },
-                            ty_expr: 15,
+                            trai_expr: 15,
+                            for_token: TokenIdx(
+                                51,
+                            ),
+                            ty_expr: 16,
+                            body: TraitForType(
+                                TraitForTypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        1..2,
+                                    ),
+                                },
+                            ),
+                        },
+                    ),
+                    ImplBlock::Type(
+                        TypeImplBlock {
+                            id: TypeImplBlockId {
+                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                disambiguator: 0,
+                            },
+                            ast_idx: 76,
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    68,
+                                ),
+                            },
+                            ty_expr: 17,
                             body: Type(
                                 TypeItems {
                                     ast_idx_range: ArenaIdxRange(
-                                        39..53,
+                                        41..53,
                                     ),
                                 },
                             ),
@@ -8982,11 +9010,11 @@ Ok(
                                                         FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 76,
+                                                    ast_idx: 77,
                                                     ident_token: IdentToken {
                                                         ident: `find_concave_components`,
                                                         token_idx: TokenIdx(
-                                                            522,
+                                                            538,
                                                         ),
                                                     },
                                                 },
@@ -9407,10 +9435,11 @@ Ok(
                     ],
                 ),
                 impl_blocks: [
-                    ImplBlock::Type(
-                        TypeImplBlock {
-                            id: TypeImplBlockId {
+                    ImplBlock::TraitForType(
+                        TraitForTypeImplBlock {
+                            id: TraitForTypeImplBlockId {
                                 module_path: `mnist_classifier::line_segment_sketch::convex_component`,
+                                trai_path: TraitPath(`core::visual::Visualize`),
                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                                 disambiguator: 0,
                             },
@@ -9420,11 +9449,15 @@ Ok(
                                     22,
                                 ),
                             },
-                            ty_expr: 16,
-                            body: Type(
-                                TypeItems {
+                            trai_expr: 18,
+                            for_token: TokenIdx(
+                                24,
+                            ),
+                            ty_expr: 19,
+                            body: TraitForType(
+                                TraitForTypeItems {
                                     ast_idx_range: ArenaIdxRange(
-                                        0..2,
+                                        1..2,
                                     ),
                                 },
                             ),
@@ -9992,11 +10025,11 @@ Ok(
                                                         FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 76,
+                                                    ast_idx: 77,
                                                     ident_token: IdentToken {
                                                         ident: `find_concave_components`,
                                                         token_idx: TokenIdx(
-                                                            522,
+                                                            538,
                                                         ),
                                                     },
                                                 },
@@ -10948,7 +10981,7 @@ Ok(
                                     19,
                                 ),
                             },
-                            ty_expr: 17,
+                            ty_expr: 20,
                             body: Type(
                                 TypeItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -12048,11 +12081,11 @@ Ok(
                                                                 FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                                             ),
                                                             visibility: Scope::Pub,
-                                                            ast_idx: 76,
+                                                            ast_idx: 77,
                                                             ident_token: IdentToken {
                                                                 ident: `find_concave_components`,
                                                                 token_idx: TokenIdx(
-                                                                    522,
+                                                                    538,
                                                                 ),
                                                             },
                                                         },
@@ -12365,7 +12398,7 @@ Ok(
                                     24,
                                 ),
                             },
-                            ty_expr: 18,
+                            ty_expr: 21,
                             body: Type(
                                 TypeItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -13959,11 +13992,11 @@ Ok(
                                                                 FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                                             ),
                                                             visibility: Scope::Pub,
-                                                            ast_idx: 76,
+                                                            ast_idx: 77,
                                                             ident_token: IdentToken {
                                                                 ident: `find_concave_components`,
                                                                 token_idx: TokenIdx(
-                                                                    522,
+                                                                    538,
                                                                 ),
                                                             },
                                                         },
@@ -17327,11 +17360,11 @@ Ok(
                                                                         FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                                                     ),
                                                                     visibility: Scope::Pub,
-                                                                    ast_idx: 76,
+                                                                    ast_idx: 77,
                                                                     ident_token: IdentToken {
                                                                         ident: `find_concave_components`,
                                                                         token_idx: TokenIdx(
-                                                                            522,
+                                                                            538,
                                                                         ),
                                                                     },
                                                                 },
@@ -19905,11 +19938,11 @@ Ok(
                                                                         FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                                                     ),
                                                                     visibility: Scope::Pub,
-                                                                    ast_idx: 76,
+                                                                    ast_idx: 77,
                                                                     ident_token: IdentToken {
                                                                         ident: `find_concave_components`,
                                                                         token_idx: TokenIdx(
-                                                                            522,
+                                                                            538,
                                                                         ),
                                                                     },
                                                                 },
@@ -22483,11 +22516,11 @@ Ok(
                                                                         FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                                                     ),
                                                                     visibility: Scope::Pub,
-                                                                    ast_idx: 76,
+                                                                    ast_idx: 77,
                                                                     ident_token: IdentToken {
                                                                         ident: `find_concave_components`,
                                                                         token_idx: TokenIdx(
-                                                                            522,
+                                                                            538,
                                                                         ),
                                                                     },
                                                                 },
@@ -25061,11 +25094,11 @@ Ok(
                                                                         FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                                                     ),
                                                                     visibility: Scope::Pub,
-                                                                    ast_idx: 76,
+                                                                    ast_idx: 77,
                                                                     ident_token: IdentToken {
                                                                         ident: `find_concave_components`,
                                                                         token_idx: TokenIdx(
-                                                                            522,
+                                                                            538,
                                                                         ),
                                                                     },
                                                                 },
@@ -27736,11 +27769,11 @@ Ok(
                                                                         FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                                                     ),
                                                                     visibility: Scope::Pub,
-                                                                    ast_idx: 76,
+                                                                    ast_idx: 77,
                                                                     ident_token: IdentToken {
                                                                         ident: `find_concave_components`,
                                                                         token_idx: TokenIdx(
-                                                                            522,
+                                                                            538,
                                                                         ),
                                                                     },
                                                                 },
@@ -30222,11 +30255,11 @@ Ok(
                                                                         FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                                                     ),
                                                                     visibility: Scope::Pub,
-                                                                    ast_idx: 76,
+                                                                    ast_idx: 77,
                                                                     ident_token: IdentToken {
                                                                         ident: `find_concave_components`,
                                                                         token_idx: TokenIdx(
-                                                                            522,
+                                                                            538,
                                                                         ),
                                                                     },
                                                                 },
@@ -32823,11 +32856,11 @@ Ok(
                                                                         FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                                                     ),
                                                                     visibility: Scope::Pub,
-                                                                    ast_idx: 76,
+                                                                    ast_idx: 77,
                                                                     ident_token: IdentToken {
                                                                         ident: `find_concave_components`,
                                                                         token_idx: TokenIdx(
-                                                                            522,
+                                                                            538,
                                                                         ),
                                                                     },
                                                                 },
@@ -35355,11 +35388,11 @@ Ok(
                                                                         FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                                                     ),
                                                                     visibility: Scope::Pub,
-                                                                    ast_idx: 76,
+                                                                    ast_idx: 77,
                                                                     ident_token: IdentToken {
                                                                         ident: `find_concave_components`,
                                                                         token_idx: TokenIdx(
-                                                                            522,
+                                                                            538,
                                                                         ),
                                                                     },
                                                                 },
@@ -37933,11 +37966,11 @@ Ok(
                                                                         FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                                                     ),
                                                                     visibility: Scope::Pub,
-                                                                    ast_idx: 76,
+                                                                    ast_idx: 77,
                                                                     ident_token: IdentToken {
                                                                         ident: `find_concave_components`,
                                                                         token_idx: TokenIdx(
-                                                                            522,
+                                                                            538,
                                                                         ),
                                                                     },
                                                                 },
@@ -40511,11 +40544,11 @@ Ok(
                                                                         FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                                                     ),
                                                                     visibility: Scope::Pub,
-                                                                    ast_idx: 76,
+                                                                    ast_idx: 77,
                                                                     ident_token: IdentToken {
                                                                         ident: `find_concave_components`,
                                                                         token_idx: TokenIdx(
-                                                                            522,
+                                                                            538,
                                                                         ),
                                                                     },
                                                                 },
@@ -41795,11 +41828,11 @@ Ok(
                                                                 FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                                             ),
                                                             visibility: Scope::Pub,
-                                                            ast_idx: 76,
+                                                            ast_idx: 77,
                                                             ident_token: IdentToken {
                                                                 ident: `find_concave_components`,
                                                                 token_idx: TokenIdx(
-                                                                    522,
+                                                                    538,
                                                                 ),
                                                             },
                                                         },
@@ -42346,9 +42379,22 @@ Ok(
                 },
                 MajorPathExpr::Root {
                     ident_token: IdentToken {
-                        ident: `ConcaveComponent`,
+                        ident: `Visualize`,
                         token_idx: TokenIdx(
                             50,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::visual::Visualize`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `ConcaveComponent`,
+                        token_idx: TokenIdx(
+                            52,
                         ),
                     },
                     entity_path: EntityPath::ModuleItem(
@@ -42359,9 +42405,35 @@ Ok(
                 },
                 MajorPathExpr::Root {
                     ident_token: IdentToken {
-                        ident: `ConvexComponent`,
+                        ident: `ConcaveComponent`,
+                        token_idx: TokenIdx(
+                            69,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `Visualize`,
                         token_idx: TokenIdx(
                             23,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::visual::Visualize`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `ConvexComponent`,
+                        token_idx: TokenIdx(
+                            25,
                         ),
                     },
                     entity_path: EntityPath::ModuleItem(

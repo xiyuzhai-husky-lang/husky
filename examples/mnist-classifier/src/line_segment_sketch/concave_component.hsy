@@ -9,6 +9,10 @@ pub struct ConcaveComponent {
     strokes: [%]LineSegmentStroke,
 }
 
+impl Visualize for ConcaveComponent:
+    fn visualize() -> Html:
+        self.strokes.visualize()
+
 impl ConcaveComponent:
     memo norm: f32 =:
         // needs improvement
@@ -81,8 +85,6 @@ impl ConcaveComponent:
     fn end_tangent() -> Vector2d:
         self.strokes.lastx().displacement()
 
-    visual:
-        strokes
 
 pub fn find_concave_components(line_segment_sketch: &LineSegmentSketch) -> []ConcaveComponent:
     let mut concave_components: []ConcaveComponent = []

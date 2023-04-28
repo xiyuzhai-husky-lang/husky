@@ -239,7 +239,7 @@ Ok(
                         FugitiveDecl::Fn(
                             FnDecl {
                                 path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
-                                ast_idx: 76,
+                                ast_idx: 77,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
@@ -267,19 +267,19 @@ Ok(
                                                 Expr::Prefix {
                                                     opr: Ref,
                                                     opr_token_idx: TokenIdx(
-                                                        526,
+                                                        542,
                                                     ),
                                                     opd: 0,
                                                 },
                                                 Expr::List {
                                                     lbox_token_idx: TokenIdx(
-                                                        530,
+                                                        546,
                                                     ),
                                                     items: ArenaIdxRange(
                                                         2..2,
                                                     ),
                                                     rbox_token_idx: TokenIdx(
-                                                        531,
+                                                        547,
                                                     ),
                                                 },
                                                 Expr::EntityPath {
@@ -302,7 +302,7 @@ Ok(
                                             data: [
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        527,
+                                                        543,
                                                     ),
                                                     ident: `LineSegmentSketch`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -313,7 +313,7 @@ Ok(
                                                 },
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        532,
+                                                        548,
                                                     ),
                                                     ident: `ConcaveComponent`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -335,7 +335,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `line_segment_sketch`,
                                                             token_idx: TokenIdx(
-                                                                524,
+                                                                540,
                                                             ),
                                                         },
                                                     },
@@ -379,7 +379,7 @@ Ok(
                                                     CurrentSymbol {
                                                         modifier: Pure,
                                                         access_start: TokenIdx(
-                                                            525,
+                                                            541,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ExplicitParameter {
@@ -415,7 +415,7 @@ Ok(
                                 parameter_decl_list: ExplicitParameterDeclList {
                                     lpar: LeftParenthesisToken(
                                         TokenIdx(
-                                            523,
+                                            539,
                                         ),
                                     ),
                                     self_parameter: None,
@@ -428,7 +428,7 @@ Ok(
                                             ),
                                             colon: ColonToken(
                                                 TokenIdx(
-                                                    525,
+                                                    541,
                                                 ),
                                             ),
                                             ty: 1,
@@ -437,14 +437,14 @@ Ok(
                                     commas: [],
                                     rpar: RightParenthesisToken(
                                         TokenIdx(
-                                            528,
+                                            544,
                                         ),
                                     ),
                                 },
                                 curry_token: Some(
                                     CurryToken(
                                         TokenIdx(
-                                            529,
+                                            545,
                                         ),
                                     ),
                                 ),
@@ -456,11 +456,512 @@ Ok(
                                 eol_colon: EolToken::Colon(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            533,
+                                            549,
                                         ),
                                     },
                                 ),
                             },
+                        ),
+                    ),
+                ),
+            ),
+            (
+                DeclRegionPath::ImplBlock(
+                    ImplBlockId::TraitForType(
+                        TraitForTypeImplBlockId {
+                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                            trai_path: TraitPath(`core::visual::Visualize`),
+                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                            disambiguator: 0,
+                        },
+                    ),
+                ),
+                Ok(
+                    Decl::ImplBlock(
+                        ImplBlockDecl::TraitForType(
+                            TraitForTypeImplBlockDecl {
+                                ast_idx: 75,
+                                impl_block: TraitForTypeImplBlock {
+                                    id: TraitForTypeImplBlockId {
+                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ast_idx: 75,
+                                    impl_token: ImplToken {
+                                        token_idx: TokenIdx(
+                                            49,
+                                        ),
+                                    },
+                                    trai_expr: 15,
+                                    for_token: TokenIdx(
+                                        51,
+                                    ),
+                                    ty_expr: 16,
+                                    body: TraitForType(
+                                        TraitForTypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                1..2,
+                                            ),
+                                        },
+                                    ),
+                                },
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        49,
+                                    ),
+                                },
+                                implicit_parameter_decl_list: None,
+                                trai_expr: TraitExpr {
+                                    expr: 0,
+                                },
+                                for_token: ConnectionForToken {
+                                    token_idx: TokenIdx(
+                                        51,
+                                    ),
+                                },
+                                ty_expr: TypeExpr {
+                                    expr: 1,
+                                },
+                                eol_colon: EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            53,
+                                        ),
+                                    },
+                                ),
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: None,
+                                        path: RegionPath::Decl(
+                                            DeclRegionPath::ImplBlock(
+                                                ImplBlockId::TraitForType(
+                                                    TraitForTypeImplBlockId {
+                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 0,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Trait(
+                                                                TraitPath(`core::visual::Visualize`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 1,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        50,
+                                                    ),
+                                                    ident: `Visualize`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Trait(
+                                                            TraitPath(`core::visual::Visualize`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        52,
+                                                    ),
+                                                    ident: `ConcaveComponent`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_contracts: ArenaMap {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_modifiers: ArenaMap {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: True,
+                                            allow_self_value: False,
+                                            pattern_ty_constraints: [],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: Trait,
+                                                expr: 0,
+                                            },
+                                            ExprRoot {
+                                                kind: SelfType,
+                                                expr: 1,
+                                            },
+                                        ],
+                                    },
+                                },
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            (
+                DeclRegionPath::AssociatedItem(
+                    AssociatedItemId {
+                        impl_block_id: ImplBlockId::TraitForType(
+                            TraitForTypeImplBlockId {
+                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                trai_path: TraitPath(`core::visual::Visualize`),
+                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                disambiguator: 0,
+                            },
+                        ),
+                        ident: `visualize`,
+                    },
+                ),
+                Ok(
+                    Decl::AssociatedItem(
+                        AssociatedItemDecl::TraitForTypeItem(
+                            TraitForTypeItemDecl::MethodFn(
+                                TraitForTypeMethodFnDecl {
+                                    path: Some(
+                                        TraitForTypeItemPath {
+                                            parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            trai: TraitPath(`core::visual::Visualize`),
+                                            ident: `visualize`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                    associated_item: AssociatedItem {
+                                        id: AssociatedItemId {
+                                            impl_block_id: ImplBlockId::TraitForType(
+                                                TraitForTypeImplBlockId {
+                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    trai_path: TraitPath(`core::visual::Visualize`),
+                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                            ident: `visualize`,
+                                        },
+                                        path: Some(
+                                            AssociatedItemPath::TraitForTypeItem(
+                                                TraitForTypeItemPath {
+                                                    parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    trai: TraitPath(`core::visual::Visualize`),
+                                                    ident: `visualize`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
+                                        ),
+                                        impl_block: ImplBlock::TraitForType(
+                                            TraitForTypeImplBlock {
+                                                id: TraitForTypeImplBlockId {
+                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    trai_path: TraitPath(`core::visual::Visualize`),
+                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    disambiguator: 0,
+                                                },
+                                                ast_idx: 75,
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        49,
+                                                    ),
+                                                },
+                                                trai_expr: 15,
+                                                for_token: TokenIdx(
+                                                    51,
+                                                ),
+                                                ty_expr: 16,
+                                                body: TraitForType(
+                                                    TraitForTypeItems {
+                                                        ast_idx_range: ArenaIdxRange(
+                                                            1..2,
+                                                        ),
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                        ast_idx: 1,
+                                        ident: `visualize`,
+                                        associated_item_kind: TraitForTypeItem(
+                                            MethodFn,
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `mnist_classifier::line_segment_sketch::concave_component`,
+                                        ),
+                                        is_generic: false,
+                                    },
+                                    ast_idx: 1,
+                                    expr_region: ExprRegion {
+                                        data: ExprRegionData {
+                                            parent: Some(
+                                                ExprRegion {
+                                                    data: ExprRegionData {
+                                                        parent: None,
+                                                        path: RegionPath::Decl(
+                                                            DeclRegionPath::ImplBlock(
+                                                                ImplBlockId::TraitForType(
+                                                                    TraitForTypeImplBlockId {
+                                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        expr_arena: Arena {
+                                                            data: [
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 0,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Trait(
+                                                                                TraitPath(`core::visual::Visualize`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 1,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        entity_path_expr_arena: Arena {
+                                                            data: [
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        50,
+                                                                    ),
+                                                                    ident: `Visualize`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Trait(
+                                                                            TraitPath(`core::visual::Visualize`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        52,
+                                                                    ),
+                                                                    ident: `ConcaveComponent`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        stmt_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_region: PatternExprRegion {
+                                                            pattern_expr_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_expr_contracts: ArenaMap {
+                                                                data: [],
+                                                            },
+                                                            pattern_infos: [],
+                                                            pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_modifiers: ArenaMap {
+                                                                data: [],
+                                                            },
+                                                        },
+                                                        symbol_region: SymbolRegion {
+                                                            inherited_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            current_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            allow_self_type: True,
+                                                            allow_self_value: False,
+                                                            pattern_ty_constraints: [],
+                                                        },
+                                                        roots: [
+                                                            ExprRoot {
+                                                                kind: Trait,
+                                                                expr: 0,
+                                                            },
+                                                            ExprRoot {
+                                                                kind: SelfType,
+                                                                expr: 1,
+                                                            },
+                                                        ],
+                                                    },
+                                                },
+                                            ),
+                                            path: RegionPath::Decl(
+                                                DeclRegionPath::AssociatedItem(
+                                                    AssociatedItemId {
+                                                        impl_block_id: ImplBlockId::TraitForType(
+                                                            TraitForTypeImplBlockId {
+                                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                trai_path: TraitPath(`core::visual::Visualize`),
+                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        ident: `visualize`,
+                                                    },
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [
+                                                    Expr::EntityPath {
+                                                        entity_path_expr: 0,
+                                                        path: Some(
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::visual::Html`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            entity_path_expr_arena: Arena {
+                                                data: [
+                                                    EntityPathExpr::Root {
+                                                        token_idx: TokenIdx(
+                                                            59,
+                                                        ),
+                                                        ident: `Html`,
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::visual::Html`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_region: PatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [],
+                                                },
+                                                pattern_infos: [],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_symbol_maps: [],
+                                                pattern_symbol_modifiers: ArenaMap {
+                                                    data: [],
+                                                },
+                                            },
+                                            symbol_region: SymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                allow_self_type: True,
+                                                allow_self_value: True,
+                                                pattern_ty_constraints: [],
+                                            },
+                                            roots: [
+                                                ExprRoot {
+                                                    kind: ReturnType,
+                                                    expr: 0,
+                                                },
+                                            ],
+                                        },
+                                    },
+                                    implicit_parameter_decl_list: None,
+                                    explicit_parameter_decl_list: ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
+                                            TokenIdx(
+                                                56,
+                                            ),
+                                        ),
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        regular_parameters: [],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                57,
+                                            ),
+                                        ),
+                                    },
+                                    curry_token: Some(
+                                        CurryToken(
+                                            TokenIdx(
+                                                58,
+                                            ),
+                                        ),
+                                    ),
+                                    return_ty: Some(
+                                        ReturnTypeExpr {
+                                            expr: 0,
+                                        },
+                                    ),
+                                    eol_colon: EolToken::Colon(
+                                        EolColonToken {
+                                            token_idx: TokenIdx(
+                                                60,
+                                            ),
+                                        },
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -479,31 +980,31 @@ Ok(
                     Decl::ImplBlock(
                         ImplBlockDecl::Type(
                             TypeImplBlockDecl {
-                                ast_idx: 75,
+                                ast_idx: 76,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
                                         module_path: `mnist_classifier::line_segment_sketch::concave_component`,
                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                         disambiguator: 0,
                                     },
-                                    ast_idx: 75,
+                                    ast_idx: 76,
                                     impl_token: ImplToken {
                                         token_idx: TokenIdx(
-                                            49,
+                                            68,
                                         ),
                                     },
-                                    ty_expr: 15,
+                                    ty_expr: 17,
                                     body: Type(
                                         TypeItems {
                                             ast_idx_range: ArenaIdxRange(
-                                                39..53,
+                                                41..53,
                                             ),
                                         },
                                     ),
                                 },
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
-                                        49,
+                                        68,
                                     ),
                                 },
                                 implicit_parameter_decl_list: None,
@@ -513,7 +1014,7 @@ Ok(
                                 eol_colon: EolToken::Colon(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            51,
+                                            70,
                                         ),
                                     },
                                 ),
@@ -549,7 +1050,7 @@ Ok(
                                             data: [
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        50,
+                                                        69,
                                                     ),
                                                     ident: `ConcaveComponent`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -655,23 +1156,23 @@ Ok(
                                                     ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     disambiguator: 0,
                                                 },
-                                                ast_idx: 75,
+                                                ast_idx: 76,
                                                 impl_token: ImplToken {
                                                     token_idx: TokenIdx(
-                                                        49,
+                                                        68,
                                                     ),
                                                 },
-                                                ty_expr: 15,
+                                                ty_expr: 17,
                                                 body: Type(
                                                     TypeItems {
                                                         ast_idx_range: ArenaIdxRange(
-                                                            39..53,
+                                                            41..53,
                                                         ),
                                                     },
                                                 ),
                                             },
                                         ),
-                                        ast_idx: 39,
+                                        ast_idx: 41,
                                         ident: `norm`,
                                         associated_item_kind: TypeItem(
                                             MemoizedField,
@@ -681,11 +1182,11 @@ Ok(
                                         ),
                                         is_generic: false,
                                     },
-                                    ast_idx: 39,
+                                    ast_idx: 41,
                                     colon_token: Some(
                                         ColonToken(
                                             TokenIdx(
-                                                54,
+                                                73,
                                             ),
                                         ),
                                     ),
@@ -696,14 +1197,14 @@ Ok(
                                     ),
                                     eq_token: EqToken(
                                         TokenIdx(
-                                            56,
+                                            75,
                                         ),
                                     ),
                                     expr_or_eol_token: Left(
                                         EolToken::Colon(
                                             EolColonToken {
                                                 token_idx: TokenIdx(
-                                                    57,
+                                                    76,
                                                 ),
                                             },
                                         ),
@@ -743,7 +1244,7 @@ Ok(
                                                             data: [
                                                                 EntityPathExpr::Root {
                                                                     token_idx: TokenIdx(
-                                                                        50,
+                                                                        69,
                                                                     ),
                                                                     ident: `ConcaveComponent`,
                                                                     entity_path: EntityPath::ModuleItem(
@@ -825,7 +1326,7 @@ Ok(
                                                 data: [
                                                     EntityPathExpr::Root {
                                                         token_idx: TokenIdx(
-                                                            55,
+                                                            74,
                                                         ),
                                                         ident: `f32`,
                                                         entity_path: EntityPath::ModuleItem(
@@ -932,23 +1433,23 @@ Ok(
                                                     ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     disambiguator: 0,
                                                 },
-                                                ast_idx: 75,
+                                                ast_idx: 76,
                                                 impl_token: ImplToken {
                                                     token_idx: TokenIdx(
-                                                        49,
+                                                        68,
                                                     ),
                                                 },
-                                                ty_expr: 15,
+                                                ty_expr: 17,
                                                 body: Type(
                                                     TypeItems {
                                                         ast_idx_range: ArenaIdxRange(
-                                                            39..53,
+                                                            41..53,
                                                         ),
                                                     },
                                                 ),
                                             },
                                         ),
-                                        ast_idx: 40,
+                                        ast_idx: 42,
                                         ident: `rel_norm`,
                                         associated_item_kind: TypeItem(
                                             MemoizedField,
@@ -958,11 +1459,11 @@ Ok(
                                         ),
                                         is_generic: false,
                                     },
-                                    ast_idx: 40,
+                                    ast_idx: 42,
                                     colon_token: Some(
                                         ColonToken(
                                             TokenIdx(
-                                                63,
+                                                82,
                                             ),
                                         ),
                                     ),
@@ -973,14 +1474,14 @@ Ok(
                                     ),
                                     eq_token: EqToken(
                                         TokenIdx(
-                                            65,
+                                            84,
                                         ),
                                     ),
                                     expr_or_eol_token: Left(
                                         EolToken::Colon(
                                             EolColonToken {
                                                 token_idx: TokenIdx(
-                                                    66,
+                                                    85,
                                                 ),
                                             },
                                         ),
@@ -1020,7 +1521,7 @@ Ok(
                                                             data: [
                                                                 EntityPathExpr::Root {
                                                                     token_idx: TokenIdx(
-                                                                        50,
+                                                                        69,
                                                                     ),
                                                                     ident: `ConcaveComponent`,
                                                                     entity_path: EntityPath::ModuleItem(
@@ -1102,7 +1603,7 @@ Ok(
                                                 data: [
                                                     EntityPathExpr::Root {
                                                         token_idx: TokenIdx(
-                                                            64,
+                                                            83,
                                                         ),
                                                         ident: `f32`,
                                                         entity_path: EntityPath::ModuleItem(
@@ -1209,23 +1710,23 @@ Ok(
                                                     ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     disambiguator: 0,
                                                 },
-                                                ast_idx: 75,
+                                                ast_idx: 76,
                                                 impl_token: ImplToken {
                                                     token_idx: TokenIdx(
-                                                        49,
+                                                        68,
                                                     ),
                                                 },
-                                                ty_expr: 15,
+                                                ty_expr: 17,
                                                 body: Type(
                                                     TypeItems {
                                                         ast_idx_range: ArenaIdxRange(
-                                                            39..53,
+                                                            41..53,
                                                         ),
                                                     },
                                                 ),
                                             },
                                         ),
-                                        ast_idx: 41,
+                                        ast_idx: 43,
                                         ident: `hausdorff_norm`,
                                         associated_item_kind: TypeItem(
                                             MemoizedField,
@@ -1235,11 +1736,11 @@ Ok(
                                         ),
                                         is_generic: false,
                                     },
-                                    ast_idx: 41,
+                                    ast_idx: 43,
                                     colon_token: Some(
                                         ColonToken(
                                             TokenIdx(
-                                                82,
+                                                101,
                                             ),
                                         ),
                                     ),
@@ -1250,14 +1751,14 @@ Ok(
                                     ),
                                     eq_token: EqToken(
                                         TokenIdx(
-                                            84,
+                                            103,
                                         ),
                                     ),
                                     expr_or_eol_token: Left(
                                         EolToken::Colon(
                                             EolColonToken {
                                                 token_idx: TokenIdx(
-                                                    85,
+                                                    104,
                                                 ),
                                             },
                                         ),
@@ -1297,7 +1798,7 @@ Ok(
                                                             data: [
                                                                 EntityPathExpr::Root {
                                                                     token_idx: TokenIdx(
-                                                                        50,
+                                                                        69,
                                                                     ),
                                                                     ident: `ConcaveComponent`,
                                                                     entity_path: EntityPath::ModuleItem(
@@ -1379,7 +1880,7 @@ Ok(
                                                 data: [
                                                     EntityPathExpr::Root {
                                                         token_idx: TokenIdx(
-                                                            83,
+                                                            102,
                                                         ),
                                                         ident: `f32`,
                                                         entity_path: EntityPath::ModuleItem(
@@ -1486,23 +1987,23 @@ Ok(
                                                     ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     disambiguator: 0,
                                                 },
-                                                ast_idx: 75,
+                                                ast_idx: 76,
                                                 impl_token: ImplToken {
                                                     token_idx: TokenIdx(
-                                                        49,
+                                                        68,
                                                     ),
                                                 },
-                                                ty_expr: 15,
+                                                ty_expr: 17,
                                                 body: Type(
                                                     TypeItems {
                                                         ast_idx_range: ArenaIdxRange(
-                                                            39..53,
+                                                            41..53,
                                                         ),
                                                     },
                                                 ),
                                             },
                                         ),
-                                        ast_idx: 42,
+                                        ast_idx: 44,
                                         ident: `angle_change`,
                                         associated_item_kind: TypeItem(
                                             MemoizedField,
@@ -1512,11 +2013,11 @@ Ok(
                                         ),
                                         is_generic: false,
                                     },
-                                    ast_idx: 42,
+                                    ast_idx: 44,
                                     colon_token: Some(
                                         ColonToken(
                                             TokenIdx(
-                                                170,
+                                                189,
                                             ),
                                         ),
                                     ),
@@ -1527,14 +2028,14 @@ Ok(
                                     ),
                                     eq_token: EqToken(
                                         TokenIdx(
-                                            172,
+                                            191,
                                         ),
                                     ),
                                     expr_or_eol_token: Left(
                                         EolToken::Colon(
                                             EolColonToken {
                                                 token_idx: TokenIdx(
-                                                    173,
+                                                    192,
                                                 ),
                                             },
                                         ),
@@ -1574,7 +2075,7 @@ Ok(
                                                             data: [
                                                                 EntityPathExpr::Root {
                                                                     token_idx: TokenIdx(
-                                                                        50,
+                                                                        69,
                                                                     ),
                                                                     ident: `ConcaveComponent`,
                                                                     entity_path: EntityPath::ModuleItem(
@@ -1656,7 +2157,7 @@ Ok(
                                                 data: [
                                                     EntityPathExpr::Root {
                                                         token_idx: TokenIdx(
-                                                            171,
+                                                            190,
                                                         ),
                                                         ident: `f32`,
                                                         entity_path: EntityPath::ModuleItem(
@@ -1763,23 +2264,23 @@ Ok(
                                                     ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     disambiguator: 0,
                                                 },
-                                                ast_idx: 75,
+                                                ast_idx: 76,
                                                 impl_token: ImplToken {
                                                     token_idx: TokenIdx(
-                                                        49,
+                                                        68,
                                                     ),
                                                 },
-                                                ty_expr: 15,
+                                                ty_expr: 17,
                                                 body: Type(
                                                     TypeItems {
                                                         ast_idx_range: ArenaIdxRange(
-                                                            39..53,
+                                                            41..53,
                                                         ),
                                                     },
                                                 ),
                                             },
                                         ),
-                                        ast_idx: 43,
+                                        ast_idx: 45,
                                         ident: `bounding_box`,
                                         associated_item_kind: TypeItem(
                                             MemoizedField,
@@ -1789,11 +2290,11 @@ Ok(
                                         ),
                                         is_generic: false,
                                     },
-                                    ast_idx: 43,
+                                    ast_idx: 45,
                                     colon_token: Some(
                                         ColonToken(
                                             TokenIdx(
-                                                242,
+                                                261,
                                             ),
                                         ),
                                     ),
@@ -1804,14 +2305,14 @@ Ok(
                                     ),
                                     eq_token: EqToken(
                                         TokenIdx(
-                                            244,
+                                            263,
                                         ),
                                     ),
                                     expr_or_eol_token: Left(
                                         EolToken::Colon(
                                             EolColonToken {
                                                 token_idx: TokenIdx(
-                                                    245,
+                                                    264,
                                                 ),
                                             },
                                         ),
@@ -1851,7 +2352,7 @@ Ok(
                                                             data: [
                                                                 EntityPathExpr::Root {
                                                                     token_idx: TokenIdx(
-                                                                        50,
+                                                                        69,
                                                                     ),
                                                                     ident: `ConcaveComponent`,
                                                                     entity_path: EntityPath::ModuleItem(
@@ -1933,7 +2434,7 @@ Ok(
                                                 data: [
                                                     EntityPathExpr::Root {
                                                         token_idx: TokenIdx(
-                                                            243,
+                                                            262,
                                                         ),
                                                         ident: `BoundingBox`,
                                                         entity_path: EntityPath::ModuleItem(
@@ -2040,23 +2541,23 @@ Ok(
                                                     ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     disambiguator: 0,
                                                 },
-                                                ast_idx: 75,
+                                                ast_idx: 76,
                                                 impl_token: ImplToken {
                                                     token_idx: TokenIdx(
-                                                        49,
+                                                        68,
                                                     ),
                                                 },
-                                                ty_expr: 15,
+                                                ty_expr: 17,
                                                 body: Type(
                                                     TypeItems {
                                                         ast_idx_range: ArenaIdxRange(
-                                                            39..53,
+                                                            41..53,
                                                         ),
                                                     },
                                                 ),
                                             },
                                         ),
-                                        ast_idx: 44,
+                                        ast_idx: 46,
                                         ident: `relative_bounding_box`,
                                         associated_item_kind: TypeItem(
                                             MemoizedField,
@@ -2066,11 +2567,11 @@ Ok(
                                         ),
                                         is_generic: false,
                                     },
-                                    ast_idx: 44,
+                                    ast_idx: 46,
                                     colon_token: Some(
                                         ColonToken(
                                             TokenIdx(
-                                                372,
+                                                391,
                                             ),
                                         ),
                                     ),
@@ -2081,14 +2582,14 @@ Ok(
                                     ),
                                     eq_token: EqToken(
                                         TokenIdx(
-                                            374,
+                                            393,
                                         ),
                                     ),
                                     expr_or_eol_token: Left(
                                         EolToken::Colon(
                                             EolColonToken {
                                                 token_idx: TokenIdx(
-                                                    375,
+                                                    394,
                                                 ),
                                             },
                                         ),
@@ -2128,7 +2629,7 @@ Ok(
                                                             data: [
                                                                 EntityPathExpr::Root {
                                                                     token_idx: TokenIdx(
-                                                                        50,
+                                                                        69,
                                                                     ),
                                                                     ident: `ConcaveComponent`,
                                                                     entity_path: EntityPath::ModuleItem(
@@ -2210,7 +2711,7 @@ Ok(
                                                 data: [
                                                     EntityPathExpr::Root {
                                                         token_idx: TokenIdx(
-                                                            373,
+                                                            392,
                                                         ),
                                                         ident: `RelativeBoundingBox`,
                                                         entity_path: EntityPath::ModuleItem(
@@ -2327,23 +2828,23 @@ Ok(
                                                     ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     disambiguator: 0,
                                                 },
-                                                ast_idx: 75,
+                                                ast_idx: 76,
                                                 impl_token: ImplToken {
                                                     token_idx: TokenIdx(
-                                                        49,
+                                                        68,
                                                     ),
                                                 },
-                                                ty_expr: 15,
+                                                ty_expr: 17,
                                                 body: Type(
                                                     TypeItems {
                                                         ast_idx_range: ArenaIdxRange(
-                                                            39..53,
+                                                            41..53,
                                                         ),
                                                     },
                                                 ),
                                             },
                                         ),
-                                        ast_idx: 45,
+                                        ast_idx: 47,
                                         ident: `line_segment`,
                                         associated_item_kind: TypeItem(
                                             MethodFn,
@@ -2353,7 +2854,7 @@ Ok(
                                         ),
                                         is_generic: false,
                                     },
-                                    ast_idx: 45,
+                                    ast_idx: 47,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
@@ -2389,7 +2890,7 @@ Ok(
                                                             data: [
                                                                 EntityPathExpr::Root {
                                                                     token_idx: TokenIdx(
-                                                                        50,
+                                                                        69,
                                                                     ),
                                                                     ident: `ConcaveComponent`,
                                                                     entity_path: EntityPath::ModuleItem(
@@ -2471,7 +2972,7 @@ Ok(
                                                 data: [
                                                     EntityPathExpr::Root {
                                                         token_idx: TokenIdx(
-                                                            393,
+                                                            412,
                                                         ),
                                                         ident: `LineSegment`,
                                                         entity_path: EntityPath::ModuleItem(
@@ -2524,7 +3025,7 @@ Ok(
                                     explicit_parameter_decl_list: ExplicitParameterDeclList {
                                         lpar: LeftParenthesisToken(
                                             TokenIdx(
-                                                390,
+                                                409,
                                             ),
                                         ),
                                         self_parameter: None,
@@ -2533,14 +3034,14 @@ Ok(
                                         commas: [],
                                         rpar: RightParenthesisToken(
                                             TokenIdx(
-                                                391,
+                                                410,
                                             ),
                                         ),
                                     },
                                     curry_token: Some(
                                         CurryToken(
                                             TokenIdx(
-                                                392,
+                                                411,
                                             ),
                                         ),
                                     ),
@@ -2552,7 +3053,7 @@ Ok(
                                     eol_colon: EolToken::Colon(
                                         EolColonToken {
                                             token_idx: TokenIdx(
-                                                394,
+                                                413,
                                             ),
                                         },
                                     ),
@@ -2624,23 +3125,23 @@ Ok(
                                                     ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     disambiguator: 0,
                                                 },
-                                                ast_idx: 75,
+                                                ast_idx: 76,
                                                 impl_token: ImplToken {
                                                     token_idx: TokenIdx(
-                                                        49,
+                                                        68,
                                                     ),
                                                 },
-                                                ty_expr: 15,
+                                                ty_expr: 17,
                                                 body: Type(
                                                     TypeItems {
                                                         ast_idx_range: ArenaIdxRange(
-                                                            39..53,
+                                                            41..53,
                                                         ),
                                                     },
                                                 ),
                                             },
                                         ),
-                                        ast_idx: 46,
+                                        ast_idx: 48,
                                         ident: `start`,
                                         associated_item_kind: TypeItem(
                                             MethodFn,
@@ -2650,7 +3151,7 @@ Ok(
                                         ),
                                         is_generic: false,
                                     },
-                                    ast_idx: 46,
+                                    ast_idx: 48,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
@@ -2686,7 +3187,7 @@ Ok(
                                                             data: [
                                                                 EntityPathExpr::Root {
                                                                     token_idx: TokenIdx(
-                                                                        50,
+                                                                        69,
                                                                     ),
                                                                     ident: `ConcaveComponent`,
                                                                     entity_path: EntityPath::ModuleItem(
@@ -2768,7 +3269,7 @@ Ok(
                                                 data: [
                                                     EntityPathExpr::Root {
                                                         token_idx: TokenIdx(
-                                                            430,
+                                                            449,
                                                         ),
                                                         ident: `Point2d`,
                                                         entity_path: EntityPath::ModuleItem(
@@ -2821,7 +3322,7 @@ Ok(
                                     explicit_parameter_decl_list: ExplicitParameterDeclList {
                                         lpar: LeftParenthesisToken(
                                             TokenIdx(
-                                                427,
+                                                446,
                                             ),
                                         ),
                                         self_parameter: None,
@@ -2830,14 +3331,14 @@ Ok(
                                         commas: [],
                                         rpar: RightParenthesisToken(
                                             TokenIdx(
-                                                428,
+                                                447,
                                             ),
                                         ),
                                     },
                                     curry_token: Some(
                                         CurryToken(
                                             TokenIdx(
-                                                429,
+                                                448,
                                             ),
                                         ),
                                     ),
@@ -2849,7 +3350,7 @@ Ok(
                                     eol_colon: EolToken::Colon(
                                         EolColonToken {
                                             token_idx: TokenIdx(
-                                                431,
+                                                450,
                                             ),
                                         },
                                     ),
@@ -2921,23 +3422,23 @@ Ok(
                                                     ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     disambiguator: 0,
                                                 },
-                                                ast_idx: 75,
+                                                ast_idx: 76,
                                                 impl_token: ImplToken {
                                                     token_idx: TokenIdx(
-                                                        49,
+                                                        68,
                                                     ),
                                                 },
-                                                ty_expr: 15,
+                                                ty_expr: 17,
                                                 body: Type(
                                                     TypeItems {
                                                         ast_idx_range: ArenaIdxRange(
-                                                            39..53,
+                                                            41..53,
                                                         ),
                                                     },
                                                 ),
                                             },
                                         ),
-                                        ast_idx: 47,
+                                        ast_idx: 49,
                                         ident: `end`,
                                         associated_item_kind: TypeItem(
                                             MethodFn,
@@ -2947,7 +3448,7 @@ Ok(
                                         ),
                                         is_generic: false,
                                     },
-                                    ast_idx: 47,
+                                    ast_idx: 49,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
@@ -2983,7 +3484,7 @@ Ok(
                                                             data: [
                                                                 EntityPathExpr::Root {
                                                                     token_idx: TokenIdx(
-                                                                        50,
+                                                                        69,
                                                                     ),
                                                                     ident: `ConcaveComponent`,
                                                                     entity_path: EntityPath::ModuleItem(
@@ -3065,7 +3566,7 @@ Ok(
                                                 data: [
                                                     EntityPathExpr::Root {
                                                         token_idx: TokenIdx(
-                                                            450,
+                                                            469,
                                                         ),
                                                         ident: `Point2d`,
                                                         entity_path: EntityPath::ModuleItem(
@@ -3118,7 +3619,7 @@ Ok(
                                     explicit_parameter_decl_list: ExplicitParameterDeclList {
                                         lpar: LeftParenthesisToken(
                                             TokenIdx(
-                                                447,
+                                                466,
                                             ),
                                         ),
                                         self_parameter: None,
@@ -3127,14 +3628,14 @@ Ok(
                                         commas: [],
                                         rpar: RightParenthesisToken(
                                             TokenIdx(
-                                                448,
+                                                467,
                                             ),
                                         ),
                                     },
                                     curry_token: Some(
                                         CurryToken(
                                             TokenIdx(
-                                                449,
+                                                468,
                                             ),
                                         ),
                                     ),
@@ -3146,7 +3647,7 @@ Ok(
                                     eol_colon: EolToken::Colon(
                                         EolColonToken {
                                             token_idx: TokenIdx(
-                                                451,
+                                                470,
                                             ),
                                         },
                                     ),
@@ -3218,23 +3719,23 @@ Ok(
                                                     ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     disambiguator: 0,
                                                 },
-                                                ast_idx: 75,
+                                                ast_idx: 76,
                                                 impl_token: ImplToken {
                                                     token_idx: TokenIdx(
-                                                        49,
+                                                        68,
                                                     ),
                                                 },
-                                                ty_expr: 15,
+                                                ty_expr: 17,
                                                 body: Type(
                                                     TypeItems {
                                                         ast_idx_range: ArenaIdxRange(
-                                                            39..53,
+                                                            41..53,
                                                         ),
                                                     },
                                                 ),
                                             },
                                         ),
-                                        ast_idx: 48,
+                                        ast_idx: 50,
                                         ident: `displacement`,
                                         associated_item_kind: TypeItem(
                                             MethodFn,
@@ -3244,7 +3745,7 @@ Ok(
                                         ),
                                         is_generic: false,
                                     },
-                                    ast_idx: 48,
+                                    ast_idx: 50,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
@@ -3280,7 +3781,7 @@ Ok(
                                                             data: [
                                                                 EntityPathExpr::Root {
                                                                     token_idx: TokenIdx(
-                                                                        50,
+                                                                        69,
                                                                     ),
                                                                     ident: `ConcaveComponent`,
                                                                     entity_path: EntityPath::ModuleItem(
@@ -3362,7 +3863,7 @@ Ok(
                                                 data: [
                                                     EntityPathExpr::Root {
                                                         token_idx: TokenIdx(
-                                                            470,
+                                                            489,
                                                         ),
                                                         ident: `Vector2d`,
                                                         entity_path: EntityPath::ModuleItem(
@@ -3415,7 +3916,7 @@ Ok(
                                     explicit_parameter_decl_list: ExplicitParameterDeclList {
                                         lpar: LeftParenthesisToken(
                                             TokenIdx(
-                                                467,
+                                                486,
                                             ),
                                         ),
                                         self_parameter: None,
@@ -3424,14 +3925,14 @@ Ok(
                                         commas: [],
                                         rpar: RightParenthesisToken(
                                             TokenIdx(
-                                                468,
+                                                487,
                                             ),
                                         ),
                                     },
                                     curry_token: Some(
                                         CurryToken(
                                             TokenIdx(
-                                                469,
+                                                488,
                                             ),
                                         ),
                                     ),
@@ -3443,7 +3944,7 @@ Ok(
                                     eol_colon: EolToken::Colon(
                                         EolColonToken {
                                             token_idx: TokenIdx(
-                                                471,
+                                                490,
                                             ),
                                         },
                                     ),
@@ -3515,23 +4016,23 @@ Ok(
                                                     ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     disambiguator: 0,
                                                 },
-                                                ast_idx: 75,
+                                                ast_idx: 76,
                                                 impl_token: ImplToken {
                                                     token_idx: TokenIdx(
-                                                        49,
+                                                        68,
                                                     ),
                                                 },
-                                                ty_expr: 15,
+                                                ty_expr: 17,
                                                 body: Type(
                                                     TypeItems {
                                                         ast_idx_range: ArenaIdxRange(
-                                                            39..53,
+                                                            41..53,
                                                         ),
                                                     },
                                                 ),
                                             },
                                         ),
-                                        ast_idx: 49,
+                                        ast_idx: 51,
                                         ident: `start_tangent`,
                                         associated_item_kind: TypeItem(
                                             MethodFn,
@@ -3541,7 +4042,7 @@ Ok(
                                         ),
                                         is_generic: false,
                                     },
-                                    ast_idx: 49,
+                                    ast_idx: 51,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
@@ -3577,7 +4078,7 @@ Ok(
                                                             data: [
                                                                 EntityPathExpr::Root {
                                                                     token_idx: TokenIdx(
-                                                                        50,
+                                                                        69,
                                                                     ),
                                                                     ident: `ConcaveComponent`,
                                                                     entity_path: EntityPath::ModuleItem(
@@ -3659,7 +4160,7 @@ Ok(
                                                 data: [
                                                     EntityPathExpr::Root {
                                                         token_idx: TokenIdx(
-                                                            486,
+                                                            505,
                                                         ),
                                                         ident: `Vector2d`,
                                                         entity_path: EntityPath::ModuleItem(
@@ -3712,7 +4213,7 @@ Ok(
                                     explicit_parameter_decl_list: ExplicitParameterDeclList {
                                         lpar: LeftParenthesisToken(
                                             TokenIdx(
-                                                483,
+                                                502,
                                             ),
                                         ),
                                         self_parameter: None,
@@ -3721,14 +4222,14 @@ Ok(
                                         commas: [],
                                         rpar: RightParenthesisToken(
                                             TokenIdx(
-                                                484,
+                                                503,
                                             ),
                                         ),
                                     },
                                     curry_token: Some(
                                         CurryToken(
                                             TokenIdx(
-                                                485,
+                                                504,
                                             ),
                                         ),
                                     ),
@@ -3740,7 +4241,7 @@ Ok(
                                     eol_colon: EolToken::Colon(
                                         EolColonToken {
                                             token_idx: TokenIdx(
-                                                487,
+                                                506,
                                             ),
                                         },
                                     ),
@@ -3812,23 +4313,23 @@ Ok(
                                                     ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     disambiguator: 0,
                                                 },
-                                                ast_idx: 75,
+                                                ast_idx: 76,
                                                 impl_token: ImplToken {
                                                     token_idx: TokenIdx(
-                                                        49,
+                                                        68,
                                                     ),
                                                 },
-                                                ty_expr: 15,
+                                                ty_expr: 17,
                                                 body: Type(
                                                     TypeItems {
                                                         ast_idx_range: ArenaIdxRange(
-                                                            39..53,
+                                                            41..53,
                                                         ),
                                                     },
                                                 ),
                                             },
                                         ),
-                                        ast_idx: 50,
+                                        ast_idx: 52,
                                         ident: `end_tangent`,
                                         associated_item_kind: TypeItem(
                                             MethodFn,
@@ -3838,7 +4339,7 @@ Ok(
                                         ),
                                         is_generic: false,
                                     },
-                                    ast_idx: 50,
+                                    ast_idx: 52,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
@@ -3874,7 +4375,7 @@ Ok(
                                                             data: [
                                                                 EntityPathExpr::Root {
                                                                     token_idx: TokenIdx(
-                                                                        50,
+                                                                        69,
                                                                     ),
                                                                     ident: `ConcaveComponent`,
                                                                     entity_path: EntityPath::ModuleItem(
@@ -3956,7 +4457,7 @@ Ok(
                                                 data: [
                                                     EntityPathExpr::Root {
                                                         token_idx: TokenIdx(
-                                                            504,
+                                                            523,
                                                         ),
                                                         ident: `Vector2d`,
                                                         entity_path: EntityPath::ModuleItem(
@@ -4009,7 +4510,7 @@ Ok(
                                     explicit_parameter_decl_list: ExplicitParameterDeclList {
                                         lpar: LeftParenthesisToken(
                                             TokenIdx(
-                                                501,
+                                                520,
                                             ),
                                         ),
                                         self_parameter: None,
@@ -4018,14 +4519,14 @@ Ok(
                                         commas: [],
                                         rpar: RightParenthesisToken(
                                             TokenIdx(
-                                                502,
+                                                521,
                                             ),
                                         ),
                                     },
                                     curry_token: Some(
                                         CurryToken(
                                             TokenIdx(
-                                                503,
+                                                522,
                                             ),
                                         ),
                                     ),
@@ -4037,7 +4538,7 @@ Ok(
                                     eol_colon: EolToken::Colon(
                                         EolColonToken {
                                             token_idx: TokenIdx(
-                                                505,
+                                                524,
                                             ),
                                         },
                                     ),

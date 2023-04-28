@@ -999,11 +999,11 @@ Ok(
                                                         FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 76,
+                                                    ast_idx: 77,
                                                     ident_token: IdentToken {
                                                         ident: `find_concave_components`,
                                                         token_idx: TokenIdx(
-                                                            522,
+                                                            538,
                                                         ),
                                                     },
                                                 },
@@ -1316,7 +1316,7 @@ Ok(
                             24,
                         ),
                     },
-                    ty_expr: 18,
+                    ty_expr: 21,
                     body: Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(

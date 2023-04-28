@@ -117,6 +117,14 @@ Ok(
                 Keyword::Impl,
             ),
             Token::Ident(
+                `Visualize`,
+            ),
+            Token::Keyword(
+                Keyword::Connection(
+                    For,
+                ),
+            ),
+            Token::Ident(
                 `ConvexComponent`,
             ),
             Token::Punctuation(
@@ -124,24 +132,85 @@ Ok(
                     PunctuationMapped::Colon,
                 ),
             ),
+            Token::Keyword(
+                Keyword::Form(
+                    Fn,
+                ),
+            ),
             Token::Ident(
-                `visual`,
+                `visualize`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        Curry,
+                    ),
+                ),
+            ),
+            Token::Ident(
+                `Html`,
             ),
             Token::Punctuation(
                 Punctuation(
                     PunctuationMapped::Colon,
                 ),
             ),
+            Token::Keyword(
+                Keyword::Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Dot,
+                ),
+            ),
             Token::Ident(
                 `line_segments`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Dot,
+                ),
+            ),
+            Token::Ident(
+                `visualize`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
+                ),
             ),
         ],
         group_starts: [
             0,
             6,
             22,
-            25,
             27,
+            34,
         ],
         indents: [
             0,

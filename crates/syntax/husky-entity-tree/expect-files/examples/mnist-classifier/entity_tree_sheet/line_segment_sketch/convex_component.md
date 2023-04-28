@@ -475,11 +475,11 @@ Ok(
                                                 FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                             ),
                                             visibility: Scope::Pub,
-                                            ast_idx: 76,
+                                            ast_idx: 77,
                                             ident_token: IdentToken {
                                                 ident: `find_concave_components`,
                                                 token_idx: TokenIdx(
-                                                    522,
+                                                    538,
                                                 ),
                                             },
                                         },
@@ -900,10 +900,11 @@ Ok(
             ],
         ),
         impl_blocks: [
-            ImplBlock::Type(
-                TypeImplBlock {
-                    id: TypeImplBlockId {
+            ImplBlock::TraitForType(
+                TraitForTypeImplBlock {
+                    id: TraitForTypeImplBlockId {
                         module_path: `mnist_classifier::line_segment_sketch::convex_component`,
+                        trai_path: TraitPath(`core::visual::Visualize`),
                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                         disambiguator: 0,
                     },
@@ -913,11 +914,15 @@ Ok(
                             22,
                         ),
                     },
-                    ty_expr: 16,
-                    body: Type(
-                        TypeItems {
+                    trai_expr: 18,
+                    for_token: TokenIdx(
+                        24,
+                    ),
+                    ty_expr: 19,
+                    body: TraitForType(
+                        TraitForTypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                0..2,
+                                1..2,
                             ),
                         },
                     ),

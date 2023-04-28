@@ -2,21 +2,50 @@ Ok(
     AstSheet {
         ast_arena: Arena {
             data: [
-                Ast::Err {
-                    token_group_idx: TokenGroupIdx(
-                        3,
-                    ),
-                    error: AstError::Original(
-                        OriginalAstError::UnexpectedStmtInsideImplBlock,
-                    ),
-                },
-                Ast::Err {
+                Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         4,
                     ),
-                    error: AstError::Original(
-                        OriginalAstError::ExcessiveIndent,
+                    body: None,
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        3,
                     ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: PubUnder(
+                            ModulePath(
+                                Id {
+                                    value: 40,
+                                },
+                            ),
+                        ),
+                        variant: Protected,
+                    },
+                    entity_kind: AssociatedItem {
+                        associated_item_kind: TraitForTypeItem(
+                            MethodFn,
+                        ),
+                    },
+                    ident_token: IdentToken {
+                        ident: `visualize`,
+                        token_idx: TokenIdx(
+                            28,
+                        ),
+                    },
+                    is_generic: false,
+                    saved_stream_state: TokenIdx(
+                        29,
+                    ),
+                    block: AssociatedItem {
+                        body: Some(
+                            FormBody {
+                                ast_idx_range: ArenaIdxRange(
+                                    0..1,
+                                ),
+                            },
+                        ),
+                    },
                 },
                 Ast::Use {
                     token_group_idx: TokenGroupIdx(
@@ -77,10 +106,10 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         2,
                     ),
-                    items: Type(
-                        TypeItems {
+                    items: TraitForType(
+                        TraitForTypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                0..2,
+                                1..2,
                             ),
                         },
                     ),
@@ -92,7 +121,13 @@ Ok(
         ),
         siblings: [
             ArenaIdxRange(
-                0..2,
+                0..0,
+            ),
+            ArenaIdxRange(
+                0..1,
+            ),
+            ArenaIdxRange(
+                1..2,
             ),
             ArenaIdxRange(
                 2..5,
