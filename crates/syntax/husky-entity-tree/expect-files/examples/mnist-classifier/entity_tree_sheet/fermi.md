@@ -789,11 +789,11 @@ Ok(
                                                 FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                                             ),
                                             visibility: Scope::Pub,
-                                            ast_idx: 214,
+                                            ast_idx: 215,
                                             ident_token: IdentToken {
                                                 ident: `find_raw_contours`,
                                                 token_idx: TokenIdx(
-                                                    987,
+                                                    997,
                                                 ),
                                             },
                                         },
@@ -1316,7 +1316,7 @@ Ok(
                             24,
                         ),
                     },
-                    ty_expr: 21,
+                    ty_expr: 23,
                     body: Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(

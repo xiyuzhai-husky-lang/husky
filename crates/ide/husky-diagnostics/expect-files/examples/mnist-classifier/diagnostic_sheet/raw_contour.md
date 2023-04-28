@@ -7,25 +7,14 @@ DiagnosticSheet {
         diagnostics: [],
     },
     ast_diagnostic_sheet: AstDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Syntax Error: unexpected stmt inside impl",
-                severity: Error,
-                range: [52:5, 52:12),
-            },
-            Diagnostic {
-                message: "Syntax Error: excessive indent",
-                severity: Error,
-                range: [53:9, 53:41),
-            },
-        ],
+        diagnostics: [],
     },
     expr_diagnostic_sheet: ExprDiagnosticSheet {
         diagnostics: [
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [171:35, 171:47),
+                range: [172:35, 172:47),
             },
         ],
     },
@@ -40,12 +29,7 @@ DiagnosticSheet {
             Diagnostic {
                 message: "Type Error: no method named `last_bits` for type `FluffyTerm::EntityPath(TermEntityPath::TypeOntology(TypePath(`core::raw_bits::r32`, `Extern`)))`",
                 severity: Error,
-                range: [101:74, 101:83),
-            },
-            Diagnostic {
-                message: "Type Error: TodoIndexOrComposeWithList",
-                severity: Error,
-                range: [162:14, 162:25),
+                range: [102:74, 102:83),
             },
             Diagnostic {
                 message: "Type Error: TodoIndexOrComposeWithList",
@@ -53,29 +37,34 @@ DiagnosticSheet {
                 range: [163:14, 163:25),
             },
             Diagnostic {
-                message: "Type Error: no method named `lastx` for type `FluffyTerm::Solid(SolidTerm(0))`",
+                message: "Type Error: TodoIndexOrComposeWithList",
                 severity: Error,
-                range: [218:33, 218:38),
+                range: [164:14, 164:25),
             },
             Diagnostic {
                 message: "Type Error: no method named `lastx` for type `FluffyTerm::Solid(SolidTerm(0))`",
                 severity: Error,
-                range: [225:33, 225:38),
+                range: [219:33, 219:38),
             },
             Diagnostic {
                 message: "Type Error: no method named `lastx` for type `FluffyTerm::Solid(SolidTerm(0))`",
                 severity: Error,
-                range: [232:33, 232:38),
+                range: [226:33, 226:38),
+            },
+            Diagnostic {
+                message: "Type Error: no method named `lastx` for type `FluffyTerm::Solid(SolidTerm(0))`",
+                severity: Error,
+                range: [233:33, 233:38),
             },
             Diagnostic {
                 message: "Type Error: no method named `popx` for type `FluffyTerm::Solid(SolidTerm(0))`",
                 severity: Error,
-                range: [263:25, 263:29),
+                range: [264:25, 264:29),
             },
             Diagnostic {
                 message: "OriginalFluffyTermExpectationError::Todo",
                 severity: Error,
-                range: [170:22, 170:24),
+                range: [171:22, 171:24),
             },
         ],
     },

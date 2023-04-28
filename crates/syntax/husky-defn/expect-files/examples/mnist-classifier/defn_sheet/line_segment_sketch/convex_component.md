@@ -260,11 +260,11 @@ Ok(
                                             22,
                                         ),
                                     },
-                                    trai_expr: 18,
+                                    trai_expr: 20,
                                     for_token: TokenIdx(
                                         24,
                                     ),
-                                    ty_expr: 19,
+                                    ty_expr: 21,
                                     body: TraitForType(
                                         TraitForTypeItems {
                                             ast_idx_range: ArenaIdxRange(
@@ -481,11 +481,11 @@ Ok(
                                                             22,
                                                         ),
                                                     },
-                                                    trai_expr: 18,
+                                                    trai_expr: 20,
                                                     for_token: TokenIdx(
                                                         24,
                                                     ),
-                                                    ty_expr: 19,
+                                                    ty_expr: 21,
                                                     body: TraitForType(
                                                         TraitForTypeItems {
                                                             ast_idx_range: ArenaIdxRange(

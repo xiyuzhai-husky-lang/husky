@@ -2453,11 +2453,11 @@ Ok(
                                             85,
                                         ),
                                     },
-                                    trai_expr: 9,
+                                    trai_expr: 11,
                                     for_token: TokenIdx(
                                         87,
                                     ),
-                                    ty_expr: 10,
+                                    ty_expr: 12,
                                     body: TraitForType(
                                         TraitForTypeItems {
                                             ast_idx_range: ArenaIdxRange(
@@ -2665,11 +2665,11 @@ Ok(
                                                         85,
                                                     ),
                                                 },
-                                                trai_expr: 9,
+                                                trai_expr: 11,
                                                 for_token: TokenIdx(
                                                     87,
                                                 ),
-                                                ty_expr: 10,
+                                                ty_expr: 12,
                                                 body: TraitForType(
                                                     TraitForTypeItems {
                                                         ast_idx_range: ArenaIdxRange(
@@ -2914,7 +2914,7 @@ Ok(
                                             104,
                                         ),
                                     },
-                                    ty_expr: 11,
+                                    ty_expr: 13,
                                     body: Type(
                                         TypeItems {
                                             ast_idx_range: ArenaIdxRange(
@@ -3586,7 +3586,7 @@ Ok(
                                                         104,
                                                     ),
                                                 },
-                                                ty_expr: 11,
+                                                ty_expr: 13,
                                                 body: Type(
                                                     TypeItems {
                                                         ast_idx_range: ArenaIdxRange(
@@ -3844,11 +3844,11 @@ Ok(
                                             179,
                                         ),
                                     },
-                                    trai_expr: 12,
+                                    trai_expr: 14,
                                     for_token: TokenIdx(
                                         181,
                                     ),
-                                    ty_expr: 13,
+                                    ty_expr: 15,
                                     body: TraitForType(
                                         TraitForTypeItems {
                                             ast_idx_range: ArenaIdxRange(
@@ -4056,11 +4056,11 @@ Ok(
                                                         179,
                                                     ),
                                                 },
-                                                trai_expr: 12,
+                                                trai_expr: 14,
                                                 for_token: TokenIdx(
                                                     181,
                                                 ),
-                                                ty_expr: 13,
+                                                ty_expr: 15,
                                                 body: TraitForType(
                                                     TraitForTypeItems {
                                                         ast_idx_range: ArenaIdxRange(
@@ -4343,7 +4343,7 @@ Ok(
                                             198,
                                         ),
                                     },
-                                    ty_expr: 14,
+                                    ty_expr: 16,
                                     body: Type(
                                         TypeItems {
                                             ast_idx_range: ArenaIdxRange(
@@ -4512,7 +4512,7 @@ Ok(
                                                         198,
                                                     ),
                                                 },
-                                                ty_expr: 14,
+                                                ty_expr: 16,
                                                 body: Type(
                                                     TypeItems {
                                                         ast_idx_range: ArenaIdxRange(
@@ -4796,7 +4796,7 @@ Ok(
                                                         198,
                                                     ),
                                                 },
-                                                ty_expr: 14,
+                                                ty_expr: 16,
                                                 body: Type(
                                                     TypeItems {
                                                         ast_idx_range: ArenaIdxRange(

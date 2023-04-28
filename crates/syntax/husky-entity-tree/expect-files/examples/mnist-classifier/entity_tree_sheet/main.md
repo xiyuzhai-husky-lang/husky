@@ -595,11 +595,11 @@ Ok(
                                         FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 214,
+                                    ast_idx: 215,
                                     ident_token: IdentToken {
                                         ident: `find_raw_contours`,
                                         token_idx: TokenIdx(
-                                            987,
+                                            997,
                                         ),
                                     },
                                 },
