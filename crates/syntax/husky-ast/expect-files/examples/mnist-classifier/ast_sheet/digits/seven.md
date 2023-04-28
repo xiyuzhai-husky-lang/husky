@@ -341,12 +341,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `simple_leftdown_pattern`,
                         token_idx: TokenIdx(
-                            19,
+                            18,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        20,
+                        19,
                     ),
                     block: Form {
                         path: FugitivePath(
@@ -386,12 +386,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `special_seven_match`,
                         token_idx: TokenIdx(
-                            49,
+                            48,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        50,
+                        49,
                     ),
                     block: Form {
                         path: FugitivePath(
@@ -431,12 +431,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `leftupcc_pattern`,
                         token_idx: TokenIdx(
-                            65,
+                            63,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        66,
+                        64,
                     ),
                     block: Form {
                         path: FugitivePath(
@@ -476,12 +476,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `leftdowncc_pattern`,
                         token_idx: TokenIdx(
-                            108,
+                            106,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        109,
+                        107,
                     ),
                     block: Form {
                         path: FugitivePath(
@@ -513,24 +513,24 @@ Ok(
                         variant: PubUnder {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    161,
+                                    159,
                                 ),
                             },
                             lpar: LeftParenthesisToken(
                                 TokenIdx(
-                                    162,
+                                    160,
                                 ),
                             ),
                             scope: Super(
                                 SuperToken {
                                     token_idx: TokenIdx(
-                                        163,
+                                        161,
                                     ),
                                 },
                             ),
                             rpar: RightParenthesisToken(
                                 TokenIdx(
-                                    164,
+                                    162,
                                 ),
                             ),
                         },
@@ -544,12 +544,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `is_seven`,
                         token_idx: TokenIdx(
-                            166,
+                            164,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        167,
+                        165,
                     ),
                     block: Form {
                         path: FugitivePath(

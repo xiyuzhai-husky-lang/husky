@@ -153,11 +153,6 @@ Ok(
                     PunctuationMapped::Eq,
                 ),
             ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Colon,
-                ),
-            ),
             Token::Keyword(
                 Keyword::Stmt(
                     Let,
@@ -332,11 +327,6 @@ Ok(
             Token::Punctuation(
                 Punctuation(
                     PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Colon,
                 ),
             ),
             Token::Keyword(
@@ -513,11 +503,6 @@ Ok(
             Token::Punctuation(
                 Punctuation(
                     PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Colon,
                 ),
             ),
             Token::Keyword(
@@ -1120,27 +1105,27 @@ Ok(
             4,
             24,
             27,
-            33,
-            38,
-            49,
-            64,
-            66,
-            72,
-            77,
-            88,
+            32,
+            37,
+            48,
+            63,
+            65,
+            70,
+            75,
+            86,
+            101,
             103,
-            105,
-            111,
-            116,
-            127,
-            146,
-            148,
-            176,
-            185,
-            197,
-            206,
-            213,
-            224,
+            108,
+            113,
+            124,
+            143,
+            145,
+            173,
+            182,
+            194,
+            203,
+            210,
+            221,
         ],
         indents: [
             0,

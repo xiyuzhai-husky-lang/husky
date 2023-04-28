@@ -46,7 +46,6 @@ Ok(
                 None,
             ),
             TokenInfo::None,
-            TokenInfo::None,
             TokenInfo::Entity(
                 Some(
                     EntityPath::ModuleItem(
@@ -417,7 +416,6 @@ Ok(
                 ),
                 None,
             ),
-            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(

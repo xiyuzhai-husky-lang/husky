@@ -142,7 +142,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `go_right`,
                                 token_idx: TokenIdx(
-                                    366,
+                                    364,
                                 ),
                             },
                         },
@@ -165,7 +165,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `go_left`,
                                 token_idx: TokenIdx(
-                                    463,
+                                    461,
                                 ),
                             },
                         },
@@ -188,7 +188,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `extend_end`,
                                 token_idx: TokenIdx(
-                                    560,
+                                    558,
                                 ),
                             },
                         },
@@ -211,7 +211,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `extend_start`,
                                 token_idx: TokenIdx(
-                                    793,
+                                    791,
                                 ),
                             },
                         },
@@ -234,7 +234,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `find_line_segments`,
                                 token_idx: TokenIdx(
-                                    1059,
+                                    1057,
                                 ),
                             },
                         },
@@ -286,7 +286,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `find_concave_components`,
                                         token_idx: TokenIdx(
-                                            538,
+                                            532,
                                         ),
                                     },
                                 },

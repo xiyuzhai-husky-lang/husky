@@ -199,7 +199,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    18,
+                                    17,
                                 ),
                             },
                         },
@@ -213,12 +213,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `major_connected_component`,
                         token_idx: TokenIdx(
-                            20,
+                            19,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        21,
+                        20,
                     ),
                     block: Form {
                         path: FugitivePath(
@@ -244,7 +244,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    70,
+                                    68,
                                 ),
                             },
                         },
@@ -258,12 +258,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `ignored_connected_components_row_span_sum_sum`,
                         token_idx: TokenIdx(
-                            72,
+                            70,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        73,
+                        71,
                     ),
                     block: Form {
                         path: FugitivePath(
@@ -289,7 +289,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    105,
+                                    102,
                                 ),
                             },
                         },
@@ -303,12 +303,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `major_raw_contours`,
                         token_idx: TokenIdx(
-                            107,
+                            104,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        108,
+                        105,
                     ),
                     block: Form {
                         path: FugitivePath(
@@ -334,7 +334,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    118,
+                                    114,
                                 ),
                             },
                         },
@@ -348,12 +348,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `major_raw_contour`,
                         token_idx: TokenIdx(
-                            120,
+                            116,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        121,
+                        117,
                     ),
                     block: Form {
                         path: FugitivePath(
@@ -379,7 +379,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    132,
+                                    127,
                                 ),
                             },
                         },
@@ -393,12 +393,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `major_line_segment_sketch`,
                         token_idx: TokenIdx(
-                            134,
+                            129,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        135,
+                        130,
                     ),
                     block: Form {
                         path: FugitivePath(
@@ -424,7 +424,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    143,
+                                    137,
                                 ),
                             },
                         },
@@ -438,12 +438,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `major_concave_components`,
                         token_idx: TokenIdx(
-                            145,
+                            139,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        146,
+                        140,
                     ),
                     block: Form {
                         path: FugitivePath(

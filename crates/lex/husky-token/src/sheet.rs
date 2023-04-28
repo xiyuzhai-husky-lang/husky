@@ -424,6 +424,7 @@ impl<'a> TokenGroup<'a> {
     }
 }
 
+// todo: move this to a root module called group
 pub(crate) fn produce_group_starts(tokens: &[Token], token_ranges: &[TextRange]) -> Vec<usize> {
     let line_starts = produce_line_starts(token_ranges);
     let mut i = 0;
@@ -447,6 +448,7 @@ pub(crate) fn produce_group_starts(tokens: &[Token], token_ranges: &[TextRange])
                     // detect an indentation
                     match tokens[line_start1 - 1] {
                         Token::Keyword(Keyword::End(_))
+                        | Token::Punctuation(Punctuation::EQ)
                         | Token::Punctuation(Punctuation::COLON) => Break,
                         Token::Punctuation(
                             Punctuation::LPAR

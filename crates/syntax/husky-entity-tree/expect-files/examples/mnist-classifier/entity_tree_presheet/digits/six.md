@@ -43,7 +43,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `six_match_refined1`,
                                 token_idx: TokenIdx(
-                                    19,
+                                    18,
                                 ),
                             },
                         },
@@ -66,7 +66,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `is_six`,
                                 token_idx: TokenIdx(
-                                    39,
+                                    37,
                                 ),
                             },
                         },
@@ -89,7 +89,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `upmost`,
                                 token_idx: TokenIdx(
-                                    305,
+                                    302,
                                 ),
                             },
                         },
@@ -112,7 +112,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `bottom1`,
                                 token_idx: TokenIdx(
-                                    334,
+                                    331,
                                 ),
                             },
                         },

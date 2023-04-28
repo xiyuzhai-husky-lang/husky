@@ -394,12 +394,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `left_cc_pattern`,
                         token_idx: TokenIdx(
-                            23,
+                            22,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        24,
+                        23,
                     ),
                     block: Form {
                         path: FugitivePath(
@@ -439,12 +439,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `right_cc_pattern`,
                         token_idx: TokenIdx(
-                            52,
+                            51,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        53,
+                        52,
                     ),
                     block: Form {
                         path: FugitivePath(
@@ -484,12 +484,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `down_cc_pattern`,
                         token_idx: TokenIdx(
-                            81,
+                            80,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        82,
+                        81,
                     ),
                     block: Form {
                         path: FugitivePath(
@@ -521,24 +521,24 @@ Ok(
                         variant: PubUnder {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    109,
+                                    108,
                                 ),
                             },
                             lpar: LeftParenthesisToken(
                                 TokenIdx(
-                                    110,
+                                    109,
                                 ),
                             ),
                             scope: Super(
                                 SuperToken {
                                     token_idx: TokenIdx(
-                                        111,
+                                        110,
                                     ),
                                 },
                             ),
                             rpar: RightParenthesisToken(
                                 TokenIdx(
-                                    112,
+                                    111,
                                 ),
                             ),
                         },
@@ -552,12 +552,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `is_two`,
                         token_idx: TokenIdx(
-                            114,
+                            113,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        115,
+                        114,
                     ),
                     block: Form {
                         path: FugitivePath(

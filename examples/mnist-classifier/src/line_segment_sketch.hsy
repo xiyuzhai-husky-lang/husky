@@ -39,10 +39,10 @@ impl Visualize for LineSegmentSketch:
         self.strokes.visualize()
 
 impl LineSegmentSketch:
-    val concave_components: []ConcaveComponent =:
+    val concave_components: []ConcaveComponent =
         find_concave_components(self)
     
-    val bounding_box: BoundingBox =:
+    val bounding_box: BoundingBox =
         let start_point = self.strokes[0].start
         let mut xmin = start_point.x
         let mut xmax = start_point.x

@@ -153,12 +153,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `rel_norm`,
                         token_idx: TokenIdx(
-                            67,
+                            66,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        68,
+                        67,
                     ),
                     block: AssociatedItem {
                         body: Some(
@@ -192,12 +192,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `angle_change_norm`,
                         token_idx: TokenIdx(
-                            106,
+                            104,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        107,
+                        105,
                     ),
                     block: AssociatedItem {
                         body: Some(
@@ -327,7 +327,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    148,
+                                    145,
                                 ),
                             },
                         },
@@ -341,12 +341,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `fermi_match`,
                         token_idx: TokenIdx(
-                            150,
+                            147,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        151,
+                        148,
                     ),
                     block: Form {
                         path: FugitivePath(

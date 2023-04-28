@@ -315,12 +315,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `left_coordinate_max`,
                         token_idx: TokenIdx(
-                            21,
+                            20,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        22,
+                        21,
                     ),
                     block: Form {
                         path: FugitivePath(
@@ -360,12 +360,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `components_max_downwards`,
                         token_idx: TokenIdx(
-                            40,
+                            39,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        41,
+                        40,
                     ),
                     block: Form {
                         path: FugitivePath(
@@ -405,12 +405,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `components_max_heights`,
                         token_idx: TokenIdx(
-                            54,
+                            52,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        55,
+                        53,
                     ),
                     block: Form {
                         path: FugitivePath(
@@ -450,12 +450,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `is_four`,
                         token_idx: TokenIdx(
-                            68,
+                            65,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        69,
+                        66,
                     ),
                     block: Form {
                         path: FugitivePath(
@@ -495,12 +495,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `displacement_downwards`,
                         token_idx: TokenIdx(
-                            252,
+                            248,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        253,
+                        249,
                     ),
                     block: Form {
                         path: FugitivePath(
@@ -540,12 +540,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `cc_box_heights`,
                         token_idx: TokenIdx(
-                            281,
+                            277,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        282,
+                        278,
                     ),
                     block: Form {
                         path: FugitivePath(

@@ -35,7 +35,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `major_connected_component`,
                                 token_idx: TokenIdx(
-                                    20,
+                                    19,
                                 ),
                             },
                         },
@@ -54,7 +54,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `ignored_connected_components_row_span_sum_sum`,
                                 token_idx: TokenIdx(
-                                    72,
+                                    70,
                                 ),
                             },
                         },
@@ -73,7 +73,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `major_raw_contours`,
                                 token_idx: TokenIdx(
-                                    107,
+                                    104,
                                 ),
                             },
                         },
@@ -92,7 +92,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `major_raw_contour`,
                                 token_idx: TokenIdx(
-                                    120,
+                                    116,
                                 ),
                             },
                         },
@@ -111,7 +111,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `major_line_segment_sketch`,
                                 token_idx: TokenIdx(
-                                    134,
+                                    129,
                                 ),
                             },
                         },
@@ -130,7 +130,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `major_concave_components`,
                                 token_idx: TokenIdx(
-                                    145,
+                                    139,
                                 ),
                             },
                         },
@@ -437,7 +437,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `is_one`,
                                                         token_idx: TokenIdx(
-                                                            24,
+                                                            23,
                                                         ),
                                                     },
                                                 },
@@ -545,7 +545,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `fermi_match`,
                                                 token_idx: TokenIdx(
-                                                    150,
+                                                    147,
                                                 ),
                                             },
                                         },
@@ -643,7 +643,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `find_raw_contours`,
                                                 token_idx: TokenIdx(
-                                                    991,
+                                                    987,
                                                 ),
                                             },
                                         },
@@ -853,7 +853,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `find_concave_components`,
                                                         token_idx: TokenIdx(
-                                                            538,
+                                                            532,
                                                         ),
                                                     },
                                                 },
@@ -1120,7 +1120,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `find_connected_components`,
                                                 token_idx: TokenIdx(
-                                                    662,
+                                                    654,
                                                 ),
                                             },
                                         },

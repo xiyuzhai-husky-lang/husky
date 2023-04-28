@@ -64,11 +64,6 @@ Ok(
                     PunctuationMapped::Eq,
                 ),
             ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Colon,
-                ),
-            ),
             Token::Ident(
                 `find_connected_components`,
             ),
@@ -116,11 +111,6 @@ Ok(
             Token::Punctuation(
                 Punctuation(
                     PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Colon,
                 ),
             ),
             Token::Keyword(
@@ -345,11 +335,6 @@ Ok(
                     PunctuationMapped::Eq,
                 ),
             ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Colon,
-                ),
-            ),
             Token::Keyword(
                 Keyword::Stmt(
                     Let,
@@ -527,11 +512,6 @@ Ok(
                     PunctuationMapped::Eq,
                 ),
             ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Colon,
-                ),
-            ),
             Token::Ident(
                 `major_connected_component`,
             ),
@@ -570,11 +550,6 @@ Ok(
             Token::Punctuation(
                 Punctuation(
                     PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Colon,
                 ),
             ),
             Token::Ident(
@@ -636,11 +611,6 @@ Ok(
                     PunctuationMapped::Eq,
                 ),
             ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Colon,
-                ),
-            ),
             Token::Ident(
                 `major_raw_contour`,
             ),
@@ -695,11 +665,6 @@ Ok(
                     PunctuationMapped::Eq,
                 ),
             ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Colon,
-                ),
-            ),
             Token::Ident(
                 `major_line_segment_sketch`,
             ),
@@ -715,29 +680,29 @@ Ok(
         group_starts: [
             0,
             4,
-            14,
-            18,
-            26,
-            31,
-            36,
-            45,
-            54,
-            59,
-            62,
-            65,
-            70,
-            77,
-            82,
-            91,
-            99,
-            105,
-            115,
-            118,
-            126,
-            132,
-            140,
-            143,
-            153,
+            13,
+            17,
+            24,
+            29,
+            34,
+            43,
+            52,
+            57,
+            60,
+            63,
+            68,
+            74,
+            79,
+            88,
+            96,
+            102,
+            111,
+            114,
+            121,
+            127,
+            134,
+            137,
+            146,
         ],
         indents: [
             0,

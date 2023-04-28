@@ -43,7 +43,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `left_coordinate_max`,
                                 token_idx: TokenIdx(
-                                    21,
+                                    20,
                                 ),
                             },
                         },
@@ -66,7 +66,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `components_max_downwards`,
                                 token_idx: TokenIdx(
-                                    40,
+                                    39,
                                 ),
                             },
                         },
@@ -89,7 +89,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `components_max_heights`,
                                 token_idx: TokenIdx(
-                                    54,
+                                    52,
                                 ),
                             },
                         },
@@ -112,7 +112,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `is_four`,
                                 token_idx: TokenIdx(
-                                    68,
+                                    65,
                                 ),
                             },
                         },
@@ -135,7 +135,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `displacement_downwards`,
                                 token_idx: TokenIdx(
-                                    252,
+                                    248,
                                 ),
                             },
                         },
@@ -158,7 +158,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `cc_box_heights`,
                                 token_idx: TokenIdx(
-                                    281,
+                                    277,
                                 ),
                             },
                         },

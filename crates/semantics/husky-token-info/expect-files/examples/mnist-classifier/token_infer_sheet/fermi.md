@@ -116,7 +116,6 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
                 current_symbol_kind: CurrentSymbolKind::LetVariable {
@@ -219,7 +218,6 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
                 current_symbol_kind: CurrentSymbolKind::LetVariable {
@@ -319,7 +317,6 @@ Ok(
                 ),
                 None,
             ),
-            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,

@@ -43,7 +43,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `simple_leftdown_pattern`,
                                 token_idx: TokenIdx(
-                                    19,
+                                    18,
                                 ),
                             },
                         },
@@ -66,7 +66,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `special_seven_match`,
                                 token_idx: TokenIdx(
-                                    49,
+                                    48,
                                 ),
                             },
                         },
@@ -89,7 +89,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `leftupcc_pattern`,
                                 token_idx: TokenIdx(
-                                    65,
+                                    63,
                                 ),
                             },
                         },
@@ -112,7 +112,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `leftdowncc_pattern`,
                                 token_idx: TokenIdx(
-                                    108,
+                                    106,
                                 ),
                             },
                         },
@@ -135,7 +135,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `is_seven`,
                                 token_idx: TokenIdx(
-                                    166,
+                                    164,
                                 ),
                             },
                         },
