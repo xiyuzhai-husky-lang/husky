@@ -385,6 +385,7 @@ impl<'a> ExprRangeCalculator<'a> {
                         TokenIdxRange::new_single(*token_idx)
                     }
                     OriginalExprError::ExpectBlock(_) => todo!(),
+                    OriginalExprError::ExpectedValueForFieldBindInitialization(_) => todo!(),
                 },
                 ExprError::Derived(_) => todo!(),
             },

@@ -27,10 +27,10 @@ impl Visualize for ConnectedComponent:
         self.mask.visualize()
 
 impl ConnectedComponent:
-    memo raw_contours: []RawContour =:
+    val raw_contours: []RawContour =:
         find_raw_contours(self)
     
-    memo eff_holes: EffHoles =:
+    val eff_holes: EffHoles =:
         let mut raw_contours = self.raw_contours.collect_refs()
         let mut matches: []?~RawContour = []
         // ad hoc, should replace self with pop_first
@@ -39,7 +39,7 @@ impl ConnectedComponent:
         matches.push(raw_contours.pop_with_largest_opt_f32(hole_tmpl))
         return EffHoles(matches)
 
-    memo max_hole_ilen: f32 =:
+    val max_hole_ilen: f32 =:
         // todo: change self to iter
         let mut max_hole_ilen = 0
         let raw_contours = self.raw_contours
@@ -49,21 +49,21 @@ impl ConnectedComponent:
                 max_hole_ilen = hole_ilen
         return max_hole_ilen as f32
     
-    memo max_row_span: f32 =:
+    val max_row_span: f32 =:
         // todo: change self to func
         let mut max_row = 0
         for 0 < i < 29:
             max_row = max_row.max(self.mask[i].span())
         return max_row as f32
 
-    memo row_span_sum: f32 =:
+    val row_span_sum: f32 =:
         // todo: change self to func
         let mut row_span_sum = 0
         for 0 < i < 29:
             row_span_sum += self.mask[i].span()
         return row_span_sum as f32
 
-    memo distribution: ConnectedComponentDistribution =:
+    val distribution: ConnectedComponentDistribution =:
         let mut row_start = 1
         forext row_start < 29:
             if self.mask[row_start]:
@@ -87,10 +87,10 @@ impl ConnectedComponent:
             lower_mass,
         )
     
-    memo upper_mass: f32 =:
+    val upper_mass: f32 =:
         self.distribution.upper_mass as f32
     
-    memo lower_mass: f32 =:
+    val lower_mass: f32 =:
         self.distribution.lower_mass as f32
     
     fn top_k_row_span_sum(k : i32) -> f32:

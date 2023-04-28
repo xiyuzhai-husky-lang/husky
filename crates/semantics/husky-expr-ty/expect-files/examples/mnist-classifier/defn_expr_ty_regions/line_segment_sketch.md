@@ -12768,7 +12768,7 @@
                         TypeError(
                             DeclarativeTypeError(
                                 Derived(
-                                    TypeConstructorDeclError,
+                                    SignatureError,
                                 ),
                             ),
                         ),
@@ -17364,7 +17364,7 @@
                         TypeError(
                             DeclarativeTypeError(
                                 Derived(
-                                    TypeConstructorDeclError,
+                                    SignatureError,
                                 ),
                             ),
                         ),
@@ -19513,13 +19513,7 @@
                         TypeError(
                             DeclarativeTypeError(
                                 Derived(
-                                    TypeOntologyDeclError {
-                                        path: TypePath(
-                                            Id {
-                                                value: 84,
-                                            },
-                                        ),
-                                    },
+                                    SignatureError,
                                 ),
                             ),
                         ),
@@ -19533,13 +19527,7 @@
                         TypeError(
                             DeclarativeTypeError(
                                 Derived(
-                                    TypeOntologyDeclError {
-                                        path: TypePath(
-                                            Id {
-                                                value: 84,
-                                            },
-                                        ),
-                                    },
+                                    SignatureError,
                                 ),
                             ),
                         ),

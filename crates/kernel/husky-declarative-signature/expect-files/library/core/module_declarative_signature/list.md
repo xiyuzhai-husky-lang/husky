@@ -11,7 +11,7 @@
                                 ),
                                 symbol: DeclarativeTermSymbol(
                                     Id {
-                                        value: 1,
+                                        value: 3,
                                     },
                                 ),
                                 traits: [],
@@ -32,7 +32,7 @@
                                 annotated_variance: None,
                                 symbol: DeclarativeTermSymbol(
                                     Id {
-                                        value: 1,
+                                        value: 3,
                                     },
                                 ),
                                 traits: [],
@@ -98,7 +98,7 @@
                                     ty: Symbol(
                                         DeclarativeTermSymbol(
                                             Id {
-                                                value: 1,
+                                                value: 3,
                                             },
                                         ),
                                     ),

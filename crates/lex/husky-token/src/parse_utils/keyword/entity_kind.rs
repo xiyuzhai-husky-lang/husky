@@ -23,7 +23,6 @@ pub enum EntityKindKeywordGroup {
     // Type
     Type(TypeToken),
     Trait(TraitToken),
-    Memo(MemoToken),
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -161,9 +160,6 @@ where
                 FormKeyword::Val => Ok(Some(EntityKindKeywordGroup::Val(ValToken { token_idx }))),
                 FormKeyword::Gn => Ok(Some(EntityKindKeywordGroup::Gn(GnToken { token_idx }))),
                 FormKeyword::Constexpr => todo!(),
-                FormKeyword::Memo => {
-                    Ok(Some(EntityKindKeywordGroup::Memo(MemoToken { token_idx })))
-                }
             },
             Keyword::TypeEntity(keyword) => {
                 Ok(Some(EntityKindKeywordGroup::TypeEntity(TypeEntityToken {

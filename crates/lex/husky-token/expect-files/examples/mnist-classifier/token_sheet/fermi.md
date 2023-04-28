@@ -134,7 +134,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Memo,
+                    Val,
                 ),
             ),
             Token::Ident(
@@ -315,7 +315,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Memo,
+                    Val,
                 ),
             ),
             Token::Ident(
@@ -496,7 +496,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Memo,
+                    Val,
                 ),
             ),
             Token::Ident(

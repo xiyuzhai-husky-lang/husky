@@ -32,7 +32,7 @@ impl<'a> DeclParseContext<'a> {
             DeclRegionPath::Entity(path.into()),
             None,
             AllowSelfType::True,
-            AllowSelfValue::False,
+            AllowSelfValue::True,
         );
         let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
         let implicit_parameters = ctx.parse()?;
