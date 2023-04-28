@@ -70,6 +70,8 @@ pub enum OriginalExprTypeError {
     TodoIndexOrComposeWithList,
     #[error("TodoMemo")]
     TodoMemo,
+    #[error("ExpectedCurryButGotRitchieInstead")]
+    ExpectedCurryButGotRitchieInstead,
 }
 
 impl OriginalError for OriginalExprTypeError {

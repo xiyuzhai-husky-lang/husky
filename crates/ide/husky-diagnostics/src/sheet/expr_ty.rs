@@ -154,6 +154,9 @@ impl Diagnose for (ExprIdx, &'_ OriginalExprTypeError) {
             OriginalExprTypeError::TodoMemo => {
                 format!("Type Error: TodoMemo")
             }
+            OriginalExprTypeError::ExpectedCurryButGotRitchieInstead => {
+                format!("Type Error: ExpectedCurryButGotRitchieInstead")
+            }
         }
     }
 
