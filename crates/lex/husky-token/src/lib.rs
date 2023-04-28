@@ -1,6 +1,5 @@
 #![feature(trait_upcasting)]
 #![feature(const_trait_impl)]
-#![feature(const_convert)]
 mod convexity;
 mod db;
 mod error;

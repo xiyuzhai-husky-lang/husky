@@ -17,7 +17,7 @@ impl std::fmt::Debug for TextLine {
     }
 }
 
-impl const From<u32> for TextLine {
+impl From<u32> for TextLine {
     fn from(base0: u32) -> Self {
         TextLine(base0)
     }
@@ -29,7 +29,7 @@ impl From<usize> for TextLine {
     }
 }
 
-impl const From<i32> for TextLine {
+impl From<i32> for TextLine {
     fn from(base0: i32) -> Self {
         assert!(base0 >= 0);
         TextLine(base0 as u32)

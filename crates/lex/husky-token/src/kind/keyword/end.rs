@@ -15,7 +15,7 @@ impl EndKeyword {
     }
 }
 
-impl const From<EndKeyword> for Token {
+impl From<EndKeyword> for Token {
     fn from(kw: EndKeyword) -> Self {
         Token::Keyword(kw.into())
     }

@@ -1,4 +1,3 @@
-#![feature(const_convert)]
 #![feature(const_trait_impl)]
 #![feature(str_internals)]
 mod change;

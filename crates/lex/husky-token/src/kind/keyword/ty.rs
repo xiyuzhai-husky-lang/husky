@@ -33,7 +33,7 @@ impl Deref for TypeEntityKeyword {
     }
 }
 
-impl const From<TypeEntityKeyword> for Token {
+impl From<TypeEntityKeyword> for Token {
     fn from(val: TypeEntityKeyword) -> Self {
         Token::Keyword(val.into())
     }

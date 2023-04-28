@@ -44,7 +44,7 @@ impl From<lsp_types::Position> for TextPosition {
     }
 }
 
-impl const From<(u32, u32)> for TextPosition {
+impl From<(u32, u32)> for TextPosition {
     fn from(pair: (u32, u32)) -> Self {
         TextPosition {
             line: pair.0.into(),
@@ -53,7 +53,7 @@ impl const From<(u32, u32)> for TextPosition {
     }
 }
 
-impl const From<&(u32, u32)> for TextPosition {
+impl From<&(u32, u32)> for TextPosition {
     fn from(pair: &(u32, u32)) -> Self {
         TextPosition {
             line: pair.0.into(),

@@ -22,7 +22,7 @@ pub enum ModifierKeyword {
 //     IllFormedLiteral(LiteralToken),
 // }
 
-impl const From<ModifierKeyword> for Token {
+impl From<ModifierKeyword> for Token {
     fn from(val: ModifierKeyword) -> Self {
         Token::Keyword(val.into())
     }

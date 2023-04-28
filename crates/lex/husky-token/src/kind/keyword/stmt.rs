@@ -49,7 +49,7 @@ impl Deref for StmtKeyword {
     }
 }
 
-impl const From<StmtKeyword> for Token {
+impl From<StmtKeyword> for Token {
     fn from(val: StmtKeyword) -> Self {
         Token::Keyword(val.into())
     }

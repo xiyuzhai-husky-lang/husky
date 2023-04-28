@@ -48,7 +48,7 @@ impl From<FloatLiteral> for Pretoken {
     }
 }
 
-impl const From<EndKeyword> for Pretoken {
+impl From<EndKeyword> for Pretoken {
     fn from(kw: EndKeyword) -> Self {
         Pretoken::Certain(kw.into())
     }
