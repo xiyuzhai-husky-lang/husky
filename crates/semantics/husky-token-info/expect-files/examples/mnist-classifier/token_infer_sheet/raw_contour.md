@@ -224,7 +224,6 @@ Ok(
                 None,
             ),
             TokenInfo::None,
-            TokenInfo::None,
             TokenInfo::Entity(
                 Some(
                     EntityPath::ModuleItem(
@@ -287,7 +286,6 @@ Ok(
                 ),
                 None,
             ),
-            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -632,7 +630,6 @@ Ok(
                 None,
             ),
             TokenInfo::None,
-            TokenInfo::None,
             TokenInfo::SelfValue,
             TokenInfo::None,
             TokenInfo::Field,
@@ -682,7 +679,6 @@ Ok(
                 ),
                 None,
             ),
-            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,

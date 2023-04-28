@@ -43,7 +43,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `is_three`,
                                 token_idx: TokenIdx(
-                                    27,
+                                    26,
                                 ),
                             },
                         },
@@ -66,7 +66,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `uparc`,
                                 token_idx: TokenIdx(
-                                    158,
+                                    156,
                                 ),
                             },
                         },
@@ -89,7 +89,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `downarc`,
                                 token_idx: TokenIdx(
-                                    192,
+                                    190,
                                 ),
                             },
                         },
@@ -112,7 +112,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `back`,
                                 token_idx: TokenIdx(
-                                    226,
+                                    224,
                                 ),
                             },
                         },

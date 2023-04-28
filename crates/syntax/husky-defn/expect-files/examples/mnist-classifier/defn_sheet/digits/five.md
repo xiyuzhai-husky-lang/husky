@@ -34,15 +34,7 @@ Ok(
                                             13,
                                         ),
                                     ),
-                                    expr_or_eol_token: Left(
-                                        EolToken::Colon(
-                                            EolColonToken {
-                                                token_idx: TokenIdx(
-                                                    14,
-                                                ),
-                                            },
-                                        ),
-                                    ),
+                                    expr: None,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
                                             parent: None,
@@ -166,7 +158,7 @@ Ok(
                                             data: [
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        15,
+                                                        14,
                                                     ),
                                                     ident: `MnistLabel`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -179,14 +171,14 @@ Ok(
                                                     parent: 0,
                                                     scope_resolution_token: ScopeResolutionToken(
                                                         TokenIdx(
-                                                            16,
+                                                            15,
                                                         ),
                                                     ),
                                                     ident_token: Ok(
                                                         IdentToken {
                                                             ident: `Five`,
                                                             token_idx: TokenIdx(
-                                                                17,
+                                                                16,
                                                             ),
                                                         },
                                                     ),

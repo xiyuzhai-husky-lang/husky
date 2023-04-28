@@ -240,24 +240,24 @@ Ok(
                         variant: PubUnder {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    22,
+                                    21,
                                 ),
                             },
                             lpar: LeftParenthesisToken(
                                 TokenIdx(
-                                    23,
+                                    22,
                                 ),
                             ),
                             scope: Super(
                                 SuperToken {
                                     token_idx: TokenIdx(
-                                        24,
+                                        23,
                                     ),
                                 },
                             ),
                             rpar: RightParenthesisToken(
                                 TokenIdx(
-                                    25,
+                                    24,
                                 ),
                             ),
                         },
@@ -271,12 +271,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `is_three`,
                         token_idx: TokenIdx(
-                            27,
+                            26,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        28,
+                        27,
                     ),
                     block: Form {
                         path: FugitivePath(
@@ -316,12 +316,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `uparc`,
                         token_idx: TokenIdx(
-                            158,
+                            156,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        159,
+                        157,
                     ),
                     block: Form {
                         path: FugitivePath(
@@ -361,12 +361,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `downarc`,
                         token_idx: TokenIdx(
-                            192,
+                            190,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        193,
+                        191,
                     ),
                     block: Form {
                         path: FugitivePath(
@@ -406,12 +406,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `back`,
                         token_idx: TokenIdx(
-                            226,
+                            224,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        227,
+                        225,
                     ),
                     block: Form {
                         path: FugitivePath(

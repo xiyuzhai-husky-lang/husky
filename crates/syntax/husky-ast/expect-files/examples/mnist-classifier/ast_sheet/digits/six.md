@@ -422,12 +422,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `six_match_refined1`,
                         token_idx: TokenIdx(
-                            19,
+                            18,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        20,
+                        19,
                     ),
                     block: Form {
                         path: FugitivePath(
@@ -459,24 +459,24 @@ Ok(
                         variant: PubUnder {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    34,
+                                    32,
                                 ),
                             },
                             lpar: LeftParenthesisToken(
                                 TokenIdx(
-                                    35,
+                                    33,
                                 ),
                             ),
                             scope: Super(
                                 SuperToken {
                                     token_idx: TokenIdx(
-                                        36,
+                                        34,
                                     ),
                                 },
                             ),
                             rpar: RightParenthesisToken(
                                 TokenIdx(
-                                    37,
+                                    35,
                                 ),
                             ),
                         },
@@ -490,12 +490,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `is_six`,
                         token_idx: TokenIdx(
-                            39,
+                            37,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        40,
+                        38,
                     ),
                     block: Form {
                         path: FugitivePath(
@@ -535,12 +535,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `upmost`,
                         token_idx: TokenIdx(
-                            305,
+                            302,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        306,
+                        303,
                     ),
                     block: Form {
                         path: FugitivePath(
@@ -580,12 +580,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `bottom1`,
                         token_idx: TokenIdx(
-                            334,
+                            331,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        335,
+                        332,
                     ),
                     block: Form {
                         path: FugitivePath(

@@ -377,7 +377,6 @@ Ok(
                 None,
             ),
             TokenInfo::None,
-            TokenInfo::None,
             TokenInfo::SelfValue,
             TokenInfo::None,
             TokenInfo::Field,
@@ -413,7 +412,6 @@ Ok(
                 ),
                 None,
             ),
-            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::SelfValue,
             TokenInfo::None,
@@ -460,7 +458,6 @@ Ok(
                 ),
                 None,
             ),
-            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -675,7 +672,6 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
                 current_symbol_kind: CurrentSymbolKind::LetVariable {
@@ -838,7 +834,6 @@ Ok(
                 ),
                 None,
             ),
-            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -1191,7 +1186,6 @@ Ok(
                 ),
                 None,
             ),
-            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::SelfValue,
             TokenInfo::None,

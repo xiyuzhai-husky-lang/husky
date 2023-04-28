@@ -39,7 +39,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `Direction`,
                                 token_idx: TokenIdx(
-                                    395,
+                                    391,
                                 ),
                             },
                         },
@@ -62,7 +62,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `get_pixel_pair`,
                                 token_idx: TokenIdx(
-                                    405,
+                                    401,
                                 ),
                             },
                         },
@@ -85,7 +85,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `get_pixel_to_the_left`,
                                 token_idx: TokenIdx(
-                                    430,
+                                    426,
                                 ),
                             },
                         },
@@ -108,7 +108,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `get_pixel_to_the_right`,
                                 token_idx: TokenIdx(
-                                    451,
+                                    447,
                                 ),
                             },
                         },
@@ -131,7 +131,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `get_inward_direction`,
                                 token_idx: TokenIdx(
-                                    476,
+                                    472,
                                 ),
                             },
                         },
@@ -154,7 +154,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `get_angle_change`,
                                 token_idx: TokenIdx(
-                                    622,
+                                    618,
                                 ),
                             },
                         },
@@ -177,7 +177,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `get_outward_direction`,
                                 token_idx: TokenIdx(
-                                    686,
+                                    682,
                                 ),
                             },
                         },
@@ -200,7 +200,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `StreakCache`,
                                 token_idx: TokenIdx(
-                                    913,
+                                    909,
                                 ),
                             },
                         },
@@ -223,7 +223,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `get_concave_middle_point`,
                                 token_idx: TokenIdx(
-                                    925,
+                                    921,
                                 ),
                             },
                         },
@@ -242,7 +242,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `find_raw_contours`,
                                 token_idx: TokenIdx(
-                                    991,
+                                    987,
                                 ),
                             },
                         },

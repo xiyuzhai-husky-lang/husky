@@ -1,13 +1,13 @@
 use super::*
 
-val open_one_match: FermiMatchResult =:
+val open_one_match: FermiMatchResult =
     fermi_match(major_concave_components, [almost_closed])
 
 fn almost_closed(cc: ~ConcaveComponent) -> ?f32:
     require cc.angle_change + 0.0 < -140.0
     -cc.angle_change + 0.0
 
-pub(super) val is_zero: ?MnistLabel =:
+pub(super) val is_zero: ?MnistLabel =
     require is_one be none
     if major_connected_component.raw_contours.ilen() == 1:
         let n = open_one_match.norm

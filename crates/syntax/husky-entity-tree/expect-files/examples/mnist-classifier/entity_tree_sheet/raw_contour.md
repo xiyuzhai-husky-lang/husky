@@ -39,7 +39,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `Direction`,
                                 token_idx: TokenIdx(
-                                    395,
+                                    391,
                                 ),
                             },
                         },
@@ -62,7 +62,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `get_pixel_pair`,
                                 token_idx: TokenIdx(
-                                    405,
+                                    401,
                                 ),
                             },
                         },
@@ -85,7 +85,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `get_pixel_to_the_left`,
                                 token_idx: TokenIdx(
-                                    430,
+                                    426,
                                 ),
                             },
                         },
@@ -108,7 +108,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `get_pixel_to_the_right`,
                                 token_idx: TokenIdx(
-                                    451,
+                                    447,
                                 ),
                             },
                         },
@@ -131,7 +131,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `get_inward_direction`,
                                 token_idx: TokenIdx(
-                                    476,
+                                    472,
                                 ),
                             },
                         },
@@ -154,7 +154,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `get_angle_change`,
                                 token_idx: TokenIdx(
-                                    622,
+                                    618,
                                 ),
                             },
                         },
@@ -177,7 +177,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `get_outward_direction`,
                                 token_idx: TokenIdx(
-                                    686,
+                                    682,
                                 ),
                             },
                         },
@@ -200,7 +200,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `StreakCache`,
                                 token_idx: TokenIdx(
-                                    913,
+                                    909,
                                 ),
                             },
                         },
@@ -223,7 +223,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `get_concave_middle_point`,
                                 token_idx: TokenIdx(
-                                    925,
+                                    921,
                                 ),
                             },
                         },
@@ -242,7 +242,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `find_raw_contours`,
                                 token_idx: TokenIdx(
-                                    991,
+                                    987,
                                 ),
                             },
                         },
@@ -860,7 +860,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `find_connected_components`,
                                         token_idx: TokenIdx(
-                                            662,
+                                            654,
                                         ),
                                     },
                                 },
@@ -1014,7 +1014,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `find_concave_components`,
                                                 token_idx: TokenIdx(
-                                                    538,
+                                                    532,
                                                 ),
                                             },
                                         },
@@ -1157,7 +1157,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `major_connected_component`,
                                                 token_idx: TokenIdx(
-                                                    20,
+                                                    19,
                                                 ),
                                             },
                                         },
@@ -1206,7 +1206,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `ignored_connected_components_row_span_sum_sum`,
                                                 token_idx: TokenIdx(
-                                                    72,
+                                                    70,
                                                 ),
                                             },
                                         },
@@ -1255,7 +1255,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `major_raw_contours`,
                                                 token_idx: TokenIdx(
-                                                    107,
+                                                    104,
                                                 ),
                                             },
                                         },
@@ -1304,7 +1304,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `major_raw_contour`,
                                                 token_idx: TokenIdx(
-                                                    120,
+                                                    116,
                                                 ),
                                             },
                                         },
@@ -1353,7 +1353,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `major_line_segment_sketch`,
                                                 token_idx: TokenIdx(
-                                                    134,
+                                                    129,
                                                 ),
                                             },
                                         },
@@ -1402,7 +1402,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `major_concave_components`,
                                                 token_idx: TokenIdx(
-                                                    145,
+                                                    139,
                                                 ),
                                             },
                                         },
@@ -1453,7 +1453,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `is_one`,
                                                         token_idx: TokenIdx(
-                                                            24,
+                                                            23,
                                                         ),
                                                     },
                                                 },
@@ -1561,7 +1561,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `fermi_match`,
                                                 token_idx: TokenIdx(
-                                                    150,
+                                                    147,
                                                 ),
                                             },
                                         },

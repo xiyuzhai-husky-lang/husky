@@ -43,7 +43,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `is_eight`,
                                 token_idx: TokenIdx(
-                                    23,
+                                    22,
                                 ),
                             },
                         },
@@ -66,7 +66,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `big_mouth`,
                                 token_idx: TokenIdx(
-                                    87,
+                                    85,
                                 ),
                             },
                         },

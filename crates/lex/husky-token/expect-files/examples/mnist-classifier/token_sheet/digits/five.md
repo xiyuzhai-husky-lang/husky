@@ -69,11 +69,6 @@ Ok(
                     PunctuationMapped::Eq,
                 ),
             ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Colon,
-                ),
-            ),
             Token::Ident(
                 `MnistLabel`,
             ),
@@ -91,7 +86,7 @@ Ok(
         group_starts: [
             0,
             4,
-            15,
+            14,
         ],
         indents: [
             0,

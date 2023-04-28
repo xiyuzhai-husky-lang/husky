@@ -11,7 +11,7 @@ pub struct TypeMemoizedFieldDecl {
     pub colon_token: Option<ColonToken>,
     pub memo_ty: Option<FormTypeExpr>,
     pub eq_token: EqToken,
-    pub expr_or_eol_token: Either<EolToken, ExprIdx>,
+    pub expr: Option<ExprIdx>,
     pub expr_region: ExprRegion,
 }
 
@@ -46,11 +46,7 @@ impl<'a> DeclParseContext<'a> {
             None
         };
         let eq_token = ctx.parse_expected(OriginalDeclExprError::ExpectEqTokenForVariable)?;
-        let expr_or_eol_token = if let Some(eol_token) = ctx.parse::<EolToken>()? {
-            Left(eol_token)
-        } else {
-            Right(todo!("parse expr"))
-        };
+        let expr = ctx.parse_expr(None);
         Ok(TypeMemoizedFieldDecl::new(
             self.db(),
             path,
@@ -59,7 +55,7 @@ impl<'a> DeclParseContext<'a> {
             colon_token,
             form_ty,
             eq_token,
-            expr_or_eol_token,
+            expr,
             parser.finish(),
         )
         .into())

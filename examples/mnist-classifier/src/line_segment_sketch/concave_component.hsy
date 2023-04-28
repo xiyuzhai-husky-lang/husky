@@ -14,14 +14,14 @@ impl Visualize for ConcaveComponent:
         self.strokes.visualize()
 
 impl ConcaveComponent:
-    val norm: f32 =:
+    val norm: f32 =
         // needs improvement
         self.hausdorff_norm
     
-    val rel_norm: f32 =:
+    val rel_norm: f32 =
         self.norm / self.displacement().norm()
 
-    val hausdorff_norm: f32 =:
+    val hausdorff_norm: f32 =
         let mut hausdorff_norm = 0.0
         let curve_start = self.strokes.firstx().start
         let curve_ls = self.line_segment()
@@ -34,7 +34,7 @@ impl ConcaveComponent:
                 hausdorff_norm = point_dist
         return hausdorff_norm
 
-    val angle_change: f32 =:
+    val angle_change: f32 =
         let mut angle_change = 0.0
         let mut dp0 = self.strokes[self.strokes.start].displacement()
         // todo: change self for .. in ..[1..]
@@ -44,7 +44,7 @@ impl ConcaveComponent:
             dp0 = dp
         return angle_change
     
-    val bounding_box: BoundingBox =:
+    val bounding_box: BoundingBox =
         let start_point = self.strokes.firstx().start
         let mut xmin = start_point.x
         let mut xmax = start_point.x
@@ -61,7 +61,7 @@ impl ConcaveComponent:
             ClosedRange(ymin, ymax),
         )
     
-    val relative_bounding_box: RelativeBoundingBox =:
+    val relative_bounding_box: RelativeBoundingBox =
         self.line_segment_sketch.bounding_box.relative_bounding_box(self.bounding_box)
 
     fn line_segment() -> LineSegment:

@@ -39,7 +39,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `is_one`,
                                 token_idx: TokenIdx(
-                                    24,
+                                    23,
                                 ),
                             },
                         },
@@ -62,7 +62,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `upmost`,
                                 token_idx: TokenIdx(
-                                    503,
+                                    501,
                                 ),
                             },
                         },
@@ -85,7 +85,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `downmost`,
                                 token_idx: TokenIdx(
-                                    532,
+                                    530,
                                 ),
                             },
                         },
@@ -108,7 +108,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `hat`,
                                 token_idx: TokenIdx(
-                                    566,
+                                    564,
                                 ),
                             },
                         },

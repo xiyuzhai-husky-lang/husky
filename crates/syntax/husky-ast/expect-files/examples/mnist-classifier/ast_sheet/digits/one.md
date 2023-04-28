@@ -481,7 +481,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    22,
+                                    21,
                                 ),
                             },
                         },
@@ -495,12 +495,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `is_one`,
                         token_idx: TokenIdx(
-                            24,
+                            23,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        25,
+                        24,
                     ),
                     block: Form {
                         path: FugitivePath(
@@ -540,12 +540,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `upmost`,
                         token_idx: TokenIdx(
-                            503,
+                            501,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        504,
+                        502,
                     ),
                     block: Form {
                         path: FugitivePath(
@@ -585,12 +585,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `downmost`,
                         token_idx: TokenIdx(
-                            532,
+                            530,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        533,
+                        531,
                     ),
                     block: Form {
                         path: FugitivePath(
@@ -630,12 +630,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `hat`,
                         token_idx: TokenIdx(
-                            566,
+                            564,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        567,
+                        565,
                     ),
                     block: Form {
                         path: FugitivePath(

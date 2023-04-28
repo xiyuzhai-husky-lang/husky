@@ -201,24 +201,24 @@ Ok(
                         variant: PubUnder {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    18,
+                                    17,
                                 ),
                             },
                             lpar: LeftParenthesisToken(
                                 TokenIdx(
-                                    19,
+                                    18,
                                 ),
                             ),
                             scope: Super(
                                 SuperToken {
                                     token_idx: TokenIdx(
-                                        20,
+                                        19,
                                     ),
                                 },
                             ),
                             rpar: RightParenthesisToken(
                                 TokenIdx(
-                                    21,
+                                    20,
                                 ),
                             ),
                         },
@@ -232,12 +232,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `is_eight`,
                         token_idx: TokenIdx(
-                            23,
+                            22,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        24,
+                        23,
                     ),
                     block: Form {
                         path: FugitivePath(
@@ -277,12 +277,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `big_mouth`,
                         token_idx: TokenIdx(
-                            87,
+                            85,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        88,
+                        86,
                     ),
                     block: Form {
                         path: FugitivePath(

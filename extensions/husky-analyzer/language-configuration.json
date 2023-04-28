@@ -1,35 +1,108 @@
 {
-    "comments": {
-      "lineComment": "//",
-      "blockComment": ["/*", "*/"]
-    },
-    "brackets": [
-      ["{", "}"],
-      ["[", "]"],
-      ["(", ")"]
-    ],
-    "autoClosingPairs": [
-      { "open": "{", "close": "}" },
-      { "open": "[", "close": "]" },
-      { "open": "(", "close": ")" },
-      { "open": "'", "close": "'", "notIn": ["string", "comment"] },
-      { "open": "\"", "close": "\"", "notIn": ["string"] },
-      { "open": "`", "close": "`", "notIn": ["string", "comment"] },
-      { "open": "/**", "close": " */", "notIn": ["string"] }
-    ],
-    "autoCloseBefore": ";:.,=}])>` \n\t",
-    "surroundingPairs": [
-      ["{", "}"],
-      ["[", "]"],
-      ["(", ")"],
-      ["'", "'"],
-      ["\"", "\""],
-      ["`", "`"]
-    ],
-    "onEnterRules": [
-      {
-        "beforeText": "^((?!\\/\\/).)*(\\{[^}\"'`]*|\\([^)\"'`]*|\\[[^\\]\"'`]*|:)$",
-        "action": { "indent": "indent" }
-      },
+  "comments": {
+    "lineComment": "//",
+    "blockComment": [
+      "/*",
+      "*/"
     ]
+  },
+  "brackets": [
+    [
+      "{",
+      "}"
+    ],
+    [
+      "[",
+      "]"
+    ],
+    [
+      "(",
+      ")"
+    ]
+  ],
+  "autoClosingPairs": [
+    {
+      "open": "{",
+      "close": "}"
+    },
+    {
+      "open": "[",
+      "close": "]"
+    },
+    {
+      "open": "(",
+      "close": ")"
+    },
+    {
+      "open": "'",
+      "close": "'",
+      "notIn": [
+        "string",
+        "comment"
+      ]
+    },
+    {
+      "open": "\"",
+      "close": "\"",
+      "notIn": [
+        "string"
+      ]
+    },
+    {
+      "open": "`",
+      "close": "`",
+      "notIn": [
+        "string",
+        "comment"
+      ]
+    },
+    {
+      "open": "/**",
+      "close": " */",
+      "notIn": [
+        "string"
+      ]
+    }
+  ],
+  "autoCloseBefore": ";:.,=}])>` \n\t",
+  "surroundingPairs": [
+    [
+      "{",
+      "}"
+    ],
+    [
+      "[",
+      "]"
+    ],
+    [
+      "(",
+      ")"
+    ],
+    [
+      "'",
+      "'"
+    ],
+    [
+      "\"",
+      "\""
+    ],
+    [
+      "`",
+      "`"
+    ]
+  ],
+  "onEnterRules": [
+    {
+      "beforeText": "^((?!\\/\\/).)*(\\{[^}\"'`]*|\\([^)\"'`]*|\\[[^\\]\"'`]*|:)$",
+      "action": {
+        "indent": "indent"
+      }
+    },
+    {
+      "beforeText": "^((?!\\/\\/).)*(\\{[^}\"'`]*|\\([^)\"'`]*|\\[[^\\]\"'`]*|=)$",
+      "action": {
+        "indent": "indent"
+      }
+    },
+  ]
 }

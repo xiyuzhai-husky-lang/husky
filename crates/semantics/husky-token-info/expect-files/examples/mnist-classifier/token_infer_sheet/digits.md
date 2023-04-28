@@ -63,7 +63,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `is_one`,
                                 token_idx: TokenIdx(
-                                    24,
+                                    23,
                                 ),
                             },
                         },
@@ -125,7 +125,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `is_six`,
                                 token_idx: TokenIdx(
-                                    39,
+                                    37,
                                 ),
                             },
                         },
@@ -187,7 +187,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `is_zero`,
                                 token_idx: TokenIdx(
-                                    50,
+                                    49,
                                 ),
                             },
                         },
@@ -249,7 +249,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `is_two`,
                                 token_idx: TokenIdx(
-                                    114,
+                                    113,
                                 ),
                             },
                         },
@@ -311,7 +311,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `is_three`,
                                 token_idx: TokenIdx(
-                                    27,
+                                    26,
                                 ),
                             },
                         },
@@ -435,7 +435,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `is_seven`,
                                 token_idx: TokenIdx(
-                                    166,
+                                    164,
                                 ),
                             },
                         },
@@ -497,7 +497,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `is_eight`,
                                 token_idx: TokenIdx(
-                                    23,
+                                    22,
                                 ),
                             },
                         },
@@ -559,7 +559,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `is_nine`,
                                 token_idx: TokenIdx(
-                                    37,
+                                    35,
                                 ),
                             },
                         },

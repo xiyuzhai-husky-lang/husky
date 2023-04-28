@@ -32,15 +32,7 @@ Ok(
                                         13,
                                     ),
                                 ),
-                                expr_or_eol_token: Left(
-                                    EolToken::Colon(
-                                        EolColonToken {
-                                            token_idx: TokenIdx(
-                                                14,
-                                            ),
-                                        },
-                                    ),
-                                ),
+                                expr: None,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
