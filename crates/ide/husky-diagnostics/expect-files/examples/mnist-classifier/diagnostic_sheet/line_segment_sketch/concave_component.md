@@ -7,18 +7,7 @@ DiagnosticSheet {
         diagnostics: [],
     },
     ast_diagnostic_sheet: AstDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Syntax Error: unexpected stmt inside impl",
-                severity: Error,
-                range: [84:5, 84:12),
-            },
-            Diagnostic {
-                message: "Syntax Error: excessive indent",
-                severity: Error,
-                range: [85:9, 85:16),
-            },
-        ],
+        diagnostics: [],
     },
     expr_diagnostic_sheet: ExprDiagnosticSheet {
         diagnostics: [

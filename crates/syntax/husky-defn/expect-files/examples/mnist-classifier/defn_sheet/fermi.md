@@ -1692,7 +1692,7 @@ Ok(
                                             24,
                                         ),
                                     },
-                                    ty_expr: 18,
+                                    ty_expr: 21,
                                     body: Type(
                                         TypeItems {
                                             ast_idx_range: ArenaIdxRange(
@@ -1869,7 +1869,7 @@ Ok(
                                                             24,
                                                         ),
                                                     },
-                                                    ty_expr: 18,
+                                                    ty_expr: 21,
                                                     body: Type(
                                                         TypeItems {
                                                             ast_idx_range: ArenaIdxRange(
@@ -2731,7 +2731,7 @@ Ok(
                                                             24,
                                                         ),
                                                     },
-                                                    ty_expr: 18,
+                                                    ty_expr: 21,
                                                     body: Type(
                                                         TypeItems {
                                                             ast_idx_range: ArenaIdxRange(
@@ -3593,7 +3593,7 @@ Ok(
                                                             24,
                                                         ),
                                                     },
-                                                    ty_expr: 18,
+                                                    ty_expr: 21,
                                                     body: Type(
                                                         TypeItems {
                                                             ast_idx_range: ArenaIdxRange(

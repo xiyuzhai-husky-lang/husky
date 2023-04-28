@@ -31,11 +31,11 @@ Ok(
                                 FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 76,
+                            ast_idx: 77,
                             ident_token: IdentToken {
                                 ident: `find_concave_components`,
                                 token_idx: TokenIdx(
-                                    522,
+                                    538,
                                 ),
                             },
                         },
@@ -1883,10 +1883,11 @@ Ok(
             ],
         ),
         impl_blocks: [
-            ImplBlock::Type(
-                TypeImplBlock {
-                    id: TypeImplBlockId {
+            ImplBlock::TraitForType(
+                TraitForTypeImplBlock {
+                    id: TraitForTypeImplBlockId {
                         module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                        trai_path: TraitPath(`core::visual::Visualize`),
                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                         disambiguator: 0,
                     },
@@ -1896,11 +1897,38 @@ Ok(
                             49,
                         ),
                     },
-                    ty_expr: 15,
+                    trai_expr: 15,
+                    for_token: TokenIdx(
+                        51,
+                    ),
+                    ty_expr: 16,
+                    body: TraitForType(
+                        TraitForTypeItems {
+                            ast_idx_range: ArenaIdxRange(
+                                1..2,
+                            ),
+                        },
+                    ),
+                },
+            ),
+            ImplBlock::Type(
+                TypeImplBlock {
+                    id: TypeImplBlockId {
+                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                        disambiguator: 0,
+                    },
+                    ast_idx: 76,
+                    impl_token: ImplToken {
+                        token_idx: TokenIdx(
+                            68,
+                        ),
+                    },
+                    ty_expr: 17,
                     body: Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                39..53,
+                                41..53,
                             ),
                         },
                     ),
