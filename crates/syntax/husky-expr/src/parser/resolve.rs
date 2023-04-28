@@ -71,7 +71,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         match expr.base_entity_path(self.db(), &self.parser.expr_arena) {
                             BaseEntityPath::Uncertain {
                                 inclination: BaseEntityPathInclination::TypeOrVariant,
-                            } => ResolvedToken::Bra(token_idx, Bracket::Angle),
+                            } => ResolvedToken::Bra(token_idx, Bracket::TemplateAngle),
                             BaseEntityPath::Some(entity_path) => {
                                 match entity_path.entity_kind(self.db()) {
                                     EntityKind::Module => todo!(),
@@ -88,7 +88,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                                         ModuleItemKind::Type(_)
                                         | ModuleItemKind::Fugitive(_)
                                         | ModuleItemKind::Trait => {
-                                            ResolvedToken::Bra(token_idx, Bracket::Angle)
+                                            ResolvedToken::Bra(token_idx, Bracket::TemplateAngle)
                                         }
                                     },
                                     EntityKind::AssociatedItem {
@@ -103,12 +103,14 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             ),
                         }
                     }
-                    TopExprRef::None => todo!(),
+                    TopExprRef::None => ResolvedToken::Bra(token_idx, Bracket::HtmlAngle),
                 },
                 PunctuationMapped::ColonColonLa => todo!(),
                 PunctuationMapped::RaOrGt => match (self.last_bra(), self.env_bra()) {
-                    (Some(Bracket::Angle), _) => ResolvedToken::Ket(token_idx, Bracket::Angle),
-                    (None, Some(Bracket::Angle)) => return TokenResolveResult::Break(()),
+                    (Some(Bracket::TemplateAngle), _) => {
+                        ResolvedToken::Ket(token_idx, Bracket::TemplateAngle)
+                    }
+                    (None, Some(Bracket::TemplateAngle)) => return TokenResolveResult::Break(()),
                     _ => ResolvedToken::BinaryOpr(token_idx, BinaryComparisonOpr::Greater.into()),
                 },
                 PunctuationMapped::Sheba => ResolvedToken::AtomicExpr(Expr::Err(
@@ -159,20 +161,20 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 }
                 PunctuationMapped::Vertical => match self.last_unfinished_expr() {
                     Some(UnfinishedExpr::List {
-                        bra: Bracket::Vertical,
+                        bra: Bracket::Lambda,
                         ..
-                    }) => ResolvedToken::Ket(token_idx, Bracket::Vertical),
+                    }) => ResolvedToken::Ket(token_idx, Bracket::Lambda),
                     _ => match self.finished_expr().is_some() {
                         true => ResolvedToken::BinaryOpr(
                             token_idx,
                             BinaryOpr::Closed(BinaryClosedOpr::BitOr),
                         ),
-                        false => ResolvedToken::Bra(token_idx, Bracket::Vertical),
+                        false => ResolvedToken::Bra(token_idx, Bracket::Lambda),
                     },
                 },
                 PunctuationMapped::DoubleExclamation => todo!(),
                 PunctuationMapped::Semicolon => return TokenResolveResult::Break(()),
-                PunctuationMapped::XmlKet => return TokenResolveResult::Break(()),
+                PunctuationMapped::EmptyHtmlKet => return TokenResolveResult::Break(()),
                 PunctuationMapped::At => return TokenResolveResult::Break(()),
                 PunctuationMapped::AtEq => return TokenResolveResult::Break(()),
                 PunctuationMapped::Question => match self.finished_expr() {

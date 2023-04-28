@@ -7,3 +7,4 @@ edition = "2021"
 [dependencies]
 # abstraction
 original-error = { path = "../../abstraction/original-error" }
+vec-like = { path = "../../abstraction/vec-like" }

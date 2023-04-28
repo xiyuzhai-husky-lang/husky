@@ -94,6 +94,12 @@ impl<'a> ExprTypeEngine<'a> {
                 items: indices,
                 rbox_token_idx,
             } => Err(todo!()),
+            Expr::EmptyHtmlTag {
+                langle_token_idx,
+                function_ident,
+                ref arguments,
+                empty_html_ket,
+            } => todo!(),
             Expr::Err(_) => Err(DerivedExprTermError::ExprError.into()),
             Expr::Unit {
                 lpar_token_idx,

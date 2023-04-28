@@ -3,18 +3,18 @@ use husky_vm::InstructionVariant;
 use crate::*;
 
 impl<'a> InstructionSheetBuilder<'a> {
-    pub(super) fn compile_xml_expr(&mut self, expr: Arc<XmlExpr>) {
+    pub(super) fn compile_xml_expr(&mut self, expr: Arc<HtmlExpr>) {
         match expr.variant {
-            XmlExprVariant::Value(ref value_expr) => {
+            HtmlExprVariant::Value(ref value_expr) => {
                 self.compile_eager_expr(value_expr, self.sheet.variable_stack.next_stack_idx());
                 self.push_instruction(Instruction::new(
-                    InstructionVariant::NewXmlFromValue {
+                    InstructionVariant::NewHtmlFromValue {
                         ty: value_expr.ty(),
                     },
                     expr,
                 ))
             }
-            XmlExprVariant::Tag {
+            HtmlExprVariant::Tag {
                 tag_kind,
                 ref props,
             } => {
@@ -25,7 +25,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                     )
                 }
                 self.push_instruction(Instruction::new(
-                    InstructionVariant::NewXmlFromTag {
+                    InstructionVariant::NewHtmlFromTag {
                         tag_kind,
                         props: props.keys().collect(),
                         n_child_expr: 0,

@@ -119,7 +119,7 @@ fn comma_token_works() {
     assert!(t(&db, "'").is_err());
 }
 
-// assign
+// eq
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = TokenDb)]
@@ -426,7 +426,7 @@ fn colon_colon_left_angle_bracket_token_works() {
     assert!(t(&db, "'").is_err());
 }
 
-// right curly brace
+// right angle bracket
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = TokenDb)]
@@ -451,6 +451,36 @@ fn right_angle_bracket_token_works() {
     }
 
     assert!(t(&db, ">").unwrap().is_some());
+    assert!(t(&db, "<").unwrap().is_none());
+    assert!(t(&db, "a").unwrap().is_none());
+    assert!(t(&db, "'").is_err());
+}
+
+// `/>`
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = TokenDb)]
+pub struct EmptyHmtlKetToken(TokenIdx);
+
+impl<'a, Context> parsec::ParseFromStream<Context> for EmptyHmtlKetToken
+where
+    Context: TokenParseContext<'a>,
+{
+    type Error = TokenError;
+
+    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
+        parse_specific_punctuation_from(ctx, Punctuation::EMPTY_HTML_KET, EmptyHmtlKetToken)
+    }
+}
+
+#[test]
+fn empty_html_ket_token_works() {
+    let db = DB::default();
+    fn t(db: &DB, input: &str) -> TokenResult<Option<RightAngleBracketToken>> {
+        quick_parse(db, input)
+    }
+
+    assert!(t(&db, "/>").unwrap().is_some());
     assert!(t(&db, "<").unwrap().is_none());
     assert!(t(&db, "a").unwrap().is_none());
     assert!(t(&db, "'").is_err());

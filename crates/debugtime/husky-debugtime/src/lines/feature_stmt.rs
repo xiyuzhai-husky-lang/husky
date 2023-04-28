@@ -24,7 +24,7 @@ impl<'a> TraceLineGenerator<'a> {
                 self.render_special_token("?", None, None)
             }
             FeatureLazyStmtVariant::ConditionFlow { .. } => panic!(),
-            FeatureLazyStmtVariant::ReturnXml { .. } => todo!(),
+            FeatureLazyStmtVariant::ReturnHtml { .. } => todo!(),
         }
     }
 }

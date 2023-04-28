@@ -1,3 +1,5 @@
+use parsec::ParseFromStream;
+
 use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -30,17 +32,24 @@ pub(super) enum UnfinishedExpr {
     },
 }
 
+impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for HtmlArgumentExpr {
+    type Error = ExprError;
+
+    fn parse_from_without_guaranteed_rollback(
+        sp: &mut ExprParseContext<'a, 'b>,
+    ) -> Result<Option<Self>, Self::Error> {
+        todo!()
+    }
+}
+
 impl UnfinishedExpr {
     pub(super) fn precedence(&self) -> Precedence {
         match self {
-            UnfinishedExpr::Binary {
-                punctuation: binary,
-                ..
-            } => (*binary).into(),
+            UnfinishedExpr::Binary { punctuation, .. } => (*punctuation).into(),
             UnfinishedExpr::Prefix { .. } => Precedence::Prefix,
             UnfinishedExpr::ListItem { .. } | UnfinishedExpr::List { .. } => Precedence::None,
-            UnfinishedExpr::LambdaHead { inputs, start } => Precedence::LambdaHead,
-            UnfinishedExpr::Application { function } => Precedence::Application,
+            UnfinishedExpr::LambdaHead { .. } => Precedence::LambdaHead,
+            UnfinishedExpr::Application { .. } => Precedence::Application,
         }
     }
 }

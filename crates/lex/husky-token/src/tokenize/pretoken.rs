@@ -459,7 +459,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                 },
                 '/' => match self.peek_char() {
                     Some('/') => unreachable!(),
-                    Some('>') => self.pass_two(Punctuation::XML_KET),
+                    Some('>') => self.pass_two(Punctuation::EMPTY_HTML_KET),
                     Some('=') => self.pass_two(Punctuation::DIV_ASSIGN),
                     _ => Punctuation::DIV,
                 },

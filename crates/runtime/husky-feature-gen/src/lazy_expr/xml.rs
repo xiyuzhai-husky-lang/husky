@@ -1,27 +1,27 @@
 use crate::*;
-use husky_lazy_semantics::{XmlExpr, XmlExprVariant};
+use husky_lazy_semantics::{HtmlExpr, HtmlExprVariant};
 use husky_word::IdentPairMap;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct FeatureXmlExpr {
-    pub variant: FeatureXmlExprVariant,
+pub struct FeatureHtmlExpr {
+    pub variant: FeatureHtmlExprVariant,
     pub feature: FeatureItd,
     pub eval_id: FeatureEvalId,
-    pub xml_expr: Arc<XmlExpr>,
+    pub xml_expr: Arc<HtmlExpr>,
 }
 
-impl FeatureXmlExpr {
+impl FeatureHtmlExpr {
     pub fn new(
         db: &dyn FeatureGenQueryGroup,
         this: Option<FeatureRepr>,
-        xml_expr: Arc<XmlExpr>,
+        xml_expr: Arc<HtmlExpr>,
         symbols: &[FeatureSymbol],
         opt_arrival_indicator: Option<&Arc<FeatureDomainIndicator>>,
         feature_interner: &FeatureInterner,
     ) -> Arc<Self> {
         let variant = match xml_expr.variant {
-            XmlExprVariant::Value(ref value_expr) => {
-                FeatureXmlExprVariant::Value(FeatureLazyExpr::new(
+            HtmlExprVariant::Value(ref value_expr) => {
+                FeatureHtmlExprVariant::Value(FeatureLazyExpr::new(
                     db,
                     this.clone(),
                     value_expr.clone(),
@@ -30,10 +30,10 @@ impl FeatureXmlExpr {
                     feature_interner,
                 ))
             }
-            XmlExprVariant::Tag {
+            HtmlExprVariant::Tag {
                 tag_kind,
                 ref props,
-            } => FeatureXmlExprVariant::Tag {
+            } => FeatureHtmlExprVariant::Tag {
                 tag_kind,
                 props: props
                     .iter()
@@ -53,7 +53,7 @@ impl FeatureXmlExpr {
                     .collect(),
             },
         };
-        Arc::new(FeatureXmlExpr {
+        Arc::new(FeatureHtmlExpr {
             feature: variant.feature(db.feature_interner()),
             variant,
             eval_id: Default::default(),
@@ -63,22 +63,24 @@ impl FeatureXmlExpr {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum FeatureXmlExprVariant {
+pub enum FeatureHtmlExprVariant {
     Value(Arc<FeatureLazyExpr>),
     Tag {
-        tag_kind: XmlTagKind,
+        tag_kind: HtmlTagKind,
         props: IdentPairMap<Arc<FeatureLazyExpr>>,
     },
 }
 
-impl FeatureXmlExprVariant {
+impl FeatureHtmlExprVariant {
     pub fn feature(&self, feature_interner: &FeatureInterner) -> FeatureItd {
         match self {
-            FeatureXmlExprVariant::Value(value) => feature_interner.intern(Feature::XmlFromValue {
-                value: value.feature,
-            }),
-            FeatureXmlExprVariant::Tag { tag_kind, props } => {
-                feature_interner.intern(Feature::XmlFromTag {
+            FeatureHtmlExprVariant::Value(value) => {
+                feature_interner.intern(Feature::HtmlFromValue {
+                    value: value.feature,
+                })
+            }
+            FeatureHtmlExprVariant::Tag { tag_kind, props } => {
+                feature_interner.intern(Feature::HtmlFromTag {
                     tag_kind: *tag_kind,
                     props: props
                         .iter()

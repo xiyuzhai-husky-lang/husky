@@ -10,7 +10,7 @@ use husky_trace_protocol::VisualData;
 use husky_vm::__Linkage;
 use husky_vm::*;
 use husky_word::IdentPairMap;
-use husky_xml_syntax::XmlValue;
+use husky_xml_syntax::HtmlValue;
 use std::{panic::catch_unwind, sync::Arc};
 
 use super::FeatureEvaluator;
@@ -217,18 +217,18 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
         }
     }
 
-    pub(crate) fn eval_xml_expr(&self, expr: &FeatureXmlExpr) -> __VMResult<__Register<'eval>> {
+    pub(crate) fn eval_xml_expr(&self, expr: &FeatureHtmlExpr) -> __VMResult<__Register<'eval>> {
         match expr.variant {
-            FeatureXmlExprVariant::Value(ref value_expr) => {
+            FeatureHtmlExprVariant::Value(ref value_expr) => {
                 let this: FeatureRepr = value_expr.clone().into();
                 let visual_data = self.visualize_feature(this)?;
                 Ok(__Register::new_box(visual_data, &__VISUAL_DATA_VTABLE))
             }
-            FeatureXmlExprVariant::Tag {
+            FeatureHtmlExprVariant::Tag {
                 tag_kind,
                 ref props,
             } => {
-                let xml_value = XmlValue {
+                let xml_value = HtmlValue {
                     tag_kind,
                     props: props
                         .iter()

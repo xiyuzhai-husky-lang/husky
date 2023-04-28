@@ -56,7 +56,7 @@ impl<'eval> FeatureLazyBody {
             match stmt.variant {
                 FeatureLazyStmtVariant::Init { .. } | FeatureLazyStmtVariant::Assert { .. } => (),
                 FeatureLazyStmtVariant::Return { .. }
-                | FeatureLazyStmtVariant::ReturnXml { .. } => finish_flag = true,
+                | FeatureLazyStmtVariant::ReturnHtml { .. } => finish_flag = true,
                 FeatureLazyStmtVariant::ReturnUnveil { .. }
                 | FeatureLazyStmtVariant::Require { .. }
                 | FeatureLazyStmtVariant::ConditionFlow { .. } => {

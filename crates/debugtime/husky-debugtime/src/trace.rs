@@ -27,7 +27,7 @@ impl Debugtime {
                 .iter()
                 .map(|branch| self.feature_branch_trace(parent, stmt.indent, branch.clone()))
                 .collect(),
-            FeatureLazyStmtVariant::ReturnXml { .. } => todo!(),
+            FeatureLazyStmtVariant::ReturnHtml { .. } => todo!(),
         }
     }
 
