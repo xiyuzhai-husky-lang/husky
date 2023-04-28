@@ -8,6 +8,10 @@ pub struct RawContour {
     points: []Point2d,
 }
 
+impl Visualize for RawContour:
+    fn visualize() -> Html:
+        <Contour points={self.points} />
+
 impl RawContour:
     val line_segment_sketch: LineSegmentSketch =
         LineSegmentSketch::new(self, 1.4)
@@ -48,9 +52,6 @@ impl RawContour:
         let ct_start = self.points[start%N]
         let ct_end = self.points[end%N]
         ct_start.to(ct_end)
-
-    visual:
-        <Contour points={this.points} />
 
 enum Direction
 | Up
