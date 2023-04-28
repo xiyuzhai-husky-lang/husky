@@ -380,6 +380,7 @@ impl<'a> ExprRangeCalculator<'a> {
                 },
                 ExprError::Derived(_) => todo!(),
             },
+            Expr::EmptyHtmlTag { .. } => todo!(),
         }
     }
 

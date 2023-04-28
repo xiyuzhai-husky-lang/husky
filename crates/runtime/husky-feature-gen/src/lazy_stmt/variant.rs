@@ -23,8 +23,8 @@ pub enum FeatureLazyStmtVariant {
         result: Arc<FeatureLazyExpr>,
         implicit_conversion: ImplicitConversion,
     },
-    ReturnXml {
-        result: Arc<FeatureXmlExpr>,
+    ReturnHtml {
+        result: Arc<FeatureHtmlExpr>,
     },
     ConditionFlow {
         branches: Vec<Arc<FeatureLazyBranch>>,
@@ -49,7 +49,7 @@ impl std::fmt::Debug for FeatureLazyStmtVariant {
                 result: _,
                 implicit_conversion: _,
             } => f.debug_struct("ReturnUnveil").finish(),
-            Self::ReturnXml { result: _ } => f.debug_struct("ReturnXml").finish(),
+            Self::ReturnHtml { result: _ } => f.debug_struct("ReturnHtml").finish(),
             Self::ConditionFlow { branches: _ } => f.debug_struct("ConditionFlow").finish(),
         }
     }
@@ -78,7 +78,7 @@ impl FeatureLazyStmtVariant {
                 result: result.feature,
                 implicit_conversion: *implicit_conversion,
             })),
-            FeatureLazyStmtVariant::ReturnXml { result } => Some(result.feature),
+            FeatureLazyStmtVariant::ReturnHtml { result } => Some(result.feature),
             FeatureLazyStmtVariant::ConditionFlow { branches } => Some(
                 feature_interner.intern(Feature::Branches {
                     branches: branches

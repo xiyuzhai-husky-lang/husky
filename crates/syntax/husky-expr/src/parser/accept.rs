@@ -1,5 +1,5 @@
 use husky_print_utils::p;
-use parsec::StreamParser;
+use parsec::{parse_consecutive_list, parse_consecutive_vec_map, StreamParser};
 
 use super::*;
 
@@ -180,7 +180,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                                     dot_token_idx,
                                     ident_token,
                                 },
-                                bra: Bracket::Angle,
+                                bra: Bracket::TemplateAngle,
                                 bra_token_idx: langle.token_idx(),
                                 items: vec![],
                                 commas: vec![],
@@ -331,7 +331,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     commas: vec![],
                 }
                 .into(),
-                Bracket::Angle => match finished_expr {
+                Bracket::TemplateAngle => match finished_expr {
                     Some(template) => UnfinishedExpr::List {
                         opr: UnfinishedListOpr::TemplateInstantiation { template },
                         bra,
@@ -343,7 +343,23 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     None => todo!(),
                 },
                 Bracket::Curl => todo!(),
-                Bracket::Vertical => todo!(),
+                Bracket::Lambda => todo!(),
+                Bracket::HtmlAngle => {
+                    let Ok(Some(function_ident)) = this.parse() else {
+                        todo!()
+                    };
+                    let arguments = match parse_consecutive_vec_map(this) {
+                        Ok(arguments) => arguments,
+                        Err(e) => todo!(),
+                    };
+                    Expr::EmptyHtmlTag {
+                        langle_token_idx: bra_token_idx,
+                        function_ident,
+                        arguments,
+                        empty_html_ket: todo!(),
+                    }
+                    .into()
+                }
             }
         })
     }

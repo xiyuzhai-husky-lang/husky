@@ -13,7 +13,7 @@ impl<'a> LinkageCollector<'a> {
     //             LazyStmtVariant::ReturnUnveil { ref result, .. } => {
     //                 self.collect_from_lazy_expr(result)
     //             }
-    //             LazyStmtVariant::ReturnXml { .. } => (),
+    //             LazyStmtVariant::ReturnHtml { .. } => (),
     //             LazyStmtVariant::ConditionFlow { ref branches, .. } => {
     //                 for branch in branches {
     //                     match branch.variant {

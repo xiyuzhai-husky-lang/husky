@@ -12,6 +12,10 @@ impl IdentToken {
         self.ident
     }
 
+    pub fn ident_ref(&self) -> &Ident {
+        &self.ident
+    }
+
     pub fn token_idx(&self) -> TokenIdx {
         self.token_idx
     }

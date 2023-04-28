@@ -4,12 +4,12 @@ use serde::Serialize;
 use serde_json::Value;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub struct XmlValue {
-    pub tag_kind: XmlTagKind,
+pub struct HtmlValue {
+    pub tag_kind: HtmlTagKind,
     pub props: IdentPairMap<Value>,
 }
 
-impl Serialize for XmlValue {
+impl Serialize for HtmlValue {
     fn serialize<S>(&self, _serializer: S) -> Result<S::Ok, S::Error>
     where
         S: serde::Serializer,
@@ -19,37 +19,37 @@ impl Serialize for XmlValue {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum XmlTagKind {
+pub enum HtmlTagKind {
     Point2d,
     Contour,
     Arrow2d,
     LineSegment,
 }
 
-impl XmlTagKind {
+impl HtmlTagKind {
     pub fn code(self) -> &'static str {
         match self {
-            XmlTagKind::Point2d => "Point2d",
-            XmlTagKind::Arrow2d => "Arrow2d",
-            XmlTagKind::Contour => "Contour",
-            XmlTagKind::LineSegment => "LineSegment",
+            HtmlTagKind::Point2d => "Point2d",
+            HtmlTagKind::Arrow2d => "Arrow2d",
+            HtmlTagKind::Contour => "Contour",
+            HtmlTagKind::LineSegment => "LineSegment",
         }
     }
 
     pub fn from_ident(_ident: Ident) -> Self {
         todo!()
         // match ident.as_str() {
-        //     "Point2d" => XmlTagKind::Point2d,
-        //     "Contour" => XmlTagKind::Contour,
-        //     "Arrow2d" => XmlTagKind::Arrow2d,
-        //     "LineSegment" => XmlTagKind::LineSegment,
+        //     "Point2d" => HtmlTagKind::Point2d,
+        //     "Contour" => HtmlTagKind::Contour,
+        //     "Arrow2d" => HtmlTagKind::Arrow2d,
+        //     "LineSegment" => HtmlTagKind::LineSegment,
         //     _ => todo!("{}", ident),
         // }
     }
 }
 
-impl From<XmlValue> for VisualData {
-    fn from(_val: XmlValue) -> Self {
+impl From<HtmlValue> for VisualData {
+    fn from(_val: HtmlValue) -> Self {
         todo!()
         // let mut data = self.props.take_data();
         // msg_once!("ad hoc");

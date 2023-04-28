@@ -15,6 +15,7 @@ thin-vec = { path = "../../../forks/thin-vec" }
 parsec = { path = "../../abstraction/parsec" }
 salsa = { path = "../../abstraction/salsa" }
 idx-arena = { path = "../../abstraction/idx-arena" }
+vec-like = { path = "../../abstraction/vec-like" }
 original-error = { path = "../../abstraction/original-error" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }

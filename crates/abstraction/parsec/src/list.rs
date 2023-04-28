@@ -1,15 +1,35 @@
+use vec_like::{AsVecMapEntry, VecMap};
+
 use crate::*;
 
-pub fn parse_consecutive_list<Context, Element, Error>(
-    ctx: &mut Context,
+pub fn parse_consecutive_list<Parser, Element, Error>(
+    parser: &mut Parser,
 ) -> Result<Vec<Element>, Error>
 where
-    Context: StreamParser,
-    Element: ParseFromStream<Context, Error = Error>,
+    Parser: StreamParser,
+    Element: ParseFromStream<Parser, Error = Error>,
 {
     let mut elements = vec![];
-    while let Some(element) = ctx.parse::<Element>()? {
+    while let Some(element) = parser.parse::<Element>()? {
         elements.push(element)
+    }
+    Ok(elements)
+}
+
+pub fn parse_consecutive_vec_map<Parser, K, Element, Error>(
+    parser: &mut Parser,
+) -> Result<VecMap<Element>, Error>
+where
+    Parser: StreamParser,
+    K: Eq + Copy,
+    Element: AsVecMapEntry<K = K> + ParseFromStream<Parser, Error = Error>,
+{
+    let mut elements = VecMap::default();
+    while let Some(element) = parser.parse::<Element>()? {
+        match elements.insert_new(element) {
+            Ok(_) => (),
+            Err(_) => todo!(),
+        }
     }
     Ok(elements)
 }

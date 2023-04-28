@@ -140,8 +140,8 @@ impl FeatureLazyStmt {
         //         implicit_conversion,
         //         return_context,
         //     },
-        //     LazyStmtVariant::ReturnXml { ref xml_expr } => FeatureLazyStmtVariant::ReturnXml {
-        //         result: FeatureXmlExpr::new(
+        //     LazyStmtVariant::ReturnHtml { ref xml_expr } => FeatureLazyStmtVariant::ReturnHtml {
+        //         result: FeatureHtmlExpr::new(
         //             db,
         //             opt_this.clone(),
         //             xml_expr.clone(),

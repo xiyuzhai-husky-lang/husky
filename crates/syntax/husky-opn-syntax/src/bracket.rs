@@ -2,9 +2,10 @@
 pub enum Bracket {
     Par,
     Box,
-    Angle,
+    TemplateAngle,
     Curl,
-    Vertical,
+    Lambda,
+    HtmlAngle,
 }
 
 impl Bracket {
@@ -12,9 +13,10 @@ impl Bracket {
         match self {
             Bracket::Par => "(",
             Bracket::Box => "[",
-            Bracket::Angle => "<",
+            Bracket::TemplateAngle => "::<",
             Bracket::Curl => "{",
-            Bracket::Vertical => "|",
+            Bracket::Lambda => "|",
+            Bracket::HtmlAngle => "<",
         }
     }
 
@@ -22,9 +24,10 @@ impl Bracket {
         match self {
             Bracket::Par => ")",
             Bracket::Box => "]",
-            Bracket::Angle => ">",
+            Bracket::TemplateAngle => ">",
             Bracket::Curl => "}",
-            Bracket::Vertical => "|",
+            Bracket::Lambda => "|",
+            Bracket::HtmlAngle => "/>",
         }
     }
 }

@@ -43,7 +43,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
                     })
                     .unwrap_or(__Register::unreturned())
             }),
-            FeatureLazyStmtVariant::ReturnXml { ref result } => self.eval_xml_expr(result),
+            FeatureLazyStmtVariant::ReturnHtml { ref result } => self.eval_xml_expr(result),
             FeatureLazyStmtVariant::ConditionFlow { ref branches, .. } => {
                 for branch in branches {
                     let execute_branch: bool = match branch.variant {

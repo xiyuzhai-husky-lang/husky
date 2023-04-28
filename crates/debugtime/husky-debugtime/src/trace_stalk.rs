@@ -45,7 +45,7 @@ impl Debugtime {
                     self.trace_stalk_from_expr(result, sample_id)
                 }
                 FeatureLazyStmtVariant::ConditionFlow { .. } => panic!(),
-                FeatureLazyStmtVariant::ReturnXml { .. } => todo!(),
+                FeatureLazyStmtVariant::ReturnHtml { .. } => todo!(),
             },
             TraceVariant::FeatureBranch(_) => Default::default(),
             TraceVariant::FeatureExpr(ref expr) => self.trace_stalk_from_expr(expr, sample_id),

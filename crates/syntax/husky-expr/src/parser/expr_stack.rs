@@ -113,6 +113,7 @@ impl Expr {
                 items: indices,
                 rbox_token_idx,
             } => arena[owner].base_entity_path(db, arena),
+            Expr::EmptyHtmlTag { .. } => BaseEntityPath::Err,
         }
     }
 }
@@ -274,13 +275,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         let mut bras = vec![];
         for (unfinished_expr, _) in self.stack.unfinished_exprs.iter().rev() {
             match unfinished_expr {
-                UnfinishedExpr::List {
-                    opr,
-                    bra,
-                    bra_token_idx,
-                    items,
-                    commas,
-                } => {
+                UnfinishedExpr::List { bra, .. } => {
                     bras.push(*bra);
                     if bras.len() >= 2 {
                         return bras;

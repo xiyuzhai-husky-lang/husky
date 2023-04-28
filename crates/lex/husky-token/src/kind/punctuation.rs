@@ -38,7 +38,7 @@ impl Punctuation {
             PunctuationMapped::Exclamation => Convexity::Concave,
             PunctuationMapped::DoubleExclamation => Convexity::Concave,
             PunctuationMapped::Semicolon => Convexity::Any,
-            PunctuationMapped::XmlKet => Convexity::Convex,
+            PunctuationMapped::EmptyHtmlKet => Convexity::Convex,
             PunctuationMapped::At => Convexity::Concave,
             PunctuationMapped::AtEq => Convexity::Concave,
             PunctuationMapped::Ambersand => Convexity::Concave,
@@ -183,7 +183,7 @@ impl Punctuation {
         BinaryShortcuitLogicOpr::And,
     )));
     pub const STAR: Self = Self(PunctuationMapped::Star);
-    pub const XML_KET: Self = Self(PunctuationMapped::XmlKet);
+    pub const EMPTY_HTML_KET: Self = Self(PunctuationMapped::EmptyHtmlKet);
 }
 
 impl std::fmt::Display for Punctuation {
@@ -229,7 +229,7 @@ pub enum PunctuationMapped {
     Exclamation,       // `!`
     DoubleExclamation, // `!!`
     Semicolon,         // `;`
-    XmlKet,            // `/>`
+    EmptyHtmlKet,      // `/>`
     Sheba,             // $
     /// `@`
     At,
@@ -271,7 +271,7 @@ impl PunctuationMapped {
             PunctuationMapped::Exclamation => "!",
             PunctuationMapped::DoubleExclamation => "!!",
             PunctuationMapped::Semicolon => ";",
-            PunctuationMapped::XmlKet => "/>",
+            PunctuationMapped::EmptyHtmlKet => "/>",
             PunctuationMapped::At => "@",
             PunctuationMapped::AtEq => "@=",
             PunctuationMapped::Question => "?",
@@ -287,7 +287,7 @@ impl PunctuationMapped {
 
     pub fn opt_bra(self) -> Option<Bracket> {
         match self {
-            PunctuationMapped::LaOrLt => Some(Bracket::Angle),
+            PunctuationMapped::LaOrLt => Some(Bracket::TemplateAngle),
             PunctuationMapped::Bra(bracket) => Some(bracket),
             _ => None,
         }
@@ -316,7 +316,7 @@ impl PunctuationMapped {
             PunctuationMapped::Exclamation => todo!(),
             PunctuationMapped::DoubleExclamation => todo!(),
             PunctuationMapped::Semicolon => todo!(),
-            PunctuationMapped::XmlKet => todo!(),
+            PunctuationMapped::EmptyHtmlKet => todo!(),
             PunctuationMapped::At => todo!(),
             PunctuationMapped::AtEq => todo!(),
             PunctuationMapped::Question => todo!(),

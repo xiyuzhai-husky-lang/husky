@@ -17,7 +17,7 @@ impl Debugtime {
                 self.feature_expr_specific_figure(result)
             }
             FeatureLazyStmtVariant::ConditionFlow { .. } => todo!(),
-            FeatureLazyStmtVariant::ReturnXml { .. } => todo!(),
+            FeatureLazyStmtVariant::ReturnHtml { .. } => todo!(),
             FeatureLazyStmtVariant::Require { .. } => Ok(Default::default()),
         }
     }
@@ -38,7 +38,7 @@ impl Debugtime {
                 self.feature_expr_generic_figure(result)
             }
             FeatureLazyStmtVariant::ConditionFlow { .. } => todo!(),
-            FeatureLazyStmtVariant::ReturnXml { .. } => todo!(),
+            FeatureLazyStmtVariant::ReturnHtml { .. } => todo!(),
             FeatureLazyStmtVariant::Require { .. } => Ok(Default::default()),
         }
     }

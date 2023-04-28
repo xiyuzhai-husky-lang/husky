@@ -3,6 +3,7 @@
 mod db;
 mod entity_path;
 mod error;
+mod html;
 mod parser;
 mod pattern;
 mod precedence;
@@ -17,6 +18,7 @@ mod tests;
 pub use self::db::*;
 pub use self::entity_path::*;
 pub use self::error::*;
+pub use self::html::*;
 pub use self::parser::*;
 pub use self::pattern::*;
 pub use self::range::*;
@@ -212,6 +214,13 @@ pub enum Expr {
     },
     Block {
         stmts: StmtIdxRange,
+    },
+    // todo: handle container
+    EmptyHtmlTag {
+        langle_token_idx: TokenIdx,
+        function_ident: IdentToken,
+        arguments: IdentMap<HtmlArgumentExpr>,
+        empty_html_ket: EmptyHmtlKetToken,
     },
     Err(ExprError),
 }
