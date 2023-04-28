@@ -90,7 +90,7 @@ impl TomlTokenVariant {
     }
 }
 
-impl const std::ops::FromResidual<Result<core::convert::Infallible, TomlTokenError>>
+impl std::ops::FromResidual<Result<core::convert::Infallible, TomlTokenError>>
     for TomlTokenVariant
 {
     fn from_residual(residual: Result<core::convert::Infallible, TomlTokenError>) -> Self {

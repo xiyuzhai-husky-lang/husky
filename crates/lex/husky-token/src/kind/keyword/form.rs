@@ -41,7 +41,7 @@ impl Deref for FormKeyword {
     }
 }
 
-impl const From<FormKeyword> for Token {
+impl From<FormKeyword> for Token {
     fn from(kw: FormKeyword) -> Self {
         Token::Keyword(kw.into())
     }

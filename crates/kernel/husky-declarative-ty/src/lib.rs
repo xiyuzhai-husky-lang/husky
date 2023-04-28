@@ -1,6 +1,5 @@
 #![feature(trait_upcasting)]
 #![feature(const_trait_impl)]
-#![feature(const_default_impls)]
 mod db;
 mod entity_path;
 mod error;

@@ -16,7 +16,7 @@ pub enum TomlLineGroup {
     Err,
 }
 
-impl const std::ops::FromResidual<Result<Infallible, TomlAstError>> for TomlLineGroup {
+impl std::ops::FromResidual<Result<Infallible, TomlAstError>> for TomlLineGroup {
     fn from_residual(residual: Result<Infallible, TomlAstError>) -> Self {
         match residual {
             Ok(_) => unreachable!(),

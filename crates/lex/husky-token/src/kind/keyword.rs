@@ -25,7 +25,7 @@ use std::ops::Deref;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = TokenDb)]
-#[enum_class::const_from_variants]
+#[enum_class::from_variants]
 pub enum Keyword {
     Config(ConfigKeyword),
     Form(FormKeyword),
@@ -88,7 +88,7 @@ impl Deref for Keyword {
     }
 }
 
-impl const From<ConfigKeyword> for Token {
+impl From<ConfigKeyword> for Token {
     fn from(val: ConfigKeyword) -> Self {
         Token::Keyword(val.into())
     }

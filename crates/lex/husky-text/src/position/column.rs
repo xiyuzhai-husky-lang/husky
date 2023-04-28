@@ -10,7 +10,7 @@ use serde::{Deserialize, Serialize};
 )]
 pub struct TextColumn(pub u32);
 
-impl const From<u32> for TextColumn {
+impl From<u32> for TextColumn {
     fn from(raw: u32) -> Self {
         TextColumn(raw)
     }

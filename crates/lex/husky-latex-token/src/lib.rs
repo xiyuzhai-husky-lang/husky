@@ -90,7 +90,7 @@ impl EnglishTokenVariant {
     }
 }
 
-impl const std::ops::FromResidual<Result<core::convert::Infallible, EnglishTokenError>>
+impl std::ops::FromResidual<Result<core::convert::Infallible, EnglishTokenError>>
     for EnglishTokenVariant
 {
     fn from_residual(residual: Result<core::convert::Infallible, EnglishTokenError>) -> Self {

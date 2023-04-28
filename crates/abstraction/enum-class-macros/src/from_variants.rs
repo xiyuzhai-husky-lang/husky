@@ -101,7 +101,7 @@ fn enum_const_from_variant_impl(
     let field_ty = &field.ty;
     // todo: generics
     quote! {
-        impl const From<#field_ty> for #ty_ident {
+        impl From<#field_ty> for #ty_ident {
             fn from(value: #field_ty) -> Self {
                 #ty_ident::#variant_ident(value)
             }
