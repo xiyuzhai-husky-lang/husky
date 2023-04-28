@@ -31,7 +31,7 @@ impl<'a> ExprTypeEngine<'a> {
             }
             ExpectEqsFunctionTypeOutcomeVariant::Ritchie { .. } => {
                 self.infer_new_expr_ty_discarded(argument, ExpectAnyDerived);
-                Err(todo!("expect curry"))
+                Err(OriginalExprTypeError::ExpectedCurryButGotRitchieInstead.into())
             }
         }
     }
