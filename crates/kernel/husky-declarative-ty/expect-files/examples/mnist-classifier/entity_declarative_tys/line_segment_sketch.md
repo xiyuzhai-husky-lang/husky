@@ -7,9 +7,7 @@
         ),
         Err(
             DeclarativeTypeError::Derived(
-                DerivedDeclarativeTypeError::TypeOntologyDeclError {
-                    path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                },
+                DerivedDeclarativeTypeError::SignatureError,
             ),
         ),
     ),

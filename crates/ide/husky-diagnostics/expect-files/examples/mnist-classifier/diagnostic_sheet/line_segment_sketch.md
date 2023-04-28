@@ -10,16 +10,41 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_diagnostic_sheet: ExprDiagnosticSheet {
-        diagnostics: [],
-    },
-    decl_diagnostic_sheet: DeclDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "Syntax Error: expect `}`",
+                message: "Syntax Error: no left operand for binary operator",
                 severity: Error,
-                range: [16:20, 16:22),
+                range: [15:14, 15:15),
+            },
+            Diagnostic {
+                message: "Syntax Error: no right operand for binary operator",
+                severity: Error,
+                range: [15:14, 15:15),
+            },
+            Diagnostic {
+                message: "Syntax Error: unrecognized identifier",
+                severity: Error,
+                range: [16:44, 16:49),
+            },
+            Diagnostic {
+                message: "Syntax Error: ExpectedExprBeforeDot",
+                severity: Error,
+                range: [16:43, 16:44),
+            },
+            Diagnostic {
+                message: "Syntax Error: unrecognized identifier",
+                severity: Error,
+                range: [17:41, 17:46),
+            },
+            Diagnostic {
+                message: "Syntax Error: ExpectedExprBeforeDot",
+                severity: Error,
+                range: [17:40, 17:41),
             },
         ],
+    },
+    decl_diagnostic_sheet: DeclDiagnosticSheet {
+        diagnostics: [],
     },
     defn_diagnostic_sheet: DefnDiagnosticSheet {
         diagnostics: [],

@@ -210,7 +210,7 @@ Ok(
                                                 ],
                                             },
                                             allow_self_type: True,
-                                            allow_self_value: False,
+                                            allow_self_value: True,
                                             pattern_ty_constraints: [
                                                 (
                                                     ImplicitTypeParameter,

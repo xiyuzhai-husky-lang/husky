@@ -1,4 +1,9 @@
 [
+    Err(
+        FieldTypeDeclarativeTermError(
+            0,
+        ),
+    ),
     Ok(
         SignatureTemplate::Type(
             TypeDeclarativeSignatureTemplate::RegularStruct(

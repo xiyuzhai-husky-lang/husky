@@ -34,7 +34,6 @@ impl NormalAstChildren for TraitItems {
             EntityKindKeywordGroup::Type(_) => TraitItemKind::AssociatedType,
             EntityKindKeywordGroup::Trait(_) => Err(OriginalAstError::UnexpectedTraitInsideTrait)?,
             EntityKindKeywordGroup::Val(_) => todo!(),
-            EntityKindKeywordGroup::Memo(_) => todo!(),
         };
         Ok(EntityKind::AssociatedItem {
             associated_item_kind: AssociatedItemKind::TraitItem(trai_item_kind),

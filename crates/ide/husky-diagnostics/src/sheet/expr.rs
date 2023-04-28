@@ -171,6 +171,9 @@ impl Diagnose for OriginalExprError {
             OriginalExprError::HtmlTodo(_) => {
                 format!("Syntax Error: HtmlTodo")
             }
+            OriginalExprError::ExpectedValueForFieldBindInitialization(_) =>{
+                format!("Syntax Error: ExpectedValueForFieldBindInitialization")
+            }
         }
     }
 
@@ -247,6 +250,7 @@ impl Diagnose for OriginalExprError {
             }
             | OriginalExprError::HtmlTodo(token_idx) => ctx.token_text_range(*token_idx),
             OriginalExprError::ExpectBlock(_) => todo!(),
+            OriginalExprError::ExpectedValueForFieldBindInitialization(_) => todo!(),
         }
     }
 }

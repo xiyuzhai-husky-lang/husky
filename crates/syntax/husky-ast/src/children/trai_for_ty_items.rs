@@ -33,7 +33,6 @@ impl NormalAstChildren for TraitForTypeItems {
             EntityKindKeywordGroup::Type(_) => todo!(),
             EntityKindKeywordGroup::Trait(_) => todo!(),
             EntityKindKeywordGroup::Val(_) => todo!(),
-            EntityKindKeywordGroup::Memo(_) => todo!(),
         })
     }
 }

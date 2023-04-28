@@ -12,7 +12,6 @@ pub enum FormKeyword {
     Val,
     Constexpr,
     Gn,
-    Memo,
 }
 
 impl FormKeyword {
@@ -28,7 +27,6 @@ impl FormKeyword {
             FormKeyword::Val => "val",
             FormKeyword::Constexpr => "constexpr",
             FormKeyword::Gn => "gn",
-            FormKeyword::Memo => "memo",
         }
     }
 }

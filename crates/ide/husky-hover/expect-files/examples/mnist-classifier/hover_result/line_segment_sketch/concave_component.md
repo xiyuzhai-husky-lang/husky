@@ -100,7 +100,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "This is a paradigm\ntoken_idx = 99;\n\ntoken_line_group_idx = 14\n\ntoken = Token::Keyword(\n    Keyword::Form(\n        Memo,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "This is a paradigm\ntoken_idx = 99;\n\ntoken_line_group_idx = 14\n\ntoken = Token::Keyword(\n    Keyword::Form(\n        Val,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -111,7 +111,7 @@ Ok(
                                 },
                                 end: Position {
                                     line: 23,
-                                    character: 8,
+                                    character: 7,
                                 },
                             },
                         ),
@@ -257,11 +257,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 46,
-                                    character: 36,
+                                    character: 35,
                                 },
                                 end: Position {
                                     line: 46,
-                                    character: 37,
+                                    character: 36,
                                 },
                             },
                         ),

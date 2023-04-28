@@ -149,7 +149,7 @@ Ok(
                                                     data: [],
                                                 },
                                                 allow_self_type: True,
-                                                allow_self_value: False,
+                                                allow_self_value: True,
                                                 pattern_ty_constraints: [],
                                             },
                                             roots: [
@@ -187,6 +187,7 @@ Ok(
                                                     ),
                                                 ),
                                                 ty: 1,
+                                                initialization: None,
                                             },
                                             FieldDeclPattern {
                                                 decorators: [],
@@ -203,6 +204,7 @@ Ok(
                                                     ),
                                                 ),
                                                 ty: 6,
+                                                initialization: None,
                                             },
                                         ],
                                         [

@@ -114,6 +114,8 @@ pub enum OriginalExprError {
     ExpectedExprBeforeDot { dot_token_idx: TokenIdx },
     #[error("HtmlTodo")]
     HtmlTodo(TokenIdx),
+    #[error("ExpectedValueForFieldBindInitialization")]
+    ExpectedValueForFieldBindInitialization(TokenIdx),
 }
 
 impl OriginalError for OriginalExprError {

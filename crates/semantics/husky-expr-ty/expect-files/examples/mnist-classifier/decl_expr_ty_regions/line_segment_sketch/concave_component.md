@@ -77,13 +77,7 @@
                         TypeError(
                             DeclarativeTypeError(
                                 Derived(
-                                    TypeOntologyDeclError {
-                                        path: TypePath(
-                                            Id {
-                                                value: 84,
-                                            },
-                                        ),
-                                    },
+                                    SignatureError,
                                 ),
                             ),
                         ),

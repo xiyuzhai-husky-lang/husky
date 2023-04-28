@@ -13,8 +13,8 @@ use line_segment::*
 
 pub struct LineSegmentStroke {
     points: [%]Point2d,
-    start: Point2d := points.first()!.clone(),
-    end: Point2d := points.last()!.clone(),
+    start: Point2d := self.points.first()!.clone(),
+    end: Point2d := self.points.last()!.clone(),
 }
 
 impl Visualize for LineSegmentStroke:
@@ -39,10 +39,10 @@ impl Visualize for LineSegmentSketch:
         self.strokes.visualize()
 
 impl LineSegmentSketch:
-    memo concave_components: []ConcaveComponent =:
+    val concave_components: []ConcaveComponent =:
         find_concave_components(self)
     
-    memo bounding_box: BoundingBox =:
+    val bounding_box: BoundingBox =:
         let start_point = self.strokes[0].start
         let mut xmin = start_point.x
         let mut xmax = start_point.x
