@@ -41,21 +41,6 @@ DiagnosticSheet {
                 severity: Error,
                 range: [17:40, 17:41),
             },
-            Diagnostic {
-                message: "Syntax Error: HtmlTodo",
-                severity: Error,
-                range: [22:27, 22:28),
-            },
-            Diagnostic {
-                message: "Syntax Error: UnexpectedLeftCurlyBrace",
-                severity: Error,
-                range: [22:27, 22:28),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [22:28, 22:33),
-            },
         ],
     },
     decl_diagnostic_sheet: DeclDiagnosticSheet {

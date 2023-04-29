@@ -1427,7 +1427,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `LineSegmentSketch`,
                                                 token_idx: TokenIdx(
-                                                    166,
+                                                    173,
                                                 ),
                                             },
                                         },

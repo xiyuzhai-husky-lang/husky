@@ -19,7 +19,7 @@ pub struct LineSegmentStroke {
 
 impl Visualize for LineSegmentStroke:
     fn visualize():
-        <LineSegment start{start} {end} />
+        <LineSegment start = {self.start} end = {self.end} />
 
 impl LineSegmentStroke:
     static fn new(ct: ~RawContour, from: i32, to: i32) -> LineSegmentStroke:
