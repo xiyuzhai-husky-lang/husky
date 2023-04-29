@@ -1,4 +1,5 @@
 use parsec::ParseFromStream;
+use smallvec::SmallVec;
 
 use super::*;
 
@@ -16,12 +17,20 @@ pub(super) enum UnfinishedExpr {
         punctuation: PrefixOpr,
         punctuation_token_idx: TokenIdx,
     },
-    List {
+    SimpleList {
         opr: UnfinishedListOpr,
         bra: Bracket,
         bra_token_idx: TokenIdx,
         items: Vec<Expr>,
         commas: Vec<TokenIdx>,
+    },
+    KeyedArgumentList {
+        function: ExprIdx,
+        bra: Bracket,
+        bra_token_idx: TokenIdx,
+        arguments: Vec<Expr>,
+        commas: Vec<TokenIdx>,
+        keyed_arguments: SmallVec<[KeyedArgumentExpr; 2]>,
     },
     LambdaHead {
         inputs: Vec<(RangedIdent, Option<ExprIdx>)>,
@@ -63,7 +72,9 @@ impl UnfinishedExpr {
         match self {
             UnfinishedExpr::Binary { punctuation, .. } => (*punctuation).into(),
             UnfinishedExpr::Prefix { .. } => Precedence::Prefix,
-            UnfinishedExpr::ListItem { .. } | UnfinishedExpr::List { .. } => Precedence::None,
+            UnfinishedExpr::ListItem { .. }
+            | UnfinishedExpr::SimpleList { .. }
+            | UnfinishedExpr::KeyedArgumentList { .. } => Precedence::None,
             UnfinishedExpr::LambdaHead { .. } => Precedence::LambdaHead,
             UnfinishedExpr::Application { .. } => Precedence::Application,
         }

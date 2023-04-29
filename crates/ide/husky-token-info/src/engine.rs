@@ -380,6 +380,7 @@ impl<'a> InferContext<'a> {
                     }
                 }
             }
+            Expr::RitchieCall { .. } => todo!(),
         }
     }
 

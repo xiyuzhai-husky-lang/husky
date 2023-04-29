@@ -257,6 +257,11 @@ impl<'a> ExprRangeCalculator<'a> {
                 rpar_token_idx,
                 ..
             }
+            | Expr::RitchieCall {
+                function: first_expr,
+                rpar_token_idx,
+                ..
+            }
             | Expr::MethodCall {
                 self_argument: first_expr,
                 rpar_token_idx,
