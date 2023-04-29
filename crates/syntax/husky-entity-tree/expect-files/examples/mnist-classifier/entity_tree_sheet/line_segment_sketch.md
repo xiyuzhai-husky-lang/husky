@@ -1015,7 +1015,9 @@ Ok(
                     ast_idx: 163,
                     use_expr_idx: 0,
                     visibility: Scope::Pub,
-                    progress: 45,
+                    progress: Ok(
+                        45,
+                    ),
                 },
                 UseAllRule {
                     parent: KinshipedModulePath {
@@ -1025,7 +1027,9 @@ Ok(
                     ast_idx: 164,
                     use_expr_idx: 2,
                     visibility: Scope::Pub,
-                    progress: 22,
+                    progress: Ok(
+                        22,
+                    ),
                 },
                 UseAllRule {
                     parent: KinshipedModulePath {
@@ -1035,7 +1039,9 @@ Ok(
                     ast_idx: 165,
                     use_expr_idx: 4,
                     visibility: Scope::Pub,
-                    progress: 7,
+                    progress: Ok(
+                        7,
+                    ),
                 },
                 UseAllRule {
                     parent: KinshipedModulePath {
@@ -1047,7 +1053,9 @@ Ok(
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
-                    progress: 7,
+                    progress: Ok(
+                        7,
+                    ),
                 },
                 UseAllRule {
                     parent: KinshipedModulePath {
@@ -1059,7 +1067,9 @@ Ok(
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
-                    progress: 6,
+                    progress: Ok(
+                        6,
+                    ),
                 },
             ],
         ),

@@ -1012,7 +1012,9 @@ Ok(
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convex_component`,
                     ),
-                    progress: 21,
+                    progress: Ok(
+                        21,
+                    ),
                 },
             ],
         ),

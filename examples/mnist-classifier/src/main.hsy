@@ -12,6 +12,7 @@ use self::fermi::*;
 use self::raw_contour::*
 use self::line_segment_sketch::*
 use self::connected_component::*
+use malamute::*
 use mnist::*
 
 task:

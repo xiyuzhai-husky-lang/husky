@@ -17,6 +17,9 @@ Ok(
                 TomlExpr::String(
                     "0.1.0",
                 ),
+                TomlExpr::String(
+                    "0.1.0",
+                ),
             ],
         },
         section_sheet: TomlSectionSheet {
@@ -113,6 +116,19 @@ Ok(
                                     4,
                                 ),
                             },
+                            TomlSectionEntry {
+                                line_group_idx: TomlLineGroupIdx(
+                                    7,
+                                ),
+                                key: Word(
+                                    Id {
+                                        value: 21,
+                                    },
+                                ),
+                                value: Some(
+                                    5,
+                                ),
+                            },
                         ],
                     },
                 ],
@@ -170,10 +186,18 @@ Ok(
             },
             TomlLineGroup::KeyValue(
                 Word(
-                    "mnist",
+                    "malamute",
                 ),
                 Some(
                     4,
+                ),
+            ),
+            TomlLineGroup::KeyValue(
+                Word(
+                    "mnist",
+                ),
+                Some(
+                    5,
                 ),
             ),
         ],

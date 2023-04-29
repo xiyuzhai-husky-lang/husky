@@ -342,7 +342,9 @@ Ok(
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::line_segment`,
                     ),
-                    progress: 6,
+                    progress: Ok(
+                        6,
+                    ),
                 },
             ],
         ),

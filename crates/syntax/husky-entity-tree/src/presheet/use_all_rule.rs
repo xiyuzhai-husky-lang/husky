@@ -15,7 +15,7 @@ pub struct UseAllRule {
     use_expr_idx: UseExprIdx,
     visibility: Scope,
     // how many symbols have been checked
-    progress: usize,
+    progress: Result<usize, ()>,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -73,7 +73,7 @@ impl UseAllRule {
     ) -> Self {
         Self {
             parent: KinshipedModulePath::new(db, sheet.module_path().crate_path(db), parent),
-            progress: 0,
+            progress: Ok(0),
             use_expr_idx,
             visibility: visibility,
             ast_idx,
@@ -84,19 +84,22 @@ impl UseAllRule {
         self.parent
     }
 
-    pub fn progress(&self) -> usize {
+    pub fn progress(&self) -> Result<usize, ()> {
         self.progress
     }
 
     pub(crate) fn is_unresolved(&self, ctx: &EntityTreeSymbolContext) -> bool {
+        let Ok(progress) = self.progress else {
+            return false
+        };
         match self.parent.kinship {
             ModulePathKinship::Inside => {
                 let Ok(module_symbols) = self.parent.module_symbols(ctx.db(), ctx.presheets()) else {
                     todo!()
                 };
-                self.progress < module_symbols.len()
+                progress < module_symbols.len()
             }
-            ModulePathKinship::Outside => self.progress == 0,
+            ModulePathKinship::Outside => progress == 0,
         }
     }
 
@@ -113,7 +116,11 @@ impl UseAllRule {
     }
 
     pub(super) fn set_progress(&mut self, progress: usize) {
-        self.progress = progress
+        self.progress = Ok(progress)
+    }
+
+    pub(super) fn mark_as_erroneous(&mut self) {
+        self.progress = Err(())
     }
 }
 

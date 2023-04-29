@@ -180,8 +180,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier`,
                             ),
-                            ast_idx: 24,
-                            use_expr_idx: 18,
+                            ast_idx: 25,
+                            use_expr_idx: 20,
                         },
                     ),
                 },
@@ -1132,7 +1132,7 @@ Ok(
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Ident(
                             IdentToken {
-                                ident: `mnist`,
+                                ident: `malamute`,
                                 token_idx: TokenIdx(
                                     52,
                                 ),
@@ -1140,6 +1140,34 @@ Ok(
                         ),
                         children: ArenaIdxRange(
                             18..19,
+                        ),
+                    },
+                    parent: None,
+                    state: UseExprRuleState::Resolved {
+                        original_symbol: EntitySymbol::PackageDependency {
+                            entity_path: EntityPath::Module(
+                                `malamute`,
+                            ),
+                        },
+                    },
+                },
+                UseExprRule {
+                    ast_idx: 25,
+                    use_expr_idx: 21,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier`,
+                    ),
+                    variant: UseExprRuleVariant::Parent {
+                        parent_name_token: NameToken::Ident(
+                            IdentToken {
+                                ident: `mnist`,
+                                token_idx: TokenIdx(
+                                    56,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
+                            20..21,
                         ),
                     },
                     parent: None,
@@ -1410,14 +1438,30 @@ Ok(
                 UseAllRule {
                     parent: KinshipedModulePath {
                         kinship: Outside,
-                        path: `mnist`,
+                        path: `malamute`,
                     },
                     ast_idx: 24,
                     use_expr_idx: 18,
                     visibility: Scope::PubUnder(
                         `mnist_classifier`,
                     ),
-                    progress: 1,
+                    progress: Err(
+                        (),
+                    ),
+                },
+                UseAllRule {
+                    parent: KinshipedModulePath {
+                        kinship: Outside,
+                        path: `mnist`,
+                    },
+                    ast_idx: 25,
+                    use_expr_idx: 20,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier`,
+                    ),
+                    progress: Ok(
+                        1,
+                    ),
                 },
                 UseAllRule {
                     parent: KinshipedModulePath {
@@ -1429,7 +1473,9 @@ Ok(
                     visibility: Scope::PubUnder(
                         `mnist_classifier`,
                     ),
-                    progress: 29,
+                    progress: Ok(
+                        29,
+                    ),
                 },
                 UseAllRule {
                     parent: KinshipedModulePath {
@@ -1441,7 +1487,9 @@ Ok(
                     visibility: Scope::PubUnder(
                         `mnist_classifier`,
                     ),
-                    progress: 47,
+                    progress: Ok(
+                        47,
+                    ),
                 },
                 UseAllRule {
                     parent: KinshipedModulePath {
@@ -1453,7 +1501,9 @@ Ok(
                     visibility: Scope::PubUnder(
                         `mnist_classifier`,
                     ),
-                    progress: 29,
+                    progress: Ok(
+                        29,
+                    ),
                 },
                 UseAllRule {
                     parent: KinshipedModulePath {
@@ -1465,7 +1515,9 @@ Ok(
                     visibility: Scope::PubUnder(
                         `mnist_classifier`,
                     ),
-                    progress: 44,
+                    progress: Ok(
+                        44,
+                    ),
                 },
                 UseAllRule {
                     parent: KinshipedModulePath {
@@ -1477,7 +1529,9 @@ Ok(
                     visibility: Scope::PubUnder(
                         `mnist_classifier`,
                     ),
-                    progress: 21,
+                    progress: Ok(
+                        21,
+                    ),
                 },
                 UseAllRule {
                     parent: KinshipedModulePath {
@@ -1489,10 +1543,18 @@ Ok(
                     visibility: Scope::PubUnder(
                         `mnist_classifier`,
                     ),
-                    progress: 31,
+                    progress: Ok(
+                        31,
+                    ),
                 },
             ],
         ),
-        errors: [],
+        errors: [
+            EntityTreeError::Derived(
+                DerivedEntityTreeError::InvalidModulePath(
+                    `malamute`,
+                ),
+            ),
+        ],
     },
 )

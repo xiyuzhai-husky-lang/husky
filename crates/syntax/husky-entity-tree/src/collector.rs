@@ -160,10 +160,15 @@ impl<'a> EntityTreeCollector<'a> {
                 rule_idx,
             } => {
                 let rule = &self.presheets[module_path][rule_idx];
-                let progress = rule.progress();
+                let progress = rule
+                    .progress()
+                    .expect("should be okay otherwise there shouldn't be an action");
                 let parent_symbols = match rule.parent().module_symbols(db, &self.presheets) {
                     Ok(parent_symbols) => parent_symbols.data(),
-                    Err(_) => todo!(),
+                    Err(e) => {
+                        self.presheets[module_path].mark_use_all_rule_as_erroneous(rule_idx, e);
+                        return;
+                    }
                 };
                 // &self.presheets[parent].module_specific_symbols().data();
                 // only need to process those starting from progress
@@ -178,7 +183,7 @@ impl<'a> EntityTreeCollector<'a> {
                 module_path,
                 rule_idx,
                 error,
-            } => self.presheets[module_path].mark_as_erroneous(rule_idx, error),
+            } => self.presheets[module_path].mark_use_expr_rule_as_erroneous(rule_idx, error),
         }
     }
 }

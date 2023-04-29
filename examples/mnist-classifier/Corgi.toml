@@ -5,4 +5,5 @@ description = "example mnist classifier"
 license = "MIT OR Apache-2.0"
 
 [dependencies]
+malamute = "0.1.0"
 mnist = "0.1.0"

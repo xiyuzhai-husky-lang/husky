@@ -242,8 +242,22 @@ impl<'a> EntityTreePresheetMut<'a> {
         }
     }
 
-    pub(crate) fn mark_as_erroneous(&mut self, rule_idx: UseExprRuleIdx, error: EntityTreeError) {
+    pub(crate) fn mark_use_expr_rule_as_erroneous(
+        &mut self,
+        rule_idx: UseExprRuleIdx,
+        error: EntityTreeError,
+    ) {
         let rule = &mut self.use_expr_rules[rule_idx];
+        self.errors.push(error);
+        rule.mark_as_erroneous()
+    }
+
+    pub(crate) fn mark_use_all_rule_as_erroneous(
+        &mut self,
+        rule_idx: UseAllRuleIdx,
+        error: EntityTreeError,
+    ) {
+        let rule = &mut self.use_all_rules[rule_idx];
         self.errors.push(error);
         rule.mark_as_erroneous()
     }
