@@ -171,8 +171,14 @@ impl Diagnose for OriginalExprError {
             OriginalExprError::HtmlTodo(_) => {
                 format!("Syntax Error: HtmlTodo")
             }
-            OriginalExprError::ExpectedValueForFieldBindInitialization(_) =>{
+            OriginalExprError::ExpectedValueForFieldBindInitialization(_) => {
                 format!("Syntax Error: ExpectedValueForFieldBindInitialization")
+            }
+            OriginalExprError::ExpectedFunctionIdentAfterOpeningHtmlBra(_) => {
+                format!("Syntax Error: ExpectedFunctionIdentAfterOpeningHtmlBra")
+            }
+            OriginalExprError::UnexpectedLeftCurlyBrace(_) => {
+                format!("Syntax Error: UnexpectedLeftCurlyBrace")
             }
         }
     }
@@ -248,9 +254,13 @@ impl Diagnose for OriginalExprError {
             | OriginalExprError::ExpectedExprBeforeDot {
                 dot_token_idx: token_idx,
             }
-            | OriginalExprError::HtmlTodo(token_idx) => ctx.token_text_range(*token_idx),
+            | OriginalExprError::HtmlTodo(token_idx)
+            | OriginalExprError::ExpectedValueForFieldBindInitialization(token_idx)
+            | OriginalExprError::ExpectedFunctionIdentAfterOpeningHtmlBra(token_idx)
+            | OriginalExprError::UnexpectedLeftCurlyBrace(token_idx) => {
+                ctx.token_text_range(*token_idx)
+            }
             OriginalExprError::ExpectBlock(_) => todo!(),
-            OriginalExprError::ExpectedValueForFieldBindInitialization(_) => todo!(),
         }
     }
 }

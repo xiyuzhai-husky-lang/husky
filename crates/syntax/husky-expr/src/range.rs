@@ -386,11 +386,13 @@ impl<'a> ExprRangeCalculator<'a> {
                     | OriginalExprError::ExpectedExprBeforeDot {
                         dot_token_idx: token_idx,
                     }
-                    | OriginalExprError::HtmlTodo(token_idx) => {
+                    | OriginalExprError::HtmlTodo(token_idx)
+                    | OriginalExprError::ExpectedValueForFieldBindInitialization(token_idx)
+                    | OriginalExprError::ExpectedFunctionIdentAfterOpeningHtmlBra(token_idx)
+                    | OriginalExprError::UnexpectedLeftCurlyBrace(token_idx) => {
                         TokenIdxRange::new_single(*token_idx)
                     }
                     OriginalExprError::ExpectBlock(_) => todo!(),
-                    OriginalExprError::ExpectedValueForFieldBindInitialization(_) => todo!(),
                 },
                 ExprError::Derived(_) => todo!(),
             },
