@@ -1438,7 +1438,9 @@ Ok(
                     ast_idx: 0,
                     use_expr_idx: 0,
                     visibility: Scope::Pub,
-                    progress: 5,
+                    progress: Ok(
+                        5,
+                    ),
                 },
                 UseAllRule {
                     parent: KinshipedModulePath {
@@ -1448,7 +1450,9 @@ Ok(
                     ast_idx: 1,
                     use_expr_idx: 3,
                     visibility: Scope::Pub,
-                    progress: 15,
+                    progress: Ok(
+                        15,
+                    ),
                 },
                 UseAllRule {
                     parent: KinshipedModulePath {
@@ -1458,7 +1462,9 @@ Ok(
                     ast_idx: 2,
                     use_expr_idx: 6,
                     visibility: Scope::Pub,
-                    progress: 1,
+                    progress: Ok(
+                        1,
+                    ),
                 },
                 UseAllRule {
                     parent: KinshipedModulePath {
@@ -1468,7 +1474,9 @@ Ok(
                     ast_idx: 3,
                     use_expr_idx: 9,
                     visibility: Scope::Pub,
-                    progress: 1,
+                    progress: Ok(
+                        1,
+                    ),
                 },
                 UseAllRule {
                     parent: KinshipedModulePath {
@@ -1478,7 +1486,9 @@ Ok(
                     ast_idx: 4,
                     use_expr_idx: 12,
                     visibility: Scope::Pub,
-                    progress: 2,
+                    progress: Ok(
+                        2,
+                    ),
                 },
                 UseAllRule {
                     parent: KinshipedModulePath {
@@ -1488,7 +1498,9 @@ Ok(
                     ast_idx: 5,
                     use_expr_idx: 15,
                     visibility: Scope::Pub,
-                    progress: 2,
+                    progress: Ok(
+                        2,
+                    ),
                 },
                 UseAllRule {
                     parent: KinshipedModulePath {
@@ -1498,7 +1510,9 @@ Ok(
                     ast_idx: 6,
                     use_expr_idx: 18,
                     visibility: Scope::Pub,
-                    progress: 1,
+                    progress: Ok(
+                        1,
+                    ),
                 },
                 UseAllRule {
                     parent: KinshipedModulePath {
@@ -1508,7 +1522,9 @@ Ok(
                     ast_idx: 7,
                     use_expr_idx: 21,
                     visibility: Scope::Pub,
-                    progress: 4,
+                    progress: Ok(
+                        4,
+                    ),
                 },
             ],
         ),

@@ -289,7 +289,7 @@ Ok(
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Ident(
                             IdentToken {
-                                ident: `mnist`,
+                                ident: `malamute`,
                                 token_idx: TokenIdx(
                                     52,
                                 ),
@@ -297,6 +297,28 @@ Ok(
                         ),
                         children: ArenaIdxRange(
                             18..19,
+                        ),
+                    },
+                    parent: None,
+                    state: UseExprRuleState::Unresolved,
+                },
+                UseExprRule {
+                    ast_idx: 25,
+                    use_expr_idx: 21,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier`,
+                    ),
+                    variant: UseExprRuleVariant::Parent {
+                        parent_name_token: NameToken::Ident(
+                            IdentToken {
+                                ident: `mnist`,
+                                token_idx: TokenIdx(
+                                    56,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
+                            20..21,
                         ),
                     },
                     parent: None,
@@ -644,7 +666,7 @@ Ok(
                     ParentUseExpr {
                         parent_name_token: NameToken::Ident(
                             IdentToken {
-                                ident: `mnist`,
+                                ident: `malamute`,
                                 token_idx: TokenIdx(
                                     52,
                                 ),
@@ -660,6 +682,37 @@ Ok(
                         children: Ok(
                             UseExprChildren::Single {
                                 child: 18,
+                            },
+                        ),
+                    },
+                ),
+                UseExpr::All {
+                    star_token: StarToken(
+                        TokenIdx(
+                            58,
+                        ),
+                    ),
+                },
+                UseExpr::Parent(
+                    ParentUseExpr {
+                        parent_name_token: NameToken::Ident(
+                            IdentToken {
+                                ident: `mnist`,
+                                token_idx: TokenIdx(
+                                    56,
+                                ),
+                            },
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    57,
+                                ),
+                            ),
+                        ),
+                        children: Ok(
+                            UseExprChildren::Single {
+                                child: 20,
                             },
                         ),
                     },

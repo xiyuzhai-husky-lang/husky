@@ -4,13 +4,7 @@ Ok(
             data: [
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        15,
-                    ),
-                    body: None,
-                },
-                Ast::BasicStmtOrBranch {
-                    token_group_idx: TokenGroupIdx(
-                        17,
+                        16,
                     ),
                     body: None,
                 },
@@ -65,6 +59,12 @@ Ok(
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         26,
+                    ),
+                    body: None,
+                },
+                Ast::BasicStmtOrBranch {
+                    token_group_idx: TokenGroupIdx(
+                        27,
                     ),
                     body: None,
                 },
@@ -411,9 +411,25 @@ Ok(
                     },
                     state_after_visibility_expr: None,
                 },
-                Ast::Config {
+                Ast::Use {
                     token_group_idx: TokenGroupIdx(
                         14,
+                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: PubUnder(
+                            ModulePath(
+                                Id {
+                                    value: 23,
+                                },
+                            ),
+                        ),
+                        variant: Protected,
+                    },
+                    state_after_visibility_expr: None,
+                },
+                Ast::Config {
+                    token_group_idx: TokenGroupIdx(
+                        15,
                     ),
                     body: FormBody {
                         ast_idx_range: ArenaIdxRange(
@@ -423,7 +439,7 @@ Ok(
                 },
                 Ast::Main {
                     token_group_idx: TokenGroupIdx(
-                        16,
+                        17,
                     ),
                     body: FormBody {
                         ast_idx_range: ArenaIdxRange(
@@ -434,7 +450,7 @@ Ok(
             ],
         },
         top_level_asts: ArenaIdxRange(
-            11..27,
+            11..28,
         ),
         siblings: [
             ArenaIdxRange(
@@ -477,7 +493,7 @@ Ok(
                 1..11,
             ),
             ArenaIdxRange(
-                11..27,
+                11..28,
             ),
         ],
     },

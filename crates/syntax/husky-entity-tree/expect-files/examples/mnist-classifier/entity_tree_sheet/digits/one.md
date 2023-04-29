@@ -793,8 +793,8 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 24,
-                                            use_expr_idx: 18,
+                                            ast_idx: 25,
+                                            use_expr_idx: 20,
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -2571,7 +2571,9 @@ Ok(
                     visibility: Scope::PubUnder(
                         `mnist_classifier::digits::one`,
                     ),
-                    progress: 47,
+                    progress: Ok(
+                        47,
+                    ),
                 },
             ],
         ),

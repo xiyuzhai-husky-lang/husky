@@ -1148,7 +1148,9 @@ Ok(
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
-                    progress: 21,
+                    progress: Ok(
+                        21,
+                    ),
                 },
                 UseAllRule {
                     parent: KinshipedModulePath {
@@ -1160,7 +1162,9 @@ Ok(
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
-                    progress: 44,
+                    progress: Ok(
+                        44,
+                    ),
                 },
                 UseAllRule {
                     parent: KinshipedModulePath {
@@ -1172,7 +1176,9 @@ Ok(
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
-                    progress: 6,
+                    progress: Ok(
+                        6,
+                    ),
                 },
             ],
         ),

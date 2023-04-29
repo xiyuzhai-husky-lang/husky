@@ -511,8 +511,8 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier`,
                                     ),
-                                    ast_idx: 24,
-                                    use_expr_idx: 18,
+                                    ast_idx: 25,
+                                    use_expr_idx: 20,
                                 },
                             ),
                             path: EntityPath::ModuleItem(
@@ -1888,7 +1888,9 @@ Ok(
                     visibility: Scope::PubUnder(
                         `mnist_classifier::raw_contour`,
                     ),
-                    progress: 29,
+                    progress: Ok(
+                        29,
+                    ),
                 },
                 UseAllRule {
                     parent: KinshipedModulePath {
@@ -1900,7 +1902,9 @@ Ok(
                     visibility: Scope::PubUnder(
                         `mnist_classifier::raw_contour`,
                     ),
-                    progress: 6,
+                    progress: Ok(
+                        6,
+                    ),
                 },
                 UseAllRule {
                     parent: KinshipedModulePath {
@@ -1912,7 +1916,9 @@ Ok(
                     visibility: Scope::PubUnder(
                         `mnist_classifier::raw_contour`,
                     ),
-                    progress: 31,
+                    progress: Ok(
+                        31,
+                    ),
                 },
                 UseAllRule {
                     parent: KinshipedModulePath {
@@ -1924,7 +1930,9 @@ Ok(
                     visibility: Scope::PubUnder(
                         `mnist_classifier::raw_contour`,
                     ),
-                    progress: 21,
+                    progress: Ok(
+                        21,
+                    ),
                 },
             ],
         ),

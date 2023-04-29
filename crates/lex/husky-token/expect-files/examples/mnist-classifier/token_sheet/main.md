@@ -232,6 +232,24 @@ Ok(
                 Keyword::Use,
             ),
             Token::Ident(
+                `malamute`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        ScopeResolution,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Star,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Use,
+            ),
+            Token::Ident(
                 `mnist`,
             ),
             Token::Punctuation(
@@ -383,9 +401,8 @@ Ok(
             45,
             51,
             55,
-            57,
-            60,
-            62,
+            59,
+            61,
             64,
             66,
             68,
@@ -395,8 +412,11 @@ Ok(
             76,
             78,
             80,
+            82,
+            84,
         ],
         indents: [
+            0,
             0,
             0,
             0,
