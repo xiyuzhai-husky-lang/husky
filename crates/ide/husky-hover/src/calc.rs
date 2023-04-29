@@ -121,6 +121,7 @@ impl<'a> HoverResultCalculator<'a> {
             TokenInfo::SelfValue => format!("self value"),
             TokenInfo::HtmlFunctionIdent => format!("html function ident"),
             TokenInfo::HtmlPropertyIdent => format!("html property ident"),
+            TokenInfo::SubmoduleIdent => format!("submodule ident"),
         };
         format!(
             r#"

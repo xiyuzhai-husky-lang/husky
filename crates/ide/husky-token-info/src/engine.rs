@@ -2,6 +2,7 @@ use crate::*;
 use husky_ast::{Ast, AstSheet};
 use husky_defn::*;
 
+use husky_entity_taxonomy::EntityKind;
 use husky_entity_tree::ParentUseExpr;
 use husky_expr::*;
 use husky_expr_ty::{ExprDisambiguation, ExprTypeRegion};
@@ -33,9 +34,26 @@ impl<'a> InferEngine<'a> {
     }
 
     pub(crate) fn visit_all(mut self) -> EntityTreeResult<TokenInfoSheet> {
+        self.visit_other_asts()?;
         self.visit_decl_and_defns()?;
         self.visit_use_expr_rules();
         Ok(self.sheet)
+    }
+
+    fn visit_other_asts(&mut self) -> EntityTreeResult<()> {
+        for ast in self.ast_sheet.iter() {
+            match ast {
+                Ast::Defn {
+                    entity_kind: EntityKind::Module,
+                    ident_token,
+                    ..
+                } => self
+                    .sheet
+                    .add(ident_token.token_idx(), TokenInfo::SubmoduleIdent),
+                _ => (),
+            }
+        }
+        Ok(())
     }
 
     fn visit_decl_and_defns(&mut self) -> EntityTreeResult<()> {

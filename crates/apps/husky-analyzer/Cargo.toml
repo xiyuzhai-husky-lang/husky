@@ -38,7 +38,7 @@ husky-folding-range = { path = "../../ide/husky-folding-range" }
 husky-semantic-token = { path = "../../ide/husky-semantic-token" }
 # infer
 husky-manifest = { path = "../../semantics/husky-manifest" }
-husky-token-info = { path = "../../semantics/husky-token-info" }
+husky-token-info = { path = "../../ide/husky-token-info" }
 husky-declarative-signature = { path = "../../kernel/husky-declarative-signature" }
 husky-expr-ty = { path = "../../semantics/husky-expr-ty" }
 husky-corgi-config = { path = "../../semantics/husky-corgi-config" }

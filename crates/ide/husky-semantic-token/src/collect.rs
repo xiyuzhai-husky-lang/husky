@@ -83,6 +83,7 @@ fn token_to_semantic_token(
         TokenInfo::UseExprStar => SemanticToken::Special,
         TokenInfo::HtmlFunctionIdent => SemanticToken::HtmlFunctionIdent,
         TokenInfo::HtmlPropertyIdent => SemanticToken::HtmlPropertyIdent,
+        TokenInfo::SubmoduleIdent => SemanticToken::SubmoduleIdent,
     };
     Some(RangedSemanticToken {
         semantic_token,
