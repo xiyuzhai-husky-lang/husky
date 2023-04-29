@@ -116,6 +116,10 @@ pub enum OriginalExprError {
     HtmlTodo(TokenIdx),
     #[error("ExpectedValueForFieldBindInitialization")]
     ExpectedValueForFieldBindInitialization(TokenIdx),
+    #[error("ExpectedFunctionIdentAfterOpeningHtmlBra")]
+    ExpectedFunctionIdentAfterOpeningHtmlBra(TokenIdx),
+    #[error("UnexpectedLeftCurlyBrace")]
+    UnexpectedLeftCurlyBrace(TokenIdx),
 }
 
 impl OriginalError for OriginalExprError {

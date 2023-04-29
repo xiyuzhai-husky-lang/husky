@@ -342,15 +342,21 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     .into(),
                     None => todo!(),
                 },
-                Bracket::Curl => todo!(),
+                Bracket::Curl => {
+                    Expr::Err(OriginalExprError::UnexpectedLeftCurlyBrace(bra_token_idx).into())
+                        .into()
+                }
                 Bracket::Lambda => todo!(),
                 Bracket::HtmlAngle => {
-                    let Ok(Some(function_ident)) = parser.parse() else {
-                        todo!()
+                    let function_ident = match parser
+                        .parse_expected(OriginalExprError::ExpectedFunctionIdentAfterOpeningHtmlBra)
+                    {
+                        Ok(function_ident) => function_ident,
+                        Err(e) => return Expr::Err(e).into(),
                     };
                     let arguments = match parse_consecutive_vec_map(parser) {
                         Ok(arguments) => arguments,
-                        Err(e) => todo!(),
+                        Err(e) => return Expr::Err(e).into(),
                     };
                     match parser.parse::<EmptyHtmlKetToken>() {
                         Ok(Some(empty_html_ket)) => Expr::EmptyHtmlTag {
