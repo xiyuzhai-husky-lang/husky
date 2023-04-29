@@ -30,12 +30,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `visualize`,
                         token_idx: TokenIdx(
-                            28,
+                            29,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        29,
+                        30,
                     ),
                     block: AssociatedItem {
                         body: Some(

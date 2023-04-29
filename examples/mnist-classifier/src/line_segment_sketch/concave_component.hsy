@@ -5,8 +5,8 @@ use crate::geom2d::*
 use crate::*
 
 pub struct ConcaveComponent {
-    line_segment_sketch: &LineSegmentSketch,
-    strokes: [%]LineSegmentStroke,
+    line_segment_sketch: ~LineSegmentSketch,
+    strokes: ~[%]LineSegmentStroke,
 }
 
 impl Visualize for ConcaveComponent:

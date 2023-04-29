@@ -14,12 +14,12 @@ DiagnosticSheet {
             Diagnostic {
                 message: "Syntax Error: no left operand for binary operator",
                 severity: Error,
-                range: [9:15, 9:16),
+                range: [9:16, 9:17),
             },
             Diagnostic {
                 message: "Syntax Error: no right operand for binary operator",
                 severity: Error,
-                range: [9:15, 9:16),
+                range: [9:16, 9:17),
             },
         ],
     },

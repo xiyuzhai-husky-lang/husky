@@ -755,7 +755,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `find_concave_components`,
                                                         token_idx: TokenIdx(
-                                                            532,
+                                                            533,
                                                         ),
                                                     },
                                                 },
@@ -2655,7 +2655,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `find_concave_components`,
                                                                 token_idx: TokenIdx(
-                                                                    532,
+                                                                    533,
                                                                 ),
                                                             },
                                                         },
@@ -3952,7 +3952,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `find_concave_components`,
                                                         token_idx: TokenIdx(
-                                                            532,
+                                                            533,
                                                         ),
                                                     },
                                                 },
@@ -5400,7 +5400,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `find_concave_components`,
                                                 token_idx: TokenIdx(
-                                                    532,
+                                                    533,
                                                 ),
                                             },
                                         },
@@ -6215,7 +6215,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `find_concave_components`,
                                         token_idx: TokenIdx(
-                                            532,
+                                            533,
                                         ),
                                     },
                                 },
@@ -8074,12 +8074,12 @@ Ok(
                             ast_idx: 75,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    49,
+                                    50,
                                 ),
                             },
                             trai_expr: 17,
                             for_token: TokenIdx(
-                                51,
+                                52,
                             ),
                             ty_expr: 18,
                             body: TraitForType(
@@ -8101,7 +8101,7 @@ Ok(
                             ast_idx: 76,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    68,
+                                    69,
                                 ),
                             },
                             ty_expr: 19,
@@ -9042,7 +9042,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `find_concave_components`,
                                                         token_idx: TokenIdx(
-                                                            532,
+                                                            533,
                                                         ),
                                                     },
                                                 },
@@ -9474,12 +9474,12 @@ Ok(
                             ast_idx: 4,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    22,
+                                    23,
                                 ),
                             },
                             trai_expr: 20,
                             for_token: TokenIdx(
-                                24,
+                                25,
                             ),
                             ty_expr: 21,
                             body: TraitForType(
@@ -10057,7 +10057,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `find_concave_components`,
                                                         token_idx: TokenIdx(
-                                                            532,
+                                                            533,
                                                         ),
                                                     },
                                                 },
@@ -12113,7 +12113,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `find_concave_components`,
                                                                 token_idx: TokenIdx(
-                                                                    532,
+                                                                    533,
                                                                 ),
                                                             },
                                                         },
@@ -14024,7 +14024,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `find_concave_components`,
                                                                 token_idx: TokenIdx(
-                                                                    532,
+                                                                    533,
                                                                 ),
                                                             },
                                                         },
@@ -17392,7 +17392,7 @@ Ok(
                                                                     ident_token: IdentToken {
                                                                         ident: `find_concave_components`,
                                                                         token_idx: TokenIdx(
-                                                                            532,
+                                                                            533,
                                                                         ),
                                                                     },
                                                                 },
@@ -19970,7 +19970,7 @@ Ok(
                                                                     ident_token: IdentToken {
                                                                         ident: `find_concave_components`,
                                                                         token_idx: TokenIdx(
-                                                                            532,
+                                                                            533,
                                                                         ),
                                                                     },
                                                                 },
@@ -22548,7 +22548,7 @@ Ok(
                                                                     ident_token: IdentToken {
                                                                         ident: `find_concave_components`,
                                                                         token_idx: TokenIdx(
-                                                                            532,
+                                                                            533,
                                                                         ),
                                                                     },
                                                                 },
@@ -25126,7 +25126,7 @@ Ok(
                                                                     ident_token: IdentToken {
                                                                         ident: `find_concave_components`,
                                                                         token_idx: TokenIdx(
-                                                                            532,
+                                                                            533,
                                                                         ),
                                                                     },
                                                                 },
@@ -27801,7 +27801,7 @@ Ok(
                                                                     ident_token: IdentToken {
                                                                         ident: `find_concave_components`,
                                                                         token_idx: TokenIdx(
-                                                                            532,
+                                                                            533,
                                                                         ),
                                                                     },
                                                                 },
@@ -30287,7 +30287,7 @@ Ok(
                                                                     ident_token: IdentToken {
                                                                         ident: `find_concave_components`,
                                                                         token_idx: TokenIdx(
-                                                                            532,
+                                                                            533,
                                                                         ),
                                                                     },
                                                                 },
@@ -32888,7 +32888,7 @@ Ok(
                                                                     ident_token: IdentToken {
                                                                         ident: `find_concave_components`,
                                                                         token_idx: TokenIdx(
-                                                                            532,
+                                                                            533,
                                                                         ),
                                                                     },
                                                                 },
@@ -35420,7 +35420,7 @@ Ok(
                                                                     ident_token: IdentToken {
                                                                         ident: `find_concave_components`,
                                                                         token_idx: TokenIdx(
-                                                                            532,
+                                                                            533,
                                                                         ),
                                                                     },
                                                                 },
@@ -37998,7 +37998,7 @@ Ok(
                                                                     ident_token: IdentToken {
                                                                         ident: `find_concave_components`,
                                                                         token_idx: TokenIdx(
-                                                                            532,
+                                                                            533,
                                                                         ),
                                                                     },
                                                                 },
@@ -40576,7 +40576,7 @@ Ok(
                                                                     ident_token: IdentToken {
                                                                         ident: `find_concave_components`,
                                                                         token_idx: TokenIdx(
-                                                                            532,
+                                                                            533,
                                                                         ),
                                                                     },
                                                                 },
@@ -41860,7 +41860,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `find_concave_components`,
                                                                 token_idx: TokenIdx(
-                                                                    532,
+                                                                    533,
                                                                 ),
                                                             },
                                                         },
@@ -42435,7 +42435,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `Visualize`,
                         token_idx: TokenIdx(
-                            50,
+                            51,
                         ),
                     },
                     entity_path: EntityPath::ModuleItem(
@@ -42448,7 +42448,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `ConcaveComponent`,
                         token_idx: TokenIdx(
-                            52,
+                            53,
                         ),
                     },
                     entity_path: EntityPath::ModuleItem(
@@ -42461,7 +42461,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `ConcaveComponent`,
                         token_idx: TokenIdx(
-                            69,
+                            70,
                         ),
                     },
                     entity_path: EntityPath::ModuleItem(
@@ -42474,7 +42474,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `Visualize`,
                         token_idx: TokenIdx(
-                            23,
+                            24,
                         ),
                     },
                     entity_path: EntityPath::ModuleItem(
@@ -42487,7 +42487,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `ConvexComponent`,
                         token_idx: TokenIdx(
-                            25,
+                            26,
                         ),
                     },
                     entity_path: EntityPath::ModuleItem(
