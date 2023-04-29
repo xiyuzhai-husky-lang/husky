@@ -55,6 +55,7 @@ pub enum Stmt {
     },
     ForExt {
         forext_token: ForextToken,
+        expr: ExprIdx,
         eol_colon: ExprResult<EolToken>,
         block: ExprResult<StmtIdxRange>,
     },

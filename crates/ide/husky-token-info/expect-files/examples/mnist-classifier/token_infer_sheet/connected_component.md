@@ -1003,7 +1003,13 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -1042,7 +1048,13 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 1,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -1127,7 +1139,7 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 5,
                 current_symbol_kind: CurrentSymbolKind::FrameVariable(
-                    21,
+                    27,
                 ),
                 expr_region: ExprRegionLeash(_),
             },
@@ -1163,7 +1175,7 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 5,
                 current_symbol_kind: CurrentSymbolKind::FrameVariable(
-                    21,
+                    27,
                 ),
                 expr_region: ExprRegionLeash(_),
             },
@@ -1195,7 +1207,7 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 7,
                 current_symbol_kind: CurrentSymbolKind::FrameVariable(
-                    36,
+                    42,
                 ),
                 expr_region: ExprRegionLeash(_),
             },
@@ -1231,7 +1243,7 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 7,
                 current_symbol_kind: CurrentSymbolKind::FrameVariable(
-                    36,
+                    42,
                 ),
                 expr_region: ExprRegionLeash(_),
             },
@@ -1469,7 +1481,13 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 1,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -1500,7 +1518,7 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
                 current_symbol_kind: CurrentSymbolKind::FrameVariable(
-                    10,
+                    13,
                 ),
                 expr_region: ExprRegionLeash(_),
             },
@@ -1536,7 +1554,7 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
                 current_symbol_kind: CurrentSymbolKind::FrameVariable(
-                    10,
+                    13,
                 ),
                 expr_region: ExprRegionLeash(_),
             },
@@ -1650,7 +1668,13 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 1,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -1681,7 +1705,7 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
                 current_symbol_kind: CurrentSymbolKind::FrameVariable(
-                    10,
+                    13,
                 ),
                 expr_region: ExprRegionLeash(_),
             },
@@ -1717,7 +1741,7 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
                 current_symbol_kind: CurrentSymbolKind::FrameVariable(
-                    10,
+                    13,
                 ),
                 expr_region: ExprRegionLeash(_),
             },
@@ -2276,7 +2300,13 @@ Ok(
                 expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 7,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 6,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -2437,9 +2467,21 @@ Ok(
                 expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 7,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 6,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 2,
+                current_symbol_kind: CurrentSymbolKind::FrameVariable(
+                    6,
+                ),
+                expr_region: ExprRegionLeash(_),
+            },
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -2592,7 +2634,7 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 12,
                 current_symbol_kind: CurrentSymbolKind::FrameVariable(
-                    95,
+                    103,
                 ),
                 expr_region: ExprRegionLeash(_),
             },
@@ -2610,7 +2652,7 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 12,
                 current_symbol_kind: CurrentSymbolKind::FrameVariable(
-                    95,
+                    103,
                 ),
                 expr_region: ExprRegionLeash(_),
             },
@@ -2629,7 +2671,7 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 12,
                 current_symbol_kind: CurrentSymbolKind::FrameVariable(
-                    95,
+                    103,
                 ),
                 expr_region: ExprRegionLeash(_),
             },
