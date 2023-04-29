@@ -87,12 +87,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `new`,
                         token_idx: TokenIdx(
-                            110,
+                            117,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        111,
+                        118,
                     ),
                     block: AssociatedItem {
                         body: Some(
@@ -126,12 +126,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `displacement`,
                         token_idx: TokenIdx(
-                            148,
+                            155,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        149,
+                        156,
                     ),
                     block: AssociatedItem {
                         body: Some(
@@ -171,12 +171,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `visualize`,
                         token_idx: TokenIdx(
-                            186,
+                            193,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        187,
+                        194,
                     ),
                     block: AssociatedItem {
                         body: Some(
@@ -300,12 +300,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `concave_components`,
                         token_idx: TokenIdx(
-                            203,
+                            210,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        204,
+                        211,
                     ),
                     block: AssociatedItem {
                         body: Some(
@@ -339,12 +339,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `bounding_box`,
                         token_idx: TokenIdx(
-                            214,
+                            221,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        215,
+                        222,
                     ),
                     block: AssociatedItem {
                         body: Some(
@@ -378,12 +378,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `new`,
                         token_idx: TokenIdx(
-                            339,
+                            346,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        340,
+                        347,
                     ),
                     block: AssociatedItem {
                         body: Some(
@@ -1704,7 +1704,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    164,
+                                    171,
                                 ),
                             },
                         },
@@ -1718,12 +1718,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `LineSegmentSketch`,
                         token_idx: TokenIdx(
-                            166,
+                            173,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        167,
+                        174,
                     ),
                     block: Type {
                         path: TypePath(
@@ -1781,12 +1781,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `go_right`,
                         token_idx: TokenIdx(
-                            365,
+                            372,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        366,
+                        373,
                     ),
                     block: Form {
                         path: FugitivePath(
@@ -1826,12 +1826,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `go_left`,
                         token_idx: TokenIdx(
-                            462,
+                            469,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        463,
+                        470,
                     ),
                     block: Form {
                         path: FugitivePath(
@@ -1871,12 +1871,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `extend_end`,
                         token_idx: TokenIdx(
-                            559,
+                            566,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        560,
+                        567,
                     ),
                     block: Form {
                         path: FugitivePath(
@@ -1916,12 +1916,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `extend_start`,
                         token_idx: TokenIdx(
-                            792,
+                            799,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        793,
+                        800,
                     ),
                     block: Form {
                         path: FugitivePath(
@@ -1961,12 +1961,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `find_line_segments`,
                         token_idx: TokenIdx(
-                            1058,
+                            1065,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        1059,
+                        1066,
                     ),
                     block: Form {
                         path: FugitivePath(
