@@ -35,6 +35,7 @@ use husky_token::*;
 use husky_word::*;
 use precedence::*;
 use range::*;
+use smallvec::SmallVec;
 use snippet::*;
 #[cfg(test)]
 use tests::*;
@@ -149,6 +150,15 @@ pub enum Expr {
         commas: Vec<TokenIdx>,
         rpar_token_idx: TokenIdx,
     },
+    RitchieCall {
+        function: ExprIdx,
+        implicit_arguments: Option<ImplicitArgumentList>,
+        lpar_token_idx: TokenIdx,
+        items: ExprIdxRange,
+        commas: Vec<TokenIdx>,
+        keyed_arguments: SmallVecMap<KeyedArgumentExpr, 2>,
+        rpar_token_idx: TokenIdx,
+    },
     Field {
         owner: ExprIdx,
         dot_token_idx: TokenIdx,
@@ -225,6 +235,12 @@ pub enum Expr {
     Err(ExprError),
 }
 
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub struct KeyedArgumentExpr {
+    key: Ident,
+    value: ExprIdx,
+}
+
 #[derive(Debug, PartialEq, Eq)]
 pub struct ImplicitArgumentList {
     langle: TokenIdx,
@@ -262,6 +278,7 @@ impl ImplicitArgumentList {
 }
 
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
+use vec_like::SmallVecMap;
 
 pub type ExprArena = Arena<Expr>;
 pub type ExprIdx = ArenaIdx<Expr>;

@@ -193,6 +193,7 @@ impl<'a> ExprTypeEngine<'a> {
                 implicit_arguments,
                 items,
             ),
+            Expr::RitchieCall { .. } => todo!(),
             Expr::Field {
                 owner, ident_token, ..
             } => self.calc_field_expr_ty(owner, ident_token),

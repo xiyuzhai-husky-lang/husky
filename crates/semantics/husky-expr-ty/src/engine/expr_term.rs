@@ -68,6 +68,7 @@ impl<'a> ExprTypeEngine<'a> {
                 opr_token_idx: punctuation_token_idx,
             } => Err(todo!()),
             Expr::ExplicitApplicationOrRitchieCall { .. } => Err(todo!()),
+            Expr::RitchieCall { .. } => todo!(),
             Expr::Field {
                 owner,
                 dot_token_idx,

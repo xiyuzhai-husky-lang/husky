@@ -423,6 +423,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                 ref arguments,
                 empty_html_ket,
             } => todo!(),
+            Expr::RitchieCall { .. } => todo!(),
         }
     }
 

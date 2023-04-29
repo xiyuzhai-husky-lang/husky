@@ -128,7 +128,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 PunctuationMapped::Tilde => ResolvedToken::PrefixOpr(token_idx, PrefixOpr::Tilde),
                 PunctuationMapped::Dot => ResolvedToken::Dot(token_idx),
                 PunctuationMapped::Colon => match self.last_unfinished_expr() {
-                    Some(UnfinishedExpr::List {
+                    Some(UnfinishedExpr::SimpleList {
                         opr: UnfinishedListOpr::BoxList { .. },
                         items,
                         ..
@@ -153,14 +153,14 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     self.reduce(Precedence::ListItem);
                     match self.last_unfinished_expr() {
                         Some(expr) => match expr {
-                            UnfinishedExpr::List { .. } => ResolvedToken::ListItem(token_idx),
+                            UnfinishedExpr::SimpleList { .. } => ResolvedToken::ListItem(token_idx),
                             _ => return TokenResolveResult::Break(()),
                         },
                         None => return TokenResolveResult::Break(()),
                     }
                 }
                 PunctuationMapped::Vertical => match self.last_unfinished_expr() {
-                    Some(UnfinishedExpr::List {
+                    Some(UnfinishedExpr::SimpleList {
                         bra: Bracket::Lambda,
                         ..
                     }) => ResolvedToken::Ket(token_idx, Bracket::Lambda),

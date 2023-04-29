@@ -24,7 +24,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
     pub(crate) fn accept_list_end(&mut self, ket: Bracket, ket_token_idx: TokenIdx) {
         self.reduce(Precedence::ListItem);
         match self.take_last_unfinished_expr().unwrap() {
-            UnfinishedExpr::List {
+            UnfinishedExpr::SimpleList {
                 opr,
                 bra,
                 bra_token_idx,
@@ -160,7 +160,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 let self_expr = this.alloc_expr(self_expr);
                 match this.parse::<IdentToken>() {
                     Ok(Some(ident_token)) => match this.parse::<LeftParenthesisToken>() {
-                        Ok(Some(lpar)) => UnfinishedExpr::List {
+                        Ok(Some(lpar)) => UnfinishedExpr::SimpleList {
                             opr: UnfinishedListOpr::MethodCall {
                                 self_expr,
                                 dot_token_idx,
@@ -174,7 +174,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         }
                         .into(),
                         Ok(None) => match this.parse::<ColonColonLeftAngleBracketToken>() {
-                            Ok(Some(langle)) => UnfinishedExpr::List {
+                            Ok(Some(langle)) => UnfinishedExpr::SimpleList {
                                 opr: UnfinishedListOpr::MethodInstantiation {
                                     self_expr,
                                     dot_token_idx,
@@ -217,7 +217,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         ));
         match self.last_unfinished_expr_mut() {
             Some(expr) => match expr {
-                UnfinishedExpr::List {
+                UnfinishedExpr::SimpleList {
                     opr,
                     bra,
                     bra_token_idx,
@@ -273,7 +273,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         assert!(self.finished_expr().is_none());
         let unfinished_expr = self.take_last_unfinished_expr().unwrap();
         match unfinished_expr {
-            UnfinishedExpr::List {
+            UnfinishedExpr::SimpleList {
                 opr: UnfinishedListOpr::BoxList,
                 bra,
                 bra_token_idx,
@@ -282,7 +282,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             } => {
                 assert!(items.is_empty());
                 self.set_top_expr(
-                    UnfinishedExpr::List {
+                    UnfinishedExpr::SimpleList {
                         opr: UnfinishedListOpr::BoxColonList { colon_token_idx },
                         bra,
                         bra_token_idx,
@@ -301,7 +301,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             let finished_expr = finished_expr.map(|expr| parser.alloc_expr(expr));
             match bra {
                 Bracket::Par => match finished_expr {
-                    Some(function) => UnfinishedExpr::List {
+                    Some(function) => UnfinishedExpr::SimpleList {
                         opr: UnfinishedListOpr::FunctionCall { function },
                         bra,
                         bra_token_idx,
@@ -309,7 +309,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         commas: vec![],
                     }
                     .into(),
-                    None => UnfinishedExpr::List {
+                    None => UnfinishedExpr::SimpleList {
                         opr: UnfinishedListOpr::NewTuple,
                         bra,
                         bra_token_idx,
@@ -318,7 +318,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     }
                     .into(),
                 },
-                Bracket::Box => UnfinishedExpr::List {
+                Bracket::Box => UnfinishedExpr::SimpleList {
                     opr: match finished_expr {
                         Some(finished_expr) => UnfinishedListOpr::Index {
                             owner: finished_expr,
@@ -332,7 +332,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 }
                 .into(),
                 Bracket::TemplateAngle => match finished_expr {
-                    Some(template) => UnfinishedExpr::List {
+                    Some(template) => UnfinishedExpr::SimpleList {
                         opr: UnfinishedListOpr::TemplateInstantiation { template },
                         bra,
                         bra_token_idx,

@@ -114,6 +114,7 @@ impl Expr {
                 rbox_token_idx,
             } => arena[owner].base_entity_path(db, arena),
             Expr::EmptyHtmlTag { .. } => BaseEntityPath::Err,
+            Expr::RitchieCall { .. } => todo!(),
         }
     }
 }
@@ -234,12 +235,13 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 UnfinishedExpr::ListItem {
                     separator_token_idx,
                 } => todo!(),
-                UnfinishedExpr::List { bra_token_idx, .. } => {
+                UnfinishedExpr::SimpleList { bra_token_idx, .. } => {
                     self.stack.finished_expr = Some(Expr::Err(
                         OriginalExprError::UnterminatedList { bra_token_idx }.into(),
                     ))
                 }
                 UnfinishedExpr::LambdaHead { inputs, start } => todo!(),
+                UnfinishedExpr::KeyedArgumentList { .. } => todo!(),
             }
         }
     }
@@ -258,7 +260,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
     pub(super) fn last_bra(&self) -> Option<Bracket> {
         for (unfinished_expr, _) in self.stack.unfinished_exprs.iter().rev() {
             match unfinished_expr {
-                UnfinishedExpr::List {
+                UnfinishedExpr::SimpleList {
                     opr,
                     bra,
                     bra_token_idx,
@@ -275,7 +277,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         let mut bras = vec![];
         for (unfinished_expr, _) in self.stack.unfinished_exprs.iter().rev() {
             match unfinished_expr {
-                UnfinishedExpr::List { bra, .. } => {
+                UnfinishedExpr::SimpleList { bra, .. } => {
                     bras.push(*bra);
                     if bras.len() >= 2 {
                         return bras;
