@@ -46,6 +46,7 @@ pub enum SemanticToken {
     SelfValue,
     HtmlFunctionIdent,
     HtmlPropertyIdent,
+    SubmoduleIdent,
 }
 
 impl SemanticToken {
@@ -121,6 +122,7 @@ impl SemanticToken {
             SemanticToken::SelfValue => ext::SemanticTokenType::KEYWORD,
             SemanticToken::HtmlFunctionIdent => ext::SemanticTokenType::FUNCTION,
             SemanticToken::HtmlPropertyIdent => ext::SemanticTokenType::PROPERTY,
+            SemanticToken::SubmoduleIdent => ext::SemanticTokenType::NAMESPACE,
         })
     }
 

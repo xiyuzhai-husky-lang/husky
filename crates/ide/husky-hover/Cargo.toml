@@ -15,7 +15,7 @@ husky-vfs = { path = "../../fs/husky-vfs" }
 # ide
 husky-documentation = { path = "../../ide/husky-documentation" }
 # infer
-husky-token-info = { path = "../../semantics/husky-token-info" }
+husky-token-info = { path = "../../ide/husky-token-info" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
 husky-text = { path = "../../lex/husky-text" }
