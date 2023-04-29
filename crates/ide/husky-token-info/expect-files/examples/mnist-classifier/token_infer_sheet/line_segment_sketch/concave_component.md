@@ -251,6 +251,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::None,
             TokenInfo::BoxPrefix,
             TokenInfo::None,
             TokenInfo::BoxPrefix,

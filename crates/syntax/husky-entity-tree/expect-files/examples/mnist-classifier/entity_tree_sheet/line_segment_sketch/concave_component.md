@@ -35,7 +35,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `find_concave_components`,
                                 token_idx: TokenIdx(
-                                    532,
+                                    533,
                                 ),
                             },
                         },
@@ -1894,12 +1894,12 @@ Ok(
                     ast_idx: 75,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            49,
+                            50,
                         ),
                     },
                     trai_expr: 17,
                     for_token: TokenIdx(
-                        51,
+                        52,
                     ),
                     ty_expr: 18,
                     body: TraitForType(
@@ -1921,7 +1921,7 @@ Ok(
                     ast_idx: 76,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            68,
+                            69,
                         ),
                     },
                     ty_expr: 19,

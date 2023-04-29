@@ -77,6 +77,11 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
+                    PunctuationMapped::Tilde,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
                     PunctuationMapped::Bra(
                         Box,
                     ),
@@ -208,9 +213,9 @@ Ok(
         group_starts: [
             0,
             6,
-            22,
-            27,
-            34,
+            23,
+            28,
+            35,
         ],
         indents: [
             0,
