@@ -280,7 +280,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 387;\n\ntoken_line_group_idx = 55\n\ntoken = Token::Ident(\n    `i2`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 7,\n    current_symbol_kind: CurrentSymbolKind::FrameVariable(\n        36,\n    ),\n    expr_region: ExprRegionLeash(_),\n};\n\nCurrentSymbol {\n    modifier: Pure,\n    access_start: TokenIdx(\n        393,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                405,\n            ),\n        ),\n    ),\n    variant: CurrentSymbolVariant::FrameVariable {\n        ident: `i2`,\n        expr_idx: 36,\n    },\n}\n",
+                                value: "\ntoken_idx = 387;\n\ntoken_line_group_idx = 55\n\ntoken = Token::Ident(\n    `i2`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 7,\n    current_symbol_kind: CurrentSymbolKind::FrameVariable(\n        42,\n    ),\n    expr_region: ExprRegionLeash(_),\n};\n\nCurrentSymbol {\n    modifier: Pure,\n    access_start: TokenIdx(\n        393,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                405,\n            ),\n        ),\n    ),\n    variant: CurrentSymbolVariant::FrameVariable {\n        ident: `i2`,\n        expr_idx: 42,\n    },\n}\n",
                             },
                         ),
                         range: Some(

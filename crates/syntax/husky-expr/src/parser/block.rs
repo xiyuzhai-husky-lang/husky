@@ -177,25 +177,30 @@ impl<'a> BlockExprParser<'a> {
                         };
                     let eol_colon = ctx.parse_expected(OriginalExprError::ExpectedEolColon);
                     self.parse_for_loop_stmt(
-                        expr,
-                        for_token,
-                        eol_colon,
                         token_group_idx,
+                        for_token,
+                        expr,
+                        eol_colon,
                         body.expect("should be checked in `husky_ast`"),
                     )
                     .into()
                 }
-                BasicStmtKeywordToken::ForExt(forext_token) => Stmt::ForExt {
-                    forext_token,
-                    // condition: ctx
-                    //     .parse_expr(ExprParseEnvironment::None)
-                    //     .ok_or(ExprError::ExpectCondition),
-                    eol_colon: ctx.parse_expected(OriginalExprError::ExpectedEolColon),
-                    block: self.parse_block_stmts_expected(
-                        body.expect("should be checked in `husky_ast`"),
+                BasicStmtKeywordToken::ForExt(forext_token) => {
+                    let expr =
+                        match ctx.parse_expr_expected(None, OriginalExprError::ExpectedCondition) {
+                            Ok(expr) => expr,
+                            Err(_) => todo!(),
+                        };
+                    let eol_colon = ctx.parse_expected(OriginalExprError::ExpectedEolColon);
+                    self.parse_forext_loop_stmt(
                         token_group_idx,
-                    ),
-                },
+                        forext_token,
+                        expr,
+                        eol_colon,
+                        body.expect("should be checked in `husky_ast`"),
+                    )
+                    .into()
+                }
                 BasicStmtKeywordToken::While(while_token) => Stmt::While {
                     while_token,
                     condition: ctx.parse_expr_expected(
@@ -235,10 +240,10 @@ impl<'a> BlockExprParser<'a> {
 
     fn parse_for_loop_stmt(
         &mut self,
-        expr: ExprIdx,
-        for_token: StmtForToken,
-        eol_colon: ExprResult<EolToken>,
         token_group_idx: TokenGroupIdx,
+        for_token: StmtForToken,
+        expr: ExprIdx,
+        eol_colon: ExprResult<EolToken>,
         body: FormBody,
     ) -> StmtResult<Stmt> {
         match self.expr_arena[expr] {
@@ -359,6 +364,22 @@ impl<'a> BlockExprParser<'a> {
                 _ => todo!(),
             }
         }
+    }
+
+    fn parse_forext_loop_stmt(
+        &mut self,
+        token_group_idx: TokenGroupIdx,
+        forext_token: ForextToken,
+        expr: ExprIdx,
+        eol_colon: ExprResult<EolToken>,
+        body: FormBody,
+    ) -> StmtResult<Stmt> {
+        Ok(Stmt::ForExt {
+            forext_token,
+            expr,
+            eol_colon,
+            block: self.parse_block_stmts_expected(body, token_group_idx),
+        })
     }
 
     fn parse_if_branch(&mut self, if_branch: AstIdx) -> IfBranch {
