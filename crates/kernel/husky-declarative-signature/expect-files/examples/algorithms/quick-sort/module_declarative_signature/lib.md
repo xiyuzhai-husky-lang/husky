@@ -9,7 +9,7 @@
                                 annotated_variance: None,
                                 symbol: DeclarativeTermSymbol(
                                     Id {
-                                        value: 3,
+                                        value: 2,
                                     },
                                 ),
                                 traits: [],
@@ -23,7 +23,7 @@
                                 ty: ExplicitApplication(
                                     DeclarativeTermExplicitApplication(
                                         Id {
-                                            value: 28,
+                                            value: 30,
                                         },
                                     ),
                                 ),
@@ -45,7 +45,7 @@
                                 annotated_variance: None,
                                 symbol: DeclarativeTermSymbol(
                                     Id {
-                                        value: 3,
+                                        value: 2,
                                     },
                                 ),
                                 traits: [],
@@ -59,7 +59,7 @@
                                 ty: ExplicitApplication(
                                     DeclarativeTermExplicitApplication(
                                         Id {
-                                            value: 28,
+                                            value: 30,
                                         },
                                     ),
                                 ),
@@ -105,7 +105,7 @@
                                 annotated_variance: None,
                                 symbol: DeclarativeTermSymbol(
                                     Id {
-                                        value: 3,
+                                        value: 2,
                                     },
                                 ),
                                 traits: [],
@@ -119,7 +119,7 @@
                                 ty: ExplicitApplication(
                                     DeclarativeTermExplicitApplication(
                                         Id {
-                                            value: 28,
+                                            value: 30,
                                         },
                                     ),
                                 ),

@@ -38,7 +38,17 @@ impl ImplicitParameterDeclarativeSignature {
                     annotated_variance,
                 }
             }
-            ImplicitParameterDeclPatternVariant::Constant { .. } => todo!(),
+            ImplicitParameterDeclPatternVariant::Constant { .. } => {
+                ImplicitParameterDeclarativeSignature {
+                    symbol: region
+                        .current_symbol_term(symbol)
+                        .expect("not none")
+                        .term_symbol()
+                        .expect("should have term"),
+                    traits: vec![],
+                    annotated_variance,
+                }
+            }
             ImplicitParameterDeclPatternVariant::Lifetime { .. } => {
                 ImplicitParameterDeclarativeSignature {
                     symbol: region

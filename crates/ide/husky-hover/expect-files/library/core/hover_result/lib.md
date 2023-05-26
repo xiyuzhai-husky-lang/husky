@@ -580,7 +580,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 38;\n\ntoken_line_group_idx = 12\n\ntoken = Token::Ident(\n    `cmp`,\n);\n\ntoken_info = TokenInfo::SubmoduleIdent;\n\nsubmodule ident\n",
+                                value: "\ntoken_idx = 38;\n\ntoken_line_group_idx = 12\n\ntoken = Token::Ident(\n    `array`,\n);\n\ntoken_info = TokenInfo::SubmoduleIdent;\n\nsubmodule ident\n",
                             },
                         ),
                         range: Some(
@@ -591,7 +591,7 @@ Ok(
                                 },
                                 end: Position {
                                     line: 12,
-                                    character: 11,
+                                    character: 13,
                                 },
                             },
                         ),
@@ -670,7 +670,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 44;\n\ntoken_line_group_idx = 14\n\ntoken = Token::Ident(\n    `option`,\n);\n\ntoken_info = TokenInfo::SubmoduleIdent;\n\nsubmodule ident\n",
+                                value: "\ntoken_idx = 44;\n\ntoken_line_group_idx = 14\n\ntoken = Token::Ident(\n    `str`,\n);\n\ntoken_info = TokenInfo::SubmoduleIdent;\n\nsubmodule ident\n",
                             },
                         ),
                         range: Some(
@@ -681,7 +681,7 @@ Ok(
                                 },
                                 end: Position {
                                     line: 14,
-                                    character: 14,
+                                    character: 11,
                                 },
                             },
                         ),
@@ -712,6 +712,66 @@ Ok(
                                 end: Position {
                                     line: 15,
                                     character: 7,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                48,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "Other\ntoken_idx = 48;\n\ntoken_line_group_idx = 16\n\ntoken = Token::Keyword(\n    Keyword::Pub,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 16,
+                                    character: 0,
+                                },
+                                end: Position {
+                                    line: 16,
+                                    character: 3,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                50,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "\ntoken_idx = 50;\n\ntoken_line_group_idx = 16\n\ntoken = Token::Ident(\n    `visual`,\n);\n\ntoken_info = TokenInfo::SubmoduleIdent;\n\nsubmodule ident\n",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 16,
+                                    character: 8,
+                                },
+                                end: Position {
+                                    line: 16,
+                                    character: 14,
                                 },
                             },
                         ),

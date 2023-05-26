@@ -406,6 +406,55 @@ Ok(
                     ),
                 },
                 EntitySymbolEntry {
+                    ident: `BinaryImage28`,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::connected_component`,
+                    ),
+                    symbol: EntitySymbol::Use(
+                        UseSymbol {
+                            original_symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                            ),
+                                            visibility: Scope::Pub,
+                                            ast_idx: 11,
+                                            ident_token: IdentToken {
+                                                ident: `BinaryImage28`,
+                                                token_idx: TokenIdx(
+                                                    25,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist::BinaryImage28`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Scope::PubUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 25,
+                                    use_expr_idx: 20,
+                                },
+                            ),
+                            path: EntityPath::ModuleItem(
+                                ModuleItemPath::Type(
+                                    TypePath(`mnist::BinaryImage28`, `Struct`),
+                                ),
+                            ),
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::connected_component`,
+                            ),
+                            ast_idx: 119,
+                            use_expr_idx: 3,
+                        },
+                    ),
+                },
+                EntitySymbolEntry {
                     ident: `RawContour`,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::connected_component`,
@@ -1422,7 +1471,7 @@ Ok(
                         `mnist_classifier::connected_component`,
                     ),
                     progress: Ok(
-                        29,
+                        30,
                     ),
                 },
                 UseAllRule {
@@ -1436,7 +1485,7 @@ Ok(
                         `mnist_classifier::connected_component`,
                     ),
                     progress: Ok(
-                        44,
+                        45,
                     ),
                 },
             ],

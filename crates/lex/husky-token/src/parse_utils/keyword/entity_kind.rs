@@ -35,6 +35,25 @@ pub struct ConstToken {
     token_idx: TokenIdx,
 }
 
+impl<'a, Context> parsec::ParseFromStream<Context> for ConstToken
+where
+    Context: TokenParseContext<'a>,
+{
+    type Error = TokenError;
+
+    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
+        let token_stream: &mut TokenStream<'a> = &mut ctx.borrow_mut();
+        let Some((token_idx, token)) = token_stream.next_indexed() else {
+            return Ok(None)
+        };
+        match token {
+            Token::Keyword(Keyword::Const) => Ok(Some(ConstToken { token_idx })),
+            Token::Error(error) => Err(error)?,
+            _ => Ok(None),
+        }
+    }
+}
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct StaticToken {
     token_idx: TokenIdx,
@@ -156,7 +175,6 @@ where
                 FormKeyword::Type => {
                     Ok(Some(EntityKindKeywordGroup::Type(TypeToken { token_idx })))
                 }
-                FormKeyword::Const => todo!(),
                 FormKeyword::Val => Ok(Some(EntityKindKeywordGroup::Val(ValToken { token_idx }))),
                 FormKeyword::Gn => Ok(Some(EntityKindKeywordGroup::Gn(GnToken { token_idx }))),
                 FormKeyword::Constexpr => todo!(),
@@ -173,6 +191,7 @@ where
             Keyword::Trait => Ok(Some(EntityKindKeywordGroup::Trait(TraitToken {
                 token_idx,
             }))),
+            Keyword::Const => todo!(),
             Keyword::Static => match token_stream.peek() {
                 Some(Token::Keyword(Keyword::Form(FormKeyword::Fn))) => {
                     token_stream.next();
@@ -183,7 +202,7 @@ where
                         },
                     )))
                 }
-                Some(Token::Keyword(Keyword::Form(FormKeyword::Const))) => todo!(),
+                Some(Token::Keyword(Keyword::Const)) => todo!(),
                 _ => Ok(None),
             },
             _ => Ok(None),

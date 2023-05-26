@@ -1,5 +1,5 @@
 DiagnosticSheet {
-    [salsa id]: 23,
+    [salsa id]: 24,
     entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {
         diagnostics: [],
     },
@@ -10,23 +10,7 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_diagnostic_sheet: ExprDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [22:11, 22:24),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [126:39, 126:52),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [133:28, 133:41),
-            },
-        ],
+        diagnostics: [],
     },
     decl_diagnostic_sheet: DeclDiagnosticSheet {
         diagnostics: [],
@@ -36,6 +20,21 @@ DiagnosticSheet {
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
+            Diagnostic {
+                message: "Type Error: no method named `clone` for type `FluffyTerm::Solid(SolidTerm(0))`",
+                severity: Error,
+                range: [128:30, 128:35),
+            },
+            Diagnostic {
+                message: "Type Error: TodoIndexOrComposeWithList",
+                severity: Error,
+                range: [141:63, 141:73),
+            },
+            Diagnostic {
+                message: "Type Error: TodoIndexOrComposeWithList",
+                severity: Error,
+                range: [149:63, 149:69),
+            },
             Diagnostic {
                 message: "type path mismatch: expect core::option::Option, but got core::mem::Leash instead",
                 severity: Error,

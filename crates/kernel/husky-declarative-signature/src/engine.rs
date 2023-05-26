@@ -100,6 +100,10 @@ impl<'a> DeclarativeTermEngine<'a> {
                         CurrentImplicitParameterSymbol::Type { ident_token } => {
                             Ok(self.declarative_term_menu.ty0().into())
                         }
+                        CurrentImplicitParameterSymbol::Constant {
+                            ident_token,
+                            ty_expr_idx,
+                        } => self.infer_new_expr_term(*ty_expr_idx).map_err(|_| todo!()),
                         _ => todo!(),
                     };
                     self.symbol_declarative_term_region

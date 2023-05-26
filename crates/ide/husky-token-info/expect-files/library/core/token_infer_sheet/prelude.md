@@ -173,11 +173,11 @@ Ok(
                         SubmoduleSymbol {
                             path: `core::visual`,
                             visibility: Scope::Pub,
-                            ast_idx: 15,
+                            ast_idx: 16,
                             ident_token: IdentToken {
                                 ident: `visual`,
                                 token_idx: TokenIdx(
-                                    47,
+                                    50,
                                 ),
                             },
                         },
@@ -284,11 +284,11 @@ Ok(
                         SubmoduleSymbol {
                             path: `core::cmp`,
                             visibility: Scope::Pub,
-                            ast_idx: 12,
+                            ast_idx: 13,
                             ident_token: IdentToken {
                                 ident: `cmp`,
                                 token_idx: TokenIdx(
-                                    38,
+                                    41,
                                 ),
                             },
                         },

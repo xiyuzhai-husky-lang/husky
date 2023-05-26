@@ -490,7 +490,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 32;\n\ntoken_line_group_idx = 4\n\ntoken = Token::Ident(\n    `visual`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 13,\n    rule_idx: UseExprRuleIdx(\n        12,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: EntitySymbol::Submodule(\n            SubmoduleSymbol {\n                path: `core::visual`,\n                visibility: Scope::Pub,\n                ast_idx: 15,\n                ident_token: IdentToken {\n                    ident: `visual`,\n                    token_idx: TokenIdx(\n                        47,\n                    ),\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 32;\n\ntoken_line_group_idx = 4\n\ntoken = Token::Ident(\n    `visual`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 13,\n    rule_idx: UseExprRuleIdx(\n        12,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: EntitySymbol::Submodule(\n            SubmoduleSymbol {\n                path: `core::visual`,\n                visibility: Scope::Pub,\n                ast_idx: 16,\n                ident_token: IdentToken {\n                    ident: `visual`,\n                    token_idx: TokenIdx(\n                        50,\n                    ),\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(

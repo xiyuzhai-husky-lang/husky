@@ -28,10 +28,33 @@ Ok(
                                             ),
                                         ),
                                         expr_arena: Arena {
-                                            data: [],
+                                            data: [
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 0,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::usize`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
                                         },
                                         entity_path_expr_arena: Arena {
-                                            data: [],
+                                            data: [
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        7,
+                                                    ),
+                                                    ident: `usize`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::usize`, `Extern`),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
                                         },
                                         stmt_arena: Arena {
                                             data: [],
@@ -57,11 +80,60 @@ Ok(
                                                 data: [],
                                             },
                                             current_symbol_arena: Arena {
-                                                data: [],
+                                                data: [
+                                                    CurrentSymbol {
+                                                        modifier: Const,
+                                                        access_start: TokenIdx(
+                                                            8,
+                                                        ),
+                                                        access_end: None,
+                                                        variant: CurrentSymbolVariant::ImplicitParameter {
+                                                            implicit_parameter_variant: CurrentImplicitParameterSymbol::Constant {
+                                                                ident_token: IdentToken {
+                                                                    ident: `L`,
+                                                                    token_idx: TokenIdx(
+                                                                        5,
+                                                                    ),
+                                                                },
+                                                                ty_expr_idx: 0,
+                                                            },
+                                                        },
+                                                    },
+                                                    CurrentSymbol {
+                                                        modifier: Const,
+                                                        access_start: TokenIdx(
+                                                            11,
+                                                        ),
+                                                        access_end: None,
+                                                        variant: CurrentSymbolVariant::ImplicitParameter {
+                                                            implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                                ident_token: IdentToken {
+                                                                    ident: `E`,
+                                                                    token_idx: TokenIdx(
+                                                                        10,
+                                                                    ),
+                                                                },
+                                                            },
+                                                        },
+                                                    },
+                                                ],
                                             },
                                             allow_self_type: True,
                                             allow_self_value: False,
-                                            pattern_ty_constraints: [],
+                                            pattern_ty_constraints: [
+                                                (
+                                                    ImplicitTypeParameter,
+                                                    ArenaIdxRange(
+                                                        0..1,
+                                                    ),
+                                                ),
+                                                (
+                                                    ImplicitTypeParameter,
+                                                    ArenaIdxRange(
+                                                        1..2,
+                                                    ),
+                                                ),
+                                            ],
                                         },
                                         roots: [],
                                     },
@@ -73,33 +145,70 @@ Ok(
                                                 3,
                                             ),
                                         ),
-                                        implicit_parameters: [],
-                                        commas: [],
-                                        decl_list_result: Err(
-                                            DeclExprError::Original(
-                                                OriginalDeclExprError::ExpectedImplicitParameterDecl(
-                                                    TokenStreamState {
-                                                        next_token_idx: TokenIdx(
-                                                            4,
+                                        implicit_parameters: [
+                                            ImplicitParameterDecl {
+                                                pattern: ImplicitParameterDeclPattern {
+                                                    annotated_variance_token: None,
+                                                    symbol: 0,
+                                                    variant: ImplicitParameterDeclPatternVariant::Constant {
+                                                        const_token: ConstToken {
+                                                            token_idx: TokenIdx(
+                                                                4,
+                                                            ),
+                                                        },
+                                                        ident_token: IdentToken {
+                                                            ident: `L`,
+                                                            token_idx: TokenIdx(
+                                                                5,
+                                                            ),
+                                                        },
+                                                        colon_token: ColonToken(
+                                                            TokenIdx(
+                                                                6,
+                                                            ),
                                                         ),
-                                                        drained: false,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                        rangle: Err(
-                                            DeclExprError::Original(
-                                                OriginalDeclExprError::ExpectedRightAngleBracketForImplicitParameterDeclList {
-                                                    langle_token_idx: TokenIdx(
-                                                        3,
-                                                    ),
-                                                    token_stream_state: TokenStreamState {
-                                                        next_token_idx: TokenIdx(
-                                                            4,
-                                                        ),
-                                                        drained: false,
+                                                        ty_expr: 0,
                                                     },
                                                 },
+                                                traits: None,
+                                            },
+                                            ImplicitParameterDecl {
+                                                pattern: ImplicitParameterDeclPattern {
+                                                    annotated_variance_token: Some(
+                                                        VarianceToken::Covariant(
+                                                            CovariantToken {
+                                                                token_idx: TokenIdx(
+                                                                    9,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    ),
+                                                    symbol: 1,
+                                                    variant: ImplicitParameterDeclPatternVariant::Type0 {
+                                                        ident_token: IdentToken {
+                                                            ident: `E`,
+                                                            token_idx: TokenIdx(
+                                                                10,
+                                                            ),
+                                                        },
+                                                    },
+                                                },
+                                                traits: None,
+                                            },
+                                        ],
+                                        commas: [
+                                            CommaToken(
+                                                TokenIdx(
+                                                    8,
+                                                ),
+                                            ),
+                                        ],
+                                        decl_list_result: Ok(
+                                            (),
+                                        ),
+                                        rangle: RightAngleBracketToken(
+                                            TokenIdx(
+                                                11,
                                             ),
                                         ),
                                     },

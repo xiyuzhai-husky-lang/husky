@@ -6,7 +6,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`Type`),
+            DeclarativeTerm(`independent core::num::usize -> covariant Type -> Type`),
         ),
     ),
 ]

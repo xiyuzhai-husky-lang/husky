@@ -124,16 +124,19 @@ impl Diagnose for OriginalExprError {
             OriginalExprError::ExpectedParameterPattern(_) => {
                 format!("Syntax Error: expect paramter pattern")
             }
-            OriginalExprError::UnterminatedList { .. } => {
-                format!("Syntax Error: unterminated list")
-            }
             OriginalExprError::ExpectedEolColon(_) => {
                 format!("Syntax Error: expect `:` at end of line")
             }
             OriginalExprError::ExpectedIdentAfterModifier(_) => {
                 format!("Syntax Error: expect identifier after `mut`")
             }
+            OriginalExprError::ExpectedConstantImplicitParameterType(_) => {
+                format!("Syntax Error: expected constant implicit parameter type")
+            }
             OriginalExprError::ExpectedBlock(_) => format!("Syntax Error: expect block"),
+            OriginalExprError::UnterminatedList { .. } => {
+                format!("Syntax Error: unterminated list")
+            }
             OriginalExprError::UnexpectedSheba(_) => format!("Syntax Error: unexpected `$`"),
             OriginalExprError::UnrecognizedIdent {
                 token_idx: _,

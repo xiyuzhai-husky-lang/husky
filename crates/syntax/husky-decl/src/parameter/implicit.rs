@@ -26,7 +26,6 @@ impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for ImplicitParameterDecl
         let Some(pattern) = ctx.parse::<ImplicitParameterDeclPattern>()? else {
             return Ok(None)
         };
-
         Ok(Some(Self {
             pattern,
             traits: if let Some(colon) = ctx.parse::<ColonToken>()? {
@@ -48,7 +47,7 @@ pub struct ImplicitParameterDeclList {
     implicit_parameters: Vec<ImplicitParameterDecl>,
     commas: Vec<CommaToken>,
     decl_list_result: Result<(), DeclExprError>,
-    rangle: DeclExprResult<RightAngleBracketToken>,
+    rangle: RightAngleBracketToken,
 }
 
 impl ImplicitParameterDeclList {
@@ -89,7 +88,7 @@ impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for ImplicitParameterDecl
                     langle_token_idx: langle.token_idx(),
                     token_stream_state,
                 }
-            }),
+            })?,
         }))
     }
 }
