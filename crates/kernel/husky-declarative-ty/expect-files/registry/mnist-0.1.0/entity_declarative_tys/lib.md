@@ -12,13 +12,13 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Type(
-                TypePath(`mnist::BinaryImage`, `Struct`),
+                TypePath(`mnist::BinaryImage28`, `Struct`),
             ),
         ),
         Err(
             DeclarativeTypeError::Derived(
                 DerivedDeclarativeTypeError::TypeOntologyDeclError {
-                    path: TypePath(`mnist::BinaryImage`, `Struct`),
+                    path: TypePath(`mnist::BinaryImage28`, `Struct`),
                 },
             ),
         ),

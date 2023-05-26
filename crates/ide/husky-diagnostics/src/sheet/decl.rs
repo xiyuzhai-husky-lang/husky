@@ -35,10 +35,10 @@ impl Diagnose for OriginalDeclError {
 
     fn message(&self, ctx: &Self::Context<'_>) -> String {
         match self {
-            OriginalDeclError::ExpectLCurlOrLParOrSemicolon(_) => {
-                format!("ExpectLCurlOrLParOrSemicolon")
+            OriginalDeclError::ExpectedLCurlOrLParOrSemicolon(_) => {
+                format!("expected `{{` or `(` or `;`")
             }
-            OriginalDeclError::NoSuchItem => format!("NoSuchItem"),
+            OriginalDeclError::NoSuchItem => format!("no such item"),
             OriginalDeclError::Expr(e) => e.message(ctx),
             OriginalDeclError::Deprecated => "deprecated".to_string(),
         }
@@ -50,7 +50,7 @@ impl Diagnose for OriginalDeclError {
 
     fn range(&self, ctx: &Self::Context<'_>) -> TextRange {
         match self {
-            OriginalDeclError::ExpectLCurlOrLParOrSemicolon(token_stream_state) => {
+            OriginalDeclError::ExpectedLCurlOrLParOrSemicolon(token_stream_state) => {
                 ctx.token_stream_state_text_range(*token_stream_state)
             }
             OriginalDeclError::NoSuchItem => todo!(),

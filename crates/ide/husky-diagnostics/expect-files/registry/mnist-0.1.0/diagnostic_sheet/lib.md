@@ -15,9 +15,9 @@ DiagnosticSheet {
     decl_diagnostic_sheet: DeclDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "ExpectLCurlOrLParOrSemicolon",
+                message: "expected `{` or `(` or `;`",
                 severity: Error,
-                range: [13:19, 13:20),
+                range: [13:21, 13:22),
             },
         ],
     },

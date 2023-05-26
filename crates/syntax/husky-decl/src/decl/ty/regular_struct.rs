@@ -63,7 +63,7 @@ impl<'a> DeclParseContext<'a> {
         } else if let Some(_lbox) = ctx.parse::<LeftBoxBracketToken>()? {
             todo!()
         } else {
-            Err(OriginalDeclError::ExpectLCurlOrLParOrSemicolon(ctx.save_state()).into())
+            Err(OriginalDeclError::ExpectedLCurlOrLParOrSemicolon(ctx.save_state()).into())
         }
     }
 }

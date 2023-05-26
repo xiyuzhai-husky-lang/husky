@@ -98,7 +98,43 @@ Ok(
                 ),
             ),
             Token::Ident(
-                `BinaryImage`,
+                `BinaryImage28`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Box,
+                    ),
+                ),
+            ),
+            Token::Literal(
+                Literal::Integer(
+                    Unspecified,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Box,
+                    ),
+                ),
+            ),
+            Token::Ident(
+                `r32`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
+                ),
             ),
         ],
         group_starts: [
