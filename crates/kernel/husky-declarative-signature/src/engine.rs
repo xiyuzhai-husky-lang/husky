@@ -6,6 +6,7 @@ use crate::*;
 use husky_expr::*;
 use husky_opn_syntax::{BinaryOpr, PrefixOpr};
 use husky_print_utils::p;
+use husky_token::{IntegerLikeLiteral, Literal};
 use salsa::DebugWithDb;
 
 pub(super) struct DeclarativeTermEngine<'a> {
@@ -223,7 +224,37 @@ impl<'a> DeclarativeTermEngine<'a> {
 
     fn calc_expr_term(&mut self, expr_idx: ExprIdx) -> DeclarativeTermResult2<DeclarativeTerm> {
         match self.expr_region_data.expr_arena()[expr_idx] {
-            Expr::Literal(_) => todo!(),
+            Expr::Literal(_, literal) => match literal {
+                Literal::Unit => todo!(),
+                Literal::Char(_) => todo!(),
+                Literal::String(_) => todo!(),
+                Literal::Integer(literal) => match literal {
+                    IntegerLikeLiteral::Unspecified => Ok(DeclarativeTerm::Literal(
+                        UnresolvedTermLiteral::Integer.into(),
+                    )),
+                    IntegerLikeLiteral::I8(_) => todo!(),
+                    IntegerLikeLiteral::I16(_) => todo!(),
+                    IntegerLikeLiteral::I32(_) => todo!(),
+                    IntegerLikeLiteral::I64(_) => todo!(),
+                    IntegerLikeLiteral::I128(_) => todo!(),
+                    IntegerLikeLiteral::ISize(_) => todo!(),
+                    IntegerLikeLiteral::R8(_) => todo!(),
+                    IntegerLikeLiteral::R16(_) => todo!(),
+                    IntegerLikeLiteral::R32(_) => todo!(),
+                    IntegerLikeLiteral::R64(_) => todo!(),
+                    IntegerLikeLiteral::R128(_) => todo!(),
+                    IntegerLikeLiteral::RSize(_) => todo!(),
+                    IntegerLikeLiteral::U8(_) => todo!(),
+                    IntegerLikeLiteral::U16(_) => todo!(),
+                    IntegerLikeLiteral::U32(_) => todo!(),
+                    IntegerLikeLiteral::U64(_) => todo!(),
+                    IntegerLikeLiteral::U128(_) => todo!(),
+                    IntegerLikeLiteral::USize(_) => todo!(),
+                },
+                Literal::Float(_) => todo!(),
+                Literal::TupleIndex(_) => todo!(),
+                Literal::Bool(_) => todo!(),
+            },
             Expr::EntityPath {
                 entity_path_expr: _,
                 path: entity_path,

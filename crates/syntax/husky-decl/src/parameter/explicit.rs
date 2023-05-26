@@ -36,7 +36,7 @@ impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for ExplicitParameterDecl
                 Default::default()
             };
         let rpar =
-            ctx.parse_expected(OriginalDeclExprError::ExpectRightParenthesisInParameterList)?;
+            ctx.parse_expected(OriginalDeclExprError::ExpectedRightParenthesisInParameterList)?;
         Ok(Some(Self {
             lpar,
             self_parameter,

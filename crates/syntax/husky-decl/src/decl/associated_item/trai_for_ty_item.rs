@@ -90,11 +90,11 @@ impl<'a> DeclParseContext<'a> {
             _ => unreachable!(),
         };
         let parameter_decl_list =
-            ctx.parse_expected(OriginalDeclExprError::ExpectParameterDeclList)?;
+            ctx.parse_expected(OriginalDeclExprError::ExpectedParameterDeclList)?;
 
         let curry_token = ctx.parse()?;
         let return_ty = if curry_token.is_some() {
-            Some(ctx.parse_expected(OriginalDeclExprError::ExpectOutputType)?)
+            Some(ctx.parse_expected(OriginalDeclExprError::ExpectedOutputType)?)
         } else {
             None
         };

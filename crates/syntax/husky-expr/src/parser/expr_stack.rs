@@ -43,7 +43,7 @@ impl ExprStack {
 impl Expr {
     pub fn base_entity_path(&self, db: &dyn WordDb, arena: &ExprArena) -> BaseEntityPath {
         match self {
-            Expr::Literal(_) => BaseEntityPath::None,
+            Expr::Literal(_, _) => BaseEntityPath::None,
             Expr::EntityPath {
                 path: entity_path, ..
             } => match entity_path {

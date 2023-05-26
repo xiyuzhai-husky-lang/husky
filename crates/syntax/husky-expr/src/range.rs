@@ -218,7 +218,7 @@ impl<'a> ExprRangeCalculator<'a> {
 
     fn calc_expr_range(&mut self, expr: &Expr) -> TokenIdxRange {
         match expr {
-            Expr::Literal(token_idx)
+            Expr::Literal(token_idx, _)
             | Expr::InheritedSymbol { token_idx, .. }
             | Expr::CurrentSymbol { token_idx, .. }
             | Expr::FrameVarDecl { token_idx, .. }

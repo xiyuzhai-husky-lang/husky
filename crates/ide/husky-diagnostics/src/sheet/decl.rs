@@ -66,33 +66,36 @@ impl Diagnose for OriginalDeclExprError {
     fn message(&self, ctx: &Self::Context<'_>) -> String {
         match self {
             OriginalDeclExprError::Expr(e) => e.message(ctx),
-            OriginalDeclExprError::ExpectOutputType(_) => {
+            OriginalDeclExprError::ExpectedOutputType(_) => {
                 format!("Syntax Error: expect output type")
             }
-            OriginalDeclExprError::ExpectCurry(_) => {
+            OriginalDeclExprError::ExpectedCurry(_) => {
                 format!("Syntax Error: expect `->`",)
             }
             OriginalDeclExprError::ExpectedEolColon(_e) => {
                 format!("Syntax Error: expect end-of-line colon",)
             }
-            OriginalDeclExprError::ExpectRightCurlyBrace(_) => {
+            OriginalDeclExprError::ExpectedRightCurlyBrace(_) => {
                 format!("Syntax Error: expect `}}`",)
             }
-            OriginalDeclExprError::ExpectRightAngleBracketForImplicitParameterDeclList {
+            OriginalDeclExprError::ExpectedRightAngleBracketForImplicitParameterDeclList {
                 ..
             } => {
                 format!("Syntax Error: expect `>` for implicit parameter declaration list",)
             }
-            OriginalDeclExprError::ExpectParameterDeclList(_) => {
+            OriginalDeclExprError::ExpectedParameterDeclList(_) => {
                 format!("Syntax Error: ExpectParameterDeclList",)
             }
-            OriginalDeclExprError::ExpectImplicitParameterDecl(_) => {
+            OriginalDeclExprError::ExpectedImplicitParameterDecl(_) => {
                 format!("Syntax Error: expect implicit parameter declaration",)
             }
-            OriginalDeclExprError::ExpectRightParenthesisInParameterList(_) => {
-                format!("Syntax Error: ExpectRightParenthesisInParameterList",)
+            OriginalDeclExprError::ExpectedRightParenthesisInParameterList(_) => {
+                format!("Syntax Error: expected `)` in parameter list",)
             }
-            OriginalDeclExprError::ExpectVariableType(_) => {
+            OriginalDeclExprError::ExpectedRightParenthesisInTupleStructFieldTypeList(_) => {
+                format!("Syntax Error: expected `)` in tuple struct field type list",)
+            }
+            OriginalDeclExprError::ExpectedVariableType(_) => {
                 format!("Syntax Error: ExpectVariableType",)
             }
             OriginalDeclExprError::ExpectEqTokenForVariable(_) => {
@@ -108,18 +111,21 @@ impl Diagnose for OriginalDeclExprError {
     fn range(&self, ctx: &Self::Context<'_>) -> TextRange {
         match self {
             OriginalDeclExprError::Expr(error) => error.range(ctx),
-            OriginalDeclExprError::ExpectOutputType(token_stream_state)
-            | OriginalDeclExprError::ExpectCurry(token_stream_state)
+            OriginalDeclExprError::ExpectedOutputType(token_stream_state)
+            | OriginalDeclExprError::ExpectedCurry(token_stream_state)
             | OriginalDeclExprError::ExpectedEolColon(token_stream_state)
-            | OriginalDeclExprError::ExpectRightCurlyBrace(token_stream_state)
-            | OriginalDeclExprError::ExpectRightAngleBracketForImplicitParameterDeclList {
+            | OriginalDeclExprError::ExpectedRightCurlyBrace(token_stream_state)
+            | OriginalDeclExprError::ExpectedRightAngleBracketForImplicitParameterDeclList {
                 token_stream_state,
                 ..
             }
-            | OriginalDeclExprError::ExpectParameterDeclList(token_stream_state)
-            | OriginalDeclExprError::ExpectImplicitParameterDecl(token_stream_state)
-            | OriginalDeclExprError::ExpectRightParenthesisInParameterList(token_stream_state)
-            | OriginalDeclExprError::ExpectVariableType(token_stream_state)
+            | OriginalDeclExprError::ExpectedParameterDeclList(token_stream_state)
+            | OriginalDeclExprError::ExpectedImplicitParameterDecl(token_stream_state)
+            | OriginalDeclExprError::ExpectedRightParenthesisInParameterList(token_stream_state)
+            | OriginalDeclExprError::ExpectedRightParenthesisInTupleStructFieldTypeList(
+                token_stream_state,
+            )
+            | OriginalDeclExprError::ExpectedVariableType(token_stream_state)
             | OriginalDeclExprError::ExpectEqTokenForVariable(token_stream_state) => {
                 ctx.token_stream_state_text_range(*token_stream_state)
             }

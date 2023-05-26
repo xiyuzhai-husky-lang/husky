@@ -9,8 +9,10 @@ pub struct TupleStructTypeDecl {
     pub expr_region: ExprRegion,
     #[return_ref]
     implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
+    pub lpar: LeftParenthesisToken,
     #[return_ref]
-    pub fields: Vec<TupleStructFieldDecl>,
+    field_ty_comma_list: (Vec<TypeExpr>, Vec<CommaToken>),
+    pub rpar: RightParenthesisToken,
 }
 
 impl TupleStructTypeDecl {

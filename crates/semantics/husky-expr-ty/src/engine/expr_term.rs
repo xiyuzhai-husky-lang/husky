@@ -25,7 +25,7 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn calc_expr_term(&mut self, expr_idx: ExprIdx) -> ExprTermResult<FluffyTerm> {
         match self.expr_region_data[expr_idx] {
-            Expr::Literal(_) => todo!(),
+            Expr::Literal(_, _) => todo!(),
             Expr::EntityPath {
                 entity_path_expr,
                 path,

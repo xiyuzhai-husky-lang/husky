@@ -76,7 +76,7 @@ impl BaseEntityPathInclination {
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = ExprDb)]
 pub enum Expr {
-    Literal(TokenIdx),
+    Literal(TokenIdx, Literal),
     EntityPath {
         entity_path_expr: EntityPathExprIdx,
         path: Option<EntityPath>,

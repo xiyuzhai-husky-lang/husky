@@ -41,7 +41,7 @@ impl<'a> DeclParseContext<'a> {
 
         let colon_token = ctx.parse()?;
         let form_ty = if colon_token.is_some() {
-            Some(ctx.parse_expected(OriginalDeclExprError::ExpectOutputType)?)
+            Some(ctx.parse_expected(OriginalDeclExprError::ExpectedOutputType)?)
         } else {
             None
         };
