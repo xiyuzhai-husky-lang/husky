@@ -605,6 +605,9 @@ Ok(
                                                     TokenIdx(
                                                         60,
                                                     ),
+                                                    Literal::Integer(
+                                                        Unspecified,
+                                                    ),
                                                 ),
                                                 Expr::IndexOrCompositionWithList {
                                                     owner: 15,
@@ -670,6 +673,9 @@ Ok(
                                                     TokenIdx(
                                                         72,
                                                     ),
+                                                    Literal::Integer(
+                                                        Unspecified,
+                                                    ),
                                                 ),
                                                 Expr::IndexOrCompositionWithList {
                                                     owner: 21,
@@ -701,10 +707,16 @@ Ok(
                                                     TokenIdx(
                                                         78,
                                                     ),
+                                                    Literal::Bool(
+                                                        False,
+                                                    ),
                                                 ),
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         80,
+                                                    ),
+                                                    Literal::Bool(
+                                                        False,
                                                     ),
                                                 ),
                                                 Expr::EntityPath {
@@ -1774,6 +1786,9 @@ Ok(
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         105,
+                                                    ),
+                                                    Literal::Float(
+                                                        Unspecified,
                                                     ),
                                                 ),
                                                 Expr::Binary {

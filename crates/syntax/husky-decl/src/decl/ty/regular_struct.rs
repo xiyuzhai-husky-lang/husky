@@ -13,7 +13,7 @@ pub struct RegularStructTypeDecl {
     implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
     pub lcurl: LeftCurlyBraceToken,
     #[return_ref]
-    field_comma_list: (Vec<FieldDeclPattern>, Vec<CommaToken>),
+    field_comma_list: (Vec<RegularStructFieldDeclPattern>, Vec<CommaToken>),
     #[return_ref]
     pub rcurl: RightCurlyBraceToken,
 }
@@ -26,7 +26,7 @@ impl RegularStructTypeDecl {
             .unwrap_or(&[])
     }
 
-    pub fn fields<'a>(self, db: &'a dyn DeclDb) -> &'a [FieldDeclPattern] {
+    pub fn fields<'a>(self, db: &'a dyn DeclDb) -> &'a [RegularStructFieldDeclPattern] {
         &self.field_comma_list(db).0
     }
 }

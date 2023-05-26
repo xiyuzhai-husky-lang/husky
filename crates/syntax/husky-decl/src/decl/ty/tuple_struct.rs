@@ -11,7 +11,7 @@ pub struct TupleStructTypeDecl {
     implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
     pub lpar: LeftParenthesisToken,
     #[return_ref]
-    field_ty_comma_list: (Vec<TypeExpr>, Vec<CommaToken>),
+    field_comma_list: (Vec<TupleStructFieldDeclPattern>, Vec<CommaToken>),
     pub rpar: RightParenthesisToken,
 }
 
@@ -21,6 +21,10 @@ impl TupleStructTypeDecl {
             .as_ref()
             .map(ImplicitParameterDeclList::implicit_parameters)
             .unwrap_or(&[])
+    }
+
+    pub fn fields<'a>(self, db: &'a dyn DeclDb) -> &'a [TupleStructFieldDeclPattern] {
+        &self.field_comma_list(db).0
     }
 }
 

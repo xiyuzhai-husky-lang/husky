@@ -182,7 +182,7 @@ Ok(
                                         },
                                         roots: [
                                             ExprRoot {
-                                                kind: SelfType,
+                                                kind: FieldType,
                                                 expr: 3,
                                             },
                                         ],
@@ -194,10 +194,12 @@ Ok(
                                         25,
                                     ),
                                 ),
-                                field_ty_comma_list: (
+                                field_comma_list: (
                                     [
-                                        TypeExpr {
-                                            expr: 3,
+                                        TupleStructFieldDeclPattern {
+                                            decorators: [],
+                                            visibility: None,
+                                            ty: 3,
                                         },
                                     ],
                                     [],

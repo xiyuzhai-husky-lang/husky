@@ -129,7 +129,7 @@ Ok(
                                     ),
                                     field_comma_list: (
                                         [
-                                            FieldDeclPattern {
+                                            RegularStructFieldDeclPattern {
                                                 decorators: [],
                                                 visibility: None,
                                                 ident_token: IdentToken {
@@ -146,7 +146,7 @@ Ok(
                                                 ty: 0,
                                                 initialization: None,
                                             },
-                                            FieldDeclPattern {
+                                            RegularStructFieldDeclPattern {
                                                 decorators: [],
                                                 visibility: None,
                                                 ident_token: IdentToken {
@@ -1696,6 +1696,9 @@ Ok(
                                                         TokenIdx(
                                                             76,
                                                         ),
+                                                        Literal::Float(
+                                                            Unspecified,
+                                                        ),
                                                     ),
                                                     Expr::Binary {
                                                         lopd: 8,
@@ -1833,6 +1836,9 @@ Ok(
                                                     Expr::Literal(
                                                         TokenIdx(
                                                             104,
+                                                        ),
+                                                        Literal::Float(
+                                                            Unspecified,
                                                         ),
                                                     ),
                                                     Expr::Binary {

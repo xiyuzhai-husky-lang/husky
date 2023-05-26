@@ -688,6 +688,9 @@ Ok(
                                                     TokenIdx(
                                                         68,
                                                     ),
+                                                    Literal::Integer(
+                                                        Unspecified,
+                                                    ),
                                                 ),
                                                 Expr::Binary {
                                                     lopd: 12,
@@ -818,6 +821,9 @@ Ok(
                                                     TokenIdx(
                                                         89,
                                                     ),
+                                                    Literal::Integer(
+                                                        Unspecified,
+                                                    ),
                                                 ),
                                                 Expr::Binary {
                                                     lopd: 23,
@@ -832,6 +838,9 @@ Ok(
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         96,
+                                                    ),
+                                                    Literal::Float(
+                                                        Unspecified,
                                                     ),
                                                 ),
                                                 Expr::Prefix {
@@ -876,6 +885,9 @@ Ok(
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         107,
+                                                    ),
+                                                    Literal::Integer(
+                                                        Unspecified,
                                                     ),
                                                 ),
                                                 Expr::Binary {
@@ -1186,6 +1198,9 @@ Ok(
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         158,
+                                                    ),
+                                                    Literal::Float(
+                                                        Unspecified,
                                                     ),
                                                 ),
                                                 Expr::Prefix {
@@ -1556,6 +1571,9 @@ Ok(
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         220,
+                                                    ),
+                                                    Literal::Integer(
+                                                        Unspecified,
                                                     ),
                                                 ),
                                                 Expr::Binary {

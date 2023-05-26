@@ -151,7 +151,7 @@ Ok(
                                     ),
                                     field_comma_list: (
                                         [
-                                            FieldDeclPattern {
+                                            RegularStructFieldDeclPattern {
                                                 decorators: [],
                                                 visibility: None,
                                                 ident_token: IdentToken {
@@ -168,7 +168,7 @@ Ok(
                                                 ty: 1,
                                                 initialization: None,
                                             },
-                                            FieldDeclPattern {
+                                            RegularStructFieldDeclPattern {
                                                 decorators: [],
                                                 visibility: None,
                                                 ident_token: IdentToken {
@@ -819,6 +819,9 @@ Ok(
                                                     TokenIdx(
                                                         430,
                                                     ),
+                                                    Literal::Integer(
+                                                        Unspecified,
+                                                    ),
                                                 ),
                                                 Expr::Binary {
                                                     lopd: 0,
@@ -871,6 +874,11 @@ Ok(
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         434,
+                                                    ),
+                                                    Literal::Integer(
+                                                        R32(
+                                                            3,
+                                                        ),
                                                     ),
                                                 ),
                                                 Expr::Binary {
@@ -1526,6 +1534,11 @@ Ok(
                                                     TokenIdx(
                                                         455,
                                                     ),
+                                                    Literal::Integer(
+                                                        R32(
+                                                            1,
+                                                        ),
+                                                    ),
                                                 ),
                                                 Expr::Binary {
                                                     lopd: 3,
@@ -2151,6 +2164,9 @@ Ok(
                                                     TokenIdx(
                                                         476,
                                                     ),
+                                                    Literal::Integer(
+                                                        Unspecified,
+                                                    ),
                                                 ),
                                                 Expr::Binary {
                                                     lopd: 0,
@@ -2203,6 +2219,11 @@ Ok(
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         480,
+                                                    ),
+                                                    Literal::Integer(
+                                                        R32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                                 Expr::Binary {
@@ -3958,6 +3979,9 @@ Ok(
                                                     TokenIdx(
                                                         664,
                                                     ),
+                                                    Literal::Integer(
+                                                        Unspecified,
+                                                    ),
                                                 ),
                                                 Expr::MethodCall {
                                                     self_argument: 12,
@@ -5469,7 +5493,7 @@ Ok(
                                     ),
                                     field_comma_list: (
                                         [
-                                            FieldDeclPattern {
+                                            RegularStructFieldDeclPattern {
                                                 decorators: [],
                                                 visibility: None,
                                                 ident_token: IdentToken {
@@ -5486,7 +5510,7 @@ Ok(
                                                 ty: 0,
                                                 initialization: None,
                                             },
-                                            FieldDeclPattern {
+                                            RegularStructFieldDeclPattern {
                                                 decorators: [],
                                                 visibility: None,
                                                 ident_token: IdentToken {
@@ -5993,6 +6017,9 @@ Ok(
                                                     TokenIdx(
                                                         957,
                                                     ),
+                                                    Literal::Integer(
+                                                        Unspecified,
+                                                    ),
                                                 ),
                                                 Expr::Binary {
                                                     lopd: 3,
@@ -6039,6 +6066,9 @@ Ok(
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         966,
+                                                    ),
+                                                    Literal::Integer(
+                                                        Unspecified,
                                                     ),
                                                 ),
                                                 Expr::Binary {
@@ -6140,6 +6170,9 @@ Ok(
                                                     TokenIdx(
                                                         980,
                                                     ),
+                                                    Literal::Float(
+                                                        Unspecified,
+                                                    ),
                                                 ),
                                                 Expr::CurrentSymbol {
                                                     ident: `p0`,
@@ -6207,6 +6240,9 @@ Ok(
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         992,
+                                                    ),
+                                                    Literal::Float(
+                                                        Unspecified,
                                                     ),
                                                 ),
                                                 Expr::Binary {
@@ -7036,6 +7072,9 @@ Ok(
                                                     TokenIdx(
                                                         1026,
                                                     ),
+                                                    Literal::Integer(
+                                                        Unspecified,
+                                                    ),
                                                 ),
                                                 Expr::FrameVarDecl {
                                                     token_idx: TokenIdx(
@@ -7060,6 +7099,9 @@ Ok(
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         1030,
+                                                    ),
+                                                    Literal::Integer(
+                                                        Unspecified,
                                                     ),
                                                 ),
                                                 Expr::Binary {
@@ -7107,6 +7149,9 @@ Ok(
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         1041,
+                                                    ),
+                                                    Literal::Integer(
+                                                        Unspecified,
                                                     ),
                                                 ),
                                                 Expr::Binary {
@@ -7189,6 +7234,9 @@ Ok(
                                                     TokenIdx(
                                                         1057,
                                                     ),
+                                                    Literal::Integer(
+                                                        Unspecified,
+                                                    ),
                                                 ),
                                                 Expr::Binary {
                                                     lopd: 21,
@@ -7213,6 +7261,9 @@ Ok(
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         1063,
+                                                    ),
+                                                    Literal::Integer(
+                                                        Unspecified,
                                                     ),
                                                 ),
                                                 Expr::Binary {
@@ -7453,6 +7504,9 @@ Ok(
                                                     TokenIdx(
                                                         1092,
                                                     ),
+                                                    Literal::Integer(
+                                                        Unspecified,
+                                                    ),
                                                 ),
                                                 Expr::FrameVarDecl {
                                                     token_idx: TokenIdx(
@@ -7477,6 +7531,9 @@ Ok(
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         1096,
+                                                    ),
+                                                    Literal::Integer(
+                                                        Unspecified,
                                                     ),
                                                 ),
                                                 Expr::Binary {
@@ -7657,6 +7714,9 @@ Ok(
                                                     TokenIdx(
                                                         1141,
                                                     ),
+                                                    Literal::Integer(
+                                                        Unspecified,
+                                                    ),
                                                 ),
                                                 Expr::Binary {
                                                     lopd: 69,
@@ -7819,20 +7879,32 @@ Ok(
                                                     TokenIdx(
                                                         1181,
                                                     ),
+                                                    Literal::Integer(
+                                                        Unspecified,
+                                                    ),
                                                 ),
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         1186,
+                                                    ),
+                                                    Literal::Integer(
+                                                        Unspecified,
                                                     ),
                                                 ),
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         1191,
                                                     ),
+                                                    Literal::Integer(
+                                                        Unspecified,
+                                                    ),
                                                 ),
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         1197,
+                                                    ),
+                                                    Literal::Integer(
+                                                        Unspecified,
                                                     ),
                                                 ),
                                                 Expr::Prefix {
@@ -7846,6 +7918,9 @@ Ok(
                                                     TokenIdx(
                                                         1203,
                                                     ),
+                                                    Literal::Integer(
+                                                        Unspecified,
+                                                    ),
                                                 ),
                                                 Expr::Prefix {
                                                     opr: Minus,
@@ -7857,6 +7932,9 @@ Ok(
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         1209,
+                                                    ),
+                                                    Literal::Integer(
+                                                        Unspecified,
                                                     ),
                                                 ),
                                                 Expr::Prefix {
@@ -8158,6 +8236,11 @@ Ok(
                                                     TokenIdx(
                                                         1262,
                                                     ),
+                                                    Literal::Integer(
+                                                        R32(
+                                                            1,
+                                                        ),
+                                                    ),
                                                 ),
                                                 Expr::CurrentSymbol {
                                                     ident: `j`,
@@ -8260,6 +8343,9 @@ Ok(
                                                     TokenIdx(
                                                         1274,
                                                     ),
+                                                    Literal::Integer(
+                                                        Unspecified,
+                                                    ),
                                                 ),
                                                 Expr::CurrentSymbol {
                                                     ident: `prev_angle_change1`,
@@ -8281,6 +8367,9 @@ Ok(
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         1279,
+                                                    ),
+                                                    Literal::Integer(
+                                                        Unspecified,
                                                     ),
                                                 ),
                                                 Expr::CurrentSymbol {
@@ -8334,6 +8423,9 @@ Ok(
                                                     TokenIdx(
                                                         1283,
                                                     ),
+                                                    Literal::Integer(
+                                                        Unspecified,
+                                                    ),
                                                 ),
                                                 Expr::Binary {
                                                     lopd: 138,
@@ -8358,6 +8450,9 @@ Ok(
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         1288,
+                                                    ),
+                                                    Literal::Integer(
+                                                        Unspecified,
                                                     ),
                                                 ),
                                                 Expr::CurrentSymbol {
@@ -8410,6 +8505,9 @@ Ok(
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         1292,
+                                                    ),
+                                                    Literal::Integer(
+                                                        Unspecified,
                                                     ),
                                                 ),
                                                 Expr::Binary {
@@ -8604,6 +8702,9 @@ Ok(
                                                     TokenIdx(
                                                         1320,
                                                     ),
+                                                    Literal::Integer(
+                                                        Unspecified,
+                                                    ),
                                                 ),
                                                 Expr::CurrentSymbol {
                                                     ident: `prev_streak2`,
@@ -8634,6 +8735,9 @@ Ok(
                                                     TokenIdx(
                                                         1324,
                                                     ),
+                                                    Literal::Integer(
+                                                        Unspecified,
+                                                    ),
                                                 ),
                                                 Expr::CurrentSymbol {
                                                     ident: `prev_streak1`,
@@ -8663,6 +8767,9 @@ Ok(
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         1329,
+                                                    ),
+                                                    Literal::Integer(
+                                                        Unspecified,
                                                     ),
                                                 ),
                                                 Expr::CurrentSymbol {
@@ -8695,6 +8802,9 @@ Ok(
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         1333,
+                                                    ),
+                                                    Literal::Integer(
+                                                        Unspecified,
                                                     ),
                                                 ),
                                                 Expr::Binary {
@@ -8730,6 +8840,9 @@ Ok(
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         1337,
+                                                    ),
+                                                    Literal::Integer(
+                                                        Unspecified,
                                                     ),
                                                 ),
                                                 Expr::Binary {
@@ -8914,6 +9027,9 @@ Ok(
                                                     TokenIdx(
                                                         1363,
                                                     ),
+                                                    Literal::Integer(
+                                                        Unspecified,
+                                                    ),
                                                 ),
                                                 Expr::CurrentSymbol {
                                                     ident: `prev_angle_change1`,
@@ -8945,6 +9061,9 @@ Ok(
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         1367,
+                                                    ),
+                                                    Literal::Integer(
+                                                        Unspecified,
                                                     ),
                                                 ),
                                                 Expr::Binary {
@@ -8981,6 +9100,9 @@ Ok(
                                                     TokenIdx(
                                                         1371,
                                                     ),
+                                                    Literal::Integer(
+                                                        Unspecified,
+                                                    ),
                                                 ),
                                                 Expr::Binary {
                                                     lopd: 204,
@@ -9015,6 +9137,9 @@ Ok(
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         1375,
+                                                    ),
+                                                    Literal::Integer(
+                                                        Unspecified,
                                                     ),
                                                 ),
                                                 Expr::Binary {
@@ -9143,6 +9268,9 @@ Ok(
                                                     TokenIdx(
                                                         1394,
                                                     ),
+                                                    Literal::Integer(
+                                                        Unspecified,
+                                                    ),
                                                 ),
                                                 Expr::CurrentSymbol {
                                                     ident: `prev_streak2`,
@@ -9172,6 +9300,9 @@ Ok(
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         1398,
+                                                    ),
+                                                    Literal::Integer(
+                                                        Unspecified,
                                                     ),
                                                 ),
                                                 Expr::CurrentSymbol {
@@ -9353,6 +9484,9 @@ Ok(
                                                     TokenIdx(
                                                         1422,
                                                     ),
+                                                    Literal::Integer(
+                                                        Unspecified,
+                                                    ),
                                                 ),
                                                 Expr::Binary {
                                                     lopd: 242,
@@ -9450,6 +9584,9 @@ Ok(
                                                     TokenIdx(
                                                         1510,
                                                     ),
+                                                    Literal::Integer(
+                                                        Unspecified,
+                                                    ),
                                                 ),
                                                 Expr::CurrentSymbol {
                                                     ident: `current_streak`,
@@ -9499,6 +9636,9 @@ Ok(
                                                     TokenIdx(
                                                         1518,
                                                     ),
+                                                    Literal::Integer(
+                                                        Unspecified,
+                                                    ),
                                                 ),
                                                 Expr::CurrentSymbol {
                                                     ident: `prev_angle_change1`,
@@ -9530,6 +9670,9 @@ Ok(
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         1522,
+                                                    ),
+                                                    Literal::Integer(
+                                                        Unspecified,
                                                     ),
                                                 ),
                                                 Expr::Binary {
@@ -9565,6 +9708,9 @@ Ok(
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         1526,
+                                                    ),
+                                                    Literal::Integer(
+                                                        Unspecified,
                                                     ),
                                                 ),
                                                 Expr::Binary {
@@ -13615,6 +13761,9 @@ Ok(
                                                         TokenIdx(
                                                             74,
                                                         ),
+                                                        Literal::Float(
+                                                            Unspecified,
+                                                        ),
                                                     ),
                                                     Expr::ExplicitApplicationOrRitchieCall {
                                                         function: 0,
@@ -14212,6 +14361,9 @@ Ok(
                                                     Expr::Literal(
                                                         TokenIdx(
                                                             88,
+                                                        ),
+                                                        Literal::Integer(
+                                                            Unspecified,
                                                         ),
                                                     ),
                                                     Expr::IndexOrCompositionWithList {
@@ -15941,6 +16093,9 @@ Ok(
                                                         TokenIdx(
                                                             207,
                                                         ),
+                                                        Literal::Integer(
+                                                            Unspecified,
+                                                        ),
                                                     ),
                                                     Expr::IndexOrCompositionWithList {
                                                         owner: 2,
@@ -16528,10 +16683,16 @@ Ok(
                                                         TokenIdx(
                                                             227,
                                                         ),
+                                                        Literal::Float(
+                                                            Unspecified,
+                                                        ),
                                                     ),
                                                     Expr::Literal(
                                                         TokenIdx(
                                                             229,
+                                                        ),
+                                                        Literal::Integer(
+                                                            Unspecified,
                                                         ),
                                                     ),
                                                     Expr::FrameVarDecl {
@@ -16633,6 +16794,9 @@ Ok(
                                                     Expr::Literal(
                                                         TokenIdx(
                                                             250,
+                                                        ),
+                                                        Literal::Integer(
+                                                            Unspecified,
                                                         ),
                                                     ),
                                                     Expr::Binary {
@@ -16956,6 +17120,9 @@ Ok(
                                                         TokenIdx(
                                                             305,
                                                         ),
+                                                        Literal::Integer(
+                                                            Unspecified,
+                                                        ),
                                                     ),
                                                     Expr::Binary {
                                                         lopd: 39,
@@ -16999,6 +17166,9 @@ Ok(
                                                     Expr::Literal(
                                                         TokenIdx(
                                                             314,
+                                                        ),
+                                                        Literal::Integer(
+                                                            Unspecified,
                                                         ),
                                                     ),
                                                     Expr::IndexOrCompositionWithList {

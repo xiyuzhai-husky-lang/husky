@@ -10,13 +10,31 @@ pub fn tuple_struct_declarative_signature_template(
     decl: TupleStructTypeDecl,
 ) -> DeclarativeSignatureResult<TupleStructDeclarativeSignatureTemplate> {
     let expr_region = decl.expr_region(db);
-    let _declarative_term_region = declarative_term_region(db, expr_region);
-    let _declarative_term_menu = db.declarative_term_menu(expr_region.toolchain(db)).unwrap();
+    let declarative_term_region = declarative_term_region(db, expr_region);
+    let declarative_term_menu = db.declarative_term_menu(expr_region.toolchain(db)).unwrap();
     Ok(TupleStructDeclarativeSignatureTemplate::new(
         db,
-        // ImplicitParameterDeclarativeSignatureTemplates::from_decl(decl.implicit_parameters(db), declarative_term_region),
-        todo!(),
-        todo!(),
+        ImplicitParameterDeclarativeSignatures::from_decl(
+            decl.implicit_parameters(db),
+            declarative_term_region,
+            declarative_term_menu,
+        ),
+        decl.fields(db)
+            .iter()
+            .enumerate()
+            .map(|(i, field)| {
+                Ok(TupleStructFieldDeclarativeSignatureTemplate {
+                    ty: match declarative_term_region.expr_term(field.ty()) {
+                        Ok(ty) => ty,
+                        Err(_) => {
+                            return Err(DeclarativeSignatureError::FieldTypeDeclarativeTermError(
+                                i.try_into().unwrap(),
+                            ))
+                        }
+                    },
+                })
+            })
+            .collect::<DeclarativeSignatureResult<SmallVec<_>>>()?,
     ))
 }
 
@@ -25,12 +43,12 @@ pub struct TupleStructDeclarativeSignatureTemplate {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterDeclarativeSignatures,
     #[return_ref]
-    pub fields: Vec<TupleStructFieldSignature>,
+    pub fields: SmallVec<[TupleStructFieldDeclarativeSignatureTemplate; 4]>,
 }
 
 impl TupleStructDeclarativeSignatureTemplate {}
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub struct TupleStructFieldSignature {
+pub struct TupleStructFieldDeclarativeSignatureTemplate {
     ty: DeclarativeTerm,
 }

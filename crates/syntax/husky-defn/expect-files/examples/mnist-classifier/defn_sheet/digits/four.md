@@ -1547,6 +1547,9 @@ Ok(
                                                     TokenIdx(
                                                         75,
                                                     ),
+                                                    Literal::Integer(
+                                                        Unspecified,
+                                                    ),
                                                 ),
                                                 Expr::IndexOrCompositionWithList {
                                                     owner: 1,
@@ -1599,6 +1602,9 @@ Ok(
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         84,
+                                                    ),
+                                                    Literal::Integer(
+                                                        Unspecified,
                                                     ),
                                                 ),
                                                 Expr::IndexOrCompositionWithList {
@@ -1675,6 +1681,9 @@ Ok(
                                                     TokenIdx(
                                                         99,
                                                     ),
+                                                    Literal::Integer(
+                                                        Unspecified,
+                                                    ),
                                                 ),
                                                 Expr::IndexOrCompositionWithList {
                                                     owner: 13,
@@ -1727,6 +1736,9 @@ Ok(
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         110,
+                                                    ),
+                                                    Literal::Integer(
+                                                        Unspecified,
                                                     ),
                                                 ),
                                                 Expr::IndexOrCompositionWithList {
@@ -1877,6 +1889,9 @@ Ok(
                                                     TokenIdx(
                                                         139,
                                                     ),
+                                                    Literal::Float(
+                                                        Unspecified,
+                                                    ),
                                                 ),
                                                 Expr::Binary {
                                                     lopd: 31,
@@ -1913,6 +1928,9 @@ Ok(
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         145,
+                                                    ),
+                                                    Literal::Integer(
+                                                        Unspecified,
                                                     ),
                                                 ),
                                                 Expr::IndexOrCompositionWithList {
@@ -1977,6 +1995,9 @@ Ok(
                                                     TokenIdx(
                                                         157,
                                                     ),
+                                                    Literal::Integer(
+                                                        Unspecified,
+                                                    ),
                                                 ),
                                                 Expr::Binary {
                                                     lopd: 40,
@@ -2013,6 +2034,9 @@ Ok(
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         165,
+                                                    ),
+                                                    Literal::Integer(
+                                                        Unspecified,
                                                     ),
                                                 ),
                                                 Expr::IndexOrCompositionWithList {
@@ -2076,6 +2100,9 @@ Ok(
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         176,
+                                                    ),
+                                                    Literal::Float(
+                                                        Unspecified,
                                                     ),
                                                 ),
                                                 Expr::Binary {
@@ -2168,6 +2195,9 @@ Ok(
                                                     TokenIdx(
                                                         194,
                                                     ),
+                                                    Literal::Integer(
+                                                        Unspecified,
+                                                    ),
                                                 ),
                                                 Expr::IndexOrCompositionWithList {
                                                     owner: 59,
@@ -2253,6 +2283,9 @@ Ok(
                                                     TokenIdx(
                                                         209,
                                                     ),
+                                                    Literal::Float(
+                                                        Unspecified,
+                                                    ),
                                                 ),
                                                 Expr::Binary {
                                                     lopd: 66,
@@ -2277,6 +2310,9 @@ Ok(
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         216,
+                                                    ),
+                                                    Literal::Float(
+                                                        Unspecified,
                                                     ),
                                                 ),
                                                 Expr::Field {
@@ -2334,6 +2370,9 @@ Ok(
                                                     TokenIdx(
                                                         222,
                                                     ),
+                                                    Literal::Float(
+                                                        Unspecified,
+                                                    ),
                                                 ),
                                                 Expr::Binary {
                                                     lopd: 75,
@@ -2358,6 +2397,9 @@ Ok(
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         230,
+                                                    ),
+                                                    Literal::Integer(
+                                                        Unspecified,
                                                     ),
                                                 ),
                                                 Expr::MethodCall {
@@ -2396,6 +2438,9 @@ Ok(
                                                     TokenIdx(
                                                         235,
                                                     ),
+                                                    Literal::Float(
+                                                        Unspecified,
+                                                    ),
                                                 ),
                                                 Expr::Binary {
                                                     lopd: 81,
@@ -2420,6 +2465,9 @@ Ok(
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         239,
+                                                    ),
+                                                    Literal::Float(
+                                                        Unspecified,
                                                     ),
                                                 ),
                                                 Expr::Binary {
@@ -4191,6 +4239,9 @@ Ok(
                                                     TokenIdx(
                                                         272,
                                                     ),
+                                                    Literal::Float(
+                                                        Unspecified,
+                                                    ),
                                                 ),
                                                 Expr::Binary {
                                                     lopd: 3,
@@ -4843,6 +4894,9 @@ Ok(
                                                     TokenIdx(
                                                         301,
                                                     ),
+                                                    Literal::Float(
+                                                        Unspecified,
+                                                    ),
                                                 ),
                                                 Expr::Binary {
                                                     lopd: 3,
@@ -4901,6 +4955,9 @@ Ok(
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         311,
+                                                    ),
+                                                    Literal::Float(
+                                                        Unspecified,
                                                     ),
                                                 ),
                                                 Expr::Binary {
