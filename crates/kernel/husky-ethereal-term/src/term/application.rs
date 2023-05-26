@@ -155,7 +155,12 @@ pub(crate) fn term_uncheck_from_raw_term_application_aux(
                 )
             }
             RawType::Ethereal(_) => todo!(),
-            _ => todo!(),
+            _ => {
+                use salsa::DebugWithDb;
+                p!(function.debug(db));
+                p!(function.raw_ty(db)?.debug(db));
+                todo!()
+            }
         }
     };
     let argument = EtherealTerm::from_declarative(db, argument, argument_expectation)?;

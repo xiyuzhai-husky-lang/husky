@@ -208,17 +208,34 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
+                    ident: `array`,
+                    visibility: Scope::Pub,
+                    symbol: NativeEntitySymbol::Submodule(
+                        SubmoduleSymbol {
+                            path: `core::array`,
+                            visibility: Scope::Pub,
+                            ast_idx: 12,
+                            ident_token: IdentToken {
+                                ident: `array`,
+                                token_idx: TokenIdx(
+                                    38,
+                                ),
+                            },
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
                     ident: `cmp`,
                     visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `core::cmp`,
                             visibility: Scope::Pub,
-                            ast_idx: 12,
+                            ast_idx: 13,
                             ident_token: IdentToken {
                                 ident: `cmp`,
                                 token_idx: TokenIdx(
-                                    38,
+                                    41,
                                 ),
                             },
                         },
@@ -231,11 +248,11 @@ Ok(
                         SubmoduleSymbol {
                             path: `core::str`,
                             visibility: Scope::Pub,
-                            ast_idx: 13,
+                            ast_idx: 14,
                             ident_token: IdentToken {
                                 ident: `str`,
                                 token_idx: TokenIdx(
-                                    41,
+                                    44,
                                 ),
                             },
                         },
@@ -248,11 +265,11 @@ Ok(
                         SubmoduleSymbol {
                             path: `core::option`,
                             visibility: Scope::Pub,
-                            ast_idx: 14,
+                            ast_idx: 15,
                             ident_token: IdentToken {
                                 ident: `option`,
                                 token_idx: TokenIdx(
-                                    44,
+                                    47,
                                 ),
                             },
                         },
@@ -265,11 +282,11 @@ Ok(
                         SubmoduleSymbol {
                             path: `core::visual`,
                             visibility: Scope::Pub,
-                            ast_idx: 15,
+                            ast_idx: 16,
                             ident_token: IdentToken {
                                 ident: `visual`,
                                 token_idx: TokenIdx(
-                                    47,
+                                    50,
                                 ),
                             },
                         },

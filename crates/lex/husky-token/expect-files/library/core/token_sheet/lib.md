@@ -116,6 +116,15 @@ Ok(
                 Keyword::Mod,
             ),
             Token::Ident(
+                `array`,
+            ),
+            Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
+                Keyword::Mod,
+            ),
+            Token::Ident(
                 `cmp`,
             ),
             Token::Keyword(
@@ -163,8 +172,10 @@ Ok(
             39,
             42,
             45,
+            48,
         ],
         indents: [
+            0,
             0,
             0,
             0,

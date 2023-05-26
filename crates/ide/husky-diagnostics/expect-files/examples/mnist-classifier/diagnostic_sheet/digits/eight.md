@@ -1,5 +1,5 @@
 DiagnosticSheet {
-    [salsa id]: 24,
+    [salsa id]: 25,
     entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {
         diagnostics: [],
     },
@@ -19,6 +19,27 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "Type Error: NoSuchField",
+                severity: Error,
+                range: [14:24, 14:60),
+            },
+            Diagnostic {
+                message: "Type Error: NoSuchField",
+                severity: Error,
+                range: [14:63, 14:99),
+            },
+            Diagnostic {
+                message: "Type Error: NoSuchField",
+                severity: Error,
+                range: [21:8, 21:43),
+            },
+            Diagnostic {
+                message: "Type Error: NoSuchField",
+                severity: Error,
+                range: [22:12, 22:47),
+            },
+        ],
     },
 }

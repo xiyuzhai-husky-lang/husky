@@ -700,7 +700,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 23;\n\ntoken_line_group_idx = 11\n\ntoken = Token::Keyword(\n    Keyword::TypeEntity(\n        Struct,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "Other\ntoken_idx = 23;\n\ntoken_line_group_idx = 11\n\ntoken = Token::Keyword(\n    Keyword::Pub,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -711,7 +711,7 @@ Ok(
                                 },
                                 end: Position {
                                     line: 12,
-                                    character: 6,
+                                    character: 3,
                                 },
                             },
                         ),
@@ -730,18 +730,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 24;\n\ntoken_line_group_idx = 11\n\ntoken = Token::Ident(\n    `BinaryImage28`,\n);\n\ntoken_info = TokenInfo::Entity(\n    Some(\n        EntityPath::ModuleItem(\n            ModuleItemPath::Type(\n                TypePath(`mnist::BinaryImage28`, `Struct`),\n            ),\n        ),\n    ),\n    Some(\n        ModuleItem {\n            module_item_kind: Type(\n                Struct,\n            ),\n            connection: Connected,\n        },\n    ),\n);\n\n\n",
+                                value: "Other\ntoken_idx = 24;\n\ntoken_line_group_idx = 11\n\ntoken = Token::Keyword(\n    Keyword::TypeEntity(\n        Struct,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 12,
-                                    character: 7,
+                                    character: 4,
                                 },
                                 end: Position {
                                     line: 12,
-                                    character: 20,
+                                    character: 10,
                                 },
                             },
                         ),
@@ -760,18 +760,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 25;\n\ntoken_line_group_idx = 11\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Bra(\n            Par,\n        ),\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 25;\n\ntoken_line_group_idx = 11\n\ntoken = Token::Ident(\n    `BinaryImage28`,\n);\n\ntoken_info = TokenInfo::Entity(\n    Some(\n        EntityPath::ModuleItem(\n            ModuleItemPath::Type(\n                TypePath(`mnist::BinaryImage28`, `Struct`),\n            ),\n        ),\n    ),\n    Some(\n        ModuleItem {\n            module_item_kind: Type(\n                Struct,\n            ),\n            connection: Connected,\n        },\n    ),\n);\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 12,
-                                    character: 20,
+                                    character: 11,
                                 },
                                 end: Position {
                                     line: 12,
-                                    character: 21,
+                                    character: 24,
                                 },
                             },
                         ),
@@ -790,18 +790,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 26;\n\ntoken_line_group_idx = 11\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Bra(\n            Box,\n        ),\n    ),\n);\n\ntoken_info = TokenInfo::BoxPrefix;\n\nbox prefix\n",
+                                value: "\ntoken_idx = 26;\n\ntoken_line_group_idx = 11\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Bra(\n            Par,\n        ),\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 12,
-                                    character: 21,
+                                    character: 24,
                                 },
                                 end: Position {
                                     line: 12,
-                                    character: 22,
+                                    character: 25,
                                 },
                             },
                         ),
@@ -820,18 +820,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 27;\n\ntoken_line_group_idx = 11\n\ntoken = Token::Literal(\n    Literal::Integer(\n        Unspecified,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 27;\n\ntoken_line_group_idx = 11\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Bra(\n            Box,\n        ),\n    ),\n);\n\ntoken_info = TokenInfo::BoxPrefix;\n\nbox prefix\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 12,
-                                    character: 22,
+                                    character: 25,
                                 },
                                 end: Position {
                                     line: 12,
-                                    character: 24,
+                                    character: 26,
                                 },
                             },
                         ),
@@ -850,18 +850,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 28;\n\ntoken_line_group_idx = 11\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Ket(\n            Box,\n        ),\n    ),\n);\n\ntoken_info = TokenInfo::BoxPrefix;\n\nbox prefix\n",
+                                value: "\ntoken_idx = 28;\n\ntoken_line_group_idx = 11\n\ntoken = Token::Literal(\n    Literal::Integer(\n        Unspecified,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 12,
-                                    character: 24,
+                                    character: 26,
                                 },
                                 end: Position {
                                     line: 12,
-                                    character: 25,
+                                    character: 28,
                                 },
                             },
                         ),
@@ -880,18 +880,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 29;\n\ntoken_line_group_idx = 11\n\ntoken = Token::Ident(\n    `r32`,\n);\n\ntoken_info = TokenInfo::Entity(\n    Some(\n        EntityPath::ModuleItem(\n            ModuleItemPath::Type(\n                TypePath(`core::raw_bits::r32`, `Extern`),\n            ),\n        ),\n    ),\n    None,\n);\n\n\n",
+                                value: "\ntoken_idx = 29;\n\ntoken_line_group_idx = 11\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Ket(\n            Box,\n        ),\n    ),\n);\n\ntoken_info = TokenInfo::BoxPrefix;\n\nbox prefix\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 12,
-                                    character: 25,
+                                    character: 28,
                                 },
                                 end: Position {
                                     line: 12,
-                                    character: 28,
+                                    character: 29,
                                 },
                             },
                         ),
@@ -910,18 +910,48 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 30;\n\ntoken_line_group_idx = 11\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Ket(\n            Par,\n        ),\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 30;\n\ntoken_line_group_idx = 11\n\ntoken = Token::Ident(\n    `r32`,\n);\n\ntoken_info = TokenInfo::Entity(\n    Some(\n        EntityPath::ModuleItem(\n            ModuleItemPath::Type(\n                TypePath(`core::raw_bits::r32`, `Extern`),\n            ),\n        ),\n    ),\n    None,\n);\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 12,
-                                    character: 28,
+                                    character: 29,
                                 },
                                 end: Position {
                                     line: 12,
-                                    character: 29,
+                                    character: 32,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                31,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "\ntoken_idx = 31;\n\ntoken_line_group_idx = 11\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Ket(\n            Par,\n        ),\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 12,
+                                    character: 32,
+                                },
+                                end: Position {
+                                    line: 12,
+                                    character: 33,
                                 },
                             },
                         ),

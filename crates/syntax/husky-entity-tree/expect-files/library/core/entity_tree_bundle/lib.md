@@ -210,17 +210,34 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `array`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::Submodule(
+                                SubmoduleSymbol {
+                                    path: `core::array`,
+                                    visibility: Scope::Pub,
+                                    ast_idx: 12,
+                                    ident_token: IdentToken {
+                                        ident: `array`,
+                                        token_idx: TokenIdx(
+                                            38,
+                                        ),
+                                    },
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `cmp`,
                             visibility: Scope::Pub,
                             symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
                                     path: `core::cmp`,
                                     visibility: Scope::Pub,
-                                    ast_idx: 12,
+                                    ast_idx: 13,
                                     ident_token: IdentToken {
                                         ident: `cmp`,
                                         token_idx: TokenIdx(
-                                            38,
+                                            41,
                                         ),
                                     },
                                 },
@@ -233,11 +250,11 @@ Ok(
                                 SubmoduleSymbol {
                                     path: `core::str`,
                                     visibility: Scope::Pub,
-                                    ast_idx: 13,
+                                    ast_idx: 14,
                                     ident_token: IdentToken {
                                         ident: `str`,
                                         token_idx: TokenIdx(
-                                            41,
+                                            44,
                                         ),
                                     },
                                 },
@@ -250,11 +267,11 @@ Ok(
                                 SubmoduleSymbol {
                                     path: `core::option`,
                                     visibility: Scope::Pub,
-                                    ast_idx: 14,
+                                    ast_idx: 15,
                                     ident_token: IdentToken {
                                         ident: `option`,
                                         token_idx: TokenIdx(
-                                            44,
+                                            47,
                                         ),
                                     },
                                 },
@@ -267,11 +284,11 @@ Ok(
                                 SubmoduleSymbol {
                                     path: `core::visual`,
                                     visibility: Scope::Pub,
-                                    ast_idx: 15,
+                                    ast_idx: 16,
                                     ident_token: IdentToken {
                                         ident: `visual`,
                                         token_idx: TokenIdx(
-                                            47,
+                                            50,
                                         ),
                                     },
                                 },
@@ -3292,11 +3309,11 @@ Ok(
                                     SubmoduleSymbol {
                                         path: `core::visual`,
                                         visibility: Scope::Pub,
-                                        ast_idx: 15,
+                                        ast_idx: 16,
                                         ident_token: IdentToken {
                                             ident: `visual`,
                                             token_idx: TokenIdx(
-                                                47,
+                                                50,
                                             ),
                                         },
                                     },
@@ -3406,11 +3423,11 @@ Ok(
                                     SubmoduleSymbol {
                                         path: `core::cmp`,
                                         visibility: Scope::Pub,
-                                        ast_idx: 12,
+                                        ast_idx: 13,
                                         ident_token: IdentToken {
                                             ident: `cmp`,
                                             token_idx: TokenIdx(
-                                                38,
+                                                41,
                                             ),
                                         },
                                     },
@@ -3726,6 +3743,40 @@ Ok(
                         },
                     ),
                 ],
+                use_expr_rules: UseExprRules(
+                    [],
+                ),
+                use_all_rules: UseAllRules(
+                    [],
+                ),
+                errors: [],
+            },
+            EntityTreeSheet {
+                module_path: `core::array`,
+                symbols: EntitySymbolTable(
+                    [
+                        EntitySymbolEntry {
+                            ident: `Array`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Type(
+                                        TypePath(`core::array::Array`, `Extern`),
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 0,
+                                    ident_token: IdentToken {
+                                        ident: `Array`,
+                                        token_idx: TokenIdx(
+                                            2,
+                                        ),
+                                    },
+                                },
+                            ),
+                        },
+                    ],
+                ),
+                impl_blocks: [],
                 use_expr_rules: UseExprRules(
                     [],
                 ),

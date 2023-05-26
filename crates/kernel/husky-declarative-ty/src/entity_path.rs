@@ -236,6 +236,19 @@ pub fn ty_ontology_path_declarative_ty(
     ))
 }
 
+#[test]
+fn ty_ontology_path_declarative_ty_works() {
+    let db = DB::default();
+    let toolchain = db.dev_toolchain().unwrap();
+    let entity_path_menu = db.entity_path_menu(toolchain);
+    let array_ty_ontology_path_declarative_ty =
+        ty_ontology_path_declarative_ty(&db, entity_path_menu.array_ty_path());
+    // use husky_print_utils::*;
+    // use salsa::DebugWithDb;
+    // p!(array_ty_ontology_path_declarative_ty.debug(&db));
+    // todo!()
+}
+
 #[salsa::tracked(jar = DeclarativeTypeJar)]
 pub fn ty_variant_path_declarative_ty(
     db: &dyn DeclarativeTypeDb,

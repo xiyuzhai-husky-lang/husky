@@ -143,7 +143,7 @@
                             data: TypeOntology {
                                 path: TypePath(
                                     Id {
-                                        value: 58,
+                                        value: 59,
                                     },
                                 ),
                                 refined_path: Right(
@@ -424,7 +424,7 @@
                             data: TypeOntology {
                                 path: TypePath(
                                     Id {
-                                        value: 58,
+                                        value: 59,
                                     },
                                 ),
                                 refined_path: Right(
@@ -605,7 +605,7 @@
                             data: TypeOntology {
                                 path: TypePath(
                                     Id {
-                                        value: 58,
+                                        value: 59,
                                     },
                                 ),
                                 refined_path: Right(
@@ -678,7 +678,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 89,
+                                            value: 91,
                                         },
                                     ),
                                 ),
@@ -734,7 +734,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 32,
+                                            value: 33,
                                         },
                                     ),
                                 ),
@@ -757,7 +757,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 89,
+                                            value: 91,
                                         },
                                     ),
                                 ),
@@ -813,7 +813,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 32,
+                                            value: 33,
                                         },
                                     ),
                                 ),
@@ -826,23 +826,30 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Derived(
-                        TypeError(
-                            DeclarativeTypeError(
-                                Derived(
-                                    SignatureError,
+                variant_and_ty_result: Ok(
+                    (
+                        TypePath(
+                            Constructor,
+                        ),
+                        Ok(
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 15,
+                                    },
                                 ),
                             ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    6,
+                ),
             },
             ExprTypeInfo {
                 variant_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
+                    Original(
+                        NoSuchField,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -882,7 +889,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    6,
+                    7,
                 ),
             },
             ExprTypeInfo {
@@ -902,7 +909,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 32,
+                                            value: 33,
                                         },
                                     ),
                                 ),
@@ -911,7 +918,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    7,
+                    8,
                 ),
             },
             ExprTypeInfo {
@@ -925,7 +932,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 89,
+                                            value: 91,
                                         },
                                     ),
                                 ),
@@ -934,7 +941,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    8,
+                    9,
                 ),
             },
             ExprTypeInfo {
@@ -961,7 +968,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    9,
+                    10,
                 ),
             },
             ExprTypeInfo {
@@ -994,7 +1001,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 32,
+                                            value: 33,
                                         },
                                     ),
                                 ),
@@ -1003,7 +1010,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    10,
+                    11,
                 ),
             },
             ExprTypeInfo {
@@ -1036,45 +1043,59 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Derived(
-                        TypeError(
-                            DeclarativeTypeError(
-                                Derived(
-                                    SignatureError,
+                variant_and_ty_result: Ok(
+                    (
+                        TypePath(
+                            Constructor,
+                        ),
+                        Ok(
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 15,
+                                    },
                                 ),
                             ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    12,
+                ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Derived(
-                        TypeError(
-                            DeclarativeTypeError(
-                                Derived(
-                                    SignatureError,
+                variant_and_ty_result: Ok(
+                    (
+                        TypePath(
+                            Constructor,
+                        ),
+                        Ok(
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 15,
+                                    },
                                 ),
                             ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    13,
+                ),
             },
             ExprTypeInfo {
                 variant_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
+                    Original(
+                        NoSuchField,
                     ),
                 ),
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
                 variant_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
+                    Original(
+                        NoSuchField,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -1119,7 +1140,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    11,
+                    14,
                 ),
             },
             ExprTypeInfo {
@@ -1131,7 +1152,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 32,
+                                            value: 33,
                                         },
                                     ),
                                 ),
@@ -1140,7 +1161,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    12,
+                    15,
                 ),
             },
             ExprTypeInfo {
@@ -1178,7 +1199,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    13,
+                    16,
                 ),
             },
             ExprTypeInfo {
@@ -1198,7 +1219,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 32,
+                                            value: 33,
                                         },
                                     ),
                                 ),
@@ -1207,7 +1228,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    14,
+                    17,
                 ),
             },
             ExprTypeInfo {
@@ -1246,102 +1267,10 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    15,
-                ),
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 32,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    16,
-                ),
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        TypePath(
-                            Constructor,
-                        ),
-                        Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 89,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    17,
-                ),
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Derived(
-                        FluffyTermError(
-                            Todo,
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Hollow(
-                                HollowTerm(
-                                    7,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
                     18,
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Derived(
-                        ApplicationOrRitchieCallFunctionTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
                 variant_and_ty_result: Ok(
                     (
                         Trivial,
@@ -1350,7 +1279,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 32,
+                                            value: 33,
                                         },
                                     ),
                                 ),
@@ -1373,7 +1302,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 89,
+                                            value: 91,
                                         },
                                     ),
                                 ),
@@ -1402,7 +1331,7 @@
                         Ok(
                             Hollow(
                                 HollowTerm(
-                                    8,
+                                    7,
                                 ),
                             ),
                         ),
@@ -1410,134 +1339,6 @@
                 ),
                 expectation_rule_idx: Some(
                     21,
-                ),
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 32,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    22,
-                ),
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Derived(
-                        TypeError(
-                            DeclarativeTypeError(
-                                Derived(
-                                    SignatureError,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Derived(
-                        TypeError(
-                            DeclarativeTypeError(
-                                Derived(
-                                    SignatureError,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                BinaryOperationLeftOperandTypeNotInferred,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        TypePath(
-                            Constructor,
-                        ),
-                        Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 89,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    23,
-                ),
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Derived(
-                        FluffyTermError(
-                            Todo,
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Hollow(
-                                HollowTerm(
-                                    9,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    24,
                 ),
             },
             ExprTypeInfo {
@@ -1570,7 +1371,78 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 32,
+                                            value: 33,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    22,
+                ),
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Ok(
+                    (
+                        TypePath(
+                            Constructor,
+                        ),
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 91,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    23,
+                ),
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Err(
+                    Derived(
+                        FluffyTermError(
+                            Todo,
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            Hollow(
+                                HollowTerm(
+                                    8,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    24,
+                ),
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 33,
                                         },
                                     ),
                                 ),
@@ -1580,6 +1452,169 @@
                 ),
                 expectation_rule_idx: Some(
                     25,
+                ),
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Ok(
+                    (
+                        TypePath(
+                            Constructor,
+                        ),
+                        Ok(
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 15,
+                                    },
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    26,
+                ),
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Ok(
+                    (
+                        TypePath(
+                            Constructor,
+                        ),
+                        Ok(
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 15,
+                                    },
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    27,
+                ),
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Err(
+                    Original(
+                        NoSuchField,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Err(
+                    Original(
+                        NoSuchField,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                BinaryOperationLeftOperandTypeNotInferred,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Ok(
+                    (
+                        TypePath(
+                            Constructor,
+                        ),
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 91,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    28,
+                ),
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Err(
+                    Derived(
+                        FluffyTermError(
+                            Todo,
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            Hollow(
+                                HollowTerm(
+                                    9,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    29,
+                ),
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Err(
+                    Derived(
+                        ApplicationOrRitchieCallFunctionTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 33,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    30,
                 ),
             },
             ExprTypeInfo {
@@ -1625,7 +1660,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    26,
+                    31,
                 ),
             },
             ExprTypeInfo {
@@ -1637,7 +1672,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 32,
+                                            value: 33,
                                         },
                                     ),
                                 ),
@@ -1646,7 +1681,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    27,
+                    32,
                 ),
             },
             ExprTypeInfo {
@@ -1676,7 +1711,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    28,
+                    33,
                 ),
             },
             ExprTypeInfo {
@@ -1701,7 +1736,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    29,
+                    34,
                 ),
             },
             ExprTypeInfo {
@@ -1713,7 +1748,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 32,
+                                            value: 33,
                                         },
                                     ),
                                 ),
@@ -1722,7 +1757,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    30,
+                    35,
                 ),
             },
             ExprTypeInfo {
@@ -1736,7 +1771,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 89,
+                                            value: 91,
                                         },
                                     ),
                                 ),
@@ -1745,7 +1780,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    31,
+                    36,
                 ),
             },
             ExprTypeInfo {
@@ -1772,7 +1807,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    32,
+                    37,
                 ),
             },
             ExprTypeInfo {
@@ -1784,7 +1819,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 32,
+                                            value: 33,
                                         },
                                     ),
                                 ),
@@ -1793,17 +1828,117 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    33,
+                    38,
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Derived(
-                        TypeError(
-                            DeclarativeTypeError(
-                                Derived(
-                                    SignatureError,
+                variant_and_ty_result: Ok(
+                    (
+                        TypePath(
+                            Constructor,
+                        ),
+                        Ok(
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 15,
+                                    },
                                 ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    39,
+                ),
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 46,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    40,
+                ),
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Ok(
+                    (
+                        Method(
+                            FluffyMemberDisambiguation {
+                                indirections: [
+                                    Leash,
+                                ],
+                                ty_path: TypePath(
+                                    Id {
+                                        value: 76,
+                                    },
+                                ),
+                                signature: MethodFn(
+                                    FluffyMethodFnSignature {
+                                        nonself_parameter_contracted_tys: [
+                                            FluffyTermRitchieParameterContractedType {
+                                                contract: Pure,
+                                                ty: EntityPath(
+                                                    TypeOntology(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 46,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                        return_ty: EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    Id {
+                                                        value: 56,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            },
+                        ),
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 56,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    41,
+                ),
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -1824,16 +1959,29 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    34,
+                    42,
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
+                variant_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 33,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    43,
+                ),
             },
             ExprTypeInfo {
                 variant_and_ty_result: Ok(
@@ -1862,7 +2010,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    35,
+                    44,
                 ),
             },
             ExprTypeInfo {
@@ -1874,7 +2022,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 32,
+                                            value: 33,
                                         },
                                     ),
                                 ),
@@ -1883,58 +2031,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    36,
-                ),
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Hollow(
-                                HollowTerm(
-                                    15,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    37,
-                ),
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 32,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    38,
+                    45,
                 ),
             },
             ExprTypeInfo {
@@ -1948,7 +2045,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 90,
+                                            value: 92,
                                         },
                                     ),
                                 ),
@@ -1957,7 +2054,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    39,
+                    46,
                 ),
             },
             ExprTypeInfo {
@@ -1971,7 +2068,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 90,
+                                            value: 92,
                                         },
                                     ),
                                 ),
@@ -1980,7 +2077,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    40,
+                    47,
                 ),
             },
             ExprTypeInfo {
@@ -1992,7 +2089,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 90,
+                                            value: 92,
                                         },
                                     ),
                                 ),
@@ -2001,7 +2098,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    41,
+                    48,
                 ),
             },
         ],
@@ -2192,16 +2289,6 @@
                         HollowTermEntry {
                             data: Hole {
                                 hole_source: Expr(
-                                    79,
-                                ),
-                                hole_kind: UnspecifiedIntegerType,
-                                fill: None,
-                            },
-                            resolve_progress: Unresolved,
-                        },
-                        HollowTermEntry {
-                            data: Hole {
-                                hole_source: Expr(
                                     82,
                                 ),
                                 hole_kind: UnspecifiedFloatType,
@@ -2240,7 +2327,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 89,
+                                            value: 91,
                                         },
                                     ),
                                 ),
@@ -2274,7 +2361,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 32,
+                                            value: 33,
                                         },
                                     ),
                                 ),
@@ -2287,7 +2374,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 32,
+                                                        value: 33,
                                                     },
                                                 ),
                                             ),
@@ -2312,7 +2399,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 89,
+                                            value: 91,
                                         },
                                     ),
                                 ),
@@ -2346,7 +2433,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 32,
+                                            value: 33,
                                         },
                                     ),
                                 ),
@@ -2359,7 +2446,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 32,
+                                                        value: 33,
                                                     },
                                                 ),
                                             ),
@@ -2374,6 +2461,23 @@
                                     ),
                                 ),
                             ),
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 10,
+                                kind: Expr,
+                            },
+                            expectee: Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 15,
+                                    },
+                                ),
+                            ),
+                            data: AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            resolve_progress: Unresolved,
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
@@ -2399,7 +2503,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 32,
+                                            value: 33,
                                         },
                                     ),
                                 ),
@@ -2412,7 +2516,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 32,
+                                                        value: 33,
                                                     },
                                                 ),
                                             ),
@@ -2437,7 +2541,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 89,
+                                            value: 91,
                                         },
                                     ),
                                 ),
@@ -2471,7 +2575,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 32,
+                                            value: 33,
                                         },
                                     ),
                                 ),
@@ -2484,7 +2588,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 32,
+                                                        value: 33,
                                                     },
                                                 ),
                                             ),
@@ -2499,6 +2603,40 @@
                                     ),
                                 ),
                             ),
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 26,
+                                kind: Expr,
+                            },
+                            expectee: Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 15,
+                                    },
+                                ),
+                            ),
+                            data: AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            resolve_progress: Unresolved,
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 27,
+                                kind: Expr,
+                            },
+                            expectee: Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 15,
+                                    },
+                                ),
+                            ),
+                            data: AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            resolve_progress: Unresolved,
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
@@ -2524,7 +2662,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 32,
+                                            value: 33,
                                         },
                                     ),
                                 ),
@@ -2537,7 +2675,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 32,
+                                                        value: 33,
                                                     },
                                                 ),
                                             ),
@@ -2577,7 +2715,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 32,
+                                            value: 33,
                                         },
                                     ),
                                 ),
@@ -2590,7 +2728,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 32,
+                                                        value: 33,
                                                     },
                                                 ),
                                             ),
@@ -2630,7 +2768,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 32,
+                                            value: 33,
                                         },
                                     ),
                                 ),
@@ -2643,7 +2781,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 32,
+                                                        value: 33,
                                                     },
                                                 ),
                                             ),
@@ -2668,7 +2806,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 89,
+                                            value: 91,
                                         },
                                     ),
                                 ),
@@ -2702,7 +2840,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 32,
+                                            value: 33,
                                         },
                                     ),
                                 ),
@@ -2715,7 +2853,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 32,
+                                                        value: 33,
                                                     },
                                                 ),
                                             ),
@@ -2740,7 +2878,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 89,
+                                            value: 91,
                                         },
                                     ),
                                 ),
@@ -2774,7 +2912,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 32,
+                                            value: 33,
                                         },
                                     ),
                                 ),
@@ -2787,7 +2925,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 32,
+                                                        value: 33,
                                                     },
                                                 ),
                                             ),
@@ -2805,6 +2943,40 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
+                                expr_idx: 53,
+                                kind: Expr,
+                            },
+                            expectee: Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 15,
+                                    },
+                                ),
+                            ),
+                            data: AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            resolve_progress: Unresolved,
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 54,
+                                kind: Expr,
+                            },
+                            expectee: Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 15,
+                                    },
+                                ),
+                            ),
+                            data: AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            resolve_progress: Unresolved,
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
                                 expr_idx: 58,
                                 kind: Expr,
                             },
@@ -2812,7 +2984,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 89,
+                                            value: 91,
                                         },
                                     ),
                                 ),
@@ -2846,7 +3018,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 32,
+                                            value: 33,
                                         },
                                     ),
                                 ),
@@ -2859,7 +3031,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 32,
+                                                        value: 33,
                                                     },
                                                 ),
                                             ),
@@ -2899,7 +3071,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 32,
+                                            value: 33,
                                         },
                                     ),
                                 ),
@@ -2912,7 +3084,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 32,
+                                                        value: 33,
                                                     },
                                                 ),
                                             ),
@@ -2967,7 +3139,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 32,
+                                            value: 33,
                                         },
                                     ),
                                 ),
@@ -2980,7 +3152,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 32,
+                                                        value: 33,
                                                     },
                                                 ),
                                             ),
@@ -3005,7 +3177,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 89,
+                                            value: 91,
                                         },
                                     ),
                                 ),
@@ -3039,7 +3211,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 32,
+                                            value: 33,
                                         },
                                     ),
                                 ),
@@ -3052,7 +3224,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 32,
+                                                        value: 33,
                                                     },
                                                 ),
                                             ),
@@ -3070,16 +3242,75 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
+                                expr_idx: 78,
+                                kind: Expr,
+                            },
+                            expectee: Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 15,
+                                    },
+                                ),
+                            ),
+                            data: AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            resolve_progress: Unresolved,
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
                                 expr_idx: 79,
                                 kind: Expr,
                             },
-                            expectee: Hollow(
-                                HollowTerm(
-                                    13,
+                            expectee: EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 46,
+                                        },
+                                    ),
                                 ),
                             ),
-                            data: AnyDerived(
-                                ExpectAnyDerived,
+                            data: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        contract: Pure,
+                                        ty: EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    Id {
+                                                        value: 46,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        Trivial,
+                                    ),
+                                ),
+                            ),
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 80,
+                                kind: Expr,
+                            },
+                            expectee: EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 56,
+                                        },
+                                    ),
+                                ),
+                            ),
+                            data: AnyOriginal(
+                                ExpectAnyOriginal,
                             ),
                             resolve_progress: Unresolved,
                         },
@@ -3090,7 +3321,7 @@
                             },
                             expectee: Hollow(
                                 HollowTerm(
-                                    14,
+                                    13,
                                 ),
                             ),
                             data: AnyDerived(
@@ -3107,7 +3338,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 32,
+                                            value: 33,
                                         },
                                     ),
                                 ),
@@ -3120,7 +3351,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 32,
+                                                        value: 33,
                                                     },
                                                 ),
                                             ),
@@ -3143,7 +3374,7 @@
                             },
                             expectee: Hollow(
                                 HollowTerm(
-                                    15,
+                                    14,
                                 ),
                             ),
                             data: AnyDerived(
@@ -3160,7 +3391,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 32,
+                                            value: 33,
                                         },
                                     ),
                                 ),
@@ -3173,7 +3404,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 32,
+                                                        value: 33,
                                                     },
                                                 ),
                                             ),
@@ -3198,7 +3429,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 90,
+                                            value: 92,
                                         },
                                     ),
                                 ),
@@ -3217,7 +3448,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 90,
+                                            value: 92,
                                         },
                                     ),
                                 ),
@@ -3236,7 +3467,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 90,
+                                            value: 92,
                                         },
                                     ),
                                 ),
@@ -3333,7 +3564,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 32,
+                                            value: 33,
                                         },
                                     ),
                                 ),
@@ -3456,7 +3687,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 32,
+                                            value: 33,
                                         },
                                     ),
                                 ),
@@ -3469,7 +3700,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 32,
+                                                        value: 33,
                                                     },
                                                 ),
                                             ),
@@ -3574,7 +3805,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 32,
+                                            value: 33,
                                         },
                                     ),
                                 ),
@@ -3641,7 +3872,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 32,
+                                            value: 33,
                                         },
                                     ),
                                 ),
@@ -3782,7 +4013,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 32,
+                                            value: 33,
                                         },
                                     ),
                                 ),
@@ -3795,7 +4026,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 32,
+                                                        value: 33,
                                                     },
                                                 ),
                                             ),
@@ -3835,7 +4066,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 32,
+                                            value: 33,
                                         },
                                     ),
                                 ),
@@ -3848,7 +4079,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 32,
+                                                        value: 33,
                                                     },
                                                 ),
                                             ),

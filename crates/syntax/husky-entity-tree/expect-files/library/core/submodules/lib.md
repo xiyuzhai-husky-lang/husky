@@ -12,6 +12,7 @@ Ok(
         `core::clone`,
         `core::marker`,
         `core::list`,
+        `core::array`,
         `core::cmp`,
         `core::str`,
         `core::option`,

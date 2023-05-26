@@ -111,7 +111,7 @@ impl<'a, 'b> MajorPathExprParser<'a, 'b> {
                 super_module_path,
             } => todo!(),
         };
-        let (expr, path) = if let Some(_) = self.try_parse::<ScopeResolutionToken>() {
+        let (expr, path) = if let Some(_) = self.parse_with_err_as_none::<ScopeResolutionToken>() {
             todo!()
         } else {
             (

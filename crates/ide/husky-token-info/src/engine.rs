@@ -455,6 +455,14 @@ impl<'a> InferContext<'a> {
                         current_symbol_kind,
                     },
                 ),
+                CurrentImplicitParameterSymbolKind::Constant { ident_token } => self.sheet.add(
+                    ident_token.token_idx(),
+                    TokenInfo::CurrentSymbol {
+                        current_symbol_idx,
+                        expr_region: self.expr_region,
+                        current_symbol_kind,
+                    },
+                ),
             },
         }
     }

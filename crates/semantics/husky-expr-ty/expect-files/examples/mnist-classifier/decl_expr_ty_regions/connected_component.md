@@ -683,7 +683,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 42,
+                                        value: 43,
                                     },
                                 ),
                                 refined_path: Right(
@@ -696,7 +696,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 75,
+                                                    value: 77,
                                                 },
                                             ),
                                         ),
@@ -799,12 +799,25 @@
         ),
         expr_ty_infos: [
             ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Derived(
-                        ExprError,
+                variant_and_ty_result: Ok(
+                    (
+                        TypePath(
+                            Ontology,
+                        ),
+                        Ok(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    0,
+                ),
             },
         ],
         extra_expr_errors: [],
@@ -839,7 +852,37 @@
             },
             expectations: Expectations {
                 arena: Arena {
-                    data: [],
+                    data: [
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 0,
+                                kind: Expr,
+                            },
+                            expectee: Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                            data: EqsSort(
+                                ExpectEqsCategory {
+                                    smallest_universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    EqsSort(
+                                        TermUniverse(
+                                            1,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ],
                 },
                 first_unresolved_expectation: 0,
             },
@@ -939,7 +982,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 57,
+                                        value: 58,
                                     },
                                 ),
                                 refined_path: Right(
@@ -955,7 +998,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 57,
+                                                    value: 58,
                                                 },
                                             ),
                                         ),
@@ -972,7 +1015,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 57,
+                                        value: 58,
                                     },
                                 ),
                                 refined_path: Right(
@@ -988,7 +1031,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 57,
+                                                    value: 58,
                                                 },
                                             ),
                                         ),
@@ -1072,18 +1115,25 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Derived(
-                        TypeError(
-                            DeclarativeTypeError(
-                                Derived(
-                                    SignatureError,
-                                ),
+                variant_and_ty_result: Ok(
+                    (
+                        TypePath(
+                            Ontology,
+                        ),
+                        Ok(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
                             ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    1,
+                ),
             },
             ExprTypeInfo {
                 variant_and_ty_result: Ok(
@@ -1101,7 +1151,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    1,
+                    2,
                 ),
             },
         ],
@@ -1113,7 +1163,15 @@
             },
             current_symbol_map: ArenaMap {
                 data: [
-                    None,
+                    Some(
+                        SymbolType(
+                            Solid(
+                                SolidTerm(
+                                    0,
+                                ),
+                            ),
+                        ),
+                    ),
                 ],
             },
         },
@@ -1135,7 +1193,43 @@
                 },
                 solid_terms: SolidTerms {
                     entries: VecSet {
-                        data: [],
+                        data: [
+                            PlaceTypeOntology {
+                                place: StackPure {
+                                    location: StackLocationIdx(
+                                        LocalSymbolIdx(
+                                            0,
+                                        ),
+                                    ),
+                                },
+                                path: TypePath(
+                                    Id {
+                                        value: 93,
+                                    },
+                                ),
+                                refined_path: Left(
+                                    CustomTypePath(
+                                        TypePath(
+                                            Id {
+                                                value: 93,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                arguments: [],
+                                base_ty_term: Some(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 93,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ],
                     },
                 },
             },
@@ -1189,6 +1283,40 @@
                                                 ),
                                             },
                                         },
+                                    ),
+                                ),
+                            ),
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 2,
+                                kind: Expr,
+                            },
+                            expectee: Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                            data: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        contract: Const,
+                                        ty: Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    },
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        Trivial,
                                     ),
                                 ),
                             ),
@@ -1255,7 +1383,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 70,
+                                            value: 72,
                                         },
                                     ),
                                 ),
@@ -1268,18 +1396,25 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Derived(
-                        TypeError(
-                            DeclarativeTypeError(
-                                Derived(
-                                    SignatureError,
-                                ),
+                variant_and_ty_result: Ok(
+                    (
+                        TypePath(
+                            Ontology,
+                        ),
+                        Ok(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
                             ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    1,
+                ),
             },
         ],
         extra_expr_errors: [],
@@ -1324,7 +1459,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 70,
+                                            value: 72,
                                         },
                                     ),
                                 ),
@@ -1333,6 +1468,35 @@
                                 ExpectAnyOriginal,
                             ),
                             resolve_progress: Unresolved,
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 1,
+                                kind: Expr,
+                            },
+                            expectee: Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                            data: EqsSort(
+                                ExpectEqsCategory {
+                                    smallest_universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    EqsSort(
+                                        TermUniverse(
+                                            1,
+                                        ),
+                                    ),
+                                ),
+                            ),
                         },
                     ],
                 },
@@ -1467,18 +1631,25 @@
         ),
         expr_ty_infos: [
             ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Derived(
-                        TypeError(
-                            DeclarativeTypeError(
-                                Derived(
-                                    SignatureError,
-                                ),
+                variant_and_ty_result: Ok(
+                    (
+                        TypePath(
+                            Ontology,
+                        ),
+                        Ok(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
                             ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    0,
+                ),
             },
         ],
         extra_expr_errors: [],
@@ -1513,7 +1684,37 @@
             },
             expectations: Expectations {
                 arena: Arena {
-                    data: [],
+                    data: [
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 0,
+                                kind: Expr,
+                            },
+                            expectee: Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                            data: EqsSort(
+                                ExpectEqsCategory {
+                                    smallest_universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    EqsSort(
+                                        TermUniverse(
+                                            1,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ],
                 },
                 first_unresolved_expectation: 0,
             },
@@ -2613,7 +2814,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 45,
+                                        value: 46,
                                     },
                                 ),
                                 refined_path: Right(
@@ -2629,7 +2830,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 45,
+                                                    value: 46,
                                                 },
                                             ),
                                         ),
@@ -2769,7 +2970,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 45,
+                                        value: 46,
                                     },
                                 ),
                                 refined_path: Right(
@@ -2785,7 +2986,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 45,
+                                                    value: 46,
                                                 },
                                             ),
                                         ),

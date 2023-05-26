@@ -121,11 +121,9 @@ Ok(
                                             decl_list_result: Ok(
                                                 (),
                                             ),
-                                            rangle: Ok(
-                                                RightAngleBracketToken(
-                                                    TokenIdx(
-                                                        5,
-                                                    ),
+                                            rangle: RightAngleBracketToken(
+                                                TokenIdx(
+                                                    5,
                                                 ),
                                             ),
                                         },

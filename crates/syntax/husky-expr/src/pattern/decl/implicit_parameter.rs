@@ -27,10 +27,21 @@ impl ImplicitParameterDeclPattern {
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub enum ImplicitParameterDeclPatternVariant {
-    Type0 { ident_token: IdentToken },
-    Constant { ident_token: IdentToken },
-    Lifetime { label_token: LifetimeLabelToken },
-    Binding { label_token: BindingLabelToken },
+    Type0 {
+        ident_token: IdentToken,
+    },
+    Constant {
+        const_token: ConstToken,
+        ident_token: IdentToken,
+        colon_token: ColonToken,
+        ty_expr: ExprIdx,
+    },
+    Lifetime {
+        label_token: LifetimeLabelToken,
+    },
+    Binding {
+        label_token: BindingLabelToken,
+    },
 }
 
 impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for ImplicitParameterDeclPattern {
@@ -39,7 +50,7 @@ impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for ImplicitParameterDecl
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> ExprResult<Option<Self>> {
-        let annotated_variance_token = ctx.try_parse();
+        let annotated_variance_token = ctx.parse_with_err_as_none();
         if let Some(ident_token) = ctx.parse::<IdentToken>()? {
             let access_start = ctx.save_state().next_token_idx();
             let parameter_symbol = CurrentSymbol::new(
@@ -87,6 +98,40 @@ impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for ImplicitParameterDecl
                 annotated_variance_token,
                 symbol,
                 variant: ImplicitParameterDeclPatternVariant::Binding { label_token },
+            }))
+        } else if let Some(const_token) = ctx.parse::<ConstToken>()? {
+            let ident_token = ctx.parse_expected(OriginalExprError::ExpectedIdent)?;
+            let colon_token = ctx.parse_expected(OriginalExprError::ExpectedColon)?;
+            let ty_expr = ctx.parse_expr_expected2(
+                Some(ExprEnvironment::WithinBracket(Bracket::TemplateAngle)),
+                OriginalExprError::ExpectedConstantImplicitParameterType,
+            );
+            let access_start = ctx.save_state().next_token_idx();
+            let symbol = ctx
+                .define_symbols(
+                    [CurrentSymbol::new(
+                        ctx.pattern_expr_region(),
+                        access_start,
+                        None,
+                        CurrentSymbolVariant::ImplicitParameter {
+                            implicit_parameter_variant: CurrentImplicitParameterSymbol::Constant {
+                                ident_token,
+                                ty_expr_idx: ty_expr,
+                            },
+                        },
+                    )],
+                    Some(PatternTypeConstraint::ImplicitTypeParameter),
+                )
+                .start(); // take start because there is only one symbol to define
+            Ok(Some(ImplicitParameterDeclPattern {
+                annotated_variance_token,
+                symbol,
+                variant: ImplicitParameterDeclPatternVariant::Constant {
+                    const_token,
+                    ident_token,
+                    colon_token,
+                    ty_expr,
+                },
             }))
         } else {
             match annotated_variance_token {

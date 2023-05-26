@@ -111,7 +111,9 @@ impl CurrentSymbol {
     pub fn ident(&self) -> Option<Ident> {
         match self.variant {
             CurrentSymbolVariant::ImplicitParameter {
-                implicit_parameter_variant: CurrentImplicitParameterSymbol::Type { ident_token },
+                implicit_parameter_variant:
+                    CurrentImplicitParameterSymbol::Type { ident_token }
+                    | CurrentImplicitParameterSymbol::Constant { ident_token, .. },
             } => Some(ident_token.ident()),
             CurrentSymbolVariant::ExplicitParameter { ident, .. }
             | CurrentSymbolVariant::LetVariable { ident, .. }
@@ -147,6 +149,7 @@ pub enum CurrentSymbolKind {
 pub enum CurrentImplicitParameterSymbolKind {
     Type { ident_token: IdentToken },
     Lifetime { label_token: LifetimeLabelToken },
+    Constant { ident_token: IdentToken },
 }
 
 #[derive(Debug, PartialEq, Eq)]
@@ -190,8 +193,16 @@ impl CurrentSymbolVariant {
 #[salsa::derive_debug_with_db(db = ExprDb)]
 #[non_exhaustive]
 pub enum CurrentImplicitParameterSymbol {
-    Lifetime { label_token: LifetimeLabelToken },
-    Type { ident_token: IdentToken },
+    Lifetime {
+        label_token: LifetimeLabelToken,
+    },
+    Type {
+        ident_token: IdentToken,
+    },
+    Constant {
+        ident_token: IdentToken,
+        ty_expr_idx: ExprIdx,
+    },
 }
 
 impl CurrentImplicitParameterSymbol {
@@ -207,6 +218,10 @@ impl CurrentImplicitParameterSymbol {
                     ident: ident_token.ident(),
                 }
             }
+            CurrentImplicitParameterSymbol::Constant {
+                ident_token,
+                ty_expr_idx: ty_expr,
+            } => todo!(),
         }
     }
 }
@@ -247,6 +262,11 @@ impl CurrentImplicitParameterSymbol {
             CurrentImplicitParameterSymbol::Lifetime { label_token } => {
                 CurrentImplicitParameterSymbolKind::Lifetime {
                     label_token: *label_token,
+                }
+            }
+            CurrentImplicitParameterSymbol::Constant { ident_token, .. } => {
+                CurrentImplicitParameterSymbolKind::Constant {
+                    ident_token: *ident_token,
                 }
             }
         }

@@ -93,6 +93,9 @@ Ok(
                 `Nine`,
             ),
             Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
                 Keyword::TypeEntity(
                     Struct,
                 ),

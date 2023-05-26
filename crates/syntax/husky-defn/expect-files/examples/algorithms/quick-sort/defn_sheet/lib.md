@@ -245,11 +245,9 @@ Ok(
                                             decl_list_result: Ok(
                                                 (),
                                             ),
-                                            rangle: Ok(
-                                                RightAngleBracketToken(
-                                                    TokenIdx(
-                                                        7,
-                                                    ),
+                                            rangle: RightAngleBracketToken(
+                                                TokenIdx(
+                                                    7,
                                                 ),
                                             ),
                                         },
@@ -1179,11 +1177,9 @@ Ok(
                                             decl_list_result: Ok(
                                                 (),
                                             ),
-                                            rangle: Ok(
-                                                RightAngleBracketToken(
-                                                    TokenIdx(
-                                                        46,
-                                                    ),
+                                            rangle: RightAngleBracketToken(
+                                                TokenIdx(
+                                                    46,
                                                 ),
                                             ),
                                         },
@@ -2471,11 +2467,9 @@ Ok(
                                             decl_list_result: Ok(
                                                 (),
                                             ),
-                                            rangle: Ok(
-                                                RightAngleBracketToken(
-                                                    TokenIdx(
-                                                        107,
-                                                    ),
+                                            rangle: RightAngleBracketToken(
+                                                TokenIdx(
+                                                    107,
                                                 ),
                                             ),
                                         },

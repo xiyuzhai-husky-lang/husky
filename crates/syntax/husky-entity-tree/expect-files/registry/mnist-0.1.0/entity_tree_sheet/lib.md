@@ -24,22 +24,18 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `BinaryImage28`,
-                    visibility: Scope::PubUnder(
-                        `mnist`,
-                    ),
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
                                 TypePath(`mnist::BinaryImage28`, `Struct`),
                             ),
-                            visibility: Scope::PubUnder(
-                                `mnist`,
-                            ),
+                            visibility: Scope::Pub,
                             ast_idx: 11,
                             ident_token: IdentToken {
                                 ident: `BinaryImage28`,
                                 token_idx: TokenIdx(
-                                    24,
+                                    25,
                                 ),
                             },
                         },

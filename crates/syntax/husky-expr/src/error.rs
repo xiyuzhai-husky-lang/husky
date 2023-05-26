@@ -24,53 +24,55 @@ impl From<TokenError> for ExprError {
 #[derive(Error, Debug, PartialEq, Eq)]
 // #[salsa::derive_debug_with_db(db = ExprDb)]
 pub enum OriginalExprError {
-    #[error("expect `>`")]
+    #[error("expected `>`")]
     ExpectedRightAngleBracket { langle_token_idx: TokenIdx },
-    #[error("expect `}}`")]
+    #[error("expected `}}`")]
     ExpectedRightCurlyBrace(TokenStreamState),
-    #[error("expect identifier")]
+    #[error("expected identifier")]
     ExpectedIdent(TokenStreamState),
-    #[error("expect `:`")]
+    #[error("expected `:`")]
     ExpectedColon(TokenStreamState),
-    #[error("expect `)`")]
+    #[error("expected `)`")]
     ExpectedRightParenthesis(TokenStreamState),
     #[error("no matching bracket")]
     NoMatchingBra {
         ket: Bracket,
         ket_token_idx: TokenIdx,
     },
-    #[error("expect item before `,`")]
+    #[error("expected item before `,`")]
     ExpectedItemBeforeComma { comma_token_idx: TokenIdx },
-    #[error("expect item before `be`")]
+    #[error("expected item before `be`")]
     ExpectedItemBeforeBe { be_token_idx: TokenIdx },
-    #[error("expect variable pattern")]
+    #[error("expected variable pattern")]
     ExpectedLetVariablesPattern(TokenStreamState),
-    #[error("expect pattern expression after `be`")]
+    #[error("expected pattern expression after `be`")]
     ExpectedBeVariablesPattern(TokenStreamState),
-    #[error("expect `=`")]
+    #[error("expected `=`")]
     ExpectedAssign(TokenStreamState),
-    #[error("expect initial value")]
+    #[error("expected initial value")]
     ExpectedInitialValue(TokenStreamState),
     #[error("unexpected keyword")]
     UnexpectedKeyword(TokenIdx),
-    #[error("expect result")]
+    #[error("expected result")]
     ExpectedResult(TokenStreamState),
-    #[error("expect condition")]
+    #[error("expected condition")]
     ExpectedCondition(TokenStreamState),
-    #[error("expect for expr")]
+    #[error("expected for expr")]
     ExpectedForExpr(TokenIdx),
-    #[error("expect be pattern")]
+    #[error("expected be pattern")]
     ExpectedBePattern(TokenIdx),
-    #[error("expect paramter pattern")]
+    #[error("expected paramter pattern")]
     ExpectedParameterPattern(TokenIdx),
     #[error("ExpectedValueForFieldBindInitialization")]
     ExpectedValueForFieldBindInitialization(TokenStreamState),
     #[error("ExpectedFunctionIdentAfterOpeningHtmlBra")]
     ExpectedFunctionIdentAfterOpeningHtmlBra(TokenStreamState),
-    #[error("expect identifier after `mut`")]
+    #[error("expected identifier after `mut`")]
     ExpectedIdentAfterModifier(TokenStreamState),
-    #[error("expect `:` at end of line")]
+    #[error("expected `:` at end of line")]
     ExpectedEolColon(TokenStreamState),
+    #[error("expected constant implicit parameter type")]
+    ExpectedConstantImplicitParameterType(TokenStreamState),
     #[error("mismatching bracket")]
     MismatchingBracket {
         bra: Bracket,
@@ -78,15 +80,15 @@ pub enum OriginalExprError {
         ket: Bracket,
         ket_token_idx: TokenIdx,
     },
-    #[error("expect let variables type")]
+    #[error("expected let variables type")]
     ExpectedLetVariablesType(TokenStreamState),
-    #[error("expect field type")]
+    #[error("expected field type")]
     ExpectedFieldType(TokenStreamState),
-    #[error("expect parameter type")]
+    #[error("expected parameter type")]
     ExpectedParameterType(TokenStreamState),
-    #[error("ExpectedIdentAfterDot")]
+    #[error("expected identifier after `.`")]
     ExpectedIdentAfterDot { dot_token_idx: TokenIdx },
-    #[error("ExpectedExprBeforeDot")]
+    #[error("expected exprBeforeDot")]
     ExpectedExprBeforeDot { dot_token_idx: TokenIdx },
     #[error("expect block")]
     ExpectedBlock(TokenGroupIdx),
@@ -125,22 +127,23 @@ impl OriginalExprError {
         match self {
             OriginalExprError::ExpectedLetVariablesPattern(token_idx)
             | OriginalExprError::ExpectedBeVariablesPattern(token_idx) => todo!(),
-            OriginalExprError::ExpectedLetVariablesType(token_idx)
-            | OriginalExprError::ExpectedAssign(token_idx)
-            | OriginalExprError::ExpectedInitialValue(token_idx)
-            | OriginalExprError::ExpectedResult(token_idx)
-            | OriginalExprError::ExpectedCondition(token_idx)
-            | OriginalExprError::ExpectedRightCurlyBrace(token_idx)
-            | OriginalExprError::ExpectedIdent(token_idx)
-            | OriginalExprError::ExpectedColon(token_idx)
-            | OriginalExprError::ExpectedRightParenthesis(token_idx)
-            | OriginalExprError::ExpectedEolColon(token_idx)
-            | OriginalExprError::ExpectedIdentAfterModifier(token_idx)
-            | OriginalExprError::ExpectedFieldType(token_idx)
-            | OriginalExprError::ExpectedParameterType(token_idx)
-            | OriginalExprError::HtmlTodo(token_idx)
-            | OriginalExprError::ExpectedValueForFieldBindInitialization(token_idx)
-            | OriginalExprError::ExpectedFunctionIdentAfterOpeningHtmlBra(token_idx) => {
+            OriginalExprError::ExpectedLetVariablesType(token_stream_state)
+            | OriginalExprError::ExpectedAssign(token_stream_state)
+            | OriginalExprError::ExpectedInitialValue(token_stream_state)
+            | OriginalExprError::ExpectedResult(token_stream_state)
+            | OriginalExprError::ExpectedCondition(token_stream_state)
+            | OriginalExprError::ExpectedRightCurlyBrace(token_stream_state)
+            | OriginalExprError::ExpectedIdent(token_stream_state)
+            | OriginalExprError::ExpectedColon(token_stream_state)
+            | OriginalExprError::ExpectedRightParenthesis(token_stream_state)
+            | OriginalExprError::ExpectedEolColon(token_stream_state)
+            | OriginalExprError::ExpectedIdentAfterModifier(token_stream_state)
+            | OriginalExprError::ExpectedFieldType(token_stream_state)
+            | OriginalExprError::ExpectedParameterType(token_stream_state)
+            | OriginalExprError::HtmlTodo(token_stream_state)
+            | OriginalExprError::ExpectedValueForFieldBindInitialization(token_stream_state)
+            | OriginalExprError::ExpectedFunctionIdentAfterOpeningHtmlBra(token_stream_state)
+            | OriginalExprError::ExpectedConstantImplicitParameterType(token_stream_state) => {
                 todo!()
             }
             OriginalExprError::MismatchingBracket {

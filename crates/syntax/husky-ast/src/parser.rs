@@ -155,7 +155,9 @@ impl<'a> AstParser<'a> {
                     error: OriginalAstError::UnexpectedEndKeywordAsFirstNonCommentToken.into(),
                 },
                 Keyword::Connection(_) => todo!(),
-                Keyword::Pub | Keyword::Static => self.parse_defn_or_use::<C>(token_group_idx),
+                Keyword::Const | Keyword::Pub | Keyword::Static => {
+                    self.parse_defn_or_use::<C>(token_group_idx)
+                }
                 Keyword::Async => todo!(),
             },
             Token::Punctuation(Punctuation::POUND) => Ast::Attr { token_group_idx },

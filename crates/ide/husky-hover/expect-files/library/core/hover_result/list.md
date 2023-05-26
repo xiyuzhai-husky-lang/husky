@@ -16,11 +16,11 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 2,
+                                    line: 0,
                                     character: 0,
                                 },
                                 end: Position {
-                                    line: 2,
+                                    line: 0,
                                     character: 3,
                                 },
                             },
@@ -46,11 +46,11 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 2,
+                                    line: 0,
                                     character: 4,
                                 },
                                 end: Position {
-                                    line: 2,
+                                    line: 0,
                                     character: 10,
                                 },
                             },
@@ -76,11 +76,11 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 2,
+                                    line: 0,
                                     character: 11,
                                 },
                                 end: Position {
-                                    line: 2,
+                                    line: 0,
                                     character: 15,
                                 },
                             },
@@ -106,11 +106,11 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 2,
+                                    line: 0,
                                     character: 15,
                                 },
                                 end: Position {
-                                    line: 2,
+                                    line: 0,
                                     character: 16,
                                 },
                             },
@@ -136,11 +136,11 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 2,
+                                    line: 0,
                                     character: 16,
                                 },
                                 end: Position {
-                                    line: 2,
+                                    line: 0,
                                     character: 25,
                                 },
                             },
@@ -166,11 +166,11 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 2,
+                                    line: 0,
                                     character: 26,
                                 },
                                 end: Position {
-                                    line: 2,
+                                    line: 0,
                                     character: 27,
                                 },
                             },
@@ -196,11 +196,11 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 2,
+                                    line: 0,
                                     character: 27,
                                 },
                                 end: Position {
-                                    line: 2,
+                                    line: 0,
                                     character: 28,
                                 },
                             },
@@ -226,11 +226,11 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 2,
+                                    line: 0,
                                     character: 28,
                                 },
                                 end: Position {
-                                    line: 2,
+                                    line: 0,
                                     character: 29,
                                 },
                             },
@@ -256,11 +256,11 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 4,
+                                    line: 2,
                                     character: 0,
                                 },
                                 end: Position {
-                                    line: 4,
+                                    line: 2,
                                     character: 4,
                                 },
                             },
@@ -286,11 +286,11 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 4,
+                                    line: 2,
                                     character: 4,
                                 },
                                 end: Position {
-                                    line: 4,
+                                    line: 2,
                                     character: 5,
                                 },
                             },
@@ -316,11 +316,11 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 4,
+                                    line: 2,
                                     character: 5,
                                 },
                                 end: Position {
-                                    line: 4,
+                                    line: 2,
                                     character: 6,
                                 },
                             },
@@ -346,11 +346,11 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 4,
+                                    line: 2,
                                     character: 6,
                                 },
                                 end: Position {
-                                    line: 4,
+                                    line: 2,
                                     character: 7,
                                 },
                             },
@@ -376,11 +376,11 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 4,
+                                    line: 2,
                                     character: 8,
                                 },
                                 end: Position {
-                                    line: 4,
+                                    line: 2,
                                     character: 12,
                                 },
                             },
@@ -406,11 +406,11 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 4,
+                                    line: 2,
                                     character: 13,
                                 },
                                 end: Position {
-                                    line: 4,
+                                    line: 2,
                                     character: 14,
                                 },
                             },
@@ -436,11 +436,11 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 4,
+                                    line: 2,
                                     character: 14,
                                 },
                                 end: Position {
-                                    line: 4,
+                                    line: 2,
                                     character: 15,
                                 },
                             },
@@ -466,11 +466,11 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 5,
+                                    line: 3,
                                     character: 4,
                                 },
                                 end: Position {
-                                    line: 5,
+                                    line: 3,
                                     character: 7,
                                 },
                             },
@@ -496,11 +496,11 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 5,
+                                    line: 3,
                                     character: 8,
                                 },
                                 end: Position {
-                                    line: 5,
+                                    line: 3,
                                     character: 10,
                                 },
                             },
@@ -526,11 +526,11 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 5,
+                                    line: 3,
                                     character: 11,
                                 },
                                 end: Position {
-                                    line: 5,
+                                    line: 3,
                                     character: 15,
                                 },
                             },
@@ -556,11 +556,11 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 5,
+                                    line: 3,
                                     character: 15,
                                 },
                                 end: Position {
-                                    line: 5,
+                                    line: 3,
                                     character: 16,
                                 },
                             },
@@ -586,11 +586,11 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 5,
+                                    line: 3,
                                     character: 16,
                                 },
                                 end: Position {
-                                    line: 5,
+                                    line: 3,
                                     character: 17,
                                 },
                             },
@@ -616,11 +616,11 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 5,
+                                    line: 3,
                                     character: 18,
                                 },
                                 end: Position {
-                                    line: 5,
+                                    line: 3,
                                     character: 20,
                                 },
                             },
@@ -646,11 +646,11 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 5,
+                                    line: 3,
                                     character: 21,
                                 },
                                 end: Position {
-                                    line: 5,
+                                    line: 3,
                                     character: 24,
                                 },
                             },
@@ -676,11 +676,11 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 5,
+                                    line: 3,
                                     character: 24,
                                 },
                                 end: Position {
-                                    line: 5,
+                                    line: 3,
                                     character: 25,
                                 },
                             },
@@ -706,11 +706,11 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 7,
+                                    line: 5,
                                     character: 4,
                                 },
                                 end: Position {
-                                    line: 7,
+                                    line: 5,
                                     character: 7,
                                 },
                             },
@@ -736,11 +736,11 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 7,
+                                    line: 5,
                                     character: 8,
                                 },
                                 end: Position {
-                                    line: 7,
+                                    line: 5,
                                     character: 10,
                                 },
                             },
@@ -766,11 +766,11 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 7,
+                                    line: 5,
                                     character: 11,
                                 },
                                 end: Position {
-                                    line: 7,
+                                    line: 5,
                                     character: 15,
                                 },
                             },
@@ -796,11 +796,11 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 7,
+                                    line: 5,
                                     character: 15,
                                 },
                                 end: Position {
-                                    line: 7,
+                                    line: 5,
                                     character: 16,
                                 },
                             },
@@ -826,11 +826,11 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 7,
+                                    line: 5,
                                     character: 16,
                                 },
                                 end: Position {
-                                    line: 7,
+                                    line: 5,
                                     character: 19,
                                 },
                             },
@@ -856,11 +856,11 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 7,
+                                    line: 5,
                                     character: 20,
                                 },
                                 end: Position {
-                                    line: 7,
+                                    line: 5,
                                     character: 24,
                                 },
                             },
@@ -886,11 +886,11 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 7,
+                                    line: 5,
                                     character: 24,
                                 },
                                 end: Position {
-                                    line: 7,
+                                    line: 5,
                                     character: 25,
                                 },
                             },
@@ -916,11 +916,11 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 7,
+                                    line: 5,
                                     character: 26,
                                 },
                                 end: Position {
-                                    line: 7,
+                                    line: 5,
                                     character: 27,
                                 },
                             },
@@ -946,11 +946,11 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 7,
+                                    line: 5,
                                     character: 27,
                                 },
                                 end: Position {
-                                    line: 7,
+                                    line: 5,
                                     character: 28,
                                 },
                             },
@@ -976,11 +976,11 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 7,
+                                    line: 5,
                                     character: 29,
                                 },
                                 end: Position {
-                                    line: 7,
+                                    line: 5,
                                     character: 30,
                                 },
                             },
@@ -1006,11 +1006,11 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 7,
+                                    line: 5,
                                     character: 30,
                                 },
                                 end: Position {
-                                    line: 7,
+                                    line: 5,
                                     character: 31,
                                 },
                             },
@@ -1036,11 +1036,11 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 7,
+                                    line: 5,
                                     character: 31,
                                 },
                                 end: Position {
-                                    line: 7,
+                                    line: 5,
                                     character: 32,
                                 },
                             },

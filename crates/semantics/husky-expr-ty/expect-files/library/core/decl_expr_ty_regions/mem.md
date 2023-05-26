@@ -51,7 +51,7 @@
                         Symbol(
                             EtherealTermSymbol(
                                 Id {
-                                    value: 3,
+                                    value: 4,
                                 },
                             ),
                         ),
@@ -60,7 +60,7 @@
                         Symbol(
                             EtherealTermSymbol(
                                 Id {
-                                    value: 1,
+                                    value: 2,
                                 },
                             ),
                         ),
@@ -81,7 +81,7 @@
                                 place: Const,
                                 path: TypePath(
                                     Id {
-                                        value: 68,
+                                        value: 70,
                                     },
                                 ),
                                 refined_path: Right(
@@ -93,7 +93,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 68,
+                                                    value: 70,
                                                 },
                                             ),
                                         ),
@@ -166,7 +166,7 @@
                         Symbol(
                             EtherealTermSymbol(
                                 Id {
-                                    value: 3,
+                                    value: 4,
                                 },
                             ),
                         ),
@@ -175,7 +175,7 @@
                         Symbol(
                             EtherealTermSymbol(
                                 Id {
-                                    value: 1,
+                                    value: 2,
                                 },
                             ),
                         ),
@@ -196,7 +196,7 @@
                                 place: Const,
                                 path: TypePath(
                                     Id {
-                                        value: 68,
+                                        value: 70,
                                     },
                                 ),
                                 refined_path: Right(
@@ -208,7 +208,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 68,
+                                                    value: 70,
                                                 },
                                             ),
                                         ),
@@ -272,7 +272,7 @@
                         Symbol(
                             EtherealTermSymbol(
                                 Id {
-                                    value: 1,
+                                    value: 2,
                                 },
                             ),
                         ),
