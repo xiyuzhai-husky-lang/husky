@@ -233,7 +233,7 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             | OriginalAstError::VisibilityExprError(
                 OriginalVisibilityExprError::ExpectedRightParenthesis(token_stream_state)
                 | OriginalVisibilityExprError::ExpectedCrateOrSuper(token_stream_state),
-            ) => todo!(),
+            ) => ctx.token_stream_state_text_range(*token_stream_state),
             OriginalAstError::UnexpectedTokenForTraitItem(token_idx)
             | OriginalAstError::UnexpectedPunctuationForTraitItem(token_idx, _)
             | OriginalAstError::UnexpectedTokenForTypeImplItem(token_idx)
@@ -246,7 +246,7 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             | OriginalAstError::UnexpectedPunctuationForDisconnectedModuleItem(token_idx, _)
             | OriginalAstError::VisibilityExprError(OriginalVisibilityExprError::NoSuperForRoot(
                 token_idx,
-            )) => ctx.token_text_range(*token_idx),
+            )) => ctx.token_idx_text_range(*token_idx),
         }
     }
 }

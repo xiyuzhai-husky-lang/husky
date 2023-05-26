@@ -119,8 +119,7 @@ impl Diagnose for OriginalDeclExprError {
             | OriginalDeclExprError::ExpectRightParenthesisInParameterList(token_stream_state)
             | OriginalDeclExprError::ExpectVariableType(token_stream_state)
             | OriginalDeclExprError::ExpectEqTokenForVariable(token_stream_state) => {
-                todo!()
-                // ctx.token_text_range(*token_idx)
+                ctx.token_stream_state_text_range(*token_stream_state)
             }
         }
     }

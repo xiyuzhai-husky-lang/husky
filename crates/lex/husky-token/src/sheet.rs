@@ -537,12 +537,22 @@ impl RangedTokenSheet {
         }
     }
 
-    pub fn token_text_range(&self, token_idx: TokenIdx) -> TextRange {
-        if token_idx.0 < self.token_ranges.len() {
-            self.token_ranges[token_idx.0]
-        } else {
-            // eof
-            self.token_ranges.last().copied().unwrap_or_default()
+    pub fn token_idx_text_range(&self, token_idx: TokenIdx) -> TextRange {
+        debug_assert!(token_idx.0 < self.token_ranges.len());
+        self.token_ranges[token_idx.0]
+    }
+
+    pub fn token_idx_range_text_range(&self, token_idx_range: TokenIdxRange) -> TextRange {
+        debug_assert!(token_idx_range.end.token_idx() > token_idx_range.start.token_idx());
+        let text_range_start = self.token_ranges[token_idx_range.start.0 .0].start;
+        let text_range_end = self.token_ranges[token_idx_range.end.0 .0 - 1].end;
+        (text_range_start..text_range_end).into()
+    }
+
+    pub fn token_stream_state_text_range(&self, token_stream_state: TokenStreamState) -> TextRange {
+        match token_stream_state.drained() {
+            true => todo!(),
+            false => self.token_ranges[token_stream_state.next_token_idx().0],
         }
     }
 }

@@ -61,11 +61,11 @@ impl Diagnose for OriginalEntityTreeError {
         match self {
             OriginalEntityTreeError::UnresolvedIdent(ident_token)
             | OriginalEntityTreeError::SymbolExistsButNotAccessible(ident_token) => {
-                ctx.token_text_range(ident_token.token_idx())
+                ctx.token_idx_text_range(ident_token.token_idx())
             }
             OriginalEntityTreeError::NoSubentity => todo!(),
             OriginalEntityTreeError::EntitySymbolAlreadyDefined { old, new } => {
-                ctx.token_text_range(new.ident_token(ctx.db()).token_idx())
+                ctx.token_idx_text_range(new.ident_token(ctx.db()).token_idx())
             }
             OriginalEntityTreeError::ExpectIdentAfterKeyword => todo!(),
             OriginalEntityTreeError::InvalidTypePath(_) => todo!(),
@@ -110,7 +110,7 @@ impl Diagnose for IllFormedImplBlock {
             ImplBlockIllForm::MajorPath(e) => match e {
                 MajorPathExprError::Original(e) => match e {
                     OriginalMajorPathExprError::UnrecognizedIdent(ident_token) => {
-                        ctx.token_text_range(ident_token.token_idx())
+                        ctx.token_idx_text_range(ident_token.token_idx())
                     }
                     OriginalMajorPathExprError::ExpectIdent(_) => todo!(),
                 },

@@ -176,6 +176,9 @@ impl<'a> parsec::HasStreamState for TokenStream<'a> {
     }
 }
 
+/// this contains extra information than `TokenIdx`
+/// - when `drained` is `true`, it indicates a position right before `next_token_idx` and is the end of a token stream (of some token group)
+/// - when `drained` is `false`, it indicates the position of the token of index `next_token_idx`
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct TokenStreamState {
     next_token_idx: TokenIdx,
@@ -185,5 +188,9 @@ pub struct TokenStreamState {
 impl TokenStreamState {
     pub fn next_token_idx(&self) -> TokenIdx {
         self.next_token_idx
+    }
+
+    pub fn drained(&self) -> bool {
+        self.drained
     }
 }
