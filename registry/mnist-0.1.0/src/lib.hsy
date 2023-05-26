@@ -10,4 +10,4 @@ pub enum MnistLabel
 | Eight
 | Nine
 
-struct BinaryImage
+struct BinaryImage28([30]r32)

@@ -79,18 +79,18 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Type(
-                            TypePath(`mnist::BinaryImage`, `Struct`),
+                            TypePath(`mnist::BinaryImage28`, `Struct`),
                         ),
                     ),
                 ),
                 Err(
                     DeclError::Original(
-                        OriginalDeclError::ExpectLCurlOrLParOrSemicolon(
+                        OriginalDeclError::ExpectedLCurlOrLParOrSemicolon(
                             TokenStreamState {
                                 next_token_idx: TokenIdx(
                                     25,
                                 ),
-                                drained: true,
+                                drained: false,
                             },
                         ),
                     ),

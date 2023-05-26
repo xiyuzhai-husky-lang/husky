@@ -23,21 +23,21 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: `BinaryImage`,
+                    ident: `BinaryImage28`,
                     visibility: Scope::PubUnder(
                         `mnist`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
-                                TypePath(`mnist::BinaryImage`, `Struct`),
+                                TypePath(`mnist::BinaryImage28`, `Struct`),
                             ),
                             visibility: Scope::PubUnder(
                                 `mnist`,
                             ),
                             ast_idx: 11,
                             ident_token: IdentToken {
-                                ident: `BinaryImage`,
+                                ident: `BinaryImage28`,
                                 token_idx: TokenIdx(
                                     24,
                                 ),

@@ -331,7 +331,7 @@ Ok(
                         connection: Connected,
                     },
                     ident_token: IdentToken {
-                        ident: `BinaryImage`,
+                        ident: `BinaryImage28`,
                         token_idx: TokenIdx(
                             24,
                         ),
@@ -341,7 +341,7 @@ Ok(
                         next_token_idx: TokenIdx(
                             25,
                         ),
-                        drained: true,
+                        drained: false,
                     },
                     block: Type {
                         path: TypePath(

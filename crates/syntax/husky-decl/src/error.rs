@@ -50,7 +50,7 @@ impl From<TokenError> for DeclError {
 #[salsa::derive_debug_with_db(db = DeclDb)]
 pub enum OriginalDeclError {
     #[error("expect `{{` or `(` or `;`")]
-    ExpectLCurlOrLParOrSemicolon(TokenStreamState),
+    ExpectedLCurlOrLParOrSemicolon(TokenStreamState),
     #[error("NoSuchItem")]
     NoSuchItem,
     #[error("{0}")]
