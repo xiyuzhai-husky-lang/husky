@@ -91,7 +91,7 @@ impl<'a> ExprTypeEngine<'a> {
         expr_ty_expectation: &impl ExpectFluffyTerm,
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         match self.expr_region_data[expr_idx] {
-            Expr::Literal(literal_token_idx) => Ok((
+            Expr::Literal(literal_token_idx, _) => Ok((
                 ExprDisambiguation::Trivial,
                 self.calc_literal_expr_ty(expr_idx, literal_token_idx, expr_ty_expectation),
             )),

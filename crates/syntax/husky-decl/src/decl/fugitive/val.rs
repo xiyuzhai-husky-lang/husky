@@ -31,7 +31,7 @@ impl<'a> DeclParseContext<'a> {
         let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
         let colon_token = ctx.parse()?;
         let form_ty = if colon_token.is_some() {
-            Some(ctx.parse_expected(OriginalDeclExprError::ExpectVariableType)?)
+            Some(ctx.parse_expected(OriginalDeclExprError::ExpectedVariableType)?)
         } else {
             None
         };

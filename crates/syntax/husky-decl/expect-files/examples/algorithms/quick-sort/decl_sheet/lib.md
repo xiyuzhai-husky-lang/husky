@@ -1248,7 +1248,7 @@ Ok(
                 Err(
                     DeclError::Original(
                         OriginalDeclError::Expr(
-                            OriginalDeclExprError::ExpectParameterDeclList(
+                            OriginalDeclExprError::ExpectedParameterDeclList(
                                 TokenStreamState {
                                     next_token_idx: TokenIdx(
                                         228,
@@ -1271,7 +1271,7 @@ Ok(
                 Err(
                     DeclError::Original(
                         OriginalDeclError::Expr(
-                            OriginalDeclExprError::ExpectParameterDeclList(
+                            OriginalDeclExprError::ExpectedParameterDeclList(
                                 TokenStreamState {
                                     next_token_idx: TokenIdx(
                                         288,

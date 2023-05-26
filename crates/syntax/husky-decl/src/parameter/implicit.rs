@@ -77,7 +77,7 @@ impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for ImplicitParameterDecl
         let (decls, commas, decl_list_result) = parse_separated_list_expected(
             ctx,
             1,
-            OriginalDeclExprError::ExpectImplicitParameterDecl,
+            OriginalDeclExprError::ExpectedImplicitParameterDecl,
         );
         Ok(Some(Self {
             langle,
@@ -85,7 +85,7 @@ impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for ImplicitParameterDecl
             commas,
             decl_list_result,
             rangle: ctx.parse_expected(|token_stream_state| {
-                OriginalDeclExprError::ExpectRightAngleBracketForImplicitParameterDeclList {
+                OriginalDeclExprError::ExpectedRightAngleBracketForImplicitParameterDeclList {
                     langle_token_idx: langle.token_idx(),
                     token_stream_state,
                 }

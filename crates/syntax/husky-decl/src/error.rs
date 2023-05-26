@@ -122,26 +122,28 @@ pub enum OriginalDeclExprError {
     #[error("derived {0}")]
     Expr(#[from] OriginalExprError),
     #[error("expect output type")]
-    ExpectOutputType(TokenStreamState),
+    ExpectedOutputType(TokenStreamState),
     #[error("expect `->`")]
-    ExpectCurry(TokenStreamState),
+    ExpectedCurry(TokenStreamState),
     #[error("expect `:` at end of line")]
     ExpectedEolColon(TokenStreamState),
     #[error("expect `}}`")]
-    ExpectRightCurlyBrace(TokenStreamState),
+    ExpectedRightCurlyBrace(TokenStreamState),
     #[error("expect `>` for implicit parameters")]
-    ExpectRightAngleBracketForImplicitParameterDeclList {
+    ExpectedRightAngleBracketForImplicitParameterDeclList {
         langle_token_idx: TokenIdx,
         token_stream_state: TokenStreamState,
     },
     #[error("expect parameter declaration list")]
-    ExpectParameterDeclList(TokenStreamState),
+    ExpectedParameterDeclList(TokenStreamState),
     #[error("expect implicit parameter declaration")]
-    ExpectImplicitParameterDecl(TokenStreamState),
+    ExpectedImplicitParameterDecl(TokenStreamState),
     #[error("expect `)` in parameter list")]
-    ExpectRightParenthesisInParameterList(TokenStreamState),
+    ExpectedRightParenthesisInParameterList(TokenStreamState),
+    #[error("expect `)` in parameter list")]
+    ExpectedRightParenthesisInTupleStructFieldTypeList(TokenStreamState),
     #[error("ExpectVariableType")]
-    ExpectVariableType(TokenStreamState),
+    ExpectedVariableType(TokenStreamState),
     #[error("ExpectEqTokenForVariable")]
     ExpectEqTokenForVariable(TokenStreamState),
 }

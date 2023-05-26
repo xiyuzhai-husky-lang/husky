@@ -20,6 +20,7 @@ pub use self::unit_struct::*;
 
 use super::*;
 use husky_entity_taxonomy::{EntityKind, TypeKind};
+use parsec::parse_separated_list2;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
@@ -173,6 +174,58 @@ impl<'a> DeclParseContext<'a> {
                 debug_assert!(variants.is_none());
                 self.parse_extern_ty_decl(ast_idx, path, token_group_idx, saved_stream_state)
             }
+        }
+    }
+}
+
+impl<'a> DeclParseContext<'a> {
+    pub(super) fn parse_struct_ty_decl(
+        &self,
+        ast_idx: AstIdx,
+        path: TypePath,
+        token_group_idx: TokenGroupIdx,
+        saved_stream_state: TokenStreamState,
+    ) -> DeclResult<TypeDecl> {
+        let mut parser = self.expr_parser(
+            DeclRegionPath::Entity(path.into()),
+            None,
+            AllowSelfType::True,
+            AllowSelfValue::True,
+        );
+        let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
+        let implicit_parameters = ctx.parse()?;
+        if let Some(lcurl) = ctx.parse::<LeftCurlyBraceToken>()? {
+            let (parameters, commas) = parse_separated_list2(&mut ctx, |e| e)?;
+            let rcurl = ctx.parse_expected(OriginalDeclExprError::ExpectedRightCurlyBrace)?;
+            Ok(RegularStructTypeDecl::new(
+                self.db(),
+                path,
+                ast_idx,
+                parser.finish(),
+                implicit_parameters,
+                lcurl,
+                (parameters, commas),
+                rcurl,
+            )
+            .into())
+        } else if let Some(lpar) = ctx.parse::<LeftParenthesisToken>()? {
+            let (parameters, commas) = parse_separated_list2(&mut ctx, |e| e)?;
+            let rpar = ctx.parse_expected(
+                OriginalDeclExprError::ExpectedRightParenthesisInTupleStructFieldTypeList,
+            )?;
+            Ok(TupleStructTypeDecl::new(
+                self.db(),
+                path,
+                ast_idx,
+                parser.finish(),
+                implicit_parameters,
+                lpar,
+                (parameters, commas),
+                rpar,
+            )
+            .into())
+        } else {
+            Err(OriginalDeclError::ExpectedLCurlOrLParOrSemicolon(ctx.save_state()).into())
         }
     }
 }
