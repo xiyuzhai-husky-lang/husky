@@ -28,9 +28,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        14,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            14,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: None,
                     },
@@ -61,9 +64,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        17,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            17,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: None,
                     },
@@ -98,9 +104,12 @@ Ok(
                         ),
                     },
                     is_generic: true,
-                    saved_stream_state: TokenIdx(
-                        8,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            8,
+                        ),
+                        drained: false,
+                    },
                     block: Trait {
                         path: TraitPath(
                             Id {

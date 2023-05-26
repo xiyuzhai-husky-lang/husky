@@ -12,7 +12,7 @@ use crate::*;
 use husky_print_utils::p;
 use husky_token::*;
 use husky_word::IdentPairMap;
-use parsec::StreamParser;
+use parsec::{HasStreamState, StreamParser};
 use thiserror::Error;
 use vec_like::VecPairMap;
 
@@ -227,7 +227,7 @@ fn ignore_util_for_is_eaten<'a>(token_stream: &mut TokenStream<'a>) -> ImplResul
     while let Some(token) = token_stream.next() {
         match token {
             Token::Keyword(Keyword::Connection(ConnectionKeyword::For)) => {
-                return Ok(token_stream.state() - 1)
+                return Ok(token_stream.save_state().next_token_idx() - 1)
             }
             Token::Error(e) => return Err(e.clone().into()),
             _ => continue,

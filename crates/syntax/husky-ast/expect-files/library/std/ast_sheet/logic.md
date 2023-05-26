@@ -17,9 +17,12 @@ Ok(
                         },
                     },
                     state_after_visibility_expr: Some(
-                        TokenIdx(
-                            1,
-                        ),
+                        TokenStreamState {
+                            next_token_idx: TokenIdx(
+                                1,
+                            ),
+                            drained: false,
+                        },
                     ),
                 },
             ],

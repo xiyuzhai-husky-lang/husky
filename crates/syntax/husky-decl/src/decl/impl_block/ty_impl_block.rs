@@ -69,7 +69,7 @@ impl<'a> DeclParseContext<'a> {
         let impl_token = ctx.parse().unwrap().unwrap();
         let implicit_parameter_decl_list = ctx.parse()?;
         let ty = ctx.parse().unwrap().unwrap();
-        let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectEolColon)?;
+        let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectedEolColon)?;
         Ok(TypeImplBlockDecl::new(
             self.db(),
             ast_idx,

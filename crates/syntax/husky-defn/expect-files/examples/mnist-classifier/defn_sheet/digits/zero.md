@@ -1407,11 +1407,17 @@ Ok(
                                                 },
                                                 Expr::Err(
                                                     ExprError::Original(
-                                                        OriginalExprError::UnrecognizedIdent {
+                                                        UnrecognizedIdent {
                                                             token_idx: TokenIdx(
                                                                 131,
                                                             ),
-                                                            ident: `narrow_down`,
+                                                            ident: Ident(
+                                                                Word(
+                                                                    Id {
+                                                                        value: 424,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
                                                     ),
                                                 ),

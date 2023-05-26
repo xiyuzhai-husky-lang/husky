@@ -21,9 +21,12 @@ Ok(
                             3,
                         ),
                     },
-                    state_after: TokenIdx(
-                        4,
-                    ),
+                    state_after: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            4,
+                        ),
+                        drained: true,
+                    },
                 },
                 Ast::TypeVariant {
                     token_group_idx: TokenGroupIdx(
@@ -44,9 +47,12 @@ Ok(
                             5,
                         ),
                     },
-                    state_after: TokenIdx(
-                        6,
-                    ),
+                    state_after: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            6,
+                        ),
+                        drained: false,
+                    },
                 },
                 Ast::Err {
                     token_group_idx: TokenGroupIdx(
@@ -99,9 +105,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        2,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            2,
+                        ),
+                        drained: true,
+                    },
                     block: Type {
                         path: TypePath(
                             Id {
@@ -135,9 +144,12 @@ Ok(
                     ),
                     error: AstError::Original(
                         OriginalAstError::ExpectedIdent(
-                            TokenIdx(
-                                46,
-                            ),
+                            TokenStreamState {
+                                next_token_idx: TokenIdx(
+                                    46,
+                                ),
+                                drained: false,
+                            },
                         ),
                     ),
                 },
@@ -176,9 +188,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        86,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            86,
+                        ),
+                        drained: false,
+                    },
                     block: Type {
                         path: TypePath(
                             Id {
@@ -215,9 +230,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        115,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            115,
+                        ),
+                        drained: false,
+                    },
                     block: Type {
                         path: TypePath(
                             Id {

@@ -322,78 +322,7 @@ impl<'a> ExprRangeCalculator<'a> {
                 ..
             } => TokenIdxRange::new_closed(*empty_html_bra_idx, empty_html_ket.token_idx()),
             Expr::Err(error) => match error {
-                ExprError::Original(error) => match error {
-                    OriginalExprError::MismatchingBracket {
-                        ket_token_idx: token_idx,
-                        ..
-                    }
-                    | OriginalExprError::ExpectRightAngleBracket {
-                        langle_token_idx: token_idx,
-                    }
-                    | OriginalExprError::ExpectRightCurlyBrace(token_idx)
-                    | OriginalExprError::ExpectIdent(token_idx)
-                    | OriginalExprError::ExpectColon(token_idx)
-                    | OriginalExprError::ExpectRightParenthesis(token_idx)
-                    | OriginalExprError::NoMatchingBra {
-                        ket_token_idx: token_idx,
-                        ..
-                    }
-                    | OriginalExprError::ExpectIdentAfterDot(token_idx)
-                    | OriginalExprError::NoLeftOperandForBinaryOperator {
-                        binary_token_idx: token_idx,
-                    }
-                    | OriginalExprError::NoRightOperandForBinaryOperator {
-                        punctuation_token_idx: token_idx,
-                        ..
-                    }
-                    | OriginalExprError::NoOperandForPrefixOperator {
-                        prefix_token_idx: token_idx,
-                        ..
-                    }
-                    | OriginalExprError::ExpectItemBeforeComma {
-                        comma_token_idx: token_idx,
-                    }
-                    | OriginalExprError::ExpectItemBeforeBe {
-                        be_token_idx: token_idx,
-                    }
-                    | OriginalExprError::ExpectedLetVariablesPattern(token_idx)
-                    | OriginalExprError::ExpectedBeVariablesPattern(token_idx)
-                    | OriginalExprError::ExpectedLetVariablesType(token_idx)
-                    | OriginalExprError::ExpectedAssign(token_idx)
-                    | OriginalExprError::ExpectedInitialValue(token_idx)
-                    | OriginalExprError::UnexpectedKeyword(token_idx)
-                    | OriginalExprError::ExpectedResult(token_idx)
-                    | OriginalExprError::ExpectedCondition(token_idx)
-                    | OriginalExprError::ExpectedForExpr(token_idx)
-                    | OriginalExprError::ExpectedBePattern(token_idx)
-                    | OriginalExprError::ExpectedParameterPattern(token_idx)
-                    | OriginalExprError::UnterminatedList {
-                        bra_token_idx: token_idx,
-                    }
-                    | OriginalExprError::ExpectedEolColon(token_idx)
-                    | OriginalExprError::ExpectedIdentAfterModifier(token_idx)
-                    | OriginalExprError::UnexpectedSheba(token_idx)
-                    | OriginalExprError::UnrecognizedIdent { token_idx, .. }
-                    | OriginalExprError::UnresolvedSubentity { token_idx, .. }
-                    | OriginalExprError::ExpectedFieldType(token_idx)
-                    | OriginalExprError::ExpectedParameterType(token_idx)
-                    | OriginalExprError::SelfTypeNotAllowed(token_idx)
-                    | OriginalExprError::SelfValueNotAllowed(token_idx)
-                    | OriginalExprError::ExpectedIdentAfterDot {
-                        dot_token_idx: token_idx,
-                        ..
-                    }
-                    | OriginalExprError::ExpectedExprBeforeDot {
-                        dot_token_idx: token_idx,
-                    }
-                    | OriginalExprError::HtmlTodo(token_idx)
-                    | OriginalExprError::ExpectedValueForFieldBindInitialization(token_idx)
-                    | OriginalExprError::ExpectedFunctionIdentAfterOpeningHtmlBra(token_idx)
-                    | OriginalExprError::UnexpectedLeftCurlyBrace(token_idx) => {
-                        TokenIdxRange::new_single(*token_idx)
-                    }
-                    OriginalExprError::ExpectBlock(_) => todo!(),
-                },
+                ExprError::Original(error) => error.token_idx_range(),
                 ExprError::Derived(_) => todo!(),
             },
         }

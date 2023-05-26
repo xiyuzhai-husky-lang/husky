@@ -74,9 +74,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        10,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            10,
+                        ),
+                        drained: false,
+                    },
                     block: Form {
                         path: FugitivePath(
                             Id {

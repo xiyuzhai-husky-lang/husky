@@ -706,11 +706,17 @@ Ok(
                                             data: [
                                                 Expr::Err(
                                                     ExprError::Original(
-                                                        OriginalExprError::UnrecognizedIdent {
+                                                        UnrecognizedIdent {
                                                             token_idx: TokenIdx(
                                                                 75,
                                                             ),
-                                                            ident: `BinaryImage28`,
+                                                            ident: Ident(
+                                                                Word(
+                                                                    Id {
+                                                                        value: 207,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
                                                     ),
                                                 ),
@@ -1122,11 +1128,17 @@ Ok(
                                             data: [
                                                 Expr::Err(
                                                     ExprError::Original(
-                                                        OriginalExprError::UnrecognizedIdent {
+                                                        UnrecognizedIdent {
                                                             token_idx: TokenIdx(
                                                                 658,
                                                             ),
-                                                            ident: `BinaryImage28`,
+                                                            ident: Ident(
+                                                                Word(
+                                                                    Id {
+                                                                        value: 207,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
                                                     ),
                                                 ),

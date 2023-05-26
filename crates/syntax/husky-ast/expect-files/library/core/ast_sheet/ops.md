@@ -28,9 +28,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        16,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            16,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: None,
                     },
@@ -61,9 +64,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        19,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            19,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: None,
                     },
@@ -94,9 +100,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        45,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            45,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: None,
                     },
@@ -127,9 +136,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        48,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            48,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: None,
                     },
@@ -160,9 +172,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        74,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            74,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: None,
                     },
@@ -193,9 +208,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        77,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            77,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: None,
                     },
@@ -226,9 +244,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        103,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            103,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: None,
                     },
@@ -259,9 +280,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        128,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            128,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: None,
                     },
@@ -292,9 +316,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        131,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            131,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: None,
                     },
@@ -325,9 +352,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        157,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            157,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: None,
                     },
@@ -358,9 +388,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        182,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            182,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: None,
                     },
@@ -391,9 +424,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        185,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            185,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: None,
                     },
@@ -424,9 +460,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        211,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            211,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: None,
                     },
@@ -457,9 +496,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        236,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            236,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: None,
                     },
@@ -490,9 +532,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        239,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            239,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: None,
                     },
@@ -523,9 +568,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        265,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            265,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: None,
                     },
@@ -556,9 +604,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        290,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            290,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: None,
                     },
@@ -589,9 +640,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        293,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            293,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: None,
                     },
@@ -622,9 +676,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        319,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            319,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: None,
                     },
@@ -655,9 +712,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        341,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            341,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: None,
                     },
@@ -688,9 +748,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        344,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            344,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: None,
                     },
@@ -721,9 +784,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        365,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            365,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: None,
                     },
@@ -754,9 +820,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        368,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            368,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: None,
                     },
@@ -787,9 +856,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        392,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            392,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: None,
                     },
@@ -820,9 +892,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        395,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            395,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: None,
                     },
@@ -857,9 +932,12 @@ Ok(
                         ),
                     },
                     is_generic: true,
-                    saved_stream_state: TokenIdx(
-                        10,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            10,
+                        ),
+                        drained: false,
+                    },
                     block: Trait {
                         path: TraitPath(
                             Id {
@@ -905,9 +983,12 @@ Ok(
                         ),
                     },
                     is_generic: true,
-                    saved_stream_state: TokenIdx(
-                        39,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            39,
+                        ),
+                        drained: false,
+                    },
                     block: Trait {
                         path: TraitPath(
                             Id {
@@ -953,9 +1034,12 @@ Ok(
                         ),
                     },
                     is_generic: true,
-                    saved_stream_state: TokenIdx(
-                        68,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            68,
+                        ),
+                        drained: false,
+                    },
                     block: Trait {
                         path: TraitPath(
                             Id {
@@ -1001,9 +1085,12 @@ Ok(
                         ),
                     },
                     is_generic: true,
-                    saved_stream_state: TokenIdx(
-                        97,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            97,
+                        ),
+                        drained: false,
+                    },
                     block: Trait {
                         path: TraitPath(
                             Id {
@@ -1049,9 +1136,12 @@ Ok(
                         ),
                     },
                     is_generic: true,
-                    saved_stream_state: TokenIdx(
-                        122,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            122,
+                        ),
+                        drained: false,
+                    },
                     block: Trait {
                         path: TraitPath(
                             Id {
@@ -1097,9 +1187,12 @@ Ok(
                         ),
                     },
                     is_generic: true,
-                    saved_stream_state: TokenIdx(
-                        151,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            151,
+                        ),
+                        drained: false,
+                    },
                     block: Trait {
                         path: TraitPath(
                             Id {
@@ -1145,9 +1238,12 @@ Ok(
                         ),
                     },
                     is_generic: true,
-                    saved_stream_state: TokenIdx(
-                        176,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            176,
+                        ),
+                        drained: false,
+                    },
                     block: Trait {
                         path: TraitPath(
                             Id {
@@ -1193,9 +1289,12 @@ Ok(
                         ),
                     },
                     is_generic: true,
-                    saved_stream_state: TokenIdx(
-                        205,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            205,
+                        ),
+                        drained: false,
+                    },
                     block: Trait {
                         path: TraitPath(
                             Id {
@@ -1241,9 +1340,12 @@ Ok(
                         ),
                     },
                     is_generic: true,
-                    saved_stream_state: TokenIdx(
-                        230,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            230,
+                        ),
+                        drained: false,
+                    },
                     block: Trait {
                         path: TraitPath(
                             Id {
@@ -1289,9 +1391,12 @@ Ok(
                         ),
                     },
                     is_generic: true,
-                    saved_stream_state: TokenIdx(
-                        259,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            259,
+                        ),
+                        drained: false,
+                    },
                     block: Trait {
                         path: TraitPath(
                             Id {
@@ -1337,9 +1442,12 @@ Ok(
                         ),
                     },
                     is_generic: true,
-                    saved_stream_state: TokenIdx(
-                        284,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            284,
+                        ),
+                        drained: false,
+                    },
                     block: Trait {
                         path: TraitPath(
                             Id {
@@ -1385,9 +1493,12 @@ Ok(
                         ),
                     },
                     is_generic: true,
-                    saved_stream_state: TokenIdx(
-                        313,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            313,
+                        ),
+                        drained: false,
+                    },
                     block: Trait {
                         path: TraitPath(
                             Id {
@@ -1433,9 +1544,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        338,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            338,
+                        ),
+                        drained: false,
+                    },
                     block: Trait {
                         path: TraitPath(
                             Id {
@@ -1481,9 +1595,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        362,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            362,
+                        ),
+                        drained: false,
+                    },
                     block: Trait {
                         path: TraitPath(
                             Id {
@@ -1529,9 +1646,12 @@ Ok(
                         ),
                     },
                     is_generic: true,
-                    saved_stream_state: TokenIdx(
-                        386,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            386,
+                        ),
+                        drained: false,
+                    },
                     block: Trait {
                         path: TraitPath(
                             Id {

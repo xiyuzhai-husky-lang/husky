@@ -937,11 +937,17 @@ Ok(
                                                 },
                                                 Expr::Err(
                                                     ExprError::Original(
-                                                        OriginalExprError::UnrecognizedIdent {
+                                                        UnrecognizedIdent {
                                                             token_idx: TokenIdx(
                                                                 85,
                                                             ),
-                                                            ident: `narrow_down`,
+                                                            ident: Ident(
+                                                                Word(
+                                                                    Id {
+                                                                        value: 424,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
                                                     ),
                                                 ),
@@ -1315,11 +1321,17 @@ Ok(
                                                 },
                                                 Expr::Err(
                                                     ExprError::Original(
-                                                        OriginalExprError::UnrecognizedIdent {
+                                                        UnrecognizedIdent {
                                                             token_idx: TokenIdx(
                                                                 161,
                                                             ),
-                                                            ident: `narrow_down`,
+                                                            ident: Ident(
+                                                                Word(
+                                                                    Id {
+                                                                        value: 424,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
                                                     ),
                                                 ),
@@ -1466,11 +1478,17 @@ Ok(
                                                 },
                                                 Expr::Err(
                                                     ExprError::Original(
-                                                        OriginalExprError::UnrecognizedIdent {
+                                                        UnrecognizedIdent {
                                                             token_idx: TokenIdx(
                                                                 191,
                                                             ),
-                                                            ident: `narrow_down`,
+                                                            ident: Ident(
+                                                                Word(
+                                                                    Id {
+                                                                        value: 424,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
                                                     ),
                                                 ),
@@ -1658,11 +1676,17 @@ Ok(
                                                 },
                                                 Expr::Err(
                                                     ExprError::Original(
-                                                        OriginalExprError::UnrecognizedIdent {
+                                                        UnrecognizedIdent {
                                                             token_idx: TokenIdx(
                                                                 229,
                                                             ),
-                                                            ident: `narrow_down`,
+                                                            ident: Ident(
+                                                                Word(
+                                                                    Id {
+                                                                        value: 424,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
                                                     ),
                                                 ),

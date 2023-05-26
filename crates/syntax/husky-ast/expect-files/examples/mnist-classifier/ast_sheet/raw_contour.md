@@ -34,9 +34,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        45,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            45,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: Some(
                             FormBody {
@@ -247,9 +250,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        65,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            65,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: Some(
                             FormBody {
@@ -286,9 +292,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        78,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            78,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: Some(
                             FormBody {
@@ -325,9 +334,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        198,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            198,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: Some(
                             FormBody {
@@ -364,9 +376,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        220,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            220,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: Some(
                             FormBody {
@@ -403,9 +418,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        350,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            350,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: Some(
                             FormBody {
@@ -435,9 +453,12 @@ Ok(
                             403,
                         ),
                     },
-                    state_after: TokenIdx(
-                        404,
-                    ),
+                    state_after: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            404,
+                        ),
+                        drained: true,
+                    },
                 },
                 Ast::TypeVariant {
                     token_group_idx: TokenGroupIdx(
@@ -458,9 +479,12 @@ Ok(
                             405,
                         ),
                     },
-                    state_after: TokenIdx(
-                        406,
-                    ),
+                    state_after: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            406,
+                        ),
+                        drained: true,
+                    },
                 },
                 Ast::TypeVariant {
                     token_group_idx: TokenGroupIdx(
@@ -481,9 +505,12 @@ Ok(
                             407,
                         ),
                     },
-                    state_after: TokenIdx(
-                        408,
-                    ),
+                    state_after: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            408,
+                        ),
+                        drained: true,
+                    },
                 },
                 Ast::TypeVariant {
                     token_group_idx: TokenGroupIdx(
@@ -504,9 +531,12 @@ Ok(
                             409,
                         ),
                     },
-                    state_after: TokenIdx(
-                        410,
-                    ),
+                    state_after: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            410,
+                        ),
+                        drained: true,
+                    },
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
@@ -1742,9 +1772,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        25,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            25,
+                        ),
+                        drained: false,
+                    },
                     block: Type {
                         path: TypePath(
                             Id {
@@ -1805,9 +1838,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        402,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            402,
+                        ),
+                        drained: true,
+                    },
                     block: Type {
                         path: TypePath(
                             Id {
@@ -1850,9 +1886,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        412,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            412,
+                        ),
+                        drained: false,
+                    },
                     block: Form {
                         path: FugitivePath(
                             Id {
@@ -1895,9 +1934,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        437,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            437,
+                        ),
+                        drained: false,
+                    },
                     block: Form {
                         path: FugitivePath(
                             Id {
@@ -1940,9 +1982,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        458,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            458,
+                        ),
+                        drained: false,
+                    },
                     block: Form {
                         path: FugitivePath(
                             Id {
@@ -1985,9 +2030,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        483,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            483,
+                        ),
+                        drained: false,
+                    },
                     block: Form {
                         path: FugitivePath(
                             Id {
@@ -2030,9 +2078,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        629,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            629,
+                        ),
+                        drained: false,
+                    },
                     block: Form {
                         path: FugitivePath(
                             Id {
@@ -2075,9 +2126,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        693,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            693,
+                        ),
+                        drained: false,
+                    },
                     block: Form {
                         path: FugitivePath(
                             Id {
@@ -2120,9 +2174,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        920,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            920,
+                        ),
+                        drained: false,
+                    },
                     block: Type {
                         path: TypePath(
                             Id {
@@ -2159,9 +2216,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        932,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            932,
+                        ),
+                        drained: false,
+                    },
                     block: Form {
                         path: FugitivePath(
                             Id {
@@ -2204,9 +2264,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        998,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            998,
+                        ),
+                        drained: false,
+                    },
                     block: Form {
                         path: FugitivePath(
                             Id {

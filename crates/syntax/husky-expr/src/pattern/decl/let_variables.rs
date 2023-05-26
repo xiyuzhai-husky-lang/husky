@@ -1,3 +1,5 @@
+use parsec::HasStreamState;
+
 use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -14,14 +16,14 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         &mut self,
         access_end: TokenIdxRangeEnd,
     ) -> ExprResult<LetVariablesPattern> {
-        let state = self.state();
+        let state = self.save_state();
         let Some(pattern) = self.parse_pattern_expr(
             PatternExprInfo::Let
         )? else {
             Err(OriginalExprError::ExpectedLetVariablesPattern(state))?
         };
         let symbols = self.pattern_expr_region().pattern_expr_symbols(pattern);
-        let access_start = self.state();
+        let access_start = self.save_state().next_token_idx();
         let symbols = symbols
             .iter()
             .map(|(ident, pattern_symbol)| {

@@ -9,12 +9,12 @@ impl<'a> AstParser<'a> {
         &mut self,
         token_group_idx: TokenGroupIdx,
         visibility_expr: VisibilityExpr,
-        saved_stream_state: Option<TokenIdx>,
+        state_after_visibility_expr: Option<TokenStreamState>,
     ) -> Ast {
         Ast::Use {
             token_group_idx,
             visibility_expr,
-            state_after_visibility_expr: saved_stream_state,
+            state_after_visibility_expr,
         }
     }
 }

@@ -24,9 +24,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        3,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            3,
+                        ),
+                        drained: true,
+                    },
                     block: Submodule {
                         path: ModulePath(
                             Id {
@@ -57,9 +60,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        6,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            6,
+                        ),
+                        drained: true,
+                    },
                     block: Submodule {
                         path: ModulePath(
                             Id {
@@ -90,9 +96,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        9,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            9,
+                        ),
+                        drained: true,
+                    },
                     block: Submodule {
                         path: ModulePath(
                             Id {
@@ -123,9 +132,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        12,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            12,
+                        ),
+                        drained: true,
+                    },
                     block: Submodule {
                         path: ModulePath(
                             Id {
@@ -156,9 +168,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        15,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            15,
+                        ),
+                        drained: true,
+                    },
                     block: Submodule {
                         path: ModulePath(
                             Id {
@@ -189,9 +204,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        18,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            18,
+                        ),
+                        drained: true,
+                    },
                     block: Submodule {
                         path: ModulePath(
                             Id {
@@ -222,9 +240,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        21,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            21,
+                        ),
+                        drained: true,
+                    },
                     block: Submodule {
                         path: ModulePath(
                             Id {
@@ -255,9 +276,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        24,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            24,
+                        ),
+                        drained: true,
+                    },
                     block: Submodule {
                         path: ModulePath(
                             Id {
@@ -288,9 +312,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        27,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            27,
+                        ),
+                        drained: true,
+                    },
                     block: Submodule {
                         path: ModulePath(
                             Id {
@@ -321,9 +348,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        30,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            30,
+                        ),
+                        drained: true,
+                    },
                     block: Submodule {
                         path: ModulePath(
                             Id {
@@ -354,9 +384,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        33,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            33,
+                        ),
+                        drained: true,
+                    },
                     block: Submodule {
                         path: ModulePath(
                             Id {
@@ -387,9 +420,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        36,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            36,
+                        ),
+                        drained: true,
+                    },
                     block: Submodule {
                         path: ModulePath(
                             Id {
@@ -420,9 +456,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        39,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            39,
+                        ),
+                        drained: true,
+                    },
                     block: Submodule {
                         path: ModulePath(
                             Id {
@@ -453,9 +492,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        42,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            42,
+                        ),
+                        drained: true,
+                    },
                     block: Submodule {
                         path: ModulePath(
                             Id {
@@ -486,9 +528,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        45,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            45,
+                        ),
+                        drained: true,
+                    },
                     block: Submodule {
                         path: ModulePath(
                             Id {
@@ -519,9 +564,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        48,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            48,
+                        ),
+                        drained: true,
+                    },
                     block: Submodule {
                         path: ModulePath(
                             Id {

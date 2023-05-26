@@ -167,15 +167,15 @@ pub enum UseExprError {
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub enum OriginalUseExprError {
     #[error("expect identifier")]
-    ExpectIdent(TokenIdx),
+    ExpectIdent(TokenStreamState),
     #[error("expect use expr")]
-    ExpectUseExpr(TokenIdx),
+    ExpectUseExpr(TokenStreamState),
     #[error("expect `::`")]
-    ExpectScopeResolution(TokenIdx),
+    ExpectScopeResolution(TokenStreamState),
     #[error("expect `}}`")]
-    ExpectRightCurlyBrace(TokenIdx),
+    ExpectRightCurlyBrace(TokenStreamState),
     #[error("expect `use` token")]
-    ExpectUseToken(TokenIdx),
+    ExpectUseToken(TokenStreamState),
     #[error("invalid `*` as use root")]
     InvalidAllAsRoot {
         use_token: UseToken,

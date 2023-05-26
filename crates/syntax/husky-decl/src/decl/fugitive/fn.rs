@@ -34,7 +34,7 @@ impl<'a> DeclParseContext<'a> {
         &self,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
-        saved_stream_state: TokenIdx,
+        saved_stream_state: TokenStreamState,
         path: FugitivePath,
     ) -> Result<FugitiveDecl, DeclError> {
         let mut parser = self.expr_parser(
@@ -54,7 +54,7 @@ impl<'a> DeclParseContext<'a> {
         } else {
             None
         };
-        let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectEolColon)?;
+        let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectedEolColon)?;
         Ok(FnDecl::new(
             self.db(),
             path,

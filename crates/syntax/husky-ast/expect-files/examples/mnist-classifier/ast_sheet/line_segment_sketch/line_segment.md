@@ -136,9 +136,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        24,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            24,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: Some(
                             FormBody {
@@ -175,9 +178,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        41,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            41,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: Some(
                             FormBody {
@@ -231,9 +237,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        9,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            9,
+                        ),
+                        drained: false,
+                    },
                     block: Type {
                         path: TypePath(
                             Id {

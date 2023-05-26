@@ -7004,11 +7004,17 @@ Ok(
                                                 },
                                                 Expr::Err(
                                                     ExprError::Original(
-                                                        OriginalExprError::UnrecognizedIdent {
+                                                        UnrecognizedIdent {
                                                             token_idx: TokenIdx(
                                                                 1022,
                                                             ),
-                                                            ident: `BinaryGrid28`,
+                                                            ident: Ident(
+                                                                Word(
+                                                                    Id {
+                                                                        value: 298,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
                                                     ),
                                                 ),

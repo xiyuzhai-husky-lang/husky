@@ -207,9 +207,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        6,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            6,
+                        ),
+                        drained: false,
+                    },
                     block: Form {
                         path: FugitivePath(
                             Id {
@@ -275,9 +278,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        27,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            27,
+                        ),
+                        drained: false,
+                    },
                     block: Form {
                         path: FugitivePath(
                             Id {
@@ -320,9 +326,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        157,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            157,
+                        ),
+                        drained: false,
+                    },
                     block: Form {
                         path: FugitivePath(
                             Id {
@@ -365,9 +374,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        191,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            191,
+                        ),
+                        drained: false,
+                    },
                     block: Form {
                         path: FugitivePath(
                             Id {
@@ -410,9 +422,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        225,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            225,
+                        ),
+                        drained: false,
+                    },
                     block: Form {
                         path: FugitivePath(
                             Id {

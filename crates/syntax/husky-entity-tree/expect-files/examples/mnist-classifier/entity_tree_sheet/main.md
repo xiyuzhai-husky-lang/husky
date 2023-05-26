@@ -1460,7 +1460,7 @@ Ok(
                         `mnist_classifier`,
                     ),
                     progress: Ok(
-                        1,
+                        2,
                     ),
                 },
                 UseAllRule {

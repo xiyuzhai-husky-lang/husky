@@ -213,7 +213,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
 
     fn accept_list_item(&mut self, comma_token_idx: TokenIdx) {
         let item = self.take_finished_expr().unwrap_or(Expr::Err(
-            OriginalExprError::ExpectItemBeforeComma { comma_token_idx }.into(),
+            OriginalExprError::ExpectedItemBeforeComma { comma_token_idx }.into(),
         ));
         match self.last_unfinished_expr_mut() {
             Some(expr) => match expr {
@@ -236,7 +236,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
     fn accept_be_pattern(&mut self, be_token_idx: TokenIdx) {
         self.reduce(Precedence::Be);
         let src = self.take_finished_expr().unwrap_or(Expr::Err(
-            OriginalExprError::ExpectItemBeforeBe { be_token_idx }.into(),
+            OriginalExprError::ExpectedItemBeforeBe { be_token_idx }.into(),
         ));
         let src = self.alloc_expr(src);
         let end = match self.env() {

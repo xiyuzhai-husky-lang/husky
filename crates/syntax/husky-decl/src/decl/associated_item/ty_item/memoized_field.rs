@@ -21,7 +21,7 @@ impl<'a> DeclParseContext<'a> {
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
         associated_item: AssociatedItem,
-        saved_stream_state: TokenIdx,
+        saved_stream_state: TokenStreamState,
     ) -> DeclResult<TypeMemoizedFieldDecl> {
         let Ok(impl_decl) = associated_item.impl_block(self.db()).decl(
             self.db()

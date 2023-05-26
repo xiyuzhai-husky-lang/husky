@@ -58,9 +58,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        19,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            19,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: Some(
                             FormBody {
@@ -97,9 +100,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        51,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            51,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: Some(
                             FormBody {
@@ -136,9 +142,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        68,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            68,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: Some(
                             FormBody {
@@ -175,9 +184,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        96,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            96,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: Some(
                             FormBody {
@@ -214,9 +226,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        124,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            124,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: Some(
                             FormBody {
@@ -499,9 +514,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        174,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            174,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: Some(
                             FormBody {
@@ -538,9 +556,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        192,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            192,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: Some(
                             FormBody {
@@ -577,9 +598,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        220,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            220,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: Some(
                             FormBody {
@@ -616,9 +640,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        248,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            248,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: Some(
                             FormBody {
@@ -655,9 +682,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        273,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            273,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: Some(
                             FormBody {
@@ -694,9 +724,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        298,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            298,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: Some(
                             FormBody {
@@ -733,9 +766,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        367,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            367,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: Some(
                             FormBody {
@@ -772,9 +808,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        387,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            387,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: Some(
                             FormBody {
@@ -853,9 +892,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        504,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            504,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: Some(
                             FormBody {
@@ -892,9 +934,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        567,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            567,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: Some(
                             FormBody {
@@ -967,9 +1012,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        614,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            614,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: Some(
                             FormBody {
@@ -1006,9 +1054,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        649,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            649,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: Some(
                             FormBody {
@@ -1045,9 +1096,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        684,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            684,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: Some(
                             FormBody {
@@ -1084,9 +1138,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        696,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            696,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: Some(
                             FormBody {
@@ -1123,9 +1180,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        708,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            708,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: Some(
                             FormBody {
@@ -1162,9 +1222,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        720,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            720,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: Some(
                             FormBody {
@@ -1225,9 +1288,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        748,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            748,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: Some(
                             FormBody {
@@ -1264,9 +1330,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        760,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            760,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: Some(
                             FormBody {
@@ -1303,9 +1372,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        772,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            772,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: Some(
                             FormBody {
@@ -1342,9 +1414,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        784,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            784,
+                        ),
+                        drained: false,
+                    },
                     block: AssociatedItem {
                         body: Some(
                             FormBody {
@@ -1382,9 +1457,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        3,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            3,
+                        ),
+                        drained: false,
+                    },
                     block: Type {
                         path: TypePath(
                             Id {
@@ -1433,9 +1511,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        145,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            145,
+                        ),
+                        drained: false,
+                    },
                     block: Type {
                         path: TypePath(
                             Id {
@@ -1472,9 +1553,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        158,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            158,
+                        ),
+                        drained: false,
+                    },
                     block: Type {
                         path: TypePath(
                             Id {
@@ -1523,9 +1607,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        489,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            489,
+                        ),
+                        drained: false,
+                    },
                     block: Type {
                         path: TypePath(
                             Id {
@@ -1574,9 +1661,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        597,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            597,
+                        ),
+                        drained: false,
+                    },
                     block: Type {
                         path: TypePath(
                             Id {
@@ -1625,9 +1715,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        733,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            733,
+                        ),
+                        drained: false,
+                    },
                     block: Type {
                         path: TypePath(
                             Id {

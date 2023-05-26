@@ -3,6 +3,7 @@ use husky_scope_expr::{
 };
 use husky_token::{
     IdentToken, Punctuation, TokenError, TokenGroupIdx, TokenIdx, TokenIdxRange, TokenParseContext,
+    TokenStreamState,
 };
 use original_error::OriginalError;
 use thiserror::Error;
@@ -32,11 +33,9 @@ pub enum OriginalAstError {
     #[error("expected decorator or entity keyword")]
     ExpectedDecoratorOrEntityKeyword,
     #[error("expected entity keyword group")]
-    ExpectedEntityKeywordGroup(TokenIdx),
+    ExpectedEntityKeywordGroup(TokenStreamState),
     #[error("expected identifier")]
-    ExpectedIdent(TokenIdx),
-    #[error("unexpected end after `pub`")]
-    UnexpectedEndOfTokenGroupAfterPubKeyword(TokenIdx),
+    ExpectedIdent(TokenStreamState),
     #[error("expected nothing")]
     ExpectNothing,
     #[error("unexpected stmt inside impl")]
@@ -114,7 +113,7 @@ pub enum OriginalAstError {
     #[error("ExpectedTypeVariants")]
     ExpectedTypeVariants(TokenGroupIdx),
     #[error("ExpectedIdentForTypeVariant")]
-    ExpectedIdentForTypeVariant(TokenIdx),
+    ExpectedIdentForTypeVariant(TokenStreamState),
     #[error("ExpectedFormBodyForConfig")]
     ExpectedFormBodyForConfig(TokenGroupIdx),
     #[error("ExpectedFormBodyForMain")]

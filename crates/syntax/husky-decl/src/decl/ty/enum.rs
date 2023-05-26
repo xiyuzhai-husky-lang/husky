@@ -26,7 +26,7 @@ impl<'a> DeclParseContext<'a> {
         path: TypePath,
         token_group_idx: TokenGroupIdx,
         children: TypeVariants,
-        saved_stream_state: TokenIdx,
+        saved_stream_state: TokenStreamState,
     ) -> DeclResult<TypeDecl> {
         let mut parser = self.expr_parser(
             DeclRegionPath::Entity(path.into()),

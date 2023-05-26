@@ -6,7 +6,7 @@ use husky_opn_syntax::Bracket;
 use husky_scope::Scope;
 use husky_token::*;
 use husky_vfs::{ModulePath, VfsDb};
-use parsec::StreamParser;
+use parsec::{HasStreamState, StreamParser};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct VisibilityExpr {
@@ -34,27 +34,25 @@ impl VisibilityExpr {
     ) -> VisibilityExprResult<Self> {
         Ok(if let Some(pub_token) = token_stream.parse::<PubToken>()? {
             if let Some(lpar) = token_stream.parse::<LeftParenthesisToken>()? {
-                let state = token_stream.state();
+                let state = token_stream.save_state();
                 if let Some(crate_token) = token_stream.parse::<CrateToken>()? {
                     todo!()
                 } else if let Some(super_token) = token_stream.parse::<SuperToken>()? {
                     VisibilityExpr {
-                        visibility: Scope::PubUnder(
-                            module_path
-                                .parent(db)
-                                .ok_or(OriginalVisibilityExprError::NoSuperForRoot(state))?,
-                        ),
+                        visibility: Scope::PubUnder(module_path.parent(db).ok_or(
+                            OriginalVisibilityExprError::NoSuperForRoot(state.next_token_idx()),
+                        )?),
                         variant: VisibilityExprVariant::PubUnder {
                             pub_token,
                             lpar,
                             scope: VisibilityScopeExpr::Super(super_token),
                             rpar: token_stream.parse_expected(
-                                OriginalVisibilityExprError::ExpectRightParenthesis,
+                                OriginalVisibilityExprError::ExpectedRightParenthesis,
                             )?,
                         },
                     }
                 } else {
-                    Err(OriginalVisibilityExprError::ExpectCrateOrSuper(state))?
+                    Err(OriginalVisibilityExprError::ExpectedCrateOrSuper(state))?
                 }
             } else {
                 VisibilityExpr {

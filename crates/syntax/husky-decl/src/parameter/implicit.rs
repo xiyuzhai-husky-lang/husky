@@ -84,10 +84,10 @@ impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for ImplicitParameterDecl
             implicit_parameters: decls,
             commas,
             decl_list_result,
-            rangle: ctx.parse_expected(|current_token_idx| {
+            rangle: ctx.parse_expected(|token_stream_state| {
                 OriginalDeclExprError::ExpectRightAngleBracketForImplicitParameterDeclList {
                     langle_token_idx: langle.token_idx(),
-                    current_token_idx,
+                    token_stream_state,
                 }
             }),
         }))

@@ -43,7 +43,7 @@ impl<'a> DeclParseContext<'a> {
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
         associated_item: AssociatedItem,
-        saved_stream_state: TokenIdx,
+        saved_stream_state: TokenStreamState,
     ) -> DeclResult<TypeMethodFnDecl> {
         let Ok(impl_block_decl) = associated_item.impl_block(self.db()).decl(
             self.db()
@@ -72,7 +72,7 @@ impl<'a> DeclParseContext<'a> {
         } else {
             None
         };
-        let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectEolColon)?;
+        let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectedEolColon)?;
         Ok(TypeMethodFnDecl::new(
             self.db(),
             associated_item.id(self.db()),

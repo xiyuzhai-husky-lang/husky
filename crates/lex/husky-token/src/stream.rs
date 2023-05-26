@@ -12,11 +12,13 @@ impl TokenSheetData {
     pub fn token_group_token_stream<'a>(
         &'a self,
         token_group_idx: TokenGroupIdx,
-        state: impl Into<Option<TokenIdx>>,
+        state: impl Into<Option<TokenStreamState>>,
     ) -> TokenStream<'a> {
-        let state: Option<TokenIdx> = state.into();
+        let state: Option<TokenStreamState> = state.into();
         let base = self.group_start(token_group_idx);
-        let next_relative = state.map(|state| state.raw() - base).unwrap_or_default();
+        let next_relative = state
+            .map(|state| state.next_token_idx.raw() - base)
+            .unwrap_or_default();
         let tokens = &self[token_group_idx];
         assert!(tokens.len() > 0);
         TokenStream {
@@ -48,12 +50,6 @@ impl<'a> TokenStream<'a> {
 
     pub fn token_position(&self) -> usize {
         self.next_relative
-    }
-
-    pub fn state(&self) -> TokenIdx {
-        // todo: consider boundary
-        // i.e. self.next_relative == self.tokens.len()
-        TokenIdx(self.base + self.next_relative)
     }
 
     pub fn try_get_one_token_with_indexed<S>(
@@ -144,6 +140,10 @@ impl<'a> TokenStream<'a> {
     pub fn tokens(&self) -> &[Token] {
         self.tokens
     }
+
+    pub fn rollback_raw(&mut self, token_idx: TokenIdx) {
+        self.next_relative = token_idx.raw() - self.base
+    }
 }
 
 #[test]
@@ -162,13 +162,28 @@ fn next_indexed_works() {
 
 impl<'a> parsec::HasStreamState for TokenStream<'a> {
     // next_relative
-    type State = TokenIdx;
+    type State = TokenStreamState;
 
     fn save_state(&self) -> Self::State {
-        TokenIdx(self.base + self.next_relative)
+        TokenStreamState {
+            next_token_idx: TokenIdx(self.base + self.next_relative),
+            drained: self.next_relative >= self.tokens.len(),
+        }
     }
 
     fn rollback(&mut self, state: Self::State) {
-        self.next_relative = state.raw() - self.base
+        self.rollback_raw(state.next_token_idx)
+    }
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub struct TokenStreamState {
+    next_token_idx: TokenIdx,
+    drained: bool,
+}
+
+impl TokenStreamState {
+    pub fn next_token_idx(&self) -> TokenIdx {
+        self.next_token_idx
     }
 }

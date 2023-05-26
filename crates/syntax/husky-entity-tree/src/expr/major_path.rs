@@ -38,7 +38,7 @@ pub enum OriginalMajorPathExprError {
     #[error("unrecognized identifier")]
     UnrecognizedIdent(IdentToken),
     #[error("expect identifier")]
-    ExpectIdent(TokenIdx),
+    ExpectIdent(TokenStreamState),
 }
 
 impl OriginalError for OriginalMajorPathExprError {

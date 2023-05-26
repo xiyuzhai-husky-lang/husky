@@ -56,7 +56,7 @@ impl<'a> BlockExprParser<'a> {
     ) -> ExprResult<StmtIdxRange> {
         match self.parse_block_stmts(body) {
             Some(stmt_idx_range) => Ok(stmt_idx_range),
-            None => Err(OriginalExprError::ExpectBlock(token_group_idx).into()),
+            None => Err(OriginalExprError::ExpectedBlock(token_group_idx).into()),
         }
     }
 

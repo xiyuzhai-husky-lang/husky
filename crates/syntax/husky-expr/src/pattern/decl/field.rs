@@ -69,7 +69,7 @@ impl<'a, 'b> parsec::ParseFromStream<ExprParseContext<'a, 'b>> for FieldDeclPatt
         let Some(ident_token) = ctx.parse::<IdentToken>()? else {
                 return Ok(None)
             };
-        let colon: ColonToken = ctx.parse_expected(OriginalExprError::ExpectColon)?;
+        let colon: ColonToken = ctx.parse_expected(OriginalExprError::ExpectedColon)?;
         let ty = ctx.parse_expr_expected2(None, OriginalExprError::ExpectedFieldType);
         ctx.add_expr_root(ExprRoot::new(ExprRootKind::FieldType, ty));
         let initialization = ctx.parse()?;

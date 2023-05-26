@@ -86,8 +86,8 @@ impl<'a> BasicAuxAstParser<'a> {
         }
     }
 
-    pub(super) fn finish_with_saved_stream_state(self) -> TokenIdx {
-        self.token_iter.state()
+    pub(super) fn finish_with_saved_stream_state(self) -> TokenStreamState {
+        self.token_iter.save_state()
     }
 
     pub(crate) fn db(&self) -> &dyn AstDb {

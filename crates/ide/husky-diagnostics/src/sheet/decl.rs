@@ -35,8 +35,10 @@ impl Diagnose for OriginalDeclError {
 
     fn message(&self, ctx: &Self::Context<'_>) -> String {
         match self {
-            OriginalDeclError::ExpectLCurlOrLParOrSemicolon(_) => todo!(),
-            OriginalDeclError::NoSuchItem => todo!(),
+            OriginalDeclError::ExpectLCurlOrLParOrSemicolon(_) => {
+                format!("ExpectLCurlOrLParOrSemicolon")
+            }
+            OriginalDeclError::NoSuchItem => format!("NoSuchItem"),
             OriginalDeclError::Expr(e) => e.message(ctx),
             OriginalDeclError::Deprecated => "deprecated".to_string(),
         }
@@ -48,7 +50,7 @@ impl Diagnose for OriginalDeclError {
 
     fn range(&self, ctx: &Self::Context<'_>) -> TextRange {
         match self {
-            OriginalDeclError::ExpectLCurlOrLParOrSemicolon(_) => todo!(),
+            OriginalDeclError::ExpectLCurlOrLParOrSemicolon(token_idx) => todo!(),
             OriginalDeclError::NoSuchItem => todo!(),
             OriginalDeclError::Expr(e) => e.range(ctx),
             OriginalDeclError::Deprecated => todo!(),
@@ -68,7 +70,7 @@ impl Diagnose for OriginalDeclExprError {
             OriginalDeclExprError::ExpectCurry(_) => {
                 format!("Syntax Error: expect `->`",)
             }
-            OriginalDeclExprError::ExpectEolColon(_e) => {
+            OriginalDeclExprError::ExpectedEolColon(_e) => {
                 format!("Syntax Error: expect end-of-line colon",)
             }
             OriginalDeclExprError::ExpectRightCurlyBrace(_) => {
@@ -104,20 +106,21 @@ impl Diagnose for OriginalDeclExprError {
     fn range(&self, ctx: &Self::Context<'_>) -> TextRange {
         match self {
             OriginalDeclExprError::Expr(error) => error.range(ctx),
-            OriginalDeclExprError::ExpectOutputType(token_idx)
-            | OriginalDeclExprError::ExpectCurry(token_idx)
-            | OriginalDeclExprError::ExpectEolColon(token_idx)
-            | OriginalDeclExprError::ExpectRightCurlyBrace(token_idx)
+            OriginalDeclExprError::ExpectOutputType(token_stream_state)
+            | OriginalDeclExprError::ExpectCurry(token_stream_state)
+            | OriginalDeclExprError::ExpectedEolColon(token_stream_state)
+            | OriginalDeclExprError::ExpectRightCurlyBrace(token_stream_state)
             | OriginalDeclExprError::ExpectRightAngleBracketForImplicitParameterDeclList {
-                current_token_idx: token_idx,
+                token_stream_state,
                 ..
             }
-            | OriginalDeclExprError::ExpectParameterDeclList(token_idx)
-            | OriginalDeclExprError::ExpectImplicitParameterDecl(token_idx)
-            | OriginalDeclExprError::ExpectRightParenthesisInParameterList(token_idx)
-            | OriginalDeclExprError::ExpectVariableType(token_idx)
-            | OriginalDeclExprError::ExpectEqTokenForVariable(token_idx) => {
-                ctx.token_text_range(*token_idx)
+            | OriginalDeclExprError::ExpectParameterDeclList(token_stream_state)
+            | OriginalDeclExprError::ExpectImplicitParameterDecl(token_stream_state)
+            | OriginalDeclExprError::ExpectRightParenthesisInParameterList(token_stream_state)
+            | OriginalDeclExprError::ExpectVariableType(token_stream_state)
+            | OriginalDeclExprError::ExpectEqTokenForVariable(token_stream_state) => {
+                todo!()
+                // ctx.token_text_range(*token_idx)
             }
         }
     }

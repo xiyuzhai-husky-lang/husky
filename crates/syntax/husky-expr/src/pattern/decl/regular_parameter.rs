@@ -1,3 +1,5 @@
+use parsec::HasStreamState;
+
 use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -17,7 +19,7 @@ impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for RegularParameterDeclP
     ) -> ExprResult<Option<Self>> {
         if let Some(pattern) = ctx.parse_pattern_expr(PatternExprInfo::Parameter)? {
             let symbols = ctx.pattern_expr_region().pattern_expr_symbols(pattern);
-            let access_start = ctx.state();
+            let access_start = ctx.save_state().next_token_idx();
             let variables = symbols
                 .iter()
                 .map(|(ident, pattern_symbol_idx)| {
@@ -32,7 +34,7 @@ impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for RegularParameterDeclP
                     )
                 })
                 .collect::<Vec<_>>();
-            let colon = ctx.parse_expected(OriginalExprError::ExpectColon)?;
+            let colon = ctx.parse_expected(OriginalExprError::ExpectedColon)?;
             let ty = ctx.parse_expr_expected2(
                 Some(ExprEnvironment::WithinBracket(Bracket::Par)),
                 OriginalExprError::ExpectedParameterType,
