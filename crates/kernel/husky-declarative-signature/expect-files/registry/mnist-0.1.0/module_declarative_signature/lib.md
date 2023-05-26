@@ -10,4 +10,26 @@
             ),
         ),
     ),
+    Ok(
+        SignatureTemplate::Type(
+            TypeDeclarativeSignatureTemplate::TupleStruct(
+                TupleStructDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                        data: [],
+                    },
+                    fields: [
+                        TupleStructFieldDeclarativeSignatureTemplate {
+                            ty: ExplicitApplication(
+                                DeclarativeTermExplicitApplication(
+                                    Id {
+                                        value: 59,
+                                    },
+                                ),
+                            ),
+                        },
+                    ],
+                },
+            ),
+        ),
+    ),
 ]

@@ -553,6 +553,9 @@ Ok(
                                                     TokenIdx(
                                                         35,
                                                     ),
+                                                    Literal::Integer(
+                                                        Unspecified,
+                                                    ),
                                                 ),
                                                 Expr::Binary {
                                                     lopd: 3,
@@ -596,6 +599,9 @@ Ok(
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         30,
+                                                    ),
+                                                    Literal::Integer(
+                                                        Unspecified,
                                                     ),
                                                 ),
                                                 Expr::Binary {
@@ -1699,6 +1705,9 @@ Ok(
                                                     TokenIdx(
                                                         89,
                                                     ),
+                                                    Literal::Integer(
+                                                        Unspecified,
+                                                    ),
                                                 ),
                                                 Expr::InheritedSymbol {
                                                     ident: `arr`,
@@ -1774,6 +1783,9 @@ Ok(
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         97,
+                                                    ),
+                                                    Literal::Integer(
+                                                        Unspecified,
                                                     ),
                                                 ),
                                                 Expr::InheritedSymbol {
@@ -2948,6 +2960,9 @@ Ok(
                                                     TokenIdx(
                                                         140,
                                                     ),
+                                                    Literal::Integer(
+                                                        Unspecified,
+                                                    ),
                                                 ),
                                                 Expr::Binary {
                                                     lopd: 3,
@@ -2973,6 +2988,9 @@ Ok(
                                                     TokenIdx(
                                                         147,
                                                     ),
+                                                    Literal::Bool(
+                                                        True,
+                                                    ),
                                                 ),
                                                 Expr::CurrentSymbol {
                                                     ident: `store_index`,
@@ -2987,6 +3005,9 @@ Ok(
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         151,
+                                                    ),
+                                                    Literal::Integer(
+                                                        Unspecified,
                                                     ),
                                                 ),
                                                 Expr::Binary {
@@ -3105,6 +3126,9 @@ Ok(
                                                     TokenIdx(
                                                         167,
                                                     ),
+                                                    Literal::Integer(
+                                                        Unspecified,
+                                                    ),
                                                 ),
                                                 Expr::Binary {
                                                     lopd: 20,
@@ -3130,6 +3154,9 @@ Ok(
                                                     TokenIdx(
                                                         170,
                                                     ),
+                                                    Literal::Integer(
+                                                        Unspecified,
+                                                    ),
                                                 ),
                                                 Expr::Binary {
                                                     lopd: 23,
@@ -3154,6 +3181,9 @@ Ok(
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         174,
+                                                    ),
+                                                    Literal::Integer(
+                                                        Unspecified,
                                                     ),
                                                 ),
                                                 Expr::InheritedSymbol {
@@ -3281,6 +3311,9 @@ Ok(
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         190,
+                                                    ),
+                                                    Literal::Integer(
+                                                        Unspecified,
                                                     ),
                                                 ),
                                                 Expr::Binary {
@@ -4068,7 +4101,7 @@ Ok(
                 Err(
                     DeclError::Original(
                         OriginalDeclError::Expr(
-                            OriginalDeclExprError::ExpectParameterDeclList(
+                            OriginalDeclExprError::ExpectedParameterDeclList(
                                 TokenStreamState {
                                     next_token_idx: TokenIdx(
                                         228,
@@ -4091,7 +4124,7 @@ Ok(
                 Err(
                     DeclError::Original(
                         OriginalDeclError::Expr(
-                            OriginalDeclExprError::ExpectParameterDeclList(
+                            OriginalDeclExprError::ExpectedParameterDeclList(
                                 TokenStreamState {
                                     next_token_idx: TokenIdx(
                                         288,

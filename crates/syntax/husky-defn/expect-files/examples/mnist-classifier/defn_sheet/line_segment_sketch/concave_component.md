@@ -179,7 +179,7 @@ Ok(
                                     ),
                                     field_comma_list: (
                                         [
-                                            FieldDeclPattern {
+                                            RegularStructFieldDeclPattern {
                                                 decorators: [],
                                                 visibility: None,
                                                 ident_token: IdentToken {
@@ -196,7 +196,7 @@ Ok(
                                                 ty: 1,
                                                 initialization: None,
                                             },
-                                            FieldDeclPattern {
+                                            RegularStructFieldDeclPattern {
                                                 decorators: [],
                                                 visibility: None,
                                                 ident_token: IdentToken {
@@ -745,10 +745,16 @@ Ok(
                                                     TokenIdx(
                                                         569,
                                                     ),
+                                                    Literal::Integer(
+                                                        Unspecified,
+                                                    ),
                                                 ),
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         574,
+                                                    ),
+                                                    Literal::Integer(
+                                                        Unspecified,
                                                     ),
                                                 ),
                                                 Expr::CurrentSymbol {
@@ -1076,6 +1082,9 @@ Ok(
                                                     TokenIdx(
                                                         624,
                                                     ),
+                                                    Literal::Integer(
+                                                        Unspecified,
+                                                    ),
                                                 ),
                                                 Expr::CurrentSymbol {
                                                     ident: `end`,
@@ -1282,6 +1291,9 @@ Ok(
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         653,
+                                                    ),
+                                                    Literal::Integer(
+                                                        Unspecified,
                                                     ),
                                                 ),
                                                 Expr::CurrentSymbol {
@@ -4493,6 +4505,9 @@ Ok(
                                                         TokenIdx(
                                                             107,
                                                         ),
+                                                        Literal::Float(
+                                                            Unspecified,
+                                                        ),
                                                     ),
                                                     Expr::SelfValue(
                                                         TokenIdx(
@@ -5923,6 +5938,9 @@ Ok(
                                                         TokenIdx(
                                                             194,
                                                         ),
+                                                        Literal::Float(
+                                                            Unspecified,
+                                                        ),
                                                     ),
                                                     Expr::SelfValue(
                                                         TokenIdx(
@@ -6176,6 +6194,9 @@ Ok(
                                                     Expr::Literal(
                                                         TokenIdx(
                                                             249,
+                                                        ),
+                                                        Literal::Bool(
+                                                            True,
                                                         ),
                                                     ),
                                                     Expr::CurrentSymbol {

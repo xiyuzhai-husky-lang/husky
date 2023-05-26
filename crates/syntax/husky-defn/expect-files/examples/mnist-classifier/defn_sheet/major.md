@@ -402,10 +402,16 @@ Ok(
                                                     TokenIdx(
                                                         28,
                                                     ),
+                                                    Literal::Integer(
+                                                        Unspecified,
+                                                    ),
                                                 ),
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         33,
+                                                    ),
+                                                    Literal::Float(
+                                                        Unspecified,
                                                     ),
                                                 ),
                                                 Expr::EntityPath {
@@ -1180,6 +1186,9 @@ Ok(
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         78,
+                                                    ),
+                                                    Literal::Float(
+                                                        Unspecified,
                                                     ),
                                                 ),
                                                 Expr::EntityPath {
@@ -1998,6 +2007,9 @@ Ok(
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         125,
+                                                    ),
+                                                    Literal::Integer(
+                                                        Unspecified,
                                                     ),
                                                 ),
                                                 Expr::IndexOrCompositionWithList {

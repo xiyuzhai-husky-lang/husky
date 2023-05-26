@@ -129,7 +129,7 @@ Ok(
                                     ),
                                     field_comma_list: (
                                         [
-                                            FieldDeclPattern {
+                                            RegularStructFieldDeclPattern {
                                                 decorators: [],
                                                 visibility: None,
                                                 ident_token: IdentToken {
@@ -146,7 +146,7 @@ Ok(
                                                 ty: 0,
                                                 initialization: None,
                                             },
-                                            FieldDeclPattern {
+                                            RegularStructFieldDeclPattern {
                                                 decorators: [],
                                                 visibility: None,
                                                 ident_token: IdentToken {
@@ -316,7 +316,7 @@ Ok(
                                     ),
                                     field_comma_list: (
                                         [
-                                            FieldDeclPattern {
+                                            RegularStructFieldDeclPattern {
                                                 decorators: [],
                                                 visibility: None,
                                                 ident_token: IdentToken {
@@ -333,7 +333,7 @@ Ok(
                                                 ty: 0,
                                                 initialization: None,
                                             },
-                                            FieldDeclPattern {
+                                            RegularStructFieldDeclPattern {
                                                 decorators: [],
                                                 visibility: None,
                                                 ident_token: IdentToken {
@@ -503,7 +503,7 @@ Ok(
                                     ),
                                     field_comma_list: (
                                         [
-                                            FieldDeclPattern {
+                                            RegularStructFieldDeclPattern {
                                                 decorators: [],
                                                 visibility: None,
                                                 ident_token: IdentToken {
@@ -520,7 +520,7 @@ Ok(
                                                 ty: 0,
                                                 initialization: None,
                                             },
-                                            FieldDeclPattern {
+                                            RegularStructFieldDeclPattern {
                                                 decorators: [],
                                                 visibility: None,
                                                 ident_token: IdentToken {
@@ -690,7 +690,7 @@ Ok(
                                     ),
                                     field_comma_list: (
                                         [
-                                            FieldDeclPattern {
+                                            RegularStructFieldDeclPattern {
                                                 decorators: [],
                                                 visibility: None,
                                                 ident_token: IdentToken {
@@ -707,7 +707,7 @@ Ok(
                                                 ty: 0,
                                                 initialization: None,
                                             },
-                                            FieldDeclPattern {
+                                            RegularStructFieldDeclPattern {
                                                 decorators: [],
                                                 visibility: None,
                                                 ident_token: IdentToken {
@@ -877,7 +877,7 @@ Ok(
                                     ),
                                     field_comma_list: (
                                         [
-                                            FieldDeclPattern {
+                                            RegularStructFieldDeclPattern {
                                                 decorators: [],
                                                 visibility: Some(
                                                     FieldVisibilityExpr::Pub,
@@ -896,7 +896,7 @@ Ok(
                                                 ty: 0,
                                                 initialization: None,
                                             },
-                                            FieldDeclPattern {
+                                            RegularStructFieldDeclPattern {
                                                 decorators: [],
                                                 visibility: Some(
                                                     FieldVisibilityExpr::Pub,
@@ -1068,7 +1068,7 @@ Ok(
                                     ),
                                     field_comma_list: (
                                         [
-                                            FieldDeclPattern {
+                                            RegularStructFieldDeclPattern {
                                                 decorators: [],
                                                 visibility: None,
                                                 ident_token: IdentToken {
@@ -1085,7 +1085,7 @@ Ok(
                                                 ty: 0,
                                                 initialization: None,
                                             },
-                                            FieldDeclPattern {
+                                            RegularStructFieldDeclPattern {
                                                 decorators: [],
                                                 visibility: None,
                                                 ident_token: IdentToken {
@@ -2010,6 +2010,9 @@ Ok(
                                                         TokenIdx(
                                                             34,
                                                         ),
+                                                        Literal::Integer(
+                                                            Unspecified,
+                                                        ),
                                                     ),
                                                     Expr::InheritedSymbol {
                                                         ident: `shift`,
@@ -2053,6 +2056,9 @@ Ok(
                                                     Expr::Literal(
                                                         TokenIdx(
                                                             42,
+                                                        ),
+                                                        Literal::Integer(
+                                                            Unspecified,
                                                         ),
                                                     ),
                                                     Expr::InheritedSymbol {
@@ -9807,6 +9813,9 @@ Ok(
                                                         TokenIdx(
                                                             323,
                                                         ),
+                                                        Literal::Float(
+                                                            Unspecified,
+                                                        ),
                                                     ),
                                                     Expr::MethodCall {
                                                         self_argument: 5,
@@ -9844,6 +9853,9 @@ Ok(
                                                         TokenIdx(
                                                             328,
                                                         ),
+                                                        Literal::Float(
+                                                            Unspecified,
+                                                        ),
                                                     ),
                                                     Expr::Binary {
                                                         lopd: 8,
@@ -9858,6 +9870,9 @@ Ok(
                                                     Expr::Literal(
                                                         TokenIdx(
                                                             330,
+                                                        ),
+                                                        Literal::Float(
+                                                            Unspecified,
                                                         ),
                                                     ),
                                                     Expr::Binary {
@@ -9884,10 +9899,16 @@ Ok(
                                                         TokenIdx(
                                                             335,
                                                         ),
+                                                        Literal::Float(
+                                                            Unspecified,
+                                                        ),
                                                     ),
                                                     Expr::Literal(
                                                         TokenIdx(
                                                             339,
+                                                        ),
+                                                        Literal::Float(
+                                                            Unspecified,
                                                         ),
                                                     ),
                                                     Expr::Prefix {
@@ -10016,6 +10037,9 @@ Ok(
                                                         TokenIdx(
                                                             362,
                                                         ),
+                                                        Literal::Float(
+                                                            Unspecified,
+                                                        ),
                                                     ),
                                                     Expr::Binary {
                                                         lopd: 26,
@@ -10030,6 +10054,9 @@ Ok(
                                                     Expr::Literal(
                                                         TokenIdx(
                                                             364,
+                                                        ),
+                                                        Literal::Float(
+                                                            Unspecified,
                                                         ),
                                                     ),
                                                     Expr::Binary {
@@ -11902,6 +11929,9 @@ Ok(
                                                         TokenIdx(
                                                             410,
                                                         ),
+                                                        Literal::Float(
+                                                            Unspecified,
+                                                        ),
                                                     ),
                                                     Expr::Binary {
                                                         lopd: 2,
@@ -11958,6 +11988,9 @@ Ok(
                                                     Expr::Literal(
                                                         TokenIdx(
                                                             422,
+                                                        ),
+                                                        Literal::Float(
+                                                            Unspecified,
                                                         ),
                                                     ),
                                                     Expr::Binary {
@@ -12069,6 +12102,9 @@ Ok(
                                                         TokenIdx(
                                                             443,
                                                         ),
+                                                        Literal::Float(
+                                                            Unspecified,
+                                                        ),
                                                     ),
                                                     Expr::MethodCall {
                                                         self_argument: 18,
@@ -12106,6 +12142,9 @@ Ok(
                                                         TokenIdx(
                                                             448,
                                                         ),
+                                                        Literal::Float(
+                                                            Unspecified,
+                                                        ),
                                                     ),
                                                     Expr::Binary {
                                                         lopd: 21,
@@ -12120,6 +12159,9 @@ Ok(
                                                     Expr::Literal(
                                                         TokenIdx(
                                                             450,
+                                                        ),
+                                                        Literal::Float(
+                                                            Unspecified,
                                                         ),
                                                     ),
                                                     Expr::Binary {
@@ -12146,10 +12188,16 @@ Ok(
                                                         TokenIdx(
                                                             455,
                                                         ),
+                                                        Literal::Float(
+                                                            Unspecified,
+                                                        ),
                                                     ),
                                                     Expr::Literal(
                                                         TokenIdx(
                                                             459,
+                                                        ),
+                                                        Literal::Float(
+                                                            Unspecified,
                                                         ),
                                                     ),
                                                     Expr::Prefix {
@@ -12279,6 +12327,9 @@ Ok(
                                                         TokenIdx(
                                                             483,
                                                         ),
+                                                        Literal::Float(
+                                                            Unspecified,
+                                                        ),
                                                     ),
                                                     Expr::Binary {
                                                         lopd: 39,
@@ -12293,6 +12344,9 @@ Ok(
                                                     Expr::Literal(
                                                         TokenIdx(
                                                             485,
+                                                        ),
+                                                        Literal::Float(
+                                                            Unspecified,
                                                         ),
                                                     ),
                                                     Expr::Binary {

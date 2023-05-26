@@ -180,7 +180,7 @@ Ok(
                                     ),
                                     field_comma_list: (
                                         [
-                                            FieldDeclPattern {
+                                            RegularStructFieldDeclPattern {
                                                 decorators: [],
                                                 visibility: None,
                                                 ident_token: IdentToken {
@@ -197,7 +197,7 @@ Ok(
                                                 ty: 4,
                                                 initialization: None,
                                             },
-                                            FieldDeclPattern {
+                                            RegularStructFieldDeclPattern {
                                                 decorators: [],
                                                 visibility: None,
                                                 ident_token: IdentToken {
@@ -2267,6 +2267,9 @@ Ok(
                                                         TokenIdx(
                                                             36,
                                                         ),
+                                                        Literal::Float(
+                                                            Unspecified,
+                                                        ),
                                                     ),
                                                     Expr::SelfValue(
                                                         TokenIdx(
@@ -3121,6 +3124,9 @@ Ok(
                                                         TokenIdx(
                                                             74,
                                                         ),
+                                                        Literal::Float(
+                                                            Unspecified,
+                                                        ),
                                                     ),
                                                     Expr::SelfValue(
                                                         TokenIdx(
@@ -3974,6 +3980,9 @@ Ok(
                                                     Expr::Literal(
                                                         TokenIdx(
                                                             112,
+                                                        ),
+                                                        Literal::Float(
+                                                            Unspecified,
                                                         ),
                                                     ),
                                                     Expr::SelfValue(
