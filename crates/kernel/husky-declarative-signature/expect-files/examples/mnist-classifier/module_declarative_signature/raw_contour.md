@@ -46,7 +46,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 57,
+                                                value: 58,
                                             },
                                         ),
                                     ),
@@ -58,47 +58,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 45,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
-                        ],
-                    },
-                    return_ty: DeclarativeTerm(`core::raw_bits::r32`),
-                },
-            ),
-        ),
-    ),
-    Ok(
-        SignatureTemplate::Form(
-            FugitiveDeclarativeSignatureTemplate::Fn(
-                FnDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
-                        data: [],
-                    },
-                    parameters: ExplicitParameterDeclarativeSignatureTemplates {
-                        data: [
-                            ExplicitParameterDeclarativeSignatureTemplate {
-                                contract: Pure,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 57,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
-                            ExplicitParameterDeclarativeSignatureTemplate {
-                                contract: Pure,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 45,
+                                                value: 46,
                                             },
                                         ),
                                     ),
@@ -126,7 +86,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 57,
+                                                value: 58,
                                             },
                                         ),
                                     ),
@@ -138,7 +98,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 45,
+                                                value: 46,
                                             },
                                         ),
                                     ),
@@ -166,7 +126,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 57,
+                                                value: 58,
                                             },
                                         ),
                                     ),
@@ -178,7 +138,35 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 57,
+                                                value: 46,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ],
+                    },
+                    return_ty: DeclarativeTerm(`core::raw_bits::r32`),
+                },
+            ),
+        ),
+    ),
+    Ok(
+        SignatureTemplate::Form(
+            FugitiveDeclarativeSignatureTemplate::Fn(
+                FnDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                        data: [],
+                    },
+                    parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                        data: [
+                            ExplicitParameterDeclarativeSignatureTemplate {
+                                contract: Pure,
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 58,
                                             },
                                         ),
                                     ),
@@ -190,7 +178,19 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 45,
+                                                value: 58,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
+                            ExplicitParameterDeclarativeSignatureTemplate {
+                                contract: Pure,
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 46,
                                             },
                                         ),
                                     ),
@@ -218,7 +218,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 76,
+                                                value: 78,
                                             },
                                         ),
                                     ),
@@ -230,7 +230,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 76,
+                                                value: 78,
                                             },
                                         ),
                                     ),
@@ -258,7 +258,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 57,
+                                                value: 58,
                                             },
                                         ),
                                     ),
@@ -270,7 +270,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 57,
+                                                value: 58,
                                             },
                                         ),
                                     ),
@@ -282,7 +282,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 45,
+                                                value: 46,
                                             },
                                         ),
                                     ),
@@ -294,7 +294,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 76,
+                                                value: 78,
                                             },
                                         ),
                                     ),
@@ -407,7 +407,7 @@
                                 Type(
                                     TypePath(
                                         Id {
-                                            value: 75,
+                                            value: 77,
                                         },
                                     ),
                                 ),
@@ -493,7 +493,7 @@
                                 Type(
                                     TypePath(
                                         Id {
-                                            value: 75,
+                                            value: 77,
                                         },
                                     ),
                                 ),
@@ -507,7 +507,7 @@
                                         Type(
                                             TypePath(
                                                 Id {
-                                                    value: 45,
+                                                    value: 46,
                                                 },
                                             ),
                                         ),
@@ -519,7 +519,7 @@
                                         Type(
                                             TypePath(
                                                 Id {
-                                                    value: 45,
+                                                    value: 46,
                                                 },
                                             ),
                                         ),

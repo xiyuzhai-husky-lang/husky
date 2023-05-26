@@ -298,7 +298,7 @@ Ok(
                     block: Type {
                         path: TypePath(
                             Id {
-                                value: 53,
+                                value: 54,
                             },
                         ),
                         variants: Some(
@@ -315,14 +315,14 @@ Ok(
                         11,
                     ),
                     visibility_expr: VisibilityExpr {
-                        visibility: PubUnder(
-                            ModulePath(
-                                Id {
-                                    value: 52,
-                                },
-                            ),
-                        ),
-                        variant: Protected,
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    23,
+                                ),
+                            },
+                        },
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
@@ -333,20 +333,20 @@ Ok(
                     ident_token: IdentToken {
                         ident: `BinaryImage28`,
                         token_idx: TokenIdx(
-                            24,
+                            25,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            25,
+                            26,
                         ),
                         drained: false,
                     },
                     block: Type {
                         path: TypePath(
                             Id {
-                                value: 54,
+                                value: 55,
                             },
                         ),
                         variants: None,

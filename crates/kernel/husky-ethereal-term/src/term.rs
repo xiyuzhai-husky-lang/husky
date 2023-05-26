@@ -283,6 +283,7 @@ pub(crate) fn term_from_declarative_term_list_unchecked(
             let items = declarative_term_list.items(db);
             match items.len() {
                 0 => Ok(term_menu.list_ty_ontology()),
+                1 => Ok(term_menu.array_ty_ontology()),
                 _ => todo!(),
             }
         }

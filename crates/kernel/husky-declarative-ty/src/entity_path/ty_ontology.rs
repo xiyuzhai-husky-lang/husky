@@ -23,7 +23,9 @@ pub fn ty_constructor_path_declarative_ty(
             regular_struct_ty_constructor_path_declarative_ty(db, path, variances, signature),
         ),
         TypeDeclarativeSignatureTemplate::UnitStruct(_) => todo!(),
-        TypeDeclarativeSignatureTemplate::TupleStruct(_) => todo!(),
+        TypeDeclarativeSignatureTemplate::TupleStruct(signature) => Ok(
+            tuple_struct_ty_constructor_path_declarative_ty(db, path, variances, signature),
+        ),
         TypeDeclarativeSignatureTemplate::Record(_) => todo!(),
         TypeDeclarativeSignatureTemplate::Inductive(_) => {
             Err(OriginalDeclarativeTypeError::InductiveTypeHasNoConstructor.into())
@@ -47,6 +49,31 @@ fn regular_struct_ty_constructor_path_declarative_ty(
         .iter()
         .copied()
         .map(RegularStructFieldDeclarativeSignatureTemplate::into_ritchie_parameter_contracted_ty)
+        .collect();
+    let constructor_ty =
+        DeclarativeTermRitchie::new(db, TermRitchieKind::FnType, parameter_tys, self_ty);
+    curry_from_implicit_parameters(
+        db,
+        CurryKind::Implicit,
+        variances,
+        implicit_parameters,
+        constructor_ty,
+    )
+}
+
+fn tuple_struct_ty_constructor_path_declarative_ty(
+    db: &dyn DeclarativeTypeDb,
+    path: TypePath,
+    variances: &[Variance],
+    signature: TupleStructDeclarativeSignatureTemplate,
+) -> DeclarativeTerm {
+    let implicit_parameters = &signature.implicit_parameters(db);
+    let self_ty = construct_self_ty(db, path, implicit_parameters);
+    let parameter_tys = signature
+        .fields(db)
+        .iter()
+        .copied()
+        .map(TupleStructFieldDeclarativeSignatureTemplate::into_ritchie_parameter_contracted_ty)
         .collect();
     let constructor_ty =
         DeclarativeTermRitchie::new(db, TermRitchieKind::FnType, parameter_tys, self_ty);

@@ -133,7 +133,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 26,
+                                    value: 27,
                                 },
                             ),
                         ),
@@ -149,7 +149,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 26,
+                                    value: 27,
                                 },
                             ),
                         ),
@@ -197,7 +197,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 25,
+                                    value: 26,
                                 },
                             ),
                         ),
@@ -268,7 +268,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 26,
+                                    value: 27,
                                 },
                             ),
                         ),

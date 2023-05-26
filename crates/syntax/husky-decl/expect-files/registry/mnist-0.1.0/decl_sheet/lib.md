@@ -102,7 +102,7 @@ Ok(
                                             data: [
                                                 Expr::Literal(
                                                     TokenIdx(
-                                                        27,
+                                                        28,
                                                     ),
                                                     Literal::Integer(
                                                         Unspecified,
@@ -110,13 +110,13 @@ Ok(
                                                 ),
                                                 Expr::List {
                                                     lbox_token_idx: TokenIdx(
-                                                        26,
+                                                        27,
                                                     ),
                                                     items: ArenaIdxRange(
                                                         0..1,
                                                     ),
                                                     rbox_token_idx: TokenIdx(
-                                                        28,
+                                                        29,
                                                     ),
                                                 },
                                                 Expr::EntityPath {
@@ -139,7 +139,7 @@ Ok(
                                             data: [
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        29,
+                                                        30,
                                                     ),
                                                     ident: `r32`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -191,7 +191,7 @@ Ok(
                                 implicit_parameter_decl_list: None,
                                 lpar: LeftParenthesisToken(
                                     TokenIdx(
-                                        25,
+                                        26,
                                     ),
                                 ),
                                 field_comma_list: (
@@ -206,7 +206,7 @@ Ok(
                                 ),
                                 rpar: RightParenthesisToken(
                                     TokenIdx(
-                                        30,
+                                        31,
                                     ),
                                 ),
                             },

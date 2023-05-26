@@ -48,7 +48,15 @@ pub struct TupleStructDeclarativeSignatureTemplate {
 
 impl TupleStructDeclarativeSignatureTemplate {}
 
-#[derive(Debug, PartialEq, Eq, Clone, Hash)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct TupleStructFieldDeclarativeSignatureTemplate {
     ty: DeclarativeTerm,
+}
+
+impl TupleStructFieldDeclarativeSignatureTemplate {
+    pub fn into_ritchie_parameter_contracted_ty(
+        self,
+    ) -> DeclarativeTermRitchieParameterContractedType {
+        DeclarativeTermRitchieParameterContractedType::new(Contract::Move, self.ty)
+    }
 }

@@ -45,6 +45,7 @@ pub struct EntityPathMenu {
     ref_ty_path: TypePath,
     ref_mut_ty_path: TypePath,
     list_ty_path: TypePath,
+    array_ty_path: TypePath,
     leash_ty_path: TypePath,
     // prelude
     unit_ty_path: TypePath,
@@ -92,6 +93,7 @@ impl EntityPathMenu {
         let core_raw_bits = path_menu.core_raw_bits();
         let core_mem = path_menu.core_mem();
         let core_list = path_menu.core_list();
+        let core_array = path_menu.core_array();
         let core_visual = path_menu.core_visual();
         let option_ty_path = TypePath::new(
             db,
@@ -317,6 +319,13 @@ impl EntityPathMenu {
             ModuleItemConnection::Connected,
             TypeKind::Extern,
         );
+        let array_ty_path = TypePath::new(
+            db,
+            core_array,
+            db.it_ident_borrowed("Array").unwrap(),
+            ModuleItemConnection::Connected,
+            TypeKind::Extern,
+        );
         let slice_ty_path = TypePath::new(
             db,
             core_slice,
@@ -475,6 +484,7 @@ impl EntityPathMenu {
             ref_mut_ty_path,
             html_ty_path,
             list_ty_path,
+            array_ty_path,
             leash_ty_path,
             core_ops_add,
             core_ops_add_assign,
@@ -626,6 +636,10 @@ impl EntityPathMenu {
 
     pub fn list_ty_path(&self) -> TypePath {
         self.list_ty_path
+    }
+
+    pub fn array_ty_path(&self) -> TypePath {
+        self.array_ty_path
     }
 
     pub fn leash_ty_path(&self) -> TypePath {

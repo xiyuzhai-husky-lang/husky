@@ -90,7 +90,7 @@ Ok(
                     block: Type {
                         path: TypePath(
                             Id {
-                                value: 27,
+                                value: 28,
                             },
                         ),
                         variants: Some(

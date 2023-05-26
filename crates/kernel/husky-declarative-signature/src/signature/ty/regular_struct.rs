@@ -55,17 +55,17 @@ pub struct RegularStructFieldDeclarativeSignatureTemplate {
 }
 
 impl RegularStructFieldDeclarativeSignatureTemplate {
-    pub fn into_ritchie_parameter_contracted_ty(
-        self,
-    ) -> DeclarativeTermRitchieParameterContractedType {
-        DeclarativeTermRitchieParameterContractedType::new(Contract::Move, self.ty)
-    }
-
     pub fn ident(&self) -> Ident {
         self.ident
     }
 
     pub fn ty(&self) -> DeclarativeTerm {
         self.ty
+    }
+
+    pub fn into_ritchie_parameter_contracted_ty(
+        self,
+    ) -> DeclarativeTermRitchieParameterContractedType {
+        DeclarativeTermRitchieParameterContractedType::new(Contract::Move, self.ty)
     }
 }

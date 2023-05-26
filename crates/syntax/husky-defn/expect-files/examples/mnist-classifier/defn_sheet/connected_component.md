@@ -1120,26 +1120,32 @@ Ok(
                                             ),
                                             expr_arena: Arena {
                                                 data: [
-                                                    Expr::Err(
-                                                        ExprError::Original(
-                                                            UnrecognizedIdent {
-                                                                token_idx: TokenIdx(
-                                                                    75,
+                                                    Expr::EntityPath {
+                                                        entity_path_expr: 0,
+                                                        path: Some(
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`mnist::BinaryImage28`, `Struct`),
                                                                 ),
-                                                                ident: Ident(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 205,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            },
+                                                            ),
                                                         ),
-                                                    ),
+                                                    },
                                                 ],
                                             },
                                             entity_path_expr_arena: Arena {
-                                                data: [],
+                                                data: [
+                                                    EntityPathExpr::Root {
+                                                        token_idx: TokenIdx(
+                                                            75,
+                                                        ),
+                                                        ident: `BinaryImage28`,
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
                                             },
                                             stmt_arena: Arena {
                                                 data: [],
@@ -2527,22 +2533,16 @@ Ok(
                                             ),
                                             expr_arena: Arena {
                                                 data: [
-                                                    Expr::Err(
-                                                        ExprError::Original(
-                                                            UnrecognizedIdent {
-                                                                token_idx: TokenIdx(
-                                                                    658,
+                                                    Expr::EntityPath {
+                                                        entity_path_expr: 0,
+                                                        path: Some(
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`mnist::BinaryImage28`, `Struct`),
                                                                 ),
-                                                                ident: Ident(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 205,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            },
+                                                            ),
                                                         ),
-                                                    ),
+                                                    },
                                                     Expr::List {
                                                         lbox_token_idx: TokenIdx(
                                                             661,
@@ -2555,7 +2555,7 @@ Ok(
                                                         ),
                                                     },
                                                     Expr::EntityPath {
-                                                        entity_path_expr: 0,
+                                                        entity_path_expr: 1,
                                                         path: Some(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
@@ -2572,6 +2572,17 @@ Ok(
                                             },
                                             entity_path_expr_arena: Arena {
                                                 data: [
+                                                    EntityPathExpr::Root {
+                                                        token_idx: TokenIdx(
+                                                            658,
+                                                        ),
+                                                        ident: `BinaryImage28`,
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                            ),
+                                                        ),
+                                                    },
                                                     EntityPathExpr::Root {
                                                         token_idx: TokenIdx(
                                                             663,
@@ -2739,22 +2750,16 @@ Ok(
                                                     ),
                                                     expr_arena: Arena {
                                                         data: [
-                                                            Expr::Err(
-                                                                ExprError::Original(
-                                                                    UnrecognizedIdent {
-                                                                        token_idx: TokenIdx(
-                                                                            658,
+                                                            Expr::EntityPath {
+                                                                entity_path_expr: 0,
+                                                                path: Some(
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist::BinaryImage28`, `Struct`),
                                                                         ),
-                                                                        ident: Ident(
-                                                                            Word(
-                                                                                Id {
-                                                                                    value: 205,
-                                                                                },
-                                                                            ),
-                                                                        ),
-                                                                    },
+                                                                    ),
                                                                 ),
-                                                            ),
+                                                            },
                                                             Expr::List {
                                                                 lbox_token_idx: TokenIdx(
                                                                     661,
@@ -2767,7 +2772,7 @@ Ok(
                                                                 ),
                                                             },
                                                             Expr::EntityPath {
-                                                                entity_path_expr: 0,
+                                                                entity_path_expr: 1,
                                                                 path: Some(
                                                                     EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
@@ -2784,6 +2789,17 @@ Ok(
                                                     },
                                                     entity_path_expr_arena: Arena {
                                                         data: [
+                                                            EntityPathExpr::Root {
+                                                                token_idx: TokenIdx(
+                                                                    658,
+                                                                ),
+                                                                ident: `BinaryImage28`,
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                    ),
+                                                                ),
+                                                            },
                                                             EntityPathExpr::Root {
                                                                 token_idx: TokenIdx(
                                                                     663,
@@ -3088,22 +3104,16 @@ Ok(
                                                         709,
                                                     ),
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        UnrecognizedIdent {
-                                                            token_idx: TokenIdx(
-                                                                714,
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 1,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist::BinaryImage28`, `Struct`),
                                                             ),
-                                                            ident: Ident(
-                                                                Word(
-                                                                    Id {
-                                                                        value: 205,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
+                                                        ),
                                                     ),
-                                                ),
+                                                },
                                                 Expr::ExplicitApplicationOrRitchieCall {
                                                     function: 17,
                                                     implicit_arguments: None,
@@ -3139,7 +3149,7 @@ Ok(
                                                     ),
                                                 },
                                                 Expr::EntityPath {
-                                                    entity_path_expr: 1,
+                                                    entity_path_expr: 2,
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
@@ -3384,7 +3394,7 @@ Ok(
                                                     ),
                                                 },
                                                 Expr::EntityPath {
-                                                    entity_path_expr: 2,
+                                                    entity_path_expr: 3,
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
@@ -3717,7 +3727,7 @@ Ok(
                                                     ),
                                                 },
                                                 Expr::EntityPath {
-                                                    entity_path_expr: 3,
+                                                    entity_path_expr: 4,
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
@@ -4101,7 +4111,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::EntityPath {
-                                                    entity_path_expr: 4,
+                                                    entity_path_expr: 5,
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
@@ -4183,6 +4193,17 @@ Ok(
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        714,
+                                                    ),
+                                                    ident: `BinaryImage28`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist::BinaryImage28`, `Struct`),
                                                         ),
                                                     ),
                                                 },

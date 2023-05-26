@@ -137,7 +137,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 43,
+                                    value: 44,
                                 },
                             ),
                         ),
