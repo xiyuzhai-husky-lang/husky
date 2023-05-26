@@ -6,7 +6,7 @@ where
     U: VfsTestUnit,
 {
     let toolchain = db.dev_toolchain().unwrap();
-    for domain in vfs_test_domains() {
+    for domain in vfs_test_suites() {
         for (path, package_name) in collect_package_relative_dirs(
             <Db as salsa::DbWithJar<WordJar>>::as_jar_db(db),
             &domain.src_base(),

@@ -2,6 +2,7 @@ pub use husky_vfs::*;
 
 use crate::*;
 
+/// will have more robustness tests based on token level information than `VfsTestUtils`
 pub trait TokenTestUtils {
     /// only run to see whether the program will panic
     /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number

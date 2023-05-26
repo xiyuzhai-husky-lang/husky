@@ -1,12 +1,12 @@
 use super::*;
 
-pub(super) struct VfsTestDomain {
+pub(super) struct VfsTestSuite {
     src_base: PathBuf,
     expect_files_base: PathBuf,
     adversarials_base: Option<PathBuf>,
 }
 
-impl VfsTestDomain {
+impl VfsTestSuite {
     pub(super) fn new(
         src_base: PathBuf,
         expect_files_base: PathBuf,
@@ -36,22 +36,27 @@ impl VfsTestDomain {
     }
 }
 
-pub(super) fn vfs_test_domains() -> Vec<VfsTestDomain> {
+pub(super) fn vfs_test_suites() -> Vec<VfsTestSuite> {
     let env = HuskyDevPathEnv::new();
     let dir = env
         .cargo_manifest_dir()
         .map(|p| p.to_owned())
         .unwrap_or("temp".into());
     vec![
-        VfsTestDomain::new(
+        VfsTestSuite::new(
             env.lang_dev_library_dir().to_owned(),
             dir.join("expect-files/library"),
             None,
         ),
-        VfsTestDomain::new(
+        VfsTestSuite::new(
             env.lang_dev_examples_dir().to_owned(),
             dir.join("expect-files/examples"),
             Some(dir.join("adversarials/examples")),
+        ),
+        VfsTestSuite::new(
+            env.lang_dev_examples_dir().to_owned(),
+            dir.join("expect-files/registry"),
+            Some(dir.join("adversarials/registry")),
         ),
     ]
 }
