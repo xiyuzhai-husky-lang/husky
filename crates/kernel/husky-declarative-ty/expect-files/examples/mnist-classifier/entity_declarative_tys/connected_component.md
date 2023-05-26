@@ -35,10 +35,8 @@
                 TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
             ),
         ),
-        Err(
-            DeclarativeTypeError::Derived(
-                DerivedDeclarativeTypeError::SignatureError,
-            ),
+        Ok(
+            DeclarativeTerm(`Type`),
         ),
     ),
     (
@@ -57,10 +55,8 @@
                 FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
             ),
         ),
-        Err(
-            DeclarativeTypeError::Derived(
-                DerivedDeclarativeTypeError::SignatureError,
-            ),
+        Ok(
+            DeclarativeTerm(`Fp(mnist::BinaryImage28) -> [] mnist_classifier::connected_component::ConnectedComponent`),
         ),
     ),
 ]

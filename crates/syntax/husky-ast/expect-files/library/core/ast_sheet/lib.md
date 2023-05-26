@@ -33,7 +33,7 @@ Ok(
                     block: Submodule {
                         path: ModulePath(
                             Id {
-                                value: 2,
+                                value: 3,
                             },
                         ),
                     },
@@ -69,7 +69,7 @@ Ok(
                     block: Submodule {
                         path: ModulePath(
                             Id {
-                                value: 5,
+                                value: 6,
                             },
                         ),
                     },
@@ -105,7 +105,7 @@ Ok(
                     block: Submodule {
                         path: ModulePath(
                             Id {
-                                value: 8,
+                                value: 9,
                             },
                         ),
                     },
@@ -141,7 +141,7 @@ Ok(
                     block: Submodule {
                         path: ModulePath(
                             Id {
-                                value: 10,
+                                value: 11,
                             },
                         ),
                     },
@@ -177,7 +177,7 @@ Ok(
                     block: Submodule {
                         path: ModulePath(
                             Id {
-                                value: 11,
+                                value: 12,
                             },
                         ),
                     },
@@ -213,7 +213,7 @@ Ok(
                     block: Submodule {
                         path: ModulePath(
                             Id {
-                                value: 12,
+                                value: 13,
                             },
                         ),
                     },
@@ -249,7 +249,7 @@ Ok(
                     block: Submodule {
                         path: ModulePath(
                             Id {
-                                value: 14,
+                                value: 15,
                             },
                         ),
                     },
@@ -285,7 +285,7 @@ Ok(
                     block: Submodule {
                         path: ModulePath(
                             Id {
-                                value: 15,
+                                value: 16,
                             },
                         ),
                     },
@@ -321,7 +321,7 @@ Ok(
                     block: Submodule {
                         path: ModulePath(
                             Id {
-                                value: 6,
+                                value: 7,
                             },
                         ),
                     },
@@ -357,7 +357,7 @@ Ok(
                     block: Submodule {
                         path: ModulePath(
                             Id {
-                                value: 3,
+                                value: 4,
                             },
                         ),
                     },
@@ -393,7 +393,7 @@ Ok(
                     block: Submodule {
                         path: ModulePath(
                             Id {
-                                value: 9,
+                                value: 10,
                             },
                         ),
                     },
@@ -429,7 +429,7 @@ Ok(
                     block: Submodule {
                         path: ModulePath(
                             Id {
-                                value: 7,
+                                value: 8,
                             },
                         ),
                     },
@@ -450,7 +450,7 @@ Ok(
                     },
                     entity_kind: Module,
                     ident_token: IdentToken {
-                        ident: `cmp`,
+                        ident: `array`,
                         token_idx: TokenIdx(
                             38,
                         ),
@@ -465,7 +465,7 @@ Ok(
                     block: Submodule {
                         path: ModulePath(
                             Id {
-                                value: 4,
+                                value: 2,
                             },
                         ),
                     },
@@ -486,7 +486,7 @@ Ok(
                     },
                     entity_kind: Module,
                     ident_token: IdentToken {
-                        ident: `str`,
+                        ident: `cmp`,
                         token_idx: TokenIdx(
                             41,
                         ),
@@ -501,7 +501,7 @@ Ok(
                     block: Submodule {
                         path: ModulePath(
                             Id {
-                                value: 16,
+                                value: 5,
                             },
                         ),
                     },
@@ -522,7 +522,7 @@ Ok(
                     },
                     entity_kind: Module,
                     ident_token: IdentToken {
-                        ident: `option`,
+                        ident: `str`,
                         token_idx: TokenIdx(
                             44,
                         ),
@@ -537,7 +537,7 @@ Ok(
                     block: Submodule {
                         path: ModulePath(
                             Id {
-                                value: 13,
+                                value: 17,
                             },
                         ),
                     },
@@ -558,7 +558,7 @@ Ok(
                     },
                     entity_kind: Module,
                     ident_token: IdentToken {
-                        ident: `visual`,
+                        ident: `option`,
                         token_idx: TokenIdx(
                             47,
                         ),
@@ -573,7 +573,43 @@ Ok(
                     block: Submodule {
                         path: ModulePath(
                             Id {
-                                value: 17,
+                                value: 14,
+                            },
+                        ),
+                    },
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        16,
+                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    48,
+                                ),
+                            },
+                        },
+                    },
+                    entity_kind: Module,
+                    ident_token: IdentToken {
+                        ident: `visual`,
+                        token_idx: TokenIdx(
+                            50,
+                        ),
+                    },
+                    is_generic: false,
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            51,
+                        ),
+                        drained: true,
+                    },
+                    block: Submodule {
+                        path: ModulePath(
+                            Id {
+                                value: 18,
                             },
                         ),
                     },
@@ -581,11 +617,11 @@ Ok(
             ],
         },
         top_level_asts: ArenaIdxRange(
-            0..16,
+            0..17,
         ),
         siblings: [
             ArenaIdxRange(
-                0..16,
+                0..17,
             ),
         ],
     },

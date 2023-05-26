@@ -9,6 +9,7 @@ pub struct VfsPathMenu {
     /// core
     core: ModulePath,
     std: ModulePath,
+    core_array: ModulePath,
     core_basic: ModulePath,
     core_clone: ModulePath,
     core_default: ModulePath,
@@ -40,6 +41,7 @@ impl VfsPathMenu {
         let std_library = CratePath::new(db, std_package, CrateKind::Library);
         let core = ModulePath::new_root(db, core_library);
         let std = ModulePath::new_root(db, std_library);
+        let core_array = ModulePath::new_child(db, core, db.it_ident_borrowed("array").unwrap());
         let core_basic = ModulePath::new_child(db, core, db.it_ident_borrowed("basic").unwrap());
         let core_clone = ModulePath::new_child(db, core, db.it_ident_borrowed("clone").unwrap());
         let core_default =
@@ -64,6 +66,7 @@ impl VfsPathMenu {
             std_library,
             core,
             std,
+            core_array,
             core_basic,
             core_clone,
             core_default,
@@ -136,6 +139,11 @@ impl VfsPathMenu {
     /// core::list
     pub fn core_list(&self) -> ModulePath {
         self.core_list
+    }
+
+    /// core::array
+    pub fn core_array(&self) -> ModulePath {
+        self.core_array
     }
 
     /// core::visual

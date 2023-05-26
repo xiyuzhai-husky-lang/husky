@@ -86,7 +86,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 45,
+                                    value: 46,
                                 },
                             ),
                         ),
@@ -114,7 +114,7 @@ Ok(
                     block: Type {
                         path: TypePath(
                             Id {
-                                value: 50,
+                                value: 51,
                             },
                         ),
                         variants: Some(
@@ -169,7 +169,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 45,
+                                    value: 46,
                                 },
                             ),
                         ),
@@ -197,7 +197,7 @@ Ok(
                     block: Type {
                         path: TypePath(
                             Id {
-                                value: 51,
+                                value: 52,
                             },
                         ),
                         variants: None,
@@ -211,7 +211,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 45,
+                                    value: 46,
                                 },
                             ),
                         ),
@@ -239,7 +239,7 @@ Ok(
                     block: Type {
                         path: TypePath(
                             Id {
-                                value: 52,
+                                value: 53,
                             },
                         ),
                         variants: None,

@@ -2,27 +2,16 @@ Ok(
     AstSheet {
         ast_arena: Arena {
             data: [
-                Ast::Attr {
-                    token_group_idx: TokenGroupIdx(
-                        0,
-                    ),
-                },
-                Ast::Decr {
-                    token_group_idx: TokenGroupIdx(
-                        1,
-                    ),
-                    ident: `derive`,
-                },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        2,
+                        0,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: Pub,
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    20,
+                                    0,
                                 ),
                             },
                         },
@@ -34,22 +23,22 @@ Ok(
                         connection: Connected,
                     },
                     ident_token: IdentToken {
-                        ident: `r32`,
+                        ident: `Array`,
                         token_idx: TokenIdx(
-                            22,
+                            2,
                         ),
                     },
-                    is_generic: false,
+                    is_generic: true,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            23,
+                            3,
                         ),
                         drained: false,
                     },
                     block: Type {
                         path: TypePath(
                             Id {
-                                value: 29,
+                                value: 1,
                             },
                         ),
                         variants: None,
@@ -58,11 +47,11 @@ Ok(
             ],
         },
         top_level_asts: ArenaIdxRange(
-            0..3,
+            0..1,
         ),
         siblings: [
             ArenaIdxRange(
-                0..3,
+                0..1,
             ),
         ],
     },

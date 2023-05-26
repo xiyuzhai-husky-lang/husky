@@ -71,9 +71,21 @@
             ),
         ),
     ),
-    Err(
-        FieldTypeDeclarativeTermError(
-            0,
+    Ok(
+        SignatureTemplate::Type(
+            TypeDeclarativeSignatureTemplate::RegularStruct(
+                RegularStructDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                        data: [],
+                    },
+                    fields: [
+                        RegularStructFieldDeclarativeSignatureTemplate {
+                            ident: `mask`,
+                            ty: DeclarativeTerm(`mnist::BinaryImage28`),
+                        },
+                    ],
+                },
+            ),
         ),
     ),
     Ok(
@@ -91,7 +103,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 57,
+                                                value: 58,
                                             },
                                         ),
                                     ),
@@ -103,7 +115,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 57,
+                                                value: 58,
                                             },
                                         ),
                                     ),
@@ -116,9 +128,32 @@
             ),
         ),
     ),
-    Err(
-        ParameterTypeDeclarativeTermError(
-            0,
+    Ok(
+        SignatureTemplate::Form(
+            FugitiveDeclarativeSignatureTemplate::Fn(
+                FnDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                        data: [],
+                    },
+                    parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                        data: [
+                            ExplicitParameterDeclarativeSignatureTemplate {
+                                contract: Pure,
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 93,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ],
+                    },
+                    return_ty: DeclarativeTerm(`[] mnist_classifier::connected_component::ConnectedComponent`),
+                },
+            ),
         ),
     ),
     Ok(
@@ -148,7 +183,7 @@
                                 Type(
                                     TypePath(
                                         Id {
-                                            value: 74,
+                                            value: 76,
                                         },
                                     ),
                                 ),
@@ -278,7 +313,7 @@
                                 Type(
                                     TypePath(
                                         Id {
-                                            value: 74,
+                                            value: 76,
                                         },
                                     ),
                                 ),
@@ -292,7 +327,7 @@
                                         Type(
                                             TypePath(
                                                 Id {
-                                                    value: 45,
+                                                    value: 46,
                                                 },
                                             ),
                                         ),
@@ -321,7 +356,7 @@
                                 Type(
                                     TypePath(
                                         Id {
-                                            value: 74,
+                                            value: 76,
                                         },
                                     ),
                                 ),
@@ -335,7 +370,7 @@
                                         Type(
                                             TypePath(
                                                 Id {
-                                                    value: 45,
+                                                    value: 46,
                                                 },
                                             ),
                                         ),

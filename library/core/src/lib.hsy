@@ -10,6 +10,7 @@ pub mod fmt
 pub mod clone
 pub mod marker
 pub mod list
+pub mod array
 pub mod cmp
 pub mod str
 pub mod option

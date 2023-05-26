@@ -43,6 +43,7 @@ pub struct TermMenu0 {
     str_ty_ontology: EtherealTerm,
     ref_ty_path: EtherealTerm,
     list_ty_ontology: EtherealTerm,
+    array_ty_ontology: EtherealTerm,
     leash_ty_ontology: EtherealTerm,
     i8_ty_ontology: EtherealTerm,
     i16_ty_ontology: EtherealTerm,
@@ -122,6 +123,8 @@ impl TermMenu0 {
             str_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.str_ty_path()).into(),
             ref_ty_path: TermEntityPath::TypeOntology(entity_path_menu.ref_ty_path()).into(),
             list_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.list_ty_path()).into(),
+            array_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.array_ty_path())
+                .into(),
             leash_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.leash_ty_path())
                 .into(),
             unit: TermEntityPath::TypeOntology(entity_path_menu.unit_ty_path()).into(),
@@ -271,6 +274,10 @@ impl TermMenu0 {
 
     pub fn list_ty_ontology(&self) -> EtherealTerm {
         self.list_ty_ontology
+    }
+
+    pub fn array_ty_ontology(&self) -> EtherealTerm {
+        self.array_ty_ontology
     }
 
     pub fn unit_ty_ontology(&self) -> EtherealTerm {
