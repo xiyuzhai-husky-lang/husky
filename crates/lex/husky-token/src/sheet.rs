@@ -551,7 +551,13 @@ impl RangedTokenSheet {
 
     pub fn token_stream_state_text_range(&self, token_stream_state: TokenStreamState) -> TextRange {
         match token_stream_state.drained() {
-            true => todo!(),
+            true => {
+                let next_token_idx_raw = token_stream_state.next_token_idx().0;
+                match next_token_idx_raw {
+                    0 => todo!(),
+                    _ => self.token_ranges[next_token_idx_raw - 1].right_after(),
+                }
+            }
             false => self.token_ranges[token_stream_state.next_token_idx().0],
         }
     }

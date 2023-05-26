@@ -1,18 +1,23 @@
 use std::path::{Path, PathBuf};
 
-pub struct HuskyDevPathEnv {
+/// paths useful for the development of the Husky programming language
+pub struct HuskyLangDevPaths {
     cargo_manifest_dir: Option<PathBuf>,
     lang_dev_root: PathBuf,
+    /// the path for dev library
     lang_dev_library_dir: PathBuf,
+    /// the path for dev examples
     lang_dev_examples_dir: PathBuf,
+    /// the path for dev registry
+    lang_dev_registry_dir: PathBuf,
 }
 
-impl HuskyDevPathEnv {
+impl HuskyLangDevPaths {
     pub fn new() -> Self {
         let cargo_manifest_dir: Option<PathBuf> = std::env::var("CARGO_MANIFEST_DIR")
             .ok()
             .map(|path| path.into());
-        let dev_root: PathBuf = if let Some(ref cargo_manifest_dir) = cargo_manifest_dir {
+        let lang_dev_root: PathBuf = if let Some(ref cargo_manifest_dir) = cargo_manifest_dir {
             let mut dir: &Path = cargo_manifest_dir;
             loop {
                 if dir.join("husky-toolchain.toml").exists() {
@@ -37,13 +42,15 @@ impl HuskyDevPathEnv {
             // ad hoc
             "/home/xiyuzhai/repos/husky".into()
         };
-        let dev_library_dir = dev_root.join("library");
-        let dev_examples_dir = dev_root.join("examples");
+        let lang_dev_library_dir = lang_dev_root.join("library");
+        let lang_dev_examples_dir = lang_dev_root.join("examples");
+        let lang_dev_registry_dir = lang_dev_root.join("registry");
         Self {
             cargo_manifest_dir,
-            lang_dev_root: dev_root,
-            lang_dev_library_dir: dev_library_dir,
-            lang_dev_examples_dir: dev_examples_dir,
+            lang_dev_root,
+            lang_dev_library_dir,
+            lang_dev_examples_dir,
+            lang_dev_registry_dir,
         }
     }
 
@@ -61,5 +68,9 @@ impl HuskyDevPathEnv {
 
     pub fn lang_dev_examples_dir(&self) -> &PathBuf {
         &self.lang_dev_examples_dir
+    }
+
+    pub fn lang_dev_registry_dir(&self) -> &PathBuf {
+        &self.lang_dev_registry_dir
     }
 }

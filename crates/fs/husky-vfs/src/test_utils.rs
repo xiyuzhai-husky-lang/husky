@@ -1,14 +1,14 @@
 mod ad_hoc_package;
 mod adversarial_test;
-mod domain;
 mod expect_test;
+mod suite;
 mod unit;
 
 pub use self::adversarial_test::*;
 pub use self::expect_test::*;
 pub use self::unit::*;
 
-use self::domain::*;
+use self::suite::*;
 use crate::*;
 use husky_path_utils::*;
 use salsa::DebugWithDb;
@@ -108,7 +108,7 @@ const ADVERSARIAL_EXTENSION: &'static str = "json";
 impl<Db> VfsTestUtils for Db where Db: VfsDb + ?Sized {}
 
 fn test_dirs() -> Vec<PathBuf> {
-    let env = HuskyDevPathEnv::new();
+    let env = HuskyLangDevPaths::new();
     vec![
         env.lang_dev_library_dir().to_owned(),
         env.lang_dev_examples_dir().to_owned(),
