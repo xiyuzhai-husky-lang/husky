@@ -189,7 +189,7 @@ impl Diagnose for OriginalExprError {
 
     fn range(&self, ctx: &Self::Context<'_>) -> TextRange {
         let token_idx_range = self.token_idx_range();
-        todo!()
+        ctx.token_idx_range_text_range(token_idx_range)
     }
 }
 
@@ -225,7 +225,7 @@ impl Diagnose for OriginalEntityPathExprError {
             OriginalEntityPathExprError::EntityTree {
                 token_idx,
                 error: _,
-            } => ctx.token_text_range(*token_idx),
+            } => ctx.token_idx_text_range(*token_idx),
             OriginalEntityPathExprError::ExpectIdentAfterScopeResolution(_) => todo!(),
         }
     }

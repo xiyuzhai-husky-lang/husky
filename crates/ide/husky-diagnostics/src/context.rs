@@ -2,7 +2,7 @@ use crate::*;
 use husky_ast::{AstIdx, AstTokenIdxRangeSheet};
 use husky_expr::{ExprIdx, ExprRangeRegion, ExprRegion, ExprRegionData};
 use husky_expr_ty::*;
-use husky_token::{TokenGroupIdx, TokenIdx, TokenIdxRange};
+use husky_token::{TokenGroupIdx, TokenIdx, TokenIdxRange, TokenStreamState};
 
 pub(crate) struct SheetDiagnosticsContext<'a> {
     db: &'a dyn DiagnosticsDb,
@@ -31,8 +31,21 @@ impl<'a> SheetDiagnosticsContext<'a> {
         self.token_sheet_data
     }
 
-    pub(crate) fn token_text_range(&self, token_idx: TokenIdx) -> TextRange {
-        self.ranged_token_sheet.token_text_range(token_idx)
+    pub(crate) fn token_idx_text_range(&self, token_idx: TokenIdx) -> TextRange {
+        self.ranged_token_sheet.token_idx_text_range(token_idx)
+    }
+
+    pub(crate) fn token_idx_range_text_range(&self, token_idx_range: TokenIdxRange) -> TextRange {
+        self.ranged_token_sheet
+            .token_idx_range_text_range(token_idx_range)
+    }
+
+    pub(crate) fn token_stream_state_text_range(
+        &self,
+        token_stream_state: TokenStreamState,
+    ) -> TextRange {
+        self.ranged_token_sheet
+            .token_stream_state_text_range(token_stream_state)
     }
 
     pub(crate) fn ast_token_idx_range_sheet(&self) -> &AstTokenIdxRangeSheet {
@@ -101,10 +114,10 @@ impl<'a> RegionDiagnosticsContext<'a> {
         assert!(token_idx_range.start().token_idx() < token_idx_range.end().token_idx());
         let first = self
             .ranged_token_sheet
-            .token_text_range(token_idx_range.start().token_idx());
+            .token_idx_text_range(token_idx_range.start().token_idx());
         let last = self
             .ranged_token_sheet
-            .token_text_range(token_idx_range.end().token_idx() - 1);
+            .token_idx_text_range(token_idx_range.end().token_idx() - 1);
         first.join(last)
     }
 }

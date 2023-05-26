@@ -42,7 +42,7 @@ impl<'a> HoverResultCalculator<'a> {
             module_path,
             token_idx,
             token: &token_sheet_data[token_idx],
-            token_range: ranged_token_sheet.token_text_range(token_idx),
+            token_range: ranged_token_sheet.token_idx_text_range(token_idx),
             token_info: &token_info_sheet[token_idx],
             markdown_content: String::new(),
             actions: vec![],

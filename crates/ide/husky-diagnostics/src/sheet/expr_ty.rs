@@ -168,7 +168,7 @@ impl Diagnose for (ExprIdx, &'_ OriginalExprTypeError) {
         match self.1 {
             OriginalExprTypeError::NoMethodForType { ident_token, .. } => ctx
                 .ranged_token_sheet()
-                .token_text_range(ident_token.token_idx()),
+                .token_idx_text_range(ident_token.token_idx()),
             _ => ctx.expr_text_range(self.0),
         }
     }
