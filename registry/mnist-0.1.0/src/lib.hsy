@@ -9,3 +9,5 @@ pub enum MnistLabel
 | Seven
 | Eight
 | Nine
+
+struct BinaryImage

@@ -143,7 +143,7 @@ impl<'a> DeclParseContext<'a> {
         _entity_kind: EntityKind,
         token_group_idx: TokenGroupIdx,
         variants: Option<TypeVariants>,
-        saved_stream_state: TokenIdx,
+        saved_stream_state: TokenStreamState,
     ) -> DeclResult<TypeDecl> {
         match type_kind {
             TypeKind::Enum => self.parse_enum_ty_decl(

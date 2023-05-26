@@ -4069,9 +4069,12 @@ Ok(
                     DeclError::Original(
                         OriginalDeclError::Expr(
                             OriginalDeclExprError::ExpectParameterDeclList(
-                                TokenIdx(
-                                    228,
-                                ),
+                                TokenStreamState {
+                                    next_token_idx: TokenIdx(
+                                        228,
+                                    ),
+                                    drained: false,
+                                },
                             ),
                         ),
                     ),
@@ -4089,9 +4092,12 @@ Ok(
                     DeclError::Original(
                         OriginalDeclError::Expr(
                             OriginalDeclExprError::ExpectParameterDeclList(
-                                TokenIdx(
-                                    288,
-                                ),
+                                TokenStreamState {
+                                    next_token_idx: TokenIdx(
+                                        288,
+                                    ),
+                                    drained: false,
+                                },
                             ),
                         ),
                     ),

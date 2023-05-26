@@ -1,4 +1,4 @@
-use husky_token::{TokenError, TokenIdx};
+use husky_token::{TokenError, TokenIdx, TokenStreamState};
 use original_error::OriginalError;
 use thiserror::Error;
 
@@ -15,9 +15,9 @@ pub enum OriginalVisibilityExprError {
     #[error("NoSuperForRoot")]
     NoSuperForRoot(TokenIdx),
     #[error("ExpectRightParenthesis")]
-    ExpectRightParenthesis(TokenIdx),
+    ExpectedRightParenthesis(TokenStreamState),
     #[error("ExpectCrateOrSuper")]
-    ExpectCrateOrSuper(TokenIdx),
+    ExpectedCrateOrSuper(TokenStreamState),
 }
 
 impl OriginalError for OriginalVisibilityExprError {

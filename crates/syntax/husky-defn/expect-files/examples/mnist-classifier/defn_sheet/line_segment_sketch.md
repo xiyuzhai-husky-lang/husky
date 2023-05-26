@@ -33,7 +33,7 @@ Ok(
                                                 data: [
                                                     Expr::Err(
                                                         ExprError::Original(
-                                                            OriginalExprError::NoLeftOperandForBinaryOperator {
+                                                            NoLeftOperandForBinaryOperator {
                                                                 binary_token_idx: TokenIdx(
                                                                     46,
                                                                 ),
@@ -42,7 +42,7 @@ Ok(
                                                     ),
                                                     Expr::Err(
                                                         ExprError::Original(
-                                                            OriginalExprError::NoRightOperandForBinaryOperator {
+                                                            NoRightOperandForBinaryOperator {
                                                                 punctuation: Closed(
                                                                     RemEuclid,
                                                                 ),
@@ -106,17 +106,23 @@ Ok(
                                                     },
                                                     Expr::Err(
                                                         ExprError::Original(
-                                                            OriginalExprError::UnrecognizedIdent {
+                                                            UnrecognizedIdent {
                                                                 token_idx: TokenIdx(
                                                                     63,
                                                                 ),
-                                                                ident: `clone`,
+                                                                ident: Ident(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 4,
+                                                                        },
+                                                                    ),
+                                                                ),
                                                             },
                                                         ),
                                                     ),
                                                     Expr::Err(
                                                         ExprError::Original(
-                                                            OriginalExprError::ExpectedExprBeforeDot {
+                                                            ExpectedExprBeforeDot {
                                                                 dot_token_idx: TokenIdx(
                                                                     62,
                                                                 ),
@@ -203,17 +209,23 @@ Ok(
                                                     },
                                                     Expr::Err(
                                                         ExprError::Original(
-                                                            OriginalExprError::UnrecognizedIdent {
+                                                            UnrecognizedIdent {
                                                                 token_idx: TokenIdx(
                                                                     80,
                                                                 ),
-                                                                ident: `clone`,
+                                                                ident: Ident(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 4,
+                                                                        },
+                                                                    ),
+                                                                ),
                                                             },
                                                         ),
                                                     ),
                                                     Expr::Err(
                                                         ExprError::Original(
-                                                            OriginalExprError::ExpectedExprBeforeDot {
+                                                            ExpectedExprBeforeDot {
                                                                 dot_token_idx: TokenIdx(
                                                                     79,
                                                                 ),

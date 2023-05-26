@@ -1116,11 +1116,17 @@ Ok(
                                                 data: [
                                                     Expr::Err(
                                                         ExprError::Original(
-                                                            OriginalExprError::UnrecognizedIdent {
+                                                            UnrecognizedIdent {
                                                                 token_idx: TokenIdx(
                                                                     75,
                                                                 ),
-                                                                ident: `BinaryImage28`,
+                                                                ident: Ident(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 205,
+                                                                        },
+                                                                    ),
+                                                                ),
                                                             },
                                                         ),
                                                     ),
@@ -2499,11 +2505,17 @@ Ok(
                                                 data: [
                                                     Expr::Err(
                                                         ExprError::Original(
-                                                            OriginalExprError::UnrecognizedIdent {
+                                                            UnrecognizedIdent {
                                                                 token_idx: TokenIdx(
                                                                     658,
                                                                 ),
-                                                                ident: `BinaryImage28`,
+                                                                ident: Ident(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 205,
+                                                                        },
+                                                                    ),
+                                                                ),
                                                             },
                                                         ),
                                                     ),
@@ -2705,11 +2717,17 @@ Ok(
                                                         data: [
                                                             Expr::Err(
                                                                 ExprError::Original(
-                                                                    OriginalExprError::UnrecognizedIdent {
+                                                                    UnrecognizedIdent {
                                                                         token_idx: TokenIdx(
                                                                             658,
                                                                         ),
-                                                                        ident: `BinaryImage28`,
+                                                                        ident: Ident(
+                                                                            Word(
+                                                                                Id {
+                                                                                    value: 205,
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     },
                                                                 ),
                                                             ),
@@ -3045,11 +3063,17 @@ Ok(
                                                 },
                                                 Expr::Err(
                                                     ExprError::Original(
-                                                        OriginalExprError::UnrecognizedIdent {
+                                                        UnrecognizedIdent {
                                                             token_idx: TokenIdx(
                                                                 714,
                                                             ),
-                                                            ident: `BinaryImage28`,
+                                                            ident: Ident(
+                                                                Word(
+                                                                    Id {
+                                                                        value: 205,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
                                                     ),
                                                 ),

@@ -29,9 +29,12 @@ Ok(
                         ),
                     },
                     is_generic: true,
-                    saved_stream_state: TokenIdx(
-                        3,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            3,
+                        ),
+                        drained: false,
+                    },
                     block: Type {
                         path: TypePath(
                             Id {
@@ -68,9 +71,12 @@ Ok(
                         ),
                     },
                     is_generic: true,
-                    saved_stream_state: TokenIdx(
-                        14,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            14,
+                        ),
+                        drained: false,
+                    },
                     block: Type {
                         path: TypePath(
                             Id {
@@ -107,9 +113,12 @@ Ok(
                         ),
                     },
                     is_generic: true,
-                    saved_stream_state: TokenIdx(
-                        25,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            25,
+                        ),
+                        drained: false,
+                    },
                     block: Type {
                         path: TypePath(
                             Id {

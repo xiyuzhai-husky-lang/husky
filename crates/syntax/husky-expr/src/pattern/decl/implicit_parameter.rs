@@ -1,3 +1,5 @@
+use parsec::HasStreamState;
+
 use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -39,7 +41,7 @@ impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for ImplicitParameterDecl
     ) -> ExprResult<Option<Self>> {
         let annotated_variance_token = ctx.try_parse();
         if let Some(ident_token) = ctx.parse::<IdentToken>()? {
-            let access_start = ctx.state();
+            let access_start = ctx.save_state().next_token_idx();
             let parameter_symbol = CurrentSymbol::new(
                 ctx.pattern_expr_region(),
                 access_start,
@@ -60,7 +62,7 @@ impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for ImplicitParameterDecl
                 variant: ImplicitParameterDeclPatternVariant::Type0 { ident_token },
             }))
         } else if let Some(label_token) = ctx.parse::<LifetimeLabelToken>()? {
-            let access_start = ctx.state();
+            let access_start = ctx.save_state().next_token_idx();
             let symbols = ctx.define_symbols(
                 [CurrentSymbol::new(
                     ctx.pattern_expr_region(),

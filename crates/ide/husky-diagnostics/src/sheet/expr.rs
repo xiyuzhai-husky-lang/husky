@@ -80,15 +80,15 @@ impl Diagnose for OriginalExprError {
             OriginalExprError::MismatchingBracket { .. } => {
                 format!("Syntax Error: mismatching bracket")
             }
-            OriginalExprError::ExpectRightAngleBracket { .. } => {
+            OriginalExprError::ExpectedRightAngleBracket { .. } => {
                 format!("Syntax Error: expect `>`")
             }
-            OriginalExprError::ExpectRightCurlyBrace(_) => format!("Syntax Error: expect `}}`"),
-            OriginalExprError::ExpectIdent(_) => format!("Syntax Error: expect identifier"),
-            OriginalExprError::ExpectColon(_) => format!("Syntax Error: expect `:`"),
-            OriginalExprError::ExpectRightParenthesis(_) => format!("Syntax Error: expect `)`"),
+            OriginalExprError::ExpectedRightCurlyBrace(_) => format!("Syntax Error: expect `}}`"),
+            OriginalExprError::ExpectedIdent(_) => format!("Syntax Error: expect identifier"),
+            OriginalExprError::ExpectedColon(_) => format!("Syntax Error: expect `:`"),
+            OriginalExprError::ExpectedRightParenthesis(_) => format!("Syntax Error: expect `)`"),
             OriginalExprError::NoMatchingBra { .. } => format!("Syntax Error: no matching bracket"),
-            OriginalExprError::ExpectIdentAfterDot { .. } => {
+            OriginalExprError::ExpectedIdentAfterDot { .. } => {
                 format!("Syntax Error: expect identifier after dot")
             }
             OriginalExprError::NoLeftOperandForBinaryOperator { .. } => {
@@ -100,10 +100,10 @@ impl Diagnose for OriginalExprError {
             OriginalExprError::NoOperandForPrefixOperator { .. } => {
                 format!("Syntax Error:no operand for prefix operator")
             }
-            OriginalExprError::ExpectItemBeforeComma { .. } => {
+            OriginalExprError::ExpectedItemBeforeComma { .. } => {
                 format!("Syntax Error: expect item before `,`")
             }
-            OriginalExprError::ExpectItemBeforeBe { .. } => {
+            OriginalExprError::ExpectedItemBeforeBe { .. } => {
                 format!("Syntax Error: expect item before `be`")
             }
             OriginalExprError::ExpectedLetVariablesPattern(_) => {
@@ -133,7 +133,7 @@ impl Diagnose for OriginalExprError {
             OriginalExprError::ExpectedIdentAfterModifier(_) => {
                 format!("Syntax Error: expect identifier after `mut`")
             }
-            OriginalExprError::ExpectBlock(_) => format!("Syntax Error: expect block"),
+            OriginalExprError::ExpectedBlock(_) => format!("Syntax Error: expect block"),
             OriginalExprError::UnexpectedSheba(_) => format!("Syntax Error: unexpected `$`"),
             OriginalExprError::UnrecognizedIdent {
                 token_idx: _,
@@ -188,80 +188,8 @@ impl Diagnose for OriginalExprError {
     }
 
     fn range(&self, ctx: &Self::Context<'_>) -> TextRange {
-        // todo: duplicated
-        // see ExprRangeCalculator::calc_expr_range in crate `husky-expr`
-        match self {
-            OriginalExprError::MismatchingBracket {
-                ket_token_idx: token_idx,
-                ..
-            }
-            | OriginalExprError::ExpectRightAngleBracket {
-                langle_token_idx: token_idx,
-            }
-            | OriginalExprError::ExpectRightCurlyBrace(token_idx)
-            | OriginalExprError::ExpectIdent(token_idx)
-            | OriginalExprError::ExpectColon(token_idx)
-            | OriginalExprError::ExpectRightParenthesis(token_idx)
-            | OriginalExprError::NoMatchingBra {
-                ket_token_idx: token_idx,
-                ..
-            }
-            | OriginalExprError::ExpectIdentAfterDot(token_idx)
-            | OriginalExprError::NoLeftOperandForBinaryOperator {
-                binary_token_idx: token_idx,
-            }
-            | OriginalExprError::NoRightOperandForBinaryOperator {
-                punctuation_token_idx: token_idx,
-                ..
-            }
-            | OriginalExprError::NoOperandForPrefixOperator {
-                prefix_token_idx: token_idx,
-                ..
-            }
-            | OriginalExprError::ExpectItemBeforeComma {
-                comma_token_idx: token_idx,
-            }
-            | OriginalExprError::ExpectItemBeforeBe {
-                be_token_idx: token_idx,
-            }
-            | OriginalExprError::ExpectedLetVariablesPattern(token_idx)
-            | OriginalExprError::ExpectedBeVariablesPattern(token_idx)
-            | OriginalExprError::ExpectedAssign(token_idx)
-            | OriginalExprError::ExpectedInitialValue(token_idx)
-            | OriginalExprError::UnexpectedKeyword(token_idx)
-            | OriginalExprError::ExpectedResult(token_idx)
-            | OriginalExprError::ExpectedCondition(token_idx)
-            | OriginalExprError::ExpectedForExpr(token_idx)
-            | OriginalExprError::ExpectedBePattern(token_idx)
-            | OriginalExprError::ExpectedParameterPattern(token_idx)
-            | OriginalExprError::UnterminatedList {
-                bra_token_idx: token_idx,
-            }
-            | OriginalExprError::ExpectedEolColon(token_idx)
-            | OriginalExprError::ExpectedIdentAfterModifier(token_idx)
-            | OriginalExprError::UnexpectedSheba(token_idx)
-            | OriginalExprError::UnrecognizedIdent { token_idx, .. }
-            | OriginalExprError::UnresolvedSubentity { token_idx, .. }
-            | OriginalExprError::ExpectedLetVariablesType(token_idx)
-            | OriginalExprError::ExpectedFieldType(token_idx)
-            | OriginalExprError::ExpectedParameterType(token_idx)
-            | OriginalExprError::SelfTypeNotAllowed(token_idx)
-            | OriginalExprError::SelfValueNotAllowed(token_idx)
-            | OriginalExprError::ExpectedIdentAfterDot {
-                dot_token_idx: token_idx,
-                ..
-            }
-            | OriginalExprError::ExpectedExprBeforeDot {
-                dot_token_idx: token_idx,
-            }
-            | OriginalExprError::HtmlTodo(token_idx)
-            | OriginalExprError::ExpectedValueForFieldBindInitialization(token_idx)
-            | OriginalExprError::ExpectedFunctionIdentAfterOpeningHtmlBra(token_idx)
-            | OriginalExprError::UnexpectedLeftCurlyBrace(token_idx) => {
-                ctx.token_text_range(*token_idx)
-            }
-            OriginalExprError::ExpectBlock(_) => todo!(),
-        }
+        let token_idx_range = self.token_idx_range();
+        todo!()
     }
 }
 

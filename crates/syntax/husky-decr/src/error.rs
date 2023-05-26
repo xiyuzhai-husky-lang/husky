@@ -1,6 +1,6 @@
 use husky_entity_tree::EntityTreeError;
 use husky_expr::ExprError;
-use husky_token::{TokenError, TokenIdx};
+use husky_token::{TokenError, TokenIdx, TokenStreamState};
 use husky_vfs::VfsError;
 use original_error::OriginalError;
 use thiserror::Error;
@@ -34,9 +34,9 @@ impl From<TokenError> for DecrError {
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum OriginalDecrError {
     #[error("ExpectLeftBracketInDerive")]
-    ExpectLeftBracketInDerive(TokenIdx),
+    ExpectLeftBracketInDerive(TokenStreamState),
     #[error("ExpectClosingBracket")]
-    ExpectRightBracketInDerive(TokenIdx),
+    ExpectRightBracketInDerive(TokenStreamState),
     #[error("")]
     ExprError(ExprError), // ad hoc
 }

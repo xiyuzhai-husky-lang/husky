@@ -16,7 +16,7 @@ impl<'a> AstParser<'a> {
         &mut self,
         token_group_idx: TokenGroupIdx,
         visibility_expr: VisibilityExpr,
-        state: Option<TokenIdx>,
+        state: Option<TokenStreamState>,
     ) -> Ast {
         self.parse_defn_aux::<C>(token_group_idx, visibility_expr, state)
             .unwrap_or_else(|error| Ast::Err {
@@ -29,7 +29,7 @@ impl<'a> AstParser<'a> {
         &mut self,
         token_group_idx: TokenGroupIdx,
         visibility_expr: VisibilityExpr,
-        state: Option<TokenIdx>,
+        state: Option<TokenStreamState>,
     ) -> AstResult<Ast> {
         let mut aux_parser = BasicAuxAstParser::new(
             self.db,
@@ -169,7 +169,7 @@ impl<'a> AstParser<'a> {
 impl<'a> BasicAuxAstParser<'a> {
     fn parse_head<C: NormalAstChildren>(
         mut self,
-    ) -> AstResult<(EntityKind, IdentToken, bool, TokenIdx)> {
+    ) -> AstResult<(EntityKind, IdentToken, bool, TokenStreamState)> {
         let entity_keyword_group =
             self.parse_expected(OriginalAstError::ExpectedEntityKeywordGroup)?;
         let ident: IdentToken = self.parse_expected(OriginalAstError::ExpectedIdent)?;

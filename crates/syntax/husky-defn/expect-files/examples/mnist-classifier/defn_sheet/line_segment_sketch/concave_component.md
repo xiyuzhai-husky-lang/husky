@@ -50,7 +50,7 @@ Ok(
                                                     },
                                                     Expr::Err(
                                                         ExprError::Original(
-                                                            OriginalExprError::NoLeftOperandForBinaryOperator {
+                                                            NoLeftOperandForBinaryOperator {
                                                                 binary_token_idx: TokenIdx(
                                                                     45,
                                                                 ),
@@ -59,7 +59,7 @@ Ok(
                                                     ),
                                                     Expr::Err(
                                                         ExprError::Original(
-                                                            OriginalExprError::NoRightOperandForBinaryOperator {
+                                                            NoRightOperandForBinaryOperator {
                                                                 punctuation: Closed(
                                                                     RemEuclid,
                                                                 ),

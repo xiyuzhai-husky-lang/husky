@@ -25,7 +25,9 @@ use husky_entity_path::{EntityPath, TypeVariantPath};
 use husky_entity_taxonomy::EntityKind;
 use husky_scope::Scope;
 use husky_scope_expr::VisibilityExpr;
-use husky_token::{DecrIdentToken, IdentToken, TokenGroupIdx, TokenIdx, VerticalToken};
+use husky_token::{
+    DecrIdentToken, IdentToken, TokenGroupIdx, TokenIdx, TokenStreamState, VerticalToken,
+};
 use husky_vfs::*;
 use husky_word::*;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
@@ -44,7 +46,7 @@ pub enum Ast {
     Use {
         token_group_idx: TokenGroupIdx,
         visibility_expr: VisibilityExpr,
-        state_after_visibility_expr: Option<TokenIdx>,
+        state_after_visibility_expr: Option<TokenStreamState>,
     },
     /// specify internal attributes
     /// doesn't need to be processed until comptime
@@ -75,7 +77,7 @@ pub enum Ast {
         entity_kind: EntityKind,
         ident_token: IdentToken,
         is_generic: bool,
-        saved_stream_state: TokenIdx,
+        saved_stream_state: TokenStreamState,
         block: DefnBlock,
     },
     TypeVariant {
@@ -83,7 +85,7 @@ pub enum Ast {
         path: TypeVariantPath,
         vertical_token: VerticalToken,
         ident_token: IdentToken,
-        state_after: TokenIdx,
+        state_after: TokenStreamState,
     },
     ImplBlock {
         token_group_idx: TokenGroupIdx,

@@ -24,9 +24,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        2,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            2,
+                        ),
+                        drained: true,
+                    },
                     block: Submodule {
                         path: ModulePath(
                             Id {
@@ -57,9 +60,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        4,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            4,
+                        ),
+                        drained: true,
+                    },
                     block: Submodule {
                         path: ModulePath(
                             Id {
@@ -90,9 +96,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        6,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            6,
+                        ),
+                        drained: true,
+                    },
                     block: Submodule {
                         path: ModulePath(
                             Id {
@@ -123,9 +132,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        8,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            8,
+                        ),
+                        drained: true,
+                    },
                     block: Submodule {
                         path: ModulePath(
                             Id {
@@ -156,9 +168,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        10,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            10,
+                        ),
+                        drained: true,
+                    },
                     block: Submodule {
                         path: ModulePath(
                             Id {
@@ -189,9 +204,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        12,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            12,
+                        ),
+                        drained: true,
+                    },
                     block: Submodule {
                         path: ModulePath(
                             Id {
@@ -222,9 +240,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        14,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            14,
+                        ),
+                        drained: true,
+                    },
                     block: Submodule {
                         path: ModulePath(
                             Id {
@@ -255,9 +276,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        16,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            16,
+                        ),
+                        drained: true,
+                    },
                     block: Submodule {
                         path: ModulePath(
                             Id {
@@ -288,9 +312,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        18,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            18,
+                        ),
+                        drained: true,
+                    },
                     block: Submodule {
                         path: ModulePath(
                             Id {
@@ -321,9 +348,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        20,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            20,
+                        ),
+                        drained: true,
+                    },
                     block: Submodule {
                         path: ModulePath(
                             Id {
@@ -347,9 +377,12 @@ Ok(
                         },
                     },
                     state_after_visibility_expr: Some(
-                        TokenIdx(
-                            21,
-                        ),
+                        TokenStreamState {
+                            next_token_idx: TokenIdx(
+                                21,
+                            ),
+                            drained: false,
+                        },
                     ),
                 },
                 Ast::Use {

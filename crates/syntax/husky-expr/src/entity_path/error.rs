@@ -37,7 +37,7 @@ pub enum OriginalEntityPathExprError {
         error: EntityTreeError,
     },
     #[error("expect identifier after `::`")]
-    ExpectIdentAfterScopeResolution(TokenIdx),
+    ExpectIdentAfterScopeResolution(TokenStreamState),
 }
 
 impl OriginalError for OriginalEntityPathExprError {

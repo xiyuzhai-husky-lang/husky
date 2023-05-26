@@ -94,7 +94,7 @@ impl<'a> DeclParseContext<'a> {
         path: FugitivePath,
         _entity_kind: EntityKind,
         token_group_idx: TokenGroupIdx,
-        saved_stream_state: TokenIdx,
+        saved_stream_state: TokenStreamState,
     ) -> Result<FugitiveDecl, DeclError> {
         match path.form_kind(self.db()) {
             FugitiveKind::Val => {

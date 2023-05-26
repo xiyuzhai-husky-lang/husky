@@ -170,7 +170,7 @@ impl<'a> DeclParseContext<'a> {
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
         associated_item: AssociatedItem,
-        saved_stream_state: TokenIdx,
+        saved_stream_state: TokenStreamState,
     ) -> Result<AssociatedItemDecl, DeclError> {
         Ok(AssociatedItemDecl::TypeItem(match ty_item_kind {
             TypeItemKind::MethodFn => self

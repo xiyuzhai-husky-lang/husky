@@ -163,11 +163,17 @@ Ok(
                                                 },
                                                 Expr::Err(
                                                     ExprError::Original(
-                                                        OriginalExprError::UnrecognizedIdent {
+                                                        UnrecognizedIdent {
                                                             token_idx: TokenIdx(
                                                                 15,
                                                             ),
-                                                            ident: `input`,
+                                                            ident: Ident(
+                                                                Word(
+                                                                    Id {
+                                                                        value: 510,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
                                                     ),
                                                 ),

@@ -80,7 +80,7 @@ impl<'a> DeclParseContext<'a> {
         let trai: TraitExpr = ctx.parse().unwrap().unwrap();
         let for_token = ctx.parse().unwrap().unwrap();
         let ty = ctx.parse().unwrap().unwrap();
-        let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectEolColon)?;
+        let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectedEolColon)?;
         Ok(TraitForTypeImplBlockDecl::new(
             self.db(),
             ast_idx,

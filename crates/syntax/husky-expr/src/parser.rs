@@ -25,7 +25,7 @@ use husky_token::Token;
 use husky_token::TokenStream;
 use list::*;
 use original_error::OriginalError;
-use parsec::StreamParser;
+use parsec::{HasStreamState, StreamParser};
 use resolve::*;
 use salsa::DebugWithDb;
 use std::ops::ControlFlow;
@@ -102,7 +102,7 @@ impl<'a> ExprParser<'a> {
         &'b mut self,
         env: Option<ExprEnvironment>,
         token_group_idx: TokenGroupIdx,
-        state: impl Into<Option<TokenIdx>>,
+        state: impl Into<Option<TokenStreamState>>,
     ) -> ExprParseContext<'a, 'b>
     where
         'a: 'b,
@@ -176,7 +176,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             match self.resolve_token(token_idx, token) {
                 ControlFlow::Continue(resolved_token) => self.accept_token(resolved_token),
                 ControlFlow::Break(_) => {
-                    self.rollback(token_idx);
+                    self.rollback_raw(token_idx);
                     break;
                 }
             }
@@ -191,9 +191,9 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
     pub fn parse_expr_expected<E: OriginalError>(
         &mut self,
         env: Option<ExprEnvironment>,
-        err: impl FnOnce(TokenIdx) -> E,
+        err: impl FnOnce(TokenStreamState) -> E,
     ) -> Result<ExprIdx, E::Error> {
-        let state = self.state();
+        let state = self.save_state();
         if let Some(env) = env {
             self.env_stack.set(env);
         }
@@ -205,7 +205,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             match self.resolve_token(token_idx, token) {
                 ControlFlow::Continue(resolved_token) => self.accept_token(resolved_token),
                 ControlFlow::Break(_) => {
-                    self.rollback(token_idx);
+                    self.rollback_raw(token_idx);
                     break;
                 }
             }
@@ -223,9 +223,9 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
     pub fn parse_expr_expected2(
         &mut self,
         env: Option<ExprEnvironment>,
-        err: impl FnOnce(TokenIdx) -> OriginalExprError,
+        err: impl FnOnce(TokenStreamState) -> OriginalExprError,
     ) -> ExprIdx {
-        let state = self.state();
+        let state = self.save_state();
         if let Some(env) = env {
             self.env_stack.set(env);
         }
@@ -237,7 +237,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             match self.resolve_token(token_idx, token) {
                 ControlFlow::Continue(resolved_token) => self.accept_token(resolved_token),
                 ControlFlow::Break(_) => {
-                    self.rollback(token_idx);
+                    self.rollback_raw(token_idx);
                     break;
                 }
             }

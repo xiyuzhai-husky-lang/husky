@@ -50,9 +50,6 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
                 format!("Syntax Error: expected decorator or entity keyword")
             }
             OriginalAstError::ExpectedIdent(_) => format!("Syntax Error: expected identifier"),
-            OriginalAstError::UnexpectedEndOfTokenGroupAfterPubKeyword(_) => {
-                format!("Syntax Error: unexpected end after `pub`")
-            }
             OriginalAstError::ExpectNothing => format!("Syntax Error: expected nothing"),
             OriginalAstError::UnexpectedStmtInsideImplBlock => {
                 format!("Syntax Error: unexpected stmt inside impl")
@@ -232,9 +229,12 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             | OriginalAstError::ExpectedIdentForTypeVariant(_)
             | OriginalAstError::ExpectedFormBodyForConfig(_)
             | OriginalAstError::ExpectedFormBodyForMain(_) => ctx.token_group_text_range(self.0),
-            OriginalAstError::ExpectedIdent(token_idx)
-            | OriginalAstError::UnexpectedEndOfTokenGroupAfterPubKeyword(token_idx)
-            | OriginalAstError::UnexpectedTokenForTraitItem(token_idx)
+            OriginalAstError::ExpectedIdent(token_stream_state)
+            | OriginalAstError::VisibilityExprError(
+                OriginalVisibilityExprError::ExpectedRightParenthesis(token_stream_state)
+                | OriginalVisibilityExprError::ExpectedCrateOrSuper(token_stream_state),
+            ) => todo!(),
+            OriginalAstError::UnexpectedTokenForTraitItem(token_idx)
             | OriginalAstError::UnexpectedPunctuationForTraitItem(token_idx, _)
             | OriginalAstError::UnexpectedTokenForTypeImplItem(token_idx)
             | OriginalAstError::UnexpectedPunctuationForTypeImplItem(token_idx, _)
@@ -244,11 +244,9 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             | OriginalAstError::UnexpectedPunctuationForConnectedModuleItem(token_idx, _)
             | OriginalAstError::UnexpectedTokenForDisconnectedModuleItem(token_idx)
             | OriginalAstError::UnexpectedPunctuationForDisconnectedModuleItem(token_idx, _)
-            | OriginalAstError::VisibilityExprError(
-                OriginalVisibilityExprError::NoSuperForRoot(token_idx)
-                | OriginalVisibilityExprError::ExpectRightParenthesis(token_idx)
-                | OriginalVisibilityExprError::ExpectCrateOrSuper(token_idx),
-            ) => ctx.token_text_range(*token_idx),
+            | OriginalAstError::VisibilityExprError(OriginalVisibilityExprError::NoSuperForRoot(
+                token_idx,
+            )) => ctx.token_text_range(*token_idx),
         }
     }
 }

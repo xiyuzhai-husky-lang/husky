@@ -50,7 +50,7 @@ impl From<TokenError> for DeclError {
 #[salsa::derive_debug_with_db(db = DeclDb)]
 pub enum OriginalDeclError {
     #[error("expect `{{` or `(` or `;`")]
-    ExpectLCurlOrLParOrSemicolon(TokenIdx),
+    ExpectLCurlOrLParOrSemicolon(TokenStreamState),
     #[error("NoSuchItem")]
     NoSuchItem,
     #[error("{0}")]
@@ -122,28 +122,28 @@ pub enum OriginalDeclExprError {
     #[error("derived {0}")]
     Expr(#[from] OriginalExprError),
     #[error("expect output type")]
-    ExpectOutputType(TokenIdx),
+    ExpectOutputType(TokenStreamState),
     #[error("expect `->`")]
-    ExpectCurry(TokenIdx),
+    ExpectCurry(TokenStreamState),
     #[error("expect `:` at end of line")]
-    ExpectEolColon(TokenIdx),
+    ExpectedEolColon(TokenStreamState),
     #[error("expect `}}`")]
-    ExpectRightCurlyBrace(TokenIdx),
+    ExpectRightCurlyBrace(TokenStreamState),
     #[error("expect `>` for implicit parameters")]
     ExpectRightAngleBracketForImplicitParameterDeclList {
         langle_token_idx: TokenIdx,
-        current_token_idx: TokenIdx,
+        token_stream_state: TokenStreamState,
     },
     #[error("expect parameter declaration list")]
-    ExpectParameterDeclList(TokenIdx),
+    ExpectParameterDeclList(TokenStreamState),
     #[error("expect implicit parameter declaration")]
-    ExpectImplicitParameterDecl(TokenIdx),
+    ExpectImplicitParameterDecl(TokenStreamState),
     #[error("expect `)` in parameter list")]
-    ExpectRightParenthesisInParameterList(TokenIdx),
+    ExpectRightParenthesisInParameterList(TokenStreamState),
     #[error("ExpectVariableType")]
-    ExpectVariableType(TokenIdx),
+    ExpectVariableType(TokenStreamState),
     #[error("ExpectEqTokenForVariable")]
-    ExpectEqTokenForVariable(TokenIdx),
+    ExpectEqTokenForVariable(TokenStreamState),
 }
 
 impl OriginalError for OriginalDeclExprError {

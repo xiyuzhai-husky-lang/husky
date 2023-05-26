@@ -51,7 +51,7 @@ impl<'a> DeclParseContext<'a> {
         ast_idx: AstIdx,
         path: TraitPath,
         token_group_idx: TokenGroupIdx,
-        saved_stream_state: TokenIdx,
+        saved_stream_state: TokenStreamState,
     ) -> DeclResult<TraitDecl> {
         let mut parser = self.expr_parser(
             DeclRegionPath::Entity(path.into()),

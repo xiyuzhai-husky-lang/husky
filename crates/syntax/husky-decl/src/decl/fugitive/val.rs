@@ -19,7 +19,7 @@ impl<'a> DeclParseContext<'a> {
         &self,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
-        saved_stream_state: TokenIdx,
+        saved_stream_state: TokenStreamState,
         path: FugitivePath,
     ) -> Result<FugitiveDecl, DeclError> {
         let mut parser = self.expr_parser(

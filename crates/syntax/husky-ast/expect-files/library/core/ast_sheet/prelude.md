@@ -17,9 +17,12 @@ Ok(
                         },
                     },
                     state_after_visibility_expr: Some(
-                        TokenIdx(
-                            1,
-                        ),
+                        TokenStreamState {
+                            next_token_idx: TokenIdx(
+                                1,
+                            ),
+                            drained: false,
+                        },
                     ),
                 },
                 Ast::Use {
@@ -37,9 +40,12 @@ Ok(
                         },
                     },
                     state_after_visibility_expr: Some(
-                        TokenIdx(
-                            8,
-                        ),
+                        TokenStreamState {
+                            next_token_idx: TokenIdx(
+                                8,
+                            ),
+                            drained: false,
+                        },
                     ),
                 },
                 Ast::Use {
@@ -57,9 +63,12 @@ Ok(
                         },
                     },
                     state_after_visibility_expr: Some(
-                        TokenIdx(
-                            15,
-                        ),
+                        TokenStreamState {
+                            next_token_idx: TokenIdx(
+                                15,
+                            ),
+                            drained: false,
+                        },
                     ),
                 },
                 Ast::Use {
@@ -77,9 +86,12 @@ Ok(
                         },
                     },
                     state_after_visibility_expr: Some(
-                        TokenIdx(
-                            22,
-                        ),
+                        TokenStreamState {
+                            next_token_idx: TokenIdx(
+                                22,
+                            ),
+                            drained: false,
+                        },
                     ),
                 },
                 Ast::Use {
@@ -97,9 +109,12 @@ Ok(
                         },
                     },
                     state_after_visibility_expr: Some(
-                        TokenIdx(
-                            29,
-                        ),
+                        TokenStreamState {
+                            next_token_idx: TokenIdx(
+                                29,
+                            ),
+                            drained: false,
+                        },
                     ),
                 },
                 Ast::Use {
@@ -117,9 +132,12 @@ Ok(
                         },
                     },
                     state_after_visibility_expr: Some(
-                        TokenIdx(
-                            36,
-                        ),
+                        TokenStreamState {
+                            next_token_idx: TokenIdx(
+                                36,
+                            ),
+                            drained: false,
+                        },
                     ),
                 },
                 Ast::Use {
@@ -137,9 +155,12 @@ Ok(
                         },
                     },
                     state_after_visibility_expr: Some(
-                        TokenIdx(
-                            43,
-                        ),
+                        TokenStreamState {
+                            next_token_idx: TokenIdx(
+                                43,
+                            ),
+                            drained: false,
+                        },
                     ),
                 },
                 Ast::Use {
@@ -157,9 +178,12 @@ Ok(
                         },
                     },
                     state_after_visibility_expr: Some(
-                        TokenIdx(
-                            50,
-                        ),
+                        TokenStreamState {
+                            next_token_idx: TokenIdx(
+                                50,
+                            ),
+                            drained: false,
+                        },
                     ),
                 },
             ],

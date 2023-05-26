@@ -27,9 +27,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        3,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            3,
+                        ),
+                        drained: false,
+                    },
                     block: Trait {
                         path: TraitPath(
                             Id {
@@ -64,9 +67,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        7,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            7,
+                        ),
+                        drained: false,
+                    },
                     block: Trait {
                         path: TraitPath(
                             Id {
@@ -101,9 +107,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        11,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            11,
+                        ),
+                        drained: false,
+                    },
                     block: Trait {
                         path: TraitPath(
                             Id {
@@ -138,9 +147,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        15,
-                    ),
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            15,
+                        ),
+                        drained: false,
+                    },
                     block: Trait {
                         path: TraitPath(
                             Id {
