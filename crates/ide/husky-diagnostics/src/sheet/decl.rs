@@ -50,7 +50,9 @@ impl Diagnose for OriginalDeclError {
 
     fn range(&self, ctx: &Self::Context<'_>) -> TextRange {
         match self {
-            OriginalDeclError::ExpectLCurlOrLParOrSemicolon(token_idx) => todo!(),
+            OriginalDeclError::ExpectLCurlOrLParOrSemicolon(token_stream_state) => {
+                ctx.token_stream_state_text_range(*token_stream_state)
+            }
             OriginalDeclError::NoSuchItem => todo!(),
             OriginalDeclError::Expr(e) => e.range(ctx),
             OriginalDeclError::Deprecated => todo!(),

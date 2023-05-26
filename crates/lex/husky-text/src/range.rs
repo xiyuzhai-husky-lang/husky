@@ -27,6 +27,21 @@ impl TextRange {
             end: other.end,
         }
     }
+
+    /// returns the text range after `self` in the same line
+    /// ```
+    /// use husky_text::TextRange;
+    ///
+    /// let a: TextRange = ((0,0)..(0,3)).into();
+    /// let b: TextRange = ((0,3)..(0,4)).into();
+    /// assert_eq!(a.right_after(), b)
+    /// ```
+    pub fn right_after(self) -> Self {
+        Self {
+            start: self.end,
+            end: self.end.to_right(1),
+        }
+    }
 }
 
 #[cfg(feature = "lsp_support")]
@@ -134,15 +149,6 @@ impl From<__StaticDevSource> for TextRange {
     }
 }
 
-// impl From<std::ops::Range<(i32, i32)>> for TextRange {
-//     fn from(range: std::ops::Range<(i32, i32)>) -> Self {
-//         Self {
-//             start: range.start.into(),
-//             end: range.end.into(),
-//         }
-//     }
-// }
-
 impl From<std::ops::Range<(u32, u32)>> for TextRange {
     fn from(range: std::ops::Range<(u32, u32)>) -> Self {
         Self {
@@ -171,9 +177,12 @@ impl Into<lsp_types::Range> for TextRange {
 pub trait HasTextRange {
     fn text_range(&self) -> TextRange;
 
+    /// convenient getter
     fn text_start(&self) -> TextPosition {
         self.text_range().start
     }
+
+    /// convenient getter
     fn text_end(&self) -> TextPosition {
         self.text_range().end
     }
@@ -186,6 +195,7 @@ pub trait HasTextRange {
         self.text_range().start.line
     }
 
+    /// returns 1-baesd line index
     fn one_based_line(&self) -> u32 {
         self.text_range().start.one_based_line()
     }
