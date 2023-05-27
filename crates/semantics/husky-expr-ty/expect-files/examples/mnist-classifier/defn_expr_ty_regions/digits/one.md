@@ -1535,128 +1535,11 @@
             ExprTypeInfo {
                 variant_and_ty_result: Ok(
                     (
-                        TypePath(
-                            Constructor,
-                        ),
-                        Ok(
-                            Application(
-                                EtherealTermApplication(
-                                    Id {
-                                        value: 15,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    47,
-                ),
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
                         Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 46,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    48,
-                ),
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        TypePath(
-                            Constructor,
-                        ),
-                        Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 91,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    50,
-                ),
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        TypePath(
-                            Constructor,
-                        ),
-                        Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 91,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    51,
-                ),
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        TypePath(
-                            Constructor,
-                        ),
-                        Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 91,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    52,
-                ),
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        TypePath(
-                            Constructor,
-                        ),
-                        Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 92,
-                                        },
-                                    ),
+                            Hollow(
+                                HollowTerm(
+                                    15,
                                 ),
                             ),
                         ),
@@ -1671,66 +1554,11 @@
                     (
                         Trivial,
                         Ok(
-                            Hollow(
-                                HollowTerm(
-                                    15,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    46,
-                ),
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        Method(
-                            FluffyMemberDisambiguation {
-                                indirections: [
-                                    Leash,
-                                ],
-                                ty_path: TypePath(
-                                    Id {
-                                        value: 76,
-                                    },
-                                ),
-                                signature: MethodFn(
-                                    FluffyMethodFnSignature {
-                                        nonself_parameter_contracted_tys: [
-                                            FluffyTermRitchieParameterContractedType {
-                                                contract: Pure,
-                                                ty: EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 46,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            },
-                                        ],
-                                        return_ty: EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 56,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                ),
-                            },
-                        ),
-                        Ok(
                             EntityPath(
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 56,
+                                            value: 35,
                                         },
                                     ),
                                 ),
@@ -1739,61 +1567,8 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    49,
+                    46,
                 ),
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Derived(
-                        FluffyTermError(
-                            Todo,
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Derived(
-                        FluffyTermError(
-                            Todo,
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Derived(
-                        FluffyTermError(
-                            Todo,
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Derived(
-                        ApplicationOrRitchieCallFunctionTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        UnveilOrComposeWithOption(
-                            ComposeWithOption,
-                        ),
-                        Err(
-                            Derived(
-                                SuffixOperandTypeNotInferred,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
             },
             ExprTypeInfo {
                 variant_and_ty_result: Err(
@@ -1823,7 +1598,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    55,
+                    49,
                 ),
             },
             ExprTypeInfo {
@@ -1850,7 +1625,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    56,
+                    50,
                 ),
             },
             ExprTypeInfo {
@@ -1881,7 +1656,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    57,
+                    51,
                 ),
             },
             ExprTypeInfo {
@@ -1908,7 +1683,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    58,
+                    52,
                 ),
             },
             ExprTypeInfo {
@@ -1947,7 +1722,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    53,
+                    47,
                 ),
             },
             ExprTypeInfo {
@@ -1964,7 +1739,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    54,
+                    48,
                 ),
             },
             ExprTypeInfo {
@@ -2037,7 +1812,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    59,
+                    53,
                 ),
             },
             ExprTypeInfo {
@@ -2125,7 +1900,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    60,
+                    54,
                 ),
             },
             ExprTypeInfo {
@@ -2146,7 +1921,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    61,
+                    55,
                 ),
             },
             ExprTypeInfo {
@@ -2213,7 +1988,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    62,
+                    56,
                 ),
             },
             ExprTypeInfo {
@@ -2293,7 +2068,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    63,
+                    57,
                 ),
             },
             ExprTypeInfo {
@@ -2314,7 +2089,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    64,
+                    58,
                 ),
             },
             ExprTypeInfo {
@@ -2324,76 +2099,6 @@
                     ),
                 ),
                 expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        TypePath(
-                            Constructor,
-                        ),
-                        Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 92,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    65,
-                ),
             },
             ExprTypeInfo {
                 variant_and_ty_result: Ok(
@@ -2409,55 +2114,29 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    66,
+                    59,
                 ),
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Derived(
-                        ApplicationOrRitchieCallFunctionTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
             },
             ExprTypeInfo {
                 variant_and_ty_result: Ok(
                     (
-                        UnveilOrComposeWithOption(
-                            ComposeWithOption,
-                        ),
-                        Err(
-                            Derived(
-                                SuffixOperandTypeNotInferred,
+                        Trivial,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 35,
+                                        },
+                                    ),
+                                ),
                             ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    60,
+                ),
             },
             ExprTypeInfo {
                 variant_and_ty_result: Err(
@@ -2525,29 +2204,6 @@
             ExprTypeInfo {
                 variant_and_ty_result: Ok(
                     (
-                        TypePath(
-                            Constructor,
-                        ),
-                        Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 92,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    67,
-                ),
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
                         Trivial,
                         Ok(
                             Hollow(
@@ -2559,7 +2215,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    68,
+                    61,
                 ),
             },
             ExprTypeInfo {
@@ -2637,7 +2293,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    69,
+                    62,
                 ),
             },
             ExprTypeInfo {
@@ -2651,15 +2307,30 @@
             ExprTypeInfo {
                 variant_and_ty_result: Ok(
                     (
-                        TypePath(
-                            Constructor,
+                        Trivial,
+                        Ok(
+                            Hollow(
+                                HollowTerm(
+                                    24,
+                                ),
+                            ),
                         ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    63,
+                ),
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Ok(
+                    (
+                        Trivial,
                         Ok(
                             EntityPath(
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 91,
+                                            value: 35,
                                         },
                                     ),
                                 ),
@@ -2668,14 +2339,17 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    72,
+                    64,
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Derived(
-                        FluffyTermError(
-                            Todo,
+                variant_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
                         ),
                     ),
                 ),
@@ -2695,8 +2369,79 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    73,
+                    65,
                 ),
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 33,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    66,
+                ),
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
             },
             ExprTypeInfo {
                 variant_and_ty_result: Err(
@@ -2709,32 +2454,70 @@
             ExprTypeInfo {
                 variant_and_ty_result: Ok(
                     (
-                        TypePath(
-                            Constructor,
-                        ),
-                        Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 91,
-                                        },
-                                    ),
-                                ),
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
                             ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: Some(
-                    74,
-                ),
+                expectation_rule_idx: None,
             },
             ExprTypeInfo {
                 variant_and_ty_result: Err(
                     Derived(
-                        FluffyTermError(
-                            Todo,
+                        MethodOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
                         ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -2753,8 +2536,21 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    75,
+                    67,
                 ),
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                BinaryOperationLeftOperandTypeNotInferred,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
             },
             ExprTypeInfo {
                 variant_and_ty_result: Err(
@@ -2767,31 +2563,53 @@
             ExprTypeInfo {
                 variant_and_ty_result: Ok(
                     (
-                        TypePath(
-                            Constructor,
-                        ),
-                        Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 91,
-                                        },
-                                    ),
-                                ),
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
                             ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: Some(
-                    76,
-                ),
+                expectation_rule_idx: None,
             },
             ExprTypeInfo {
                 variant_and_ty_result: Err(
                     Derived(
-                        FluffyTermError(
-                            Todo,
+                        MethodOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Err(
+                    Derived(
+                        ExprError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
                         ),
                     ),
                 ),
@@ -2811,63 +2629,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    77,
-                ),
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Derived(
-                        ApplicationOrRitchieCallFunctionTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        TypePath(
-                            Constructor,
-                        ),
-                        Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 92,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    70,
-                ),
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Hollow(
-                                HollowTerm(
-                                    24,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    71,
+                    68,
                 ),
             },
             ExprTypeInfo {
@@ -2882,14 +2644,6 @@
                 variant_and_ty_result: Err(
                     Derived(
                         FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -2944,7 +2698,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    78,
+                    69,
                 ),
             },
             ExprTypeInfo {
@@ -2965,63 +2719,34 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    79,
+                    70,
                 ),
             },
             ExprTypeInfo {
                 variant_and_ty_result: Ok(
                     (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                        TypePath(
+                            Constructor,
+                        ),
+                        Ok(
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 15,
+                                    },
+                                ),
                             ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    71,
+                ),
             },
             ExprTypeInfo {
                 variant_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Derived(
-                        ApplicationOrRitchieCallFunctionTypeNotInferred,
+                    Original(
+                        NoSuchField,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -3029,20 +2754,28 @@
             ExprTypeInfo {
                 variant_and_ty_result: Ok(
                     (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                        TypePath(
+                            Constructor,
+                        ),
+                        Ok(
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 15,
+                                    },
+                                ),
                             ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    72,
+                ),
             },
             ExprTypeInfo {
                 variant_and_ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
+                    Original(
+                        NoSuchField,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -3061,9 +2794,27 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
+                variant_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                BinaryOperationLeftOperandTypeNotInferred,
+                            ),
+                        ),
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -3082,17 +2833,27 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
+                variant_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
                     ),
                 ),
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
+                variant_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                BinaryOperationLeftOperandTypeNotInferred,
+                            ),
+                        ),
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -3111,58 +2872,8 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    80,
+                    73,
                 ),
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                BinaryOperationLeftOperandTypeNotInferred,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Derived(
-                        ApplicationOrRitchieCallFunctionTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Derived(
-                        ExprError,
-                    ),
-                ),
-                expectation_rule_idx: None,
             },
             ExprTypeInfo {
                 variant_and_ty_result: Ok(
@@ -3181,27 +2892,29 @@
                 variant_and_ty_result: Ok(
                     (
                         Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                        Ok(
+                            Hollow(
+                                HollowTerm(
+                                    29,
+                                ),
                             ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    74,
+                ),
             },
             ExprTypeInfo {
                 variant_and_ty_result: Ok(
                     (
-                        TypePath(
-                            Constructor,
-                        ),
+                        Trivial,
                         Ok(
                             EntityPath(
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 92,
+                                            value: 33,
                                         },
                                     ),
                                 ),
@@ -3210,8 +2923,21 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    81,
+                    75,
                 ),
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
             },
             ExprTypeInfo {
                 variant_and_ty_result: Ok(
@@ -3227,76 +2953,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    82,
-                ),
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Derived(
-                        ApplicationOrRitchieCallFunctionTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        UnveilOrComposeWithOption(
-                            ComposeWithOption,
-                        ),
-                        Err(
-                            Derived(
-                                SuffixOperandTypeNotInferred,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Hollow(
-                                HollowTerm(
-                                    31,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    83,
+                    76,
                 ),
             },
             ExprTypeInfo {
@@ -3317,262 +2974,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    84,
-                ),
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        TypePath(
-                            Constructor,
-                        ),
-                        Ok(
-                            Application(
-                                EtherealTermApplication(
-                                    Id {
-                                        value: 15,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    85,
-                ),
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Original(
-                        NoSuchField,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        TypePath(
-                            Constructor,
-                        ),
-                        Ok(
-                            Application(
-                                EtherealTermApplication(
-                                    Id {
-                                        value: 15,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    86,
-                ),
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Original(
-                        NoSuchField,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                BinaryOperationLeftOperandTypeNotInferred,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                BinaryOperationLeftOperandTypeNotInferred,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Hollow(
-                                HollowTerm(
-                                    32,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    87,
-                ),
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Hollow(
-                                HollowTerm(
-                                    32,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    88,
-                ),
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 33,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    89,
-                ),
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Hollow(
-                                HollowTerm(
-                                    33,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    90,
-                ),
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 33,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    91,
+                    77,
                 ),
             },
             ExprTypeInfo {
@@ -3595,7 +2997,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    92,
+                    78,
                 ),
             },
             ExprTypeInfo {
@@ -3616,7 +3018,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    93,
+                    79,
                 ),
             },
         ],
@@ -3859,7 +3261,7 @@
                         HollowTermEntry {
                             data: Hole {
                                 hole_source: Expr(
-                                    111,
+                                    106,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
                                 fill: None,
@@ -3869,7 +3271,7 @@
                         HollowTermEntry {
                             data: Hole {
                                 hole_source: Expr(
-                                    103,
+                                    98,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
                                 fill: None,
@@ -3879,7 +3281,7 @@
                         HollowTermEntry {
                             data: Hole {
                                 hole_source: Expr(
-                                    107,
+                                    102,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
                                 fill: None,
@@ -3889,7 +3291,7 @@
                         HollowTermEntry {
                             data: Hole {
                                 hole_source: Expr(
-                                    125,
+                                    120,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
                                 fill: None,
@@ -3899,7 +3301,7 @@
                         HollowTermEntry {
                             data: Hole {
                                 hole_source: Expr(
-                                    132,
+                                    127,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
                                 fill: None,
@@ -3909,7 +3311,7 @@
                         HollowTermEntry {
                             data: Hole {
                                 hole_source: Expr(
-                                    139,
+                                    134,
                                 ),
                                 hole_kind: UnspecifiedFloatType,
                                 fill: None,
@@ -3919,7 +3321,7 @@
                         HollowTermEntry {
                             data: Hole {
                                 hole_source: Expr(
-                                    147,
+                                    142,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
                                 fill: None,
@@ -3929,7 +3331,7 @@
                         HollowTermEntry {
                             data: Hole {
                                 hole_source: Expr(
-                                    160,
+                                    150,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
                                 fill: None,
@@ -3939,7 +3341,7 @@
                         HollowTermEntry {
                             data: Hole {
                                 hole_source: Expr(
-                                    182,
+                                    172,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
                                 fill: None,
@@ -3949,7 +3351,7 @@
                         HollowTermEntry {
                             data: Hole {
                                 hole_source: Expr(
-                                    170,
+                                    175,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
                                 fill: None,
@@ -3959,7 +3361,7 @@
                         HollowTermEntry {
                             data: Hole {
                                 hole_source: Expr(
-                                    174,
+                                    190,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
                                 fill: None,
@@ -3969,17 +3371,7 @@
                         HollowTermEntry {
                             data: Hole {
                                 hole_source: Expr(
-                                    178,
-                                ),
-                                hole_kind: UnspecifiedIntegerType,
-                                fill: None,
-                            },
-                            resolve_progress: Unresolved,
-                        },
-                        HollowTermEntry {
-                            data: Hole {
-                                hole_source: Expr(
-                                    189,
+                                    198,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
                                 fill: None,
@@ -3999,27 +3391,7 @@
                         HollowTermEntry {
                             data: Hole {
                                 hole_source: Expr(
-                                    213,
-                                ),
-                                hole_kind: UnspecifiedIntegerType,
-                                fill: None,
-                            },
-                            resolve_progress: Unresolved,
-                        },
-                        HollowTermEntry {
-                            data: Hole {
-                                hole_source: Expr(
-                                    219,
-                                ),
-                                hole_kind: UnspecifiedIntegerType,
-                                fill: None,
-                            },
-                            resolve_progress: Unresolved,
-                        },
-                        HollowTermEntry {
-                            data: Hole {
-                                hole_source: Expr(
-                                    231,
+                                    216,
                                 ),
                                 hole_kind: UnspecifiedFloatType,
                                 fill: None,
@@ -4029,7 +3401,7 @@
                         HollowTermEntry {
                             data: Hole {
                                 hole_source: Expr(
-                                    236,
+                                    221,
                                 ),
                                 hole_kind: UnspecifiedFloatType,
                                 fill: None,
@@ -5028,25 +4400,6 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 92,
-                                kind: Expr,
-                            },
-                            expectee: EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 92,
-                                        },
-                                    ),
-                                ),
-                            ),
-                            data: AnyDerived(
-                                ExpectAnyDerived,
-                            ),
-                            resolve_progress: Unresolved,
-                        },
-                        ExpectationEntry {
-                            src: ExpectationSource {
                                 expr_idx: 93,
                                 kind: Expr,
                             },
@@ -5062,31 +4415,14 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 87,
-                                kind: Expr,
-                            },
-                            expectee: Application(
-                                EtherealTermApplication(
-                                    Id {
-                                        value: 15,
-                                    },
-                                ),
-                            ),
-                            data: AnyOriginal(
-                                ExpectAnyOriginal,
-                            ),
-                            resolve_progress: Unresolved,
-                        },
-                        ExpectationEntry {
-                            src: ExpectationSource {
-                                expr_idx: 88,
+                                expr_idx: 94,
                                 kind: Expr,
                             },
                             expectee: EntityPath(
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 46,
+                                            value: 35,
                                         },
                                     ),
                                 ),
@@ -5099,7 +4435,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 46,
+                                                        value: 35,
                                                     },
                                                 ),
                                             ),
@@ -5117,83 +4453,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 94,
-                                kind: Expr,
-                            },
-                            expectee: EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 56,
-                                        },
-                                    ),
-                                ),
-                            ),
-                            data: AnyDerived(
-                                ExpectAnyDerived,
-                            ),
-                            resolve_progress: Unresolved,
-                        },
-                        ExpectationEntry {
-                            src: ExpectationSource {
-                                expr_idx: 89,
-                                kind: Expr,
-                            },
-                            expectee: EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 91,
-                                        },
-                                    ),
-                                ),
-                            ),
-                            data: AnyOriginal(
-                                ExpectAnyOriginal,
-                            ),
-                            resolve_progress: Unresolved,
-                        },
-                        ExpectationEntry {
-                            src: ExpectationSource {
-                                expr_idx: 90,
-                                kind: Expr,
-                            },
-                            expectee: EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 91,
-                                        },
-                                    ),
-                                ),
-                            ),
-                            data: AnyOriginal(
-                                ExpectAnyOriginal,
-                            ),
-                            resolve_progress: Unresolved,
-                        },
-                        ExpectationEntry {
-                            src: ExpectationSource {
-                                expr_idx: 91,
-                                kind: Expr,
-                            },
-                            expectee: EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 91,
-                                        },
-                                    ),
-                                ),
-                            ),
-                            data: AnyOriginal(
-                                ExpectAnyOriginal,
-                            ),
-                            resolve_progress: Unresolved,
-                        },
-                        ExpectationEntry {
-                            src: ExpectationSource {
-                                expr_idx: 110,
+                                expr_idx: 105,
                                 kind: Expr,
                             },
                             expectee: EntityPath(
@@ -5212,7 +4472,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 111,
+                                expr_idx: 106,
                                 kind: Expr,
                             },
                             expectee: Hollow(
@@ -5227,7 +4487,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 101,
+                                expr_idx: 96,
                                 kind: Expr,
                             },
                             expectee: EntityPath(
@@ -5246,7 +4506,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 103,
+                                expr_idx: 98,
                                 kind: Expr,
                             },
                             expectee: Hollow(
@@ -5261,7 +4521,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 105,
+                                expr_idx: 100,
                                 kind: Expr,
                             },
                             expectee: EntityPath(
@@ -5280,7 +4540,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 107,
+                                expr_idx: 102,
                                 kind: Expr,
                             },
                             expectee: Hollow(
@@ -5295,7 +4555,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 117,
+                                expr_idx: 112,
                                 kind: Expr,
                             },
                             expectee: EntityPath(
@@ -5333,7 +4593,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 125,
+                                expr_idx: 120,
                                 kind: Expr,
                             },
                             expectee: Hollow(
@@ -5348,7 +4608,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 126,
+                                expr_idx: 121,
                                 kind: Expr,
                             },
                             expectee: EntityPath(
@@ -5386,7 +4646,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 132,
+                                expr_idx: 127,
                                 kind: Expr,
                             },
                             expectee: Hollow(
@@ -5401,7 +4661,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 139,
+                                expr_idx: 134,
                                 kind: Expr,
                             },
                             expectee: Hollow(
@@ -5416,7 +4676,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 140,
+                                expr_idx: 135,
                                 kind: Expr,
                             },
                             expectee: EntityPath(
@@ -5454,26 +4714,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 146,
-                                kind: Expr,
-                            },
-                            expectee: EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 92,
-                                        },
-                                    ),
-                                ),
-                            ),
-                            data: AnyDerived(
-                                ExpectAnyDerived,
-                            ),
-                            resolve_progress: Unresolved,
-                        },
-                        ExpectationEntry {
-                            src: ExpectationSource {
-                                expr_idx: 147,
+                                expr_idx: 142,
                                 kind: Expr,
                             },
                             expectee: Hollow(
@@ -5488,26 +4729,45 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 159,
+                                expr_idx: 143,
                                 kind: Expr,
                             },
                             expectee: EntityPath(
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 92,
+                                            value: 35,
                                         },
                                     ),
                                 ),
                             ),
-                            data: AnyDerived(
-                                ExpectAnyDerived,
+                            data: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        contract: Pure,
+                                        ty: EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    Id {
+                                                        value: 35,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
                             ),
-                            resolve_progress: Unresolved,
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        Trivial,
+                                    ),
+                                ),
+                            ),
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 160,
+                                expr_idx: 150,
                                 kind: Expr,
                             },
                             expectee: Hollow(
@@ -5522,7 +4782,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 166,
+                                expr_idx: 156,
                                 kind: Expr,
                             },
                             expectee: EntityPath(
@@ -5560,26 +4820,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 181,
-                                kind: Expr,
-                            },
-                            expectee: EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 92,
-                                        },
-                                    ),
-                                ),
-                            ),
-                            data: AnyDerived(
-                                ExpectAnyDerived,
-                            ),
-                            resolve_progress: Unresolved,
-                        },
-                        ExpectationEntry {
-                            src: ExpectationSource {
-                                expr_idx: 182,
+                                expr_idx: 172,
                                 kind: Expr,
                             },
                             expectee: Hollow(
@@ -5594,65 +4835,50 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 168,
+                                expr_idx: 173,
                                 kind: Expr,
                             },
                             expectee: EntityPath(
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 91,
+                                            value: 35,
                                         },
                                     ),
                                 ),
                             ),
-                            data: AnyOriginal(
-                                ExpectAnyOriginal,
+                            data: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        contract: Pure,
+                                        ty: EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    Id {
+                                                        value: 35,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
                             ),
-                            resolve_progress: Unresolved,
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        Trivial,
+                                    ),
+                                ),
+                            ),
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 170,
+                                expr_idx: 175,
                                 kind: Expr,
                             },
                             expectee: Hollow(
                                 HollowTerm(
                                     25,
-                                ),
-                            ),
-                            data: AnyDerived(
-                                ExpectAnyDerived,
-                            ),
-                            resolve_progress: Unresolved,
-                        },
-                        ExpectationEntry {
-                            src: ExpectationSource {
-                                expr_idx: 172,
-                                kind: Expr,
-                            },
-                            expectee: EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 91,
-                                        },
-                                    ),
-                                ),
-                            ),
-                            data: AnyOriginal(
-                                ExpectAnyOriginal,
-                            ),
-                            resolve_progress: Unresolved,
-                        },
-                        ExpectationEntry {
-                            src: ExpectationSource {
-                                expr_idx: 174,
-                                kind: Expr,
-                            },
-                            expectee: Hollow(
-                                HollowTerm(
-                                    26,
                                 ),
                             ),
                             data: AnyDerived(
@@ -5669,19 +4895,53 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 91,
+                                            value: 33,
                                         },
                                     ),
                                 ),
                             ),
-                            data: AnyOriginal(
-                                ExpectAnyOriginal,
+                            data: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        contract: Pure,
+                                        ty: EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    Id {
+                                                        value: 33,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        Trivial,
+                                    ),
+                                ),
+                            ),
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 190,
+                                kind: Expr,
+                            },
+                            expectee: Hollow(
+                                HollowTerm(
+                                    26,
+                                ),
+                            ),
+                            data: AnyDerived(
+                                ExpectAnyDerived,
                             ),
                             resolve_progress: Unresolved,
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 178,
+                                expr_idx: 198,
                                 kind: Expr,
                             },
                             expectee: Hollow(
@@ -5696,7 +4956,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 189,
+                                expr_idx: 204,
                                 kind: Expr,
                             },
                             expectee: Hollow(
@@ -5711,7 +4971,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 190,
+                                expr_idx: 205,
                                 kind: Expr,
                             },
                             expectee: EntityPath(
@@ -5749,7 +5009,56 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 204,
+                                expr_idx: 206,
+                                kind: Expr,
+                            },
+                            expectee: Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 15,
+                                    },
+                                ),
+                            ),
+                            data: AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            resolve_progress: Unresolved,
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 208,
+                                kind: Expr,
+                            },
+                            expectee: Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 15,
+                                    },
+                                ),
+                            ),
+                            data: AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            resolve_progress: Unresolved,
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 216,
+                                kind: Expr,
+                            },
+                            expectee: Hollow(
+                                HollowTerm(
+                                    29,
+                                ),
+                            ),
+                            data: AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            resolve_progress: Unresolved,
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 218,
                                 kind: Expr,
                             },
                             expectee: Hollow(
@@ -5764,56 +5073,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 212,
-                                kind: Expr,
-                            },
-                            expectee: EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 92,
-                                        },
-                                    ),
-                                ),
-                            ),
-                            data: AnyDerived(
-                                ExpectAnyDerived,
-                            ),
-                            resolve_progress: Unresolved,
-                        },
-                        ExpectationEntry {
-                            src: ExpectationSource {
-                                expr_idx: 213,
-                                kind: Expr,
-                            },
-                            expectee: Hollow(
-                                HollowTerm(
-                                    30,
-                                ),
-                            ),
-                            data: AnyDerived(
-                                ExpectAnyDerived,
-                            ),
-                            resolve_progress: Unresolved,
-                        },
-                        ExpectationEntry {
-                            src: ExpectationSource {
                                 expr_idx: 219,
-                                kind: Expr,
-                            },
-                            expectee: Hollow(
-                                HollowTerm(
-                                    31,
-                                ),
-                            ),
-                            data: AnyDerived(
-                                ExpectAnyDerived,
-                            ),
-                            resolve_progress: Unresolved,
-                        },
-                        ExpectationEntry {
-                            src: ExpectationSource {
-                                expr_idx: 220,
                                 kind: Expr,
                             },
                             expectee: EntityPath(
@@ -5854,159 +5114,57 @@
                                 expr_idx: 221,
                                 kind: Expr,
                             },
-                            expectee: Application(
-                                EtherealTermApplication(
-                                    Id {
-                                        value: 15,
-                                    },
+                            expectee: Hollow(
+                                HollowTerm(
+                                    30,
                                 ),
                             ),
-                            data: AnyOriginal(
-                                ExpectAnyOriginal,
+                            data: AnyDerived(
+                                ExpectAnyDerived,
                             ),
                             resolve_progress: Unresolved,
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 222,
+                                kind: Expr,
+                            },
+                            expectee: EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 33,
+                                        },
+                                    ),
+                                ),
+                            ),
+                            data: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        contract: Pure,
+                                        ty: EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    Id {
+                                                        value: 33,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        Trivial,
+                                    ),
+                                ),
+                            ),
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
                                 expr_idx: 223,
-                                kind: Expr,
-                            },
-                            expectee: Application(
-                                EtherealTermApplication(
-                                    Id {
-                                        value: 15,
-                                    },
-                                ),
-                            ),
-                            data: AnyOriginal(
-                                ExpectAnyOriginal,
-                            ),
-                            resolve_progress: Unresolved,
-                        },
-                        ExpectationEntry {
-                            src: ExpectationSource {
-                                expr_idx: 231,
-                                kind: Expr,
-                            },
-                            expectee: Hollow(
-                                HollowTerm(
-                                    32,
-                                ),
-                            ),
-                            data: AnyOriginal(
-                                ExpectAnyOriginal,
-                            ),
-                            resolve_progress: Unresolved,
-                        },
-                        ExpectationEntry {
-                            src: ExpectationSource {
-                                expr_idx: 233,
-                                kind: Expr,
-                            },
-                            expectee: Hollow(
-                                HollowTerm(
-                                    32,
-                                ),
-                            ),
-                            data: AnyDerived(
-                                ExpectAnyDerived,
-                            ),
-                            resolve_progress: Unresolved,
-                        },
-                        ExpectationEntry {
-                            src: ExpectationSource {
-                                expr_idx: 234,
-                                kind: Expr,
-                            },
-                            expectee: EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 33,
-                                        },
-                                    ),
-                                ),
-                            ),
-                            data: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
-                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
-                                        contract: Pure,
-                                        ty: EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 33,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                },
-                            ),
-                            resolve_progress: Resolved(
-                                Ok(
-                                    ImplicitlyConvertible(
-                                        Trivial,
-                                    ),
-                                ),
-                            ),
-                        },
-                        ExpectationEntry {
-                            src: ExpectationSource {
-                                expr_idx: 236,
-                                kind: Expr,
-                            },
-                            expectee: Hollow(
-                                HollowTerm(
-                                    33,
-                                ),
-                            ),
-                            data: AnyDerived(
-                                ExpectAnyDerived,
-                            ),
-                            resolve_progress: Unresolved,
-                        },
-                        ExpectationEntry {
-                            src: ExpectationSource {
-                                expr_idx: 237,
-                                kind: Expr,
-                            },
-                            expectee: EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 33,
-                                        },
-                                    ),
-                                ),
-                            ),
-                            data: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
-                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
-                                        contract: Pure,
-                                        ty: EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 33,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                },
-                            ),
-                            resolve_progress: Resolved(
-                                Ok(
-                                    ImplicitlyConvertible(
-                                        Trivial,
-                                    ),
-                                ),
-                            ),
-                        },
-                        ExpectationEntry {
-                            src: ExpectationSource {
-                                expr_idx: 238,
                                 kind: Expr,
                             },
                             expectee: EntityPath(
@@ -6025,7 +5183,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 239,
+                                expr_idx: 224,
                                 kind: Expr,
                             },
                             expectee: EntityPath(

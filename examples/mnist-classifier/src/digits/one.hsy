@@ -29,7 +29,6 @@ pub val is_one: ?MnistLabel =
         if downmost be none:
             require simp_one_match.norm < 4.2
             narrow_down(
-                MnistLabel::One,
                 2,
                 simp_one_match.angle_change_norm.abs()
             )?
@@ -38,18 +37,16 @@ pub val is_one: ?MnistLabel =
         let downmost_number_of_strokes = downmost.strokes.end - downmost.strokes.start
         require one_fermi_match.norm < 1.0
         narrow_down(
-            MnistLabel::One,
-            12,
             major_connected_component.top_k_row_span_sum(3),
             one_fermi_match.norm,
             one_fermi_match.rel_norm,
             one_fermi_match.angle_change_norm,
+            skip = 12,
         )?
         narrow_down(
-            MnistLabel::One,
-            2,
             one_fermi_match.matches[0].rel_norm,
             one_fermi_match.matches[0].angle_change.abs(),
+            skip = 2,
         )?
         if upmost be some:
             // ad hoc; improve syntax
@@ -58,25 +55,22 @@ pub val is_one: ?MnistLabel =
             let long_vertical_dp = long_vertical.displacement()
             require long_vertical_dp.y > 0.0
             narrow_down(
-                MnistLabel::One,
-                2,
                 upmost.norm,
                 upmost.rel_norm,
-                upmost.angle_change.abs()
+                upmost.angle_change.abs(),
+                skip = 2,
             )?
             narrow_down(
-                MnistLabel::One,
                 2,
                 long_vertical_dp.norm(),
                 long_vertical_dp.x / long_vertical_dp.y
             )?
         if hat be some:
             narrow_down(
-                MnistLabel::One,
-                2,
                 one_fermi_match.matches[2].norm,
                 one_fermi_match.matches[2].rel_norm,
                 one_fermi_match.matches[2].angle_change.abs(),
+                skip = 2,
             )?
         // ad hoc
         require downmost_number_of_strokes == 3
@@ -85,7 +79,6 @@ pub val is_one: ?MnistLabel =
         let downmost_feet = downmost.strokes[downmost.strokes.start + 2]
         let downmost_feet_dp = downmost_feet.displacement()
         narrow_down(
-            MnistLabel::One,
             10,
             downmost_hat_dp.y,
             downmost_feet_dp.y

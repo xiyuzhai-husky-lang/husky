@@ -40,11 +40,11 @@ Ok(
             ),
         },
         FoldingRange {
-            start_line: 53,
+            start_line: 52,
             start_character: Some(
                 8,
             ),
-            end_line: 71,
+            end_line: 68,
             end_character: Some(
                 14,
             ),
@@ -53,11 +53,11 @@ Ok(
             ),
         },
         FoldingRange {
-            start_line: 72,
+            start_line: 69,
             start_character: Some(
                 8,
             ),
-            end_line: 79,
+            end_line: 75,
             end_character: Some(
                 14,
             ),
@@ -70,7 +70,7 @@ Ok(
             start_character: Some(
                 4,
             ),
-            end_line: 99,
+            end_line: 94,
             end_character: Some(
                 23,
             ),
@@ -96,9 +96,22 @@ Ok(
             start_character: Some(
                 0,
             ),
-            end_line: 99,
+            end_line: 94,
             end_character: Some(
                 23,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 96,
+            start_character: Some(
+                0,
+            ),
+            end_line: 99,
+            end_character: Some(
+                8,
             ),
             kind: Some(
                 Region,
@@ -111,7 +124,7 @@ Ok(
             ),
             end_line: 104,
             end_character: Some(
-                8,
+                15,
             ),
             kind: Some(
                 Region,
@@ -122,20 +135,7 @@ Ok(
             start_character: Some(
                 0,
             ),
-            end_line: 109,
-            end_character: Some(
-                15,
-            ),
-            kind: Some(
-                Region,
-            ),
-        },
-        FoldingRange {
-            start_line: 111,
-            start_character: Some(
-                0,
-            ),
-            end_line: 115,
+            end_line: 110,
             end_character: Some(
                 14,
             ),
