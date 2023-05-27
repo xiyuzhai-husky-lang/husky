@@ -88,7 +88,7 @@ impl EtherealTermRitchie {
         db: &dyn EtherealTermDb,
         raw_term_ritchie: DeclarativeTermRitchie,
     ) -> EtherealTermResult<Self> {
-        term_ritchie_from_declarative(db, raw_term_ritchie)
+        ethereal_term_ritchie_from_declarative_term_ritchie(db, raw_term_ritchie)
     }
 
     pub(crate) fn show_with_db_fmt(
@@ -114,17 +114,21 @@ impl EtherealTermRitchie {
 }
 
 #[salsa::tracked(jar = EtherealTermJar)]
-pub(crate) fn term_ritchie_from_declarative(
+pub(crate) fn ethereal_term_ritchie_from_declarative_term_ritchie(
     db: &dyn EtherealTermDb,
-    raw_term_ritchie: DeclarativeTermRitchie,
+    declarative_term_ritchie: DeclarativeTermRitchie,
 ) -> EtherealTermResult<EtherealTermRitchie> {
-    let t = |raw_term| {
-        EtherealTerm::from_declarative(db, raw_term, TermTypeExpectation::FinalDestinationEqsSort)
+    let t = |declarative_term| {
+        EtherealTerm::from_declarative(
+            db,
+            declarative_term,
+            TermTypeExpectation::FinalDestinationEqsSort,
+        )
     };
     EtherealTermRitchie::new_unchecked2(
         db,
-        raw_term_ritchie.ritchie_kind(db),
-        raw_term_ritchie.parameter_tys(db).iter().map(
+        declarative_term_ritchie.ritchie_kind(db),
+        declarative_term_ritchie.parameter_tys(db).iter().map(
             |parameter_contracted_ty| -> EtherealTermResult<_> {
                 Ok(TermRitchieParameterContractedType {
                     contract: parameter_contracted_ty.contract(),
@@ -132,7 +136,7 @@ pub(crate) fn term_ritchie_from_declarative(
                 })
             },
         ),
-        t(raw_term_ritchie.return_ty(db))?,
+        t(declarative_term_ritchie.return_ty(db))?,
     )
 }
 

@@ -12,7 +12,7 @@ pub fn raw_term_declarative_ty(
     match raw_term {
         DeclarativeTerm::Literal(_) => todo!(),
         DeclarativeTerm::Symbol(_) => todo!(),
-        DeclarativeTerm::Hole(_) => todo!(),
+        DeclarativeTerm::Variable(_) => todo!(),
         DeclarativeTerm::EntityPath(path) => raw_term_entity_path_declarative_ty(db, path),
         DeclarativeTerm::Category(cat) => cat.ty().map(Into::into).map_err(|_e| todo!()),
         DeclarativeTerm::Universe(_) => todo!(),
@@ -33,6 +33,7 @@ pub fn raw_term_declarative_ty(
         DeclarativeTerm::TraitConstraint(_) => todo!(),
         DeclarativeTerm::LeashOrBitNot(_) => todo!(),
         DeclarativeTerm::List(_) => todo!(),
+        DeclarativeTerm::Wrapper(_) => todo!(),
     }
 }
 

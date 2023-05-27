@@ -40,7 +40,7 @@ impl DeclarativeTermRewriteCopy for DeclarativeTerm {
         substitution: &DeclarativeTermSubstitution,
     ) -> Self {
         match self {
-            DeclarativeTerm::Hole(symbol) => match symbol == substitution.src() {
+            DeclarativeTerm::Variable(symbol) => match symbol == substitution.src() {
                 true => substitution.dst(),
                 false => self,
             },
@@ -59,6 +59,7 @@ impl DeclarativeTermRewriteCopy for DeclarativeTerm {
             DeclarativeTerm::TraitConstraint(term) => term.substitute(db, substitution).into(),
             DeclarativeTerm::Ritchie(_) => todo!(),
             DeclarativeTerm::List(_) => todo!(),
+            DeclarativeTerm::Wrapper(_) => todo!(),
         }
     }
 }

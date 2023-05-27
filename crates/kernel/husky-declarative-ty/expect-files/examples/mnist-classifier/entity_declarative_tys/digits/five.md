@@ -6,7 +6,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`core::option::Option mnist::MnistLabel`),
+            DeclarativeTerm(`~core::option::Option mnist::MnistLabel`),
         ),
     ),
 ]

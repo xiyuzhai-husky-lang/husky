@@ -48,7 +48,7 @@ fn calc_raw_term_symbols(
             db,
             VecSet::new_one_elem_set(symbol),
         )),
-        DeclarativeTerm::Hole(symbol) => None,
+        DeclarativeTerm::Variable(symbol) => None,
         DeclarativeTerm::EntityPath(path) => match path {
             DeclarativeTermEntityPath::Form(_) => todo!(),
             DeclarativeTermEntityPath::Trait(_) | DeclarativeTermEntityPath::Type(_) => None,
@@ -67,6 +67,7 @@ fn calc_raw_term_symbols(
         DeclarativeTerm::TraitConstraint(_) => todo!(),
         DeclarativeTerm::LeashOrBitNot(_) => todo!(),
         DeclarativeTerm::List(_) => todo!(),
+        DeclarativeTerm::Wrapper(_) => todo!(),
     }
 }
 

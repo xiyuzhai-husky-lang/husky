@@ -61,14 +61,14 @@ pub struct EtherealTermJar(
     // total_number_of_curry_parameters,
     // ritchie
     EtherealTermRitchie,
-    term_ritchie_from_declarative,
+    ethereal_term_ritchie_from_declarative_term_ritchie,
     // abstraction
     EtherealTermAbstraction,
     // application
     EtherealTermApplication,
     application_expansion_salsa,
-    term_uncheck_from_raw_term_application,
-    term_application_declarative_ty,
+    ethereal_term_from_declarative_term_application,
+    ethereal_term_application_declarative_ty,
     parameter_ty_raw_term_curry_to_argument_ty_expectation,
     parameter_ty_raw_term_application_to_argument_ty_expectation,
     // - application reduction
@@ -83,8 +83,9 @@ pub struct EtherealTermJar(
     EtherealTermTraitConstraint,
     term_menu,
     // other
-    term_from_raw_term_explicit_application_or_ritchie_call_unchecked,
-    term_from_declarative_term_list_unchecked,
+    ethereal_term_from_declarative_term_explicit_application_or_ritchie_call,
+    ethereal_term_from_declarative_term_list,
+    ethereal_term_from_declarative_term_wrapper,
     utils::curry_term_toolchain,
     utils::application_term_toolchain,
     utils::ritchie_term_toolchain,
