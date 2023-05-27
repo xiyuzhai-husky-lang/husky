@@ -14,10 +14,9 @@ pub(super) val is_six: ?MnistLabel =
     let lower_excess = major_connected_component.lower_mass - major_connected_component.upper_mass
     if eff_holes.matches[0] be none:
         narrow_down(
-            MnistLabel::Six,
-            5,
             six_match.norm,
-            six_match_refined1.rel_norm
+            six_match_refined1.rel_norm,
+            skip=5
         )?
         let bottom1_match = six_match_refined1.matches[1]
         let bottom1_match_dp = bottom1_match.displacement()
@@ -30,30 +29,27 @@ pub(super) val is_six: ?MnistLabel =
             // ad hoc
             require ignored_connected_components_row_span_sum_sum < 30.0
             narrow_down(
-                MnistLabel::Six,
-                15,
-                upmost_match_dp_y
+                upmost_match_dp_y,
+                skip = 15
             )?
             return MnistLabel::Six
         let rel_upmost_match_end = major_line_segment_sketch.bounding_box.relative_point(
             upmost_match.end()
         )
         narrow_down(
-            MnistLabel::Six,
-            15,
             upmost_match_dp_y,
             ignored_connected_components_row_span_sum_sum,
             lower_excess,
             major_connected_component.top_k_row_span_sum(6),
+            skip = 15
         )?
         if rel_upmost_match_end.x < 0.7:
             return MnistLabel::Six
         return MnistLabel::Six
     // narrow_down: filter the data that satisfy the given features. 
     narrow_down(
-        MnistLabel::Six,
-        5,
-        six_match.norm
+        six_match.norm,
+        skip = 5
     )?
     if six_match.norm > 1.8:
         require six_match.norm < 1.8
