@@ -606,31 +606,6 @@ Ok(
             TokenInfo::Entity(
                 Some(
                     EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist::MnistLabel`, `Enum`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::TypeVariant(
-                        TypeVariantPath {
-                            ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                            ident: `One`,
-                        },
-                    ),
-                ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
                         ModuleItemPath::Form(
                             FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
@@ -639,8 +614,21 @@ Ok(
                 None,
             ),
             TokenInfo::None,
-            TokenInfo::Method,
             TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -655,7 +643,7 @@ Ok(
                 None,
             ),
             TokenInfo::None,
-            TokenInfo::Field,
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
                 Some(
@@ -668,20 +656,11 @@ Ok(
                 None,
             ),
             TokenInfo::None,
-            TokenInfo::Field,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
             TokenInfo::None,
-            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -864,28 +843,23 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist::MnistLabel`, `Enum`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 2,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 2,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::TypeVariant(
-                        TypeVariantPath {
-                            ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                            ident: `One`,
-                        },
-                    ),
-                ),
-                None,
-            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 2,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 2,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -899,55 +873,17 @@ Ok(
             TokenInfo::None,
             TokenInfo::Field,
             TokenInfo::None,
-            TokenInfo::CurrentSymbol {
-                current_symbol_idx: 2,
-                current_symbol_kind: CurrentSymbolKind::LetVariable {
-                    pattern_symbol_idx: 2,
-                },
-                expr_region: ExprRegionLeash(_),
-            },
-            TokenInfo::None,
-            TokenInfo::Field,
-            TokenInfo::None,
-            TokenInfo::CurrentSymbol {
-                current_symbol_idx: 2,
-                current_symbol_kind: CurrentSymbolKind::LetVariable {
-                    pattern_symbol_idx: 2,
-                },
-                expr_region: ExprRegionLeash(_),
-            },
-            TokenInfo::None,
-            TokenInfo::Field,
-            TokenInfo::None,
-            TokenInfo::Method,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist::MnistLabel`, `Enum`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::TypeVariant(
-                        TypeVariantPath {
-                            ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                            ident: `One`,
-                        },
-                    ),
-                ),
-                None,
-            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -1006,25 +942,36 @@ Ok(
             TokenInfo::Entity(
                 Some(
                     EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist::MnistLabel`, `Enum`),
+                        ModuleItemPath::Form(
+                            FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                     ),
                 ),
                 None,
             ),
             TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
             TokenInfo::Entity(
                 Some(
-                    EntityPath::TypeVariant(
-                        TypeVariantPath {
-                            ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                            ident: `One`,
-                        },
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                        ),
                     ),
                 ),
                 None,
             ),
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -1046,43 +993,11 @@ Ok(
             TokenInfo::None,
             TokenInfo::Field,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::Field,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Field,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::Field,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Field,
-            TokenInfo::None,
-            TokenInfo::Method,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -1203,29 +1118,6 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist::MnistLabel`, `Enum`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::TypeVariant(
-                        TypeVariantPath {
-                            ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                            ident: `One`,
-                        },
-                    ),
-                ),
-                None,
-            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,

@@ -546,13 +546,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `upmost`,
                         token_idx: TokenIdx(
-                            501,
+                            488,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            502,
+                            489,
                         ),
                         drained: false,
                     },
@@ -594,13 +594,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `downmost`,
                         token_idx: TokenIdx(
-                            530,
+                            517,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            531,
+                            518,
                         ),
                         drained: false,
                     },
@@ -642,13 +642,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `hat`,
                         token_idx: TokenIdx(
-                            564,
+                            551,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            565,
+                            552,
                         ),
                         drained: false,
                     },
