@@ -399,34 +399,6 @@ Ok(
                 ),
             ),
             Token::Ident(
-                `MnistLabel`,
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        ScopeResolution,
-                    ),
-                ),
-            ),
-            Token::Ident(
-                `Six`,
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Comma,
-                ),
-            ),
-            Token::Literal(
-                Literal::Integer(
-                    Unspecified,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Comma,
-                ),
-            ),
-            Token::Ident(
                 `six_match`,
             ),
             Token::Punctuation(
@@ -452,6 +424,24 @@ Ok(
             ),
             Token::Ident(
                 `rel_norm`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Comma,
+                ),
+            ),
+            Token::Ident(
+                `skip`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Eq,
+                ),
+            ),
+            Token::Literal(
+                Literal::Integer(
+                    Unspecified,
+                ),
             ),
             Token::Punctuation(
                 Punctuation(
@@ -737,35 +727,25 @@ Ok(
                 ),
             ),
             Token::Ident(
-                `MnistLabel`,
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        ScopeResolution,
-                    ),
-                ),
-            ),
-            Token::Ident(
-                `Six`,
+                `upmost_match_dp_y`,
             ),
             Token::Punctuation(
                 Punctuation(
                     PunctuationMapped::Comma,
+                ),
+            ),
+            Token::Ident(
+                `skip`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Eq,
                 ),
             ),
             Token::Literal(
                 Literal::Integer(
                     Unspecified,
                 ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Comma,
-                ),
-            ),
-            Token::Ident(
-                `upmost_match_dp_y`,
             ),
             Token::Punctuation(
                 Punctuation(
@@ -879,34 +859,6 @@ Ok(
                 ),
             ),
             Token::Ident(
-                `MnistLabel`,
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        ScopeResolution,
-                    ),
-                ),
-            ),
-            Token::Ident(
-                `Six`,
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Comma,
-                ),
-            ),
-            Token::Literal(
-                Literal::Integer(
-                    Unspecified,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Comma,
-                ),
-            ),
-            Token::Ident(
                 `upmost_match_dp_y`,
             ),
             Token::Punctuation(
@@ -963,6 +915,19 @@ Ok(
             Token::Punctuation(
                 Punctuation(
                     PunctuationMapped::Comma,
+                ),
+            ),
+            Token::Ident(
+                `skip`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Eq,
+                ),
+            ),
+            Token::Literal(
+                Literal::Integer(
+                    Unspecified,
                 ),
             ),
             Token::Punctuation(
@@ -1055,34 +1020,6 @@ Ok(
                 ),
             ),
             Token::Ident(
-                `MnistLabel`,
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        ScopeResolution,
-                    ),
-                ),
-            ),
-            Token::Ident(
-                `Six`,
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Comma,
-                ),
-            ),
-            Token::Literal(
-                Literal::Integer(
-                    Unspecified,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Comma,
-                ),
-            ),
-            Token::Ident(
                 `six_match`,
             ),
             Token::Punctuation(
@@ -1092,6 +1029,24 @@ Ok(
             ),
             Token::Ident(
                 `norm`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Comma,
+                ),
+            ),
+            Token::Ident(
+                `skip`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Eq,
+                ),
+            ),
+            Token::Literal(
+                Literal::Integer(
+                    Unspecified,
+                ),
             ),
             Token::Punctuation(
                 Punctuation(
@@ -1942,42 +1897,42 @@ Ok(
             65,
             75,
             85,
-            102,
-            111,
-            119,
-            125,
-            135,
-            141,
-            147,
-            152,
-            157,
-            161,
+            100,
+            109,
+            117,
+            123,
+            133,
+            139,
+            145,
+            150,
+            155,
+            159,
+            168,
             172,
-            176,
-            191,
+            187,
+            207,
             214,
-            221,
-            225,
-            229,
-            242,
-            249,
-            255,
-            270,
-            280,
-            295,
-            299,
-            302,
-            314,
+            218,
+            222,
+            233,
+            240,
+            246,
+            261,
+            271,
+            286,
+            290,
+            293,
+            305,
+            313,
+            319,
             322,
-            328,
-            331,
-            343,
-            351,
-            359,
-            375,
-            385,
-            402,
-            408,
+            334,
+            342,
+            350,
+            366,
+            376,
+            393,
+            399,
         ],
         indents: [
             0,

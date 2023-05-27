@@ -674,13 +674,11 @@
                             Constructor,
                         ),
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 91,
-                                        },
-                                    ),
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 18,
+                                    },
                                 ),
                             ),
                         ),
@@ -753,13 +751,11 @@
                             Constructor,
                         ),
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 91,
-                                        },
-                                    ),
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 18,
+                                    },
                                 ),
                             ),
                         ),
@@ -835,7 +831,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 15,
+                                        value: 17,
                                     },
                                 ),
                             ),
@@ -928,13 +924,11 @@
                             Constructor,
                         ),
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 91,
-                                        },
-                                    ),
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 18,
+                                    },
                                 ),
                             ),
                         ),
@@ -1052,7 +1046,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 15,
+                                        value: 17,
                                     },
                                 ),
                             ),
@@ -1073,7 +1067,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 15,
+                                        value: 17,
                                     },
                                 ),
                             ),
@@ -1298,13 +1292,11 @@
                             Constructor,
                         ),
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 91,
-                                        },
-                                    ),
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 18,
+                                    },
                                 ),
                             ),
                         ),
@@ -1390,13 +1382,11 @@
                             Constructor,
                         ),
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 91,
-                                        },
-                                    ),
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 18,
+                                    },
                                 ),
                             ),
                         ),
@@ -1464,7 +1454,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 15,
+                                        value: 17,
                                     },
                                 ),
                             ),
@@ -1485,7 +1475,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 15,
+                                        value: 17,
                                     },
                                 ),
                             ),
@@ -1532,13 +1522,11 @@
                             Constructor,
                         ),
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 91,
-                                        },
-                                    ),
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 18,
+                                    },
                                 ),
                             ),
                         ),
@@ -1767,13 +1755,11 @@
                             Constructor,
                         ),
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 91,
-                                        },
-                                    ),
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 18,
+                                    },
                                 ),
                             ),
                         ),
@@ -1841,7 +1827,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 15,
+                                        value: 17,
                                     },
                                 ),
                             ),
@@ -1879,6 +1865,7 @@
                         Method(
                             FluffyMemberDisambiguation {
                                 indirections: [
+                                    Leash,
                                     Leash,
                                 ],
                                 ty_path: TypePath(
@@ -2323,13 +2310,11 @@
                                 expr_idx: 0,
                                 kind: Expr,
                             },
-                            expectee: EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 91,
-                                        },
-                                    ),
+                            expectee: Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 18,
+                                    },
                                 ),
                             ),
                             data: AnyOriginal(
@@ -2395,13 +2380,11 @@
                                 expr_idx: 5,
                                 kind: Expr,
                             },
-                            expectee: EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 91,
-                                        },
-                                    ),
+                            expectee: Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 18,
+                                    },
                                 ),
                             ),
                             data: AnyOriginal(
@@ -2470,7 +2453,7 @@
                             expectee: Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 15,
+                                        value: 17,
                                     },
                                 ),
                             ),
@@ -2537,13 +2520,11 @@
                                 expr_idx: 17,
                                 kind: Expr,
                             },
-                            expectee: EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 91,
-                                        },
-                                    ),
+                            expectee: Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 18,
+                                    },
                                 ),
                             ),
                             data: AnyOriginal(
@@ -2612,7 +2593,7 @@
                             expectee: Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 15,
+                                        value: 17,
                                     },
                                 ),
                             ),
@@ -2629,7 +2610,7 @@
                             expectee: Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 15,
+                                        value: 17,
                                     },
                                 ),
                             ),
@@ -2802,13 +2783,11 @@
                                 expr_idx: 43,
                                 kind: Expr,
                             },
-                            expectee: EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 91,
-                                        },
-                                    ),
+                            expectee: Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 18,
+                                    },
                                 ),
                             ),
                             data: AnyOriginal(
@@ -2874,13 +2853,11 @@
                                 expr_idx: 49,
                                 kind: Expr,
                             },
-                            expectee: EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 91,
-                                        },
-                                    ),
+                            expectee: Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 18,
+                                    },
                                 ),
                             ),
                             data: AnyOriginal(
@@ -2949,7 +2926,7 @@
                             expectee: Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 15,
+                                        value: 17,
                                     },
                                 ),
                             ),
@@ -2966,7 +2943,7 @@
                             expectee: Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 15,
+                                        value: 17,
                                     },
                                 ),
                             ),
@@ -2980,13 +2957,11 @@
                                 expr_idx: 58,
                                 kind: Expr,
                             },
-                            expectee: EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 91,
-                                        },
-                                    ),
+                            expectee: Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 18,
+                                    },
                                 ),
                             ),
                             data: AnyOriginal(
@@ -3173,13 +3148,11 @@
                                 expr_idx: 74,
                                 kind: Expr,
                             },
-                            expectee: EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 91,
-                                        },
-                                    ),
+                            expectee: Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 18,
+                                    },
                                 ),
                             ),
                             data: AnyOriginal(
@@ -3248,7 +3221,7 @@
                             expectee: Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 15,
+                                        value: 17,
                                     },
                                 ),
                             ),

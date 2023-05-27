@@ -59,6 +59,6 @@ fn term_to_fluffy_term_works() {
     }
     let db = DB::default();
     let toolchain = db.dev_toolchain().unwrap();
-    let term_menu = db.term_menu(toolchain);
+    let term_menu = db.ethereal_term_menu(toolchain);
     t(TermLiteral::I8(1))
 }

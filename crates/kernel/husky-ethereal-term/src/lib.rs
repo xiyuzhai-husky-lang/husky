@@ -86,9 +86,9 @@ pub struct EtherealTermJar(
     ethereal_term_from_declarative_term_explicit_application_or_ritchie_call,
     ethereal_term_from_declarative_term_list,
     ethereal_term_from_declarative_term_wrapper,
-    utils::curry_term_toolchain,
-    utils::application_term_toolchain,
-    utils::ritchie_term_toolchain,
+    utils::ethereal_term_curry_toolchain,
+    utils::ethereal_term_application_toolchain,
+    utils::ethereal_term_ritchie_toolchain,
     // trai
     trai_side_trai_for_ty_impl_blocks_aux,
     ty_side_trai_for_ty_impl_blocks_aux,

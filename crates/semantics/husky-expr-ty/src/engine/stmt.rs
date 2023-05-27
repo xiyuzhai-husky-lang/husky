@@ -231,7 +231,7 @@ impl<Expectation: ExpectFluffyTerm> BranchTypes<Expectation> {
         };
     }
 
-    fn merge(self, exhaustive: bool, menu: &TermMenu) -> Option<FluffyTerm> {
+    fn merge(self, exhaustive: bool, menu: &EtherealTermMenu) -> Option<FluffyTerm> {
         if let Some(ever_ty) = self.ever_ty {
             return ever_ty.into();
         }

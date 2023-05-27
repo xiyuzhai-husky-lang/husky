@@ -6,7 +6,7 @@ impl<'a> ExprTypeEngine<'a> {
         lopd: ExprIdx,
         ropd: ExprIdx,
         opr: BinaryClosedOpr,
-        menu: &TermMenu,
+        menu: &EtherealTermMenu,
     ) -> Result<FluffyTerm, ExprTypeError> {
         let Some(lopd_ty) = self.infer_new_expr_ty(
             lopd,
