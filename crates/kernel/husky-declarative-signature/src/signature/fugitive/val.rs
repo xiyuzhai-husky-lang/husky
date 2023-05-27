@@ -2,7 +2,7 @@ use crate::*;
 
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 pub struct ValDeclarativeSignatureTemplate {
-    pub return_ty: DeclarativeTerm,
+    pub initialization_ty: DeclarativeTerm,
 }
 
 impl HasDeclarativeSignatureTemplate for ValDecl {

@@ -12,7 +12,7 @@ impl DeclarativeTerm {
         match self {
             DeclarativeTerm::Literal(_) => todo!(),
             DeclarativeTerm::Symbol(_) => todo!(),
-            DeclarativeTerm::Hole(_) => todo!(),
+            DeclarativeTerm::Variable(_) => todo!(),
             DeclarativeTerm::EntityPath(path) => match path {
                 DeclarativeTermEntityPath::Form(_) => todo!(),
                 DeclarativeTermEntityPath::Trait(_) => todo!(),
@@ -30,6 +30,7 @@ impl DeclarativeTerm {
             DeclarativeTerm::TraitConstraint(_) => todo!(),
             DeclarativeTerm::LeashOrBitNot(_) => todo!(),
             DeclarativeTerm::List(_) => todo!(),
+            DeclarativeTerm::Wrapper(_) => todo!(),
         }
     }
 

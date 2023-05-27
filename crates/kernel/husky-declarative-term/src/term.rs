@@ -7,10 +7,11 @@ mod explicit_application;
 mod explicit_application_or_ritchie_call;
 mod list;
 mod literal;
-mod placeholder;
 mod ritchie;
 mod subentity;
 mod symbol;
+mod variable;
+mod wrapper;
 
 pub use self::abstraction::*;
 pub use self::as_trai_subentity::*;
@@ -21,10 +22,11 @@ pub use self::explicit_application::*;
 pub use self::explicit_application_or_ritchie_call::*;
 pub use self::list::*;
 pub use self::literal::*;
-pub use self::placeholder::*;
 pub use self::ritchie::*;
 pub use self::subentity::*;
 pub use self::symbol::*;
+pub use self::variable::*;
+pub use self::wrapper::*;
 
 use crate::*;
 use std::fmt::Debug;
@@ -37,8 +39,9 @@ pub enum DeclarativeTerm {
     /// literal: 1,1.0, true, false; variable, entityPath
     Literal(DeclarativeTermLiteral),
     Symbol(DeclarativeTermSymbol),
+    /// variables are those appearing in lambda expression
     /// variables are derived from symbols
-    Hole(DeclarativeTermVariable),
+    Variable(DeclarativeTermVariable),
     EntityPath(DeclarativeTermEntityPath),
     Category(TermCategory),
     Universe(TermUniverse),
@@ -71,6 +74,7 @@ pub enum DeclarativeTerm {
     TraitConstraint(DeclarativeTermTraitConstraint),
     /// `~`
     LeashOrBitNot(Toolchain),
+    Wrapper(DeclarativeTermWrapper),
     /// can be interpreted as
     /// - a normal list of terms
     /// - List functor
@@ -123,7 +127,7 @@ impl DeclarativeTerm {
         match self {
             DeclarativeTerm::Literal(term) => term.show_with_db_fmt(f, db, ctx),
             DeclarativeTerm::Symbol(term) => term.show_with_db_fmt(f, db, ctx),
-            DeclarativeTerm::Hole(term) => term.show_with_db_fmt(f, db, ctx),
+            DeclarativeTerm::Variable(term) => term.show_with_db_fmt(f, db, ctx),
             DeclarativeTerm::EntityPath(term) => term.show_with_db_fmt(f, db, ctx),
             DeclarativeTerm::Category(term) => f.write_str(&term.to_string()),
             DeclarativeTerm::Universe(term) => f.write_str(&term.to_string()),
@@ -139,6 +143,7 @@ impl DeclarativeTerm {
             DeclarativeTerm::TraitConstraint(term) => term.show_with_db_fmt(f, db, ctx),
             DeclarativeTerm::LeashOrBitNot(_) => f.write_str("~"),
             DeclarativeTerm::List(term) => term.show_with_db_fmt(f, db, ctx),
+            DeclarativeTerm::Wrapper(term) => term.show_with_db_fmt(f, db, ctx),
         }
     }
 }

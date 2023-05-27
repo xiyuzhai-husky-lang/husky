@@ -58,7 +58,7 @@ impl DeclarativeTerm {
     pub(crate) fn variables(self, db: &dyn DeclarativeTermDb) -> Option<DeclarativeTermVariables> {
         match self {
             DeclarativeTerm::Literal(_) => todo!(),
-            DeclarativeTerm::Hole(variable) => Some(DeclarativeTermVariables::new(
+            DeclarativeTerm::Variable(variable) => Some(DeclarativeTermVariables::new(
                 db,
                 VecSet::new_one_elem_set(variable),
             )),
@@ -81,6 +81,7 @@ impl DeclarativeTerm {
             DeclarativeTerm::TraitConstraint(_) => todo!(),
             DeclarativeTerm::LeashOrBitNot(_) => todo!(),
             DeclarativeTerm::List(_) => todo!(),
+            DeclarativeTerm::Wrapper(_) => todo!(),
         }
     }
 }

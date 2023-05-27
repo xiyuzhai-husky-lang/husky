@@ -15,17 +15,17 @@ pub fn form_path_declarative_ty(
     let declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();
     match signature {
         FugitiveDeclarativeSignatureTemplate::Fn(signature) => {
-            form_fn_entity_declarative_ty(db, variances, signature)
+            fn_path_declarative_ty(db, variances, signature)
         }
         FugitiveDeclarativeSignatureTemplate::Val(signature) => {
-            feature_entity_declarative_ty(db, signature, declarative_term_menu)
+            val_path_declarative_ty(db, signature, declarative_term_menu)
         }
         FugitiveDeclarativeSignatureTemplate::Gn(_) => todo!(),
         FugitiveDeclarativeSignatureTemplate::TypeAlias(_) => todo!(),
     }
 }
 
-pub(crate) fn form_fn_entity_declarative_ty(
+pub(crate) fn fn_path_declarative_ty(
     db: &dyn DeclarativeTypeDb,
     variances: &[Variance],
     signature: FnDeclarativeSignatureTemplate,
@@ -51,10 +51,10 @@ pub(crate) fn form_fn_entity_declarative_ty(
     ))
 }
 
-pub(crate) fn feature_entity_declarative_ty(
+pub(crate) fn val_path_declarative_ty(
     db: &dyn DeclarativeTypeDb,
     signature: ValDeclarativeSignatureTemplate,
     _declarative_term_menu: &DeclarativeTermMenu,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
-    Ok(signature.return_ty(db))
+    Ok(signature.initialization_ty(db).leashed_ty(db))
 }

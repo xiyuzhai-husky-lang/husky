@@ -3,7 +3,7 @@
         SignatureTemplate::Form(
             FugitiveDeclarativeSignatureTemplate::Val(
                 ValDeclarativeSignatureTemplate {
-                    return_ty: DeclarativeTerm(`~ [] mnist_classifier::connected_component::ConnectedComponent`),
+                    initialization_ty: DeclarativeTerm(`~ [] mnist_classifier::connected_component::ConnectedComponent`),
                 },
             ),
         ),
@@ -12,7 +12,7 @@
         SignatureTemplate::Form(
             FugitiveDeclarativeSignatureTemplate::Val(
                 ValDeclarativeSignatureTemplate {
-                    return_ty: DeclarativeTerm(`~ mnist_classifier::connected_component::ConnectedComponent`),
+                    initialization_ty: DeclarativeTerm(`~ mnist_classifier::connected_component::ConnectedComponent`),
                 },
             ),
         ),
@@ -21,7 +21,7 @@
         SignatureTemplate::Form(
             FugitiveDeclarativeSignatureTemplate::Val(
                 ValDeclarativeSignatureTemplate {
-                    return_ty: DeclarativeTerm(`core::num::f32`),
+                    initialization_ty: DeclarativeTerm(`core::num::f32`),
                 },
             ),
         ),
@@ -30,7 +30,7 @@
         SignatureTemplate::Form(
             FugitiveDeclarativeSignatureTemplate::Val(
                 ValDeclarativeSignatureTemplate {
-                    return_ty: DeclarativeTerm(`~ [] mnist_classifier::raw_contour::RawContour`),
+                    initialization_ty: DeclarativeTerm(`~ [] mnist_classifier::raw_contour::RawContour`),
                 },
             ),
         ),
@@ -39,7 +39,7 @@
         SignatureTemplate::Form(
             FugitiveDeclarativeSignatureTemplate::Val(
                 ValDeclarativeSignatureTemplate {
-                    return_ty: DeclarativeTerm(`~ mnist_classifier::raw_contour::RawContour`),
+                    initialization_ty: DeclarativeTerm(`~ mnist_classifier::raw_contour::RawContour`),
                 },
             ),
         ),
@@ -48,7 +48,7 @@
         SignatureTemplate::Form(
             FugitiveDeclarativeSignatureTemplate::Val(
                 ValDeclarativeSignatureTemplate {
-                    return_ty: DeclarativeTerm(`~ mnist_classifier::line_segment_sketch::LineSegmentSketch`),
+                    initialization_ty: DeclarativeTerm(`~ mnist_classifier::line_segment_sketch::LineSegmentSketch`),
                 },
             ),
         ),
@@ -57,7 +57,7 @@
         SignatureTemplate::Form(
             FugitiveDeclarativeSignatureTemplate::Val(
                 ValDeclarativeSignatureTemplate {
-                    return_ty: DeclarativeTerm(`~ [] mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                    initialization_ty: DeclarativeTerm(`~ [] mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                 },
             ),
         ),

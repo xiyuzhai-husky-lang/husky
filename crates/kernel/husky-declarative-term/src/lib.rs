@@ -42,4 +42,5 @@ pub struct DeclarativeTermJar(
     DeclarativeTermTraitConstraint,
     DeclarativeTermList,
     declarative_term_menu,
+    DeclarativeTermWrapper,
 );

@@ -97,7 +97,7 @@ impl EtherealTerm {
             DeclarativeTerm::Symbol(raw_term) => {
                 EtherealTermSymbol::from_declarative(db, raw_term)?.into()
             }
-            DeclarativeTerm::Hole(_) => todo!(),
+            DeclarativeTerm::Variable(_) => todo!(),
             DeclarativeTerm::EntityPath(raw_term) => match raw_term {
                 DeclarativeTermEntityPath::Form(path) => TermEntityPath::Form(path).into(),
                 DeclarativeTermEntityPath::Trait(path) => TermEntityPath::Trait(path).into(),
@@ -136,7 +136,7 @@ impl EtherealTerm {
                 EtherealTermApplication::from_declarative(db, raw_term, term_ty_expectation)?
             }
             DeclarativeTerm::ExplicitApplicationOrRitchieCall(raw_term) => {
-                term_from_raw_term_explicit_application_or_ritchie_call_unchecked(
+                ethereal_term_from_declarative_term_explicit_application_or_ritchie_call(
                     db,
                     raw_term,
                     term_ty_expectation,
@@ -168,11 +168,14 @@ impl EtherealTerm {
                 TermTypeExpectation::Any => todo!(),
             },
             DeclarativeTerm::List(declarative_term_list) => {
-                term_from_declarative_term_list_unchecked(
+                ethereal_term_from_declarative_term_list(
                     db,
                     declarative_term_list,
                     term_ty_expectation,
                 )?
+            }
+            DeclarativeTerm::Wrapper(declarative_term_wrapper) => {
+                ethereal_term_from_declarative_term_wrapper(db, declarative_term_wrapper)?
             }
         })
     }
@@ -228,7 +231,7 @@ impl EtherealTerm {
 }
 
 #[salsa::tracked(jar = EtherealTermJar)]
-pub(crate) fn term_from_raw_term_explicit_application_or_ritchie_call_unchecked(
+pub(crate) fn ethereal_term_from_declarative_term_explicit_application_or_ritchie_call(
     db: &dyn EtherealTermDb,
     raw_term: DeclarativeTermExplicitApplicationOrRitchieCall,
     term_ty_expectation: TermTypeExpectation,
@@ -238,7 +241,7 @@ pub(crate) fn term_from_raw_term_explicit_application_or_ritchie_call_unchecked(
         RawType::Declarative(declarative_ty) => match declarative_ty {
             DeclarativeTerm::Literal(_) => todo!(),
             DeclarativeTerm::Symbol(_) => todo!(),
-            DeclarativeTerm::Hole(_) => todo!(),
+            DeclarativeTerm::Variable(_) => todo!(),
             DeclarativeTerm::EntityPath(_) => todo!(),
             DeclarativeTerm::Category(_) => todo!(),
             DeclarativeTerm::Universe(_) => todo!(),
@@ -265,6 +268,7 @@ pub(crate) fn term_from_raw_term_explicit_application_or_ritchie_call_unchecked(
             DeclarativeTerm::TraitConstraint(_) => todo!(),
             DeclarativeTerm::LeashOrBitNot(_) => todo!(),
             DeclarativeTerm::List(_) => todo!(),
+            DeclarativeTerm::Wrapper(_) => todo!(),
         },
         RawType::Ethereal(_) => todo!(),
         RawType::Prelude(_) => todo!(),
@@ -272,7 +276,7 @@ pub(crate) fn term_from_raw_term_explicit_application_or_ritchie_call_unchecked(
 }
 
 #[salsa::tracked(jar = EtherealTermJar)]
-pub(crate) fn term_from_declarative_term_list_unchecked(
+pub(crate) fn ethereal_term_from_declarative_term_list(
     db: &dyn EtherealTermDb,
     declarative_term_list: DeclarativeTermList,
     term_ty_expectation: TermTypeExpectation,
@@ -312,6 +316,14 @@ pub(crate) fn term_from_declarative_term_list_unchecked(
         }
         TermTypeExpectation::Any => todo!(),
     }
+}
+
+#[salsa::tracked(jar = EtherealTermJar)]
+pub(crate) fn ethereal_term_from_declarative_term_wrapper(
+    db: &dyn EtherealTermDb,
+    declarative_term_wrapper: DeclarativeTermWrapper,
+) -> EtherealTermResult<EtherealTerm> {
+    todo!()
 }
 
 #[test]

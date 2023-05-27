@@ -92,14 +92,18 @@ impl EtherealTermApplication {
         term_ty_expectation: TermTypeExpectation,
     ) -> EtherealTermResult<EtherealTerm> {
         // todo: implicit arguments
-        term_uncheck_from_raw_term_application(db, raw_term_application, term_ty_expectation)
+        ethereal_term_from_declarative_term_application(
+            db,
+            raw_term_application,
+            term_ty_expectation,
+        )
     }
 
     pub(crate) fn declarative_ty(
         self,
         db: &dyn EtherealTermDb,
     ) -> EtherealTermResult<DeclarativeTerm> {
-        term_application_declarative_ty(db, self)
+        ethereal_term_application_declarative_ty(db, self)
     }
 
     pub(crate) fn show_with_db_fmt(
@@ -115,7 +119,7 @@ impl EtherealTermApplication {
 }
 
 #[salsa::tracked(jar = EtherealTermJar)]
-pub(crate) fn term_uncheck_from_raw_term_application(
+pub(crate) fn ethereal_term_from_declarative_term_application(
     db: &dyn EtherealTermDb,
     raw_term_application: DeclarativeTermExplicitApplication,
     declarative_ty_expectation: TermTypeExpectation,
@@ -208,7 +212,7 @@ pub(crate) fn parameter_ty_raw_term_application_to_argument_ty_expectation(
 }
 
 #[salsa::tracked(jar = EtherealTermJar)]
-pub(crate) fn term_application_declarative_ty(
+pub(crate) fn ethereal_term_application_declarative_ty(
     db: &dyn EtherealTermDb,
     term_application: EtherealTermApplication,
 ) -> EtherealTermResult<DeclarativeTerm> {

@@ -3,7 +3,7 @@
         SignatureTemplate::Form(
             FugitiveDeclarativeSignatureTemplate::Val(
                 ValDeclarativeSignatureTemplate {
-                    return_ty: DeclarativeTerm(`mnist_classifier::fermi::FermiMatchResult`),
+                    initialization_ty: DeclarativeTerm(`mnist_classifier::fermi::FermiMatchResult`),
                 },
             ),
         ),
@@ -90,7 +90,7 @@
         SignatureTemplate::Form(
             FugitiveDeclarativeSignatureTemplate::Val(
                 ValDeclarativeSignatureTemplate {
-                    return_ty: DeclarativeTerm(`core::option::Option mnist::MnistLabel`),
+                    initialization_ty: DeclarativeTerm(`core::option::Option mnist::MnistLabel`),
                 },
             ),
         ),
