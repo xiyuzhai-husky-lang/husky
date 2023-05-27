@@ -51,7 +51,7 @@ impl EtherealTermApplication {
                     let function_parameter_ty_total_number_of_curry_parameters =
                         parameter_ty.total_number_of_curry_parameters(db);
                     let argument_expectation =
-                        parameter_ty_raw_term_to_argument_ty_expectation(db, parameter_ty);
+                        parameter_ty_declarative_term_to_argument_ty_expectation(db, parameter_ty);
                     (
                         function_parameter_ty_total_number_of_curry_parameters,
                         argument_expectation,
@@ -88,13 +88,13 @@ impl EtherealTermApplication {
     /// returns EtherealTerm instead of EtherealTermApplication because it might reduce to a non application term
     pub(crate) fn from_declarative(
         db: &dyn EtherealTermDb,
-        raw_term_application: DeclarativeTermExplicitApplication,
+        declarative_term_application: DeclarativeTermExplicitApplication,
         term_ty_expectation: TermTypeExpectation,
     ) -> EtherealTermResult<EtherealTerm> {
         // todo: implicit arguments
         ethereal_term_from_declarative_term_application(
             db,
-            raw_term_application,
+            declarative_term_application,
             term_ty_expectation,
         )
     }
@@ -121,24 +121,24 @@ impl EtherealTermApplication {
 #[salsa::tracked(jar = EtherealTermJar)]
 pub(crate) fn ethereal_term_from_declarative_term_application(
     db: &dyn EtherealTermDb,
-    raw_term_application: DeclarativeTermExplicitApplication,
+    declarative_term_application: DeclarativeTermExplicitApplication,
     declarative_ty_expectation: TermTypeExpectation,
 ) -> EtherealTermResult<EtherealTerm> {
     // todo: implicit arguments
-    term_uncheck_from_raw_term_application_aux(
+    term_uncheck_from_declarative_term_application_aux(
         db,
         EtherealTerm::from_declarative(
             db,
-            raw_term_application.function(db),
+            declarative_term_application.function(db),
             declarative_ty_expectation,
         )?,
-        raw_term_application.argument(db),
+        declarative_term_application.argument(db),
         declarative_ty_expectation,
     )
 }
 
 /// argument is `DeclarativeTerm` instead of `EtherealTerm` is because we need to read function type to get expectation for argument
-pub(crate) fn term_uncheck_from_raw_term_application_aux(
+pub(crate) fn term_uncheck_from_declarative_term_application_aux(
     db: &dyn EtherealTermDb,
     function: EtherealTerm,
     argument: DeclarativeTerm,
@@ -152,7 +152,7 @@ pub(crate) fn term_uncheck_from_raw_term_application_aux(
                 let function_parameter_ty_total_number_of_curry_parameters =
                     parameter_ty.total_number_of_curry_parameters(db);
                 let argument_expectation =
-                    parameter_ty_raw_term_to_argument_ty_expectation(db, parameter_ty);
+                    parameter_ty_declarative_term_to_argument_ty_expectation(db, parameter_ty);
                 (
                     function_parameter_ty_total_number_of_curry_parameters,
                     argument_expectation,
@@ -182,11 +182,11 @@ pub(crate) fn term_uncheck_from_raw_term_application_aux(
     ))
 }
 
-fn parameter_ty_raw_term_to_argument_ty_expectation(
+fn parameter_ty_declarative_term_to_argument_ty_expectation(
     db: &dyn EtherealTermDb,
-    raw_term: DeclarativeTerm,
+    declarative_term: DeclarativeTerm,
 ) -> TermTypeExpectation {
-    match raw_term {
+    match declarative_term {
         DeclarativeTerm::EntityPath(DeclarativeTermEntityPath::Type(path)) => {
             TermTypeExpectation::FinalDestinationEqsNonSortTypePath(path)
         }
@@ -198,14 +198,14 @@ fn parameter_ty_raw_term_to_argument_ty_expectation(
 }
 
 #[salsa::tracked(jar = EtherealTermJar)]
-pub(crate) fn parameter_ty_raw_term_curry_to_argument_ty_expectation(
+pub(crate) fn parameter_ty_declarative_term_curry_to_argument_ty_expectation(
     db: &dyn EtherealTermDb,
-    raw_term_curry: DeclarativeTermCurry,
+    declarative_term_curry: DeclarativeTermCurry,
 ) -> TermTypeExpectation {
     todo!()
 }
 #[salsa::tracked(jar = EtherealTermJar)]
-pub(crate) fn parameter_ty_raw_term_application_to_argument_ty_expectation(
+pub(crate) fn parameter_ty_declarative_term_application_to_argument_ty_expectation(
     db: &dyn EtherealTermDb,
 ) -> TermTypeExpectation {
     todo!()

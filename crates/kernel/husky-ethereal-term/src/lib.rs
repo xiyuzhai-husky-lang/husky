@@ -69,8 +69,8 @@ pub struct EtherealTermJar(
     application_expansion_salsa,
     ethereal_term_from_declarative_term_application,
     ethereal_term_application_declarative_ty,
-    parameter_ty_raw_term_curry_to_argument_ty_expectation,
-    parameter_ty_raw_term_application_to_argument_ty_expectation,
+    parameter_ty_declarative_term_curry_to_argument_ty_expectation,
+    parameter_ty_declarative_term_application_to_argument_ty_expectation,
     // - application reduction
     reduce_term_application,
     // - application expansion

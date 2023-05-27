@@ -4,7 +4,7 @@ use crate::*;
 pub struct IntrinsicDeclarativeType(DeclarativeTerm);
 
 impl IntrinsicDeclarativeType {
-    pub fn reduced_raw_term(self) -> DeclarativeTerm {
+    pub fn reduced_declarative_term(self) -> DeclarativeTerm {
         self.0
     }
 }

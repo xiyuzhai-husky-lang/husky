@@ -28,9 +28,9 @@ fn term_curry_size_works() {
 impl EtherealTermCurry {
     pub(crate) fn from_declarative(
         db: &dyn EtherealTermDb,
-        raw_term_curry: DeclarativeTermCurry,
+        declarative_term_curry: DeclarativeTermCurry,
     ) -> EtherealTermResult<Self> {
-        term_curry_from_declarative(db, raw_term_curry)
+        term_curry_from_declarative(db, declarative_term_curry)
     }
 
     pub(crate) fn show_with_db_fmt(
@@ -71,7 +71,7 @@ impl EtherealTermCurry {
 #[salsa::tracked(jar = EtherealTermJar)]
 pub(crate) fn term_curry_from_declarative(
     db: &dyn EtherealTermDb,
-    raw_term_curry: DeclarativeTermCurry,
+    declarative_term_curry: DeclarativeTermCurry,
 ) -> EtherealTermResult<EtherealTermCurry> {
     let t = |declarative_ty| {
         EtherealTerm::from_declarative(
@@ -82,17 +82,17 @@ pub(crate) fn term_curry_from_declarative(
     };
     Ok(EtherealTermCurry::new(
         db,
-        raw_term_curry.curry_kind(db),
-        raw_term_curry.variance(db),
-        match raw_term_curry.parameter_variable(db) {
+        declarative_term_curry.curry_kind(db),
+        declarative_term_curry.variance(db),
+        match declarative_term_curry.parameter_variable(db) {
             Some(parameter_variable) => Some(EtherealTermVariable::from_declarative(
                 db,
                 parameter_variable,
             )?),
             None => None,
         },
-        t(raw_term_curry.parameter_ty(db))?,
-        t(raw_term_curry.return_ty(db))?,
+        t(declarative_term_curry.parameter_ty(db))?,
+        t(declarative_term_curry.return_ty(db))?,
     ))
 }
 

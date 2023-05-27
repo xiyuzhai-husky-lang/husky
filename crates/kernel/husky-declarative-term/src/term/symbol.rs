@@ -29,9 +29,9 @@ impl DeclarativeTermSymbol {
 
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum DeclarativeTermSymbolTypeErrorKind {
-    #[error("signature raw_term error")]
+    #[error("signature declarative_term error")]
     SignatureDeclarativeTermError,
-    #[error("sketch raw_term error")]
+    #[error("sketch declarative_term error")]
     SketchDeclarativeTermError,
 }
 pub type DeclarativeTermSymbolTypeResult<T> = Result<T, DeclarativeTermSymbolTypeErrorKind>;

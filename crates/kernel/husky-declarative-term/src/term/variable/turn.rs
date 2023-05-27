@@ -169,7 +169,7 @@ impl DeclarativeTerm {
 
 fn variable_registry(
     db: &dyn DeclarativeTermDb,
-    raw_term: DeclarativeTerm,
+    declarative_term: DeclarativeTerm,
     symbol: DeclarativeTermSymbol,
 ) -> VariableRegistry {
     todo!()

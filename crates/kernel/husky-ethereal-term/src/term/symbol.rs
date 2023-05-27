@@ -27,19 +27,19 @@ impl EtherealTermSymbol {
     #[inline(always)]
     pub fn from_raw(
         db: &dyn EtherealTermDb,
-        raw_term_symbol: DeclarativeTermSymbol,
+        declarative_term_symbol: DeclarativeTermSymbol,
     ) -> EtherealTermResult<Self> {
-        Self::from_declarative(db, raw_term_symbol)
+        Self::from_declarative(db, declarative_term_symbol)
     }
 
     #[inline(always)]
     pub(crate) fn from_declarative(
         db: &dyn EtherealTermDb,
-        raw_term_symbol: DeclarativeTermSymbol,
+        declarative_term_symbol: DeclarativeTermSymbol,
     ) -> EtherealTermResult<Self> {
-        let ty = raw_term_symbol.ty(db)?;
+        let ty = declarative_term_symbol.ty(db)?;
         let ty = EtherealTerm::ty_from_declarative(db, ty)?;
-        Ok(Self::new_inner(db, ty, raw_term_symbol.idx(db)))
+        Ok(Self::new_inner(db, ty, declarative_term_symbol.idx(db)))
     }
 
     pub(crate) fn show_with_db_fmt(
