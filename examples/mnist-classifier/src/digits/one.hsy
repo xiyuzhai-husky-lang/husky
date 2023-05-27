@@ -7,13 +7,13 @@ pub val is_one: ?MnistLabel =
     narrow_down(
         major_connected_component.max_hole_ilen,
         ignored_connected_components_row_span_sum_sum,
-        skip=5
+        skip = 5,
     )?
     let simp_one_match = fermi_match(major_concave_components, [])
     if simp_one_match.norm < 3.0:
         narrow_down(
             major_connected_component.max_row_span,
-            skip = 5
+            skip = 5,
         )?
         if major_connected_component.max_row_span > 6.5:
             require major_connected_component.max_hole_ilen == 0.0
@@ -28,7 +28,7 @@ pub val is_one: ?MnistLabel =
             require simp_one_match.norm < 4.2
             narrow_down(
                 simp_one_match.angle_change_norm.abs(),
-                skip = 5
+                skip = 5,
             )?
             require 2.0 * major_connected_component.lower_mass - major_connected_component.upper_mass < 52.0
             return MnistLabel::One
@@ -58,10 +58,10 @@ pub val is_one: ?MnistLabel =
                 upmost.angle_change.abs(),
                 skip = 2,
             )?
-            narrow_down(
-                2,
+            narrow_down( 
                 long_vertical_dp.norm(),
-                long_vertical_dp.x / long_vertical_dp.y
+                long_vertical_dp.x / long_vertical_dp.y,
+                skip = 2,
             )?
         if hat be some:
             narrow_down(
