@@ -22,7 +22,7 @@ impl From<&DeclError> for DeclarativeTypeError {
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = DeclarativeTypeDb)]
 pub enum OriginalDeclarativeTypeError {
-    #[error("raw_term error")]
+    #[error("declarative_term error")]
     DeclarativeTerm(#[from] DeclarativeTermError),
     #[error("InductiveTypeHasNoConstructor")]
     InductiveTypeHasNoConstructor,

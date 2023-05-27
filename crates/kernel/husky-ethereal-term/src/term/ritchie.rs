@@ -86,9 +86,9 @@ impl EtherealTermRitchie {
     #[inline(always)]
     pub(crate) fn from_declarative(
         db: &dyn EtherealTermDb,
-        raw_term_ritchie: DeclarativeTermRitchie,
+        declarative_term_ritchie: DeclarativeTermRitchie,
     ) -> EtherealTermResult<Self> {
-        ethereal_term_ritchie_from_declarative_term_ritchie(db, raw_term_ritchie)
+        ethereal_term_ritchie_from_declarative_term_ritchie(db, declarative_term_ritchie)
     }
 
     pub(crate) fn show_with_db_fmt(

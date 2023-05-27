@@ -32,17 +32,17 @@ impl DeclarativeTerm {
         db: &dyn DeclarativeTermDb,
         symbol: DeclarativeTermSymbol,
     ) -> bool {
-        calc_raw_term_symbols(db, self)
-            .map(|raw_term_symbols| raw_term_symbols.contains(db, symbol))
+        calc_declarative_term_symbols(db, self)
+            .map(|declarative_term_symbols| declarative_term_symbols.contains(db, symbol))
             .unwrap_or_default()
     }
 }
 
-fn calc_raw_term_symbols(
+fn calc_declarative_term_symbols(
     db: &dyn DeclarativeTermDb,
-    raw_term: DeclarativeTerm,
+    declarative_term: DeclarativeTerm,
 ) -> Option<DeclarativeTermSymbols> {
-    match raw_term {
+    match declarative_term {
         DeclarativeTerm::Literal(_) => todo!(),
         DeclarativeTerm::Symbol(symbol) => Some(DeclarativeTermSymbols::new(
             db,
@@ -55,11 +55,15 @@ fn calc_raw_term_symbols(
         },
         DeclarativeTerm::Category(_) => None,
         DeclarativeTerm::Universe(_) => None,
-        DeclarativeTerm::Curry(raw_term) => raw_term_curry_symbols(db, raw_term),
-        DeclarativeTerm::Ritchie(raw_term) => raw_term_ritchie_symbols(db, raw_term),
+        DeclarativeTerm::Curry(declarative_term) => {
+            declarative_term_curry_symbols(db, declarative_term)
+        }
+        DeclarativeTerm::Ritchie(declarative_term) => {
+            declarative_term_ritchie_symbols(db, declarative_term)
+        }
         DeclarativeTerm::Abstraction(_) => todo!(),
-        DeclarativeTerm::ExplicitApplication(raw_term) => {
-            raw_term_application_symbols(db, raw_term)
+        DeclarativeTerm::ExplicitApplication(declarative_term) => {
+            declarative_term_application_symbols(db, declarative_term)
         }
         DeclarativeTerm::ExplicitApplicationOrRitchieCall(_declarative_ty) => todo!(),
         DeclarativeTerm::Subentity(_) => todo!(),
@@ -72,37 +76,40 @@ fn calc_raw_term_symbols(
 }
 
 #[salsa::tracked(jar = DeclarativeTermJar)]
-pub(crate) fn raw_term_curry_symbols(
+pub(crate) fn declarative_term_curry_symbols(
     db: &dyn DeclarativeTermDb,
-    raw_term: DeclarativeTermCurry,
+    declarative_term: DeclarativeTermCurry,
 ) -> Option<DeclarativeTermSymbols> {
-    let parameter_ty_symbols = calc_raw_term_symbols(db, raw_term.parameter_ty(db));
-    let return_ty_symbols = calc_raw_term_symbols(db, raw_term.return_ty(db));
+    let parameter_ty_symbols = calc_declarative_term_symbols(db, declarative_term.parameter_ty(db));
+    let return_ty_symbols = calc_declarative_term_symbols(db, declarative_term.return_ty(db));
     DeclarativeTermSymbols::merge(parameter_ty_symbols, return_ty_symbols)
 }
 
 #[salsa::tracked(jar = DeclarativeTermJar)]
-pub(crate) fn raw_term_ritchie_symbols(
+pub(crate) fn declarative_term_ritchie_symbols(
     db: &dyn DeclarativeTermDb,
-    raw_term: DeclarativeTermRitchie,
+    declarative_term: DeclarativeTermRitchie,
 ) -> Option<DeclarativeTermSymbols> {
     let mut symbols: Option<DeclarativeTermSymbols> = None;
-    for parameter_declarative_ty in raw_term.parameter_tys(db) {
+    for parameter_declarative_ty in declarative_term.parameter_tys(db) {
         symbols = DeclarativeTermSymbols::merge(
             symbols,
-            calc_raw_term_symbols(db, parameter_declarative_ty.ty()),
+            calc_declarative_term_symbols(db, parameter_declarative_ty.ty()),
         )
     }
-    DeclarativeTermSymbols::merge(symbols, calc_raw_term_symbols(db, raw_term.return_ty(db)))
+    DeclarativeTermSymbols::merge(
+        symbols,
+        calc_declarative_term_symbols(db, declarative_term.return_ty(db)),
+    )
 }
 
 #[salsa::tracked(jar = DeclarativeTermJar)]
-pub(crate) fn raw_term_application_symbols(
+pub(crate) fn declarative_term_application_symbols(
     db: &dyn DeclarativeTermDb,
-    raw_term: DeclarativeTermExplicitApplication,
+    declarative_term: DeclarativeTermExplicitApplication,
 ) -> Option<DeclarativeTermSymbols> {
     DeclarativeTermSymbols::merge(
-        calc_raw_term_symbols(db, raw_term.function(db)),
-        calc_raw_term_symbols(db, raw_term.argument(db)),
+        calc_declarative_term_symbols(db, declarative_term.function(db)),
+        calc_declarative_term_symbols(db, declarative_term.argument(db)),
     )
 }

@@ -83,22 +83,22 @@ impl EtherealTerm {
 
     pub(crate) fn from_declarative(
         db: &dyn EtherealTermDb,
-        raw_term: DeclarativeTerm,
+        declarative_term: DeclarativeTerm,
         term_ty_expectation: TermTypeExpectation,
     ) -> EtherealTermResult<Self> {
-        Ok(match raw_term {
+        Ok(match declarative_term {
             DeclarativeTerm::Literal(literal) => {
                 match literal {
                     DeclarativeTermLiteral::Resolved(literal) => literal.into(),
                     DeclarativeTermLiteral::Unresolved(_) => todo!(),
                 }
-                //  TermLiteral::from_declarative(db, raw_term, ty_expectation)?.into()
+                //  TermLiteral::from_declarative(db, declarative_term, ty_expectation)?.into()
             }
-            DeclarativeTerm::Symbol(raw_term) => {
-                EtherealTermSymbol::from_declarative(db, raw_term)?.into()
+            DeclarativeTerm::Symbol(declarative_term) => {
+                EtherealTermSymbol::from_declarative(db, declarative_term)?.into()
             }
             DeclarativeTerm::Variable(_) => todo!(),
-            DeclarativeTerm::EntityPath(raw_term) => match raw_term {
+            DeclarativeTerm::EntityPath(declarative_term) => match declarative_term {
                 DeclarativeTermEntityPath::Form(path) => TermEntityPath::Form(path).into(),
                 DeclarativeTermEntityPath::Trait(path) => TermEntityPath::Trait(path).into(),
                 DeclarativeTermEntityPath::Type(path) => match term_ty_expectation {
@@ -120,38 +120,55 @@ impl EtherealTerm {
                     TermTypeExpectation::Any => TermEntityPath::TypeConstructor(path).into(),
                 },
             },
-            DeclarativeTerm::Category(raw_term) => raw_term.into(),
-            DeclarativeTerm::Universe(raw_term) => raw_term.into(),
-            DeclarativeTerm::Curry(raw_term) => {
-                EtherealTermCurry::from_declarative(db, raw_term)?.into()
+            DeclarativeTerm::Category(declarative_term) => declarative_term.into(),
+            DeclarativeTerm::Universe(declarative_term) => declarative_term.into(),
+            DeclarativeTerm::Curry(declarative_term) => {
+                EtherealTermCurry::from_declarative(db, declarative_term)?.into()
             }
-            DeclarativeTerm::Ritchie(raw_term) => {
-                EtherealTermRitchie::from_declarative(db, raw_term)?.into()
+            DeclarativeTerm::Ritchie(declarative_term) => {
+                EtherealTermRitchie::from_declarative(db, declarative_term)?.into()
             }
-            DeclarativeTerm::Abstraction(raw_term) => {
-                EtherealTermAbstraction::from_declarative(db, raw_term, term_ty_expectation)?.into()
-            }
-            DeclarativeTerm::ExplicitApplication(raw_term) => {
-                // todo: implicit arguments
-                EtherealTermApplication::from_declarative(db, raw_term, term_ty_expectation)?
-            }
-            DeclarativeTerm::ExplicitApplicationOrRitchieCall(raw_term) => {
-                ethereal_term_from_declarative_term_explicit_application_or_ritchie_call(
+            DeclarativeTerm::Abstraction(declarative_term) => {
+                EtherealTermAbstraction::from_declarative(
                     db,
-                    raw_term,
+                    declarative_term,
+                    term_ty_expectation,
+                )?
+                .into()
+            }
+            DeclarativeTerm::ExplicitApplication(declarative_term) => {
+                // todo: implicit arguments
+                EtherealTermApplication::from_declarative(
+                    db,
+                    declarative_term,
                     term_ty_expectation,
                 )?
             }
-            DeclarativeTerm::Subentity(raw_term) => {
-                EtherealTermSubentity::from_declarative(db, raw_term, term_ty_expectation)?
+            DeclarativeTerm::ExplicitApplicationOrRitchieCall(declarative_term) => {
+                ethereal_term_from_declarative_term_explicit_application_or_ritchie_call(
+                    db,
+                    declarative_term,
+                    term_ty_expectation,
+                )?
             }
-            DeclarativeTerm::AsTraitSubentity(raw_term) => {
-                EtherealTermAsTraitSubentity::from_declarative(db, raw_term, term_ty_expectation)?
-                    .into()
+            DeclarativeTerm::Subentity(declarative_term) => {
+                EtherealTermSubentity::from_declarative(db, declarative_term, term_ty_expectation)?
             }
-            DeclarativeTerm::TraitConstraint(raw_term) => {
-                EtherealTermTraitConstraint::from_declarative(db, raw_term, term_ty_expectation)?
-                    .into()
+            DeclarativeTerm::AsTraitSubentity(declarative_term) => {
+                EtherealTermAsTraitSubentity::from_declarative(
+                    db,
+                    declarative_term,
+                    term_ty_expectation,
+                )?
+                .into()
+            }
+            DeclarativeTerm::TraitConstraint(declarative_term) => {
+                EtherealTermTraitConstraint::from_declarative(
+                    db,
+                    declarative_term,
+                    term_ty_expectation,
+                )?
+                .into()
             }
             DeclarativeTerm::LeashOrBitNot(toolchain) => match term_ty_expectation {
                 TermTypeExpectation::FinalDestinationEqsSort => {
@@ -233,10 +250,11 @@ impl EtherealTerm {
 #[salsa::tracked(jar = EtherealTermJar)]
 pub(crate) fn ethereal_term_from_declarative_term_explicit_application_or_ritchie_call(
     db: &dyn EtherealTermDb,
-    raw_term: DeclarativeTermExplicitApplicationOrRitchieCall,
+    declarative_term: DeclarativeTermExplicitApplicationOrRitchieCall,
     term_ty_expectation: TermTypeExpectation,
 ) -> EtherealTermResult<EtherealTerm> {
-    let function = EtherealTerm::from_declarative(db, raw_term.function(db), term_ty_expectation)?;
+    let function =
+        EtherealTerm::from_declarative(db, declarative_term.function(db), term_ty_expectation)?;
     match function.raw_ty(db)? {
         RawType::Declarative(declarative_ty) => match declarative_ty {
             DeclarativeTerm::Literal(_) => todo!(),
@@ -246,13 +264,13 @@ pub(crate) fn ethereal_term_from_declarative_term_explicit_application_or_ritchi
             DeclarativeTerm::Category(_) => todo!(),
             DeclarativeTerm::Universe(_) => todo!(),
             DeclarativeTerm::Curry(_) => {
-                let items = raw_term.items(db);
+                let items = declarative_term.items(db);
                 let argument = match items.len() {
                     0 => unreachable!(),
                     1 => items[0],
                     _ => todo!(),
                 };
-                term_uncheck_from_raw_term_application_aux(
+                term_uncheck_from_declarative_term_application_aux(
                     db,
                     function,
                     argument,

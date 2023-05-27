@@ -2,12 +2,14 @@ use super::*;
 // deprecated
 fn application_expansion_aux(
     db: &dyn DeclarativeTypeDb,
-    raw_term: DeclarativeTerm,
+    declarative_term: DeclarativeTerm,
 ) -> ApplicationExpansion {
-    match raw_term {
-        DeclarativeTerm::ExplicitApplication(raw_term) => application_expansion_salsa(db, raw_term),
+    match declarative_term {
+        DeclarativeTerm::ExplicitApplication(declarative_term) => {
+            application_expansion_salsa(db, declarative_term)
+        }
         _ => ApplicationExpansion {
-            f: raw_term,
+            f: declarative_term,
             arguments: None,
         },
     }
@@ -16,10 +18,10 @@ fn application_expansion_aux(
 #[salsa::tracked(jar=DeclarativeTypeJar)]
 pub(crate) fn application_expansion_salsa(
     db: &dyn DeclarativeTypeDb,
-    raw_term: DeclarativeTermExplicitApplication,
+    declarative_term: DeclarativeTermExplicitApplication,
 ) -> ApplicationExpansion {
-    let function = raw_term.function(db);
-    let argument = raw_term.argument(db);
+    let function = declarative_term.function(db);
+    let argument = declarative_term.argument(db);
     application_expansion_aux(db, function).apply(db, argument)
 }
 

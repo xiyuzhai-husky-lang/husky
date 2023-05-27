@@ -18,7 +18,7 @@ use salsa::assert_eq_with_db;
 use utils::*;
 
 #[inline(always)]
-pub fn raw_term_entity_path_declarative_ty(
+pub fn declarative_term_entity_path_declarative_ty(
     _db: &dyn DeclarativeTypeDb,
     path: DeclarativeTermEntityPath,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {

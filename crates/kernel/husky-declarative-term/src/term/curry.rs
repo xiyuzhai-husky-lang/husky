@@ -2,7 +2,7 @@ pub use context::*;
 
 use crate::*;
 
-/// representing raw_term `X -> Y` or dependent form `(a: X) -> Y(a)`
+/// representing declarative_term `X -> Y` or dependent form `(a: X) -> Y(a)`
 #[salsa::interned(db = DeclarativeTermDb, jar = DeclarativeTermJar)]
 pub struct DeclarativeTermCurry {
     pub curry_kind: CurryKind,

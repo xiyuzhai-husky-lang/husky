@@ -2,30 +2,30 @@ use super::*;
 use husky_vfs::Toolchain;
 
 #[inline(always)]
-pub fn raw_term_declarative_ty(
+pub fn declarative_term_declarative_ty(
     db: &dyn DeclarativeTypeDb,
     _disambiguation: TypePathDisambiguation,
-    raw_term: DeclarativeTerm,
+    declarative_term: DeclarativeTerm,
     _toolchain: Toolchain,
     declarative_term_menu: DeclarativeTermMenu,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
-    match raw_term {
+    match declarative_term {
         DeclarativeTerm::Literal(_) => todo!(),
         DeclarativeTerm::Symbol(_) => todo!(),
         DeclarativeTerm::Variable(_) => todo!(),
-        DeclarativeTerm::EntityPath(path) => raw_term_entity_path_declarative_ty(db, path),
+        DeclarativeTerm::EntityPath(path) => declarative_term_entity_path_declarative_ty(db, path),
         DeclarativeTerm::Category(cat) => cat.ty().map(Into::into).map_err(|_e| todo!()),
         DeclarativeTerm::Universe(_) => todo!(),
         DeclarativeTerm::Curry(_) => todo!(),
-        DeclarativeTerm::Ritchie(raw_term) => Ok(match raw_term.ritchie_kind(db) {
+        DeclarativeTerm::Ritchie(declarative_term) => Ok(match declarative_term.ritchie_kind(db) {
             TermRitchieKind::FnType => declarative_term_menu.ty0().into(),
             TermRitchieKind::FnTrait | TermRitchieKind::FnMutTrait => {
                 declarative_term_menu.trai_ty()
             }
         }),
         DeclarativeTerm::Abstraction(_) => todo!(),
-        DeclarativeTerm::ExplicitApplication(raw_term) => {
-            application_raw_term_declarative_ty(db, raw_term)
+        DeclarativeTerm::ExplicitApplication(declarative_term) => {
+            application_declarative_term_declarative_ty(db, declarative_term)
         }
         DeclarativeTerm::ExplicitApplicationOrRitchieCall(_declarative_ty) => todo!(),
         DeclarativeTerm::Subentity(_) => todo!(),
@@ -38,9 +38,9 @@ pub fn raw_term_declarative_ty(
 }
 
 #[salsa::tracked(jar = DeclarativeTypeJar)]
-pub(crate) fn application_raw_term_declarative_ty(
+pub(crate) fn application_declarative_term_declarative_ty(
     _db: &dyn DeclarativeTypeDb,
-    _raw_term: DeclarativeTermExplicitApplication,
+    _declarative_term: DeclarativeTermExplicitApplication,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
     Err(OriginalDeclarativeTypeError::Todo.into())
 }

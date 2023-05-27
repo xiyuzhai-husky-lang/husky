@@ -51,7 +51,7 @@ impl DeclarativeTerm {
         variable: DeclarativeTermVariable,
     ) -> bool {
         self.variables(db)
-            .map(|raw_term_variables| raw_term_variables.contains(db, variable))
+            .map(|declarative_term_variables| declarative_term_variables.contains(db, variable))
             .unwrap_or_default()
     }
 
@@ -69,11 +69,15 @@ impl DeclarativeTerm {
             },
             DeclarativeTerm::Category(_) => None,
             DeclarativeTerm::Universe(_) => None,
-            DeclarativeTerm::Curry(raw_term) => raw_term_curry_placeholders(db, raw_term),
-            DeclarativeTerm::Ritchie(raw_term) => raw_term_ritchie_variables(db, raw_term),
+            DeclarativeTerm::Curry(declarative_term) => {
+                declarative_term_curry_placeholders(db, declarative_term)
+            }
+            DeclarativeTerm::Ritchie(declarative_term) => {
+                declarative_term_ritchie_variables(db, declarative_term)
+            }
             DeclarativeTerm::Abstraction(_) => todo!(),
-            DeclarativeTerm::ExplicitApplication(raw_term) => {
-                raw_term_application_variables(db, raw_term)
+            DeclarativeTerm::ExplicitApplication(declarative_term) => {
+                declarative_term_application_variables(db, declarative_term)
             }
             DeclarativeTerm::ExplicitApplicationOrRitchieCall(_declarative_ty) => todo!(),
             DeclarativeTerm::Subentity(_) => todo!(),
@@ -87,7 +91,7 @@ impl DeclarativeTerm {
 }
 
 #[salsa::tracked(jar = DeclarativeTermJar)]
-pub(crate) fn raw_term_curry_placeholders(
+pub(crate) fn declarative_term_curry_placeholders(
     db: &dyn DeclarativeTermDb,
     term: DeclarativeTermCurry,
 ) -> Option<DeclarativeTermVariables> {
@@ -100,7 +104,7 @@ pub(crate) fn raw_term_curry_placeholders(
 }
 
 #[salsa::tracked(jar = DeclarativeTermJar)]
-pub(crate) fn raw_term_ritchie_variables(
+pub(crate) fn declarative_term_ritchie_variables(
     db: &dyn DeclarativeTermDb,
     term: DeclarativeTermRitchie,
 ) -> Option<DeclarativeTermVariables> {
@@ -112,7 +116,7 @@ pub(crate) fn raw_term_ritchie_variables(
 }
 
 #[salsa::tracked(jar = DeclarativeTermJar)]
-pub(crate) fn raw_term_application_variables(
+pub(crate) fn declarative_term_application_variables(
     db: &dyn DeclarativeTermDb,
     term: DeclarativeTermExplicitApplication,
 ) -> Option<DeclarativeTermVariables> {

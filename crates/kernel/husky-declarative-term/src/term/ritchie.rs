@@ -2,7 +2,7 @@ pub use context::*;
 
 use crate::*;
 
-/// representing raw_term `x -> y`
+/// representing declarative_term `x -> y`
 #[salsa::interned(db = DeclarativeTermDb, jar = DeclarativeTermJar)]
 pub struct DeclarativeTermRitchie {
     pub ritchie_kind: TermRitchieKind,
