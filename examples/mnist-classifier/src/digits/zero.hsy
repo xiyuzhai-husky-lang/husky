@@ -19,11 +19,10 @@ pub(super) val is_zero: ?MnistLabel =
         return MnistLabel::Zero
     let simp_zero_match = fermi_match(major_concave_components, [])
     narrow_down(
-        MnistLabel::Zero,
-        5,
         simp_zero_match.norm,
         simp_zero_match.rel_norm,
         simp_zero_match.angle_change_norm,
+        skip = 5
     )?
     require simp_zero_match.norm < 3.0
     require major_connected_component.eff_holes.matches[1] be none
