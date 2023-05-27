@@ -8,7 +8,7 @@ use husky_ty_expectation::TypePathDisambiguation;
 use salsa::DbWithJar;
 
 pub trait EtherealTermDb: DbWithJar<EtherealTermJar> + DeclarativeTypeDb + DecrDb {
-    fn term_menu(&self, toolchain: Toolchain) -> &TermMenu;
+    fn ethereal_term_menu(&self, toolchain: Toolchain) -> &EtherealTermMenu;
     // fn ty_path_ty(
     //     &self,
     //     path: TypePath,
@@ -24,7 +24,7 @@ impl<Db> EtherealTermDb for Db
 where
     Db: DbWithJar<EtherealTermJar> + DeclarativeTypeDb + DecrDb,
 {
-    fn term_menu(&self, toolchain: Toolchain) -> &TermMenu {
+    fn ethereal_term_menu(&self, toolchain: Toolchain) -> &EtherealTermMenu {
         term_menu(self, toolchain)
     }
 

@@ -16,6 +16,11 @@ DiagnosticSheet {
                 severity: Error,
                 range: [21:5, 21:16),
             },
+            Diagnostic {
+                message: "Syntax Error: unterminated list",
+                severity: Error,
+                range: [21:16, 21:17),
+            },
         ],
     },
     decl_diagnostic_sheet: DeclDiagnosticSheet {
@@ -34,17 +39,17 @@ DiagnosticSheet {
             Diagnostic {
                 message: "Type Error: NoSuchField",
                 severity: Error,
-                range: [29:13, 29:48),
+                range: [28:13, 28:48),
             },
             Diagnostic {
                 message: "Type Error: NoSuchField",
                 severity: Error,
-                range: [31:13, 31:48),
+                range: [30:13, 30:48),
             },
             Diagnostic {
                 message: "Type Error: NoSuchField",
                 severity: Error,
-                range: [32:22, 32:57),
+                range: [31:22, 31:57),
             },
         ],
     },

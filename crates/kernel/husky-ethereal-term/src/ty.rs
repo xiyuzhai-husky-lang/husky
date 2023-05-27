@@ -26,7 +26,9 @@ impl HasTypeGivenDisambiguation for EntityPath {
         disambiguation: TypePathDisambiguation,
     ) -> EtherealTermResult<EtherealTerm> {
         match self {
-            EntityPath::Module(path) => Ok(db.term_menu(path.toolchain(db)).module_ty_ontology()),
+            EntityPath::Module(path) => Ok(db
+                .ethereal_term_menu(path.toolchain(db))
+                .module_ty_ontology()),
             EntityPath::ModuleItem(path) => path.ty(db, disambiguation),
             EntityPath::AssociatedItem(path) => path.ty(db),
             EntityPath::TypeVariant(path) => path.ty(db),

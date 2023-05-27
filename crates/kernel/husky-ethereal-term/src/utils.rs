@@ -10,18 +10,18 @@ impl EtherealTerm {
             EtherealTerm::EntityPath(path) => Some(path.toolchain(db)),
             EtherealTerm::Category(_) => todo!(),
             EtherealTerm::Universe(_) => None,
-            EtherealTerm::Curry(term) => curry_term_toolchain(db, term),
-            EtherealTerm::Ritchie(term) => ritchie_term_toolchain(db, term),
+            EtherealTerm::Curry(term) => ethereal_term_curry_toolchain(db, term),
+            EtherealTerm::Ritchie(term) => ethereal_term_ritchie_toolchain(db, term),
             EtherealTerm::Abstraction(_) => todo!(),
-            EtherealTerm::Application(_) => todo!(),
+            EtherealTerm::Application(term) => ethereal_term_application_toolchain(db, term),
             EtherealTerm::Subentity(_) => todo!(),
             EtherealTerm::AsTraitSubentity(_) => todo!(),
             EtherealTerm::TraitConstraint(_) => todo!(),
         }
     }
 
-    pub(crate) fn term_menu(self, db: &dyn EtherealTermDb) -> Option<&TermMenu> {
-        Some(db.term_menu(self.toolchain(db)?))
+    pub(crate) fn term_menu(self, db: &dyn EtherealTermDb) -> Option<&EtherealTermMenu> {
+        Some(db.ethereal_term_menu(self.toolchain(db)?))
     }
 
     pub(crate) fn leading_ty_path(self, db: &dyn EtherealTermDb) -> Option<TypePath> {
@@ -52,7 +52,7 @@ impl EtherealTermVariable {
 }
 
 #[salsa::tracked(jar = EtherealTermJar)]
-pub(crate) fn curry_term_toolchain(
+pub(crate) fn ethereal_term_curry_toolchain(
     db: &dyn EtherealTermDb,
     term: EtherealTermCurry,
 ) -> Option<Toolchain> {
@@ -66,7 +66,7 @@ pub(crate) fn curry_term_toolchain(
 }
 
 #[salsa::tracked(jar = EtherealTermJar)]
-pub(crate) fn application_term_toolchain(
+pub(crate) fn ethereal_term_application_toolchain(
     db: &dyn EtherealTermDb,
     term: EtherealTermApplication,
 ) -> Option<Toolchain> {
@@ -77,7 +77,7 @@ pub(crate) fn application_term_toolchain(
 }
 
 #[salsa::tracked(jar = EtherealTermJar)]
-pub(crate) fn ritchie_term_toolchain(
+pub(crate) fn ethereal_term_ritchie_toolchain(
     db: &dyn EtherealTermDb,
     term: EtherealTermRitchie,
 ) -> Option<Toolchain> {

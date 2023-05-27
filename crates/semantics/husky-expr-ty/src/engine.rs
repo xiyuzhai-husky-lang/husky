@@ -23,7 +23,7 @@ pub(crate) struct ExprTypeEngine<'a> {
     db: &'a dyn ExprTypeDb,
     toolchain: Toolchain,
     entity_path_menu: &'a EntityPathMenu,
-    term_menu: &'a TermMenu,
+    term_menu: &'a EtherealTermMenu,
     token_sheet_data: &'a TokenSheetData,
     expr_region_data: &'a ExprRegionData,
     declarative_term_region: &'a DeclarativeTermRegion,
@@ -56,7 +56,7 @@ impl<'a> FluffyTermEngine<'a> for ExprTypeEngine<'a> {
         self.expr_region_data
     }
 
-    fn term_menu(&self) -> &'a TermMenu {
+    fn term_menu(&self) -> &'a EtherealTermMenu {
         self.term_menu
     }
 }
@@ -102,7 +102,7 @@ impl<'a> ExprTypeEngine<'a> {
             db,
             toolchain,
             entity_path_menu: db.entity_path_menu(toolchain),
-            term_menu: db.term_menu(toolchain),
+            term_menu: db.ethereal_term_menu(toolchain),
             token_sheet_data: db
                 .token_sheet_data(expr_region_data.path().module_path(db))
                 .unwrap(),
@@ -206,7 +206,7 @@ impl<'a> ExprTypeEngine<'a> {
         self.toolchain
     }
 
-    pub(crate) fn term_menu(&self) -> &TermMenu {
+    pub(crate) fn term_menu(&self) -> &EtherealTermMenu {
         self.term_menu
     }
 }

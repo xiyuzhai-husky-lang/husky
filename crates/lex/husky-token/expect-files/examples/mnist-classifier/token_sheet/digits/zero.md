@@ -649,34 +649,6 @@ Ok(
                 ),
             ),
             Token::Ident(
-                `MnistLabel`,
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        ScopeResolution,
-                    ),
-                ),
-            ),
-            Token::Ident(
-                `Zero`,
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Comma,
-                ),
-            ),
-            Token::Literal(
-                Literal::Integer(
-                    Unspecified,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Comma,
-                ),
-            ),
-            Token::Ident(
                 `simp_zero_match`,
             ),
             Token::Punctuation(
@@ -722,6 +694,19 @@ Ok(
             Token::Punctuation(
                 Punctuation(
                     PunctuationMapped::Comma,
+                ),
+            ),
+            Token::Ident(
+                `skip`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Eq,
+                ),
+            ),
+            Token::Literal(
+                Literal::Integer(
+                    Unspecified,
                 ),
             ),
             Token::Punctuation(
@@ -1190,16 +1175,16 @@ Ok(
             117,
             121,
             131,
-            153,
-            159,
-            170,
-            181,
-            192,
-            210,
-            228,
-            234,
-            238,
-            244,
+            150,
+            156,
+            167,
+            178,
+            189,
+            207,
+            225,
+            231,
+            235,
+            241,
         ],
         indents: [
             0,

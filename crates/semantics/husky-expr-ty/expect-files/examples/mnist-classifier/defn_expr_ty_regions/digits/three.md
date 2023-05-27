@@ -346,13 +346,11 @@
                             Constructor,
                         ),
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 91,
-                                        },
-                                    ),
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 18,
+                                    },
                                 ),
                             ),
                         ),
@@ -404,13 +402,11 @@
                             Constructor,
                         ),
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 91,
-                                        },
-                                    ),
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 18,
+                                    },
                                 ),
                             ),
                         ),
@@ -462,13 +458,11 @@
                             Constructor,
                         ),
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 91,
-                                        },
-                                    ),
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 18,
+                                    },
                                 ),
                             ),
                         ),
@@ -964,13 +958,11 @@
                             Constructor,
                         ),
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 91,
-                                        },
-                                    ),
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 18,
+                                    },
                                 ),
                             ),
                         ),
@@ -1424,13 +1416,11 @@
                                 expr_idx: 8,
                                 kind: Expr,
                             },
-                            expectee: EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 91,
-                                        },
-                                    ),
+                            expectee: Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 18,
+                                    },
                                 ),
                             ),
                             data: AnyOriginal(
@@ -1458,13 +1448,11 @@
                                 expr_idx: 12,
                                 kind: Expr,
                             },
-                            expectee: EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 91,
-                                        },
-                                    ),
+                            expectee: Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 18,
+                                    },
                                 ),
                             ),
                             data: AnyOriginal(
@@ -1492,13 +1480,11 @@
                                 expr_idx: 16,
                                 kind: Expr,
                             },
-                            expectee: EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 91,
-                                        },
-                                    ),
+                            expectee: Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 18,
+                                    },
                                 ),
                             ),
                             data: AnyOriginal(
@@ -1886,13 +1872,11 @@
                                 expr_idx: 50,
                                 kind: Expr,
                             },
-                            expectee: EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 91,
-                                        },
-                                    ),
+                            expectee: Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 18,
+                                    },
                                 ),
                             ),
                             data: AnyOriginal(
