@@ -7,7 +7,13 @@ DiagnosticSheet {
         diagnostics: [],
     },
     ast_diagnostic_sheet: AstDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "Syntax Error: ExpectedTraitForTypeItems",
+                severity: Error,
+                range: [8:1, 8:25),
+            },
+        ],
     },
     expr_diagnostic_sheet: ExprDiagnosticSheet {
         diagnostics: [],

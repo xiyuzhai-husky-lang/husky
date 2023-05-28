@@ -129,13 +129,45 @@ Ok(
                     PunctuationMapped::Semicolon,
                 ),
             ),
+            Token::Keyword(
+                Keyword::Impl,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::LaOrLt,
+                ),
+            ),
+            Token::Ident(
+                `E`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::RaOrGt,
+                ),
+            ),
+            Token::Ident(
+                `Copy`,
+            ),
+            Token::Keyword(
+                Keyword::Connection(
+                    For,
+                ),
+            ),
+            Token::Ident(
+                `Leash`,
+            ),
+            Token::Ident(
+                `E`,
+            ),
         ],
         group_starts: [
             0,
             11,
             22,
+            30,
         ],
         indents: [
+            0,
             0,
             0,
             0,

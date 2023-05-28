@@ -128,14 +128,29 @@ Ok(
                         variants: None,
                     },
                 },
+                Ast::Err {
+                    token_group_idx: TokenGroupIdx(
+                        3,
+                    ),
+                    error: AstError::Original(
+                        OriginalAstError::ExpectedTraitForTypeItems(
+                            TokenGroupIdx(
+                                4,
+                            ),
+                        ),
+                    ),
+                },
             ],
         },
         top_level_asts: ArenaIdxRange(
-            0..3,
+            0..4,
         ),
         siblings: [
             ArenaIdxRange(
-                0..3,
+                0..0,
+            ),
+            ArenaIdxRange(
+                0..4,
             ),
         ],
     },

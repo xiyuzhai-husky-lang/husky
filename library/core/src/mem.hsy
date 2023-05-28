@@ -2,4 +2,7 @@ pub extern Ref<covariant 'a, covariant E>;
 
 pub extern RefMut<covariant 'a, invariant E>;
 
+// todo: add where E: Clone + !Copy + Hash
 pub extern Leash<covariant E>;
+
+impl<E> Copy for Leash E;
