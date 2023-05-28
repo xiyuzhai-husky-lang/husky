@@ -11,13 +11,12 @@ pub struct DeclarativeTermWrapper {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum DeclarativeTermWrapperKind {
-    Leash,
-    TrainingLeash,
+    ValType,
 }
 
 impl DeclarativeTerm {
     pub fn leashed_ty(self, db: &dyn DeclarativeTermDb) -> Self {
-        DeclarativeTermWrapper::new(db, DeclarativeTermWrapperKind::Leash, self).into()
+        DeclarativeTermWrapper::new(db, DeclarativeTermWrapperKind::ValType, self).into()
     }
 }
 
@@ -29,8 +28,7 @@ impl DeclarativeTermWrapper {
         ctx: &mut DeclarativeTermShowContext,
     ) -> std::fmt::Result {
         match self.kind(db) {
-            DeclarativeTermWrapperKind::Leash => f.write_str("~")?,
-            DeclarativeTermWrapperKind::TrainingLeash => f.write_str("~train ")?,
+            DeclarativeTermWrapperKind::ValType => f.write_str("{val_type} ")?,
         }
         self.inner_ty(db).show_with_db_fmt(f, db, ctx)
     }

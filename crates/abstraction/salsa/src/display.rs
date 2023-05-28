@@ -66,6 +66,12 @@ pub struct DisplayWith<'me, Db: ?Sized> {
     level: DisplayFormatLevel,
 }
 
+impl<'me, Db: ?Sized> std::fmt::Debug for DisplayWith<'me, Db> {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        DisplayWithDb::display_with_db_fmt(&*self.value, f, self.db, self.level.reproduce())
+    }
+}
+
 enum BoxRef<'me, T: ?Sized> {
     Box(Box<T>),
     Ref(&'me T),

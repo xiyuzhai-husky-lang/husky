@@ -137,7 +137,8 @@ fn search_among_impl_blocks<'a>(
         if trai_path != template.trai_path() || ty_path != template.ty_path() {
             continue;
         }
-        p!(trai.debug(db), ty.debug(db), template.debug(db));
+        use salsa::DisplayWithDb;
+        p!(trai.debug(db), ty.display(db), template.debug(db));
         todo!()
     }
     Ok(None)

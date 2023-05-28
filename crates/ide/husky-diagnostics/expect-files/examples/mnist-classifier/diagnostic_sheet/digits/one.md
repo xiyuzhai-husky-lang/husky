@@ -112,37 +112,37 @@ DiagnosticSheet {
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "Type Error: no field named max_row_span in TypeOntology(core::mem::Leash) TypeOntology(core::mem::Leash) TypeOntology(mnist_classifier::connected_component::ConnectedComponent)",
+                message: "Type Error: no field named max_row_span in TypeOntology(core::mem::Leash) TypeOntology(mnist_classifier::connected_component::ConnectedComponent)",
                 severity: Error,
                 range: [18:12, 18:50),
             },
             Diagnostic {
-                message: "Type Error: no field named max_hole_ilen in TypeOntology(core::mem::Leash) TypeOntology(core::mem::Leash) TypeOntology(mnist_classifier::connected_component::ConnectedComponent)",
+                message: "Type Error: no field named max_hole_ilen in TypeOntology(core::mem::Leash) TypeOntology(mnist_classifier::connected_component::ConnectedComponent)",
                 severity: Error,
                 range: [19:21, 19:60),
             },
             Diagnostic {
-                message: "Type Error: no field named max_hole_ilen in TypeOntology(core::mem::Leash) TypeOntology(core::mem::Leash) TypeOntology(mnist_classifier::connected_component::ConnectedComponent)",
+                message: "Type Error: no field named max_hole_ilen in TypeOntology(core::mem::Leash) TypeOntology(mnist_classifier::connected_component::ConnectedComponent)",
                 severity: Error,
                 range: [22:17, 22:56),
             },
             Diagnostic {
-                message: "Type Error: no field named lower_mass in TypeOntology(core::mem::Leash) TypeOntology(core::mem::Leash) TypeOntology(mnist_classifier::connected_component::ConnectedComponent)",
+                message: "Type Error: no field named lower_mass in TypeOntology(core::mem::Leash) TypeOntology(mnist_classifier::connected_component::ConnectedComponent)",
                 severity: Error,
                 range: [33:27, 33:63),
             },
             Diagnostic {
-                message: "Type Error: no field named upper_mass in TypeOntology(core::mem::Leash) TypeOntology(core::mem::Leash) TypeOntology(mnist_classifier::connected_component::ConnectedComponent)",
+                message: "Type Error: no field named upper_mass in TypeOntology(core::mem::Leash) TypeOntology(mnist_classifier::connected_component::ConnectedComponent)",
                 severity: Error,
                 range: [33:66, 33:102),
             },
             Diagnostic {
-                message: "Type Error: no field named lower_mass in TypeOntology(core::mem::Leash) TypeOntology(core::mem::Leash) TypeOntology(mnist_classifier::connected_component::ConnectedComponent)",
+                message: "Type Error: no field named lower_mass in TypeOntology(core::mem::Leash) TypeOntology(mnist_classifier::connected_component::ConnectedComponent)",
                 severity: Error,
                 range: [85:17, 85:53),
             },
             Diagnostic {
-                message: "Type Error: no field named upper_mass in TypeOntology(core::mem::Leash) TypeOntology(core::mem::Leash) TypeOntology(mnist_classifier::connected_component::ConnectedComponent)",
+                message: "Type Error: no field named upper_mass in TypeOntology(core::mem::Leash) TypeOntology(mnist_classifier::connected_component::ConnectedComponent)",
                 severity: Error,
                 range: [86:17, 86:53),
             },

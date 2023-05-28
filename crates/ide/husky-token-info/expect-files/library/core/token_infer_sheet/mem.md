@@ -146,11 +146,56 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                        ident_token: IdentToken {
+                            ident: `E`,
+                            token_idx: TokenIdx(
+                                32,
+                            ),
+                        },
+                    },
+                },
+                expr_region: ExprRegionLeash(_),
+            },
             TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::marker::Copy`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::mem::Leash`, `Extern`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                        ident_token: IdentToken {
+                            ident: `E`,
+                            token_idx: TokenIdx(
+                                32,
+                            ),
+                        },
+                    },
+                },
+                expr_region: ExprRegionLeash(_),
+            },
             TokenInfo::None,
         ],
     },

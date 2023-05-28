@@ -342,21 +342,28 @@ pub(crate) fn ethereal_term_from_declarative_term_wrapper(
     declarative_term_wrapper: DeclarativeTermWrapper,
 ) -> EtherealTermResult<EtherealTerm> {
     let inner_ty = EtherealTerm::ty_from_declarative(db, declarative_term_wrapper.inner_ty(db))?;
-    match inner_ty.is_ty_copyable(db)? {
-        true => Ok(inner_ty),
-        false => {
-            let Some(toolchain) = inner_ty.toolchain(db) else {
-                todo!()
-            };
-            let leash_ty_ontology = db.ethereal_term_menu(toolchain).leash_ty_ontology();
-            Ok(EtherealTermApplication::new_unchecked(
-                db,
-                leash_ty_ontology,
-                inner_ty,
-                0,
-            ))
-        }
+    match inner_ty.application_expansion(db).function() {
+        TermFunctionReduced::TypeOntology(ty_path) => match ty_path.refine(db) {
+            Right(PreludeTypePath::Num(_)) | Right(PreludeTypePath::Borrow(_)) => Ok(inner_ty),
+            _ => {
+                let Some(toolchain) = inner_ty.toolchain(db) else {
+                    todo!()
+                };
+                let leash_ty_ontology = db.ethereal_term_menu(toolchain).leash_ty_ontology();
+                Ok(EtherealTermApplication::new_unchecked(
+                    db,
+                    leash_ty_ontology,
+                    inner_ty,
+                    0,
+                ))
+            }
+        },
+        TermFunctionReduced::Trait(_) => todo!(),
+        TermFunctionReduced::Other(_) => todo!(),
     }
+    // match inner_ty.is_ty_copyable(db)? {
+    //     true => Ok(inner_ty),
+    //     false => {
 }
 
 #[test]
