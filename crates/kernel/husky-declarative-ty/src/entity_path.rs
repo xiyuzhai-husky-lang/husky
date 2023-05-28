@@ -1,12 +1,12 @@
 mod associated_item;
-mod form;
+mod fugitive;
 mod trai;
 mod ty_constructor;
 mod ty_ontology;
 mod utils;
 
 pub use self::associated_item::*;
-pub use self::form::*;
+pub use self::fugitive::*;
 pub use self::trai::*;
 pub use self::ty_constructor::*;
 pub use self::ty_ontology::*;
