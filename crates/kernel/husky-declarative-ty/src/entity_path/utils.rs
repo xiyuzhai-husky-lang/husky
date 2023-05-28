@@ -15,16 +15,14 @@ pub(super) fn curry_from_implicit_parameters(
         std::iter::zip(variances.iter(), implicit_parameters.iter()).rev()
     {
         let symbol = implicit_parameter.symbol();
-        term = {
-            DeclarativeTermCurry::new(
-                db,
-                term_curry_kind,
-                *variance,
-                symbol,
-                implicit_parameter.ty(db),
-                term,
-            )
-        }
+        term = DeclarativeTermCurry::new(
+            db,
+            term_curry_kind,
+            *variance,
+            symbol,
+            implicit_parameter.ty(db),
+            term,
+        )
         .into()
     }
     term

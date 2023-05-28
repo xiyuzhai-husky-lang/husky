@@ -13,17 +13,11 @@ pub(crate) struct TemplateParameters {
 #[salsa::derive_debug_with_db(db = EtherealTermDb)]
 pub(crate) struct TemplateParameter {
     symbol: EtherealTermSymbol,
-    /// variable turned from the symbol
-    variable: EtherealTermVariable,
 }
 
 impl TemplateParameter {
     pub(crate) fn symbol(&self) -> EtherealTermSymbol {
         self.symbol
-    }
-
-    pub(crate) fn variable(&self) -> EtherealTermVariable {
-        self.variable
     }
 }
 
@@ -43,7 +37,6 @@ impl TemplateParameters {
                             db,
                             implicit_parameter.symbol(),
                         )?,
-                        variable: todo!(),
                     })
                 })
                 .rev()

@@ -6,7 +6,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`~mnist_classifier::fermi::FermiMatchResult`),
+            DeclarativeTerm(`{val_type} mnist_classifier::fermi::FermiMatchResult`),
         ),
     ),
     (
@@ -46,7 +46,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`~core::option::Option mnist::MnistLabel`),
+            DeclarativeTerm(`{val_type} core::option::Option mnist::MnistLabel`),
         ),
     ),
 ]

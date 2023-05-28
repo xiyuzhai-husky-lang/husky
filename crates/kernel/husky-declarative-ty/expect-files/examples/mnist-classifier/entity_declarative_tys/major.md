@@ -6,7 +6,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`~~ [] mnist_classifier::connected_component::ConnectedComponent`),
+            DeclarativeTerm(`{val_type} ~ [] mnist_classifier::connected_component::ConnectedComponent`),
         ),
     ),
     (
@@ -16,7 +16,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`~~ mnist_classifier::connected_component::ConnectedComponent`),
+            DeclarativeTerm(`{val_type} ~ mnist_classifier::connected_component::ConnectedComponent`),
         ),
     ),
     (
@@ -26,7 +26,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`~core::num::f32`),
+            DeclarativeTerm(`{val_type} core::num::f32`),
         ),
     ),
     (
@@ -36,7 +36,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`~~ [] mnist_classifier::raw_contour::RawContour`),
+            DeclarativeTerm(`{val_type} ~ [] mnist_classifier::raw_contour::RawContour`),
         ),
     ),
     (
@@ -46,7 +46,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`~~ mnist_classifier::raw_contour::RawContour`),
+            DeclarativeTerm(`{val_type} ~ mnist_classifier::raw_contour::RawContour`),
         ),
     ),
     (
@@ -56,7 +56,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`~~ mnist_classifier::line_segment_sketch::LineSegmentSketch`),
+            DeclarativeTerm(`{val_type} ~ mnist_classifier::line_segment_sketch::LineSegmentSketch`),
         ),
     ),
     (
@@ -66,7 +66,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`~~ [] mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+            DeclarativeTerm(`{val_type} ~ [] mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
         ),
     ),
 ]

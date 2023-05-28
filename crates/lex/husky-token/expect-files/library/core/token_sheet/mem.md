@@ -159,6 +159,11 @@ Ok(
             Token::Ident(
                 `E`,
             ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Semicolon,
+                ),
+            ),
         ],
         group_starts: [
             0,
