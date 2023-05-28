@@ -120,12 +120,14 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
-                    items: Type(
-                        TypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                0..2,
-                            ),
-                        },
+                    items: Some(
+                        Type(
+                            TypeItems {
+                                ast_idx_range: ArenaIdxRange(
+                                    0..2,
+                                ),
+                            },
+                        ),
                     ),
                 },
             ],

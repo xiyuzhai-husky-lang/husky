@@ -519,6 +519,258 @@ Ok(
                     ),
                 ),
             ),
+            (
+                DeclRegionPath::ImplBlock(
+                    ImplBlockId::TraitForType(
+                        TraitForTypeImplBlockId {
+                            module_path: `core::mem`,
+                            trai_path: TraitPath(`core::marker::Copy`),
+                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                            disambiguator: 0,
+                        },
+                    ),
+                ),
+                Ok(
+                    Decl::ImplBlock(
+                        ImplBlockDecl::TraitForType(
+                            TraitForTypeImplBlockDecl {
+                                ast_idx: 3,
+                                impl_block: TraitForTypeImplBlock {
+                                    id: TraitForTypeImplBlockId {
+                                        module_path: `core::mem`,
+                                        trai_path: TraitPath(`core::marker::Copy`),
+                                        ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                    ast_idx: 3,
+                                    impl_token: ImplToken {
+                                        token_idx: TokenIdx(
+                                            30,
+                                        ),
+                                    },
+                                    trai_expr: 0,
+                                    for_token: TokenIdx(
+                                        35,
+                                    ),
+                                    ty_expr: 1,
+                                    items: None,
+                                },
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        30,
+                                    ),
+                                },
+                                implicit_parameter_decl_list: Some(
+                                    ImplicitParameterDeclList {
+                                        langle: LeftAngleBracketOrLessThanToken(
+                                            TokenIdx(
+                                                31,
+                                            ),
+                                        ),
+                                        implicit_parameters: [
+                                            ImplicitParameterDecl {
+                                                pattern: ImplicitParameterDeclPattern {
+                                                    annotated_variance_token: None,
+                                                    symbol: 0,
+                                                    variant: ImplicitParameterDeclPatternVariant::Type0 {
+                                                        ident_token: IdentToken {
+                                                            ident: `E`,
+                                                            token_idx: TokenIdx(
+                                                                32,
+                                                            ),
+                                                        },
+                                                    },
+                                                },
+                                                traits: None,
+                                            },
+                                        ],
+                                        commas: [],
+                                        decl_list_result: Ok(
+                                            (),
+                                        ),
+                                        rangle: RightAngleBracketToken(
+                                            TokenIdx(
+                                                33,
+                                            ),
+                                        ),
+                                    },
+                                ),
+                                trai_expr: TraitExpr {
+                                    expr: 0,
+                                },
+                                for_token: ConnectionForToken {
+                                    token_idx: TokenIdx(
+                                        35,
+                                    ),
+                                },
+                                ty_expr: TypeExpr {
+                                    expr: 3,
+                                },
+                                eol_colon: EolToken::Semicolon(
+                                    EolSemicolonToken {
+                                        token_idx: TokenIdx(
+                                            38,
+                                        ),
+                                    },
+                                ),
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: None,
+                                        path: RegionPath::Decl(
+                                            DeclRegionPath::ImplBlock(
+                                                ImplBlockId::TraitForType(
+                                                    TraitForTypeImplBlockId {
+                                                        module_path: `core::mem`,
+                                                        trai_path: TraitPath(`core::marker::Copy`),
+                                                        ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 0,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Trait(
+                                                                TraitPath(`core::marker::Copy`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 1,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::mem::Leash`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::CurrentSymbol {
+                                                    ident: `E`,
+                                                    token_idx: TokenIdx(
+                                                        37,
+                                                    ),
+                                                    current_symbol_idx: 0,
+                                                    current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
+                                                        implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                                                            ident_token: IdentToken {
+                                                                ident: `E`,
+                                                                token_idx: TokenIdx(
+                                                                    32,
+                                                                ),
+                                                            },
+                                                        },
+                                                    },
+                                                },
+                                                Expr::ExplicitApplication {
+                                                    function: 1,
+                                                    argument: 2,
+                                                },
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        34,
+                                                    ),
+                                                    ident: `Copy`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Trait(
+                                                            TraitPath(`core::marker::Copy`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        36,
+                                                    ),
+                                                    ident: `Leash`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::mem::Leash`, `Extern`),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_contracts: ArenaMap {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_modifiers: ArenaMap {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [
+                                                    CurrentSymbol {
+                                                        modifier: Const,
+                                                        access_start: TokenIdx(
+                                                            33,
+                                                        ),
+                                                        access_end: None,
+                                                        variant: CurrentSymbolVariant::ImplicitParameter {
+                                                            implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                                ident_token: IdentToken {
+                                                                    ident: `E`,
+                                                                    token_idx: TokenIdx(
+                                                                        32,
+                                                                    ),
+                                                                },
+                                                            },
+                                                        },
+                                                    },
+                                                ],
+                                            },
+                                            allow_self_type: True,
+                                            allow_self_value: False,
+                                            pattern_ty_constraints: [
+                                                (
+                                                    ImplicitTypeParameter,
+                                                    ArenaIdxRange(
+                                                        0..1,
+                                                    ),
+                                                ),
+                                            ],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: Trait,
+                                                expr: 0,
+                                            },
+                                            ExprRoot {
+                                                kind: SelfType,
+                                                expr: 3,
+                                            },
+                                        ],
+                                    },
+                                },
+                            },
+                        ),
+                    ),
+                ),
+            ),
         ],
     },
 )

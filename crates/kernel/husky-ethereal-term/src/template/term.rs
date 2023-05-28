@@ -53,10 +53,10 @@ impl TemplateTerm {
     pub(super) fn self_ty(
         db: &dyn EtherealTermDb,
         path: TypePath,
-        template_parameters_data: &[TemplateParameter],
+        template_parameters: &[TemplateParameter],
     ) -> Self {
         let mut ty: EtherealTerm = TermEntityPath::TypeOntology(path).into();
-        for template_parameter in template_parameters_data {
+        for template_parameter in template_parameters {
             ty = ty.apply_unchecked(db, template_parameter.variable(), 0)
         }
         TemplateTerm(ty)

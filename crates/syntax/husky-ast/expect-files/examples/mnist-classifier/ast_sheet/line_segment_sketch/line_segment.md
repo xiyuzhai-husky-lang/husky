@@ -256,12 +256,14 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         2,
                     ),
-                    items: Type(
-                        TypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                13..15,
-                            ),
-                        },
+                    items: Some(
+                        Type(
+                            TypeItems {
+                                ast_idx_range: ArenaIdxRange(
+                                    13..15,
+                                ),
+                            },
+                        ),
                     ),
                 },
             ],

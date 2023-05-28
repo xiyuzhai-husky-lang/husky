@@ -89,7 +89,7 @@ pub enum Ast {
     },
     ImplBlock {
         token_group_idx: TokenGroupIdx,
-        items: ImplBlockItems,
+        items: Option<ImplBlockItems>,
     },
     Main {
         token_group_idx: TokenGroupIdx,

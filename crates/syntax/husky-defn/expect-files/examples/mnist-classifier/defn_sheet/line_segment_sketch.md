@@ -14928,12 +14928,14 @@ Ok(
                                         87,
                                     ),
                                     ty_expr: 12,
-                                    body: TraitForType(
-                                        TraitForTypeItems {
-                                            ast_idx_range: ArenaIdxRange(
-                                                1..2,
-                                            ),
-                                        },
+                                    items: Some(
+                                        TraitForType(
+                                            TraitForTypeItems {
+                                                ast_idx_range: ArenaIdxRange(
+                                                    1..2,
+                                                ),
+                                            },
+                                        ),
                                     ),
                                 },
                                 impl_token: ImplToken {
@@ -15149,12 +15151,14 @@ Ok(
                                                         87,
                                                     ),
                                                     ty_expr: 12,
-                                                    body: TraitForType(
-                                                        TraitForTypeItems {
-                                                            ast_idx_range: ArenaIdxRange(
-                                                                1..2,
-                                                            ),
-                                                        },
+                                                    items: Some(
+                                                        TraitForType(
+                                                            TraitForTypeItems {
+                                                                ast_idx_range: ArenaIdxRange(
+                                                                    1..2,
+                                                                ),
+                                                            },
+                                                        ),
                                                     ),
                                                 },
                                             ),
@@ -17631,12 +17635,14 @@ Ok(
                                         189,
                                     ),
                                     ty_expr: 15,
-                                    body: TraitForType(
-                                        TraitForTypeItems {
-                                            ast_idx_range: ArenaIdxRange(
-                                                8..9,
-                                            ),
-                                        },
+                                    items: Some(
+                                        TraitForType(
+                                            TraitForTypeItems {
+                                                ast_idx_range: ArenaIdxRange(
+                                                    8..9,
+                                                ),
+                                            },
+                                        ),
                                     ),
                                 },
                                 impl_token: ImplToken {
@@ -17852,12 +17858,14 @@ Ok(
                                                         189,
                                                     ),
                                                     ty_expr: 15,
-                                                    body: TraitForType(
-                                                        TraitForTypeItems {
-                                                            ast_idx_range: ArenaIdxRange(
-                                                                8..9,
-                                                            ),
-                                                        },
+                                                    items: Some(
+                                                        TraitForType(
+                                                            TraitForTypeItems {
+                                                                ast_idx_range: ArenaIdxRange(
+                                                                    8..9,
+                                                                ),
+                                                            },
+                                                        ),
                                                     ),
                                                 },
                                             ),

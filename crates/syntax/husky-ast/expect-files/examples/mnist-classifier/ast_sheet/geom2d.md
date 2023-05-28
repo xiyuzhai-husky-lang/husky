@@ -1476,12 +1476,14 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
-                    items: Type(
-                        TypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                5..10,
-                            ),
-                        },
+                    items: Some(
+                        Type(
+                            TypeItems {
+                                ast_idx_range: ArenaIdxRange(
+                                    5..10,
+                                ),
+                            },
+                        ),
                     ),
                 },
                 Ast::Defn {
@@ -1572,12 +1574,14 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         14,
                     ),
-                    items: Type(
-                        TypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                41..49,
-                            ),
-                        },
+                    items: Some(
+                        Type(
+                            TypeItems {
+                                ast_idx_range: ArenaIdxRange(
+                                    41..49,
+                                ),
+                            },
+                        ),
                     ),
                 },
                 Ast::Defn {
@@ -1626,12 +1630,14 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         51,
                     ),
-                    items: Type(
-                        TypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                56..58,
-                            ),
-                        },
+                    items: Some(
+                        Type(
+                            TypeItems {
+                                ast_idx_range: ArenaIdxRange(
+                                    56..58,
+                                ),
+                            },
+                        ),
                     ),
                 },
                 Ast::Defn {
@@ -1680,12 +1686,14 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         62,
                     ),
-                    items: Type(
-                        TypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                64..70,
-                            ),
-                        },
+                    items: Some(
+                        Type(
+                            TypeItems {
+                                ast_idx_range: ArenaIdxRange(
+                                    64..70,
+                                ),
+                            },
+                        ),
                     ),
                 },
                 Ast::Defn {
@@ -1734,12 +1742,14 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         76,
                     ),
-                    items: Type(
-                        TypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                74..78,
-                            ),
-                        },
+                    items: Some(
+                        Type(
+                            TypeItems {
+                                ast_idx_range: ArenaIdxRange(
+                                    74..78,
+                                ),
+                            },
+                        ),
                     ),
                 },
             ],

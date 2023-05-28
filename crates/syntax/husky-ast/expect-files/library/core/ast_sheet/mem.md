@@ -128,17 +128,11 @@ Ok(
                         variants: None,
                     },
                 },
-                Ast::Err {
+                Ast::ImplBlock {
                     token_group_idx: TokenGroupIdx(
                         3,
                     ),
-                    error: AstError::Original(
-                        OriginalAstError::ExpectedTraitForTypeItems(
-                            TokenGroupIdx(
-                                4,
-                            ),
-                        ),
-                    ),
+                    items: None,
                 },
             ],
         },

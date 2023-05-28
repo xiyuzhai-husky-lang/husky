@@ -5499,12 +5499,14 @@ Ok(
                                         79,
                                     ),
                                     ty_expr: 1,
-                                    body: TraitForType(
-                                        TraitForTypeItems {
-                                            ast_idx_range: ArenaIdxRange(
-                                                4..5,
-                                            ),
-                                        },
+                                    items: Some(
+                                        TraitForType(
+                                            TraitForTypeItems {
+                                                ast_idx_range: ArenaIdxRange(
+                                                    4..5,
+                                                ),
+                                            },
+                                        ),
                                     ),
                                 },
                                 impl_token: ImplToken {
@@ -5720,12 +5722,14 @@ Ok(
                                                         79,
                                                     ),
                                                     ty_expr: 1,
-                                                    body: TraitForType(
-                                                        TraitForTypeItems {
-                                                            ast_idx_range: ArenaIdxRange(
-                                                                4..5,
-                                                            ),
-                                                        },
+                                                    items: Some(
+                                                        TraitForType(
+                                                            TraitForTypeItems {
+                                                                ast_idx_range: ArenaIdxRange(
+                                                                    4..5,
+                                                                ),
+                                                            },
+                                                        ),
                                                     ),
                                                 },
                                             ),

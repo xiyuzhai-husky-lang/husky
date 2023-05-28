@@ -508,12 +508,14 @@ Ok(
                                         52,
                                     ),
                                     ty_expr: 18,
-                                    body: TraitForType(
-                                        TraitForTypeItems {
-                                            ast_idx_range: ArenaIdxRange(
-                                                1..2,
-                                            ),
-                                        },
+                                    items: Some(
+                                        TraitForType(
+                                            TraitForTypeItems {
+                                                ast_idx_range: ArenaIdxRange(
+                                                    1..2,
+                                                ),
+                                            },
+                                        ),
                                     ),
                                 },
                                 impl_token: ImplToken {
@@ -720,12 +722,14 @@ Ok(
                                                     52,
                                                 ),
                                                 ty_expr: 18,
-                                                body: TraitForType(
-                                                    TraitForTypeItems {
-                                                        ast_idx_range: ArenaIdxRange(
-                                                            1..2,
-                                                        ),
-                                                    },
+                                                items: Some(
+                                                    TraitForType(
+                                                        TraitForTypeItems {
+                                                            ast_idx_range: ArenaIdxRange(
+                                                                1..2,
+                                                            ),
+                                                        },
+                                                    ),
                                                 ),
                                             },
                                         ),

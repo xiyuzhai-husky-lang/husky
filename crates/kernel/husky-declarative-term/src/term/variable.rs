@@ -7,11 +7,11 @@ pub use self::turn::*;
 use super::*;
 use thiserror::Error;
 
-/// variables are derived from symbols
+/// variables are externalized symbols, derived from symbols, and defined in a bottom-up manner
 #[salsa::interned(db = DeclarativeTermDb, jar = DeclarativeTermJar, constructor = new)]
 pub struct DeclarativeTermVariable {
     pub ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,
-    /// this is the index for all symbols with the same type
+    /// this is the index to disambiguate it from all other symbols with the same type
     /// so that we have better cache hits
     pub idx: u8,
 }

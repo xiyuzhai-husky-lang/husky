@@ -6,7 +6,7 @@ pub struct IllFormedImplBlock {
     pub id: IllFormedImplBlockId,
     pub impl_token: ImplToken,
     pub ast_idx: AstIdx,
-    pub body: ImplBlockItems,
+    pub items: Option<ImplBlockItems>,
     #[return_ref]
     pub ill_form: ImplBlockIllForm,
 }
@@ -18,7 +18,7 @@ impl IllFormedImplBlock {
         impl_token: ImplToken,
         module: ModulePath,
         ast_idx: AstIdx,
-        body: ImplBlockItems,
+        items: Option<ImplBlockItems>,
         ill_form: ImplBlockIllForm,
     ) -> Self {
         IllFormedImplBlock::new_inner(
@@ -29,7 +29,7 @@ impl IllFormedImplBlock {
             },
             impl_token,
             ast_idx,
-            body,
+            items,
             ill_form,
         )
     }

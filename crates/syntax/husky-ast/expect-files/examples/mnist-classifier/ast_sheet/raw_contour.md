@@ -1791,24 +1791,28 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         5,
                     ),
-                    items: TraitForType(
-                        TraitForTypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                1..2,
-                            ),
-                        },
+                    items: Some(
+                        TraitForType(
+                            TraitForTypeItems {
+                                ast_idx_range: ArenaIdxRange(
+                                    1..2,
+                                ),
+                            },
+                        ),
                     ),
                 },
                 Ast::ImplBlock {
                     token_group_idx: TokenGroupIdx(
                         8,
                     ),
-                    items: Type(
-                        TypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                29..34,
-                            ),
-                        },
+                    items: Some(
+                        Type(
+                            TypeItems {
+                                ast_idx_range: ArenaIdxRange(
+                                    29..34,
+                                ),
+                            },
+                        ),
                     ),
                 },
                 Ast::Defn {

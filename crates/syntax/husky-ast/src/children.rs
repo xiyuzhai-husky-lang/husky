@@ -78,7 +78,7 @@ pub enum ImplBlockItems {
 }
 
 impl ImplBlockItems {
-    pub fn children(self) -> AstIdxRange {
+    pub fn ast_idx_range(self) -> AstIdxRange {
         match self {
             ImplBlockItems::Type(items) => items.ast_idx_range(),
             ImplBlockItems::TraitForType(items) => items.ast_idx_range(),
