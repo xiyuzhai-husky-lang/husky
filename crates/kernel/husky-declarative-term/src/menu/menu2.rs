@@ -31,27 +31,24 @@ impl DeclarativeTermMenu2 {
                 menu1.str_ty_path(),
             )
             .into(),
-            ex_co_lifetime_to_ex_co_ty0_to_ty0: DeclarativeTermCurry::new(
+            ex_co_lifetime_to_ex_co_ty0_to_ty0: DeclarativeTermCurry::new_nondependent(
                 db,
                 CurryKind::Explicit,
                 Variance::Covariant,
-                None,
                 menu1.lifetime_ty().into(),
                 menu1.explicit_covariant_ty0_to_ty0().into(),
             ),
-            ex_co_lifetime_to_ex_ct_ty0_to_ty0: DeclarativeTermCurry::new(
+            ex_co_lifetime_to_ex_ct_ty0_to_ty0: DeclarativeTermCurry::new_nondependent(
                 db,
                 CurryKind::Explicit,
                 Variance::Covariant,
-                None,
                 menu1.lifetime_ty().into(),
                 menu1.explicit_contravariant_ty0_to_ty0().into(),
             ),
-            ex_co_lifetime_to_ex_inv_ty0_to_ty0: DeclarativeTermCurry::new(
+            ex_co_lifetime_to_ex_inv_ty0_to_ty0: DeclarativeTermCurry::new_nondependent(
                 db,
                 CurryKind::Explicit,
                 Variance::Covariant,
-                None,
                 menu1.lifetime_ty().into(),
                 menu1.ex_inv_ty0_to_ty0().into(),
             ),
