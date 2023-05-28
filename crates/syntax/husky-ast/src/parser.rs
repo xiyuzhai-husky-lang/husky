@@ -141,13 +141,16 @@ impl<'a> AstParser<'a> {
                 Keyword::Impl => Ast::ImplBlock {
                     token_group_idx,
                     items: if self.is_trai_impl(token_group_idx) {
-                        self.parse_expected::<TraitForTypeItems, _>(
-                            OriginalAstError::ExpectedTraitForTypeItems,
-                        )?
-                        .into()
+                        // there are no items for marker traits
+                        self.parse::<TraitForTypeItems>()?.map(Into::into)
                     } else {
-                        self.parse_expected::<TypeItems, _>(OriginalAstError::ExpectedTypeItems)?
-                            .into()
+                        // however, type impl block should always have items
+                        Some(
+                            self.parse_expected::<TypeItems, _>(
+                                OriginalAstError::ExpectedTypeItems,
+                            )?
+                            .into(),
+                        )
                     },
                 },
                 Keyword::End(_) => Ast::Err {

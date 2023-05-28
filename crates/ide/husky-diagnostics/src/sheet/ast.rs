@@ -165,9 +165,6 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             OriginalAstError::UnexpectedStmtInsideModule => {
                 format!("Syntax Error: UnexpectedStmtInsideModule")
             }
-            OriginalAstError::ExpectedTraitForTypeItems(_) => {
-                format!("Syntax Error: ExpectedTraitForTypeItems")
-            }
             OriginalAstError::ExpectedTypeItems(_) => {
                 format!("Syntax Error: ExpectedTypeItems")
             }
@@ -223,7 +220,6 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             | OriginalAstError::ExpectedEntityKeywordGroup(_)
             | OriginalAstError::UnexpectedMemoFieldInsideForm
             | OriginalAstError::UnexpectedStmtInsideModule
-            | OriginalAstError::ExpectedTraitForTypeItems(_)
             | OriginalAstError::ExpectedTypeItems(_)
             | OriginalAstError::ExpectedTypeVariants(_)
             | OriginalAstError::ExpectedIdentForTypeVariant(_)

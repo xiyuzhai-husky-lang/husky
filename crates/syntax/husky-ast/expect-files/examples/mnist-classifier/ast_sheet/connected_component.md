@@ -1480,24 +1480,28 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         9,
                     ),
-                    items: TraitForType(
-                        TraitForTypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                4..5,
-                            ),
-                        },
+                    items: Some(
+                        TraitForType(
+                            TraitForTypeItems {
+                                ast_idx_range: ArenaIdxRange(
+                                    4..5,
+                                ),
+                            },
+                        ),
                     ),
                 },
                 Ast::ImplBlock {
                     token_group_idx: TokenGroupIdx(
                         12,
                     ),
-                    items: Type(
-                        TypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                69..79,
-                            ),
-                        },
+                    items: Some(
+                        Type(
+                            TypeItems {
+                                ast_idx_range: ArenaIdxRange(
+                                    69..79,
+                                ),
+                            },
+                        ),
                     ),
                 },
                 Ast::Defn {

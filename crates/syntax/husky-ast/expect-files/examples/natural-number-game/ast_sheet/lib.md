@@ -130,12 +130,14 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         3,
                     ),
-                    items: Type(
-                        TypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                2..5,
-                            ),
-                        },
+                    items: Some(
+                        Type(
+                            TypeItems {
+                                ast_idx_range: ArenaIdxRange(
+                                    2..5,
+                                ),
+                            },
+                        ),
                     ),
                 },
                 Ast::Err {

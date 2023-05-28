@@ -8,6 +8,7 @@ use super::*;
 use thiserror::Error;
 use vec_like::VecSet;
 
+/// symbols are defined in a top-down manner
 #[salsa::interned(db = DeclarativeTermDb, jar = DeclarativeTermJar)]
 pub struct DeclarativeTermSymbol {
     pub ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,

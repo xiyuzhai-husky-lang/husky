@@ -45,7 +45,8 @@ impl<'a> FoldingRangeCalculator<'a> {
                 .last()
                 .map(|_| (self.ast_range_sheet[ast_idx], FoldingRangeKind::Region)),
             Ast::ImplBlock { items, .. } => items
-                .children()
+                .as_ref()?
+                .ast_idx_range()
                 .last()
                 .map(|_| (self.ast_range_sheet[ast_idx], FoldingRangeKind::Region)),
             Ast::BasicStmtOrBranch { body, .. } => (*body)?

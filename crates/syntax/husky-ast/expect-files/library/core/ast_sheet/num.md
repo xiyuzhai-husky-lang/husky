@@ -1119,24 +1119,28 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         4,
                     ),
-                    items: Type(
-                        TypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                0..1,
-                            ),
-                        },
+                    items: Some(
+                        Type(
+                            TypeItems {
+                                ast_idx_range: ArenaIdxRange(
+                                    0..1,
+                                ),
+                            },
+                        ),
                     ),
                 },
                 Ast::ImplBlock {
                     token_group_idx: TokenGroupIdx(
                         6,
                     ),
-                    items: TraitForType(
-                        TraitForTypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                1..2,
-                            ),
-                        },
+                    items: Some(
+                        TraitForType(
+                            TraitForTypeItems {
+                                ast_idx_range: ArenaIdxRange(
+                                    1..2,
+                                ),
+                            },
+                        ),
                     ),
                 },
                 Ast::Attr {
@@ -1196,24 +1200,28 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         11,
                     ),
-                    items: Type(
-                        TypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                2..3,
-                            ),
-                        },
+                    items: Some(
+                        Type(
+                            TypeItems {
+                                ast_idx_range: ArenaIdxRange(
+                                    2..3,
+                                ),
+                            },
+                        ),
                     ),
                 },
                 Ast::ImplBlock {
                     token_group_idx: TokenGroupIdx(
                         13,
                     ),
-                    items: TraitForType(
-                        TraitForTypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                3..4,
-                            ),
-                        },
+                    items: Some(
+                        TraitForType(
+                            TraitForTypeItems {
+                                ast_idx_range: ArenaIdxRange(
+                                    3..4,
+                                ),
+                            },
+                        ),
                     ),
                 },
                 Ast::Attr {
@@ -1273,24 +1281,28 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         18,
                     ),
-                    items: Type(
-                        TypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                4..5,
-                            ),
-                        },
+                    items: Some(
+                        Type(
+                            TypeItems {
+                                ast_idx_range: ArenaIdxRange(
+                                    4..5,
+                                ),
+                            },
+                        ),
                     ),
                 },
                 Ast::ImplBlock {
                     token_group_idx: TokenGroupIdx(
                         20,
                     ),
-                    items: TraitForType(
-                        TraitForTypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                5..6,
-                            ),
-                        },
+                    items: Some(
+                        TraitForType(
+                            TraitForTypeItems {
+                                ast_idx_range: ArenaIdxRange(
+                                    5..6,
+                                ),
+                            },
+                        ),
                     ),
                 },
                 Ast::Attr {
@@ -1350,24 +1362,28 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         25,
                     ),
-                    items: Type(
-                        TypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                6..7,
-                            ),
-                        },
+                    items: Some(
+                        Type(
+                            TypeItems {
+                                ast_idx_range: ArenaIdxRange(
+                                    6..7,
+                                ),
+                            },
+                        ),
                     ),
                 },
                 Ast::ImplBlock {
                     token_group_idx: TokenGroupIdx(
                         27,
                     ),
-                    items: TraitForType(
-                        TraitForTypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                7..8,
-                            ),
-                        },
+                    items: Some(
+                        TraitForType(
+                            TraitForTypeItems {
+                                ast_idx_range: ArenaIdxRange(
+                                    7..8,
+                                ),
+                            },
+                        ),
                     ),
                 },
                 Ast::Attr {
@@ -1427,24 +1443,28 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         32,
                     ),
-                    items: Type(
-                        TypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                8..9,
-                            ),
-                        },
+                    items: Some(
+                        Type(
+                            TypeItems {
+                                ast_idx_range: ArenaIdxRange(
+                                    8..9,
+                                ),
+                            },
+                        ),
                     ),
                 },
                 Ast::ImplBlock {
                     token_group_idx: TokenGroupIdx(
                         34,
                     ),
-                    items: TraitForType(
-                        TraitForTypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                9..10,
-                            ),
-                        },
+                    items: Some(
+                        TraitForType(
+                            TraitForTypeItems {
+                                ast_idx_range: ArenaIdxRange(
+                                    9..10,
+                                ),
+                            },
+                        ),
                     ),
                 },
                 Ast::Attr {
@@ -1504,24 +1524,28 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         39,
                     ),
-                    items: Type(
-                        TypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                10..11,
-                            ),
-                        },
+                    items: Some(
+                        Type(
+                            TypeItems {
+                                ast_idx_range: ArenaIdxRange(
+                                    10..11,
+                                ),
+                            },
+                        ),
                     ),
                 },
                 Ast::ImplBlock {
                     token_group_idx: TokenGroupIdx(
                         41,
                     ),
-                    items: TraitForType(
-                        TraitForTypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                11..12,
-                            ),
-                        },
+                    items: Some(
+                        TraitForType(
+                            TraitForTypeItems {
+                                ast_idx_range: ArenaIdxRange(
+                                    11..12,
+                                ),
+                            },
+                        ),
                     ),
                 },
                 Ast::Attr {
@@ -1581,24 +1605,28 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         46,
                     ),
-                    items: Type(
-                        TypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                12..13,
-                            ),
-                        },
+                    items: Some(
+                        Type(
+                            TypeItems {
+                                ast_idx_range: ArenaIdxRange(
+                                    12..13,
+                                ),
+                            },
+                        ),
                     ),
                 },
                 Ast::ImplBlock {
                     token_group_idx: TokenGroupIdx(
                         48,
                     ),
-                    items: TraitForType(
-                        TraitForTypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                13..14,
-                            ),
-                        },
+                    items: Some(
+                        TraitForType(
+                            TraitForTypeItems {
+                                ast_idx_range: ArenaIdxRange(
+                                    13..14,
+                                ),
+                            },
+                        ),
                     ),
                 },
                 Ast::Attr {
@@ -1658,24 +1686,28 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         53,
                     ),
-                    items: Type(
-                        TypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                14..15,
-                            ),
-                        },
+                    items: Some(
+                        Type(
+                            TypeItems {
+                                ast_idx_range: ArenaIdxRange(
+                                    14..15,
+                                ),
+                            },
+                        ),
                     ),
                 },
                 Ast::ImplBlock {
                     token_group_idx: TokenGroupIdx(
                         55,
                     ),
-                    items: TraitForType(
-                        TraitForTypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                15..16,
-                            ),
-                        },
+                    items: Some(
+                        TraitForType(
+                            TraitForTypeItems {
+                                ast_idx_range: ArenaIdxRange(
+                                    15..16,
+                                ),
+                            },
+                        ),
                     ),
                 },
                 Ast::Attr {
@@ -1735,24 +1767,28 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         60,
                     ),
-                    items: Type(
-                        TypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                16..17,
-                            ),
-                        },
+                    items: Some(
+                        Type(
+                            TypeItems {
+                                ast_idx_range: ArenaIdxRange(
+                                    16..17,
+                                ),
+                            },
+                        ),
                     ),
                 },
                 Ast::ImplBlock {
                     token_group_idx: TokenGroupIdx(
                         62,
                     ),
-                    items: TraitForType(
-                        TraitForTypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                17..18,
-                            ),
-                        },
+                    items: Some(
+                        TraitForType(
+                            TraitForTypeItems {
+                                ast_idx_range: ArenaIdxRange(
+                                    17..18,
+                                ),
+                            },
+                        ),
                     ),
                 },
                 Ast::Attr {
@@ -1812,24 +1848,28 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         67,
                     ),
-                    items: Type(
-                        TypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                18..19,
-                            ),
-                        },
+                    items: Some(
+                        Type(
+                            TypeItems {
+                                ast_idx_range: ArenaIdxRange(
+                                    18..19,
+                                ),
+                            },
+                        ),
                     ),
                 },
                 Ast::ImplBlock {
                     token_group_idx: TokenGroupIdx(
                         69,
                     ),
-                    items: TraitForType(
-                        TraitForTypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                19..20,
-                            ),
-                        },
+                    items: Some(
+                        TraitForType(
+                            TraitForTypeItems {
+                                ast_idx_range: ArenaIdxRange(
+                                    19..20,
+                                ),
+                            },
+                        ),
                     ),
                 },
                 Ast::Attr {
@@ -1889,24 +1929,28 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         74,
                     ),
-                    items: Type(
-                        TypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                20..21,
-                            ),
-                        },
+                    items: Some(
+                        Type(
+                            TypeItems {
+                                ast_idx_range: ArenaIdxRange(
+                                    20..21,
+                                ),
+                            },
+                        ),
                     ),
                 },
                 Ast::ImplBlock {
                     token_group_idx: TokenGroupIdx(
                         76,
                     ),
-                    items: TraitForType(
-                        TraitForTypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                21..22,
-                            ),
-                        },
+                    items: Some(
+                        TraitForType(
+                            TraitForTypeItems {
+                                ast_idx_range: ArenaIdxRange(
+                                    21..22,
+                                ),
+                            },
+                        ),
                     ),
                 },
                 Ast::Attr {
@@ -1966,24 +2010,28 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         81,
                     ),
-                    items: Type(
-                        TypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                22..23,
-                            ),
-                        },
+                    items: Some(
+                        Type(
+                            TypeItems {
+                                ast_idx_range: ArenaIdxRange(
+                                    22..23,
+                                ),
+                            },
+                        ),
                     ),
                 },
                 Ast::ImplBlock {
                     token_group_idx: TokenGroupIdx(
                         83,
                     ),
-                    items: TraitForType(
-                        TraitForTypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                23..24,
-                            ),
-                        },
+                    items: Some(
+                        TraitForType(
+                            TraitForTypeItems {
+                                ast_idx_range: ArenaIdxRange(
+                                    23..24,
+                                ),
+                            },
+                        ),
                     ),
                 },
                 Ast::Attr {
@@ -2043,24 +2091,28 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         88,
                     ),
-                    items: Type(
-                        TypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                24..26,
-                            ),
-                        },
+                    items: Some(
+                        Type(
+                            TypeItems {
+                                ast_idx_range: ArenaIdxRange(
+                                    24..26,
+                                ),
+                            },
+                        ),
                     ),
                 },
                 Ast::ImplBlock {
                     token_group_idx: TokenGroupIdx(
                         91,
                     ),
-                    items: TraitForType(
-                        TraitForTypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                26..27,
-                            ),
-                        },
+                    items: Some(
+                        TraitForType(
+                            TraitForTypeItems {
+                                ast_idx_range: ArenaIdxRange(
+                                    26..27,
+                                ),
+                            },
+                        ),
                     ),
                 },
                 Ast::Attr {
@@ -2120,24 +2172,28 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         96,
                     ),
-                    items: Type(
-                        TypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                27..28,
-                            ),
-                        },
+                    items: Some(
+                        Type(
+                            TypeItems {
+                                ast_idx_range: ArenaIdxRange(
+                                    27..28,
+                                ),
+                            },
+                        ),
                     ),
                 },
                 Ast::ImplBlock {
                     token_group_idx: TokenGroupIdx(
                         98,
                     ),
-                    items: TraitForType(
-                        TraitForTypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                28..29,
-                            ),
-                        },
+                    items: Some(
+                        TraitForType(
+                            TraitForTypeItems {
+                                ast_idx_range: ArenaIdxRange(
+                                    28..29,
+                                ),
+                            },
+                        ),
                     ),
                 },
             ],

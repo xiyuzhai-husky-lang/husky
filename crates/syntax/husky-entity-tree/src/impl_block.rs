@@ -42,7 +42,7 @@ impl ImplBlock {
         module_symbol_context: ModuleSymbolContext<'a>,
         module_path: ModulePath,
         ast_idx: AstIdx,
-        body: ImplBlockItems,
+        items: Option<ImplBlockItems>, // there could be no items for trait impl block
         token_stream: TokenStream<'a>,
         princiapl_entity_path_expr_arena: &mut MajorPathExprArena,
     ) -> Self {
@@ -71,7 +71,7 @@ impl ImplBlock {
                     impl_token,
                     module_path,
                     ast_idx,
-                    body,
+                    items,
                     ImplBlockIllForm::MajorPath(e),
                 )
                 .into();
@@ -84,7 +84,7 @@ impl ImplBlock {
                 registry,
                 module_path,
                 ast_idx,
-                body,
+                items.expect("it should be guaranteed in `husky-ast` that items are not none"),
                 ty,
                 expr,
             )
@@ -104,7 +104,7 @@ impl ImplBlock {
                             impl_token,
                             module_path,
                             ast_idx,
-                            body,
+                            items,
                             ImplBlockIllForm::ExpectTypePathAfterForKeyword,
                         )
                         .into();
@@ -116,7 +116,7 @@ impl ImplBlock {
                             impl_token,
                             module_path,
                             ast_idx,
-                            body,
+                            items,
                             ImplBlockIllForm::MissingForKeyword,
                         )
                         .into();
@@ -133,7 +133,7 @@ impl ImplBlock {
                     for_token,
                     ty_expr,
                     ty_path,
-                    body,
+                    items,
                 )
                 .into()
             }

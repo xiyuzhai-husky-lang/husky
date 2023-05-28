@@ -106,8 +106,6 @@ pub enum OriginalAstError {
     VisibilityExprError(#[from] OriginalVisibilityExprError),
     #[error("UnexpectedMemoFieldInsideForm")]
     UnexpectedMemoFieldInsideForm,
-    #[error("ExpectedTraitForTypeItems")]
-    ExpectedTraitForTypeItems(TokenGroupIdx),
     #[error("ExpectedTypeItems")]
     ExpectedTypeItems(TokenGroupIdx),
     #[error("ExpectedTypeVariants")]

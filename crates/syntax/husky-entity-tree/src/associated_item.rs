@@ -146,12 +146,10 @@ pub(crate) fn trai_for_ty_impl_block_items(
     db: &dyn EntityTreeDb,
     impl_block: TraitForTypeImplBlock,
 ) -> IdentPairMap<AssociatedItem> {
-    impl_block_associated_items_aux(
-        db,
-        impl_block.into(),
-        impl_block.module_path(db),
-        impl_block.body(db),
-    )
+    let Some(items) = impl_block.items(db) else {
+        return Default::default()
+    };
+    impl_block_associated_items_aux(db, impl_block.into(), impl_block.module_path(db), items)
 }
 
 pub(crate) fn impl_block_associated_items_aux(
@@ -161,7 +159,7 @@ pub(crate) fn impl_block_associated_items_aux(
     body: ImplBlockItems,
 ) -> IdentPairMap<AssociatedItem> {
     let ast_sheet = db.ast_sheet(module_path).unwrap();
-    body.children()
+    body.ast_idx_range()
         .into_iter()
         .filter_map(|ast_idx| {
             let ast = &ast_sheet[ast_idx];
