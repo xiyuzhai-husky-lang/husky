@@ -62,17 +62,17 @@ DiagnosticSheet {
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "Type Error: NoSuchField",
+                message: "Type Error: no field named eff_holes in TypeOntology(core::mem::Leash) TypeOntology(core::mem::Leash) TypeOntology(mnist_classifier::connected_component::ConnectedComponent)",
                 severity: Error,
                 range: [13:21, 13:56),
             },
             Diagnostic {
-                message: "Type Error: NoSuchField",
+                message: "Type Error: no field named lower_mass in TypeOntology(core::mem::Leash) TypeOntology(core::mem::Leash) TypeOntology(mnist_classifier::connected_component::ConnectedComponent)",
                 severity: Error,
                 range: [14:24, 14:60),
             },
             Diagnostic {
-                message: "Type Error: NoSuchField",
+                message: "Type Error: no field named upper_mass in TypeOntology(core::mem::Leash) TypeOntology(core::mem::Leash) TypeOntology(mnist_classifier::connected_component::ConnectedComponent)",
                 severity: Error,
                 range: [14:63, 14:99),
             },
