@@ -60,7 +60,10 @@ pub enum OriginalExprTypeError {
     #[error("AmbiguousTildeExpr")]
     AmbiguousTildeExpr,
     #[error("no such field")]
-    NoSuchField,
+    NoSuchField {
+        owner_ty: FluffyTerm,
+        ident_token: IdentToken,
+    },
     #[error("no such method")]
     NoMethodForType {
         self_expr_ty: FluffyTerm,

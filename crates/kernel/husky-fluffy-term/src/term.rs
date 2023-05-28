@@ -4,6 +4,8 @@ mod ritchie;
 mod symbol_ty;
 mod utils;
 
+use salsa::DisplayWithDb;
+
 pub use self::application::*;
 pub use self::hole::*;
 pub use self::ritchie::*;
@@ -61,4 +63,14 @@ fn term_to_fluffy_term_works() {
     let toolchain = db.dev_toolchain().unwrap();
     let term_menu = db.ethereal_term_menu(toolchain);
     t(TermLiteral::I8(1))
+}
+
+impl FluffyTerm {
+    pub fn show(self, db: &dyn FluffyTermDb, region: &FluffyTermRegion) -> String {
+        match self.nested() {
+            NestedFluffyTerm::Ethereal(term) => term.display(db).to_string(),
+            NestedFluffyTerm::Solid(_) => todo!(),
+            NestedFluffyTerm::Hollow(_) => todo!(),
+        }
+    }
 }

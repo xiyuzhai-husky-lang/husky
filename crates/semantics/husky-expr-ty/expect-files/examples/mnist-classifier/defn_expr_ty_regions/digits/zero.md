@@ -623,7 +623,27 @@
             ExprTypeInfo {
                 variant_and_ty_result: Err(
                     Original(
-                        NoSuchField,
+                        NoSuchField {
+                            owner_ty: Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 17,
+                                    },
+                                ),
+                            ),
+                            ident_token: IdentToken {
+                                ident: Ident(
+                                    Word(
+                                        Id {
+                                            value: 211,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    61,
+                                ),
+                            },
+                        },
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -1273,7 +1293,27 @@
             ExprTypeInfo {
                 variant_and_ty_result: Err(
                     Original(
-                        NoSuchField,
+                        NoSuchField {
+                            owner_ty: Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 17,
+                                    },
+                                ),
+                            ),
+                            ident_token: IdentToken {
+                                ident: Ident(
+                                    Word(
+                                        Id {
+                                            value: 213,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    159,
+                                ),
+                            },
+                        },
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -1356,7 +1396,27 @@
             ExprTypeInfo {
                 variant_and_ty_result: Err(
                     Original(
-                        NoSuchField,
+                        NoSuchField {
+                            owner_ty: Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 17,
+                                    },
+                                ),
+                            ),
+                            ident_token: IdentToken {
+                                ident: Ident(
+                                    Word(
+                                        Id {
+                                            value: 213,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    170,
+                                ),
+                            },
+                        },
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -1439,7 +1499,27 @@
             ExprTypeInfo {
                 variant_and_ty_result: Err(
                     Original(
-                        NoSuchField,
+                        NoSuchField {
+                            owner_ty: Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 17,
+                                    },
+                                ),
+                            ),
+                            ident_token: IdentToken {
+                                ident: Ident(
+                                    Word(
+                                        Id {
+                                            value: 213,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    183,
+                                ),
+                            },
+                        },
                     ),
                 ),
                 expectation_rule_idx: None,

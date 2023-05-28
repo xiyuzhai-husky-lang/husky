@@ -135,8 +135,15 @@ impl Diagnose for (ExprIdx, &'_ OriginalExprTypeError) {
             OriginalExprTypeError::AmbiguousTildeExpr => {
                 format!("Type Error: AmbiguateTildeExpr")
             }
-            OriginalExprTypeError::NoSuchField => {
-                format!("Type Error: NoSuchField")
+            OriginalExprTypeError::NoSuchField {
+                owner_ty,
+                ident_token,
+            } => {
+                format!(
+                    "Type Error: no field named {} in {}",
+                    ident_token.ident().data(ctx.db()),
+                    owner_ty.show(ctx.db(), ctx.expr_ty_region().fluffy_term_region())
+                )
             }
             OriginalExprTypeError::NoMethodForType {
                 self_expr_ty,
