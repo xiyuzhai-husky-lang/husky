@@ -323,11 +323,10 @@ impl<'a> DeclarativeTermEngine<'a> {
                     BinaryOpr::AssignClosed(_) => todo!(),
                     BinaryOpr::AssignShift(_) => todo!(),
                     BinaryOpr::ScopeResolution => todo!(),
-                    BinaryOpr::Curry => Ok(DeclarativeTermCurry::new(
+                    BinaryOpr::Curry => Ok(DeclarativeTermCurry::new_nondependent(
                         self.db,
                         CurryKind::Explicit, // ad hoc
                         Variance::Invariant, // ad hoc
-                        None,                // ad hoc
                         lopd,
                         ropd,
                     )

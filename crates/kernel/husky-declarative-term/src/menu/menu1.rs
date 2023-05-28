@@ -39,35 +39,31 @@ impl DeclarativeTermMenu1 {
                 menu0.static_lifetime(),
             )
             .into(),
-            explicit_invariant_ty0_to_trai_ty: DeclarativeTermCurry::new(
+            explicit_invariant_ty0_to_trai_ty: DeclarativeTermCurry::new_nondependent(
                 db,
                 CurryKind::Explicit,
                 Variance::Invariant,
-                None,
                 menu0.ty0().into(),
                 menu0.trai_ty().into(),
             ),
-            explicit_covariant_ty0_to_ty0: DeclarativeTermCurry::new(
+            explicit_covariant_ty0_to_ty0: DeclarativeTermCurry::new_nondependent(
                 db,
                 CurryKind::Explicit,
                 Variance::Covariant,
-                None,
                 menu0.ty0().into(),
                 menu0.ty0().into(),
             ),
-            explicit_contravariant_ty0_to_ty0: DeclarativeTermCurry::new(
+            explicit_contravariant_ty0_to_ty0: DeclarativeTermCurry::new_nondependent(
                 db,
                 CurryKind::Explicit,
                 Variance::Contravariant,
-                None,
                 menu0.ty0().into(),
                 menu0.ty0().into(),
             ),
-            explicit_invariant_ty0_to_ty0: DeclarativeTermCurry::new(
+            explicit_invariant_ty0_to_ty0: DeclarativeTermCurry::new_nondependent(
                 db,
                 CurryKind::Explicit,
                 Variance::Invariant,
-                None,
                 menu0.ty0().into(),
                 menu0.ty0().into(),
             ),

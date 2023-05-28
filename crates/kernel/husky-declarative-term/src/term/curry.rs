@@ -3,7 +3,7 @@ pub use context::*;
 use crate::*;
 
 /// representing declarative_term `X -> Y` or dependent form `(a: X) -> Y(a)`
-#[salsa::interned(db = DeclarativeTermDb, jar = DeclarativeTermJar)]
+#[salsa::interned(db = DeclarativeTermDb, jar = DeclarativeTermJar, constructor = new_inner)]
 pub struct DeclarativeTermCurry {
     pub curry_kind: CurryKind,
     pub variance: Variance,
@@ -16,6 +16,53 @@ pub struct DeclarativeTermCurry {
 }
 
 impl DeclarativeTermCurry {
+    pub fn new(
+        db: &dyn DeclarativeTermDb,
+        curry_kind: CurryKind,
+        variance: Variance,
+        parameter_symbol: DeclarativeTermSymbol,
+        parameter_ty: DeclarativeTerm,
+        return_ty: DeclarativeTerm,
+    ) -> Self {
+        let (return_ty, parameter_variable) = return_ty.r#abstract(db, parameter_symbol);
+        DeclarativeTermCurry::new_inner(
+            db,
+            curry_kind,
+            variance,
+            parameter_variable,
+            parameter_ty,
+            return_ty,
+        )
+    }
+
+    pub fn new_nondependent(
+        db: &dyn DeclarativeTermDb,
+        curry_kind: CurryKind,
+        variance: Variance,
+        parameter_ty: DeclarativeTerm,
+        return_ty: DeclarativeTerm,
+    ) -> Self {
+        DeclarativeTermCurry::new_inner(db, curry_kind, variance, None, parameter_ty, return_ty)
+    }
+
+    pub(super) fn substitute_symbol_with_variable(
+        self,
+        db: &dyn DeclarativeTermDb,
+        symbol: DeclarativeTermSymbol,
+        variable: DeclarativeTermVariable,
+    ) -> Self {
+        DeclarativeTermCurry::new_inner(
+            db,
+            self.curry_kind(db),
+            self.variance(db),
+            self.parameter_variable(db),
+            self.parameter_ty(db)
+                .substitute_symbol_with_variable(db, symbol, variable),
+            self.return_ty(db)
+                .substitute_symbol_with_variable(db, symbol, variable),
+        )
+    }
+
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,

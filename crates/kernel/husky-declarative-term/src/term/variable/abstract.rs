@@ -5,11 +5,13 @@ use crate::utils::DeclarativeTermFamily;
 use super::*;
 
 impl DeclarativeTerm {
+    // deprecated
+    // variable now should only be created in curry or abstraction
     /// the only way to create new variable
     /// this is not cached because
     /// - it's not called frequently
     /// - it's not computationally expensively
-    pub fn turn_symbol_into_variable(
+    pub(in crate::term) fn r#abstract(
         self,
         db: &dyn DeclarativeTermDb,
         symbol: DeclarativeTermSymbol,
@@ -22,6 +24,10 @@ impl DeclarativeTerm {
             self.substitute_symbol_with_variable(db, symbol, variable),
             Some(variable),
         )
+    }
+
+    pub fn new_curry_variable() -> Self {
+        todo!()
     }
 
     /// returns the variable idx if turning this symbol into variable
@@ -98,7 +104,7 @@ impl DeclarativeTerm {
 
     // todo: needs thorough testing
     /// not cached on purpose
-    fn substitute_symbol_with_variable(
+    pub(in crate::term) fn substitute_symbol_with_variable(
         self,
         db: &dyn DeclarativeTermDb,
         symbol: DeclarativeTermSymbol,
@@ -110,17 +116,9 @@ impl DeclarativeTerm {
         match self {
             DeclarativeTerm::Symbol(term) if term == symbol => variable.into(),
             DeclarativeTerm::Universe(_) => self, // ad hoc
-            DeclarativeTerm::Curry(term) => DeclarativeTermCurry::new(
-                db,
-                term.curry_kind(db),
-                term.variance(db),
-                term.parameter_variable(db),
-                term.parameter_ty(db)
-                    .substitute_symbol_with_variable(db, symbol, variable),
-                term.return_ty(db)
-                    .substitute_symbol_with_variable(db, symbol, variable),
-            )
-            .into(),
+            DeclarativeTerm::Curry(term) => term
+                .substitute_symbol_with_variable(db, symbol, variable)
+                .into(),
             DeclarativeTerm::Ritchie(term) => DeclarativeTermRitchie::new(
                 db,
                 term.ritchie_kind(db),

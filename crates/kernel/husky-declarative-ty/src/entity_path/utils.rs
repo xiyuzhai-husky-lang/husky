@@ -16,12 +16,11 @@ pub(super) fn curry_from_implicit_parameters(
     {
         let symbol = implicit_parameter.symbol();
         term = {
-            let (term, variable) = term.turn_symbol_into_variable(db, symbol);
             DeclarativeTermCurry::new(
                 db,
                 term_curry_kind,
                 *variance,
-                variable,
+                symbol,
                 implicit_parameter.ty(db),
                 term,
             )
