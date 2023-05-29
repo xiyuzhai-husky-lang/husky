@@ -1,9 +1,10 @@
+// provides support for determining expression type
 mod field;
-mod indirection;
+mod index;
 mod method;
 
 pub use self::field::*;
-pub use self::indirection::*;
+pub use self::index::*;
 pub use self::method::*;
 
 use crate::*;
@@ -35,4 +36,10 @@ impl<S> FluffyMemberDisambiguation<S> {
             signature: self.signature.clone(),
         }
     }
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum FluffyIndirection {
+    Place(Place),
+    Leash,
 }

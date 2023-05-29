@@ -155,12 +155,6 @@ impl Diagnose for (ExprIdx, &'_ OriginalExprTypeError) {
                     self_expr_ty.debug(ctx.db()) // ad hoc
                 )
             }
-            OriginalExprTypeError::TodoIndexOrComposeWithList => {
-                format!("Type Error: TodoIndexOrComposeWithList")
-            }
-            OriginalExprTypeError::TodoMemo => {
-                format!("Type Error: TodoMemo")
-            }
             OriginalExprTypeError::ExpectedCurryButGotRitchieInstead => {
                 format!("Type Error: ExpectedCurryButGotRitchieInstead")
             }
