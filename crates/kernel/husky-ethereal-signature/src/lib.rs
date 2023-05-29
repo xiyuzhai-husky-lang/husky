@@ -23,6 +23,9 @@ pub struct EtherealSignatureJar(
     TypeMethodFnEtherealSignatureTemplate,
     ty_method_fn_ethereal_signature_template,
     TypeMethodFunctionEtherealSignatureTemplate,
+    ty_memoized_field_ethereal_signature_templates_map,
+    TypeMemoizedFieldEtherealSignatureTemplate,
+    ty_memoized_field_ethereal_signature_template,
     // ty
     EnumEtherealSignatureTemplate,
     enum_ethereal_signature_template,
@@ -34,4 +37,7 @@ pub struct EtherealSignatureJar(
     TupleStructEtherealSignatureTemplate,
     UnionEtherealSignatureTemplate,
     UnitStructEtherealSignatureTemplate,
+    // impl block
+    TypeImplBlockEtherealSignatureTemplate,
+    ty_impl_block_ethereal_signature_template,
 );

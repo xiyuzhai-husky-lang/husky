@@ -49,6 +49,22 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
+                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [
+                                    ImplicitParameterDeclarativeSignature {
+                                        annotated_variance: None,
+                                        symbol: DeclarativeTermSymbol(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
+                                        traits: [],
+                                    },
+                                ],
+                            },
+                            ty: DeclarativeTerm(`core::list::List t`),
+                        },
                         self_ty: DeclarativeTerm(`core::list::List t`),
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
@@ -77,6 +93,22 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
+                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [
+                                    ImplicitParameterDeclarativeSignature {
+                                        annotated_variance: None,
+                                        symbol: DeclarativeTermSymbol(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
+                                        traits: [],
+                                    },
+                                ],
+                            },
+                            ty: DeclarativeTerm(`core::list::List t`),
+                        },
                         self_ty: DeclarativeTerm(`core::list::List t`),
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],

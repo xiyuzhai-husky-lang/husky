@@ -1,4 +1,7 @@
-use husky_ethereal_signature::{HasRegularFieldEtherealSignature, HasTypeMethodEtherealSignatures};
+use husky_ethereal_signature::{
+    HasRegularFieldEtherealSignature, HasTypeMemoizedFieldEtherealSignature,
+    HasTypeMethodEtherealSignatureTemplates,
+};
 
 use super::*;
 
@@ -70,19 +73,28 @@ fn ethereal_ty_field_disambiguation_aux<'a>(
         },
         _ => (),
     }
-    if let Some(field_ethereal_signature) = ty_path
+    if let Some(regular_field_ethereal_signature) = ty_path
         .regular_field_ethereal_signature(db, arguments, ident)
         .into_result_option()?
     {
         return JustOk(FluffyFieldDisambiguation {
             indirections,
             ty_path,
-            signature: field_ethereal_signature.into(),
+            signature: regular_field_ethereal_signature.into(),
         });
     };
-    if indirections.contains(&FluffyIndirection::Leash) {
-        todo!()
+
+    if let Some(memoized_field_ethereal_signature) = ty_path
+        .ty_memoized_field_ethereal_signature(db, arguments, ident)
+        .into_result_option()?
+    {
+        return JustOk(FluffyFieldDisambiguation {
+            indirections,
+            ty_path,
+            signature: memoized_field_ethereal_signature.into(),
+        });
     }
+    // todo!("trai for ty memoized field");
     // ad hoc
     // needs to consider `Deref` `DerefMut` `Carrier`
     Nothing

@@ -37,6 +37,12 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
+                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`),
+                        },
                         self_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`),
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
@@ -67,6 +73,12 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
+                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`),
+                        },
                         self_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`),
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],

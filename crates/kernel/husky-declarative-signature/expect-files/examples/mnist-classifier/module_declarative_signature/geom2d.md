@@ -184,6 +184,12 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
+                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
+                        },
                         self_ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
@@ -214,6 +220,12 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
+                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
+                        },
                         self_ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
@@ -257,6 +269,12 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
+                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
+                        },
                         self_ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
@@ -287,6 +305,12 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
+                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
+                        },
                         self_ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
@@ -342,6 +366,12 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
+                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
+                        },
                         self_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
@@ -372,6 +402,12 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
+                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
+                        },
                         self_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
@@ -415,6 +451,12 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
+                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
+                        },
                         self_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
@@ -445,49 +487,12 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
-                        self_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
-                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
-                            data: [],
+                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                         },
-                        self_parameter: ExplicitParameterDeclarativeSignatureTemplate {
-                            contract: Pure,
-                            ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        Id {
-                                            value: 82,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        },
-                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
-                            data: [
-                                ExplicitParameterDeclarativeSignatureTemplate {
-                                    contract: Pure,
-                                    ty: EntityPath(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 82,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            ],
-                        },
-                        return_ty: DeclarativeTerm(`core::num::f32`),
-                    },
-                ),
-            ),
-        ),
-    ),
-    Ok(
-        SignatureTemplate::AssociatedItem(
-            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                TypeItemDeclarativeSignatureTemplate::MethodFn(
-                    TypeMethodFnDeclarativeSignatureTemplate {
                         self_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
@@ -531,6 +536,61 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
+                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
+                        },
+                        self_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
+                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                            data: [],
+                        },
+                        self_parameter: ExplicitParameterDeclarativeSignatureTemplate {
+                            contract: Pure,
+                            ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 82,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            data: [
+                                ExplicitParameterDeclarativeSignatureTemplate {
+                                    contract: Pure,
+                                    ty: EntityPath(
+                                        Type(
+                                            TypePath(
+                                                Id {
+                                                    value: 82,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ],
+                        },
+                        return_ty: DeclarativeTerm(`core::num::f32`),
+                    },
+                ),
+            ),
+        ),
+    ),
+    Ok(
+        SignatureTemplate::AssociatedItem(
+            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                TypeItemDeclarativeSignatureTemplate::MethodFn(
+                    TypeMethodFnDeclarativeSignatureTemplate {
+                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
+                        },
                         self_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
@@ -574,6 +634,12 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
+                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
+                        },
                         self_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
@@ -617,6 +683,12 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
+                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
+                        },
                         self_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
@@ -684,6 +756,12 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
+                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            ty: DeclarativeTerm(`mnist_classifier::geom2d::ClosedRange`),
+                        },
                         self_ty: DeclarativeTerm(`mnist_classifier::geom2d::ClosedRange`),
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
@@ -727,6 +805,12 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
+                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            ty: DeclarativeTerm(`mnist_classifier::geom2d::ClosedRange`),
+                        },
                         self_ty: DeclarativeTerm(`mnist_classifier::geom2d::ClosedRange`),
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
@@ -782,6 +866,12 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
+                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
+                        },
                         self_ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
@@ -825,6 +915,12 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
+                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
+                        },
                         self_ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
@@ -868,6 +964,12 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
+                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
+                        },
                         self_ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
@@ -898,6 +1000,12 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
+                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
+                        },
                         self_ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
@@ -928,6 +1036,12 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
+                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
+                        },
                         self_ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
@@ -958,6 +1072,12 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
+                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
+                        },
                         self_ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
@@ -1000,6 +1120,12 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
+                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            ty: DeclarativeTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
+                        },
                         self_ty: DeclarativeTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
@@ -1030,6 +1156,12 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
+                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            ty: DeclarativeTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
+                        },
                         self_ty: DeclarativeTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
@@ -1060,6 +1192,12 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
+                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            ty: DeclarativeTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
+                        },
                         self_ty: DeclarativeTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
@@ -1090,6 +1228,12 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
+                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            ty: DeclarativeTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
+                        },
                         self_ty: DeclarativeTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],

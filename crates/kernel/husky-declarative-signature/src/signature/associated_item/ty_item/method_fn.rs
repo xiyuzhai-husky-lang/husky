@@ -5,6 +5,7 @@ use crate::*;
 
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 pub struct TypeMethodFnDeclarativeSignatureTemplate {
+    pub impl_block: TypeImplBlockDeclarativeSignatureTemplate,
     /// the term for `Self`
     /// not necessarily equal to the type of `self`
     ///
@@ -42,7 +43,8 @@ pub fn ty_method_fn_declarative_signature_template(
     let ImplBlock::Type(impl_block) = decl.associated_item(db).impl_block(db) else {
         unreachable!()
     };
-    let self_ty = impl_block.declarative_signature_template(db)?.ty(db);
+    let impl_block = impl_block.declarative_signature_template(db)?;
+    let self_ty = impl_block.ty(db);
     let contract = match decl.self_parameter(db) {
         Some(self_parameter) => match self_parameter {
             SelfParameterDeclPattern::Pure { .. } => Contract::Pure,
@@ -70,6 +72,7 @@ pub fn ty_method_fn_declarative_signature_template(
     };
     Ok(TypeMethodFnDeclarativeSignatureTemplate::new(
         db,
+        impl_block,
         self_ty,
         implicit_parameters,
         self_parameter,

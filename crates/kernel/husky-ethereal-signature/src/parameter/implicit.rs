@@ -8,13 +8,16 @@ pub struct ImplicitParameterEtherealSignatures {
 
 impl ImplicitParameterEtherealSignatures {
     pub(crate) fn from_declarative(
+        db: &dyn EtherealSignatureDb,
         implicit_paramters: &ImplicitParameterDeclarativeSignatures,
     ) -> EtherealSignatureResult<ImplicitParameterEtherealSignatures> {
         Ok(ImplicitParameterEtherealSignatures {
             data: implicit_paramters
                 .data()
                 .iter()
-                .map(ImplicitParameterEtherealSignature::from_declarative)
+                .map(|implicit_parameter| {
+                    ImplicitParameterEtherealSignature::from_declarative(db, implicit_parameter)
+                })
                 .collect::<EtherealSignatureResult<_>>()?,
         })
     }
@@ -41,6 +44,7 @@ pub struct ImplicitParameterEtherealSignature {
 
 impl ImplicitParameterEtherealSignature {
     fn from_declarative(
+        db: &dyn EtherealSignatureDb,
         implicit_paramter: &ImplicitParameterDeclarativeSignature,
     ) -> EtherealSignatureResult<ImplicitParameterEtherealSignature> {
         todo!()

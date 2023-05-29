@@ -439,6 +439,12 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MemoizedField(
                     TypeMemoizedFieldDeclarativeSignatureTemplate {
+                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            ty: DeclarativeTerm(`mnist_classifier::raw_contour::RawContour`),
+                        },
                         return_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
                     },
                 ),
@@ -450,6 +456,12 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MemoizedField(
                     TypeMemoizedFieldDeclarativeSignatureTemplate {
+                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            ty: DeclarativeTerm(`mnist_classifier::raw_contour::RawContour`),
+                        },
                         return_ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
                     },
                 ),
@@ -461,6 +473,12 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MemoizedField(
                     TypeMemoizedFieldDeclarativeSignatureTemplate {
+                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            ty: DeclarativeTerm(`mnist_classifier::raw_contour::RawContour`),
+                        },
                         return_ty: DeclarativeTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
                     },
                 ),
@@ -472,6 +490,12 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MemoizedField(
                     TypeMemoizedFieldDeclarativeSignatureTemplate {
+                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            ty: DeclarativeTerm(`mnist_classifier::raw_contour::RawContour`),
+                        },
                         return_ty: DeclarativeTerm(`core::num::f32`),
                     },
                 ),
@@ -483,6 +507,12 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
+                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            ty: DeclarativeTerm(`mnist_classifier::raw_contour::RawContour`),
+                        },
                         self_ty: DeclarativeTerm(`mnist_classifier::raw_contour::RawContour`),
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],

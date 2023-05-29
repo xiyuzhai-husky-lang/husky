@@ -1,16 +1,24 @@
 mod associated_fn;
 mod associated_val;
+mod memoized_field;
 mod method_fn;
 mod method_function;
 
 pub use self::associated_fn::*;
 pub use self::associated_val::*;
+pub use self::memoized_field::*;
 pub use self::method_fn::*;
 pub use self::method_function::*;
 
 use super::*;
 
-pub trait HasTypeMethodEtherealSignatures: Copy {
+#[derive(Debug, PartialEq, Eq)]
+pub enum TypeMethodEtherealSignatureTemplates {
+    MethodFn(SmallVecImpl<TypeMethodFnEtherealSignatureTemplate>),
+    MethodFunction(SmallVecImpl<TypeMethodFunctionEtherealSignatureTemplate>),
+}
+
+pub trait HasTypeMethodEtherealSignatureTemplates: Copy {
     fn ty_method_ethereal_signature_templates_map<'a>(
         self,
         db: &'a dyn EtherealSignatureDb,
@@ -38,13 +46,7 @@ pub trait HasTypeMethodEtherealSignatures: Copy {
     }
 }
 
-#[derive(Debug, PartialEq, Eq)]
-pub enum TypeMethodEtherealSignatureTemplates {
-    MethodFn(SmallVecImpl<TypeMethodFnEtherealSignatureTemplate>),
-    MethodFunction(SmallVecImpl<TypeMethodFunctionEtherealSignatureTemplate>),
-}
-
-impl HasTypeMethodEtherealSignatures for TypePath {
+impl HasTypeMethodEtherealSignatureTemplates for TypePath {
     fn ty_method_ethereal_signature_templates_map<'a>(
         self,
         db: &'a dyn EtherealSignatureDb,
