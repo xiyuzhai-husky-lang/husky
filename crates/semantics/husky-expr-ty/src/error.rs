@@ -69,10 +69,6 @@ pub enum OriginalExprTypeError {
         self_expr_ty: FluffyTerm,
         ident_token: IdentToken,
     },
-    #[error("TodoIndexOrComposeWithList")]
-    TodoIndexOrComposeWithList,
-    #[error("TodoMemo")]
-    TodoMemo,
     #[error("ExpectedCurryButGotRitchieInstead")]
     ExpectedCurryButGotRitchieInstead,
 }

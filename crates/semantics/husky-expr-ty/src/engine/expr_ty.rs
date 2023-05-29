@@ -3,6 +3,7 @@ mod box_list;
 mod current_symbol;
 mod explicit_application;
 mod field;
+mod index_or_compose_with_list;
 mod literal;
 mod method;
 mod prefix;
@@ -382,24 +383,6 @@ impl<'a> ExprTypeEngine<'a> {
             }
             ExpectEqsFunctionTypeOutcomeVariant::Curry { .. } => todo!(),
         }
-    }
-
-    fn calc_index_or_compose_with_list_expr_ty(
-        &mut self,
-        expr_idx: ExprIdx,
-        owner: ExprIdx,
-        indices: ExprIdxRange,
-    ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
-        let Some(owner_ty) = self.infer_new_expr_ty(
-            owner,
-            ExpectAnyOriginal,
-        ) else {
-            for index in indices {
-                self.infer_new_expr_ty(index, ExpectAnyDerived,  );
-            }
-            Err(DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred)?
-        };
-        Err(OriginalExprTypeError::TodoIndexOrComposeWithList.into())
     }
 
     fn calc_explicit_application(
