@@ -84,7 +84,7 @@ impl ImplicitParameterDeclarativeSignature {
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct ImplicitParameterDeclarativeSignatures {
-    data: Vec<ImplicitParameterDeclarativeSignature>,
+    data: SmallVec<[ImplicitParameterDeclarativeSignature; 4]>,
 }
 
 impl ImplicitParameterDeclarativeSignatures {

@@ -19,27 +19,7 @@ impl HasEtherealSignatureTemplate for TypeMethodFnDeclarativeSignatureTemplate {
         self,
         db: &dyn EtherealSignatureDb,
     ) -> EtherealSignatureResult<Self::EtherealSignatureTemplate> {
-        let self_ty = EtherealTerm::ty_from_declarative(db, self.self_ty(db))?;
-        let implicit_parameters =
-            ImplicitParameterEtherealSignatures::from_declarative(self.implicit_parameters(db))?;
-        let self_parameter = ExplicitParameterEtherealSignatureTemplate::from_declarative(
-            db,
-            self.self_parameter(db),
-        )?;
-        let nonself_regular_parameters =
-            ExplicitParameterEtherealSignatureTemplates::from_declarative(
-                db,
-                self.nonself_regular_parameters(db),
-            )?;
-        let return_ty = EtherealTerm::ty_from_declarative(db, self.return_ty(db))?;
-        Ok(TypeMethodFnEtherealSignatureTemplate::new(
-            db,
-            self_ty,
-            implicit_parameters,
-            self_parameter,
-            nonself_regular_parameters,
-            return_ty,
-        ))
+        ty_method_fn_ethereal_signature_template(db, self)
     }
 }
 
@@ -47,6 +27,27 @@ impl HasEtherealSignatureTemplate for TypeMethodFnDeclarativeSignatureTemplate {
 pub(crate) fn ty_method_fn_ethereal_signature_template(
     db: &dyn EtherealSignatureDb,
     declarative_signature: TypeMethodFnDeclarativeSignatureTemplate,
-) -> TypeMethodFnEtherealSignatureTemplate {
-    todo!()
+) -> EtherealSignatureResult<TypeMethodFnEtherealSignatureTemplate> {
+    let self_ty = EtherealTerm::ty_from_declarative(db, declarative_signature.self_ty(db))?;
+    let implicit_parameters = ImplicitParameterEtherealSignatures::from_declarative(
+        db,
+        declarative_signature.implicit_parameters(db),
+    )?;
+    let self_parameter = ExplicitParameterEtherealSignatureTemplate::from_declarative(
+        db,
+        declarative_signature.self_parameter(db),
+    )?;
+    let nonself_regular_parameters = ExplicitParameterEtherealSignatureTemplates::from_declarative(
+        db,
+        declarative_signature.nonself_regular_parameters(db),
+    )?;
+    let return_ty = EtherealTerm::ty_from_declarative(db, declarative_signature.return_ty(db))?;
+    Ok(TypeMethodFnEtherealSignatureTemplate::new(
+        db,
+        self_ty,
+        implicit_parameters,
+        self_parameter,
+        nonself_regular_parameters,
+        return_ty,
+    ))
 }

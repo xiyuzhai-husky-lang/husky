@@ -17,7 +17,7 @@ impl HasRegularFieldEtherealSignature for RegularStructEtherealSignatureTemplate
         db: &dyn EtherealSignatureDb,
         arguments: &[EtherealTerm],
         ident: Ident,
-    ) -> EtherealSignatureMaybeResult<FieldEtherealSignature> {
+    ) -> EtherealSignatureMaybeResult<RegularFieldEtherealSignature> {
         let field = self
             .fields(db)
             .iter()
@@ -47,6 +47,7 @@ pub(crate) fn regular_struct_ethereal_signature_template(
     declarative_signature_template: RegularStructDeclarativeSignatureTemplate,
 ) -> EtherealSignatureResult<RegularStructEtherealSignatureTemplate> {
     let implicit_parameters = ImplicitParameterEtherealSignatures::from_declarative(
+        db,
         declarative_signature_template.implicit_parameters(db),
     )?;
     let fields = declarative_signature_template

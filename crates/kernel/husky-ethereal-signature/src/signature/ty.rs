@@ -77,13 +77,20 @@ impl HasEtherealSignatureTemplate for TypeDeclarativeSignatureTemplate {
     }
 }
 
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[salsa::derive_debug_with_db(db = EtherealSignatureDb)]
+#[enum_class::from_variants]
+pub enum RegularFieldEtherealSignature {
+    RegularStruct(RegularStructFieldEtherealSignature),
+}
+
 pub trait HasRegularFieldEtherealSignature: Copy {
     fn regular_field_ethereal_signature(
         self,
         db: &dyn EtherealSignatureDb,
         arguments: &[EtherealTerm],
         ident: Ident,
-    ) -> EtherealSignatureMaybeResult<FieldEtherealSignature>;
+    ) -> EtherealSignatureMaybeResult<RegularFieldEtherealSignature>;
 }
 
 impl HasRegularFieldEtherealSignature for TypePath {
@@ -92,7 +99,7 @@ impl HasRegularFieldEtherealSignature for TypePath {
         db: &dyn EtherealSignatureDb,
         arguments: &[EtherealTerm],
         ident: Ident,
-    ) -> EtherealSignatureMaybeResult<FieldEtherealSignature> {
+    ) -> EtherealSignatureMaybeResult<RegularFieldEtherealSignature> {
         self.ethereal_signature_template(db)?
             .regular_field_ethereal_signature(db, arguments, ident)
     }
@@ -104,7 +111,7 @@ impl HasRegularFieldEtherealSignature for TypeEtherealSignatureTemplate {
         db: &dyn EtherealSignatureDb,
         arguments: &[EtherealTerm],
         ident: Ident,
-    ) -> EtherealSignatureMaybeResult<FieldEtherealSignature> {
+    ) -> EtherealSignatureMaybeResult<RegularFieldEtherealSignature> {
         match self {
             TypeEtherealSignatureTemplate::Enum(_) => todo!(),
             TypeEtherealSignatureTemplate::RegularStruct(signature_template) => {
@@ -121,17 +128,10 @@ impl HasRegularFieldEtherealSignature for TypeEtherealSignatureTemplate {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = EtherealSignatureDb)]
-#[enum_class::from_variants]
-pub enum FieldEtherealSignature {
-    RegularStruct(RegularStructFieldEtherealSignature),
-}
-
-impl FieldEtherealSignature {
+impl RegularFieldEtherealSignature {
     pub fn ty(self) -> EtherealTerm {
         match self {
-            FieldEtherealSignature::RegularStruct(signature) => signature.ty(),
+            RegularFieldEtherealSignature::RegularStruct(signature) => signature.ty(),
         }
     }
 }

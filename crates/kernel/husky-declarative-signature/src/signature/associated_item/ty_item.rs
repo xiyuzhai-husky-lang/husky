@@ -113,6 +113,12 @@ pub(crate) fn ty_item_declarative_signature_from_decl(
     }
 }
 
+#[derive(Debug, PartialEq, Eq)]
+pub enum TypeMethodDeclarativeSignatureTemplates {
+    MethodFn(SmallVecImpl<TypeMethodFnDeclarativeSignatureTemplate>),
+    MethodFunction(SmallVecImpl<TypeMethodFunctionDeclarativeSignatureTemplate>),
+}
+
 pub trait HasTypeMethodDeclarativeSignatureTemplates: Copy {
     fn ty_method_declarative_signature_templates_map<'a>(
         self,
@@ -139,12 +145,6 @@ pub trait HasTypeMethodDeclarativeSignatureTemplates: Copy {
             None => Ok(None),
         }
     }
-}
-
-#[derive(Debug, PartialEq, Eq)]
-pub enum TypeMethodDeclarativeSignatureTemplates {
-    MethodFn(SmallVecImpl<TypeMethodFnDeclarativeSignatureTemplate>),
-    MethodFunction(SmallVecImpl<TypeMethodFunctionDeclarativeSignatureTemplate>),
 }
 
 impl HasTypeMethodDeclarativeSignatureTemplates for TypePath {

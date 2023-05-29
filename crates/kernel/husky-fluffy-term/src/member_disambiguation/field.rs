@@ -7,7 +7,10 @@ pub(crate) use self::hollow::*;
 pub(crate) use self::solid::*;
 
 use super::*;
-use husky_ethereal_signature::FieldEtherealSignature;
+use husky_ethereal_signature::{
+    HasTypeMemoizedFieldEtherealSignature, HasTypeMemoizedFieldEtherealSignatureTemplates,
+    RegularFieldEtherealSignature, TypeMemoizedFieldEtherealSignature,
+};
 use husky_word::Ident;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -33,12 +36,18 @@ impl FieldFluffySignature {
     }
 }
 
-impl From<FieldEtherealSignature> for FieldFluffySignature {
-    fn from(signature: FieldEtherealSignature) -> Self {
+impl From<RegularFieldEtherealSignature> for FieldFluffySignature {
+    fn from(signature: RegularFieldEtherealSignature) -> Self {
         // ad hoc
         FieldFluffySignature {
             ty: signature.ty().into(),
         }
+    }
+}
+
+impl From<TypeMemoizedFieldEtherealSignature> for FieldFluffySignature {
+    fn from(value: TypeMemoizedFieldEtherealSignature) -> Self {
+        todo!()
     }
 }
 
