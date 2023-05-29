@@ -1,6 +1,7 @@
 #![feature(trait_upcasting)]
 mod db;
 mod error;
+mod instantiator;
 mod parameter;
 mod signature;
 

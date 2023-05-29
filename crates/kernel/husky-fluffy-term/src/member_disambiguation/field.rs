@@ -46,8 +46,11 @@ impl From<RegularFieldEtherealSignature> for FieldFluffySignature {
 }
 
 impl From<TypeMemoizedFieldEtherealSignature> for FieldFluffySignature {
-    fn from(value: TypeMemoizedFieldEtherealSignature) -> Self {
-        todo!()
+    fn from(signature: TypeMemoizedFieldEtherealSignature) -> Self {
+        Self {
+            // ad hoc
+            ty: signature.return_ty().into(),
+        }
     }
 }
 
