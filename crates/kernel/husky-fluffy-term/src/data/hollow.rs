@@ -74,7 +74,7 @@ impl HollowTerm {
     ) -> FluffyTermData<'a> {
         match fluffy_terms.hollow_terms().resolve_progress(self) {
             HollowTermResolveProgress::Unresolved => self.fluffy_data_aux(db, fluffy_terms),
-            HollowTermResolveProgress::ResolvedEthereal(_) => todo!(),
+            HollowTermResolveProgress::ResolvedEthereal(term) => ethereal_term_data(db, term),
             HollowTermResolveProgress::ResolvedSolid(_) => todo!(),
             HollowTermResolveProgress::Err => todo!(),
         }

@@ -1,9 +1,11 @@
+mod ethereal;
 mod hollow;
 mod solid;
 
 pub(crate) use self::hollow::*;
 pub(crate) use self::solid::*;
 
+use self::ethereal::*;
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -56,44 +58,10 @@ impl FluffyTerm {
         db: &'a dyn FluffyTermDb,
         fluffy_terms: &'a FluffyTerms,
     ) -> FluffyTermData<'a> {
-        match self {
-            FluffyTerm::Literal(_) => todo!(),
-            FluffyTerm::Symbol(_) => todo!(),
-            FluffyTerm::Variable(_) => todo!(),
-            FluffyTerm::EntityPath(path) => match path {
-                TermEntityPath::Form(_) => todo!(),
-                TermEntityPath::Trait(_) => todo!(),
-                TermEntityPath::TypeOntology(ty_path) => FluffyTermData::TypeOntology {
-                    path: ty_path,
-                    refined_path: ty_path.refine(db),
-                    arguments: &[],
-                    ty_ethereal_term: Some(path.into()),
-                },
-                TermEntityPath::TypeConstructor(_) => todo!(),
-            },
-            FluffyTerm::Category(term) => FluffyTermData::Category(term),
-            FluffyTerm::Universe(_) => todo!(),
-            FluffyTerm::Curry(term) => FluffyTermData::Curry {
-                curry_kind: term.curry_kind(db),
-                variance: term.variance(db),
-                parameter_variable: term.parameter_variable(db).map(Into::into),
-                parameter_ty: term.parameter_ty(db).into(),
-                return_ty: term.return_ty(db).into(),
-            },
-            FluffyTerm::Ritchie(term) => FluffyTermData::Ritchie {
-                ritchie_kind: term.ritchie_kind(db),
-                parameter_contracted_tys: term_ritchie_fluffy_data(db, term),
-                return_ty: term.return_ty(db).into(),
-            },
-            FluffyTerm::Abstraction(_) => todo!(),
-            FluffyTerm::Application(term) => {
-                term_application_fluffy_data(db, term).to_fluffy(term.into())
-            }
-            FluffyTerm::Subentity(_) => todo!(),
-            FluffyTerm::AsTraitSubentity(_) => todo!(),
-            FluffyTerm::TraitConstraint(_) => todo!(),
-            FluffyTerm::Solid(term) => term.data2(fluffy_terms.solid_terms()).into(),
-            FluffyTerm::Hollow(term) => term.fluffy_data(db, fluffy_terms),
+        match self.nested() {
+            NestedFluffyTerm::Ethereal(term) => ethereal_term_data(db, term),
+            NestedFluffyTerm::Solid(term) => term.data2(fluffy_terms.solid_terms()).into(),
+            NestedFluffyTerm::Hollow(term) => term.fluffy_data(db, fluffy_terms),
         }
     }
 }

@@ -478,32 +478,47 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Original(
-                        NoSuchField {
-                            owner_ty: Application(
-                                EtherealTermApplication(
+                variant_and_ty_result: Ok(
+                    (
+                        Field(
+                            FluffyFieldDisambiguation {
+                                indirections: [
+                                    Leash,
+                                ],
+                                ty_path: TypePath(
                                     Id {
-                                        value: 16,
+                                        value: 76,
                                     },
                                 ),
-                            ),
-                            ident_token: IdentToken {
-                                ident: Ident(
-                                    Word(
+                                signature: FieldFluffySignature {
+                                    ty: EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 75,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            },
+                        ),
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
                                         Id {
-                                            value: 213,
+                                            value: 75,
                                         },
                                     ),
                                 ),
-                                token_idx: TokenIdx(
-                                    53,
-                                ),
-                            },
-                        },
+                            ),
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    5,
+                ),
             },
             ExprTypeInfo {
                 variant_and_ty_result: Ok(
@@ -540,7 +555,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    5,
+                    6,
                 ),
             },
             ExprTypeInfo {
@@ -569,7 +584,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    6,
+                    7,
                 ),
             },
             ExprTypeInfo {
@@ -590,7 +605,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    7,
+                    8,
                 ),
             },
             ExprTypeInfo {
@@ -617,7 +632,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    8,
+                    9,
                 ),
             },
             ExprTypeInfo {
@@ -659,7 +674,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    9,
+                    10,
                 ),
             },
             ExprTypeInfo {
@@ -709,7 +724,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    10,
+                    11,
                 ),
             },
             ExprTypeInfo {
@@ -730,77 +745,115 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    11,
+                    13,
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Original(
-                        NoSuchField {
-                            owner_ty: Application(
-                                EtherealTermApplication(
+                variant_and_ty_result: Ok(
+                    (
+                        Field(
+                            FluffyFieldDisambiguation {
+                                indirections: [
+                                    Leash,
+                                ],
+                                ty_path: TypePath(
                                     Id {
-                                        value: 16,
+                                        value: 76,
                                     },
                                 ),
-                            ),
-                            ident_token: IdentToken {
-                                ident: Ident(
-                                    Word(
+                                signature: FieldFluffySignature {
+                                    ty: EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 56,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            },
+                        ),
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
                                         Id {
-                                            value: 200,
+                                            value: 56,
                                         },
                                     ),
                                 ),
-                                token_idx: TokenIdx(
-                                    91,
-                                ),
-                            },
-                        },
+                            ),
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    12,
+                ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Original(
-                        NoSuchField {
-                            owner_ty: Application(
-                                EtherealTermApplication(
+                variant_and_ty_result: Ok(
+                    (
+                        Field(
+                            FluffyFieldDisambiguation {
+                                indirections: [
+                                    Leash,
+                                ],
+                                ty_path: TypePath(
                                     Id {
-                                        value: 16,
+                                        value: 76,
                                     },
                                 ),
-                            ),
-                            ident_token: IdentToken {
-                                ident: Ident(
-                                    Word(
+                                signature: FieldFluffySignature {
+                                    ty: EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 56,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            },
+                        ),
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
                                         Id {
-                                            value: 201,
+                                            value: 56,
                                         },
                                     ),
                                 ),
-                                token_idx: TokenIdx(
-                                    95,
-                                ),
-                            },
-                        },
+                            ),
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    14,
+                ),
             },
             ExprTypeInfo {
                 variant_and_ty_result: Ok(
                     (
                         Trivial,
-                        Err(
-                            Derived(
-                                BinaryOperationLeftOperandTypeNotInferred,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 56,
+                                        },
+                                    ),
+                                ),
                             ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    15,
+                ),
             },
             ExprTypeInfo {
                 variant_and_ty_result: Ok(
@@ -829,7 +882,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    12,
+                    16,
                 ),
             },
             ExprTypeInfo {
@@ -850,7 +903,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    13,
+                    17,
                 ),
             },
             ExprTypeInfo {
@@ -888,7 +941,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    14,
+                    18,
                 ),
             },
             ExprTypeInfo {
@@ -917,7 +970,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    15,
+                    19,
                 ),
             },
             ExprTypeInfo {
@@ -956,7 +1009,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    16,
+                    20,
                 ),
             },
             ExprTypeInfo {
@@ -977,7 +1030,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    17,
+                    21,
                 ),
             },
             ExprTypeInfo {
@@ -998,7 +1051,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    18,
+                    22,
                 ),
             },
             ExprTypeInfo {
@@ -1025,7 +1078,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    19,
+                    23,
                 ),
             },
             ExprTypeInfo {
@@ -1067,7 +1120,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    20,
+                    24,
                 ),
             },
             ExprTypeInfo {
@@ -1088,7 +1141,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    21,
+                    25,
                 ),
             },
             ExprTypeInfo {
@@ -1115,7 +1168,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    22,
+                    26,
                 ),
             },
             ExprTypeInfo {
@@ -1136,7 +1189,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    23,
+                    27,
                 ),
             },
             ExprTypeInfo {
@@ -1157,7 +1210,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    24,
+                    28,
                 ),
             },
             ExprTypeInfo {
@@ -1178,77 +1231,115 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    25,
+                    30,
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Original(
-                        NoSuchField {
-                            owner_ty: Application(
-                                EtherealTermApplication(
+                variant_and_ty_result: Ok(
+                    (
+                        Field(
+                            FluffyFieldDisambiguation {
+                                indirections: [
+                                    Leash,
+                                ],
+                                ty_path: TypePath(
                                     Id {
-                                        value: 16,
+                                        value: 76,
                                     },
                                 ),
-                            ),
-                            ident_token: IdentToken {
-                                ident: Ident(
-                                    Word(
+                                signature: FieldFluffySignature {
+                                    ty: EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 56,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            },
+                        ),
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
                                         Id {
-                                            value: 200,
+                                            value: 56,
                                         },
                                     ),
                                 ),
-                                token_idx: TokenIdx(
-                                    142,
-                                ),
-                            },
-                        },
+                            ),
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    29,
+                ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Original(
-                        NoSuchField {
-                            owner_ty: Application(
-                                EtherealTermApplication(
+                variant_and_ty_result: Ok(
+                    (
+                        Field(
+                            FluffyFieldDisambiguation {
+                                indirections: [
+                                    Leash,
+                                ],
+                                ty_path: TypePath(
                                     Id {
-                                        value: 16,
+                                        value: 76,
                                     },
                                 ),
-                            ),
-                            ident_token: IdentToken {
-                                ident: Ident(
-                                    Word(
+                                signature: FieldFluffySignature {
+                                    ty: EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 56,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            },
+                        ),
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
                                         Id {
-                                            value: 201,
+                                            value: 56,
                                         },
                                     ),
                                 ),
-                                token_idx: TokenIdx(
-                                    146,
-                                ),
-                            },
-                        },
+                            ),
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    31,
+                ),
             },
             ExprTypeInfo {
                 variant_and_ty_result: Ok(
                     (
                         Trivial,
-                        Err(
-                            Derived(
-                                BinaryOperationLeftOperandTypeNotInferred,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 56,
+                                        },
+                                    ),
+                                ),
                             ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    32,
+                ),
             },
             ExprTypeInfo {
                 variant_and_ty_result: Ok(
@@ -1268,7 +1359,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    26,
+                    33,
                 ),
             },
             ExprTypeInfo {
@@ -1295,7 +1386,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    27,
+                    34,
                 ),
             },
             ExprTypeInfo {
@@ -1337,7 +1428,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    28,
+                    35,
                 ),
             },
             ExprTypeInfo {
@@ -1383,7 +1474,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    29,
+                    36,
                 ),
             },
             ExprTypeInfo {
@@ -1404,7 +1495,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    30,
+                    37,
                 ),
             },
             ExprTypeInfo {
@@ -1434,7 +1525,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    31,
+                    38,
                 ),
             },
             ExprTypeInfo {
@@ -1459,7 +1550,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    32,
+                    39,
                 ),
             },
             ExprTypeInfo {
@@ -1480,7 +1571,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    33,
+                    40,
                 ),
             },
             ExprTypeInfo {
@@ -1501,7 +1592,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    34,
+                    41,
                 ),
             },
             ExprTypeInfo {
@@ -1528,7 +1619,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    35,
+                    42,
                 ),
             },
             ExprTypeInfo {
@@ -1549,7 +1640,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    36,
+                    43,
                 ),
             },
             ExprTypeInfo {
@@ -1570,7 +1661,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    37,
+                    44,
                 ),
             },
             ExprTypeInfo {
@@ -1591,7 +1682,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    38,
+                    45,
                 ),
             },
             ExprTypeInfo {
@@ -1650,7 +1741,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    39,
+                    46,
                 ),
             },
             ExprTypeInfo {
@@ -1680,7 +1771,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    40,
+                    47,
                 ),
             },
             ExprTypeInfo {
@@ -1701,7 +1792,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    41,
+                    48,
                 ),
             },
             ExprTypeInfo {
@@ -1731,7 +1822,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    42,
+                    49,
                 ),
             },
             ExprTypeInfo {
@@ -1752,7 +1843,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    43,
+                    50,
                 ),
             },
             ExprTypeInfo {
@@ -1775,7 +1866,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    44,
+                    51,
                 ),
             },
             ExprTypeInfo {
@@ -1798,7 +1889,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    45,
+                    52,
                 ),
             },
             ExprTypeInfo {
@@ -1819,7 +1910,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    46,
+                    53,
                 ),
             },
         ],
@@ -2239,6 +2330,25 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
+                                expr_idx: 5,
+                                kind: Expr,
+                            },
+                            expectee: EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 75,
+                                        },
+                                    ),
+                                ),
+                            ),
+                            data: AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            resolve_progress: Unresolved,
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
                                 expr_idx: 8,
                                 kind: Expr,
                             },
@@ -2379,6 +2489,25 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
+                                expr_idx: 22,
+                                kind: Expr,
+                            },
+                            expectee: EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 56,
+                                        },
+                                    ),
+                                ),
+                            ),
+                            data: AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            resolve_progress: Unresolved,
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
                                 expr_idx: 21,
                                 kind: Expr,
                             },
@@ -2387,6 +2516,63 @@
                                     Id {
                                         value: 16,
                                     },
+                                ),
+                            ),
+                            data: AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            resolve_progress: Unresolved,
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 23,
+                                kind: Expr,
+                            },
+                            expectee: EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 56,
+                                        },
+                                    ),
+                                ),
+                            ),
+                            data: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        contract: Pure,
+                                        ty: EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    Id {
+                                                        value: 56,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        Trivial,
+                                    ),
+                                ),
+                            ),
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 24,
+                                kind: Expr,
+                            },
+                            expectee: EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 56,
+                                        },
+                                    ),
                                 ),
                             ),
                             data: AnyOriginal(
@@ -2712,6 +2898,25 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
+                                expr_idx: 49,
+                                kind: Expr,
+                            },
+                            expectee: EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 56,
+                                        },
+                                    ),
+                                ),
+                            ),
+                            data: AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            resolve_progress: Unresolved,
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
                                 expr_idx: 48,
                                 kind: Expr,
                             },
@@ -2720,6 +2925,63 @@
                                     Id {
                                         value: 16,
                                     },
+                                ),
+                            ),
+                            data: AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            resolve_progress: Unresolved,
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 50,
+                                kind: Expr,
+                            },
+                            expectee: EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 56,
+                                        },
+                                    ),
+                                ),
+                            ),
+                            data: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        contract: Pure,
+                                        ty: EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    Id {
+                                                        value: 56,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        Trivial,
+                                    ),
+                                ),
+                            ),
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 51,
+                                kind: Expr,
+                            },
+                            expectee: EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 56,
+                                        },
+                                    ),
                                 ),
                             ),
                             data: AnyOriginal(

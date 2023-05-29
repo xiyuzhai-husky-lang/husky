@@ -42,19 +42,9 @@ DiagnosticSheet {
                 range: [19:16, 19:39),
             },
             Diagnostic {
-                message: "Type Error: no field named row_span_sum in TypeOntology(core::mem::Leash) TypeOntology(mnist_classifier::connected_component::ConnectedComponent)",
+                message: "Type Error: TodoIndexOrComposeWithList",
                 severity: Error,
-                range: [20:18, 20:56),
-            },
-            Diagnostic {
-                message: "Type Error: no field named raw_contours in TypeOntology(core::mem::Leash) TypeOntology(mnist_classifier::connected_component::ConnectedComponent)",
-                severity: Error,
-                range: [23:5, 23:43),
-            },
-            Diagnostic {
-                message: "Type Error: no field named raw_contours in TypeOntology(core::mem::Leash) TypeOntology(mnist_classifier::connected_component::ConnectedComponent)",
-                severity: Error,
-                range: [27:5, 27:43),
+                range: [27:5, 27:46),
             },
         ],
     },
