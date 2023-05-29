@@ -6,6 +6,24 @@ pub struct TypeMemoizedFieldEtherealSignatureTemplate {
     pub return_ty: EtherealTerm,
 }
 
+impl TypeMemoizedFieldEtherealSignatureTemplate {
+    fn try_instantiate(
+        self,
+        db: &dyn EtherealSignatureDb,
+        target_self_ty_arguments: &[EtherealTerm],
+    ) -> EtherealSignatureMaybeResult<TypeMemoizedFieldEtherealSignature> {
+        let self_ty = self.impl_block(db).self_ty(db);
+        let self_ty_application_expansion = self_ty.application_expansion(db);
+        let self_ty_arguments = self_ty_application_expansion.arguments(db);
+        if self_ty_arguments == target_self_ty_arguments {
+            return JustOk(TypeMemoizedFieldEtherealSignature {
+                return_ty: self.return_ty(db),
+            });
+        }
+        todo!()
+    }
+}
+
 impl HasEtherealSignatureTemplate for TypeMemoizedFieldDeclarativeSignatureTemplate {
     type EtherealSignatureTemplate = TypeMemoizedFieldEtherealSignatureTemplate;
 
@@ -31,7 +49,16 @@ pub(crate) fn ty_memoized_field_ethereal_signature_template(
     ))
 }
 
-pub struct TypeMemoizedFieldEtherealSignature {}
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct TypeMemoizedFieldEtherealSignature {
+    return_ty: EtherealTerm,
+}
+
+impl TypeMemoizedFieldEtherealSignature {
+    pub fn return_ty(&self) -> EtherealTerm {
+        self.return_ty
+    }
+}
 
 pub trait HasTypeMemoizedFieldEtherealSignatureTemplates: Copy {
     fn ty_memoized_field_ethereal_signature_templates_map<'a>(
@@ -119,6 +146,14 @@ impl HasTypeMemoizedFieldEtherealSignature for TypePath {
         ident: Ident,
     ) -> EtherealSignatureMaybeResult<TypeMemoizedFieldEtherealSignature> {
         let templates = self.ty_memoized_field_ethereal_signature_templates(db, ident)?;
-        todo!()
+        for template in templates {
+            if let Some(signature) = template
+                .try_instantiate(db, arguments)
+                .into_result_option()?
+            {
+                return JustOk(signature);
+            }
+        }
+        Nothing
     }
 }

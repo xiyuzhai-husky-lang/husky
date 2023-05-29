@@ -4,7 +4,7 @@ use super::*;
 pub struct TypeImplBlockEtherealSignatureTemplate {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterEtherealSignatures,
-    pub ty: EtherealTerm,
+    pub self_ty: EtherealTerm,
 }
 
 impl HasEtherealSignatureTemplate for TypeImplBlockDeclarativeSignatureTemplate {
