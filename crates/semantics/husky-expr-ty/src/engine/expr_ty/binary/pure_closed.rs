@@ -23,12 +23,12 @@ impl<'a> ExprTypeEngine<'a> {
             FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology {
                 path,
-                refined_path: Right(PreludeTypePath::Num(_)),
+                refined_path: Left(PreludeTypePath::Num(_)),
                 ..
             }
             | FluffyTermData::PlaceTypeOntology {
                 path,
-                refined_path: Right(PreludeTypePath::Num(_)),
+                refined_path: Left(PreludeTypePath::Num(_)),
                 ..
             } => Ok(TermEntityPath::TypeOntology(path).into()),
             FluffyTermData::TypeOntology {

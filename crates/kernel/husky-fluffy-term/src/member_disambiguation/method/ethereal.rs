@@ -53,7 +53,7 @@ fn ethereal_ty_method_disambiguation_aux<'a>(
     mut indirections: SmallVec<[FluffyIndirection; 2]>,
 ) -> FluffyTermMaybeResult<FluffyMethodDisambiguation> {
     match ty_path.refine(engine.db()) {
-        Right(PreludeTypePath::Borrow(borrow_ty_path)) => match borrow_ty_path {
+        Left(PreludeTypePath::Borrow(borrow_ty_path)) => match borrow_ty_path {
             PreludeBorrowTypePath::Ref => todo!(),
             PreludeBorrowTypePath::RefMut => todo!(),
             PreludeBorrowTypePath::Leash => {

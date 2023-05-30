@@ -4,7 +4,7 @@ use super::*;
 pub enum HollowTermData {
     TypeOntology {
         path: TypePath,
-        refined_path: Either<CustomTypePath, PreludeTypePath>,
+        refined_path: Either<PreludeTypePath, CustomTypePath>,
         arguments: SmallVec<[FluffyTerm; 2]>,
     },
     Curry {
@@ -27,7 +27,7 @@ pub enum HollowTermData {
     PlaceTypeOntology {
         place: Place,
         path: TypePath,
-        refined_path: Either<CustomTypePath, PreludeTypePath>,
+        refined_path: Either<PreludeTypePath, CustomTypePath>,
         arguments: SmallVec<[FluffyTerm; 2]>,
     },
     PlaceHole {

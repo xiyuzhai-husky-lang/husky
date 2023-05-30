@@ -17,7 +17,7 @@ impl<'a> ExprTypeEngine<'a> {
         };
         match lopd_ty.data(self) {
             FluffyTermData::TypeOntology {
-                refined_path: Right(PreludeTypePath::Num(_)),
+                refined_path: Left(PreludeTypePath::Num(_)),
                 ..
             }
             | FluffyTermData::Hole(
@@ -30,7 +30,7 @@ impl<'a> ExprTypeEngine<'a> {
             FluffyTermData::PlaceTypeOntology {
                 place,
                 path,
-                refined_path: Right(PreludeTypePath::Num(_)),
+                refined_path: Left(PreludeTypePath::Num(_)),
                 ..
             } => {
                 self.calc_num_ty_binary_shift_ropd_ty(ropd)?;
@@ -58,11 +58,11 @@ impl<'a> ExprTypeEngine<'a> {
         match ropd_ty.data(self) {
             FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology {
-                refined_path: Right(PreludeTypePath::Num(PreludeNumTypePath::Int(_))),
+                refined_path: Left(PreludeTypePath::Num(PreludeNumTypePath::Int(_))),
                 ..
             }
             | FluffyTermData::PlaceTypeOntology {
-                refined_path: Right(PreludeTypePath::Num(PreludeNumTypePath::Int(_))),
+                refined_path: Left(PreludeTypePath::Num(PreludeNumTypePath::Int(_))),
                 ..
             }
             | FluffyTermData::Hole(HoleKind::UnspecifiedIntegerType, _) => Ok(()),

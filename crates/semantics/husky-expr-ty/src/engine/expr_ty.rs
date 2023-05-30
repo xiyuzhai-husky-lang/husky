@@ -266,11 +266,11 @@ impl<'a> ExprTypeEngine<'a> {
                                     arguments,
                                     ..
                                 } => match refined_path {
-                                    Right(PreludeTypePath::List) => {
+                                    Left(PreludeTypePath::List) => {
                                         assert_eq!(arguments.len(), 1);
                                         arguments[0]
                                     }
-                                    Right(PreludeTypePath::Array) => todo!(),
+                                    Left(PreludeTypePath::Array) => todo!(),
                                     _ => todo!(),
                                 },
                                 FluffyTermData::Curry {

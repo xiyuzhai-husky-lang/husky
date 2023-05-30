@@ -23,7 +23,7 @@ impl<'a> ExprTypeEngine<'a> {
                         {
                             Some(FluffyTermData::TypeOntology {
                                 refined_path:
-                                    Right(PreludeTypePath::Num(PreludeNumTypePath::Int(path))),
+                                    Left(PreludeTypePath::Num(PreludeNumTypePath::Int(path))),
                                 ..
                             }) => match path {
                                 PreludeIntTypePath::I32 => self.term_menu.i32_ty_ontology(),
@@ -84,7 +84,7 @@ impl<'a> ExprTypeEngine<'a> {
                         {
                             Some(FluffyTermData::TypeOntology {
                                 refined_path:
-                                    Right(PreludeTypePath::Num(PreludeNumTypePath::Float(path))),
+                                    Left(PreludeTypePath::Num(PreludeNumTypePath::Float(path))),
                                 ..
                             }) => match path {
                                 PreludeFloatTypePath::F32 => {
