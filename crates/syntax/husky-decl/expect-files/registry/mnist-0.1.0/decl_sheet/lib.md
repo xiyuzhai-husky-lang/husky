@@ -182,7 +182,7 @@ Ok(
                                         },
                                         roots: [
                                             ExprRoot {
-                                                kind: FieldType,
+                                                kind: TupleStructFieldType,
                                                 expr_idx: 3,
                                             },
                                         ],

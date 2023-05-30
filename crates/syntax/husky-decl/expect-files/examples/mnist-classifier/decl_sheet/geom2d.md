@@ -109,11 +109,37 @@ Ok(
                                         },
                                         roots: [
                                             ExprRoot {
-                                                kind: FieldType,
+                                                kind: RegularStructFieldType {
+                                                    ident_token: IdentToken {
+                                                        ident: Ident(
+                                                            Word(
+                                                                Id {
+                                                                    value: 237,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            4,
+                                                        ),
+                                                    },
+                                                },
                                                 expr_idx: 0,
                                             },
                                             ExprRoot {
-                                                kind: FieldType,
+                                                kind: RegularStructFieldType {
+                                                    ident_token: IdentToken {
+                                                        ident: Ident(
+                                                            Word(
+                                                                Id {
+                                                                    value: 238,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            8,
+                                                        ),
+                                                    },
+                                                },
                                                 expr_idx: 1,
                                             },
                                         ],
@@ -293,11 +319,37 @@ Ok(
                                         },
                                         roots: [
                                             ExprRoot {
-                                                kind: FieldType,
+                                                kind: RegularStructFieldType {
+                                                    ident_token: IdentToken {
+                                                        ident: Ident(
+                                                            Word(
+                                                                Id {
+                                                                    value: 237,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            146,
+                                                        ),
+                                                    },
+                                                },
                                                 expr_idx: 0,
                                             },
                                             ExprRoot {
-                                                kind: FieldType,
+                                                kind: RegularStructFieldType {
+                                                    ident_token: IdentToken {
+                                                        ident: Ident(
+                                                            Word(
+                                                                Id {
+                                                                    value: 238,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            150,
+                                                        ),
+                                                    },
+                                                },
                                                 expr_idx: 1,
                                             },
                                         ],
@@ -477,11 +529,37 @@ Ok(
                                         },
                                         roots: [
                                             ExprRoot {
-                                                kind: FieldType,
+                                                kind: RegularStructFieldType {
+                                                    ident_token: IdentToken {
+                                                        ident: Ident(
+                                                            Word(
+                                                                Id {
+                                                                    value: 237,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            159,
+                                                        ),
+                                                    },
+                                                },
                                                 expr_idx: 0,
                                             },
                                             ExprRoot {
-                                                kind: FieldType,
+                                                kind: RegularStructFieldType {
+                                                    ident_token: IdentToken {
+                                                        ident: Ident(
+                                                            Word(
+                                                                Id {
+                                                                    value: 238,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            163,
+                                                        ),
+                                                    },
+                                                },
                                                 expr_idx: 1,
                                             },
                                         ],
@@ -661,11 +739,37 @@ Ok(
                                         },
                                         roots: [
                                             ExprRoot {
-                                                kind: FieldType,
+                                                kind: RegularStructFieldType {
+                                                    ident_token: IdentToken {
+                                                        ident: Ident(
+                                                            Word(
+                                                                Id {
+                                                                    value: 262,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            490,
+                                                        ),
+                                                    },
+                                                },
                                                 expr_idx: 0,
                                             },
                                             ExprRoot {
-                                                kind: FieldType,
+                                                kind: RegularStructFieldType {
+                                                    ident_token: IdentToken {
+                                                        ident: Ident(
+                                                            Word(
+                                                                Id {
+                                                                    value: 222,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            494,
+                                                        ),
+                                                    },
+                                                },
                                                 expr_idx: 1,
                                             },
                                         ],
@@ -845,11 +949,37 @@ Ok(
                                         },
                                         roots: [
                                             ExprRoot {
-                                                kind: FieldType,
+                                                kind: RegularStructFieldType {
+                                                    ident_token: IdentToken {
+                                                        ident: Ident(
+                                                            Word(
+                                                                Id {
+                                                                    value: 343,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            599,
+                                                        ),
+                                                    },
+                                                },
                                                 expr_idx: 0,
                                             },
                                             ExprRoot {
-                                                kind: FieldType,
+                                                kind: RegularStructFieldType {
+                                                    ident_token: IdentToken {
+                                                        ident: Ident(
+                                                            Word(
+                                                                Id {
+                                                                    value: 344,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            604,
+                                                        ),
+                                                    },
+                                                },
                                                 expr_idx: 1,
                                             },
                                         ],
@@ -1033,11 +1163,37 @@ Ok(
                                         },
                                         roots: [
                                             ExprRoot {
-                                                kind: FieldType,
+                                                kind: RegularStructFieldType {
+                                                    ident_token: IdentToken {
+                                                        ident: Ident(
+                                                            Word(
+                                                                Id {
+                                                                    value: 343,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            734,
+                                                        ),
+                                                    },
+                                                },
                                                 expr_idx: 0,
                                             },
                                             ExprRoot {
-                                                kind: FieldType,
+                                                kind: RegularStructFieldType {
+                                                    ident_token: IdentToken {
+                                                        ident: Ident(
+                                                            Word(
+                                                                Id {
+                                                                    value: 344,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            738,
+                                                        ),
+                                                    },
+                                                },
                                                 expr_idx: 1,
                                             },
                                         ],

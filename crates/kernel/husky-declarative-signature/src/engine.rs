@@ -183,14 +183,15 @@ impl<'a> DeclarativeTermEngine<'a> {
                 | ExprRootKind::HtmlArgumentExpr
                 | ExprRootKind::ReturnExpr
                 | ExprRootKind::Condition
-                | ExprRootKind::ConstantImplicitParameterType => return,
+                | ExprRootKind::ConstantImplicitParameterType
+                | ExprRootKind::ExplicitParameterType => return,
+                ExprRootKind::RegularStructFieldType { .. } => todo!(),
                 ExprRootKind::SelfType
                 | ExprRootKind::Trait
                 | ExprRootKind::ReturnType
-                | ExprRootKind::FieldType
+                | ExprRootKind::TupleStructFieldType
                 | ExprRootKind::VarType => (),
                 ExprRootKind::FieldBindInitialValue { ty_expr_idx } => todo!(),
-                ExprRootKind::ExplicitParameterType => todo!(),
                 ExprRootKind::Snippet => todo!(),
                 ExprRootKind::Traits => todo!(),
                 ExprRootKind::ValExpr => todo!(),

@@ -145,7 +145,8 @@ impl<'a> ExprTypeEngine<'a> {
                 ExprRootKind::SelfType
                 | ExprRootKind::ReturnType
                 | ExprRootKind::VarType
-                | ExprRootKind::FieldType => self.infer_new_expr_ty_discarded(
+                | ExprRootKind::RegularStructFieldType { .. }
+                | ExprRootKind::TupleStructFieldType => self.infer_new_expr_ty_discarded(
                     root.expr(),
                     ExpectEqsCategory::new_expect_eqs_ty_kind(),
                 ),
