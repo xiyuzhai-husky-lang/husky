@@ -9,6 +9,7 @@ pub enum SuffixOpr {
     /// - compose with functor `Option` `$opd ?` where `$opd` is of type `Option _ -> S`
     /// the cases are determined by whether `$opd` is of curry type
     UnveilOrComposeWithOption,
+    UnwrapOrComposeWithNot,
 }
 
 impl SuffixOpr {
@@ -17,6 +18,7 @@ impl SuffixOpr {
             SuffixOpr::Incr => "++".into(),
             SuffixOpr::Decr => "--".into(),
             SuffixOpr::UnveilOrComposeWithOption => "?".into(),
+            SuffixOpr::UnwrapOrComposeWithNot => "!".into(),
         }
     }
 }

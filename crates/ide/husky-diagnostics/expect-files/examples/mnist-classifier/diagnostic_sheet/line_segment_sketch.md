@@ -21,26 +21,6 @@ DiagnosticSheet {
                 severity: Error,
                 range: [15:14, 15:15),
             },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [16:44, 16:49),
-            },
-            Diagnostic {
-                message: "Syntax Error: ExpectedExprBeforeDot",
-                severity: Error,
-                range: [16:43, 16:44),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [17:41, 17:46),
-            },
-            Diagnostic {
-                message: "Syntax Error: ExpectedExprBeforeDot",
-                severity: Error,
-                range: [17:40, 17:41),
-            },
         ],
     },
     decl_diagnostic_sheet: DeclDiagnosticSheet {

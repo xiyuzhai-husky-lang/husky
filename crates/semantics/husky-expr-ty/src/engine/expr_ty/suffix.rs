@@ -25,6 +25,7 @@ impl<'a> ExprTypeEngine<'a> {
                     self.calc_compose_with_option_expr_ty(opd),
                 )),
             },
+            SuffixOpr::UnwrapOrComposeWithNot => todo!(),
         }
     }
 
