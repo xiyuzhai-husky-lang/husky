@@ -234,12 +234,12 @@ impl ExpectImplicitlyConvertible {
         level: FluffyTermResolveLevel,
         expectee: FluffyTerm,
         dst_path: TypePath,
-        dst_refined_path: Either<CustomTypePath, PreludeTypePath>,
+        dst_refined_path: Either<PreludeTypePath, CustomTypePath>,
         dst_argument_tys: &[FluffyTerm],
     ) -> Option<FluffyTermExpectationEffect> {
         match expectee.data_inner(db, fluffy_terms) {
             FluffyTermData::TypeOntology {
-                refined_path: Right(PreludeTypePath::NEVER),
+                refined_path: Left(PreludeTypePath::NEVER),
                 ..
             } => Some(FluffyTermExpectationEffect {
                 result: Ok(ImplicitConversion::Never.into()),
@@ -369,7 +369,7 @@ impl ExpectImplicitlyConvertible {
         expectee: FluffyTerm,
         place: Place,
         dst_path: TypePath,
-        dst_refined_path: Either<CustomTypePath, PreludeTypePath>,
+        dst_refined_path: Either<PreludeTypePath, CustomTypePath>,
         dst_argument_tys: &[FluffyTerm],
     ) -> Option<FluffyTermExpectationEffect> {
         todo!("this could be tricky")

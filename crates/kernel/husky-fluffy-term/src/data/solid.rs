@@ -5,14 +5,14 @@ use super::*;
 pub enum SolidTermData {
     TypeOntology {
         path: TypePath,
-        refined_path: Either<CustomTypePath, PreludeTypePath>,
+        refined_path: Either<PreludeTypePath, CustomTypePath>,
         // use fluffy term here because we don't want to recreate vectors when converting
         arguments: SmallVec<[FluffyTerm; 2]>,
     },
     PlaceTypeOntology {
         place: Place,
         path: TypePath,
-        refined_path: Either<CustomTypePath, PreludeTypePath>,
+        refined_path: Either<PreludeTypePath, CustomTypePath>,
         // use fluffy term here because we don't want to recreate vectors when converting
         arguments: SmallVec<[FluffyTerm; 2]>,
         base_ty_term: Option<EtherealTerm>,

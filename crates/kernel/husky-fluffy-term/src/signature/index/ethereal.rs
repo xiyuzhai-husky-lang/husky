@@ -3,12 +3,12 @@ use super::*;
 pub(crate) fn ethereal_owner_ty_index_signature(
     engine: &mut impl FluffyTermEngine,
     expr_idx: ExprIdx,
-    refined_ty_path: Either<CustomTypePath, PreludeTypePath>,
+    refined_ty_path: Either<PreludeTypePath, CustomTypePath>,
     owner_ty_arguments: &[EtherealTerm],
     index_ty: FluffyTerm,
 ) -> FluffyTermMaybeResult<FluffyIndexSignature> {
     let db = engine.db();
-    if let Right(prelude_ty_path) = refined_ty_path {
+    if let Left(prelude_ty_path) = refined_ty_path {
         if let Some(index_signature_maybe_result) = common_ethereal_owner_ty_index_signature(
             engine,
             expr_idx,

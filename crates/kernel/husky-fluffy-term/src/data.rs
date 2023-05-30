@@ -13,14 +13,14 @@ pub enum FluffyTermData<'a> {
     Literal(TermLiteral),
     TypeOntology {
         path: TypePath,
-        refined_path: Either<CustomTypePath, PreludeTypePath>,
+        refined_path: Either<PreludeTypePath, CustomTypePath>,
         arguments: &'a [FluffyTerm],
         ty_ethereal_term: Option<EtherealTerm>,
     },
     PlaceTypeOntology {
         place: Place,
         path: TypePath,
-        refined_path: Either<CustomTypePath, PreludeTypePath>,
+        refined_path: Either<PreludeTypePath, CustomTypePath>,
         arguments: &'a [FluffyTerm],
         base_ty_ethereal_term: Option<EtherealTerm>,
     },
@@ -109,7 +109,7 @@ impl<'a, _Db: EtherealTermDb + ?Sized> ::salsa::DebugWithDb<_Db> for FluffyTermD
                 debug_struct = debug_struct.field(
                     "refined_path",
                     &::salsa::debug::helper::SalsaDebug::<
-                        Either<CustomTypePath, PreludeTypePath>,
+                        Either<PreludeTypePath, CustomTypePath>,
                         _Db,
                     >::salsa_debug(
                         #[allow(clippy::needless_borrow)]
@@ -158,7 +158,7 @@ impl<'a, _Db: EtherealTermDb + ?Sized> ::salsa::DebugWithDb<_Db> for FluffyTermD
                 debug_struct = debug_struct.field(
                     "refined_path",
                     &::salsa::debug::helper::SalsaDebug::<
-                        Either<CustomTypePath, PreludeTypePath>,
+                        Either<PreludeTypePath, CustomTypePath>,
                         _Db,
                     >::salsa_debug(
                         #[allow(clippy::needless_borrow)]
@@ -352,7 +352,7 @@ pub(crate) fn term_application_fluffy_data(
 pub(crate) enum TermApplicationFluffyData {
     TypeOntology {
         path: TypePath,
-        refined_path: Either<CustomTypePath, PreludeTypePath>,
+        refined_path: Either<PreludeTypePath, CustomTypePath>,
         arguments: SmallVec<[FluffyTerm; 2]>,
     },
 }

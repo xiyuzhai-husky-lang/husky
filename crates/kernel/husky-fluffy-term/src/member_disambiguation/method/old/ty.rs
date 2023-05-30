@@ -57,7 +57,7 @@ impl FluffyTerm {
                 arguments,
                 ..
             } => match refined_path {
-                Right(PreludeTypePath::Borrow(_)) => todo!(),
+                Left(PreludeTypePath::Borrow(_)) => todo!(),
                 _ => todo!(),
                 // match self.ty_method_card(engine, ident)? {
                 //     Some(_) => todo!(),
