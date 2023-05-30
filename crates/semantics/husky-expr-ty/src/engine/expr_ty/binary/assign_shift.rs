@@ -29,8 +29,8 @@ impl<'a> ExprTypeEngine<'a> {
             }
             FluffyTermData::PlaceTypeOntology {
                 place,
-                path,
-                refined_path: Left(PreludeTypePath::Num(_)),
+                ty_path: path,
+                refined_ty_path: Left(PreludeTypePath::Num(_)),
                 ..
             } => {
                 self.calc_num_ty_binary_shift_ropd_ty(ropd)?;
@@ -62,7 +62,7 @@ impl<'a> ExprTypeEngine<'a> {
                 ..
             }
             | FluffyTermData::PlaceTypeOntology {
-                refined_path: Left(PreludeTypePath::Num(PreludeNumTypePath::Int(_))),
+                refined_ty_path: Left(PreludeTypePath::Num(PreludeNumTypePath::Int(_))),
                 ..
             }
             | FluffyTermData::Hole(HoleKind::UnspecifiedIntegerType, _) => Ok(()),

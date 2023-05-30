@@ -473,7 +473,7 @@
                                         value: 58,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Num(
                                         Int(
                                             R32,
@@ -506,7 +506,7 @@
                                         value: 46,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Num(
                                         Int(
                                             I32,
@@ -665,7 +665,7 @@
                                         value: 58,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Num(
                                         Int(
                                             R32,
@@ -698,7 +698,7 @@
                                         value: 46,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Num(
                                         Int(
                                             I32,
@@ -857,7 +857,7 @@
                                         value: 58,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Num(
                                         Int(
                                             R32,
@@ -890,7 +890,7 @@
                                         value: 46,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Num(
                                         Int(
                                             I32,
@@ -1059,7 +1059,7 @@
                                         value: 58,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Num(
                                         Int(
                                             R32,
@@ -1092,7 +1092,7 @@
                                         value: 58,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Num(
                                         Int(
                                             R32,
@@ -1125,7 +1125,7 @@
                                         value: 46,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Num(
                                         Int(
                                             I32,
@@ -1284,7 +1284,7 @@
                                         value: 78,
                                     },
                                 ),
-                                refined_path: Left(
+                                refined_path: Right(
                                     CustomTypePath(
                                         TypePath(
                                             Id {
@@ -1319,7 +1319,7 @@
                                         value: 78,
                                     },
                                 ),
-                                refined_path: Left(
+                                refined_path: Right(
                                     CustomTypePath(
                                         TypePath(
                                             Id {
@@ -1500,7 +1500,7 @@
                                         value: 58,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Num(
                                         Int(
                                             R32,
@@ -1533,7 +1533,7 @@
                                         value: 58,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Num(
                                         Int(
                                             R32,
@@ -1566,7 +1566,7 @@
                                         value: 46,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Num(
                                         Int(
                                             I32,
@@ -1599,7 +1599,7 @@
                                         value: 78,
                                     },
                                 ),
-                                refined_path: Left(
+                                refined_path: Right(
                                     CustomTypePath(
                                         TypePath(
                                             Id {
@@ -1903,7 +1903,7 @@
                                         value: 59,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     List,
                                 ),
                                 arguments: [
@@ -3107,7 +3107,7 @@
                                         value: 46,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Num(
                                         Int(
                                             I32,
@@ -3140,7 +3140,7 @@
                                         value: 46,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Num(
                                         Int(
                                             I32,

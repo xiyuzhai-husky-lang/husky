@@ -84,7 +84,7 @@
                                         value: 70,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Lifetime,
                                 ),
                                 arguments: [],
@@ -199,7 +199,7 @@
                                         value: 70,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Lifetime,
                                 ),
                                 arguments: [],

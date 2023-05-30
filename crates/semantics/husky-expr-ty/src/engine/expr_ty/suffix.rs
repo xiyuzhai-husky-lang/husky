@@ -42,8 +42,8 @@ impl<'a> ExprTypeEngine<'a> {
             } => todo!(),
             FluffyTermData::PlaceTypeOntology {
                 place,
-                path,
-                refined_path,
+                ty_path: path,
+                refined_ty_path: refined_path,
                 arguments,
                 base_ty_ethereal_term,
             } => todo!(),
@@ -84,8 +84,8 @@ impl<'a> ExprTypeEngine<'a> {
             } => todo!(),
             FluffyTermData::PlaceTypeOntology {
                 place,
-                path,
-                refined_path,
+                ty_path: path,
+                refined_ty_path: refined_path,
                 arguments,
                 base_ty_ethereal_term,
             } => todo!(),
@@ -133,8 +133,8 @@ impl<'a> ExprTypeEngine<'a> {
             } => todo!(),
             FluffyTermData::PlaceTypeOntology {
                 place,
-                path,
-                refined_path,
+                ty_path: path,
+                refined_ty_path: refined_path,
                 arguments,
                 base_ty_ethereal_term,
             } => todo!(),

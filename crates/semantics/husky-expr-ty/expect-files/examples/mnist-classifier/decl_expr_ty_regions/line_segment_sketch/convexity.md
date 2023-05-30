@@ -94,7 +94,7 @@
                                         value: 87,
                                     },
                                 ),
-                                refined_path: Left(
+                                refined_path: Right(
                                     CustomTypePath(
                                         TypePath(
                                             Id {
@@ -129,7 +129,7 @@
                                         value: 46,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Num(
                                         Int(
                                             I32,

@@ -419,7 +419,7 @@
                                         value: 46,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Num(
                                         Int(
                                             I32,
@@ -452,7 +452,7 @@
                                         value: 46,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Num(
                                         Int(
                                             I32,
@@ -1350,7 +1350,7 @@
                                         value: 80,
                                     },
                                 ),
-                                signature: FieldFluffySignature {
+                                signature: FluffyFieldSignature {
                                     ty: EntityPath(
                                         TypeOntology(
                                             TypePath(
@@ -1439,7 +1439,7 @@
                                         value: 80,
                                     },
                                 ),
-                                signature: FieldFluffySignature {
+                                signature: FluffyFieldSignature {
                                     ty: EntityPath(
                                         TypeOntology(
                                             TypePath(
@@ -1616,7 +1616,7 @@
                                         value: 80,
                                     },
                                 ),
-                                refined_path: Left(
+                                refined_path: Right(
                                     CustomTypePath(
                                         TypePath(
                                             Id {
@@ -2284,7 +2284,7 @@
                                         value: 80,
                                     },
                                 ),
-                                refined_path: Left(
+                                refined_path: Right(
                                     CustomTypePath(
                                         TypePath(
                                             Id {
@@ -2734,7 +2734,7 @@
                                         value: 82,
                                     },
                                 ),
-                                signature: FieldFluffySignature {
+                                signature: FluffyFieldSignature {
                                     ty: EntityPath(
                                         TypeOntology(
                                             TypePath(
@@ -2823,7 +2823,7 @@
                                         value: 82,
                                     },
                                 ),
-                                signature: FieldFluffySignature {
+                                signature: FluffyFieldSignature {
                                     ty: EntityPath(
                                         TypeOntology(
                                             TypePath(
@@ -3000,7 +3000,7 @@
                                         value: 82,
                                     },
                                 ),
-                                refined_path: Left(
+                                refined_path: Right(
                                     CustomTypePath(
                                         TypePath(
                                             Id {
@@ -3615,7 +3615,7 @@
                                         value: 82,
                                     },
                                 ),
-                                signature: FieldFluffySignature {
+                                signature: FluffyFieldSignature {
                                     ty: EntityPath(
                                         TypeOntology(
                                             TypePath(
@@ -3704,7 +3704,7 @@
                                         value: 82,
                                     },
                                 ),
-                                signature: FieldFluffySignature {
+                                signature: FluffyFieldSignature {
                                     ty: EntityPath(
                                         TypeOntology(
                                             TypePath(
@@ -3839,7 +3839,7 @@
                                         value: 82,
                                     },
                                 ),
-                                refined_path: Left(
+                                refined_path: Right(
                                     CustomTypePath(
                                         TypePath(
                                             Id {
@@ -4021,7 +4021,7 @@
                                         value: 82,
                                     },
                                 ),
-                                signature: FieldFluffySignature {
+                                signature: FluffyFieldSignature {
                                     ty: EntityPath(
                                         TypeOntology(
                                             TypePath(
@@ -4110,7 +4110,7 @@
                                         value: 82,
                                     },
                                 ),
-                                signature: FieldFluffySignature {
+                                signature: FluffyFieldSignature {
                                     ty: EntityPath(
                                         TypeOntology(
                                             TypePath(
@@ -4245,7 +4245,7 @@
                                         value: 82,
                                     },
                                 ),
-                                refined_path: Left(
+                                refined_path: Right(
                                     CustomTypePath(
                                         TypePath(
                                             Id {
@@ -4987,7 +4987,7 @@
                                         value: 33,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Basic(
                                         Bool,
                                     ),
@@ -5611,7 +5611,7 @@
                                         value: 82,
                                     },
                                 ),
-                                refined_path: Left(
+                                refined_path: Right(
                                     CustomTypePath(
                                         TypePath(
                                             Id {
@@ -5786,11 +5786,6 @@
                                         },
                                     ),
                                 ],
-                                ty_path: TypePath(
-                                    Id {
-                                        value: 82,
-                                    },
-                                ),
                                 signature: MethodFn(
                                     FluffyMethodFnSignature {
                                         nonself_parameter_contracted_tys: [],
@@ -6588,7 +6583,7 @@
                                         value: 82,
                                     },
                                 ),
-                                refined_path: Left(
+                                refined_path: Right(
                                     CustomTypePath(
                                         TypePath(
                                             Id {
@@ -6623,7 +6618,7 @@
                                         value: 33,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Basic(
                                         Bool,
                                     ),
@@ -7371,7 +7366,7 @@
                                         value: 83,
                                     },
                                 ),
-                                signature: FieldFluffySignature {
+                                signature: FluffyFieldSignature {
                                     ty: EntityPath(
                                         TypeOntology(
                                             TypePath(
@@ -7536,7 +7531,7 @@
                                         value: 83,
                                     },
                                 ),
-                                signature: FieldFluffySignature {
+                                signature: FluffyFieldSignature {
                                     ty: EntityPath(
                                         TypeOntology(
                                             TypePath(
@@ -7802,7 +7797,7 @@
                                         value: 83,
                                     },
                                 ),
-                                refined_path: Left(
+                                refined_path: Right(
                                     CustomTypePath(
                                         TypePath(
                                             Id {
@@ -8465,7 +8460,7 @@
                                         value: 56,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Num(
                                         Float(
                                             F32,
@@ -8727,7 +8722,7 @@
                                         value: 84,
                                     },
                                 ),
-                                signature: FieldFluffySignature {
+                                signature: FluffyFieldSignature {
                                     ty: EntityPath(
                                         TypeOntology(
                                             TypePath(
@@ -8816,7 +8811,7 @@
                                         value: 84,
                                     },
                                 ),
-                                signature: FieldFluffySignature {
+                                signature: FluffyFieldSignature {
                                     ty: EntityPath(
                                         TypeOntology(
                                             TypePath(
@@ -8959,7 +8954,7 @@
                                         value: 84,
                                     },
                                 ),
-                                refined_path: Left(
+                                refined_path: Right(
                                     CustomTypePath(
                                         TypePath(
                                             Id {
@@ -9303,7 +9298,7 @@
                                         value: 80,
                                     },
                                 ),
-                                signature: FieldFluffySignature {
+                                signature: FluffyFieldSignature {
                                     ty: EntityPath(
                                         TypeOntology(
                                             TypePath(
@@ -9392,7 +9387,7 @@
                                         value: 80,
                                     },
                                 ),
-                                signature: FieldFluffySignature {
+                                signature: FluffyFieldSignature {
                                     ty: EntityPath(
                                         TypeOntology(
                                             TypePath(
@@ -9535,7 +9530,7 @@
                                         value: 80,
                                     },
                                 ),
-                                refined_path: Left(
+                                refined_path: Right(
                                     CustomTypePath(
                                         TypePath(
                                             Id {
