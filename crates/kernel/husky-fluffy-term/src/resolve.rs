@@ -39,7 +39,7 @@ impl FluffyTermRegion {
                             expectee,
                             expectation,
                         } => {
-                            self.add_expectation_rule(src, expectee, expectation);
+                            self.add_expectation(src, expectee, expectation);
                         }
                     }
                 }

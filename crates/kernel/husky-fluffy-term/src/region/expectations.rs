@@ -135,7 +135,7 @@ impl ExpectationEntry {
 }
 
 impl FluffyTermRegion {
-    pub fn add_expectation_rule(
+    pub fn add_expectation(
         &mut self,
         src: ExpectationSource,
         expectee: FluffyTerm,
