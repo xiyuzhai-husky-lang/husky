@@ -26,9 +26,9 @@ impl ExprDisambiguation {
 }
 
 /// disambiguate between `unveil` and compose with `List`
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq)]
 pub enum IndexOrComposeWithListExprDisambiguation {
-    Index(FluffyIndexSignature),
+    Index(FluffyIndexDisambiguation),
     ComposeWithList,
 }
 
