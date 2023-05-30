@@ -220,8 +220,16 @@ Ok(
                                         },
                                         roots: [
                                             ExprRoot {
+                                                kind: ExplicitParameterType,
+                                                expr_idx: 0,
+                                            },
+                                            ExprRoot {
+                                                kind: ExplicitParameterType,
+                                                expr_idx: 1,
+                                            },
+                                            ExprRoot {
                                                 kind: ReturnType,
-                                                expr: 2,
+                                                expr_idx: 2,
                                             },
                                         ],
                                     },

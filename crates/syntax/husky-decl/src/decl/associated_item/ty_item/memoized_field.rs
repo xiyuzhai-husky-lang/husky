@@ -46,7 +46,7 @@ impl<'a> DeclParseContext<'a> {
             None
         };
         let eq_token = ctx.parse_expected(OriginalDeclExprError::ExpectEqTokenForVariable)?;
-        let expr = ctx.parse_expr(None);
+        let expr = ctx.parse_expr_root(None, ExprRootKind::ValExpr);
         Ok(TypeMemoizedFieldDecl::new(
             self.db(),
             path,

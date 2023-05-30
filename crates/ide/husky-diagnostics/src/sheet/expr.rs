@@ -183,6 +183,7 @@ impl Diagnose for OriginalExprError {
             OriginalExprError::UnexpectedLeftCurlyBrace(_) => {
                 format!("Syntax Error: UnexpectedLeftCurlyBrace")
             }
+            OriginalExprError::ExpectedTraits(_) => todo!(),
         }
     }
 

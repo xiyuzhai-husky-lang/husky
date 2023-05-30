@@ -177,12 +177,23 @@ impl<'a> DeclarativeTermEngine<'a> {
     fn init_expr_roots(&mut self) {
         for expr_root in self.expr_region_data.roots() {
             match expr_root.kind() {
-                ExprRootKind::BlockExpr => return,
+                ExprRootKind::BlockExpr
+                | ExprRootKind::LetStmtType
+                | ExprRootKind::LetStmtInitialValue
+                | ExprRootKind::HtmlArgumentExpr
+                | ExprRootKind::ReturnExpr
+                | ExprRootKind::Condition
+                | ExprRootKind::ConstantImplicitParameterType => return,
                 ExprRootKind::SelfType
                 | ExprRootKind::Trait
                 | ExprRootKind::ReturnType
                 | ExprRootKind::FieldType
                 | ExprRootKind::VarType => (),
+                ExprRootKind::FieldBindInitialValue { ty_expr_idx } => todo!(),
+                ExprRootKind::ExplicitParameterType => todo!(),
+                ExprRootKind::Snippet => todo!(),
+                ExprRootKind::Traits => todo!(),
+                ExprRootKind::ValExpr => todo!(),
             }
             self.cache_new_expr_term(expr_root.expr())
         }

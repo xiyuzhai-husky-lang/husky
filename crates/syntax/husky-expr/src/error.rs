@@ -86,6 +86,8 @@ pub enum OriginalExprError {
     ExpectedFieldType(TokenStreamState),
     #[error("expected parameter type")]
     ExpectedParameterType(TokenStreamState),
+    #[error("ExpectedTraits")]
+    ExpectedTraits(TokenStreamState),
     #[error("expected identifier after `.`")]
     ExpectedIdentAfterDot { dot_token_idx: TokenIdx },
     #[error("expected exprBeforeDot")]
@@ -143,7 +145,8 @@ impl OriginalExprError {
             | OriginalExprError::HtmlTodo(token_stream_state)
             | OriginalExprError::ExpectedValueForFieldBindInitialization(token_stream_state)
             | OriginalExprError::ExpectedFunctionIdentAfterOpeningHtmlBra(token_stream_state)
-            | OriginalExprError::ExpectedConstantImplicitParameterType(token_stream_state) => {
+            | OriginalExprError::ExpectedConstantImplicitParameterType(token_stream_state)
+            | OriginalExprError::ExpectedTraits(token_stream_state) => {
                 todo!()
             }
             OriginalExprError::MismatchingBracket {

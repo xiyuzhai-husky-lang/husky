@@ -42,6 +42,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         let ty = match colon_token {
             Ok(Some(_)) => Some(self.parse_expr_expected2(
                 Some(ExprEnvironment::TypeBeforeEq),
+                ExprRootKind::LetStmtType,
                 OriginalExprError::ExpectedLetVariablesType,
             )),
             _ => None,

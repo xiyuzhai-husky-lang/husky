@@ -37,6 +37,7 @@ impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for RegularParameterDeclP
             let colon = ctx.parse_expected(OriginalExprError::ExpectedColon)?;
             let ty = ctx.parse_expr_expected2(
                 Some(ExprEnvironment::WithinBracket(Bracket::Par)),
+                ExprRootKind::ExplicitParameterType,
                 OriginalExprError::ExpectedParameterType,
             );
             let variables = ctx.define_symbols(

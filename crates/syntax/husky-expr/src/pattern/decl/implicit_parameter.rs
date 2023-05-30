@@ -27,8 +27,9 @@ impl ImplicitParameterDeclPattern {
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub enum ImplicitParameterDeclPatternVariant {
-    Type0 {
+    Type {
         ident_token: IdentToken,
+        traits: Option<(ColonToken, ExprIdx)>,
     },
     Constant {
         const_token: ConstToken,
@@ -70,7 +71,21 @@ impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for ImplicitParameterDecl
             Ok(Some(ImplicitParameterDeclPattern {
                 annotated_variance_token,
                 symbol: symbols.start(),
-                variant: ImplicitParameterDeclPatternVariant::Type0 { ident_token },
+                variant: ImplicitParameterDeclPatternVariant::Type {
+                    ident_token,
+                    traits: if let Some(colon) = ctx.parse::<ColonToken>()? {
+                        Some((
+                            colon,
+                            ctx.parse_expr_expected2(
+                                Some(ExprEnvironment::WithinBracket(Bracket::TemplateAngle)),
+                                ExprRootKind::Traits,
+                                OriginalExprError::ExpectedTraits,
+                            ),
+                        ))
+                    } else {
+                        None
+                    },
+                },
             }))
         } else if let Some(label_token) = ctx.parse::<LifetimeLabelToken>()? {
             let access_start = ctx.save_state().next_token_idx();
@@ -104,6 +119,7 @@ impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for ImplicitParameterDecl
             let colon_token = ctx.parse_expected(OriginalExprError::ExpectedColon)?;
             let ty_expr = ctx.parse_expr_expected2(
                 Some(ExprEnvironment::WithinBracket(Bracket::TemplateAngle)),
+                ExprRootKind::ConstantImplicitParameterType,
                 OriginalExprError::ExpectedConstantImplicitParameterType,
             );
             let access_start = ctx.save_state().next_token_idx();

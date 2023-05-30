@@ -24,8 +24,11 @@ impl<'a, 'b> parsec::ParseFromStream<ExprParseContext<'a, 'b>> for TupleStructFi
     ) -> ExprResult<Option<Self>> {
         let decorators = parse_consecutive_list(ctx)?;
         let visibility = ctx.parse()?;
-        let ty = ctx.parse_expr_expected2(None, OriginalExprError::ExpectedFieldType);
-        ctx.add_expr_root(ExprRoot::new(ExprRootKind::FieldType, ty));
+        let ty = ctx.parse_expr_expected2(
+            None,
+            ExprRootKind::FieldType,
+            OriginalExprError::ExpectedFieldType,
+        );
         Ok(Some(TupleStructFieldDeclPattern {
             decorators,
             visibility,

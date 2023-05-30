@@ -33,7 +33,7 @@ pub fn regular_struct_declarative_signature_template(
             .map(|(i, field)| {
                 Ok(RegularStructFieldDeclarativeSignatureTemplate {
                     ident: field.ident(),
-                    ty: match declarative_term_region.expr_term(field.ty()) {
+                    ty: match declarative_term_region.expr_term(field.ty_expr_idx()) {
                         Ok(ty) => ty,
                         Err(_) => {
                             return Err(DeclarativeSignatureError::FieldTypeDeclarativeTermError(

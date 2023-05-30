@@ -98,20 +98,18 @@ Ok(
                                         ),
                                     ),
                                     implicit_parameters: [
-                                        ImplicitParameterDecl {
-                                            pattern: ImplicitParameterDeclPattern {
-                                                annotated_variance_token: None,
-                                                symbol: 0,
-                                                variant: ImplicitParameterDeclPatternVariant::Type0 {
-                                                    ident_token: IdentToken {
-                                                        ident: `B`,
-                                                        token_idx: TokenIdx(
-                                                            9,
-                                                        ),
-                                                    },
+                                        ImplicitParameterDeclPattern {
+                                            annotated_variance_token: None,
+                                            symbol: 0,
+                                            variant: ImplicitParameterDeclPatternVariant::Type {
+                                                ident_token: IdentToken {
+                                                    ident: `B`,
+                                                    token_idx: TokenIdx(
+                                                        9,
+                                                    ),
                                                 },
+                                                traits: None,
                                             },
-                                            traits: None,
                                         },
                                     ],
                                     commas: [],

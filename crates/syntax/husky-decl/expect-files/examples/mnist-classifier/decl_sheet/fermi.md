@@ -161,11 +161,11 @@ Ok(
                                         roots: [
                                             ExprRoot {
                                                 kind: FieldType,
-                                                expr: 4,
+                                                expr_idx: 4,
                                             },
                                             ExprRoot {
                                                 kind: FieldType,
-                                                expr: 8,
+                                                expr_idx: 8,
                                             },
                                         ],
                                     },
@@ -192,7 +192,7 @@ Ok(
                                                     9,
                                                 ),
                                             ),
-                                            ty: 4,
+                                            ty_expr_idx: 4,
                                             initialization: None,
                                         },
                                         RegularStructFieldDeclPattern {
@@ -209,7 +209,7 @@ Ok(
                                                     17,
                                                 ),
                                             ),
-                                            ty: 8,
+                                            ty_expr_idx: 8,
                                             initialization: None,
                                         },
                                     ],
@@ -554,8 +554,16 @@ Ok(
                                         },
                                         roots: [
                                             ExprRoot {
+                                                kind: ExplicitParameterType,
+                                                expr_idx: 3,
+                                            },
+                                            ExprRoot {
+                                                kind: ExplicitParameterType,
+                                                expr_idx: 11,
+                                            },
+                                            ExprRoot {
                                                 kind: ReturnType,
-                                                expr: 12,
+                                                expr_idx: 12,
                                             },
                                         ],
                                     },
@@ -760,7 +768,7 @@ Ok(
                                         roots: [
                                             ExprRoot {
                                                 kind: SelfType,
-                                                expr: 0,
+                                                expr_idx: 0,
                                             },
                                         ],
                                     },
@@ -946,7 +954,7 @@ Ok(
                                                         roots: [
                                                             ExprRoot {
                                                                 kind: SelfType,
-                                                                expr: 0,
+                                                                expr_idx: 0,
                                                             },
                                                         ],
                                                     },
@@ -1028,7 +1036,7 @@ Ok(
                                             roots: [
                                                 ExprRoot {
                                                     kind: VarType,
-                                                    expr: 0,
+                                                    expr_idx: 0,
                                                 },
                                             ],
                                         },
@@ -1215,7 +1223,7 @@ Ok(
                                                         roots: [
                                                             ExprRoot {
                                                                 kind: SelfType,
-                                                                expr: 0,
+                                                                expr_idx: 0,
                                                             },
                                                         ],
                                                     },
@@ -1297,7 +1305,7 @@ Ok(
                                             roots: [
                                                 ExprRoot {
                                                     kind: VarType,
-                                                    expr: 0,
+                                                    expr_idx: 0,
                                                 },
                                             ],
                                         },
@@ -1484,7 +1492,7 @@ Ok(
                                                         roots: [
                                                             ExprRoot {
                                                                 kind: SelfType,
-                                                                expr: 0,
+                                                                expr_idx: 0,
                                                             },
                                                         ],
                                                     },
@@ -1566,7 +1574,7 @@ Ok(
                                             roots: [
                                                 ExprRoot {
                                                     kind: VarType,
-                                                    expr: 0,
+                                                    expr_idx: 0,
                                                 },
                                             ],
                                         },

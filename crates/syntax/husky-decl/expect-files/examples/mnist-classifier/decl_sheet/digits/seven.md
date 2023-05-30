@@ -107,7 +107,7 @@ Ok(
                                         roots: [
                                             ExprRoot {
                                                 kind: VarType,
-                                                expr: 0,
+                                                expr_idx: 0,
                                             },
                                         ],
                                     },
@@ -288,8 +288,12 @@ Ok(
                                         },
                                         roots: [
                                             ExprRoot {
+                                                kind: ExplicitParameterType,
+                                                expr_idx: 1,
+                                            },
+                                            ExprRoot {
                                                 kind: ReturnType,
-                                                expr: 3,
+                                                expr_idx: 3,
                                             },
                                         ],
                                     },
@@ -454,7 +458,7 @@ Ok(
                                         roots: [
                                             ExprRoot {
                                                 kind: VarType,
-                                                expr: 0,
+                                                expr_idx: 0,
                                             },
                                         ],
                                     },
@@ -635,8 +639,12 @@ Ok(
                                         },
                                         roots: [
                                             ExprRoot {
+                                                kind: ExplicitParameterType,
+                                                expr_idx: 1,
+                                            },
+                                            ExprRoot {
                                                 kind: ReturnType,
-                                                expr: 3,
+                                                expr_idx: 3,
                                             },
                                         ],
                                     },
@@ -866,8 +874,12 @@ Ok(
                                         },
                                         roots: [
                                             ExprRoot {
+                                                kind: ExplicitParameterType,
+                                                expr_idx: 1,
+                                            },
+                                            ExprRoot {
                                                 kind: ReturnType,
-                                                expr: 3,
+                                                expr_idx: 3,
                                             },
                                         ],
                                     },
@@ -1039,7 +1051,7 @@ Ok(
                                         roots: [
                                             ExprRoot {
                                                 kind: VarType,
-                                                expr: 1,
+                                                expr_idx: 1,
                                             },
                                         ],
                                     },

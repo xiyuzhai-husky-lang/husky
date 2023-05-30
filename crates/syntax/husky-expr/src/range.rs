@@ -352,15 +352,7 @@ impl<'a> ExprRangeCalculator<'a> {
                 ..
             } => {
                 let start = let_token.token_idx();
-                let end = if let Ok(initial_value) = initial_value {
-                    self[initial_value].end()
-                } else if let Ok(assign_token) = assign_token {
-                    TokenIdxRangeEnd::new_after(assign_token.token_idx())
-                } else if let Ok(let_variable_pattern) = let_variable_pattern {
-                    todo!()
-                } else {
-                    TokenIdxRangeEnd::new_after(let_token.token_idx())
-                };
+                let end = self[initial_value].end();
                 TokenIdxRange::new(start, end)
             }
             Stmt::Return {
@@ -368,11 +360,7 @@ impl<'a> ExprRangeCalculator<'a> {
                 ref result,
             } => {
                 let start = return_token.token_idx();
-                let end = if let Ok(result) = result {
-                    self[result].end()
-                } else {
-                    TokenIdxRangeEnd::new_after(start)
-                };
+                let end = self[result].end();
                 TokenIdxRange::new(start, end)
             }
             Stmt::Require {
@@ -380,11 +368,7 @@ impl<'a> ExprRangeCalculator<'a> {
                 ref condition,
             } => {
                 let start = require_token.token_idx();
-                let end = if let Ok(condition) = condition {
-                    self[condition].end()
-                } else {
-                    TokenIdxRangeEnd::new_after(start)
-                };
+                let end = self[condition].end();
                 TokenIdxRange::new(start, end)
             }
             Stmt::Assert {
@@ -392,11 +376,7 @@ impl<'a> ExprRangeCalculator<'a> {
                 ref condition,
             } => {
                 let start = assert_token.token_idx();
-                let end = if let Ok(condition) = condition {
-                    self[condition].end()
-                } else {
-                    TokenIdxRangeEnd::new_after(start)
-                };
+                let end = self[condition].end();
                 TokenIdxRange::new(start, end)
             }
             Stmt::Break { break_token } => TokenIdxRange::new_single(break_token.token_idx()),

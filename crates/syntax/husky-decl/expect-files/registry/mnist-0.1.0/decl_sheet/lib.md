@@ -183,7 +183,7 @@ Ok(
                                         roots: [
                                             ExprRoot {
                                                 kind: FieldType,
-                                                expr: 3,
+                                                expr_idx: 3,
                                             },
                                         ],
                                     },

@@ -24,6 +24,6 @@ pub(crate) fn parse_expr_from_snippet(
             token_sheet_data.token_group_iter().next().unwrap().0,
             None,
         )
-        .parse_expr(None);
+        .parse_expr_root(None, ExprRootKind::Snippet);
     Ok((expr_parser.finish(), expr))
 }

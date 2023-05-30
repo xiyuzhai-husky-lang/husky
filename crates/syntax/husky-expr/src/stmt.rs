@@ -20,19 +20,19 @@ pub enum Stmt {
         let_token: LetToken,
         let_variable_pattern: ExprResult<LetVariablesPattern>,
         assign_token: ExprResult<EqToken>,
-        initial_value: ExprResult<ExprIdx>,
+        initial_value: ExprIdx,
     },
     Return {
         return_token: ReturnToken,
-        result: ExprResult<ExprIdx>,
+        result: ExprIdx,
     },
     Require {
         require_token: RequireToken,
-        condition: ExprResult<ExprIdx>,
+        condition: ExprIdx,
     },
     Assert {
         assert_token: AssertToken,
-        condition: ExprResult<ExprIdx>,
+        condition: ExprIdx,
     },
     Break {
         break_token: BreakToken,

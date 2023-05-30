@@ -17,8 +17,7 @@ impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for ReturnTypeExpr {
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> ExprResult<Option<Self>> {
-        if let Some(expr) = ctx.parse_expr(None) {
-            ctx.add_expr_root(ExprRoot::new(ExprRootKind::ReturnType, expr));
+        if let Some(expr) = ctx.parse_expr_root(None, ExprRootKind::ReturnType) {
             Ok(Some(ReturnTypeExpr { expr }))
         } else {
             Ok(None)

@@ -58,7 +58,11 @@ impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for HtmlArgumentExpr {
                 property_ident: argument_ident,
                 eq: sp.parse_expected(OriginalExprError::HtmlTodo)?,
                 lcurl: sp.parse_expected(OriginalExprError::HtmlTodo)?,
-                expr: sp.parse_expr_expected2(None, OriginalExprError::HtmlTodo),
+                expr: sp.parse_expr_expected2(
+                    None,
+                    ExprRootKind::HtmlArgumentExpr,
+                    OriginalExprError::HtmlTodo,
+                ),
                 rcurl: sp.parse_expected(OriginalExprError::HtmlTodo)?,
             }))
         } else {

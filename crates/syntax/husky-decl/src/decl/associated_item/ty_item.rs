@@ -131,7 +131,10 @@ impl TypeItemDecl {
         }
     }
 
-    pub fn implicit_parameters<'a>(self, _db: &'a dyn DeclDb) -> &'a [ImplicitParameterDecl] {
+    pub fn implicit_parameters<'a>(
+        self,
+        _db: &'a dyn DeclDb,
+    ) -> &'a [ImplicitParameterDeclPattern] {
         match self {
             TypeItemDecl::AssociatedFn(_) => todo!(),
             TypeItemDecl::MethodFn(_) => todo!(),

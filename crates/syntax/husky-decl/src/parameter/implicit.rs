@@ -2,49 +2,9 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
-pub struct ImplicitParameterDecl {
-    pattern: ImplicitParameterDeclPattern,
-    traits: Option<(ColonToken, Option<ExprIdx>)>,
-}
-
-impl ImplicitParameterDecl {
-    pub fn pattern(&self) -> &ImplicitParameterDeclPattern {
-        &self.pattern
-    }
-
-    pub fn traits(&self) -> Option<(ColonToken, Option<ExprIdx>)> {
-        self.traits
-    }
-}
-
-impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for ImplicitParameterDecl {
-    type Error = DeclExprError;
-
-    fn parse_from_without_guaranteed_rollback(
-        ctx: &mut ExprParseContext<'a, 'b>,
-    ) -> DeclExprResult<Option<Self>> {
-        let Some(pattern) = ctx.parse::<ImplicitParameterDeclPattern>()? else {
-            return Ok(None)
-        };
-        Ok(Some(Self {
-            pattern,
-            traits: if let Some(colon) = ctx.parse::<ColonToken>()? {
-                Some((
-                    colon,
-                    ctx.parse_expr(ExprEnvironment::WithinBracket(Bracket::TemplateAngle)),
-                ))
-            } else {
-                None
-            },
-        }))
-    }
-}
-
-#[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = DeclDb)]
 pub struct ImplicitParameterDeclList {
     langle: LeftAngleBracketOrLessThanToken,
-    implicit_parameters: Vec<ImplicitParameterDecl>,
+    implicit_parameters: Vec<ImplicitParameterDeclPattern>,
     commas: Vec<CommaToken>,
     decl_list_result: Result<(), DeclExprError>,
     rangle: RightAngleBracketToken,
@@ -55,7 +15,7 @@ impl ImplicitParameterDeclList {
         self.langle
     }
 
-    pub fn implicit_parameters(&self) -> &[ImplicitParameterDecl] {
+    pub fn implicit_parameters(&self) -> &[ImplicitParameterDeclPattern] {
         &self.implicit_parameters
     }
 

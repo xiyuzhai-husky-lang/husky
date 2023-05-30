@@ -20,36 +20,6 @@ pub struct ExprRegionData {
     roots: Vec<ExprRoot>,
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct ExprRoot {
-    kind: ExprRootKind,
-    expr: ExprIdx,
-}
-
-impl ExprRoot {
-    pub fn new(kind: ExprRootKind, expr: ExprIdx) -> Self {
-        Self { kind, expr }
-    }
-
-    pub fn kind(&self) -> ExprRootKind {
-        self.kind
-    }
-
-    pub fn expr(&self) -> ExprIdx {
-        self.expr
-    }
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum ExprRootKind {
-    SelfType,
-    Trait,
-    ReturnType,
-    VarType,
-    FieldType,
-    BlockExpr,
-}
-
 impl ExprRegionData {
     pub fn new(
         parent: Option<ExprRegion>,
@@ -116,13 +86,13 @@ impl ExprRegionData {
     pub fn return_ty(&self) -> Option<ExprIdx> {
         self.roots
             .iter()
-            .find_map(|root| (root.kind == ExprRootKind::ReturnType).then_some(root.expr))
+            .find_map(|root| (root.kind() == ExprRootKind::ReturnType).then_some(root.expr()))
     }
 
     pub fn self_ty(&self) -> Option<ExprIdx> {
         self.roots
             .iter()
-            .find_map(|root| (root.kind == ExprRootKind::SelfType).then_some(root.expr))
+            .find_map(|root| (root.kind() == ExprRootKind::SelfType).then_some(root.expr()))
     }
 }
 
