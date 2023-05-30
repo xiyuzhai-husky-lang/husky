@@ -15,6 +15,8 @@ pub struct FluffyMemberDisambiguation<S: MemberSignature> {
     signature: S,
 }
 
+type FluffyIndirections = SmallVec<[FluffyIndirection; 2]>;
+
 pub trait MemberSignature {
     fn expr_ty(&self, indirections: &[FluffyIndirection]) -> FluffyTermResult<FluffyTerm>;
 }
