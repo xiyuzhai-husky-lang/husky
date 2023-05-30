@@ -292,7 +292,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 15,
+                                expr_idx: 11,
                                 kind: Expr,
                             },
                             expectee: Category(

@@ -102,49 +102,6 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        UnrecognizedIdent {
-                                                            token_idx: TokenIdx(
-                                                                63,
-                                                            ),
-                                                            ident: Ident(
-                                                                Word(
-                                                                    Id {
-                                                                        value: 5,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        ExpectedExprBeforeDot {
-                                                            dot_token_idx: TokenIdx(
-                                                                62,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
-                                                Expr::ExplicitApplicationOrRitchieCall {
-                                                    function: 8,
-                                                    implicit_arguments: None,
-                                                    lpar_token_idx: TokenIdx(
-                                                        64,
-                                                    ),
-                                                    items: ArenaIdxRange(
-                                                        9..9,
-                                                    ),
-                                                    commas: [],
-                                                    rpar_token_idx: TokenIdx(
-                                                        65,
-                                                    ),
-                                                },
-                                                Expr::ExplicitApplication {
-                                                    function: 9,
-                                                    argument: 10,
-                                                },
                                                 Expr::MethodCall {
                                                     self_argument: 7,
                                                     dot_token_idx: TokenIdx(
@@ -167,16 +124,34 @@ Ok(
                                                         60,
                                                     ),
                                                 },
-                                                Expr::Prefix {
-                                                    opr: Not,
+                                                Expr::Suffix {
+                                                    opd: 8,
+                                                    opr: UnwrapOrComposeWithNot,
                                                     opr_token_idx: TokenIdx(
                                                         61,
                                                     ),
-                                                    opd: 11,
                                                 },
-                                                Expr::ExplicitApplication {
-                                                    function: 12,
-                                                    argument: 13,
+                                                Expr::MethodCall {
+                                                    self_argument: 9,
+                                                    dot_token_idx: TokenIdx(
+                                                        62,
+                                                    ),
+                                                    ident_token: IdentToken {
+                                                        ident: `clone`,
+                                                        token_idx: TokenIdx(
+                                                            63,
+                                                        ),
+                                                    },
+                                                    implicit_arguments: None,
+                                                    lpar_token_idx: TokenIdx(
+                                                        64,
+                                                    ),
+                                                    nonself_arguments: ArenaIdxRange(
+                                                        10..10,
+                                                    ),
+                                                    rpar_token_idx: TokenIdx(
+                                                        65,
+                                                    ),
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 2,
@@ -194,7 +169,7 @@ Ok(
                                                     ),
                                                 ),
                                                 Expr::Field {
-                                                    owner: 16,
+                                                    owner: 12,
                                                     dot_token_idx: TokenIdx(
                                                         72,
                                                     ),
@@ -205,51 +180,8 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        UnrecognizedIdent {
-                                                            token_idx: TokenIdx(
-                                                                80,
-                                                            ),
-                                                            ident: Ident(
-                                                                Word(
-                                                                    Id {
-                                                                        value: 5,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        ExpectedExprBeforeDot {
-                                                            dot_token_idx: TokenIdx(
-                                                                79,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
-                                                Expr::ExplicitApplicationOrRitchieCall {
-                                                    function: 18,
-                                                    implicit_arguments: None,
-                                                    lpar_token_idx: TokenIdx(
-                                                        81,
-                                                    ),
-                                                    items: ArenaIdxRange(
-                                                        19..19,
-                                                    ),
-                                                    commas: [],
-                                                    rpar_token_idx: TokenIdx(
-                                                        82,
-                                                    ),
-                                                },
-                                                Expr::ExplicitApplication {
-                                                    function: 19,
-                                                    argument: 20,
-                                                },
                                                 Expr::MethodCall {
-                                                    self_argument: 17,
+                                                    self_argument: 13,
                                                     dot_token_idx: TokenIdx(
                                                         74,
                                                     ),
@@ -264,22 +196,40 @@ Ok(
                                                         76,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        18..18,
+                                                        14..14,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         77,
                                                     ),
                                                 },
-                                                Expr::Prefix {
-                                                    opr: Not,
+                                                Expr::Suffix {
+                                                    opd: 14,
+                                                    opr: UnwrapOrComposeWithNot,
                                                     opr_token_idx: TokenIdx(
                                                         78,
                                                     ),
-                                                    opd: 21,
                                                 },
-                                                Expr::ExplicitApplication {
-                                                    function: 22,
-                                                    argument: 23,
+                                                Expr::MethodCall {
+                                                    self_argument: 15,
+                                                    dot_token_idx: TokenIdx(
+                                                        79,
+                                                    ),
+                                                    ident_token: IdentToken {
+                                                        ident: `clone`,
+                                                        token_idx: TokenIdx(
+                                                            80,
+                                                        ),
+                                                    },
+                                                    implicit_arguments: None,
+                                                    lpar_token_idx: TokenIdx(
+                                                        81,
+                                                    ),
+                                                    nonself_arguments: ArenaIdxRange(
+                                                        16..16,
+                                                    ),
+                                                    rpar_token_idx: TokenIdx(
+                                                        82,
+                                                    ),
                                                 },
                                             ],
                                         },
@@ -361,7 +311,7 @@ Ok(
                                             },
                                             ExprRoot {
                                                 kind: FieldType,
-                                                expr: 15,
+                                                expr: 11,
                                             },
                                         ],
                                     },
@@ -413,7 +363,7 @@ Ok(
                                                             53,
                                                         ),
                                                     ),
-                                                    value: 14,
+                                                    value: 10,
                                                 },
                                             ),
                                         },
@@ -431,7 +381,7 @@ Ok(
                                                     68,
                                                 ),
                                             ),
-                                            ty: 15,
+                                            ty: 11,
                                             initialization: Some(
                                                 Bind {
                                                     colon_eq_token: ColonEqToken(
@@ -439,7 +389,7 @@ Ok(
                                                             70,
                                                         ),
                                                     ),
-                                                    value: 24,
+                                                    value: 16,
                                                 },
                                             ),
                                         },
