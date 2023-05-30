@@ -457,7 +457,7 @@
                                         value: 80,
                                     },
                                 ),
-                                refined_path: Left(
+                                refined_path: Right(
                                     CustomTypePath(
                                         TypePath(
                                             Id {

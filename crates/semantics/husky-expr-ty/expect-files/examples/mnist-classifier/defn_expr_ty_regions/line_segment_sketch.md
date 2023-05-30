@@ -65,7 +65,7 @@
                                         value: 82,
                                     },
                                 ),
-                                signature: FieldFluffySignature {
+                                signature: FluffyFieldSignature {
                                     ty: EntityPath(
                                         TypeOntology(
                                             TypePath(
@@ -116,7 +116,7 @@
                                         value: 82,
                                     },
                                 ),
-                                signature: FieldFluffySignature {
+                                signature: FluffyFieldSignature {
                                     ty: EntityPath(
                                         TypeOntology(
                                             TypePath(
@@ -201,7 +201,7 @@
                                         value: 82,
                                     },
                                 ),
-                                signature: FieldFluffySignature {
+                                signature: FluffyFieldSignature {
                                     ty: EntityPath(
                                         TypeOntology(
                                             TypePath(
@@ -252,7 +252,7 @@
                                         value: 82,
                                     },
                                 ),
-                                signature: FieldFluffySignature {
+                                signature: FluffyFieldSignature {
                                     ty: EntityPath(
                                         TypeOntology(
                                             TypePath(
@@ -372,11 +372,6 @@
                         Method(
                             FluffyMemberDisambiguation {
                                 indirections: [],
-                                ty_path: TypePath(
-                                    Id {
-                                        value: 56,
-                                    },
-                                ),
                                 signature: MethodFn(
                                     FluffyMethodFnSignature {
                                         nonself_parameter_contracted_tys: [],
@@ -712,7 +707,7 @@
                                         value: 82,
                                     },
                                 ),
-                                signature: FieldFluffySignature {
+                                signature: FluffyFieldSignature {
                                     ty: EntityPath(
                                         TypeOntology(
                                             TypePath(
@@ -840,7 +835,7 @@
                                         value: 82,
                                     },
                                 ),
-                                signature: FieldFluffySignature {
+                                signature: FluffyFieldSignature {
                                     ty: EntityPath(
                                         TypeOntology(
                                             TypePath(
@@ -968,7 +963,7 @@
                                         value: 82,
                                     },
                                 ),
-                                signature: FieldFluffySignature {
+                                signature: FluffyFieldSignature {
                                     ty: EntityPath(
                                         TypeOntology(
                                             TypePath(
@@ -1049,7 +1044,7 @@
                                         value: 82,
                                     },
                                 ),
-                                signature: FieldFluffySignature {
+                                signature: FluffyFieldSignature {
                                     ty: EntityPath(
                                         TypeOntology(
                                             TypePath(
@@ -1251,7 +1246,7 @@
                                         value: 82,
                                     },
                                 ),
-                                refined_path: Left(
+                                refined_path: Right(
                                     CustomTypePath(
                                         TypePath(
                                             Id {
@@ -1286,7 +1281,7 @@
                                         value: 56,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Num(
                                         Float(
                                             F32,
@@ -2204,7 +2199,7 @@
                                         value: 82,
                                     },
                                 ),
-                                signature: FieldFluffySignature {
+                                signature: FluffyFieldSignature {
                                     ty: EntityPath(
                                         TypeOntology(
                                             TypePath(
@@ -2255,7 +2250,7 @@
                                         value: 82,
                                     },
                                 ),
-                                signature: FieldFluffySignature {
+                                signature: FluffyFieldSignature {
                                     ty: EntityPath(
                                         TypeOntology(
                                             TypePath(
@@ -2340,7 +2335,7 @@
                                         value: 82,
                                     },
                                 ),
-                                signature: FieldFluffySignature {
+                                signature: FluffyFieldSignature {
                                     ty: EntityPath(
                                         TypeOntology(
                                             TypePath(
@@ -2391,7 +2386,7 @@
                                         value: 82,
                                     },
                                 ),
-                                signature: FieldFluffySignature {
+                                signature: FluffyFieldSignature {
                                     ty: EntityPath(
                                         TypeOntology(
                                             TypePath(
@@ -2511,11 +2506,6 @@
                         Method(
                             FluffyMemberDisambiguation {
                                 indirections: [],
-                                ty_path: TypePath(
-                                    Id {
-                                        value: 56,
-                                    },
-                                ),
                                 signature: MethodFn(
                                     FluffyMethodFnSignature {
                                         nonself_parameter_contracted_tys: [],
@@ -2859,7 +2849,7 @@
                                         value: 82,
                                     },
                                 ),
-                                signature: FieldFluffySignature {
+                                signature: FluffyFieldSignature {
                                     ty: EntityPath(
                                         TypeOntology(
                                             TypePath(
@@ -2979,7 +2969,7 @@
                                         value: 82,
                                     },
                                 ),
-                                signature: FieldFluffySignature {
+                                signature: FluffyFieldSignature {
                                     ty: EntityPath(
                                         TypeOntology(
                                             TypePath(
@@ -3107,7 +3097,7 @@
                                         value: 82,
                                     },
                                 ),
-                                signature: FieldFluffySignature {
+                                signature: FluffyFieldSignature {
                                     ty: EntityPath(
                                         TypeOntology(
                                             TypePath(
@@ -3188,7 +3178,7 @@
                                         value: 82,
                                     },
                                 ),
-                                signature: FieldFluffySignature {
+                                signature: FluffyFieldSignature {
                                     ty: EntityPath(
                                         TypeOntology(
                                             TypePath(
@@ -3390,7 +3380,7 @@
                                         value: 82,
                                     },
                                 ),
-                                refined_path: Left(
+                                refined_path: Right(
                                     CustomTypePath(
                                         TypePath(
                                             Id {
@@ -3425,7 +3415,7 @@
                                         value: 56,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Num(
                                         Float(
                                             F32,
@@ -4399,11 +4389,6 @@
                                     ),
                                     Leash,
                                 ],
-                                ty_path: TypePath(
-                                    Id {
-                                        value: 77,
-                                    },
-                                ),
                                 signature: MethodFn(
                                     FluffyMethodFnSignature {
                                         nonself_parameter_contracted_tys: [
@@ -4808,11 +4793,6 @@
                                     ),
                                     Leash,
                                 ],
-                                ty_path: TypePath(
-                                    Id {
-                                        value: 77,
-                                    },
-                                ),
                                 signature: MethodFn(
                                     FluffyMethodFnSignature {
                                         nonself_parameter_contracted_tys: [
@@ -6124,11 +6104,6 @@
                                     ),
                                     Leash,
                                 ],
-                                ty_path: TypePath(
-                                    Id {
-                                        value: 77,
-                                    },
-                                ),
                                 signature: MethodFn(
                                     FluffyMethodFnSignature {
                                         nonself_parameter_contracted_tys: [
@@ -6469,7 +6444,7 @@
                                         value: 43,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Borrow(
                                         Leash,
                                     ),
@@ -6508,7 +6483,7 @@
                                         value: 46,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Num(
                                         Int(
                                             I32,
@@ -6541,7 +6516,7 @@
                                         value: 56,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Num(
                                         Float(
                                             F32,
@@ -8433,11 +8408,6 @@
                                     ),
                                     Leash,
                                 ],
-                                ty_path: TypePath(
-                                    Id {
-                                        value: 77,
-                                    },
-                                ),
                                 signature: MethodFn(
                                     FluffyMethodFnSignature {
                                         nonself_parameter_contracted_tys: [
@@ -8829,11 +8799,6 @@
                                     ),
                                     Leash,
                                 ],
-                                ty_path: TypePath(
-                                    Id {
-                                        value: 77,
-                                    },
-                                ),
                                 signature: MethodFn(
                                     FluffyMethodFnSignature {
                                         nonself_parameter_contracted_tys: [
@@ -9316,11 +9281,6 @@
                                     ),
                                     Leash,
                                 ],
-                                ty_path: TypePath(
-                                    Id {
-                                        value: 77,
-                                    },
-                                ),
                                 signature: MethodFn(
                                     FluffyMethodFnSignature {
                                         nonself_parameter_contracted_tys: [
@@ -10683,7 +10643,7 @@
                                         value: 43,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Borrow(
                                         Leash,
                                     ),
@@ -10722,7 +10682,7 @@
                                         value: 46,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Num(
                                         Int(
                                             I32,
@@ -10755,7 +10715,7 @@
                                         value: 46,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Num(
                                         Int(
                                             I32,
@@ -10788,7 +10748,7 @@
                                         value: 56,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Num(
                                         Float(
                                             F32,
@@ -15340,7 +15300,7 @@
                                         value: 59,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     List,
                                 ),
                                 arguments: [
@@ -15492,7 +15452,7 @@
                                         value: 43,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Borrow(
                                         Leash,
                                     ),
@@ -15531,7 +15491,7 @@
                                         value: 56,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Num(
                                         Float(
                                             F32,
@@ -17577,7 +17537,7 @@
                                         value: 43,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Borrow(
                                         Leash,
                                     ),
@@ -17616,7 +17576,7 @@
                                         value: 46,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Num(
                                         Int(
                                             I32,
@@ -17649,7 +17609,7 @@
                                         value: 46,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Num(
                                         Int(
                                             I32,
@@ -19678,7 +19638,7 @@
                                         value: 43,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Borrow(
                                         Leash,
                                     ),
@@ -19717,7 +19677,7 @@
                                         value: 56,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Num(
                                         Float(
                                             F32,

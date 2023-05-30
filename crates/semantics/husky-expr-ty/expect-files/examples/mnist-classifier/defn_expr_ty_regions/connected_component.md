@@ -222,7 +222,7 @@
                                         value: 43,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Borrow(
                                         Leash,
                                     ),
@@ -1217,7 +1217,7 @@
                                         value: 58,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Num(
                                         Int(
                                             R32,
@@ -1250,7 +1250,7 @@
                                         value: 58,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Num(
                                         Int(
                                             R32,
@@ -2551,6 +2551,49 @@
                 variant_and_ty_result: Ok(
                     (
                         Trivial,
+                        Ok(
+                            Hollow(
+                                HollowTerm(
+                                    3,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    21,
+                ),
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                BinaryOperationLeftOperandTypeNotInferred,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Ok(
+                    (
+                        Trivial,
                         Err(
                             Derived(
                                 CurrentSymbolTypeError,
@@ -2562,8 +2605,8 @@
             },
             ExprTypeInfo {
                 variant_and_ty_result: Err(
-                    Original(
-                        TodoIndexOrComposeWithList,
+                    Derived(
+                        UnableToInferIndexExprType,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -2609,53 +2652,6 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    21,
-                ),
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                BinaryOperationLeftOperandTypeNotInferred,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 33,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
                     22,
                 ),
             },
@@ -2665,7 +2661,7 @@
                         Trivial,
                         Err(
                             Derived(
-                                CurrentSymbolTypeError,
+                                BinaryOperationLeftOperandTypeNotInferred,
                             ),
                         ),
                     ),
@@ -2723,6 +2719,19 @@
                 variant_and_ty_result: Ok(
                     (
                         Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Ok(
+                    (
+                        Trivial,
                         Ok(
                             EntityPath(
                                 TypeOntology(
@@ -2744,6 +2753,40 @@
                 variant_and_ty_result: Ok(
                     (
                         Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 33,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    25,
+                ),
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Ok(
+                    (
+                        Trivial,
                         Ok(
                             EntityPath(
                                 TypeOntology(
@@ -2758,7 +2801,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    25,
+                    26,
                 ),
             },
             ExprTypeInfo {
@@ -2794,14 +2837,14 @@
                         Ok(
                             Hollow(
                                 HollowTerm(
-                                    3,
+                                    4,
                                 ),
                             ),
                         ),
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    26,
+                    27,
                 ),
             },
             ExprTypeInfo {
@@ -2856,7 +2899,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    27,
+                    28,
                 ),
             },
             ExprTypeInfo {
@@ -2911,7 +2954,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    28,
+                    29,
                 ),
             },
             ExprTypeInfo {
@@ -2928,8 +2971,21 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    29,
+                    30,
                 ),
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
             },
             ExprTypeInfo {
                 variant_and_ty_result: Ok(
@@ -2964,14 +3020,14 @@
                         Ok(
                             Hollow(
                                 HollowTerm(
-                                    4,
+                                    5,
                                 ),
                             ),
                         ),
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    30,
+                    31,
                 ),
             },
             ExprTypeInfo {
@@ -2989,8 +3045,8 @@
             },
             ExprTypeInfo {
                 variant_and_ty_result: Err(
-                    Original(
-                        TodoIndexOrComposeWithList,
+                    Derived(
+                        UnableToInferIndexExprType,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -3036,7 +3092,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    31,
+                    32,
                 ),
             },
             ExprTypeInfo {
@@ -3096,7 +3152,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    32,
+                    33,
                 ),
             },
             ExprTypeInfo {
@@ -3130,7 +3186,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    33,
+                    34,
                 ),
             },
             ExprTypeInfo {
@@ -3151,7 +3207,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    34,
+                    35,
                 ),
             },
             ExprTypeInfo {
@@ -3219,7 +3275,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    35,
+                    36,
                 ),
             },
             ExprTypeInfo {
@@ -3236,7 +3292,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    36,
+                    37,
                 ),
             },
             ExprTypeInfo {
@@ -3247,36 +3303,6 @@
                             Hollow(
                                 HollowTerm(
                                     0,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    37,
-                ),
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Hollow(
-                                HollowTerm(
-                                    5,
                                 ),
                             ),
                         ),
@@ -3306,7 +3332,7 @@
                         Ok(
                             Hollow(
                                 HollowTerm(
-                                    5,
+                                    6,
                                 ),
                             ),
                         ),
@@ -3314,6 +3340,36 @@
                 ),
                 expectation_rule_idx: Some(
                     39,
+                ),
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            Hollow(
+                                HollowTerm(
+                                    6,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    40,
                 ),
             },
             ExprTypeInfo {
@@ -3378,7 +3434,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    40,
+                    41,
                 ),
             },
             ExprTypeInfo {
@@ -3395,7 +3451,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    41,
+                    42,
                 ),
             },
             ExprTypeInfo {
@@ -3416,7 +3472,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    42,
+                    43,
                 ),
             },
             ExprTypeInfo {
@@ -3452,7 +3508,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    43,
+                    44,
                 ),
             },
             ExprTypeInfo {
@@ -3471,11 +3527,6 @@
                                         },
                                     ),
                                 ],
-                                ty_path: TypePath(
-                                    Id {
-                                        value: 59,
-                                    },
-                                ),
                                 signature: MethodFn(
                                     FluffyMethodFnSignature {
                                         nonself_parameter_contracted_tys: [
@@ -3519,7 +3570,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    44,
+                    45,
                 ),
             },
             ExprTypeInfo {
@@ -3536,7 +3587,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    45,
+                    46,
                 ),
             },
             ExprTypeInfo {
@@ -3557,7 +3608,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    46,
+                    47,
                 ),
             },
         ],
@@ -3635,7 +3686,7 @@
                         SymbolType(
                             Hollow(
                                 HollowTerm(
-                                    5,
+                                    6,
                                 ),
                             ),
                         ),
@@ -3718,6 +3769,16 @@
                         HollowTermEntry {
                             data: Hole {
                                 hole_source: Expr(
+                                    49,
+                                ),
+                                hole_kind: UnspecifiedIntegerType,
+                                fill: None,
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: Hole {
+                                hole_source: Expr(
                                     68,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
@@ -3772,7 +3833,7 @@
                                         value: 93,
                                     },
                                 ),
-                                refined_path: Left(
+                                refined_path: Right(
                                     CustomTypePath(
                                         TypePath(
                                             Id {
@@ -3807,7 +3868,7 @@
                                         value: 59,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     List,
                                 ),
                                 arguments: [
@@ -4428,6 +4489,21 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
+                                expr_idx: 49,
+                                kind: Expr,
+                            },
+                            expectee: Hollow(
+                                HollowTerm(
+                                    3,
+                                ),
+                            ),
+                            data: AnyDerived(
+                                ExpectAnyDerived,
+                            ),
+                            resolve_progress: Unresolved,
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
                                 expr_idx: 56,
                                 kind: Expr,
                             },
@@ -4585,7 +4661,7 @@
                             },
                             expectee: Hollow(
                                 HollowTerm(
-                                    3,
+                                    4,
                                 ),
                             ),
                             data: AnyDerived(
@@ -4718,7 +4794,7 @@
                             },
                             expectee: Hollow(
                                 HollowTerm(
-                                    4,
+                                    5,
                                 ),
                             ),
                             data: AnyDerived(
@@ -4942,7 +5018,7 @@
                             },
                             expectee: Hollow(
                                 HollowTerm(
-                                    5,
+                                    6,
                                 ),
                             ),
                             data: AnyDerived(
@@ -4957,7 +5033,7 @@
                             },
                             expectee: Hollow(
                                 HollowTerm(
-                                    5,
+                                    6,
                                 ),
                             ),
                             data: AnyDerived(
@@ -5723,11 +5799,6 @@
                                         },
                                     ),
                                 ],
-                                ty_path: TypePath(
-                                    Id {
-                                        value: 59,
-                                    },
-                                ),
                                 signature: MethodFn(
                                     FluffyMethodFnSignature {
                                         nonself_parameter_contracted_tys: [
@@ -5847,11 +5918,6 @@
                                         },
                                     ),
                                 ],
-                                ty_path: TypePath(
-                                    Id {
-                                        value: 59,
-                                    },
-                                ),
                                 signature: MethodFn(
                                     FluffyMethodFnSignature {
                                         nonself_parameter_contracted_tys: [
@@ -6075,7 +6141,7 @@
                                         value: 59,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     List,
                                 ),
                                 arguments: [
@@ -10269,7 +10335,7 @@
                                         value: 46,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Num(
                                         Int(
                                             I32,
@@ -11042,7 +11108,7 @@
                                         value: 46,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Num(
                                         Int(
                                             I32,

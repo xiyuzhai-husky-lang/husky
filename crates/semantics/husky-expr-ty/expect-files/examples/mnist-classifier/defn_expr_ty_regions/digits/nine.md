@@ -132,7 +132,7 @@
                                         value: 59,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     List,
                                 ),
                                 arguments: [
@@ -313,7 +313,7 @@
                                         value: 59,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     List,
                                 ),
                                 arguments: [
@@ -490,7 +490,7 @@
                                         value: 76,
                                     },
                                 ),
-                                signature: FieldFluffySignature {
+                                signature: FluffyFieldSignature {
                                     ty: EntityPath(
                                         TypeOntology(
                                             TypePath(
@@ -761,7 +761,7 @@
                                         value: 76,
                                     },
                                 ),
-                                signature: FieldFluffySignature {
+                                signature: FluffyFieldSignature {
                                     ty: EntityPath(
                                         TypeOntology(
                                             TypePath(
@@ -804,7 +804,7 @@
                                         value: 76,
                                     },
                                 ),
-                                signature: FieldFluffySignature {
+                                signature: FluffyFieldSignature {
                                     ty: EntityPath(
                                         TypeOntology(
                                             TypePath(
@@ -1247,7 +1247,7 @@
                                         value: 76,
                                     },
                                 ),
-                                signature: FieldFluffySignature {
+                                signature: FluffyFieldSignature {
                                     ty: EntityPath(
                                         TypeOntology(
                                             TypePath(
@@ -1290,7 +1290,7 @@
                                         value: 76,
                                     },
                                 ),
-                                signature: FieldFluffySignature {
+                                signature: FluffyFieldSignature {
                                     ty: EntityPath(
                                         TypeOntology(
                                             TypePath(
@@ -1693,11 +1693,6 @@
                                 indirections: [
                                     Leash,
                                 ],
-                                ty_path: TypePath(
-                                    Id {
-                                        value: 76,
-                                    },
-                                ),
                                 signature: MethodFn(
                                     FluffyMethodFnSignature {
                                         nonself_parameter_contracted_tys: [
@@ -2133,7 +2128,7 @@
                                         value: 43,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Borrow(
                                         Leash,
                                     ),
@@ -2170,7 +2165,7 @@
                                         value: 43,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Borrow(
                                         Leash,
                                     ),

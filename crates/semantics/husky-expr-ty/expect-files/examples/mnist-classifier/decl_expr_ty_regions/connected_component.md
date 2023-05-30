@@ -686,7 +686,7 @@
                                         value: 43,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Borrow(
                                         Leash,
                                     ),
@@ -985,7 +985,7 @@
                                         value: 58,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Num(
                                         Int(
                                             R32,
@@ -1018,7 +1018,7 @@
                                         value: 58,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Num(
                                         Int(
                                             R32,
@@ -1207,7 +1207,7 @@
                                         value: 93,
                                     },
                                 ),
-                                refined_path: Left(
+                                refined_path: Right(
                                     CustomTypePath(
                                         TypePath(
                                             Id {
@@ -2817,7 +2817,7 @@
                                         value: 46,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Num(
                                         Int(
                                             I32,
@@ -2973,7 +2973,7 @@
                                         value: 46,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Num(
                                         Int(
                                             I32,

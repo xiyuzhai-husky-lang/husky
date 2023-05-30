@@ -84,7 +84,7 @@
                                         value: 55,
                                     },
                                 ),
-                                refined_path: Right(
+                                refined_path: Left(
                                     Num(
                                         Int(
                                             USize,

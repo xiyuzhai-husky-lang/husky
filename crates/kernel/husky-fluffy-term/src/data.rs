@@ -19,8 +19,8 @@ pub enum FluffyTermData<'a> {
     },
     PlaceTypeOntology {
         place: Place,
-        path: TypePath,
-        refined_path: Either<PreludeTypePath, CustomTypePath>,
+        ty_path: TypePath,
+        refined_ty_path: Either<PreludeTypePath, CustomTypePath>,
         arguments: &'a [FluffyTerm],
         base_ty_ethereal_term: Option<EtherealTerm>,
     },
@@ -131,8 +131,8 @@ impl<'a, _Db: EtherealTermDb + ?Sized> ::salsa::DebugWithDb<_Db> for FluffyTermD
             }
             FluffyTermData::PlaceTypeOntology {
                 ref place,
-                ref path,
-                ref refined_path,
+                ty_path: ref path,
+                refined_ty_path: ref refined_path,
                 ref arguments,
                 ..
             } => {

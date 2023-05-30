@@ -72,8 +72,8 @@ impl<'a> From<&'a SolidTermData> for FluffyTermData<'a> {
                 base_ty_term,
             } => FluffyTermData::PlaceTypeOntology {
                 place: *place,
-                path: *path,
-                refined_path: *refined_path,
+                ty_path: *path,
+                refined_ty_path: *refined_path,
                 arguments: argument_tys,
                 base_ty_ethereal_term: *base_ty_term,
             },

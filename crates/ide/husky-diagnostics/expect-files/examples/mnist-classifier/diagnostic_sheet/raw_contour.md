@@ -32,16 +32,6 @@ DiagnosticSheet {
                 range: [102:74, 102:83),
             },
             Diagnostic {
-                message: "Type Error: TodoIndexOrComposeWithList",
-                severity: Error,
-                range: [163:14, 163:25),
-            },
-            Diagnostic {
-                message: "Type Error: TodoIndexOrComposeWithList",
-                severity: Error,
-                range: [164:14, 164:25),
-            },
-            Diagnostic {
                 message: "Type Error: no method named `lastx` for type `FluffyTerm::Solid(SolidTerm(0))`",
                 severity: Error,
                 range: [219:33, 219:38),

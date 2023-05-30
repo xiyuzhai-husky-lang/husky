@@ -27,8 +27,8 @@ impl<'a> ExprTypeEngine<'a> {
                 ..
             }
             | FluffyTermData::PlaceTypeOntology {
-                path,
-                refined_path: Left(PreludeTypePath::Num(_)),
+                ty_path: path,
+                refined_ty_path: Left(PreludeTypePath::Num(_)),
                 ..
             } => Ok(TermEntityPath::TypeOntology(path).into()),
             FluffyTermData::TypeOntology {

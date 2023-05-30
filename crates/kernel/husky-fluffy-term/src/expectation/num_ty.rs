@@ -22,8 +22,8 @@ impl ExpectNumType {
             } => todo!(),
             FluffyTermData::PlaceTypeOntology {
                 place,
-                path,
-                refined_path,
+                ty_path: path,
+                refined_ty_path: refined_path,
                 arguments,
                 ..
             } => todo!(),

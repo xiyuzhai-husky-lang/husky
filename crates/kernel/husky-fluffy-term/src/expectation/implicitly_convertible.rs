@@ -42,7 +42,9 @@ impl ExpectImplicitlyConvertible {
     pub fn new_pure(engine: &impl FluffyTermEngine, ty: FluffyTerm) -> Self {
         let ty = match ty.data(engine) {
             FluffyTermData::PlaceTypeOntology {
-                path, arguments, ..
+                ty_path: path,
+                arguments,
+                ..
             } => match arguments.len() {
                 0 => TermEntityPath::TypeOntology(path).into(),
                 _ => todo!(),
@@ -202,8 +204,8 @@ impl ExpectImplicitlyConvertible {
             FluffyTermData::Ritchie { .. } => todo!(),
             FluffyTermData::PlaceTypeOntology {
                 place,
-                path,
-                refined_path,
+                ty_path: path,
+                refined_ty_path: refined_path,
                 arguments,
                 ..
             } => self.resolve_convertible_to_place_ty_ontology(
@@ -290,7 +292,7 @@ impl ExpectImplicitlyConvertible {
             }),
             FluffyTermData::PlaceTypeOntology {
                 place,
-                refined_path: src_path,
+                refined_ty_path: src_path,
                 arguments: src_argument_tys,
                 ..
             } if dst_refined_path == src_path => {
@@ -320,8 +322,8 @@ impl ExpectImplicitlyConvertible {
                 Some(FluffyTermExpectationEffect { result, actions })
             }
             FluffyTermData::PlaceTypeOntology {
-                path: src_path,
-                refined_path: src_refined_path,
+                ty_path: src_path,
+                refined_ty_path: src_refined_path,
                 arguments: src_arguments,
                 ..
             } => {
