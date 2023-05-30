@@ -19,11 +19,11 @@ impl<'a> ExprTypeEngine<'a> {
         match owner_ty.data(self) {
             FluffyTermData::Curry { .. } => todo!(),
             _ => {
-                let (index_signature, expr_ty) =
+                let (index_disambiguation, expr_ty) =
                     self.calc_index_expr_ty(expr_idx, owner_ty, indices)?;
                 Ok((
                     ExprDisambiguation::IndexOrComposeWithList(
-                        IndexOrComposeWithListExprDisambiguation::Index(index_signature),
+                        IndexOrComposeWithListExprDisambiguation::Index(index_disambiguation),
                     ),
                     expr_ty,
                 ))
@@ -36,7 +36,7 @@ impl<'a> ExprTypeEngine<'a> {
         expr_idx: ExprIdx,
         self_expr_ty: FluffyTerm,
         index_exprs: ExprIdxRange,
-    ) -> ExprTypeResult<(FluffyIndexSignature, ExprTypeResult<FluffyTerm>)> {
+    ) -> ExprTypeResult<(FluffyIndexDisambiguation, ExprTypeResult<FluffyTerm>)> {
         let index_tys: SmallVec<[FluffyTerm; 2]> = index_exprs
             .into_iter()
             .map(|index_expr| {
@@ -52,7 +52,8 @@ impl<'a> ExprTypeEngine<'a> {
         let index_disambiguation = self_expr_ty
             .index_disambiguation(self, expr_idx, index_ty)
             .into_result_or(OriginalExprTypeError::CannotIndexIntoType { self_expr_ty })?;
-        let _ = todo!();
-        todo!()
+        let expr_ty_result: ExprTypeResult<FluffyTerm> =
+            index_disambiguation.expr_ty_result().map_err(Into::into);
+        Ok((index_disambiguation, expr_ty_result))
     }
 }

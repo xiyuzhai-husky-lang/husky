@@ -1,0 +1,82 @@
+mod ethereal;
+
+pub(crate) use self::ethereal::*;
+
+use super::*;
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[salsa::derive_debug_with_db(db = FluffyTermDb)]
+pub struct FluffyIndexSignature {
+    element_ty: FluffyTerm,
+}
+
+impl MemberSignature for FluffyIndexSignature {
+    fn expr_ty(&self, indirections: &[FluffyIndirection]) -> FluffyTermResult<FluffyTerm> {
+        let mut expr_ty = self.element_ty;
+        for indirection in indirections {
+            match indirection {
+                FluffyIndirection::Place(_) => todo!(),
+                FluffyIndirection::Leash => todo!(),
+            }
+        }
+        Ok(expr_ty)
+    }
+}
+
+fn list_index_signature(
+    engine: &mut impl FluffyTermEngine,
+    expr_idx: ExprIdx,
+    element_ty: FluffyTerm,
+    index_ty: FluffyTerm,
+) -> FluffyTermMaybeResult<FluffyIndexSignature> {
+    match index_ty.data(engine) {
+        FluffyTermData::Literal(_) => todo!(),
+        FluffyTermData::TypeOntology {
+            path,
+            refined_path,
+            arguments,
+            ty_ethereal_term,
+        } => todo!(),
+        FluffyTermData::PlaceTypeOntology {
+            place,
+            path,
+            refined_path,
+            arguments,
+            base_ty_ethereal_term,
+        } => todo!(),
+        FluffyTermData::Curry {
+            curry_kind,
+            variance,
+            parameter_variable,
+            parameter_ty,
+            return_ty,
+        } => todo!(),
+        FluffyTermData::Hole(hole_kind, _) => match hole_kind {
+            HoleKind::UnspecifiedIntegerType => {
+                let expectation = ExpectImplicitlyConvertible::new_pure(
+                    engine,
+                    engine.term_menu().usize_ty_ontology().into(),
+                );
+                engine.fluffy_term_region_mut().add_expectation(
+                    ExpectationSource::new_expr(expr_idx),
+                    index_ty,
+                    expectation,
+                );
+                JustOk(FluffyIndexSignature { element_ty })
+            }
+            HoleKind::UnspecifiedFloatType => todo!(),
+            HoleKind::ImplicitType => todo!(),
+        },
+        FluffyTermData::Category(_) => todo!(),
+        FluffyTermData::Ritchie {
+            ritchie_kind,
+            parameter_contracted_tys,
+            return_ty,
+        } => todo!(),
+        FluffyTermData::PlaceHole {
+            place,
+            hole_kind,
+            hole,
+        } => todo!(),
+    }
+}

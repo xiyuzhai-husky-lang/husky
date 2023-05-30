@@ -19,17 +19,6 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Type Error: TodoIndexOrComposeWithList",
-                severity: Error,
-                range: [21:8, 21:54),
-            },
-            Diagnostic {
-                message: "Type Error: TodoIndexOrComposeWithList",
-                severity: Error,
-                range: [22:12, 22:58),
-            },
-        ],
+        diagnostics: [],
     },
 }

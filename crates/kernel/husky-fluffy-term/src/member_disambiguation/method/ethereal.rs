@@ -74,7 +74,6 @@ fn ethereal_ty_method_disambiguation_aux<'a>(
     {
         return JustOk(FluffyMemberDisambiguation {
             indirections,
-            ty_path,
             signature,
         });
     };

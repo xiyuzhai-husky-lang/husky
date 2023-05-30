@@ -4,9 +4,6 @@ mod hollow;
 use self::ethereal::*;
 use super::*;
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct FluffyIndexSignature {}
-
 pub type FluffyIndexDisambiguation = FluffyMemberDisambiguation<FluffyIndexSignature>;
 
 impl FluffyTerm {

@@ -1,10 +1,12 @@
 /// a card contains checked information from signature
 mod error;
 mod field;
+mod index;
 mod method;
 
 pub use self::error::*;
 pub use self::field::*;
+pub use self::index::*;
 pub use self::method::*;
 
 use crate::*;

@@ -17,6 +17,14 @@ use super::*;
 use husky_ethereal_signature::EtherealMethodSignature;
 use husky_word::Ident;
 
+impl MemberSignature for FluffyMethodSignature {
+    fn expr_ty(&self, indirections: &[FluffyIndirection]) -> FluffyTermResult<FluffyTerm> {
+        todo!()
+    }
+}
+
+pub type FluffyMethodDisambiguation = FluffyMemberDisambiguation<FluffyMethodSignature>;
+
 impl FluffyTerm {
     pub fn method_disambiguation(
         self,
@@ -46,18 +54,8 @@ impl FluffyTerm {
     }
 }
 
-pub type FluffyMethodDisambiguation = FluffyMemberDisambiguation<FluffyMethodSignature>;
-
 impl From<EtherealMethodSignature> for FluffyMethodSignature {
     fn from(value: EtherealMethodSignature) -> Self {
         todo!()
     }
-}
-
-#[derive(Debug, PartialEq, Eq)]
-pub struct FluffyTraitForTypeMethodDisambiguation {
-    indirections: SmallVec<[FluffyIndirection; 2]>,
-    ty_path: TypePath,
-    trai_path: TraitPath,
-    trai: FluffyTerm,
 }

@@ -18,40 +18,7 @@ use husky_word::Ident;
 pub struct FluffyFieldDisambiguation {
     indirections: SmallVec<[FluffyIndirection; 2]>,
     ty_path: TypePath,
-    signature: FieldFluffySignature,
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = FluffyTermDb)]
-pub struct FieldFluffySignature {
-    ty: FluffyTerm,
-}
-
-impl FieldFluffySignature {
-    pub fn ty(self) -> FluffyTerm {
-        // match self {
-        //     FieldEtherealSignature::RegularStruct(_) => todo!(),
-        // }
-        self.ty
-    }
-}
-
-impl From<RegularFieldEtherealSignature> for FieldFluffySignature {
-    fn from(signature: RegularFieldEtherealSignature) -> Self {
-        // ad hoc
-        FieldFluffySignature {
-            ty: signature.ty().into(),
-        }
-    }
-}
-
-impl From<TypeMemoizedFieldEtherealSignature> for FieldFluffySignature {
-    fn from(signature: TypeMemoizedFieldEtherealSignature) -> Self {
-        Self {
-            // ad hoc
-            ty: signature.return_ty().into(),
-        }
-    }
+    signature: FluffyFieldSignature,
 }
 
 impl FluffyFieldDisambiguation {
@@ -72,7 +39,7 @@ impl FluffyFieldDisambiguation {
         self.ty_path
     }
 
-    pub fn signature(&self) -> FieldFluffySignature {
+    pub fn signature(&self) -> FluffyFieldSignature {
         self.signature
     }
 }
