@@ -109,11 +109,37 @@ Ok(
                                         },
                                         roots: [
                                             ExprRoot {
-                                                kind: FieldType,
+                                                kind: RegularStructFieldType {
+                                                    ident_token: IdentToken {
+                                                        ident: Ident(
+                                                            Word(
+                                                                Id {
+                                                                    value: 268,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            10,
+                                                        ),
+                                                    },
+                                                },
                                                 expr_idx: 0,
                                             },
                                             ExprRoot {
-                                                kind: FieldType,
+                                                kind: RegularStructFieldType {
+                                                    ident_token: IdentToken {
+                                                        ident: Ident(
+                                                            Word(
+                                                                Id {
+                                                                    value: 269,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            14,
+                                                        ),
+                                                    },
+                                                },
                                                 expr_idx: 1,
                                             },
                                         ],

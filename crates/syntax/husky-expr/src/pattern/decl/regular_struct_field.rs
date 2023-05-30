@@ -1,4 +1,4 @@
-use parsec::parse_consecutive_list;
+use parsec::{parse_consecutive_list, HasStreamState};
 
 use super::*;
 
@@ -50,7 +50,7 @@ impl<'a, 'b> parsec::ParseFromStream<ExprParseContext<'a, 'b>> for RegularStruct
         let colon: ColonToken = ctx.parse_expected(OriginalExprError::ExpectedColon)?;
         let ty_expr_idx = ctx.parse_expr_expected2(
             None,
-            ExprRootKind::FieldType,
+            ExprRootKind::RegularStructFieldType { ident_token },
             OriginalExprError::ExpectedFieldType,
         );
         let initialization = if let Some(colon_eq_token) = ctx.parse::<ColonEqToken>()? {
@@ -67,6 +67,7 @@ impl<'a, 'b> parsec::ParseFromStream<ExprParseContext<'a, 'b>> for RegularStruct
         } else {
             None
         };
+        let access_start = ctx.save_state().next_token_idx();
         Ok(Some(RegularStructFieldDeclPattern {
             decorators,
             visibility,
