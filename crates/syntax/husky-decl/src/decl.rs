@@ -41,7 +41,7 @@ impl Decl {
         }
     }
 
-    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDecl] {
+    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDeclPattern] {
         match self {
             Decl::Type(decl) => decl.implicit_parameters(db),
             Decl::Form(decl) => decl.implicit_parameters(db),
@@ -80,7 +80,6 @@ pub trait HasDecl: Copy {
 
     fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl>;
 }
- 
 
 impl HasDecl for EntityPath {
     type Decl = Decl;

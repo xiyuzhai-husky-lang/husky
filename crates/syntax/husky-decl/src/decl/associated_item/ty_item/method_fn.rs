@@ -29,7 +29,7 @@ impl TypeMethodFnDecl {
         self.explicit_parameter_decl_list(db).regular_parameters()
     }
 
-    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDecl] {
+    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDeclPattern] {
         match self.implicit_parameter_decl_list(db) {
             Some(list) => list.implicit_parameters(),
             None => &[],

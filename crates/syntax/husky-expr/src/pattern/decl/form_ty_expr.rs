@@ -18,8 +18,9 @@ impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for FormTypeExpr {
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> ExprResult<Option<Self>> {
-        if let Some(expr) = ctx.parse_expr(Some(ExprEnvironment::TypeBeforeEq)) {
-            ctx.add_expr_root(ExprRoot::new(ExprRootKind::VarType, expr));
+        if let Some(expr) =
+            ctx.parse_expr_root(Some(ExprEnvironment::TypeBeforeEq), ExprRootKind::VarType)
+        {
             Ok(Some(FormTypeExpr { expr }))
         } else {
             Ok(None)

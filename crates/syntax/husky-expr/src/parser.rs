@@ -6,13 +6,12 @@ mod env;
 mod expr_stack;
 mod list;
 mod resolve;
+mod root;
 mod unfinished_expr;
 
-pub use block::*;
-pub use env::*;
-
-use husky_print_utils::p;
-use husky_vfs::{ModulePath, Toolchain};
+pub use self::block::*;
+pub use self::env::*;
+pub use self::root::*;
 
 use crate::*;
 use expr_stack::*;
@@ -21,8 +20,10 @@ use husky_entity_tree::{
     AssociatedItem, CrateSymbolContext, EntityTreeDb, ImplBlock, ImplBlockId, ModuleSymbolContext,
     PreludeResult,
 };
+use husky_print_utils::p;
 use husky_token::Token;
 use husky_token::TokenStream;
+use husky_vfs::{ModulePath, Toolchain};
 use list::*;
 use original_error::OriginalError;
 use parsec::{HasStreamState, StreamParser};
@@ -162,8 +163,11 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         &self.parser.expr_arena
     }
 
-    #[inline(always)]
-    pub fn parse_expr(&mut self, env: impl Into<Option<ExprEnvironment>>) -> Option<ExprIdx> {
+    pub fn parse_expr_root(
+        &mut self,
+        env: impl Into<Option<ExprEnvironment>>,
+        expr_root_kind: ExprRootKind,
+    ) -> Option<ExprIdx> {
         let env = env.into();
         if let Some(env) = env {
             self.env_stack.set(env);
@@ -185,7 +189,9 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         if env.is_some() {
             self.env_stack.unset();
         }
-        self.finish_batch()
+        let opt_expr_idx = self.finish_batch();
+        opt_expr_idx.map(|expr_idx| self.parser.add_expr_root(expr_root_kind, expr_idx));
+        opt_expr_idx
     }
 
     pub fn parse_expr_expected<E: OriginalError>(
@@ -223,6 +229,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
     pub fn parse_expr_expected2(
         &mut self,
         env: Option<ExprEnvironment>,
+        expr_root_kind: ExprRootKind,
         err: impl FnOnce(TokenStreamState) -> OriginalExprError,
     ) -> ExprIdx {
         let state = self.save_state();
@@ -246,10 +253,14 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         if env.is_some() {
             self.env_stack.unset();
         }
-        match self.finish_batch() {
-            Some(expr_idx) => expr_idx,
-            None => self.alloc_expr(Expr::Err(err(state).into())),
-        }
+        let expr_idx = {
+            match self.finish_batch() {
+                Some(expr_idx) => expr_idx,
+                None => self.alloc_expr(Expr::Err(err(state).into())),
+            }
+        };
+        self.parser.add_expr_root(expr_root_kind, expr_idx);
+        expr_idx
     }
 
     pub(crate) fn pattern_expr_region(&self) -> &PatternExprRegion {
@@ -317,10 +328,6 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             .symbol_context
             .symbol_region()
             .allow_self_value()
-    }
-
-    pub(crate) fn add_expr_root(&mut self, expr_root: ExprRoot) {
-        self.parser.expr_roots.push(expr_root)
     }
 }
 

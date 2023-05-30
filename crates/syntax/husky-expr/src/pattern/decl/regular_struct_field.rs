@@ -9,7 +9,7 @@ pub struct RegularStructFieldDeclPattern {
     visibility: Option<FieldVisibilityExpr>,
     ident_token: IdentToken,
     colon: ColonToken,
-    ty: ExprIdx,
+    ty_expr_idx: ExprIdx,
     initialization: Option<RegularStructFieldInitialization>,
 }
 
@@ -22,28 +22,6 @@ pub enum RegularStructFieldInitialization {
     Default {},
 }
 
-impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for RegularStructFieldInitialization {
-    type Error = ExprError;
-
-    fn parse_from_without_guaranteed_rollback(
-        parser: &mut ExprParseContext<'a, 'b>,
-    ) -> Result<Option<Self>, Self::Error> {
-        if let Some(colon_eq_token) = parser.parse::<ColonEqToken>()? {
-            Ok(Some(RegularStructFieldInitialization::Bind {
-                colon_eq_token,
-                value: parser.parse_expr_expected2(
-                    None,
-                    OriginalExprError::ExpectedValueForFieldBindInitialization,
-                ),
-            }))
-        } else if let Some(_) = parser.parse::<EqToken>()? {
-            todo!()
-        } else {
-            Ok(None)
-        }
-    }
-}
-
 impl RegularStructFieldDeclPattern {
     pub fn ident(&self) -> Ident {
         self.ident_token.ident()
@@ -53,8 +31,8 @@ impl RegularStructFieldDeclPattern {
         self.colon
     }
 
-    pub fn ty(&self) -> ExprIdx {
-        self.ty
+    pub fn ty_expr_idx(&self) -> ExprIdx {
+        self.ty_expr_idx
     }
 }
 
@@ -70,15 +48,31 @@ impl<'a, 'b> parsec::ParseFromStream<ExprParseContext<'a, 'b>> for RegularStruct
                 return Ok(None)
             };
         let colon: ColonToken = ctx.parse_expected(OriginalExprError::ExpectedColon)?;
-        let ty = ctx.parse_expr_expected2(None, OriginalExprError::ExpectedFieldType);
-        ctx.add_expr_root(ExprRoot::new(ExprRootKind::FieldType, ty));
-        let initialization = ctx.parse()?;
+        let ty_expr_idx = ctx.parse_expr_expected2(
+            None,
+            ExprRootKind::FieldType,
+            OriginalExprError::ExpectedFieldType,
+        );
+        let initialization = if let Some(colon_eq_token) = ctx.parse::<ColonEqToken>()? {
+            Some(RegularStructFieldInitialization::Bind {
+                colon_eq_token,
+                value: ctx.parse_expr_expected2(
+                    None,
+                    ExprRootKind::FieldBindInitialValue { ty_expr_idx },
+                    OriginalExprError::ExpectedValueForFieldBindInitialization,
+                ),
+            })
+        } else if let Some(_) = ctx.parse::<EqToken>()? {
+            todo!()
+        } else {
+            None
+        };
         Ok(Some(RegularStructFieldDeclPattern {
             decorators,
             visibility,
             ident_token,
             colon,
-            ty,
+            ty_expr_idx,
             initialization,
         }))
     }

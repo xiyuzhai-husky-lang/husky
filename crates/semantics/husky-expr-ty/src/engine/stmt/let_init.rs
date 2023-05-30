@@ -4,7 +4,7 @@ impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_let_stmt(
         &mut self,
         let_variable_pattern: &ExprResult<LetVariablesPattern>,
-        initial_value: &ExprResult<ExprIdx>,
+        initial_value: ExprIdx,
     ) -> Option<FluffyTerm> {
         let pattern_ty = match let_variable_pattern {
             Ok(pattern) => match pattern.ty() {
@@ -27,24 +27,20 @@ impl<'a> ExprTypeEngine<'a> {
                         .expect("must be okay")
                         .pattern_expr_idx(),
                 );
-                initial_value.as_ref().ok().copied().map(|initial_value| {
-                    self.infer_new_expr_ty_discarded(
-                        initial_value,
-                        // ad hoc
-                        ExpectImplicitlyConvertible::new(
-                            FluffyTermRitchieParameterContractedType::new(contract, pattern_ty),
-                        ),
-                    )
-                });
+                self.infer_new_expr_ty_discarded(
+                    initial_value,
+                    // ad hoc
+                    ExpectImplicitlyConvertible::new(
+                        FluffyTermRitchieParameterContractedType::new(contract, pattern_ty),
+                    ),
+                );
             }
             None => {
-                initial_value.as_ref().copied().map(|initial_value| {
-                    self.infer_new_expr_ty_discarded(
-                        initial_value,
-                        // ad hoc
-                        ExpectAnyOriginal,
-                    )
-                });
+                self.infer_new_expr_ty_discarded(
+                    initial_value,
+                    // ad hoc
+                    ExpectAnyOriginal,
+                );
             }
         }
         match pattern_ty {

@@ -99,28 +99,26 @@ Ok(
                                             ),
                                         ),
                                         implicit_parameters: [
-                                            ImplicitParameterDecl {
-                                                pattern: ImplicitParameterDeclPattern {
-                                                    annotated_variance_token: Some(
-                                                        VarianceToken::Covariant(
-                                                            CovariantToken {
-                                                                token_idx: TokenIdx(
-                                                                    4,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    ),
-                                                    symbol: 0,
-                                                    variant: ImplicitParameterDeclPatternVariant::Type0 {
-                                                        ident_token: IdentToken {
-                                                            ident: `E`,
+                                            ImplicitParameterDeclPattern {
+                                                annotated_variance_token: Some(
+                                                    VarianceToken::Covariant(
+                                                        CovariantToken {
                                                             token_idx: TokenIdx(
-                                                                5,
+                                                                4,
                                                             ),
                                                         },
+                                                    ),
+                                                ),
+                                                symbol: 0,
+                                                variant: ImplicitParameterDeclPatternVariant::Type {
+                                                    ident_token: IdentToken {
+                                                        ident: `E`,
+                                                        token_idx: TokenIdx(
+                                                            5,
+                                                        ),
                                                     },
+                                                    traits: None,
                                                 },
-                                                traits: None,
                                             },
                                         ],
                                         commas: [],
@@ -188,20 +186,18 @@ Ok(
                                             ),
                                         ),
                                         implicit_parameters: [
-                                            ImplicitParameterDecl {
-                                                pattern: ImplicitParameterDeclPattern {
-                                                    annotated_variance_token: None,
-                                                    symbol: 0,
-                                                    variant: ImplicitParameterDeclPatternVariant::Type0 {
-                                                        ident_token: IdentToken {
-                                                            ident: `E`,
-                                                            token_idx: TokenIdx(
-                                                                10,
-                                                            ),
-                                                        },
+                                            ImplicitParameterDeclPattern {
+                                                annotated_variance_token: None,
+                                                symbol: 0,
+                                                variant: ImplicitParameterDeclPatternVariant::Type {
+                                                    ident_token: IdentToken {
+                                                        ident: `E`,
+                                                        token_idx: TokenIdx(
+                                                            10,
+                                                        ),
                                                     },
+                                                    traits: None,
                                                 },
-                                                traits: None,
                                             },
                                         ],
                                         commas: [],
@@ -347,7 +343,7 @@ Ok(
                                         roots: [
                                             ExprRoot {
                                                 kind: SelfType,
-                                                expr: 2,
+                                                expr_idx: 2,
                                             },
                                         ],
                                     },
@@ -569,7 +565,7 @@ Ok(
                                                         roots: [
                                                             ExprRoot {
                                                                 kind: SelfType,
-                                                                expr: 2,
+                                                                expr_idx: 2,
                                                             },
                                                         ],
                                                     },
@@ -663,7 +659,7 @@ Ok(
                                             roots: [
                                                 ExprRoot {
                                                     kind: ReturnType,
-                                                    expr: 0,
+                                                    expr_idx: 0,
                                                 },
                                             ],
                                         },
@@ -922,7 +918,7 @@ Ok(
                                                         roots: [
                                                             ExprRoot {
                                                                 kind: SelfType,
-                                                                expr: 2,
+                                                                expr_idx: 2,
                                                             },
                                                         ],
                                                     },
@@ -1052,7 +1048,12 @@ Ok(
                                                     ),
                                                 ],
                                             },
-                                            roots: [],
+                                            roots: [
+                                                ExprRoot {
+                                                    kind: ExplicitParameterType,
+                                                    expr_idx: 0,
+                                                },
+                                            ],
                                         },
                                     },
                                     implicit_parameter_decl_list: None,

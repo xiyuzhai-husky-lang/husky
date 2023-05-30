@@ -32,7 +32,10 @@ impl TraitItemDecl {
         }
     }
 
-    pub fn implicit_parameters<'a>(self, _db: &'a dyn DeclDb) -> &'a [ImplicitParameterDecl] {
+    pub fn implicit_parameters<'a>(
+        self,
+        _db: &'a dyn DeclDb,
+    ) -> &'a [ImplicitParameterDeclPattern] {
         match self {
             TraitItemDecl::AssociatedFn(_) => todo!(),
             TraitItemDecl::MethodFn(_) => todo!(),

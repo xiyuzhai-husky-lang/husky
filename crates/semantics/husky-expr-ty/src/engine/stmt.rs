@@ -36,35 +36,29 @@ impl<'a> ExprTypeEngine<'a> {
             Stmt::Let {
                 let_token,
                 ref let_variable_pattern,
-                ref initial_value,
+                initial_value,
                 ..
             } => self.calc_let_stmt(let_variable_pattern, initial_value),
-            Stmt::Return { ref result, .. } => {
-                if let Ok(result) = result {
-                    match self.return_ty {
-                        Some(return_ty) => {
-                            self.infer_new_expr_ty_discarded(
-                                *result,
-                                ExpectImplicitlyConvertible::new_move(return_ty.into()),
-                            );
-                        }
-                        None => {
-                            self.infer_new_expr_ty_discarded(*result, ExpectAnyDerived);
-                        }
+            Stmt::Return { result, .. } => {
+                match self.return_ty {
+                    Some(return_ty) => {
+                        self.infer_new_expr_ty_discarded(
+                            result,
+                            ExpectImplicitlyConvertible::new_move(return_ty.into()),
+                        );
+                    }
+                    None => {
+                        self.infer_new_expr_ty_discarded(result, ExpectAnyDerived);
                     }
                 };
                 Some(self.term_menu.never().into())
             }
-            Stmt::Require { ref condition, .. } => {
-                if let Ok(condition) = condition {
-                    self.infer_new_expr_ty_discarded(*condition, self.expect_argument_ty_bool());
-                };
+            Stmt::Require { condition, .. } => {
+                self.infer_new_expr_ty_discarded(condition, self.expect_argument_ty_bool());
                 Some(self.term_menu.unit_ty_ontology().into())
             }
-            Stmt::Assert { ref condition, .. } => {
-                if let Ok(condition) = condition {
-                    self.infer_new_expr_ty_discarded(*condition, self.expect_argument_ty_bool());
-                };
+            Stmt::Assert { condition, .. } => {
+                self.infer_new_expr_ty_discarded(condition, self.expect_argument_ty_bool());
                 Some(self.term_menu.unit_ty_ontology().into())
             }
             Stmt::Break { .. } => Some(self.term_menu.never().into()),

@@ -11,7 +11,7 @@ pub struct EnumTypeDecl {
 }
 
 impl EnumTypeDecl {
-    pub fn implicit_parameters(self, db: &dyn DeclDb) -> &[ImplicitParameterDecl] {
+    pub fn implicit_parameters(self, db: &dyn DeclDb) -> &[ImplicitParameterDeclPattern] {
         self.implicit_parameter_decl_list(db)
             .as_ref()
             .map(ImplicitParameterDeclList::implicit_parameters)

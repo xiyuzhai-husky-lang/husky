@@ -81,8 +81,8 @@ impl<'a> BlockExprParser<'a> {
             .parse_block_stmts(body)
             .expect("husky-ast should guarantee that this not empty");
         let expr = self.alloc_expr(Expr::Block { stmts });
-        self.expr_roots
-            .push(ExprRoot::new(ExprRootKind::BlockExpr, expr));
+        self.expr_parser
+            .add_expr_root(ExprRootKind::BlockExpr, expr);
         expr
     }
 
@@ -147,24 +147,33 @@ impl<'a> BlockExprParser<'a> {
                     let_token,
                     let_variable_pattern: ctx.parse_let_variables_pattern_expected(block_end),
                     assign_token: ctx.parse_expected(OriginalExprError::ExpectedAssign),
-                    initial_value: ctx
-                        .parse_expr_expected(None, OriginalExprError::ExpectedInitialValue),
+                    initial_value: ctx.parse_expr_expected2(
+                        None,
+                        ExprRootKind::LetStmtInitialValue,
+                        OriginalExprError::ExpectedInitialValue,
+                    ),
                 },
                 BasicStmtKeywordToken::Return(return_token) => Stmt::Return {
                     return_token,
-                    result: ctx.parse_expr_expected(None, OriginalExprError::ExpectedResult),
+                    result: ctx.parse_expr_expected2(
+                        None,
+                        ExprRootKind::ReturnExpr,
+                        OriginalExprError::ExpectedResult,
+                    ),
                 },
                 BasicStmtKeywordToken::Require(require_token) => Stmt::Require {
                     require_token,
-                    condition: ctx.parse_expr_expected(
+                    condition: ctx.parse_expr_expected2(
                         Some(ExprEnvironment::Condition(block_end)),
+                        ExprRootKind::Condition,
                         OriginalExprError::ExpectedCondition,
                     ),
                 },
                 BasicStmtKeywordToken::Assert(assert_token) => Stmt::Assert {
                     assert_token,
-                    condition: ctx.parse_expr_expected(
+                    condition: ctx.parse_expr_expected2(
                         Some(ExprEnvironment::Condition(block_end)),
+                        ExprRootKind::Condition,
                         OriginalExprError::ExpectedCondition,
                     ),
                 },
@@ -232,8 +241,8 @@ impl<'a> BlockExprParser<'a> {
                 },
             }),
             Ok(None) => ctx
-                .parse_expr(None)
-                .map(|expr| Stmt::Eval { expr_idx: expr }),
+                .parse_expr_root(None, todo!())
+                .map(|expr_idx| Stmt::Eval { expr_idx }),
             Err(_) => todo!(),
         }
     }

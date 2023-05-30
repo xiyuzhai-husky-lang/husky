@@ -1,5 +1,6 @@
 use husky_expr::{
-    ExprRegionData, ImplicitParameterDeclPatternVariant, RegularParameterDeclPattern,
+    ExprRegionData, ImplicitParameterDeclPattern, ImplicitParameterDeclPatternVariant,
+    RegularParameterDeclPattern,
 };
 use husky_token::VarianceToken;
 
@@ -14,19 +15,21 @@ pub struct ImplicitParameterDeclarativeSignature {
 
 impl ImplicitParameterDeclarativeSignature {
     fn from_decl(
-        parameter_decl: &ImplicitParameterDecl,
+        parameter_decl_pattern: &ImplicitParameterDeclPattern,
         region: &DeclarativeTermRegion,
         declarative_term_menu: &DeclarativeTermMenu,
     ) -> ImplicitParameterDeclarativeSignature {
-        let pattern = &parameter_decl.pattern();
-        let symbol = pattern.symbol();
-        let annotated_variance = pattern.annotated_variance_token().map(|t| match t {
-            VarianceToken::Covariant(_) => Variance::Covariant,
-            VarianceToken::Contravariant(_) => Variance::Contravariant,
-            VarianceToken::Invariant(_) => Variance::Invariant,
-        });
-        match parameter_decl.pattern().variant() {
-            ImplicitParameterDeclPatternVariant::Type0 { .. } => {
+        let symbol = parameter_decl_pattern.symbol();
+        let annotated_variance =
+            parameter_decl_pattern
+                .annotated_variance_token()
+                .map(|t| match t {
+                    VarianceToken::Covariant(_) => Variance::Covariant,
+                    VarianceToken::Contravariant(_) => Variance::Contravariant,
+                    VarianceToken::Invariant(_) => Variance::Invariant,
+                });
+        match parameter_decl_pattern.variant() {
+            ImplicitParameterDeclPatternVariant::Type { .. } => {
                 ImplicitParameterDeclarativeSignature {
                     symbol: region
                         .current_symbol_term(symbol)
@@ -89,7 +92,7 @@ pub struct ImplicitParameterDeclarativeSignatures {
 
 impl ImplicitParameterDeclarativeSignatures {
     pub(crate) fn from_decl(
-        implicit_parameters: &[ImplicitParameterDecl],
+        implicit_parameters: &[ImplicitParameterDeclPattern],
         declarative_term_region: &DeclarativeTermRegion,
         declarative_term_menu: &DeclarativeTermMenu,
     ) -> Self {

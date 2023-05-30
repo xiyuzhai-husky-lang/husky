@@ -110,11 +110,11 @@ Ok(
                                         roots: [
                                             ExprRoot {
                                                 kind: FieldType,
-                                                expr: 0,
+                                                expr_idx: 0,
                                             },
                                             ExprRoot {
                                                 kind: FieldType,
-                                                expr: 1,
+                                                expr_idx: 1,
                                             },
                                         ],
                                     },
@@ -141,7 +141,7 @@ Ok(
                                                     11,
                                                 ),
                                             ),
-                                            ty: 0,
+                                            ty_expr_idx: 0,
                                             initialization: None,
                                         },
                                         RegularStructFieldDeclPattern {
@@ -158,7 +158,7 @@ Ok(
                                                     15,
                                                 ),
                                             ),
-                                            ty: 1,
+                                            ty_expr_idx: 1,
                                             initialization: None,
                                         },
                                     ],
@@ -313,7 +313,7 @@ Ok(
                                         roots: [
                                             ExprRoot {
                                                 kind: SelfType,
-                                                expr: 0,
+                                                expr_idx: 0,
                                             },
                                         ],
                                     },
@@ -491,7 +491,7 @@ Ok(
                                                         roots: [
                                                             ExprRoot {
                                                                 kind: SelfType,
-                                                                expr: 0,
+                                                                expr_idx: 0,
                                                             },
                                                         ],
                                                     },
@@ -573,7 +573,7 @@ Ok(
                                             roots: [
                                                 ExprRoot {
                                                     kind: ReturnType,
-                                                    expr: 0,
+                                                    expr_idx: 0,
                                                 },
                                             ],
                                         },
@@ -788,7 +788,7 @@ Ok(
                                                         roots: [
                                                             ExprRoot {
                                                                 kind: SelfType,
-                                                                expr: 0,
+                                                                expr_idx: 0,
                                                             },
                                                         ],
                                                     },
@@ -939,8 +939,12 @@ Ok(
                                             },
                                             roots: [
                                                 ExprRoot {
+                                                    kind: ExplicitParameterType,
+                                                    expr_idx: 0,
+                                                },
+                                                ExprRoot {
                                                     kind: ReturnType,
-                                                    expr: 1,
+                                                    expr_idx: 1,
                                                 },
                                             ],
                                         },

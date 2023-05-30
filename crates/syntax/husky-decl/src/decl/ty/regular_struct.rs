@@ -19,7 +19,7 @@ pub struct RegularStructTypeDecl {
 }
 
 impl RegularStructTypeDecl {
-    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDecl] {
+    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDeclPattern] {
         self.implicit_parameter_decl_list(db)
             .as_ref()
             .map(ImplicitParameterDeclList::implicit_parameters)

@@ -159,6 +159,17 @@ impl<'a> ExprTypeEngine<'a> {
                     ),
                     None => self.infer_new_expr_ty_discarded(root.expr(), ExpectAnyDerived),
                 },
+                ExprRootKind::ReturnExpr => todo!(),
+                ExprRootKind::Condition => todo!(),
+                ExprRootKind::FieldBindInitialValue { ty_expr_idx } => todo!(),
+                ExprRootKind::ConstantImplicitParameterType => todo!(),
+                ExprRootKind::ExplicitParameterType => todo!(),
+                ExprRootKind::HtmlArgumentExpr => todo!(),
+                ExprRootKind::LetStmtType => todo!(),
+                ExprRootKind::LetStmtInitialValue => todo!(),
+                ExprRootKind::Snippet => todo!(),
+                ExprRootKind::Traits => todo!(),
+                ExprRootKind::ValExpr => todo!(),
             };
         }
     }
