@@ -158,6 +158,7 @@ impl Diagnose for (ExprIdx, &'_ OriginalExprTypeError) {
             OriginalExprTypeError::ExpectedCurryButGotRitchieInstead => {
                 format!("Type Error: ExpectedCurryButGotRitchieInstead")
             }
+            OriginalExprTypeError::CannotIndexIntoType { self_expr_ty } => todo!(),
         }
     }
 

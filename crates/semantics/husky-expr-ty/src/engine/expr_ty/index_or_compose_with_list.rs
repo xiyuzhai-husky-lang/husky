@@ -19,7 +19,8 @@ impl<'a> ExprTypeEngine<'a> {
         match owner_ty.data(self) {
             FluffyTermData::Curry { .. } => todo!(),
             _ => {
-                let (index_signature, expr_ty) = self.calc_index_expr_ty(owner_ty, indices)?;
+                let (index_signature, expr_ty) =
+                    self.calc_index_expr_ty(expr_idx, owner_ty, indices)?;
                 Ok((
                     ExprDisambiguation::IndexOrComposeWithList(
                         IndexOrComposeWithListExprDisambiguation::Index(index_signature),
@@ -32,14 +33,26 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn calc_index_expr_ty(
         &mut self,
-        owner_ty: FluffyTerm,
-        indice_exprs: ExprIdxRange,
+        expr_idx: ExprIdx,
+        self_expr_ty: FluffyTerm,
+        index_exprs: ExprIdxRange,
     ) -> ExprTypeResult<(FluffyIndexSignature, ExprTypeResult<FluffyTerm>)> {
-        // let mut indice_tys: SmallVec<[FluffyTerm; 2]> = indice_exprs
-        //     .into_iter()
-        //     .map(|indice_expr| self.infer_new_expr_ty(indice_expr, ExpectAnyOriginal))
-        //     .collect::<ExprTypeResult<SmallVec<[_; 2]>>>()?;
-        // let index_signature = owner_ty.index_signature(self, &indice_tys);
+        let index_tys: SmallVec<[FluffyTerm; 2]> = index_exprs
+            .into_iter()
+            .map(|index_expr| {
+                self.infer_new_expr_ty(index_expr, ExpectAnyOriginal)
+                    .ok_or(DerivedExprTypeError::UnableToInferIndexExprType.into())
+            })
+            .collect::<ExprTypeResult<SmallVec<[_; 2]>>>()?;
+        let index_ty = match index_tys.len() {
+            0 => todo!(),
+            1 => index_tys[0],
+            _ => todo!(),
+        };
+        let index_disambiguation = self_expr_ty
+            .index_disambiguation(self, expr_idx, index_ty)
+            .into_result_or(OriginalExprTypeError::CannotIndexIntoType { self_expr_ty })?;
+        let _ = todo!();
         todo!()
     }
 }

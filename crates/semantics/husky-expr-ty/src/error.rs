@@ -71,6 +71,8 @@ pub enum OriginalExprTypeError {
     },
     #[error("ExpectedCurryButGotRitchieInstead")]
     ExpectedCurryButGotRitchieInstead,
+    #[error("CannotIndexIntoType")]
+    CannotIndexIntoType { self_expr_ty: FluffyTerm },
 }
 
 impl OriginalError for OriginalExprTypeError {
@@ -155,6 +157,8 @@ pub enum DerivedExprTypeError {
     FluffyTermError(#[from] FluffyTermError),
     #[error("SuffixOperandTypeNotInferred")]
     SuffixOperandTypeNotInferred,
+    #[error("UnableToInferIndexExprType")]
+    UnableToInferIndexExprType,
 }
 
 pub type ExprTypeResult<T> = Result<T, ExprTypeError>;
