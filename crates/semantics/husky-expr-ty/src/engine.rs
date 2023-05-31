@@ -149,22 +149,27 @@ impl<'a> ExprTypeEngine<'a> {
                 | ExprRootKind::TupleStructFieldType
                 | ExprRootKind::ConstantImplicitParameterType
                 | ExprRootKind::ExplicitParameterType => self.infer_new_expr_ty_discarded(
-                    root.expr(),
+                    root.expr_idx(),
                     ExpectEqsCategory::new_expect_eqs_ty_kind(),
                 ),
                 ExprRootKind::Trait => {
-                    self.infer_new_expr_ty_discarded(root.expr(), ExpectAnyOriginal)
+                    self.infer_new_expr_ty_discarded(root.expr_idx(), ExpectAnyOriginal)
                 }
                 ExprRootKind::BlockExpr => match self.return_ty {
                     Some(return_ty) => self.infer_new_expr_ty_discarded(
-                        root.expr(),
+                        root.expr_idx(),
                         ExpectImplicitlyConvertible::new_move(return_ty.into()),
                     ),
-                    None => self.infer_new_expr_ty_discarded(root.expr(), ExpectAnyDerived),
+                    None => self.infer_new_expr_ty_discarded(root.expr_idx(), ExpectAnyDerived),
                 },
                 ExprRootKind::FieldBindInitialValue { ty_expr_idx } => {
-                    let _ = self.expr_terms[ty_expr_idx];
-                    todo!()
+                    match self.infer_new_expr_term(ty_expr_idx) {
+                        Some(ty) => self.infer_new_expr_ty_discarded(
+                            root.expr_idx(),
+                            ExpectImplicitlyConvertible::new_move(ty),
+                        ),
+                        _ => todo!(),
+                    }
                 }
                 ExprRootKind::ReturnExpr
                 | ExprRootKind::Condition

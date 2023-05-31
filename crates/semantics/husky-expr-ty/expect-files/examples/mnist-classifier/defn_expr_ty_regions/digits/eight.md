@@ -2206,6 +2206,14 @@
             ExprTypeInfo {
                 variant_and_ty_result: Err(
                     Derived(
+                        UnableToInferSuffixOperandType,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Err(
+                    Derived(
                         FieldOwnerTypeNotInferred,
                     ),
                 ),
@@ -2236,6 +2244,14 @@
                 variant_and_ty_result: Err(
                     Derived(
                         MethodOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Err(
+                    Derived(
+                        UnableToInferSuffixOperandType,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -2431,7 +2447,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 15,
+                                expr_idx: 17,
                                 kind: Expr,
                             },
                             expectee: EntityPath(

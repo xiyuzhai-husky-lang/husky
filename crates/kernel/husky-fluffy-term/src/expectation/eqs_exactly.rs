@@ -17,6 +17,7 @@ impl ExpectSubtype {
 impl ExpectFluffyTerm for ExpectSubtype {
     type Outcome = ExpectSubtypeOutcome;
 
+    #[inline(always)]
     fn retrieve_outcome(outcome: &FluffyTermExpectationOutcome) -> &Self::Outcome {
         match outcome {
             FluffyTermExpectationOutcome::EqsExactly(outcome) => outcome,
@@ -33,6 +34,7 @@ impl ExpectFluffyTerm for ExpectSubtype {
         self.expected.final_destination_inner(db, terms)
     }
 
+    #[inline(always)]
     fn destination(&self) -> Option<FluffyTerm> {
         Some(self.expected)
     }

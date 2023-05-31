@@ -216,21 +216,21 @@ pub fn find_raw_contours(cc: &ConnectedComponent) -> []RawContour:
                             and current_streak == 1
                             and prev_streak1 != -1
                             and prev_streak2 == 1:
-                        contour.lastx() = get_concave_middle_point(contour)
+                        contour.last()! = get_concave_middle_point(contour)
                         contour.push(Point2d::from_i_shift28(i, j))
                         prev_streak2 = -1
                         prev_streak1 = -1
                     elif prev_angle_change1 == -1
                             and prev_streak1 > 0
                             and prev_streak1 == 1:
-                        contour.lastx() = Point2d::from_i_shift28(i, j)
+                        contour.last()! = Point2d::from_i_shift28(i, j)
                         prev_streak2 = prev_streak1
                         prev_streak1 = current_streak
                     elif prev_angle_change1 == -1
                             and prev_streak1 > 0
                             and current_streak == 1
                             and prev_streak1 > 1:
-                        contour.lastx() = Point2d::from_i_shift28(i, j)
+                        contour.last()! = Point2d::from_i_shift28(i, j)
                         prev_streak2 = -1
                         prev_streak1 = -1
                     else:
@@ -261,6 +261,6 @@ pub fn find_raw_contours(cc: &ConnectedComponent) -> []RawContour:
                 if current_streak != -1:
                     current_streak++
             if prev_angle_change1 == -1 and current_streak == 1 and prev_streak1 > 0:
-                contour.popx();
+                contour.pop();
             result.push(RawContour(cc, contour))
     return result

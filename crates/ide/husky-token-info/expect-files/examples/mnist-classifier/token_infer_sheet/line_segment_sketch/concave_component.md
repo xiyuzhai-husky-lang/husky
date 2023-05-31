@@ -488,6 +488,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::None,
             TokenInfo::Field,
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -537,7 +538,7 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 4,
                 current_symbol_kind: CurrentSymbolKind::FrameVariable(
-                    13,
+                    14,
                 ),
                 expr_region: ExprRegionLeash(_),
             },
@@ -564,7 +565,7 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 4,
                 current_symbol_kind: CurrentSymbolKind::FrameVariable(
-                    13,
+                    14,
                 ),
                 expr_region: ExprRegionLeash(_),
             },
@@ -853,6 +854,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::None,
             TokenInfo::Field,
             TokenInfo::None,
             TokenInfo::None,
@@ -940,7 +942,7 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 5,
                 current_symbol_kind: CurrentSymbolKind::FrameVariable(
-                    15,
+                    16,
                 ),
                 expr_region: ExprRegionLeash(_),
             },
@@ -967,7 +969,7 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 5,
                 current_symbol_kind: CurrentSymbolKind::FrameVariable(
-                    15,
+                    16,
                 ),
                 expr_region: ExprRegionLeash(_),
             },
@@ -1254,6 +1256,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::None,
             TokenInfo::Field,
             TokenInfo::None,
             TokenInfo::Method,
@@ -1265,6 +1268,7 @@ Ok(
             TokenInfo::Field,
             TokenInfo::None,
             TokenInfo::Method,
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -1317,6 +1321,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::None,
             TokenInfo::Field,
             TokenInfo::None,
             TokenInfo::Method,
@@ -1362,6 +1367,7 @@ Ok(
             TokenInfo::Field,
             TokenInfo::None,
             TokenInfo::Method,
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -1457,6 +1463,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::None,
             TokenInfo::Method,
             TokenInfo::None,
             TokenInfo::None,
@@ -1500,6 +1507,7 @@ Ok(
             TokenInfo::Field,
             TokenInfo::None,
             TokenInfo::Method,
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,

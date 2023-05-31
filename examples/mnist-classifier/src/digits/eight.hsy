@@ -26,5 +26,5 @@ pub(super) val is_eight: ?MnistLabel =
 
 fn big_mouth(cc: ~ConcaveComponent)->?f32:
     if cc.relative_bounding_box.ymax()>0.5:
-        require cc.strokes.firstx().start.x > cc.strokes.firstx().end.x
+        require cc.strokes.first()!.start.x > cc.strokes.first()!.end.x
     cc.relative_bounding_box.ymax()

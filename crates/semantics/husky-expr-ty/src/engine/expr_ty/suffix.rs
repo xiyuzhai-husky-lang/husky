@@ -10,22 +10,30 @@ impl<'a> ExprTypeEngine<'a> {
         match opr {
             SuffixOpr::Incr => Ok((ExprDisambiguation::Trivial, self.calc_incr_expr_ty(opd))),
             SuffixOpr::Decr => Ok((ExprDisambiguation::Trivial, self.calc_decr_expr_ty(opd))),
-            SuffixOpr::UnveilOrComposeWithOption => match final_destination {
-                FinalDestination::Sort => todo!("err"),
-                FinalDestination::TypeOntology => Ok((
-                    ExprDisambiguation::UnveilOrComposeWithOption(
-                        UnveilOrComposeWithOptionExprDisambiguation::ComposeWithOption,
-                    ),
-                    self.calc_compose_with_option_expr_ty(opd),
-                )),
-                FinalDestination::AnyOriginal | FinalDestination::AnyDerived => Ok((
-                    ExprDisambiguation::UnveilOrComposeWithOption(
-                        UnveilOrComposeWithOptionExprDisambiguation::Unveil,
-                    ),
-                    self.calc_compose_with_option_expr_ty(opd),
-                )),
-            },
-            SuffixOpr::UnwrapOrComposeWithNot => todo!(),
+            SuffixOpr::UnveilOrComposeWithOption => self.calc_ambiguous_suffix_expr_ty(
+                opd,
+                final_destination,
+                (
+                    UnveilOrComposeWithOptionExprDisambiguation::Unveil,
+                    Self::calc_unveil_expr_ty,
+                ),
+                (
+                    UnveilOrComposeWithOptionExprDisambiguation::ComposeWithOption,
+                    Self::calc_compose_with_option_expr_ty,
+                ),
+            ),
+            SuffixOpr::UnwrapOrComposeWithNot => self.calc_ambiguous_suffix_expr_ty(
+                opd,
+                final_destination,
+                (
+                    UnwrapOrComposeWithNotExprDisambiguation::Unwrap,
+                    Self::calc_unveil_expr_ty,
+                ),
+                (
+                    UnwrapOrComposeWithNotExprDisambiguation::ComposeWithNot,
+                    Self::calc_compose_with_option_expr_ty,
+                ),
+            ),
         }
     }
 
@@ -111,6 +119,22 @@ impl<'a> ExprTypeEngine<'a> {
             } => todo!(),
         }
         Ok(self.term_menu.unit_ty_ontology().into())
+    }
+
+    fn calc_ambiguous_suffix_expr_ty<D: Into<ExprDisambiguation>>(
+        &mut self,
+        opd: ExprIdx,
+        final_destination: FinalDestination,
+        (left_disambiguation, left_f): (D, fn(&mut Self, ExprIdx) -> ExprTypeResult<FluffyTerm>),
+        (right_disambiguation, right_f): (D, fn(&mut Self, ExprIdx) -> ExprTypeResult<FluffyTerm>),
+    ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
+        match self.infer_new_expr_ty(
+            opd,
+            ExpectAnyTowardsFinalDestination::new(final_destination),
+        ) {
+            Some(_) => todo!(),
+            None => Err(DerivedExprTypeError::UnableToInferSuffixOperandType.into()),
+        }
     }
 
     fn calc_unveil_expr_ty(&mut self, opd: ExprIdx) -> ExprTypeResult<FluffyTerm> {

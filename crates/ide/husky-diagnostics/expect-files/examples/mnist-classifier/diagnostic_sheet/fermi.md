@@ -10,7 +10,13 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_diagnostic_sheet: ExprDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "Syntax Error: unexpected keyword",
+                severity: Error,
+                range: [30:19, 30:21),
+            },
+        ],
     },
     decl_diagnostic_sheet: DeclDiagnosticSheet {
         diagnostics: [],

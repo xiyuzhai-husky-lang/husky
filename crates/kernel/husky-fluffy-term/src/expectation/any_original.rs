@@ -6,6 +6,7 @@ pub struct ExpectAnyOriginal;
 impl ExpectFluffyTerm for ExpectAnyOriginal {
     type Outcome = FluffyTerm;
 
+    #[inline(always)]
     fn retrieve_outcome(_outcome: &FluffyTermExpectationOutcome) -> &Self::Outcome {
         todo!()
     }
@@ -19,6 +20,7 @@ impl ExpectFluffyTerm for ExpectAnyOriginal {
         FinalDestination::AnyOriginal
     }
 
+    #[inline(always)]
     fn destination(&self) -> Option<FluffyTerm> {
         None
     }

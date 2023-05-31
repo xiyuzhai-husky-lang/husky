@@ -1859,7 +1859,7 @@ Ok(
                                                         111,
                                                     ),
                                                     ident_token: IdentToken {
-                                                        ident: `firstx`,
+                                                        ident: `first`,
                                                         token_idx: TokenIdx(
                                                             112,
                                                         ),
@@ -1875,22 +1875,29 @@ Ok(
                                                         114,
                                                     ),
                                                 },
-                                                Expr::Field {
-                                                    owner: 7,
-                                                    dot_token_idx: TokenIdx(
+                                                Expr::Suffix {
+                                                    opd: 7,
+                                                    opr: UnwrapOrComposeWithNot,
+                                                    opr_token_idx: TokenIdx(
                                                         115,
+                                                    ),
+                                                },
+                                                Expr::Field {
+                                                    owner: 8,
+                                                    dot_token_idx: TokenIdx(
+                                                        116,
                                                     ),
                                                     ident_token: IdentToken {
                                                         ident: `start`,
                                                         token_idx: TokenIdx(
-                                                            116,
+                                                            117,
                                                         ),
                                                     },
                                                 },
                                                 Expr::InheritedSymbol {
                                                     ident: `cc`,
                                                     token_idx: TokenIdx(
-                                                        120,
+                                                        121,
                                                     ),
                                                     inherited_symbol_idx: 0,
                                                     inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
@@ -1898,89 +1905,96 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Field {
-                                                    owner: 9,
+                                                    owner: 10,
                                                     dot_token_idx: TokenIdx(
-                                                        121,
+                                                        122,
                                                     ),
                                                     ident_token: IdentToken {
                                                         ident: `strokes`,
                                                         token_idx: TokenIdx(
-                                                            122,
+                                                            123,
                                                         ),
                                                     },
                                                 },
                                                 Expr::MethodCall {
-                                                    self_argument: 10,
+                                                    self_argument: 11,
                                                     dot_token_idx: TokenIdx(
-                                                        123,
+                                                        124,
                                                     ),
                                                     ident_token: IdentToken {
-                                                        ident: `firstx`,
+                                                        ident: `first`,
                                                         token_idx: TokenIdx(
-                                                            124,
+                                                            125,
                                                         ),
                                                     },
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
-                                                        125,
-                                                    ),
-                                                    nonself_arguments: ArenaIdxRange(
-                                                        11..11,
-                                                    ),
-                                                    rpar_token_idx: TokenIdx(
                                                         126,
                                                     ),
-                                                },
-                                                Expr::Field {
-                                                    owner: 11,
-                                                    dot_token_idx: TokenIdx(
+                                                    nonself_arguments: ArenaIdxRange(
+                                                        12..12,
+                                                    ),
+                                                    rpar_token_idx: TokenIdx(
                                                         127,
                                                     ),
-                                                    ident_token: IdentToken {
-                                                        ident: `end`,
-                                                        token_idx: TokenIdx(
-                                                            128,
-                                                        ),
-                                                    },
                                                 },
-                                                Expr::Field {
-                                                    owner: 8,
-                                                    dot_token_idx: TokenIdx(
-                                                        117,
+                                                Expr::Suffix {
+                                                    opd: 12,
+                                                    opr: UnwrapOrComposeWithNot,
+                                                    opr_token_idx: TokenIdx(
+                                                        128,
                                                     ),
-                                                    ident_token: IdentToken {
-                                                        ident: `x`,
-                                                        token_idx: TokenIdx(
-                                                            118,
-                                                        ),
-                                                    },
                                                 },
                                                 Expr::Field {
-                                                    owner: 12,
+                                                    owner: 13,
                                                     dot_token_idx: TokenIdx(
                                                         129,
                                                     ),
                                                     ident_token: IdentToken {
-                                                        ident: `x`,
+                                                        ident: `end`,
                                                         token_idx: TokenIdx(
                                                             130,
                                                         ),
                                                     },
                                                 },
+                                                Expr::Field {
+                                                    owner: 9,
+                                                    dot_token_idx: TokenIdx(
+                                                        118,
+                                                    ),
+                                                    ident_token: IdentToken {
+                                                        ident: `x`,
+                                                        token_idx: TokenIdx(
+                                                            119,
+                                                        ),
+                                                    },
+                                                },
+                                                Expr::Field {
+                                                    owner: 14,
+                                                    dot_token_idx: TokenIdx(
+                                                        131,
+                                                    ),
+                                                    ident_token: IdentToken {
+                                                        ident: `x`,
+                                                        token_idx: TokenIdx(
+                                                            132,
+                                                        ),
+                                                    },
+                                                },
                                                 Expr::Binary {
-                                                    lopd: 13,
+                                                    lopd: 15,
                                                     opr: Comparison(
                                                         Greater,
                                                     ),
                                                     opr_token_idx: TokenIdx(
-                                                        119,
+                                                        120,
                                                     ),
-                                                    ropd: 14,
+                                                    ropd: 16,
                                                 },
                                                 Expr::InheritedSymbol {
                                                     ident: `cc`,
                                                     token_idx: TokenIdx(
-                                                        131,
+                                                        133,
                                                     ),
                                                     inherited_symbol_idx: 0,
                                                     inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
@@ -1988,37 +2002,37 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Field {
-                                                    owner: 16,
-                                                    dot_token_idx: TokenIdx(
-                                                        132,
-                                                    ),
-                                                    ident_token: IdentToken {
-                                                        ident: `relative_bounding_box`,
-                                                        token_idx: TokenIdx(
-                                                            133,
-                                                        ),
-                                                    },
-                                                },
-                                                Expr::MethodCall {
-                                                    self_argument: 17,
+                                                    owner: 18,
                                                     dot_token_idx: TokenIdx(
                                                         134,
                                                     ),
                                                     ident_token: IdentToken {
-                                                        ident: `ymax`,
+                                                        ident: `relative_bounding_box`,
                                                         token_idx: TokenIdx(
                                                             135,
                                                         ),
                                                     },
-                                                    implicit_arguments: None,
-                                                    lpar_token_idx: TokenIdx(
+                                                },
+                                                Expr::MethodCall {
+                                                    self_argument: 19,
+                                                    dot_token_idx: TokenIdx(
                                                         136,
                                                     ),
+                                                    ident_token: IdentToken {
+                                                        ident: `ymax`,
+                                                        token_idx: TokenIdx(
+                                                            137,
+                                                        ),
+                                                    },
+                                                    implicit_arguments: None,
+                                                    lpar_token_idx: TokenIdx(
+                                                        138,
+                                                    ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        18..18,
+                                                        20..20,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
-                                                        137,
+                                                        139,
                                                     ),
                                                 },
                                                 Expr::Block {
@@ -2039,7 +2053,7 @@ Ok(
                                                             107,
                                                         ),
                                                     },
-                                                    condition: 15,
+                                                    condition: 17,
                                                 },
                                                 Stmt::IfElse {
                                                     if_branch: IfBranch {
@@ -2070,7 +2084,7 @@ Ok(
                                                     else_branch: None,
                                                 },
                                                 Stmt::Eval {
-                                                    expr_idx: 18,
+                                                    expr_idx: 20,
                                                 },
                                             ],
                                         },
@@ -2114,21 +2128,21 @@ Ok(
                                         roots: [
                                             ExprRoot {
                                                 kind: Condition,
-                                                expr_idx: 15,
+                                                expr_idx: 17,
                                             },
                                             ExprRoot {
                                                 kind: EvalExpr,
-                                                expr_idx: 18,
+                                                expr_idx: 20,
                                             },
                                             ExprRoot {
                                                 kind: BlockExpr,
-                                                expr_idx: 19,
+                                                expr_idx: 21,
                                             },
                                         ],
                                     },
                                 },
                                 body: Some(
-                                    19,
+                                    21,
                                 ),
                             },
                         ),

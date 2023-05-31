@@ -10,12 +10,14 @@ impl ExpectEqsCategory {
         smallest_universe: TermUniverse::new(0),
     };
 
+    #[inline(always)]
     pub fn new_any_sort() -> Self {
         Self {
             smallest_universe: TermUniverse::new(0),
         }
     }
 
+    #[inline(always)]
     pub fn new_expect_eqs_ty_kind() -> Self {
         Self {
             smallest_universe: TermUniverse::new(1),
@@ -26,6 +28,7 @@ impl ExpectEqsCategory {
 impl ExpectFluffyTerm for ExpectEqsCategory {
     type Outcome = TermUniverse;
 
+    #[inline(always)]
     fn retrieve_outcome(outcome: &FluffyTermExpectationOutcome) -> &Self::Outcome {
         match outcome {
             FluffyTermExpectationOutcome::EqsSort(outcome) => outcome,
@@ -42,14 +45,10 @@ impl ExpectFluffyTerm for ExpectEqsCategory {
         FinalDestination::Sort
     }
 
+    #[inline(always)]
     fn destination(&self) -> Option<FluffyTerm> {
         None
     }
-}
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub(crate) struct ExpectEqsSortOutcome {
-    destination: FluffyTerm,
 }
 
 impl ExpectEqsCategory {

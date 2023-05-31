@@ -15,6 +15,7 @@ impl ExpectEqsFunctionType {
 impl ExpectFluffyTerm for ExpectEqsFunctionType {
     type Outcome = ExpectEqsFunctionTypeOutcome;
 
+    #[inline(always)]
     fn retrieve_outcome(outcome: &FluffyTermExpectationOutcome) -> &Self::Outcome {
         match outcome {
             FluffyTermExpectationOutcome::EqsRitchieCallType(outcome) => outcome,
@@ -31,6 +32,7 @@ impl ExpectFluffyTerm for ExpectEqsFunctionType {
         self.final_destination
     }
 
+    #[inline(always)]
     fn destination(&self) -> Option<FluffyTerm> {
         None
     }

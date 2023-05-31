@@ -9,6 +9,7 @@ pub struct ExpectInsSort {
 impl ExpectFluffyTerm for ExpectInsSort {
     type Outcome = ExpectInsSortOutcome;
 
+    #[inline(always)]
     fn retrieve_outcome(outcome: &FluffyTermExpectationOutcome) -> &Self::Outcome {
         match outcome {
             FluffyTermExpectationOutcome::InsSort(outcome) => outcome,
@@ -25,6 +26,7 @@ impl ExpectFluffyTerm for ExpectInsSort {
         todo!()
     }
 
+    #[inline(always)]
     fn destination(&self) -> Option<FluffyTerm> {
         None
     }

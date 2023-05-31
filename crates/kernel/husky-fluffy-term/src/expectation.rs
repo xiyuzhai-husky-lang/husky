@@ -1,5 +1,6 @@
 mod any_derived;
 mod any_original;
+mod any_towards_final_destination;
 mod eqs_category;
 mod eqs_exactly;
 mod eqs_function_ty;
@@ -10,6 +11,7 @@ mod num_ty;
 
 pub use self::any_derived::*;
 pub use self::any_original::*;
+pub use self::any_towards_final_destination::*;
 pub use self::eqs_category::*;
 pub use self::eqs_exactly::*;
 pub use self::eqs_function_ty::*;
@@ -40,6 +42,7 @@ pub enum ExpectationData {
     AnyOriginal(ExpectAnyOriginal),
     AnyDerived(ExpectAnyDerived),
     NumType(ExpectNumType),
+    AnyTowardsFinalDestination(ExpectAnyTowardsFinalDestination),
 }
 
 pub trait ExpectFluffyTerm: Into<ExpectationData> + Clone {
@@ -271,6 +274,7 @@ impl ExpectationEntry {
             ExpectationData::NumType(expectation) => {
                 expectation.resolve(db, terms, self.expectee())
             }
+            ExpectationData::AnyTowardsFinalDestination(_) => None,
         }
     }
 }

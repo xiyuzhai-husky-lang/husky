@@ -764,6 +764,11 @@ Ok(
                     ),
                 ),
             ),
+            Token::Keyword(
+                Keyword::Form(
+                    Fn,
+                ),
+            ),
             Token::Punctuation(
                 Punctuation(
                     PunctuationMapped::Bra(
@@ -1120,12 +1125,12 @@ Ok(
             124,
             143,
             145,
-            173,
-            182,
-            194,
-            203,
-            210,
-            221,
+            174,
+            183,
+            195,
+            204,
+            211,
+            222,
         ],
         indents: [
             0,

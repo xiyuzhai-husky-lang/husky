@@ -114,10 +114,24 @@
         ),
         expr_ty_infos: [
             ExprTypeInfo {
+                variant_and_ty_result: Err(
+                    Derived(
+                        TypeError(
+                            DeclarativeTypeError(
+                                Derived(
+                                    SignatureError,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
                 variant_and_ty_result: Ok(
                     (
-                        TypePath(
-                            Ontology,
+                        Tilde(
+                            Leash,
                         ),
                         Ok(
                             Category(
@@ -137,7 +151,9 @@
             ExprTypeInfo {
                 variant_and_ty_result: Ok(
                     (
-                        Trivial,
+                        TypePath(
+                            Ontology,
+                        ),
                         Ok(
                             Category(
                                 TermCategory {
@@ -151,6 +167,25 @@
                 ),
                 expectation_rule_idx: Some(
                     1,
+                ),
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    2,
                 ),
             },
         ],
@@ -191,6 +226,35 @@
             expectations: Expectations {
                 arena: Arena {
                     data: [
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 1,
+                                kind: Expr,
+                            },
+                            expectee: Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                            data: EqsSort(
+                                ExpectEqsCategory {
+                                    smallest_universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    EqsSort(
+                                        TermUniverse(
+                                            1,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
                         ExpectationEntry {
                             src: ExpectationSource {
                                 expr_idx: 2,
@@ -374,10 +438,24 @@
         ),
         expr_ty_infos: [
             ExprTypeInfo {
+                variant_and_ty_result: Err(
+                    Derived(
+                        TypeError(
+                            DeclarativeTypeError(
+                                Derived(
+                                    SignatureError,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
                 variant_and_ty_result: Ok(
                     (
-                        TypePath(
-                            Ontology,
+                        Tilde(
+                            Leash,
                         ),
                         Ok(
                             Category(
@@ -397,7 +475,9 @@
             ExprTypeInfo {
                 variant_and_ty_result: Ok(
                     (
-                        Trivial,
+                        TypePath(
+                            Ontology,
+                        ),
                         Ok(
                             Category(
                                 TermCategory {
@@ -411,6 +491,25 @@
                 ),
                 expectation_rule_idx: Some(
                     1,
+                ),
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    2,
                 ),
             },
         ],
@@ -451,6 +550,35 @@
             expectations: Expectations {
                 arena: Arena {
                     data: [
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 1,
+                                kind: Expr,
+                            },
+                            expectee: Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                            data: EqsSort(
+                                ExpectEqsCategory {
+                                    smallest_universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    EqsSort(
+                                        TermUniverse(
+                                            1,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
                         ExpectationEntry {
                             src: ExpectationSource {
                                 expr_idx: 2,
@@ -531,10 +659,24 @@
         ),
         expr_ty_infos: [
             ExprTypeInfo {
+                variant_and_ty_result: Err(
+                    Derived(
+                        TypeError(
+                            DeclarativeTypeError(
+                                Derived(
+                                    SignatureError,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
                 variant_and_ty_result: Ok(
                     (
-                        TypePath(
-                            Ontology,
+                        Tilde(
+                            Leash,
                         ),
                         Ok(
                             Category(
@@ -554,7 +696,9 @@
             ExprTypeInfo {
                 variant_and_ty_result: Ok(
                     (
-                        Trivial,
+                        TypePath(
+                            Ontology,
+                        ),
                         Ok(
                             Category(
                                 TermCategory {
@@ -568,6 +712,25 @@
                 ),
                 expectation_rule_idx: Some(
                     1,
+                ),
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    2,
                 ),
             },
         ],
@@ -608,6 +771,35 @@
             expectations: Expectations {
                 arena: Arena {
                     data: [
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 1,
+                                kind: Expr,
+                            },
+                            expectee: Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                            data: EqsSort(
+                                ExpectEqsCategory {
+                                    smallest_universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    EqsSort(
+                                        TermUniverse(
+                                            1,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
                         ExpectationEntry {
                             src: ExpectationSource {
                                 expr_idx: 2,

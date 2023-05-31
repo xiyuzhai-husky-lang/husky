@@ -7,6 +7,7 @@ pub enum ExprDisambiguation {
     Trivial,
     IndexOrComposeWithList(IndexOrComposeWithListExprDisambiguation),
     UnveilOrComposeWithOption(UnveilOrComposeWithOptionExprDisambiguation),
+    UnwrapOrComposeWithNot(UnwrapOrComposeWithNotExprDisambiguation),
     ExplicitApplicationOrRitchieCall(ApplicationOrRitchieCallExprDisambiguation),
     TypePath(TypePathDisambiguation),
     List(ListExprDisambiguation),
@@ -37,6 +38,13 @@ pub enum IndexOrComposeWithListExprDisambiguation {
 pub enum UnveilOrComposeWithOptionExprDisambiguation {
     Unveil,
     ComposeWithOption,
+}
+
+/// disambiguate between `unwrap` and compose with `Not`
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum UnwrapOrComposeWithNotExprDisambiguation {
+    Unwrap,
+    ComposeWithNot,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

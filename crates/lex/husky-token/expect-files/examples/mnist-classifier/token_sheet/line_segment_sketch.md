@@ -5442,7 +5442,7 @@ Ok(
                 ),
             ),
             Token::Ident(
-                `lastx`,
+                `last`,
             ),
             Token::Punctuation(
                 Punctuation(
@@ -5456,6 +5456,11 @@ Ok(
                     PunctuationMapped::Ket(
                         Par,
                     ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Exclamation,
                 ),
             ),
             Token::Punctuation(
@@ -5646,7 +5651,7 @@ Ok(
                 ),
             ),
             Token::Ident(
-                `lastx`,
+                `last`,
             ),
             Token::Punctuation(
                 Punctuation(
@@ -5660,6 +5665,11 @@ Ok(
                     PunctuationMapped::Ket(
                         Par,
                     ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Exclamation,
                 ),
             ),
             Token::Punctuation(
@@ -5704,7 +5714,7 @@ Ok(
                 ),
             ),
             Token::Ident(
-                `lastx`,
+                `last`,
             ),
             Token::Punctuation(
                 Punctuation(
@@ -5718,6 +5728,11 @@ Ok(
                     PunctuationMapped::Ket(
                         Par,
                     ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Exclamation,
                 ),
             ),
             Token::Punctuation(
@@ -5960,7 +5975,7 @@ Ok(
                 ),
             ),
             Token::Ident(
-                `lastx`,
+                `last`,
             ),
             Token::Punctuation(
                 Punctuation(
@@ -5974,6 +5989,11 @@ Ok(
                     PunctuationMapped::Ket(
                         Par,
                     ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Exclamation,
                 ),
             ),
             Token::Keyword(
@@ -6643,7 +6663,7 @@ Ok(
                 ),
             ),
             Token::Ident(
-                `firstx`,
+                `first`,
             ),
             Token::Punctuation(
                 Punctuation(
@@ -6657,6 +6677,11 @@ Ok(
                     PunctuationMapped::Ket(
                         Par,
                     ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Exclamation,
                 ),
             ),
             Token::Punctuation(
@@ -6697,7 +6722,7 @@ Ok(
                 ),
             ),
             Token::Ident(
-                `lastx`,
+                `last`,
             ),
             Token::Punctuation(
                 Punctuation(
@@ -6711,6 +6736,11 @@ Ok(
                     PunctuationMapped::Ket(
                         Par,
                     ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Exclamation,
                 ),
             ),
             Token::Keyword(
@@ -6813,7 +6843,7 @@ Ok(
                 ),
             ),
             Token::Ident(
-                `firstx`,
+                `first`,
             ),
             Token::Punctuation(
                 Punctuation(
@@ -6827,6 +6857,11 @@ Ok(
                     PunctuationMapped::Ket(
                         Par,
                     ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Exclamation,
                 ),
             ),
             Token::Punctuation(
@@ -6907,7 +6942,7 @@ Ok(
                 ),
             ),
             Token::Ident(
-                `firstx`,
+                `first`,
             ),
             Token::Punctuation(
                 Punctuation(
@@ -6921,6 +6956,11 @@ Ok(
                     PunctuationMapped::Ket(
                         Par,
                     ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Exclamation,
                 ),
             ),
             Token::Punctuation(
@@ -7099,33 +7139,33 @@ Ok(
             1144,
             1153,
             1161,
-            1173,
-            1196,
-            1206,
-            1230,
+            1174,
+            1197,
+            1207,
             1233,
             1236,
-            1248,
-            1262,
-            1271,
-            1279,
-            1287,
-            1295,
-            1308,
-            1353,
-            1361,
-            1381,
-            1383,
-            1394,
-            1400,
-            1403,
-            1408,
-            1418,
-            1430,
-            1438,
-            1449,
-            1457,
-            1489,
+            1239,
+            1251,
+            1265,
+            1274,
+            1283,
+            1291,
+            1299,
+            1312,
+            1357,
+            1365,
+            1385,
+            1387,
+            1398,
+            1404,
+            1407,
+            1412,
+            1422,
+            1435,
+            1444,
+            1455,
+            1463,
+            1497,
         ],
         indents: [
             0,

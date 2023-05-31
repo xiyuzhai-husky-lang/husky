@@ -67,6 +67,7 @@ impl ExpectNumType {
 impl ExpectFluffyTerm for ExpectNumType {
     type Outcome = ExpectNumTypeOutcome;
 
+    #[inline(always)]
     fn retrieve_outcome(outcome: &FluffyTermExpectationOutcome) -> &Self::Outcome {
         match outcome {
             FluffyTermExpectationOutcome::NumType(outcome) => outcome,
@@ -74,6 +75,7 @@ impl ExpectFluffyTerm for ExpectNumType {
         }
     }
 
+    #[inline(always)]
     fn final_destination_inner(
         &self,
         db: &dyn FluffyTermDb,
@@ -82,6 +84,7 @@ impl ExpectFluffyTerm for ExpectNumType {
         todo!()
     }
 
+    #[inline(always)]
     fn destination(&self) -> Option<FluffyTerm> {
         None
     }
