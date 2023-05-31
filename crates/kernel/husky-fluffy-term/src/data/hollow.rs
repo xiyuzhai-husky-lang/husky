@@ -20,7 +20,7 @@ pub enum HollowTermData {
         fill: Option<FluffyTerm>,
     },
     Ritchie {
-        ritchie_kind: TermRitchieKind,
+        ritchie_kind: RitchieKind,
         parameter_contracted_tys: Vec<FluffyTermRitchieParameterContractedType>,
         return_ty: FluffyTerm,
     },

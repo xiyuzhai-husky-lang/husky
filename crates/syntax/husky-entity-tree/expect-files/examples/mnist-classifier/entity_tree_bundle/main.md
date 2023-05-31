@@ -636,7 +636,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `find_raw_contours`,
                                                 token_idx: TokenIdx(
-                                                    997,
+                                                    954,
                                                 ),
                                             },
                                         },
@@ -2101,7 +2101,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `find_raw_contours`,
                                                 token_idx: TokenIdx(
-                                                    997,
+                                                    954,
                                                 ),
                                             },
                                         },
@@ -3244,7 +3244,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `get_angle_change`,
                                         token_idx: TokenIdx(
-                                            628,
+                                            613,
                                         ),
                                     },
                                 },
@@ -3267,7 +3267,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `get_outward_direction`,
                                         token_idx: TokenIdx(
-                                            692,
+                                            674,
                                         ),
                                     },
                                 },
@@ -3290,7 +3290,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `StreakCache`,
                                         token_idx: TokenIdx(
-                                            919,
+                                            876,
                                         ),
                                     },
                                 },
@@ -3313,7 +3313,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `get_concave_middle_point`,
                                         token_idx: TokenIdx(
-                                            931,
+                                            888,
                                         ),
                                     },
                                 },
@@ -3332,7 +3332,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `find_raw_contours`,
                                         token_idx: TokenIdx(
-                                            997,
+                                            954,
                                         ),
                                     },
                                 },
@@ -8073,7 +8073,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `find_raw_contours`,
                                                         token_idx: TokenIdx(
-                                                            997,
+                                                            954,
                                                         ),
                                                     },
                                                 },
@@ -10782,7 +10782,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `find_raw_contours`,
                                                 token_idx: TokenIdx(
-                                                    997,
+                                                    954,
                                                 ),
                                             },
                                         },
@@ -12250,7 +12250,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `find_raw_contours`,
                                                         token_idx: TokenIdx(
-                                                            997,
+                                                            954,
                                                         ),
                                                     },
                                                 },
@@ -14212,7 +14212,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `find_raw_contours`,
                                                         token_idx: TokenIdx(
-                                                            997,
+                                                            954,
                                                         ),
                                                     },
                                                 },
@@ -17589,7 +17589,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `find_raw_contours`,
                                                                 token_idx: TokenIdx(
-                                                                    997,
+                                                                    954,
                                                                 ),
                                                             },
                                                         },
@@ -20232,7 +20232,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `find_raw_contours`,
                                                                 token_idx: TokenIdx(
-                                                                    997,
+                                                                    954,
                                                                 ),
                                                             },
                                                         },
@@ -22875,7 +22875,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `find_raw_contours`,
                                                                 token_idx: TokenIdx(
-                                                                    997,
+                                                                    954,
                                                                 ),
                                                             },
                                                         },
@@ -25518,7 +25518,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `find_raw_contours`,
                                                                 token_idx: TokenIdx(
-                                                                    997,
+                                                                    954,
                                                                 ),
                                                             },
                                                         },
@@ -28258,7 +28258,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `find_raw_contours`,
                                                                 token_idx: TokenIdx(
-                                                                    997,
+                                                                    954,
                                                                 ),
                                                             },
                                                         },
@@ -30809,7 +30809,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `find_raw_contours`,
                                                                 token_idx: TokenIdx(
-                                                                    997,
+                                                                    954,
                                                                 ),
                                                             },
                                                         },
@@ -33475,7 +33475,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `find_raw_contours`,
                                                                 token_idx: TokenIdx(
-                                                                    997,
+                                                                    954,
                                                                 ),
                                                             },
                                                         },
@@ -36072,7 +36072,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `find_raw_contours`,
                                                                 token_idx: TokenIdx(
-                                                                    997,
+                                                                    954,
                                                                 ),
                                                             },
                                                         },
@@ -38715,7 +38715,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `find_raw_contours`,
                                                                 token_idx: TokenIdx(
-                                                                    997,
+                                                                    954,
                                                                 ),
                                                             },
                                                         },
@@ -41358,7 +41358,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `find_raw_contours`,
                                                                 token_idx: TokenIdx(
-                                                                    997,
+                                                                    954,
                                                                 ),
                                                             },
                                                         },
@@ -42749,7 +42749,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `find_raw_contours`,
                                                         token_idx: TokenIdx(
-                                                            997,
+                                                            954,
                                                         ),
                                                     },
                                                 },

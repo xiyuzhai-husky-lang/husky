@@ -1,7 +1,7 @@
 [
   {
     "input": "def",
-    "output": "TokenSheetData {\n    tokens: [\n        Token::Keyword(\n            Keyword::Form(\n                Def,\n            ),\n        ),\n    ],\n    group_starts: [\n        0,\n    ],\n    indents: [\n        0,\n    ],\n}"
+    "output": "TokenSheetData {\n    tokens: [\n        Token::Keyword(\n            Keyword::Fugitive(\n                Def,\n            ),\n        ),\n    ],\n    group_starts: [\n        0,\n    ],\n    indents: [\n        0,\n    ],\n}"
   },
   {
     "input": "func",

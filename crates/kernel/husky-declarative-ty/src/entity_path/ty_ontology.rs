@@ -51,7 +51,7 @@ fn regular_struct_ty_constructor_path_declarative_ty(
         .map(RegularStructFieldDeclarativeSignatureTemplate::into_ritchie_parameter_contracted_ty)
         .collect();
     let constructor_ty =
-        DeclarativeTermRitchie::new(db, TermRitchieKind::FnType, parameter_tys, self_ty);
+        DeclarativeTermRitchie::new(db, RitchieKind::FnType, parameter_tys, self_ty);
     curry_from_implicit_parameters(
         db,
         CurryKind::Implicit,
@@ -76,7 +76,7 @@ fn tuple_struct_ty_constructor_path_declarative_ty(
         .map(TupleStructFieldDeclarativeSignatureTemplate::into_ritchie_parameter_contracted_ty)
         .collect();
     let constructor_ty =
-        DeclarativeTermRitchie::new(db, TermRitchieKind::FnType, parameter_tys, self_ty);
+        DeclarativeTermRitchie::new(db, RitchieKind::FnType, parameter_tys, self_ty);
     curry_from_implicit_parameters(
         db,
         CurryKind::Implicit,

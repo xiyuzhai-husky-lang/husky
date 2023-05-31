@@ -207,7 +207,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Fn,
                 ),
             ),
@@ -303,7 +303,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Val,
                 ),
             ),
@@ -366,7 +366,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Val,
                 ),
             ),
@@ -908,7 +908,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Val,
                 ),
             ),
@@ -1012,7 +1012,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Val,
                 ),
             ),
@@ -1674,7 +1674,7 @@ Ok(
                 Keyword::Pub,
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Fn,
                 ),
             ),
@@ -1964,7 +1964,7 @@ Ok(
                 `Right`,
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Fn,
                 ),
             ),
@@ -2093,7 +2093,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Fn,
                 ),
             ),
@@ -2194,7 +2194,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Fn,
                 ),
             ),
@@ -2323,7 +2323,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Fn,
                 ),
             ),
@@ -2514,12 +2514,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Punctuation(
@@ -2562,12 +2557,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Ident(
@@ -2595,12 +2585,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Ident(
@@ -2626,12 +2611,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Ident(
@@ -2649,12 +2629,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Ident(
@@ -2682,12 +2657,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Punctuation(
@@ -2720,12 +2690,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Ident(
@@ -2763,12 +2728,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Ident(
@@ -2796,12 +2756,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Ident(
@@ -2827,12 +2782,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Ident(
@@ -2850,12 +2800,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Punctuation(
@@ -2898,12 +2843,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Ident(
@@ -2931,12 +2871,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Ident(
@@ -2962,12 +2897,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Ident(
@@ -2983,19 +2913,14 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Ident(
                 `unreachable`,
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Fn,
                 ),
             ),
@@ -3232,12 +3157,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Ident(
@@ -3261,12 +3181,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Punctuation(
@@ -3289,19 +3204,14 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Ident(
                 `unreachable`,
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Fn,
                 ),
             ),
@@ -3508,12 +3418,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Punctuation(
@@ -3546,12 +3451,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Ident(
@@ -3589,12 +3489,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Ident(
@@ -3620,12 +3515,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Ident(
@@ -3643,12 +3533,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Punctuation(
@@ -3681,12 +3566,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Ident(
@@ -3714,12 +3594,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Ident(
@@ -3747,12 +3622,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Punctuation(
@@ -3793,12 +3663,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Ident(
@@ -3834,12 +3699,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Ident(
@@ -3865,12 +3725,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Ident(
@@ -3888,12 +3743,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Ident(
@@ -3919,12 +3769,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Ident(
@@ -3942,12 +3787,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Punctuation(
@@ -4000,12 +3840,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Ident(
@@ -4033,12 +3868,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Punctuation(
@@ -4079,12 +3909,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Ident(
@@ -4120,12 +3945,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Ident(
@@ -4151,12 +3971,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Ident(
@@ -4172,12 +3987,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Ident(
@@ -4195,12 +4005,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Punctuation(
@@ -4243,12 +4048,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Ident(
@@ -4276,12 +4076,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Ident(
@@ -4307,12 +4102,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Ident(
@@ -4328,12 +4118,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Ident(
@@ -4394,7 +4179,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Fn,
                 ),
             ),
@@ -4736,7 +4521,7 @@ Ok(
                 Keyword::Pub,
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Fn,
                 ),
             ),
@@ -6879,12 +6664,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Punctuation(
@@ -6998,12 +6778,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Punctuation(
@@ -7103,12 +6878,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Ident(
@@ -7156,12 +6926,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Ident(
@@ -7460,148 +7225,148 @@ Ok(
             509,
             518,
             521,
-            526,
-            529,
-            531,
-            538,
-            545,
-            550,
-            557,
-            562,
+            525,
+            528,
+            530,
+            536,
+            542,
+            546,
+            552,
+            556,
+            559,
             565,
-            572,
-            574,
-            581,
-            588,
-            593,
+            567,
+            573,
+            579,
+            583,
+            587,
+            590,
+            592,
             598,
-            601,
-            603,
-            610,
-            617,
-            622,
-            627,
-            641,
-            666,
+            604,
+            608,
+            612,
+            626,
+            651,
+            654,
+            656,
+            658,
+            664,
             669,
-            671,
             673,
-            680,
-            686,
-            691,
+            696,
+            705,
             714,
-            723,
+            717,
+            721,
+            724,
+            730,
             732,
-            735,
-            740,
-            743,
-            750,
-            752,
-            759,
-            764,
-            769,
-            772,
-            779,
-            786,
-            791,
+            738,
+            742,
+            746,
+            749,
+            755,
+            761,
+            765,
+            768,
+            776,
+            784,
+            788,
             794,
-            803,
-            812,
-            817,
-            824,
-            829,
-            834,
-            837,
-            839,
-            841,
-            848,
+            798,
+            802,
+            805,
+            807,
+            809,
+            815,
+            819,
+            822,
+            830,
+            838,
+            842,
+            846,
+            850,
             853,
-            856,
-            865,
-            874,
-            879,
-            884,
-            889,
-            892,
-            894,
-            901,
-            908,
-            913,
-            918,
-            930,
-            942,
-            950,
-            959,
-            968,
-            995,
+            855,
+            861,
+            867,
+            871,
+            875,
+            887,
+            899,
+            907,
+            916,
+            925,
+            952,
+            966,
+            975,
+            982,
+            989,
+            1000,
             1009,
-            1018,
-            1025,
-            1032,
-            1043,
-            1052,
-            1058,
-            1064,
-            1091,
-            1098,
-            1104,
-            1114,
-            1119,
-            1131,
-            1143,
-            1153,
-            1165,
-            1169,
-            1173,
-            1177,
-            1182,
-            1187,
-            1192,
-            1198,
-            1204,
-            1210,
+            1015,
+            1021,
+            1048,
+            1055,
+            1061,
+            1071,
+            1076,
+            1088,
+            1100,
+            1110,
+            1122,
+            1126,
+            1130,
+            1134,
+            1139,
+            1144,
+            1149,
+            1155,
+            1161,
+            1167,
+            1184,
+            1197,
+            1206,
+            1224,
             1227,
-            1240,
-            1249,
-            1267,
-            1270,
-            1294,
-            1305,
+            1251,
+            1262,
+            1275,
+            1279,
+            1283,
+            1297,
+            1312,
+            1315,
             1318,
-            1322,
-            1326,
-            1340,
+            1336,
+            1351,
             1355,
-            1358,
+            1359,
             1361,
-            1379,
-            1394,
-            1398,
-            1402,
+            1374,
+            1377,
+            1380,
+            1383,
+            1386,
+            1389,
+            1393,
+            1399,
             1404,
+            1407,
             1417,
-            1420,
             1423,
-            1426,
-            1429,
-            1432,
-            1436,
-            1443,
-            1448,
-            1451,
-            1461,
+            1428,
+            1431,
+            1439,
+            1449,
+            1459,
+            1462,
             1468,
-            1473,
-            1476,
+            1470,
             1484,
-            1495,
-            1506,
-            1509,
-            1515,
-            1517,
-            1531,
-            1537,
-            1548,
+            1490,
+            1501,
         ],
         indents: [
             0,

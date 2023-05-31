@@ -148,7 +148,7 @@ Ok(
                         OriginalAstError::ExpectedIdent(
                             TokenStreamState {
                                 next_token_idx: TokenIdx(
-                                    46,
+                                    44,
                                 ),
                                 drained: false,
                             },
@@ -186,13 +186,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `OddNat`,
                         token_idx: TokenIdx(
-                            85,
+                            83,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            86,
+                            84,
                         ),
                         drained: false,
                     },
@@ -228,13 +228,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `EvenNat`,
                         token_idx: TokenIdx(
-                            114,
+                            112,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            115,
+                            113,
                         ),
                         drained: false,
                     },

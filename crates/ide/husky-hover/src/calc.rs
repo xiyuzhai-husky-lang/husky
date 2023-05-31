@@ -75,7 +75,7 @@ impl<'a> HoverResultCalculator<'a> {
     fn gen_keyword_content(&self, kw: husky_token::Keyword) -> &'static str {
         match kw {
             husky_token::Keyword::Config(_keyword) => "This is a config keyword.",
-            husky_token::Keyword::Form(_keyword) => "This is a paradigm",
+            husky_token::Keyword::Fugitive(_keyword) => "This is a paradigm",
             _ => "Other",
         }
     }

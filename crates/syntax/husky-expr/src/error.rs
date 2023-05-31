@@ -122,6 +122,8 @@ pub enum OriginalExprError {
     HtmlTodo(TokenStreamState),
     #[error("UnexpectedLeftCurlyBrace")]
     UnexpectedLeftCurlyBrace(TokenIdx),
+    #[error("ExpectedTypeAfterLightArrow")]
+    ExpectedTypeAfterLightArrow { light_arrow_token: LightArrowToken },
 }
 
 impl OriginalExprError {
@@ -200,6 +202,7 @@ impl OriginalExprError {
                 TokenIdxRange::new_single(*token_idx)
             }
             OriginalExprError::ExpectedBlock(_) => todo!(),
+            OriginalExprError::ExpectedTypeAfterLightArrow { light_arrow_token } => todo!(),
         }
     }
 }

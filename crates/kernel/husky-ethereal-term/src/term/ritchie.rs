@@ -5,7 +5,7 @@ use super::*;
 /// representing term `x -> y`
 #[salsa::interned(db = EtherealTermDb, jar = EtherealTermJar, constructor = new_inner)]
 pub struct EtherealTermRitchie {
-    pub ritchie_kind: TermRitchieKind,
+    pub ritchie_kind: RitchieKind,
     #[return_ref]
     pub parameter_contracted_tys: Vec<TermRitchieParameterContractedType>,
     pub return_ty: EtherealTerm,
@@ -24,7 +24,7 @@ impl EtherealTermRitchie {
     /// returns EtherealTerm instead of EtherealTermApplication because it might reduce to a non application term
     pub fn new(
         db: &dyn EtherealTermDb,
-        ritchie_kind: TermRitchieKind,
+        ritchie_kind: RitchieKind,
         parameter_tys: impl IntoIterator<Item = TermRitchieParameterContractedType>,
         return_ty: EtherealTerm,
     ) -> EtherealTermResult<EtherealTermRitchie> {
@@ -42,7 +42,7 @@ impl EtherealTermRitchie {
     /// returns EtherealTerm instead of EtherealTermApplication because it might reduce to a non application term
     pub(crate) fn new_unchecked(
         db: &dyn EtherealTermDb,
-        ritchie_kind: TermRitchieKind,
+        ritchie_kind: RitchieKind,
         parameter_tys: impl IntoIterator<Item = TermRitchieParameterContractedType>,
         return_ty: EtherealTerm,
     ) -> EtherealTermRitchie {
@@ -61,7 +61,7 @@ impl EtherealTermRitchie {
     /// returns EtherealTerm instead of EtherealTermApplication because it might reduce to a non application term
     fn new_unchecked2<E>(
         db: &dyn EtherealTermDb,
-        ritchie_kind: TermRitchieKind,
+        ritchie_kind: RitchieKind,
         parameter_tys: impl IntoIterator<Item = Result<TermRitchieParameterContractedType, E>>,
         return_ty: EtherealTerm,
     ) -> EtherealTermResult<EtherealTermRitchie>
@@ -98,9 +98,9 @@ impl EtherealTermRitchie {
         ctx: &mut TermShowContext,
     ) -> std::fmt::Result {
         match self.ritchie_kind(db) {
-            TermRitchieKind::FnType => f.write_str("Fp(")?,
-            TermRitchieKind::FnTrait => f.write_str("Fn(")?,
-            TermRitchieKind::FnMutTrait => f.write_str("FnMut(")?,
+            RitchieKind::FnType => f.write_str("Fp(")?,
+            RitchieKind::FnTrait => f.write_str("Fn(")?,
+            RitchieKind::FnMutTrait => f.write_str("FnMut(")?,
         }
         for (i, parameter_contracted_ty) in self.parameter_contracted_tys(db).iter().enumerate() {
             if i > 0 {
@@ -152,9 +152,9 @@ where
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<EtherealTermJar>>::as_jar_db(db);
         match self.ritchie_kind(db) {
-            TermRitchieKind::FnType => f.write_str("Fp(")?,
-            TermRitchieKind::FnTrait => f.write_str("Fn(")?,
-            TermRitchieKind::FnMutTrait => f.write_str("FnMut(")?,
+            RitchieKind::FnType => f.write_str("Fp(")?,
+            RitchieKind::FnTrait => f.write_str("Fn(")?,
+            RitchieKind::FnMutTrait => f.write_str("FnMut(")?,
         }
         for (i, parameter_ty) in self.parameter_contracted_tys(db).iter().enumerate() {
             if i > 0 {

@@ -60,7 +60,7 @@ impl ExpectEqsFunctionTypeOutcome {
 #[salsa::derive_debug_with_db(db = FluffyTermDb)]
 pub enum ExpectEqsFunctionTypeOutcomeVariant {
     Ritchie {
-        ritchie_kind: TermRitchieKind,
+        ritchie_kind: RitchieKind,
         parameter_contracted_tys: Vec<FluffyTermRitchieParameterContractedType>,
     },
     Curry {

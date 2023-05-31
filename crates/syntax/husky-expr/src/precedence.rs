@@ -17,9 +17,10 @@ pub(crate) enum Precedence {
     Or = 1007,
     As = 1003,
     Is = 1002,
-    Curry = 105,
     Application = 54,
     Be = 23,
+    /// means `->`
+    Curry = 17,
     ListItem = 11,
     LambdaHead = 3,
     Method = 2,

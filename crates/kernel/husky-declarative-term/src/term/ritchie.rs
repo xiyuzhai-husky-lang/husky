@@ -1,13 +1,14 @@
 pub use context::*;
 
 use crate::*;
+use smallvec::SmallVec;
 
 /// representing declarative_term `x -> y`
 #[salsa::interned(db = DeclarativeTermDb, jar = DeclarativeTermJar)]
 pub struct DeclarativeTermRitchie {
-    pub ritchie_kind: TermRitchieKind,
+    pub ritchie_kind: RitchieKind,
     #[return_ref]
-    pub parameter_tys: Vec<DeclarativeTermRitchieParameterContractedType>,
+    pub parameter_tys: SmallVec<[DeclarativeTermRitchieParameterContractedType; 2]>,
     pub return_ty: DeclarativeTerm,
     // ty: DeclarativeTerm,
 }
@@ -20,9 +21,9 @@ impl DeclarativeTermRitchie {
         ctx: &mut DeclarativeTermShowContext,
     ) -> std::fmt::Result {
         match self.ritchie_kind(db) {
-            TermRitchieKind::FnType => f.write_str("Fp(")?,
-            TermRitchieKind::FnTrait => f.write_str("Fn(")?,
-            TermRitchieKind::FnMutTrait => f.write_str("FnMut(")?,
+            RitchieKind::FnType => f.write_str("Fp(")?,
+            RitchieKind::FnTrait => f.write_str("Fn(")?,
+            RitchieKind::FnMutTrait => f.write_str("FnMut(")?,
         }
         for (i, parameter_ty) in self.parameter_tys(db).iter().enumerate() {
             if i > 0 {
@@ -47,9 +48,9 @@ where
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<DeclarativeTermJar>>::as_jar_db(db);
         match self.ritchie_kind(db) {
-            TermRitchieKind::FnType => f.write_str("Fp(")?,
-            TermRitchieKind::FnTrait => f.write_str("Fn(")?,
-            TermRitchieKind::FnMutTrait => f.write_str("FnMut(")?,
+            RitchieKind::FnType => f.write_str("Fp(")?,
+            RitchieKind::FnTrait => f.write_str("Fn(")?,
+            RitchieKind::FnMutTrait => f.write_str("FnMut(")?,
         }
         for (i, parameter_ty) in self.parameter_tys(db).iter().enumerate() {
             if i > 0 {

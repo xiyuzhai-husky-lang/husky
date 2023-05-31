@@ -44,7 +44,7 @@ pub(crate) fn fn_path_declarative_ty(
         signature.implicit_parameters(db),
         DeclarativeTermRitchie::new(
             db,
-            TermRitchieKind::FnType,
+            RitchieKind::FnType,
             param_declarative_tys,
             return_declarative_ty,
         ),

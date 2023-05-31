@@ -338,15 +338,6 @@ Ok(
                                                             159,
                                                         ),
                                                     },
-                                                    Expr::Err(
-                                                        ExprError::Original(
-                                                            UnexpectedKeyword(
-                                                                TokenIdx(
-                                                                    161,
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
                                                     Expr::EntityPath {
                                                         entity_path_expr: 1,
                                                         path: Some(
@@ -362,7 +353,7 @@ Ok(
                                                         opr_token_idx: TokenIdx(
                                                             163,
                                                         ),
-                                                        opd: 6,
+                                                        opd: 5,
                                                     },
                                                     Expr::EntityPath {
                                                         entity_path_expr: 2,
@@ -374,34 +365,40 @@ Ok(
                                                             ),
                                                         ),
                                                     },
-                                                    Expr::ExplicitApplicationOrRitchieCall {
-                                                        function: 5,
-                                                        implicit_arguments: None,
-                                                        lpar_token_idx: TokenIdx(
-                                                            162,
-                                                        ),
-                                                        items: ArenaIdxRange(
-                                                            7..8,
-                                                        ),
-                                                        commas: [],
-                                                        rpar_token_idx: TokenIdx(
-                                                            165,
-                                                        ),
-                                                    },
                                                     Expr::Prefix {
                                                         opr: Option,
                                                         opr_token_idx: TokenIdx(
                                                             167,
                                                         ),
-                                                        opd: 8,
+                                                        opd: 7,
                                                     },
-                                                    Expr::Binary {
-                                                        lopd: 9,
-                                                        opr: Curry,
-                                                        opr_token_idx: TokenIdx(
-                                                            166,
+                                                    Expr::Ritchie {
+                                                        ritchie_kind_token_idx: TokenIdx(
+                                                            161,
                                                         ),
-                                                        ropd: 10,
+                                                        ritchie_kind: FnType,
+                                                        lpar_token: LeftParenthesisToken(
+                                                            TokenIdx(
+                                                                162,
+                                                            ),
+                                                        ),
+                                                        parameter_ty_exprs: ArenaIdxRange(
+                                                            6..7,
+                                                        ),
+                                                        commas: [],
+                                                        rpar_token_idx: TokenIdx(
+                                                            165,
+                                                        ),
+                                                        light_arrow_token: Some(
+                                                            LightArrowToken(
+                                                                TokenIdx(
+                                                                    166,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        return_ty_expr: Some(
+                                                            8,
+                                                        ),
                                                     },
                                                     Expr::ExplicitApplicationOrRitchieCall {
                                                         function: 4,
@@ -410,7 +407,7 @@ Ok(
                                                             160,
                                                         ),
                                                         items: ArenaIdxRange(
-                                                            11..12,
+                                                            9..10,
                                                         ),
                                                         commas: [],
                                                         rpar_token_idx: TokenIdx(
@@ -589,7 +586,7 @@ Ok(
                                                     (
                                                         ExplicitParameter {
                                                             pattern_expr: 1,
-                                                            ty: 12,
+                                                            ty: 10,
                                                         },
                                                         ArenaIdxRange(
                                                             1..2,
@@ -604,11 +601,11 @@ Ok(
                                                 },
                                                 ExprRoot {
                                                     kind: ExplicitParameterType,
-                                                    expr_idx: 12,
+                                                    expr_idx: 10,
                                                 },
                                                 ExprRoot {
                                                     kind: ReturnType,
-                                                    expr_idx: 13,
+                                                    expr_idx: 11,
                                                 },
                                             ],
                                         },
@@ -645,7 +642,7 @@ Ok(
                                                         157,
                                                     ),
                                                 ),
-                                                ty: 12,
+                                                ty: 10,
                                             },
                                         ],
                                         commas: [
@@ -670,7 +667,7 @@ Ok(
                                     ),
                                     return_ty: Some(
                                         ReturnTypeExpr {
-                                            expr: 13,
+                                            expr: 11,
                                         },
                                     ),
                                     eol_colon: EolToken::Colon(
@@ -741,15 +738,6 @@ Ok(
                                                                     159,
                                                                 ),
                                                             },
-                                                            Expr::Err(
-                                                                ExprError::Original(
-                                                                    UnexpectedKeyword(
-                                                                        TokenIdx(
-                                                                            161,
-                                                                        ),
-                                                                    ),
-                                                                ),
-                                                            ),
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 1,
                                                                 path: Some(
@@ -765,7 +753,7 @@ Ok(
                                                                 opr_token_idx: TokenIdx(
                                                                     163,
                                                                 ),
-                                                                opd: 6,
+                                                                opd: 5,
                                                             },
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 2,
@@ -777,34 +765,40 @@ Ok(
                                                                     ),
                                                                 ),
                                                             },
-                                                            Expr::ExplicitApplicationOrRitchieCall {
-                                                                function: 5,
-                                                                implicit_arguments: None,
-                                                                lpar_token_idx: TokenIdx(
-                                                                    162,
-                                                                ),
-                                                                items: ArenaIdxRange(
-                                                                    7..8,
-                                                                ),
-                                                                commas: [],
-                                                                rpar_token_idx: TokenIdx(
-                                                                    165,
-                                                                ),
-                                                            },
                                                             Expr::Prefix {
                                                                 opr: Option,
                                                                 opr_token_idx: TokenIdx(
                                                                     167,
                                                                 ),
-                                                                opd: 8,
+                                                                opd: 7,
                                                             },
-                                                            Expr::Binary {
-                                                                lopd: 9,
-                                                                opr: Curry,
-                                                                opr_token_idx: TokenIdx(
-                                                                    166,
+                                                            Expr::Ritchie {
+                                                                ritchie_kind_token_idx: TokenIdx(
+                                                                    161,
                                                                 ),
-                                                                ropd: 10,
+                                                                ritchie_kind: FnType,
+                                                                lpar_token: LeftParenthesisToken(
+                                                                    TokenIdx(
+                                                                        162,
+                                                                    ),
+                                                                ),
+                                                                parameter_ty_exprs: ArenaIdxRange(
+                                                                    6..7,
+                                                                ),
+                                                                commas: [],
+                                                                rpar_token_idx: TokenIdx(
+                                                                    165,
+                                                                ),
+                                                                light_arrow_token: Some(
+                                                                    LightArrowToken(
+                                                                        TokenIdx(
+                                                                            166,
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                                return_ty_expr: Some(
+                                                                    8,
+                                                                ),
                                                             },
                                                             Expr::ExplicitApplicationOrRitchieCall {
                                                                 function: 4,
@@ -813,7 +807,7 @@ Ok(
                                                                     160,
                                                                 ),
                                                                 items: ArenaIdxRange(
-                                                                    11..12,
+                                                                    9..10,
                                                                 ),
                                                                 commas: [],
                                                                 rpar_token_idx: TokenIdx(
@@ -992,7 +986,7 @@ Ok(
                                                             (
                                                                 ExplicitParameter {
                                                                     pattern_expr: 1,
-                                                                    ty: 12,
+                                                                    ty: 10,
                                                                 },
                                                                 ArenaIdxRange(
                                                                     1..2,
@@ -1007,11 +1001,11 @@ Ok(
                                                         },
                                                         ExprRoot {
                                                             kind: ExplicitParameterType,
-                                                            expr_idx: 12,
+                                                            expr_idx: 10,
                                                         },
                                                         ExprRoot {
                                                             kind: ReturnType,
-                                                            expr_idx: 13,
+                                                            expr_idx: 11,
                                                         },
                                                     ],
                                                 },

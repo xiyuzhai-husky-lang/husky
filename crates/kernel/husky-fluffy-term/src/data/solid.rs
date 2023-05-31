@@ -26,7 +26,7 @@ pub enum SolidTermData {
         return_ty: SolidTerm,
     },
     Ritchie {
-        ritchie_kind: TermRitchieKind,
+        ritchie_kind: RitchieKind,
         // use fluffy term here because we don't want to recreate vectors when converting
         parameter_contracted_tys: SmallVec<[FluffyTermRitchieParameterContractedType; 2]>,
         return_ty: SolidTerm,

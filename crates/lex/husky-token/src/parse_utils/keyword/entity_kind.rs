@@ -164,20 +164,24 @@ where
             _ => return Ok(None),
         };
         match kw {
-            Keyword::Form(kw) => match kw {
-                FormKeyword::Def => todo!(),
-                FormKeyword::Fn => Ok(Some(EntityKindKeywordGroup::Fn(FormFnToken { token_idx }))),
-                FormKeyword::Theorem => Ok(Some(EntityKindKeywordGroup::GeneralDef(
+            Keyword::Fugitive(kw) => match kw {
+                FugitiveKeyword::Def => todo!(),
+                FugitiveKeyword::Fn => {
+                    Ok(Some(EntityKindKeywordGroup::Fn(FormFnToken { token_idx })))
+                }
+                FugitiveKeyword::Theorem => Ok(Some(EntityKindKeywordGroup::GeneralDef(
                     GeneralDefToken::Theorem(TheoremToken { token_idx }),
                 ))),
-                FormKeyword::Lemma => todo!(),
-                FormKeyword::Proposition => todo!(),
-                FormKeyword::Type => {
+                FugitiveKeyword::Lemma => todo!(),
+                FugitiveKeyword::Proposition => todo!(),
+                FugitiveKeyword::Type => {
                     Ok(Some(EntityKindKeywordGroup::Type(TypeToken { token_idx })))
                 }
-                FormKeyword::Val => Ok(Some(EntityKindKeywordGroup::Val(ValToken { token_idx }))),
-                FormKeyword::Gn => Ok(Some(EntityKindKeywordGroup::Gn(GnToken { token_idx }))),
-                FormKeyword::Constexpr => todo!(),
+                FugitiveKeyword::Val => {
+                    Ok(Some(EntityKindKeywordGroup::Val(ValToken { token_idx })))
+                }
+                FugitiveKeyword::Gn => Ok(Some(EntityKindKeywordGroup::Gn(GnToken { token_idx }))),
+                FugitiveKeyword::Constexpr => todo!(),
             },
             Keyword::TypeEntity(keyword) => {
                 Ok(Some(EntityKindKeywordGroup::TypeEntity(TypeEntityToken {
@@ -193,7 +197,7 @@ where
             }))),
             Keyword::Const => todo!(),
             Keyword::Static => match token_stream.peek() {
-                Some(Token::Keyword(Keyword::Form(FormKeyword::Fn))) => {
+                Some(Token::Keyword(Keyword::Fugitive(FugitiveKeyword::Fn))) => {
                     token_stream.next();
                     Ok(Some(EntityKindKeywordGroup::StaticFn(
                         StaticToken { token_idx },

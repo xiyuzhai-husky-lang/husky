@@ -99,17 +99,19 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             OriginalAstError::Todo => {
                 format!("Syntax Error: ast error todo")
             }
-            OriginalAstError::UnexpectedEndAfterFormKeywordInsideModule => {
-                format!("Syntax Error: UnexpectedEndAfterFormKeywordInsideModule")
+            OriginalAstError::UnexpectedEndAfterFugitiveKeywordInsideModule => {
+                format!("Syntax Error: UnexpectedEndAfterFugitiveKeywordInsideModule")
             }
-            OriginalAstError::UnexpectedEndAfterFormKeywordInsideTrait => {
-                format!("Syntax Error: UnexpectedEndAfterFormKeywordInsideTrait")
+            OriginalAstError::UnexpectedEndAfterFugitiveKeywordInsideTrait => {
+                format!("Syntax Error: UnexpectedEndAfterFugitiveKeywordInsideTrait")
             }
-            OriginalAstError::UnexpectedEndAfterFormKeywordInsideTypeImplBlock => {
-                format!("Syntax Error: UnexpectedEndAfterFormKeywordInsideTypeImplBlock")
+            OriginalAstError::UnexpectedEndAfterFugitiveKeywordInsideTypeImplBlock => {
+                format!("Syntax Error: UnexpectedEndAfterFugitiveKeywordInsideTypeImplBlock")
             }
-            OriginalAstError::UnexpectedEndAfterFormKeywordInsideTraitForTypeImplBlock => {
-                format!("Syntax Error: UnexpectedEndAfterFormKeywordInsideTraitForTypeImplBlock")
+            OriginalAstError::UnexpectedEndAfterFugitiveKeywordInsideTraitForTypeImplBlock => {
+                format!(
+                    "Syntax Error: UnexpectedEndAfterFugitiveKeywordInsideTraitForTypeImplBlock"
+                )
             }
             OriginalAstError::UnexpectedStmtInsideTrait => {
                 format!("Syntax Error: UnexpectedStmtInsideTrait")
@@ -199,10 +201,10 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             | OriginalAstError::UnexpectedStmtInsideImplBlock
             | OriginalAstError::InvalidAstForDefinitionOrUse
             | OriginalAstError::Todo
-            | OriginalAstError::UnexpectedEndAfterFormKeywordInsideModule
-            | OriginalAstError::UnexpectedEndAfterFormKeywordInsideTrait
-            | OriginalAstError::UnexpectedEndAfterFormKeywordInsideTypeImplBlock
-            | OriginalAstError::UnexpectedEndAfterFormKeywordInsideTraitForTypeImplBlock
+            | OriginalAstError::UnexpectedEndAfterFugitiveKeywordInsideModule
+            | OriginalAstError::UnexpectedEndAfterFugitiveKeywordInsideTrait
+            | OriginalAstError::UnexpectedEndAfterFugitiveKeywordInsideTypeImplBlock
+            | OriginalAstError::UnexpectedEndAfterFugitiveKeywordInsideTraitForTypeImplBlock
             | OriginalAstError::UnexpectedStmtInsideTrait
             | OriginalAstError::UnexpectedMainInsideTrait
             | OriginalAstError::UnexpectedUseInsideTrait

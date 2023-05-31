@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash, Serialize, Deserialize)]
-pub enum FormKeyword {
+pub enum FugitiveKeyword {
     Def,
     Fn,
     Theorem,
@@ -13,23 +13,23 @@ pub enum FormKeyword {
     Gn,
 }
 
-impl FormKeyword {
+impl FugitiveKeyword {
     pub const fn code(self) -> &'static str {
         match self {
-            FormKeyword::Def => "def",
-            FormKeyword::Fn => "fn",
-            FormKeyword::Theorem => "theorem",
-            FormKeyword::Lemma => "lemma",
-            FormKeyword::Proposition => "proposition",
-            FormKeyword::Type => "type",
-            FormKeyword::Val => "val",
-            FormKeyword::Constexpr => "constexpr",
-            FormKeyword::Gn => "gn",
+            FugitiveKeyword::Def => "def",
+            FugitiveKeyword::Fn => "fn",
+            FugitiveKeyword::Theorem => "theorem",
+            FugitiveKeyword::Lemma => "lemma",
+            FugitiveKeyword::Proposition => "proposition",
+            FugitiveKeyword::Type => "type",
+            FugitiveKeyword::Val => "val",
+            FugitiveKeyword::Constexpr => "constexpr",
+            FugitiveKeyword::Gn => "gn",
         }
     }
 }
 
-impl Deref for FormKeyword {
+impl Deref for FugitiveKeyword {
     type Target = str;
 
     fn deref(&self) -> &Self::Target {
@@ -37,8 +37,8 @@ impl Deref for FormKeyword {
     }
 }
 
-impl From<FormKeyword> for Token {
-    fn from(kw: FormKeyword) -> Self {
+impl From<FugitiveKeyword> for Token {
+    fn from(kw: FugitiveKeyword) -> Self {
         Token::Keyword(kw.into())
     }
 }

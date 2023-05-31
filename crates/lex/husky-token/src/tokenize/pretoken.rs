@@ -117,8 +117,8 @@ impl From<WordOpr> for Pretoken {
     }
 }
 
-impl From<FormKeyword> for Pretoken {
-    fn from(val: FormKeyword) -> Self {
+impl From<FugitiveKeyword> for Pretoken {
+    fn from(val: FugitiveKeyword) -> Self {
         Pretoken::Certain(val.into())
     }
 }
@@ -390,6 +390,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
             match c_start {
                 '=' => match self.peek_char() {
                     Some('=') => self.pass_two(Punctuation::EQ_EQ),
+                    Some('>') => self.pass_two(Punctuation::HEAVY_ARROW),
                     _ => Punctuation::EQ,
                 },
                 ':' => match self.peek_char() {
@@ -438,7 +439,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                 '-' => match self.peek_char() {
                     Some('=') => self.pass_two(Punctuation::SUB_ASSIGN),
                     Some('-') => self.pass_two(Punctuation::DECR),
-                    Some('>') => self.pass_two(Punctuation::THIN_ARROW),
+                    Some('>') => self.pass_two(Punctuation::LIGHT_ARROW),
                     _ => return Some(Pretoken::Ambiguous(AmbiguousPretoken::SubOrMinus)),
                 },
                 '<' => match self.peek_char() {

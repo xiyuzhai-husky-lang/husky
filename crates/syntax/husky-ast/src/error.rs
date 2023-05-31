@@ -64,14 +64,14 @@ pub enum OriginalAstError {
     InvalidAstForDefinitionOrUse,
     #[error("todo")]
     Todo,
-    #[error("UnexpectedEndAfterFormKeywordInsideModule")]
-    UnexpectedEndAfterFormKeywordInsideModule,
-    #[error("UnexpectedEndAfterFormKeywordInsideTrait")]
-    UnexpectedEndAfterFormKeywordInsideTrait,
-    #[error("UnexpectedEndAfterFormKeywordInsideTypeImplBlock")]
-    UnexpectedEndAfterFormKeywordInsideTypeImplBlock,
-    #[error("UnexpectedEndAfterFormKeywordInsideTraitForTypeImplBlock")]
-    UnexpectedEndAfterFormKeywordInsideTraitForTypeImplBlock,
+    #[error("UnexpectedEndAfterFugitiveKeywordInsideModule")]
+    UnexpectedEndAfterFugitiveKeywordInsideModule,
+    #[error("UnexpectedEndAfterFugitiveKeywordInsideTrait")]
+    UnexpectedEndAfterFugitiveKeywordInsideTrait,
+    #[error("UnexpectedEndAfterFugitiveKeywordInsideTypeImplBlock")]
+    UnexpectedEndAfterFugitiveKeywordInsideTypeImplBlock,
+    #[error("UnexpectedEndAfterFugitiveKeywordInsideTraitForTypeImplBlock")]
+    UnexpectedEndAfterFugitiveKeywordInsideTraitForTypeImplBlock,
     #[error("UnexpectedStmtInsideTrait")]
     UnexpectedStmtInsideTrait,
     #[error("UnexpectedStmtInsideModule")]
