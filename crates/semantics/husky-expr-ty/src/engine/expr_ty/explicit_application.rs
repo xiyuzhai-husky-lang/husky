@@ -22,7 +22,7 @@ impl<'a> ExprTypeEngine<'a> {
             } => {
                 self.infer_new_expr_ty_discarded(
                     argument,
-                    ExpectImplicitlyConvertible::new_const(self, *parameter_ty),
+                    ExpectImplicitlyConvertible::new_const(*parameter_ty),
                 );
                 match parameter_symbol {
                     Some(_) => todo!(),

@@ -162,7 +162,10 @@ impl<'a> ExprTypeEngine<'a> {
                     ),
                     None => self.infer_new_expr_ty_discarded(root.expr(), ExpectAnyDerived),
                 },
-                ExprRootKind::FieldBindInitialValue { ty_expr_idx } => todo!(),
+                ExprRootKind::FieldBindInitialValue { ty_expr_idx } => {
+                    let _ = self.expr_terms[ty_expr_idx];
+                    todo!()
+                }
                 ExprRootKind::ReturnExpr
                 | ExprRootKind::Condition
                 | ExprRootKind::HtmlArgumentExpr

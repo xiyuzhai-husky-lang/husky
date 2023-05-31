@@ -23,12 +23,7 @@ impl ExpectImplicitlyConvertible {
     }
 
     #[inline(always)]
-    pub fn new_const(engine: &impl FluffyTermEngine, ty: FluffyTerm) -> Self {
-        #[cfg(test)]
-        match ty.data(engine) {
-            FluffyTermData::PlaceTypeOntology { .. } => unreachable!(),
-            _ => (),
-        }
+    pub fn new_const(ty: FluffyTerm) -> Self {
         Self {
             parameter_contracted_ty: FluffyTermRitchieParameterContractedType::new(
                 Contract::Const,
