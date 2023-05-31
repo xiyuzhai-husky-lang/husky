@@ -40,6 +40,7 @@ pub enum ExprRootKind {
     Snippet,
     Traits,
     ValExpr,
+    EvalExpr,
 }
 
 impl<'a> ExprParser<'a> {

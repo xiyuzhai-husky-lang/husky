@@ -18,6 +18,8 @@ use husky_expr::{
 /// preparation for generating signature
 ///
 /// contains terms, symbols and liasons
+///
+/// should contains term information enough for generating declarations
 #[derive(Debug, PartialEq, Eq)]
 pub struct DeclarativeTermRegion {
     path: RegionPath,

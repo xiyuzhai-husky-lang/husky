@@ -304,16 +304,67 @@ Ok(
                                             },
                                             roots: [
                                                 ExprRoot {
-                                                    kind: FieldType,
-                                                    expr: 4,
+                                                    kind: RegularStructFieldType {
+                                                        ident_token: IdentToken {
+                                                            ident: Ident(
+                                                                Word(
+                                                                    Id {
+                                                                        value: 217,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            token_idx: TokenIdx(
+                                                                43,
+                                                            ),
+                                                        },
+                                                    },
+                                                    expr_idx: 4,
                                                 },
                                                 ExprRoot {
-                                                    kind: FieldType,
-                                                    expr: 5,
+                                                    kind: RegularStructFieldType {
+                                                        ident_token: IdentToken {
+                                                            ident: Ident(
+                                                                Word(
+                                                                    Id {
+                                                                        value: 266,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            token_idx: TokenIdx(
+                                                                50,
+                                                            ),
+                                                        },
+                                                    },
+                                                    expr_idx: 5,
                                                 },
                                                 ExprRoot {
-                                                    kind: FieldType,
-                                                    expr: 11,
+                                                    kind: FieldBindInitialValue {
+                                                        ty_expr_idx: 5,
+                                                    },
+                                                    expr_idx: 10,
+                                                },
+                                                ExprRoot {
+                                                    kind: RegularStructFieldType {
+                                                        ident_token: IdentToken {
+                                                            ident: Ident(
+                                                                Word(
+                                                                    Id {
+                                                                        value: 267,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            token_idx: TokenIdx(
+                                                                67,
+                                                            ),
+                                                        },
+                                                    },
+                                                    expr_idx: 11,
+                                                },
+                                                ExprRoot {
+                                                    kind: FieldBindInitialValue {
+                                                        ty_expr_idx: 11,
+                                                    },
+                                                    expr_idx: 16,
                                                 },
                                             ],
                                         },
@@ -340,7 +391,7 @@ Ok(
                                                         44,
                                                     ),
                                                 ),
-                                                ty: 4,
+                                                ty_expr_idx: 4,
                                                 initialization: None,
                                             },
                                             RegularStructFieldDeclPattern {
@@ -357,7 +408,7 @@ Ok(
                                                         51,
                                                     ),
                                                 ),
-                                                ty: 5,
+                                                ty_expr_idx: 5,
                                                 initialization: Some(
                                                     Bind {
                                                         colon_eq_token: ColonEqToken(
@@ -383,7 +434,7 @@ Ok(
                                                         68,
                                                     ),
                                                 ),
-                                                ty: 11,
+                                                ty_expr_idx: 11,
                                                 initialization: Some(
                                                     Bind {
                                                         colon_eq_token: ColonEqToken(
@@ -557,12 +608,38 @@ Ok(
                                             },
                                             roots: [
                                                 ExprRoot {
-                                                    kind: FieldType,
-                                                    expr: 1,
+                                                    kind: RegularStructFieldType {
+                                                        ident_token: IdentToken {
+                                                            ident: Ident(
+                                                                Word(
+                                                                    Id {
+                                                                        value: 306,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            token_idx: TokenIdx(
+                                                                175,
+                                                            ),
+                                                        },
+                                                    },
+                                                    expr_idx: 1,
                                                 },
                                                 ExprRoot {
-                                                    kind: FieldType,
-                                                    expr: 4,
+                                                    kind: RegularStructFieldType {
+                                                        ident_token: IdentToken {
+                                                            ident: Ident(
+                                                                Word(
+                                                                    Id {
+                                                                        value: 349,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            token_idx: TokenIdx(
+                                                                180,
+                                                            ),
+                                                        },
+                                                    },
+                                                    expr_idx: 4,
                                                 },
                                             ],
                                         },
@@ -589,7 +666,7 @@ Ok(
                                                         176,
                                                     ),
                                                 ),
-                                                ty: 1,
+                                                ty_expr_idx: 1,
                                                 initialization: None,
                                             },
                                             RegularStructFieldDeclPattern {
@@ -606,7 +683,7 @@ Ok(
                                                         181,
                                                     ),
                                                 ),
-                                                ty: 4,
+                                                ty_expr_idx: 4,
                                                 initialization: None,
                                             },
                                         ],
@@ -855,8 +932,16 @@ Ok(
                                             },
                                             roots: [
                                                 ExprRoot {
+                                                    kind: ExplicitParameterType,
+                                                    expr_idx: 0,
+                                                },
+                                                ExprRoot {
+                                                    kind: ExplicitParameterType,
+                                                    expr_idx: 1,
+                                                },
+                                                ExprRoot {
                                                     kind: ReturnType,
-                                                    expr: 2,
+                                                    expr_idx: 2,
                                                 },
                                             ],
                                         },
@@ -1137,8 +1222,16 @@ Ok(
                                                     },
                                                     roots: [
                                                         ExprRoot {
+                                                            kind: ExplicitParameterType,
+                                                            expr_idx: 0,
+                                                        },
+                                                        ExprRoot {
+                                                            kind: ExplicitParameterType,
+                                                            expr_idx: 1,
+                                                        },
+                                                        ExprRoot {
                                                             kind: ReturnType,
-                                                            expr: 2,
+                                                            expr_idx: 2,
                                                         },
                                                     ],
                                                 },
@@ -1767,9 +1860,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        12,
-                                                    ),
+                                                    initial_value: 12,
                                                 },
                                                 Stmt::Assert {
                                                     assert_token: AssertToken {
@@ -1777,9 +1868,7 @@ Ok(
                                                             409,
                                                         ),
                                                     },
-                                                    condition: Ok(
-                                                        15,
-                                                    ),
+                                                    condition: 15,
                                                 },
                                                 Stmt::Let {
                                                     let_token: LetToken {
@@ -1806,9 +1895,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        28,
-                                                    ),
+                                                    initial_value: 28,
                                                 },
                                                 Stmt::Let {
                                                     let_token: LetToken {
@@ -1835,9 +1922,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        34,
-                                                    ),
+                                                    initial_value: 34,
                                                 },
                                                 Stmt::Let {
                                                     let_token: LetToken {
@@ -1864,9 +1949,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        41,
-                                                    ),
+                                                    initial_value: 41,
                                                 },
                                                 Stmt::Eval {
                                                     expr_idx: 51,
@@ -2080,8 +2163,32 @@ Ok(
                                         },
                                         roots: [
                                             ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 12,
+                                            },
+                                            ExprRoot {
+                                                kind: Condition,
+                                                expr_idx: 15,
+                                            },
+                                            ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 28,
+                                            },
+                                            ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 34,
+                                            },
+                                            ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 41,
+                                            },
+                                            ExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 51,
+                                            },
+                                            ExprRoot {
                                                 kind: BlockExpr,
-                                                expr: 52,
+                                                expr_idx: 52,
                                             },
                                         ],
                                     },
@@ -2315,8 +2422,16 @@ Ok(
                                             },
                                             roots: [
                                                 ExprRoot {
+                                                    kind: ExplicitParameterType,
+                                                    expr_idx: 0,
+                                                },
+                                                ExprRoot {
+                                                    kind: ExplicitParameterType,
+                                                    expr_idx: 1,
+                                                },
+                                                ExprRoot {
                                                     kind: ReturnType,
-                                                    expr: 2,
+                                                    expr_idx: 2,
                                                 },
                                             ],
                                         },
@@ -2597,8 +2712,16 @@ Ok(
                                                     },
                                                     roots: [
                                                         ExprRoot {
+                                                            kind: ExplicitParameterType,
+                                                            expr_idx: 0,
+                                                        },
+                                                        ExprRoot {
+                                                            kind: ExplicitParameterType,
+                                                            expr_idx: 1,
+                                                        },
+                                                        ExprRoot {
                                                             kind: ReturnType,
-                                                            expr: 2,
+                                                            expr_idx: 2,
                                                         },
                                                     ],
                                                 },
@@ -3227,9 +3350,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        12,
-                                                    ),
+                                                    initial_value: 12,
                                                 },
                                                 Stmt::Assert {
                                                     assert_token: AssertToken {
@@ -3237,9 +3358,7 @@ Ok(
                                                             506,
                                                         ),
                                                     },
-                                                    condition: Ok(
-                                                        15,
-                                                    ),
+                                                    condition: 15,
                                                 },
                                                 Stmt::Let {
                                                     let_token: LetToken {
@@ -3266,9 +3385,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        28,
-                                                    ),
+                                                    initial_value: 28,
                                                 },
                                                 Stmt::Let {
                                                     let_token: LetToken {
@@ -3295,9 +3412,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        35,
-                                                    ),
+                                                    initial_value: 35,
                                                 },
                                                 Stmt::Let {
                                                     let_token: LetToken {
@@ -3324,9 +3439,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        41,
-                                                    ),
+                                                    initial_value: 41,
                                                 },
                                                 Stmt::Eval {
                                                     expr_idx: 51,
@@ -3540,8 +3653,32 @@ Ok(
                                         },
                                         roots: [
                                             ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 12,
+                                            },
+                                            ExprRoot {
+                                                kind: Condition,
+                                                expr_idx: 15,
+                                            },
+                                            ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 28,
+                                            },
+                                            ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 35,
+                                            },
+                                            ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 41,
+                                            },
+                                            ExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 51,
+                                            },
+                                            ExprRoot {
                                                 kind: BlockExpr,
-                                                expr: 52,
+                                                expr_idx: 52,
                                             },
                                         ],
                                     },
@@ -3844,8 +3981,20 @@ Ok(
                                             },
                                             roots: [
                                                 ExprRoot {
+                                                    kind: ExplicitParameterType,
+                                                    expr_idx: 1,
+                                                },
+                                                ExprRoot {
+                                                    kind: ExplicitParameterType,
+                                                    expr_idx: 2,
+                                                },
+                                                ExprRoot {
+                                                    kind: ExplicitParameterType,
+                                                    expr_idx: 3,
+                                                },
+                                                ExprRoot {
                                                     kind: ReturnType,
-                                                    expr: 4,
+                                                    expr_idx: 4,
                                                 },
                                             ],
                                         },
@@ -4212,8 +4361,20 @@ Ok(
                                                     },
                                                     roots: [
                                                         ExprRoot {
+                                                            kind: ExplicitParameterType,
+                                                            expr_idx: 1,
+                                                        },
+                                                        ExprRoot {
+                                                            kind: ExplicitParameterType,
+                                                            expr_idx: 2,
+                                                        },
+                                                        ExprRoot {
+                                                            kind: ExplicitParameterType,
+                                                            expr_idx: 3,
+                                                        },
+                                                        ExprRoot {
                                                             kind: ReturnType,
-                                                            expr: 4,
+                                                            expr_idx: 4,
                                                         },
                                                     ],
                                                 },
@@ -5573,9 +5734,7 @@ Ok(
                                                             655,
                                                         ),
                                                     },
-                                                    result: Ok(
-                                                        35,
-                                                    ),
+                                                    result: 35,
                                                 },
                                                 Stmt::Break {
                                                     break_token: BreakToken {
@@ -5618,9 +5777,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        79,
-                                                    ),
+                                                    initial_value: 79,
                                                 },
                                                 Stmt::Let {
                                                     let_token: LetToken {
@@ -5647,9 +5804,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        83,
-                                                    ),
+                                                    initial_value: 83,
                                                 },
                                                 Stmt::IfElse {
                                                     if_branch: IfBranch {
@@ -5732,9 +5887,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        61,
-                                                    ),
+                                                    initial_value: 61,
                                                 },
                                                 Stmt::IfElse {
                                                     if_branch: IfBranch {
@@ -5848,9 +6001,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        0,
-                                                    ),
+                                                    initial_value: 0,
                                                 },
                                                 Stmt::Let {
                                                     let_token: LetToken {
@@ -5877,9 +6028,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        6,
-                                                    ),
+                                                    initial_value: 6,
                                                 },
                                                 Stmt::Let {
                                                     let_token: LetToken {
@@ -5906,9 +6055,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        9,
-                                                    ),
+                                                    initial_value: 9,
                                                 },
                                                 Stmt::Let {
                                                     let_token: LetToken {
@@ -5935,9 +6082,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        12,
-                                                    ),
+                                                    initial_value: 12,
                                                 },
                                                 Stmt::While {
                                                     while_token: WhileToken {
@@ -6016,9 +6161,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        39,
-                                                    ),
+                                                    initial_value: 39,
                                                 },
                                                 Stmt::Let {
                                                     let_token: LetToken {
@@ -6045,9 +6188,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        43,
-                                                    ),
+                                                    initial_value: 43,
                                                 },
                                                 Stmt::Let {
                                                     let_token: LetToken {
@@ -6074,9 +6215,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        44,
-                                                    ),
+                                                    initial_value: 44,
                                                 },
                                                 Stmt::While {
                                                     while_token: WhileToken {
@@ -6108,9 +6247,7 @@ Ok(
                                                             792,
                                                         ),
                                                     },
-                                                    condition: Ok(
-                                                        112,
-                                                    ),
+                                                    condition: 112,
                                                 },
                                                 Stmt::Return {
                                                     return_token: ReturnToken {
@@ -6118,9 +6255,7 @@ Ok(
                                                             796,
                                                         ),
                                                     },
-                                                    result: Ok(
-                                                        113,
-                                                    ),
+                                                    result: 113,
                                                 },
                                             ],
                                         },
@@ -6608,8 +6743,88 @@ Ok(
                                         },
                                         roots: [
                                             ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 0,
+                                            },
+                                            ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 6,
+                                            },
+                                            ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 9,
+                                            },
+                                            ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 12,
+                                            },
+                                            ExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 22,
+                                            },
+                                            ExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 30,
+                                            },
+                                            ExprRoot {
+                                                kind: ReturnExpr,
+                                                expr_idx: 35,
+                                            },
+                                            ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 39,
+                                            },
+                                            ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 43,
+                                            },
+                                            ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 44,
+                                            },
+                                            ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 61,
+                                            },
+                                            ExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 72,
+                                            },
+                                            ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 79,
+                                            },
+                                            ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 83,
+                                            },
+                                            ExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 91,
+                                            },
+                                            ExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 99,
+                                            },
+                                            ExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 101,
+                                            },
+                                            ExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 109,
+                                            },
+                                            ExprRoot {
+                                                kind: Condition,
+                                                expr_idx: 112,
+                                            },
+                                            ExprRoot {
+                                                kind: ReturnExpr,
+                                                expr_idx: 113,
+                                            },
+                                            ExprRoot {
                                                 kind: BlockExpr,
-                                                expr: 114,
+                                                expr_idx: 114,
                                             },
                                         ],
                                     },
@@ -6974,8 +7189,24 @@ Ok(
                                             },
                                             roots: [
                                                 ExprRoot {
+                                                    kind: ExplicitParameterType,
+                                                    expr_idx: 1,
+                                                },
+                                                ExprRoot {
+                                                    kind: ExplicitParameterType,
+                                                    expr_idx: 2,
+                                                },
+                                                ExprRoot {
+                                                    kind: ExplicitParameterType,
+                                                    expr_idx: 3,
+                                                },
+                                                ExprRoot {
+                                                    kind: ExplicitParameterType,
+                                                    expr_idx: 4,
+                                                },
+                                                ExprRoot {
                                                     kind: ReturnType,
-                                                    expr: 5,
+                                                    expr_idx: 5,
                                                 },
                                             ],
                                         },
@@ -7421,8 +7652,24 @@ Ok(
                                                     },
                                                     roots: [
                                                         ExprRoot {
+                                                            kind: ExplicitParameterType,
+                                                            expr_idx: 1,
+                                                        },
+                                                        ExprRoot {
+                                                            kind: ExplicitParameterType,
+                                                            expr_idx: 2,
+                                                        },
+                                                        ExprRoot {
+                                                            kind: ExplicitParameterType,
+                                                            expr_idx: 3,
+                                                        },
+                                                        ExprRoot {
+                                                            kind: ExplicitParameterType,
+                                                            expr_idx: 4,
+                                                        },
+                                                        ExprRoot {
                                                             kind: ReturnType,
-                                                            expr: 5,
+                                                            expr_idx: 5,
                                                         },
                                                     ],
                                                 },
@@ -8902,9 +9149,7 @@ Ok(
                                                             888,
                                                         ),
                                                     },
-                                                    result: Ok(
-                                                        36,
-                                                    ),
+                                                    result: 36,
                                                 },
                                                 Stmt::Break {
                                                     break_token: BreakToken {
@@ -8947,9 +9192,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        74,
-                                                    ),
+                                                    initial_value: 74,
                                                 },
                                                 Stmt::Let {
                                                     let_token: LetToken {
@@ -8976,9 +9219,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        78,
-                                                    ),
+                                                    initial_value: 78,
                                                 },
                                                 Stmt::IfElse {
                                                     if_branch: IfBranch {
@@ -9106,9 +9347,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        54,
-                                                    ),
+                                                    initial_value: 54,
                                                 },
                                                 Stmt::Let {
                                                     let_token: LetToken {
@@ -9135,9 +9374,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        56,
-                                                    ),
+                                                    initial_value: 56,
                                                 },
                                                 Stmt::IfElse {
                                                     if_branch: IfBranch {
@@ -9276,9 +9513,7 @@ Ok(
                                                             1058,
                                                         ),
                                                     },
-                                                    result: Ok(
-                                                        122,
-                                                    ),
+                                                    result: 122,
                                                 },
                                                 Stmt::Return {
                                                     return_token: ReturnToken {
@@ -9286,9 +9521,7 @@ Ok(
                                                             1062,
                                                         ),
                                                     },
-                                                    result: Ok(
-                                                        123,
-                                                    ),
+                                                    result: 123,
                                                 },
                                                 Stmt::Let {
                                                     let_token: LetToken {
@@ -9315,9 +9548,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        0,
-                                                    ),
+                                                    initial_value: 0,
                                                 },
                                                 Stmt::Let {
                                                     let_token: LetToken {
@@ -9344,9 +9575,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        6,
-                                                    ),
+                                                    initial_value: 6,
                                                 },
                                                 Stmt::Let {
                                                     let_token: LetToken {
@@ -9373,9 +9602,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        11,
-                                                    ),
+                                                    initial_value: 11,
                                                 },
                                                 Stmt::While {
                                                     while_token: WhileToken {
@@ -9454,9 +9681,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        40,
-                                                    ),
+                                                    initial_value: 40,
                                                 },
                                                 Stmt::Let {
                                                     let_token: LetToken {
@@ -9483,9 +9708,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        44,
-                                                    ),
+                                                    initial_value: 44,
                                                 },
                                                 Stmt::Let {
                                                     let_token: LetToken {
@@ -9512,9 +9735,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        45,
-                                                    ),
+                                                    initial_value: 45,
                                                 },
                                                 Stmt::While {
                                                     while_token: WhileToken {
@@ -10085,8 +10306,84 @@ Ok(
                                         },
                                         roots: [
                                             ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 0,
+                                            },
+                                            ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 6,
+                                            },
+                                            ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 11,
+                                            },
+                                            ExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 21,
+                                            },
+                                            ExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 29,
+                                            },
+                                            ExprRoot {
+                                                kind: ReturnExpr,
+                                                expr_idx: 36,
+                                            },
+                                            ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 40,
+                                            },
+                                            ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 44,
+                                            },
+                                            ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 45,
+                                            },
+                                            ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 54,
+                                            },
+                                            ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 56,
+                                            },
+                                            ExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 67,
+                                            },
+                                            ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 74,
+                                            },
+                                            ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 78,
+                                            },
+                                            ExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 86,
+                                            },
+                                            ExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 94,
+                                            },
+                                            ExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 118,
+                                            },
+                                            ExprRoot {
+                                                kind: ReturnExpr,
+                                                expr_idx: 122,
+                                            },
+                                            ExprRoot {
+                                                kind: ReturnExpr,
+                                                expr_idx: 123,
+                                            },
+                                            ExprRoot {
                                                 kind: BlockExpr,
-                                                expr: 124,
+                                                expr_idx: 124,
                                             },
                                         ],
                                     },
@@ -10342,8 +10639,16 @@ Ok(
                                             },
                                             roots: [
                                                 ExprRoot {
+                                                    kind: ExplicitParameterType,
+                                                    expr_idx: 1,
+                                                },
+                                                ExprRoot {
+                                                    kind: ExplicitParameterType,
+                                                    expr_idx: 2,
+                                                },
+                                                ExprRoot {
                                                     kind: ReturnType,
-                                                    expr: 5,
+                                                    expr_idx: 5,
                                                 },
                                             ],
                                         },
@@ -10646,8 +10951,16 @@ Ok(
                                                     },
                                                     roots: [
                                                         ExprRoot {
+                                                            kind: ExplicitParameterType,
+                                                            expr_idx: 1,
+                                                        },
+                                                        ExprRoot {
+                                                            kind: ExplicitParameterType,
+                                                            expr_idx: 2,
+                                                        },
+                                                        ExprRoot {
                                                             kind: ReturnType,
-                                                            expr: 5,
+                                                            expr_idx: 5,
                                                         },
                                                     ],
                                                 },
@@ -13230,9 +13543,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        48,
-                                                    ),
+                                                    initial_value: 48,
                                                 },
                                                 Stmt::Eval {
                                                     expr_idx: 59,
@@ -13265,9 +13576,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        30,
-                                                    ),
+                                                    initial_value: 30,
                                                 },
                                                 Stmt::Let {
                                                     let_token: LetToken {
@@ -13294,9 +13603,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        33,
-                                                    ),
+                                                    initial_value: 33,
                                                 },
                                                 Stmt::IfElse {
                                                     if_branch: IfBranch {
@@ -13351,9 +13658,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        118,
-                                                    ),
+                                                    initial_value: 118,
                                                 },
                                                 Stmt::Eval {
                                                     expr_idx: 129,
@@ -13383,9 +13688,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        82,
-                                                    ),
+                                                    initial_value: 82,
                                                 },
                                                 Stmt::Let {
                                                     let_token: LetToken {
@@ -13412,9 +13715,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        84,
-                                                    ),
+                                                    initial_value: 84,
                                                 },
                                                 Stmt::Let {
                                                     let_token: LetToken {
@@ -13441,9 +13742,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        86,
-                                                    ),
+                                                    initial_value: 86,
                                                 },
                                                 Stmt::Let {
                                                     let_token: LetToken {
@@ -13470,9 +13769,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        91,
-                                                    ),
+                                                    initial_value: 91,
                                                 },
                                                 Stmt::IfElse {
                                                     if_branch: IfBranch {
@@ -13533,9 +13830,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        76,
-                                                    ),
+                                                    initial_value: 76,
                                                 },
                                                 Stmt::IfElse {
                                                     if_branch: IfBranch {
@@ -13618,9 +13913,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        23,
-                                                    ),
+                                                    initial_value: 23,
                                                 },
                                                 Stmt::Let {
                                                     let_token: LetToken {
@@ -13647,9 +13940,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        24,
-                                                    ),
+                                                    initial_value: 24,
                                                 },
                                                 Stmt::IfElse {
                                                     if_branch: IfBranch {
@@ -13738,9 +14029,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        165,
-                                                    ),
+                                                    initial_value: 165,
                                                 },
                                                 Stmt::Eval {
                                                     expr_idx: 182,
@@ -13770,9 +14059,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        3,
-                                                    ),
+                                                    initial_value: 3,
                                                 },
                                                 Stmt::Let {
                                                     let_token: LetToken {
@@ -13799,9 +14086,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        4,
-                                                    ),
+                                                    initial_value: 4,
                                                 },
                                                 Stmt::Let {
                                                     let_token: LetToken {
@@ -13828,9 +14113,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        5,
-                                                    ),
+                                                    initial_value: 5,
                                                 },
                                                 Stmt::Let {
                                                     let_token: LetToken {
@@ -13857,9 +14140,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        8,
-                                                    ),
+                                                    initial_value: 8,
                                                 },
                                                 Stmt::While {
                                                     while_token: WhileToken {
@@ -13910,9 +14191,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        150,
-                                                    ),
+                                                    initial_value: 150,
                                                 },
                                                 Stmt::Let {
                                                     let_token: LetToken {
@@ -13939,9 +14218,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        154,
-                                                    ),
+                                                    initial_value: 154,
                                                 },
                                                 Stmt::Let {
                                                     let_token: LetToken {
@@ -13968,9 +14245,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        156,
-                                                    ),
+                                                    initial_value: 156,
                                                 },
                                                 Stmt::IfElse {
                                                     if_branch: IfBranch {
@@ -14830,8 +15105,128 @@ Ok(
                                         },
                                         roots: [
                                             ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 3,
+                                            },
+                                            ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 4,
+                                            },
+                                            ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 5,
+                                            },
+                                            ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 8,
+                                            },
+                                            ExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 18,
+                                            },
+                                            ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 23,
+                                            },
+                                            ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 24,
+                                            },
+                                            ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 30,
+                                            },
+                                            ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 33,
+                                            },
+                                            ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 48,
+                                            },
+                                            ExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 59,
+                                            },
+                                            ExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 62,
+                                            },
+                                            ExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 71,
+                                            },
+                                            ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 76,
+                                            },
+                                            ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 82,
+                                            },
+                                            ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 84,
+                                            },
+                                            ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 86,
+                                            },
+                                            ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 91,
+                                            },
+                                            ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 118,
+                                            },
+                                            ExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 129,
+                                            },
+                                            ExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 136,
+                                            },
+                                            ExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 139,
+                                            },
+                                            ExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 142,
+                                            },
+                                            ExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 147,
+                                            },
+                                            ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 150,
+                                            },
+                                            ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 154,
+                                            },
+                                            ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 156,
+                                            },
+                                            ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 165,
+                                            },
+                                            ExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 182,
+                                            },
+                                            ExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 183,
+                                            },
+                                            ExprRoot {
                                                 kind: BlockExpr,
-                                                expr: 184,
+                                                expr_idx: 184,
                                             },
                                         ],
                                     },
@@ -15010,11 +15405,11 @@ Ok(
                                         roots: [
                                             ExprRoot {
                                                 kind: Trait,
-                                                expr: 0,
+                                                expr_idx: 0,
                                             },
                                             ExprRoot {
                                                 kind: SelfType,
-                                                expr: 1,
+                                                expr_idx: 1,
                                             },
                                         ],
                                     },
@@ -15224,11 +15619,11 @@ Ok(
                                                             roots: [
                                                                 ExprRoot {
                                                                     kind: Trait,
-                                                                    expr: 0,
+                                                                    expr_idx: 0,
                                                                 },
                                                                 ExprRoot {
                                                                     kind: SelfType,
-                                                                    expr: 1,
+                                                                    expr_idx: 1,
                                                                 },
                                                             ],
                                                         },
@@ -15419,11 +15814,11 @@ Ok(
                                                                     roots: [
                                                                         ExprRoot {
                                                                             kind: Trait,
-                                                                            expr: 0,
+                                                                            expr_idx: 0,
                                                                         },
                                                                         ExprRoot {
                                                                             kind: SelfType,
-                                                                            expr: 1,
+                                                                            expr_idx: 1,
                                                                         },
                                                                     ],
                                                                 },
@@ -15659,8 +16054,20 @@ Ok(
                                             },
                                             roots: [
                                                 ExprRoot {
+                                                    kind: HtmlArgumentExpr,
+                                                    expr_idx: 1,
+                                                },
+                                                ExprRoot {
+                                                    kind: HtmlArgumentExpr,
+                                                    expr_idx: 3,
+                                                },
+                                                ExprRoot {
+                                                    kind: EvalExpr,
+                                                    expr_idx: 4,
+                                                },
+                                                ExprRoot {
                                                     kind: BlockExpr,
-                                                    expr: 5,
+                                                    expr_idx: 5,
                                                 },
                                             ],
                                         },
@@ -15802,7 +16209,7 @@ Ok(
                                         roots: [
                                             ExprRoot {
                                                 kind: SelfType,
-                                                expr: 0,
+                                                expr_idx: 0,
                                             },
                                         ],
                                     },
@@ -15938,7 +16345,7 @@ Ok(
                                                             roots: [
                                                                 ExprRoot {
                                                                     kind: SelfType,
-                                                                    expr: 0,
+                                                                    expr_idx: 0,
                                                                 },
                                                             ],
                                                         },
@@ -16220,8 +16627,20 @@ Ok(
                                                 },
                                                 roots: [
                                                     ExprRoot {
+                                                        kind: ExplicitParameterType,
+                                                        expr_idx: 1,
+                                                    },
+                                                    ExprRoot {
+                                                        kind: ExplicitParameterType,
+                                                        expr_idx: 2,
+                                                    },
+                                                    ExprRoot {
+                                                        kind: ExplicitParameterType,
+                                                        expr_idx: 3,
+                                                    },
+                                                    ExprRoot {
                                                         kind: ReturnType,
-                                                        expr: 4,
+                                                        expr_idx: 4,
                                                     },
                                                 ],
                                             },
@@ -16393,7 +16812,7 @@ Ok(
                                                                     roots: [
                                                                         ExprRoot {
                                                                             kind: SelfType,
-                                                                            expr: 0,
+                                                                            expr_idx: 0,
                                                                         },
                                                                     ],
                                                                 },
@@ -16675,8 +17094,20 @@ Ok(
                                                         },
                                                         roots: [
                                                             ExprRoot {
+                                                                kind: ExplicitParameterType,
+                                                                expr_idx: 1,
+                                                            },
+                                                            ExprRoot {
+                                                                kind: ExplicitParameterType,
+                                                                expr_idx: 2,
+                                                            },
+                                                            ExprRoot {
+                                                                kind: ExplicitParameterType,
+                                                                expr_idx: 3,
+                                                            },
+                                                            ExprRoot {
                                                                 kind: ReturnType,
-                                                                expr: 4,
+                                                                expr_idx: 4,
                                                             },
                                                         ],
                                                     },
@@ -16864,9 +17295,7 @@ Ok(
                                                                 135,
                                                             ),
                                                         },
-                                                        condition: Ok(
-                                                            2,
-                                                        ),
+                                                        condition: 2,
                                                     },
                                                     Stmt::Eval {
                                                         expr_idx: 11,
@@ -16930,8 +17359,16 @@ Ok(
                                             },
                                             roots: [
                                                 ExprRoot {
+                                                    kind: Condition,
+                                                    expr_idx: 2,
+                                                },
+                                                ExprRoot {
+                                                    kind: EvalExpr,
+                                                    expr_idx: 11,
+                                                },
+                                                ExprRoot {
                                                     kind: BlockExpr,
-                                                    expr: 12,
+                                                    expr_idx: 12,
                                                 },
                                             ],
                                         },
@@ -17124,7 +17561,7 @@ Ok(
                                                             roots: [
                                                                 ExprRoot {
                                                                     kind: SelfType,
-                                                                    expr: 0,
+                                                                    expr_idx: 0,
                                                                 },
                                                             ],
                                                         },
@@ -17206,7 +17643,7 @@ Ok(
                                                 roots: [
                                                     ExprRoot {
                                                         kind: ReturnType,
-                                                        expr: 0,
+                                                        expr_idx: 0,
                                                     },
                                                 ],
                                             },
@@ -17330,7 +17767,7 @@ Ok(
                                                                     roots: [
                                                                         ExprRoot {
                                                                             kind: SelfType,
-                                                                            expr: 0,
+                                                                            expr_idx: 0,
                                                                         },
                                                                     ],
                                                                 },
@@ -17412,7 +17849,7 @@ Ok(
                                                         roots: [
                                                             ExprRoot {
                                                                 kind: ReturnType,
-                                                                expr: 0,
+                                                                expr_idx: 0,
                                                             },
                                                         ],
                                                     },
@@ -17536,8 +17973,12 @@ Ok(
                                             },
                                             roots: [
                                                 ExprRoot {
+                                                    kind: EvalExpr,
+                                                    expr_idx: 4,
+                                                },
+                                                ExprRoot {
                                                     kind: BlockExpr,
-                                                    expr: 5,
+                                                    expr_idx: 5,
                                                 },
                                             ],
                                         },
@@ -17717,11 +18158,11 @@ Ok(
                                         roots: [
                                             ExprRoot {
                                                 kind: Trait,
-                                                expr: 0,
+                                                expr_idx: 0,
                                             },
                                             ExprRoot {
                                                 kind: SelfType,
-                                                expr: 1,
+                                                expr_idx: 1,
                                             },
                                         ],
                                     },
@@ -17931,11 +18372,11 @@ Ok(
                                                             roots: [
                                                                 ExprRoot {
                                                                     kind: Trait,
-                                                                    expr: 0,
+                                                                    expr_idx: 0,
                                                                 },
                                                                 ExprRoot {
                                                                     kind: SelfType,
-                                                                    expr: 1,
+                                                                    expr_idx: 1,
                                                                 },
                                                             ],
                                                         },
@@ -18018,7 +18459,7 @@ Ok(
                                                 roots: [
                                                     ExprRoot {
                                                         kind: ReturnType,
-                                                        expr: 0,
+                                                        expr_idx: 0,
                                                     },
                                                 ],
                                             },
@@ -18164,11 +18605,11 @@ Ok(
                                                                     roots: [
                                                                         ExprRoot {
                                                                             kind: Trait,
-                                                                            expr: 0,
+                                                                            expr_idx: 0,
                                                                         },
                                                                         ExprRoot {
                                                                             kind: SelfType,
-                                                                            expr: 1,
+                                                                            expr_idx: 1,
                                                                         },
                                                                     ],
                                                                 },
@@ -18251,7 +18692,7 @@ Ok(
                                                         roots: [
                                                             ExprRoot {
                                                                 kind: ReturnType,
-                                                                expr: 0,
+                                                                expr_idx: 0,
                                                             },
                                                         ],
                                                     },
@@ -18359,8 +18800,12 @@ Ok(
                                             },
                                             roots: [
                                                 ExprRoot {
+                                                    kind: EvalExpr,
+                                                    expr_idx: 2,
+                                                },
+                                                ExprRoot {
                                                     kind: BlockExpr,
-                                                    expr: 3,
+                                                    expr_idx: 3,
                                                 },
                                             ],
                                         },
@@ -18502,7 +18947,7 @@ Ok(
                                         roots: [
                                             ExprRoot {
                                                 kind: SelfType,
-                                                expr: 0,
+                                                expr_idx: 0,
                                             },
                                         ],
                                     },
@@ -18696,7 +19141,7 @@ Ok(
                                                             roots: [
                                                                 ExprRoot {
                                                                     kind: SelfType,
-                                                                    expr: 0,
+                                                                    expr_idx: 0,
                                                                 },
                                                             ],
                                                         },
@@ -18793,7 +19238,7 @@ Ok(
                                                 roots: [
                                                     ExprRoot {
                                                         kind: VarType,
-                                                        expr: 2,
+                                                        expr_idx: 2,
                                                     },
                                                 ],
                                             },
@@ -18881,7 +19326,7 @@ Ok(
                                                                     roots: [
                                                                         ExprRoot {
                                                                             kind: SelfType,
-                                                                            expr: 0,
+                                                                            expr_idx: 0,
                                                                         },
                                                                     ],
                                                                 },
@@ -18978,7 +19423,7 @@ Ok(
                                                         roots: [
                                                             ExprRoot {
                                                                 kind: VarType,
-                                                                expr: 2,
+                                                                expr_idx: 2,
                                                             },
                                                         ],
                                                     },
@@ -19087,8 +19532,12 @@ Ok(
                                             },
                                             roots: [
                                                 ExprRoot {
+                                                    kind: EvalExpr,
+                                                    expr_idx: 2,
+                                                },
+                                                ExprRoot {
                                                     kind: BlockExpr,
-                                                    expr: 3,
+                                                    expr_idx: 3,
                                                 },
                                             ],
                                         },
@@ -19286,7 +19735,7 @@ Ok(
                                                             roots: [
                                                                 ExprRoot {
                                                                     kind: SelfType,
-                                                                    expr: 0,
+                                                                    expr_idx: 0,
                                                                 },
                                                             ],
                                                         },
@@ -19368,7 +19817,7 @@ Ok(
                                                 roots: [
                                                     ExprRoot {
                                                         kind: VarType,
-                                                        expr: 0,
+                                                        expr_idx: 0,
                                                     },
                                                 ],
                                             },
@@ -19456,7 +19905,7 @@ Ok(
                                                                     roots: [
                                                                         ExprRoot {
                                                                             kind: SelfType,
-                                                                            expr: 0,
+                                                                            expr_idx: 0,
                                                                         },
                                                                     ],
                                                                 },
@@ -19538,7 +19987,7 @@ Ok(
                                                         roots: [
                                                             ExprRoot {
                                                                 kind: VarType,
-                                                                expr: 0,
+                                                                expr_idx: 0,
                                                             },
                                                         ],
                                                     },
@@ -20293,9 +20742,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        initial_value: Ok(
-                                                            22,
-                                                        ),
+                                                        initial_value: 22,
                                                     },
                                                     Stmt::Eval {
                                                         expr_idx: 28,
@@ -20334,9 +20781,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        initial_value: Ok(
-                                                            4,
-                                                        ),
+                                                        initial_value: 4,
                                                     },
                                                     Stmt::Let {
                                                         let_token: LetToken {
@@ -20363,9 +20808,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        initial_value: Ok(
-                                                            6,
-                                                        ),
+                                                        initial_value: 6,
                                                     },
                                                     Stmt::Let {
                                                         let_token: LetToken {
@@ -20392,9 +20835,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        initial_value: Ok(
-                                                            8,
-                                                        ),
+                                                        initial_value: 8,
                                                     },
                                                     Stmt::Let {
                                                         let_token: LetToken {
@@ -20421,9 +20862,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        initial_value: Ok(
-                                                            10,
-                                                        ),
+                                                        initial_value: 10,
                                                     },
                                                     Stmt::Let {
                                                         let_token: LetToken {
@@ -20450,9 +20889,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         ),
-                                                        initial_value: Ok(
-                                                            12,
-                                                        ),
+                                                        initial_value: 12,
                                                     },
                                                     Stmt::ForBetween {
                                                         for_token: StmtForToken {
@@ -20504,9 +20941,7 @@ Ok(
                                                                 326,
                                                             ),
                                                         },
-                                                        result: Ok(
-                                                            56,
-                                                        ),
+                                                        result: 56,
                                                     },
                                                 ],
                                             },
@@ -20830,8 +21265,52 @@ Ok(
                                             },
                                             roots: [
                                                 ExprRoot {
+                                                    kind: LetStmtInitialValue,
+                                                    expr_idx: 4,
+                                                },
+                                                ExprRoot {
+                                                    kind: LetStmtInitialValue,
+                                                    expr_idx: 6,
+                                                },
+                                                ExprRoot {
+                                                    kind: LetStmtInitialValue,
+                                                    expr_idx: 8,
+                                                },
+                                                ExprRoot {
+                                                    kind: LetStmtInitialValue,
+                                                    expr_idx: 10,
+                                                },
+                                                ExprRoot {
+                                                    kind: LetStmtInitialValue,
+                                                    expr_idx: 12,
+                                                },
+                                                ExprRoot {
+                                                    kind: LetStmtInitialValue,
+                                                    expr_idx: 22,
+                                                },
+                                                ExprRoot {
+                                                    kind: EvalExpr,
+                                                    expr_idx: 28,
+                                                },
+                                                ExprRoot {
+                                                    kind: EvalExpr,
+                                                    expr_idx: 34,
+                                                },
+                                                ExprRoot {
+                                                    kind: EvalExpr,
+                                                    expr_idx: 40,
+                                                },
+                                                ExprRoot {
+                                                    kind: EvalExpr,
+                                                    expr_idx: 46,
+                                                },
+                                                ExprRoot {
+                                                    kind: ReturnExpr,
+                                                    expr_idx: 56,
+                                                },
+                                                ExprRoot {
                                                     kind: BlockExpr,
-                                                    expr: 57,
+                                                    expr_idx: 57,
                                                 },
                                             ],
                                         },
@@ -20971,7 +21450,7 @@ Ok(
                                                             roots: [
                                                                 ExprRoot {
                                                                     kind: SelfType,
-                                                                    expr: 0,
+                                                                    expr_idx: 0,
                                                                 },
                                                             ],
                                                         },
@@ -21191,8 +21670,16 @@ Ok(
                                                 },
                                                 roots: [
                                                     ExprRoot {
+                                                        kind: ExplicitParameterType,
+                                                        expr_idx: 1,
+                                                    },
+                                                    ExprRoot {
+                                                        kind: ExplicitParameterType,
+                                                        expr_idx: 2,
+                                                    },
+                                                    ExprRoot {
                                                         kind: ReturnType,
-                                                        expr: 3,
+                                                        expr_idx: 3,
                                                     },
                                                 ],
                                             },
@@ -21347,7 +21834,7 @@ Ok(
                                                                     roots: [
                                                                         ExprRoot {
                                                                             kind: SelfType,
-                                                                            expr: 0,
+                                                                            expr_idx: 0,
                                                                         },
                                                                     ],
                                                                 },
@@ -21567,8 +22054,16 @@ Ok(
                                                         },
                                                         roots: [
                                                             ExprRoot {
+                                                                kind: ExplicitParameterType,
+                                                                expr_idx: 1,
+                                                            },
+                                                            ExprRoot {
+                                                                kind: ExplicitParameterType,
+                                                                expr_idx: 2,
+                                                            },
+                                                            ExprRoot {
                                                                 kind: ReturnType,
-                                                                expr: 3,
+                                                                expr_idx: 3,
                                                             },
                                                         ],
                                                     },
@@ -21764,8 +22259,12 @@ Ok(
                                             },
                                             roots: [
                                                 ExprRoot {
+                                                    kind: EvalExpr,
+                                                    expr_idx: 6,
+                                                },
+                                                ExprRoot {
                                                     kind: BlockExpr,
-                                                    expr: 7,
+                                                    expr_idx: 7,
                                                 },
                                             ],
                                         },

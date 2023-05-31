@@ -109,7 +109,7 @@ Ok(
                                             roots: [
                                                 ExprRoot {
                                                     kind: VarType,
-                                                    expr: 0,
+                                                    expr_idx: 0,
                                                 },
                                             ],
                                         },
@@ -268,8 +268,12 @@ Ok(
                                         },
                                         roots: [
                                             ExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 4,
+                                            },
+                                            ExprRoot {
                                                 kind: BlockExpr,
-                                                expr: 5,
+                                                expr_idx: 5,
                                             },
                                         ],
                                     },
@@ -397,7 +401,7 @@ Ok(
                                             roots: [
                                                 ExprRoot {
                                                     kind: VarType,
-                                                    expr: 1,
+                                                    expr_idx: 1,
                                                 },
                                             ],
                                         },
@@ -872,9 +876,7 @@ Ok(
                                                             77,
                                                         ),
                                                     },
-                                                    condition: Ok(
-                                                        25,
-                                                    ),
+                                                    condition: 25,
                                                 },
                                                 Stmt::IfElse {
                                                     if_branch: IfBranch {
@@ -910,9 +912,7 @@ Ok(
                                                             79,
                                                         ),
                                                     },
-                                                    condition: Ok(
-                                                        26,
-                                                    ),
+                                                    condition: 26,
                                                 },
                                                 Stmt::Require {
                                                     require_token: RequireToken {
@@ -920,9 +920,7 @@ Ok(
                                                             27,
                                                         ),
                                                     },
-                                                    condition: Ok(
-                                                        1,
-                                                    ),
+                                                    condition: 1,
                                                 },
                                                 Stmt::Require {
                                                     require_token: RequireToken {
@@ -930,9 +928,7 @@ Ok(
                                                             31,
                                                         ),
                                                     },
-                                                    condition: Ok(
-                                                        3,
-                                                    ),
+                                                    condition: 3,
                                                 },
                                                 Stmt::Require {
                                                     require_token: RequireToken {
@@ -940,9 +936,7 @@ Ok(
                                                             35,
                                                         ),
                                                     },
-                                                    condition: Ok(
-                                                        5,
-                                                    ),
+                                                    condition: 5,
                                                 },
                                                 Stmt::Require {
                                                     require_token: RequireToken {
@@ -950,9 +944,7 @@ Ok(
                                                             39,
                                                         ),
                                                     },
-                                                    condition: Ok(
-                                                        7,
-                                                    ),
+                                                    condition: 7,
                                                 },
                                                 Stmt::Let {
                                                     let_token: LetToken {
@@ -979,9 +971,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        12,
-                                                    ),
+                                                    initial_value: 12,
                                                 },
                                                 Stmt::IfElse {
                                                     if_branch: IfBranch {
@@ -1318,8 +1308,40 @@ Ok(
                                         },
                                         roots: [
                                             ExprRoot {
+                                                kind: Condition,
+                                                expr_idx: 1,
+                                            },
+                                            ExprRoot {
+                                                kind: Condition,
+                                                expr_idx: 3,
+                                            },
+                                            ExprRoot {
+                                                kind: Condition,
+                                                expr_idx: 5,
+                                            },
+                                            ExprRoot {
+                                                kind: Condition,
+                                                expr_idx: 7,
+                                            },
+                                            ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 12,
+                                            },
+                                            ExprRoot {
+                                                kind: Condition,
+                                                expr_idx: 25,
+                                            },
+                                            ExprRoot {
+                                                kind: Condition,
+                                                expr_idx: 26,
+                                            },
+                                            ExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 27,
+                                            },
+                                            ExprRoot {
                                                 kind: BlockExpr,
-                                                expr: 28,
+                                                expr_idx: 28,
                                             },
                                         ],
                                     },
@@ -1505,8 +1527,12 @@ Ok(
                                             },
                                             roots: [
                                                 ExprRoot {
+                                                    kind: ExplicitParameterType,
+                                                    expr_idx: 1,
+                                                },
+                                                ExprRoot {
                                                     kind: ReturnType,
-                                                    expr: 3,
+                                                    expr_idx: 3,
                                                 },
                                             ],
                                         },
@@ -1721,8 +1747,12 @@ Ok(
                                                     },
                                                     roots: [
                                                         ExprRoot {
+                                                            kind: ExplicitParameterType,
+                                                            expr_idx: 1,
+                                                        },
+                                                        ExprRoot {
                                                             kind: ReturnType,
-                                                            expr: 3,
+                                                            expr_idx: 3,
                                                         },
                                                     ],
                                                 },
@@ -2009,9 +2039,7 @@ Ok(
                                                             107,
                                                         ),
                                                     },
-                                                    condition: Ok(
-                                                        15,
-                                                    ),
+                                                    condition: 15,
                                                 },
                                                 Stmt::IfElse {
                                                     if_branch: IfBranch {
@@ -2085,8 +2113,16 @@ Ok(
                                         },
                                         roots: [
                                             ExprRoot {
+                                                kind: Condition,
+                                                expr_idx: 15,
+                                            },
+                                            ExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 18,
+                                            },
+                                            ExprRoot {
                                                 kind: BlockExpr,
-                                                expr: 19,
+                                                expr_idx: 19,
                                             },
                                         ],
                                     },

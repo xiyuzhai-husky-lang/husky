@@ -177,6 +177,12 @@ impl<'a> DeclarativeTermEngine<'a> {
     fn init_expr_roots(&mut self) {
         for expr_root in self.expr_region_data.roots() {
             match expr_root.kind() {
+                ExprRootKind::RegularStructFieldType { .. }
+                | ExprRootKind::SelfType
+                | ExprRootKind::Trait
+                | ExprRootKind::ReturnType
+                | ExprRootKind::TupleStructFieldType
+                | ExprRootKind::VarType => (),
                 ExprRootKind::BlockExpr
                 | ExprRootKind::LetStmtType
                 | ExprRootKind::LetStmtInitialValue
@@ -184,17 +190,13 @@ impl<'a> DeclarativeTermEngine<'a> {
                 | ExprRootKind::ReturnExpr
                 | ExprRootKind::Condition
                 | ExprRootKind::ConstantImplicitParameterType
-                | ExprRootKind::ExplicitParameterType => return,
-                ExprRootKind::RegularStructFieldType { .. } => todo!(),
-                ExprRootKind::SelfType
-                | ExprRootKind::Trait
-                | ExprRootKind::ReturnType
-                | ExprRootKind::TupleStructFieldType
-                | ExprRootKind::VarType => (),
-                ExprRootKind::FieldBindInitialValue { ty_expr_idx } => todo!(),
-                ExprRootKind::Snippet => todo!(),
-                ExprRootKind::Traits => todo!(),
-                ExprRootKind::ValExpr => todo!(),
+                | ExprRootKind::ExplicitParameterType
+                | ExprRootKind::FieldBindInitialValue { .. }
+                | ExprRootKind::Snippet
+                | ExprRootKind::ValExpr
+                | ExprRootKind::EvalExpr => continue,
+                // ad hoc
+                ExprRootKind::Traits => (),
             }
             self.cache_new_expr_term(expr_root.expr())
         }

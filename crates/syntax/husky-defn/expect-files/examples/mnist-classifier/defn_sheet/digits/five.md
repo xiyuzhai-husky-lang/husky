@@ -116,7 +116,7 @@ Ok(
                                             roots: [
                                                 ExprRoot {
                                                     kind: VarType,
-                                                    expr: 1,
+                                                    expr_idx: 1,
                                                 },
                                             ],
                                         },
@@ -229,8 +229,12 @@ Ok(
                                         },
                                         roots: [
                                             ExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 0,
+                                            },
+                                            ExprRoot {
                                                 kind: BlockExpr,
-                                                expr: 1,
+                                                expr_idx: 1,
                                             },
                                         ],
                                     },

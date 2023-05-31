@@ -146,7 +146,9 @@ impl<'a> ExprTypeEngine<'a> {
                 | ExprRootKind::ReturnType
                 | ExprRootKind::VarType
                 | ExprRootKind::RegularStructFieldType { .. }
-                | ExprRootKind::TupleStructFieldType => self.infer_new_expr_ty_discarded(
+                | ExprRootKind::TupleStructFieldType
+                | ExprRootKind::ConstantImplicitParameterType
+                | ExprRootKind::ExplicitParameterType => self.infer_new_expr_ty_discarded(
                     root.expr(),
                     ExpectEqsCategory::new_expect_eqs_ty_kind(),
                 ),
@@ -160,16 +162,20 @@ impl<'a> ExprTypeEngine<'a> {
                     ),
                     None => self.infer_new_expr_ty_discarded(root.expr(), ExpectAnyDerived),
                 },
-                ExprRootKind::ReturnExpr => todo!(),
-                ExprRootKind::Condition => todo!(),
                 ExprRootKind::FieldBindInitialValue { ty_expr_idx } => todo!(),
-                ExprRootKind::ConstantImplicitParameterType => todo!(),
-                ExprRootKind::ExplicitParameterType => todo!(),
-                ExprRootKind::HtmlArgumentExpr => todo!(),
-                ExprRootKind::LetStmtType => todo!(),
-                ExprRootKind::LetStmtInitialValue => todo!(),
+                ExprRootKind::ReturnExpr
+                | ExprRootKind::Condition
+                | ExprRootKind::HtmlArgumentExpr
+                | ExprRootKind::LetStmtType
+                | ExprRootKind::LetStmtInitialValue
+                | ExprRootKind::EvalExpr => (),
                 ExprRootKind::Snippet => todo!(),
-                ExprRootKind::Traits => todo!(),
+                ExprRootKind::Traits =>
+                /* ad hoc */
+                {
+                    ()
+                }
+                // todo!(),
                 ExprRootKind::ValExpr => todo!(),
             };
         }

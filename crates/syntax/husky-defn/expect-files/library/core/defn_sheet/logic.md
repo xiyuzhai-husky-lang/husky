@@ -231,7 +231,16 @@ Ok(
                                                     ),
                                                 ],
                                             },
-                                            roots: [],
+                                            roots: [
+                                                ExprRoot {
+                                                    kind: Traits,
+                                                    expr_idx: 0,
+                                                },
+                                                ExprRoot {
+                                                    kind: Traits,
+                                                    expr_idx: 1,
+                                                },
+                                            ],
                                         },
                                     },
                                     implicit_parameter_decl_list: Some(
@@ -242,57 +251,49 @@ Ok(
                                                 ),
                                             ),
                                             implicit_parameters: [
-                                                ImplicitParameterDecl {
-                                                    pattern: ImplicitParameterDeclPattern {
-                                                        annotated_variance_token: None,
-                                                        symbol: 0,
-                                                        variant: ImplicitParameterDeclPatternVariant::Type0 {
-                                                            ident_token: IdentToken {
-                                                                ident: `P`,
-                                                                token_idx: TokenIdx(
-                                                                    8,
-                                                                ),
-                                                            },
-                                                        },
-                                                    },
-                                                    traits: Some(
-                                                        (
-                                                            ColonToken(
-                                                                TokenIdx(
-                                                                    9,
-                                                                ),
+                                                ImplicitParameterDeclPattern {
+                                                    annotated_variance_token: None,
+                                                    symbol: 0,
+                                                    variant: ImplicitParameterDeclPatternVariant::Type {
+                                                        ident_token: IdentToken {
+                                                            ident: `P`,
+                                                            token_idx: TokenIdx(
+                                                                8,
                                                             ),
-                                                            Some(
+                                                        },
+                                                        traits: Some(
+                                                            (
+                                                                ColonToken(
+                                                                    TokenIdx(
+                                                                        9,
+                                                                    ),
+                                                                ),
                                                                 0,
                                                             ),
                                                         ),
-                                                    ),
-                                                },
-                                                ImplicitParameterDecl {
-                                                    pattern: ImplicitParameterDeclPattern {
-                                                        annotated_variance_token: None,
-                                                        symbol: 1,
-                                                        variant: ImplicitParameterDeclPatternVariant::Type0 {
-                                                            ident_token: IdentToken {
-                                                                ident: `Q`,
-                                                                token_idx: TokenIdx(
-                                                                    12,
-                                                                ),
-                                                            },
-                                                        },
                                                     },
-                                                    traits: Some(
-                                                        (
-                                                            ColonToken(
-                                                                TokenIdx(
-                                                                    13,
-                                                                ),
+                                                },
+                                                ImplicitParameterDeclPattern {
+                                                    annotated_variance_token: None,
+                                                    symbol: 1,
+                                                    variant: ImplicitParameterDeclPatternVariant::Type {
+                                                        ident_token: IdentToken {
+                                                            ident: `Q`,
+                                                            token_idx: TokenIdx(
+                                                                12,
                                                             ),
-                                                            Some(
+                                                        },
+                                                        traits: Some(
+                                                            (
+                                                                ColonToken(
+                                                                    TokenIdx(
+                                                                        13,
+                                                                    ),
+                                                                ),
                                                                 1,
                                                             ),
                                                         ),
-                                                    ),
+                                                    },
                                                 },
                                             ],
                                             commas: [
@@ -474,7 +475,16 @@ Ok(
                                                     ),
                                                 ],
                                             },
-                                            roots: [],
+                                            roots: [
+                                                ExprRoot {
+                                                    kind: Traits,
+                                                    expr_idx: 0,
+                                                },
+                                                ExprRoot {
+                                                    kind: Traits,
+                                                    expr_idx: 1,
+                                                },
+                                            ],
                                         },
                                     },
                                     implicit_parameter_decl_list: Some(
@@ -485,57 +495,49 @@ Ok(
                                                 ),
                                             ),
                                             implicit_parameters: [
-                                                ImplicitParameterDecl {
-                                                    pattern: ImplicitParameterDeclPattern {
-                                                        annotated_variance_token: None,
-                                                        symbol: 0,
-                                                        variant: ImplicitParameterDeclPatternVariant::Type0 {
-                                                            ident_token: IdentToken {
-                                                                ident: `P`,
-                                                                token_idx: TokenIdx(
-                                                                    30,
-                                                                ),
-                                                            },
-                                                        },
-                                                    },
-                                                    traits: Some(
-                                                        (
-                                                            ColonToken(
-                                                                TokenIdx(
-                                                                    31,
-                                                                ),
+                                                ImplicitParameterDeclPattern {
+                                                    annotated_variance_token: None,
+                                                    symbol: 0,
+                                                    variant: ImplicitParameterDeclPatternVariant::Type {
+                                                        ident_token: IdentToken {
+                                                            ident: `P`,
+                                                            token_idx: TokenIdx(
+                                                                30,
                                                             ),
-                                                            Some(
+                                                        },
+                                                        traits: Some(
+                                                            (
+                                                                ColonToken(
+                                                                    TokenIdx(
+                                                                        31,
+                                                                    ),
+                                                                ),
                                                                 0,
                                                             ),
                                                         ),
-                                                    ),
-                                                },
-                                                ImplicitParameterDecl {
-                                                    pattern: ImplicitParameterDeclPattern {
-                                                        annotated_variance_token: None,
-                                                        symbol: 1,
-                                                        variant: ImplicitParameterDeclPatternVariant::Type0 {
-                                                            ident_token: IdentToken {
-                                                                ident: `Q`,
-                                                                token_idx: TokenIdx(
-                                                                    34,
-                                                                ),
-                                                            },
-                                                        },
                                                     },
-                                                    traits: Some(
-                                                        (
-                                                            ColonToken(
-                                                                TokenIdx(
-                                                                    35,
-                                                                ),
+                                                },
+                                                ImplicitParameterDeclPattern {
+                                                    annotated_variance_token: None,
+                                                    symbol: 1,
+                                                    variant: ImplicitParameterDeclPatternVariant::Type {
+                                                        ident_token: IdentToken {
+                                                            ident: `Q`,
+                                                            token_idx: TokenIdx(
+                                                                34,
                                                             ),
-                                                            Some(
+                                                        },
+                                                        traits: Some(
+                                                            (
+                                                                ColonToken(
+                                                                    TokenIdx(
+                                                                        35,
+                                                                    ),
+                                                                ),
                                                                 1,
                                                             ),
                                                         ),
-                                                    ),
+                                                    },
                                                 },
                                             ],
                                             commas: [

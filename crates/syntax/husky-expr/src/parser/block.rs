@@ -241,7 +241,7 @@ impl<'a> BlockExprParser<'a> {
                 },
             }),
             Ok(None) => ctx
-                .parse_expr_root(None, todo!())
+                .parse_expr_root(None, ExprRootKind::EvalExpr)
                 .map(|expr_idx| Stmt::Eval { expr_idx }),
             Err(_) => todo!(),
         }

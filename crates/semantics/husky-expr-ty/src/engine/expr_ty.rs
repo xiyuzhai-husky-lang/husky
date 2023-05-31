@@ -315,7 +315,13 @@ impl<'a> ExprTypeEngine<'a> {
                     }
                 })
             }
-            Expr::BoxColonList { .. } => todo!(),
+            Expr::BoxColonList { items, .. } => match items.len() {
+                0 => Ok((
+                    ExprDisambiguation::Trivial,
+                    Ok(self.term_menu.ex_co_ty0_to_ty0().into()),
+                )),
+                _ => todo!(),
+            },
             Expr::Block { stmts } => Ok((
                 ExprDisambiguation::Trivial,
                 self.infer_new_block(stmts, expr_ty_expectation.clone())
