@@ -100,20 +100,18 @@ Ok(
                                             ),
                                         ),
                                         implicit_parameters: [
-                                            ImplicitParameterDecl {
-                                                pattern: ImplicitParameterDeclPattern {
-                                                    annotated_variance_token: None,
-                                                    symbol: 0,
-                                                    variant: ImplicitParameterDeclPatternVariant::Type0 {
-                                                        ident_token: IdentToken {
-                                                            ident: `Rhs`,
-                                                            token_idx: TokenIdx(
-                                                                11,
-                                                            ),
-                                                        },
+                                            ImplicitParameterDeclPattern {
+                                                annotated_variance_token: None,
+                                                symbol: 0,
+                                                variant: ImplicitParameterDeclPatternVariant::Type {
+                                                    ident_token: IdentToken {
+                                                        ident: `Rhs`,
+                                                        token_idx: TokenIdx(
+                                                            11,
+                                                        ),
                                                     },
+                                                    traits: None,
                                                 },
-                                                traits: None,
                                             },
                                         ],
                                         commas: [],
@@ -231,20 +229,18 @@ Ok(
                                             ),
                                         ),
                                         implicit_parameters: [
-                                            ImplicitParameterDecl {
-                                                pattern: ImplicitParameterDeclPattern {
-                                                    annotated_variance_token: None,
-                                                    symbol: 0,
-                                                    variant: ImplicitParameterDeclPatternVariant::Type0 {
-                                                        ident_token: IdentToken {
-                                                            ident: `Rhs`,
-                                                            token_idx: TokenIdx(
-                                                                40,
-                                                            ),
-                                                        },
+                                            ImplicitParameterDeclPattern {
+                                                annotated_variance_token: None,
+                                                symbol: 0,
+                                                variant: ImplicitParameterDeclPatternVariant::Type {
+                                                    ident_token: IdentToken {
+                                                        ident: `Rhs`,
+                                                        token_idx: TokenIdx(
+                                                            40,
+                                                        ),
                                                     },
+                                                    traits: None,
                                                 },
-                                                traits: None,
                                             },
                                         ],
                                         commas: [],
@@ -362,20 +358,18 @@ Ok(
                                             ),
                                         ),
                                         implicit_parameters: [
-                                            ImplicitParameterDecl {
-                                                pattern: ImplicitParameterDeclPattern {
-                                                    annotated_variance_token: None,
-                                                    symbol: 0,
-                                                    variant: ImplicitParameterDeclPatternVariant::Type0 {
-                                                        ident_token: IdentToken {
-                                                            ident: `Rhs`,
-                                                            token_idx: TokenIdx(
-                                                                69,
-                                                            ),
-                                                        },
+                                            ImplicitParameterDeclPattern {
+                                                annotated_variance_token: None,
+                                                symbol: 0,
+                                                variant: ImplicitParameterDeclPatternVariant::Type {
+                                                    ident_token: IdentToken {
+                                                        ident: `Rhs`,
+                                                        token_idx: TokenIdx(
+                                                            69,
+                                                        ),
                                                     },
+                                                    traits: None,
                                                 },
-                                                traits: None,
                                             },
                                         ],
                                         commas: [],
@@ -493,20 +487,18 @@ Ok(
                                             ),
                                         ),
                                         implicit_parameters: [
-                                            ImplicitParameterDecl {
-                                                pattern: ImplicitParameterDeclPattern {
-                                                    annotated_variance_token: None,
-                                                    symbol: 0,
-                                                    variant: ImplicitParameterDeclPatternVariant::Type0 {
-                                                        ident_token: IdentToken {
-                                                            ident: `Rhs`,
-                                                            token_idx: TokenIdx(
-                                                                98,
-                                                            ),
-                                                        },
+                                            ImplicitParameterDeclPattern {
+                                                annotated_variance_token: None,
+                                                symbol: 0,
+                                                variant: ImplicitParameterDeclPatternVariant::Type {
+                                                    ident_token: IdentToken {
+                                                        ident: `Rhs`,
+                                                        token_idx: TokenIdx(
+                                                            98,
+                                                        ),
                                                     },
+                                                    traits: None,
                                                 },
-                                                traits: None,
                                             },
                                         ],
                                         commas: [],
@@ -624,20 +616,18 @@ Ok(
                                             ),
                                         ),
                                         implicit_parameters: [
-                                            ImplicitParameterDecl {
-                                                pattern: ImplicitParameterDeclPattern {
-                                                    annotated_variance_token: None,
-                                                    symbol: 0,
-                                                    variant: ImplicitParameterDeclPatternVariant::Type0 {
-                                                        ident_token: IdentToken {
-                                                            ident: `Rhs`,
-                                                            token_idx: TokenIdx(
-                                                                123,
-                                                            ),
-                                                        },
+                                            ImplicitParameterDeclPattern {
+                                                annotated_variance_token: None,
+                                                symbol: 0,
+                                                variant: ImplicitParameterDeclPatternVariant::Type {
+                                                    ident_token: IdentToken {
+                                                        ident: `Rhs`,
+                                                        token_idx: TokenIdx(
+                                                            123,
+                                                        ),
                                                     },
+                                                    traits: None,
                                                 },
-                                                traits: None,
                                             },
                                         ],
                                         commas: [],
@@ -755,20 +745,18 @@ Ok(
                                             ),
                                         ),
                                         implicit_parameters: [
-                                            ImplicitParameterDecl {
-                                                pattern: ImplicitParameterDeclPattern {
-                                                    annotated_variance_token: None,
-                                                    symbol: 0,
-                                                    variant: ImplicitParameterDeclPatternVariant::Type0 {
-                                                        ident_token: IdentToken {
-                                                            ident: `Rhs`,
-                                                            token_idx: TokenIdx(
-                                                                152,
-                                                            ),
-                                                        },
+                                            ImplicitParameterDeclPattern {
+                                                annotated_variance_token: None,
+                                                symbol: 0,
+                                                variant: ImplicitParameterDeclPatternVariant::Type {
+                                                    ident_token: IdentToken {
+                                                        ident: `Rhs`,
+                                                        token_idx: TokenIdx(
+                                                            152,
+                                                        ),
                                                     },
+                                                    traits: None,
                                                 },
-                                                traits: None,
                                             },
                                         ],
                                         commas: [],
@@ -886,20 +874,18 @@ Ok(
                                             ),
                                         ),
                                         implicit_parameters: [
-                                            ImplicitParameterDecl {
-                                                pattern: ImplicitParameterDeclPattern {
-                                                    annotated_variance_token: None,
-                                                    symbol: 0,
-                                                    variant: ImplicitParameterDeclPatternVariant::Type0 {
-                                                        ident_token: IdentToken {
-                                                            ident: `Rhs`,
-                                                            token_idx: TokenIdx(
-                                                                177,
-                                                            ),
-                                                        },
+                                            ImplicitParameterDeclPattern {
+                                                annotated_variance_token: None,
+                                                symbol: 0,
+                                                variant: ImplicitParameterDeclPatternVariant::Type {
+                                                    ident_token: IdentToken {
+                                                        ident: `Rhs`,
+                                                        token_idx: TokenIdx(
+                                                            177,
+                                                        ),
                                                     },
+                                                    traits: None,
                                                 },
-                                                traits: None,
                                             },
                                         ],
                                         commas: [],
@@ -1017,20 +1003,18 @@ Ok(
                                             ),
                                         ),
                                         implicit_parameters: [
-                                            ImplicitParameterDecl {
-                                                pattern: ImplicitParameterDeclPattern {
-                                                    annotated_variance_token: None,
-                                                    symbol: 0,
-                                                    variant: ImplicitParameterDeclPatternVariant::Type0 {
-                                                        ident_token: IdentToken {
-                                                            ident: `Rhs`,
-                                                            token_idx: TokenIdx(
-                                                                206,
-                                                            ),
-                                                        },
+                                            ImplicitParameterDeclPattern {
+                                                annotated_variance_token: None,
+                                                symbol: 0,
+                                                variant: ImplicitParameterDeclPatternVariant::Type {
+                                                    ident_token: IdentToken {
+                                                        ident: `Rhs`,
+                                                        token_idx: TokenIdx(
+                                                            206,
+                                                        ),
                                                     },
+                                                    traits: None,
                                                 },
-                                                traits: None,
                                             },
                                         ],
                                         commas: [],
@@ -1148,20 +1132,18 @@ Ok(
                                             ),
                                         ),
                                         implicit_parameters: [
-                                            ImplicitParameterDecl {
-                                                pattern: ImplicitParameterDeclPattern {
-                                                    annotated_variance_token: None,
-                                                    symbol: 0,
-                                                    variant: ImplicitParameterDeclPatternVariant::Type0 {
-                                                        ident_token: IdentToken {
-                                                            ident: `Rhs`,
-                                                            token_idx: TokenIdx(
-                                                                231,
-                                                            ),
-                                                        },
+                                            ImplicitParameterDeclPattern {
+                                                annotated_variance_token: None,
+                                                symbol: 0,
+                                                variant: ImplicitParameterDeclPatternVariant::Type {
+                                                    ident_token: IdentToken {
+                                                        ident: `Rhs`,
+                                                        token_idx: TokenIdx(
+                                                            231,
+                                                        ),
                                                     },
+                                                    traits: None,
                                                 },
-                                                traits: None,
                                             },
                                         ],
                                         commas: [],
@@ -1279,20 +1261,18 @@ Ok(
                                             ),
                                         ),
                                         implicit_parameters: [
-                                            ImplicitParameterDecl {
-                                                pattern: ImplicitParameterDeclPattern {
-                                                    annotated_variance_token: None,
-                                                    symbol: 0,
-                                                    variant: ImplicitParameterDeclPatternVariant::Type0 {
-                                                        ident_token: IdentToken {
-                                                            ident: `Rhs`,
-                                                            token_idx: TokenIdx(
-                                                                260,
-                                                            ),
-                                                        },
+                                            ImplicitParameterDeclPattern {
+                                                annotated_variance_token: None,
+                                                symbol: 0,
+                                                variant: ImplicitParameterDeclPatternVariant::Type {
+                                                    ident_token: IdentToken {
+                                                        ident: `Rhs`,
+                                                        token_idx: TokenIdx(
+                                                            260,
+                                                        ),
                                                     },
+                                                    traits: None,
                                                 },
-                                                traits: None,
                                             },
                                         ],
                                         commas: [],
@@ -1410,20 +1390,18 @@ Ok(
                                             ),
                                         ),
                                         implicit_parameters: [
-                                            ImplicitParameterDecl {
-                                                pattern: ImplicitParameterDeclPattern {
-                                                    annotated_variance_token: None,
-                                                    symbol: 0,
-                                                    variant: ImplicitParameterDeclPatternVariant::Type0 {
-                                                        ident_token: IdentToken {
-                                                            ident: `Rhs`,
-                                                            token_idx: TokenIdx(
-                                                                285,
-                                                            ),
-                                                        },
+                                            ImplicitParameterDeclPattern {
+                                                annotated_variance_token: None,
+                                                symbol: 0,
+                                                variant: ImplicitParameterDeclPatternVariant::Type {
+                                                    ident_token: IdentToken {
+                                                        ident: `Rhs`,
+                                                        token_idx: TokenIdx(
+                                                            285,
+                                                        ),
                                                     },
+                                                    traits: None,
                                                 },
-                                                traits: None,
                                             },
                                         ],
                                         commas: [],
@@ -1541,20 +1519,18 @@ Ok(
                                             ),
                                         ),
                                         implicit_parameters: [
-                                            ImplicitParameterDecl {
-                                                pattern: ImplicitParameterDeclPattern {
-                                                    annotated_variance_token: None,
-                                                    symbol: 0,
-                                                    variant: ImplicitParameterDeclPatternVariant::Type0 {
-                                                        ident_token: IdentToken {
-                                                            ident: `Rhs`,
-                                                            token_idx: TokenIdx(
-                                                                314,
-                                                            ),
-                                                        },
+                                            ImplicitParameterDeclPattern {
+                                                annotated_variance_token: None,
+                                                symbol: 0,
+                                                variant: ImplicitParameterDeclPatternVariant::Type {
+                                                    ident_token: IdentToken {
+                                                        ident: `Rhs`,
+                                                        token_idx: TokenIdx(
+                                                            314,
+                                                        ),
                                                     },
+                                                    traits: None,
                                                 },
-                                                traits: None,
                                             },
                                         ],
                                         commas: [],
@@ -1816,20 +1792,18 @@ Ok(
                                             ),
                                         ),
                                         implicit_parameters: [
-                                            ImplicitParameterDecl {
-                                                pattern: ImplicitParameterDeclPattern {
-                                                    annotated_variance_token: None,
-                                                    symbol: 0,
-                                                    variant: ImplicitParameterDeclPatternVariant::Type0 {
-                                                        ident_token: IdentToken {
-                                                            ident: `Rhs`,
-                                                            token_idx: TokenIdx(
-                                                                387,
-                                                            ),
-                                                        },
+                                            ImplicitParameterDeclPattern {
+                                                annotated_variance_token: None,
+                                                symbol: 0,
+                                                variant: ImplicitParameterDeclPatternVariant::Type {
+                                                    ident_token: IdentToken {
+                                                        ident: `Rhs`,
+                                                        token_idx: TokenIdx(
+                                                            387,
+                                                        ),
                                                     },
+                                                    traits: None,
                                                 },
-                                                traits: None,
                                             },
                                         ],
                                         commas: [],

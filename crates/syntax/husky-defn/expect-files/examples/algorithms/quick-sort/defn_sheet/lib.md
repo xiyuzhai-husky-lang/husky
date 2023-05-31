@@ -203,7 +203,16 @@ Ok(
                                                     ),
                                                 ],
                                             },
-                                            roots: [],
+                                            roots: [
+                                                ExprRoot {
+                                                    kind: Traits,
+                                                    expr_idx: 0,
+                                                },
+                                                ExprRoot {
+                                                    kind: ExplicitParameterType,
+                                                    expr_idx: 3,
+                                                },
+                                            ],
                                         },
                                     },
                                     implicit_parameter_decl_list: Some(
@@ -214,31 +223,27 @@ Ok(
                                                 ),
                                             ),
                                             implicit_parameters: [
-                                                ImplicitParameterDecl {
-                                                    pattern: ImplicitParameterDeclPattern {
-                                                        annotated_variance_token: None,
-                                                        symbol: 0,
-                                                        variant: ImplicitParameterDeclPatternVariant::Type0 {
-                                                            ident_token: IdentToken {
-                                                                ident: `T`,
-                                                                token_idx: TokenIdx(
-                                                                    4,
-                                                                ),
-                                                            },
-                                                        },
-                                                    },
-                                                    traits: Some(
-                                                        (
-                                                            ColonToken(
-                                                                TokenIdx(
-                                                                    5,
-                                                                ),
+                                                ImplicitParameterDeclPattern {
+                                                    annotated_variance_token: None,
+                                                    symbol: 0,
+                                                    variant: ImplicitParameterDeclPatternVariant::Type {
+                                                        ident_token: IdentToken {
+                                                            ident: `T`,
+                                                            token_idx: TokenIdx(
+                                                                4,
                                                             ),
-                                                            Some(
+                                                        },
+                                                        traits: Some(
+                                                            (
+                                                                ColonToken(
+                                                                    TokenIdx(
+                                                                        5,
+                                                                    ),
+                                                                ),
                                                                 0,
                                                             ),
                                                         ),
-                                                    ),
+                                                    },
                                                 },
                                             ],
                                             commas: [],
@@ -480,7 +485,16 @@ Ok(
                                                             ),
                                                         ],
                                                     },
-                                                    roots: [],
+                                                    roots: [
+                                                        ExprRoot {
+                                                            kind: Traits,
+                                                            expr_idx: 0,
+                                                        },
+                                                        ExprRoot {
+                                                            kind: ExplicitParameterType,
+                                                            expr_idx: 3,
+                                                        },
+                                                    ],
                                                 },
                                             },
                                         ),
@@ -691,9 +705,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        1,
-                                                    ),
+                                                    initial_value: 1,
                                                 },
                                                 Stmt::Eval {
                                                     expr_idx: 11,
@@ -795,8 +807,16 @@ Ok(
                                         },
                                         roots: [
                                             ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 1,
+                                            },
+                                            ExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 11,
+                                            },
+                                            ExprRoot {
                                                 kind: BlockExpr,
-                                                expr: 12,
+                                                expr_idx: 12,
                                             },
                                         ],
                                     },
@@ -1135,7 +1155,24 @@ Ok(
                                                     ),
                                                 ],
                                             },
-                                            roots: [],
+                                            roots: [
+                                                ExprRoot {
+                                                    kind: Traits,
+                                                    expr_idx: 0,
+                                                },
+                                                ExprRoot {
+                                                    kind: ExplicitParameterType,
+                                                    expr_idx: 3,
+                                                },
+                                                ExprRoot {
+                                                    kind: ExplicitParameterType,
+                                                    expr_idx: 4,
+                                                },
+                                                ExprRoot {
+                                                    kind: ExplicitParameterType,
+                                                    expr_idx: 5,
+                                                },
+                                            ],
                                         },
                                     },
                                     implicit_parameter_decl_list: Some(
@@ -1146,31 +1183,27 @@ Ok(
                                                 ),
                                             ),
                                             implicit_parameters: [
-                                                ImplicitParameterDecl {
-                                                    pattern: ImplicitParameterDeclPattern {
-                                                        annotated_variance_token: None,
-                                                        symbol: 0,
-                                                        variant: ImplicitParameterDeclPatternVariant::Type0 {
-                                                            ident_token: IdentToken {
-                                                                ident: `T`,
-                                                                token_idx: TokenIdx(
-                                                                    43,
-                                                                ),
-                                                            },
-                                                        },
-                                                    },
-                                                    traits: Some(
-                                                        (
-                                                            ColonToken(
-                                                                TokenIdx(
-                                                                    44,
-                                                                ),
+                                                ImplicitParameterDeclPattern {
+                                                    annotated_variance_token: None,
+                                                    symbol: 0,
+                                                    variant: ImplicitParameterDeclPatternVariant::Type {
+                                                        ident_token: IdentToken {
+                                                            ident: `T`,
+                                                            token_idx: TokenIdx(
+                                                                43,
                                                             ),
-                                                            Some(
+                                                        },
+                                                        traits: Some(
+                                                            (
+                                                                ColonToken(
+                                                                    TokenIdx(
+                                                                        44,
+                                                                    ),
+                                                                ),
                                                                 0,
                                                             ),
                                                         ),
-                                                    ),
+                                                    },
                                                 },
                                             ],
                                             commas: [],
@@ -1571,7 +1604,24 @@ Ok(
                                                             ),
                                                         ],
                                                     },
-                                                    roots: [],
+                                                    roots: [
+                                                        ExprRoot {
+                                                            kind: Traits,
+                                                            expr_idx: 0,
+                                                        },
+                                                        ExprRoot {
+                                                            kind: ExplicitParameterType,
+                                                            expr_idx: 3,
+                                                        },
+                                                        ExprRoot {
+                                                            kind: ExplicitParameterType,
+                                                            expr_idx: 4,
+                                                        },
+                                                        ExprRoot {
+                                                            kind: ExplicitParameterType,
+                                                            expr_idx: 5,
+                                                        },
+                                                    ],
                                                 },
                                             },
                                         ),
@@ -1906,9 +1956,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        7,
-                                                    ),
+                                                    initial_value: 7,
                                                 },
                                                 Stmt::Eval {
                                                     expr_idx: 14,
@@ -2059,8 +2107,20 @@ Ok(
                                         },
                                         roots: [
                                             ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 7,
+                                            },
+                                            ExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 14,
+                                            },
+                                            ExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 21,
+                                            },
+                                            ExprRoot {
                                                 kind: BlockExpr,
-                                                expr: 22,
+                                                expr_idx: 22,
                                             },
                                         ],
                                     },
@@ -2422,8 +2482,24 @@ Ok(
                                             },
                                             roots: [
                                                 ExprRoot {
+                                                    kind: Traits,
+                                                    expr_idx: 0,
+                                                },
+                                                ExprRoot {
+                                                    kind: ExplicitParameterType,
+                                                    expr_idx: 3,
+                                                },
+                                                ExprRoot {
+                                                    kind: ExplicitParameterType,
+                                                    expr_idx: 4,
+                                                },
+                                                ExprRoot {
+                                                    kind: ExplicitParameterType,
+                                                    expr_idx: 5,
+                                                },
+                                                ExprRoot {
                                                     kind: ReturnType,
-                                                    expr: 6,
+                                                    expr_idx: 6,
                                                 },
                                             ],
                                         },
@@ -2436,31 +2512,27 @@ Ok(
                                                 ),
                                             ),
                                             implicit_parameters: [
-                                                ImplicitParameterDecl {
-                                                    pattern: ImplicitParameterDeclPattern {
-                                                        annotated_variance_token: None,
-                                                        symbol: 0,
-                                                        variant: ImplicitParameterDeclPatternVariant::Type0 {
-                                                            ident_token: IdentToken {
-                                                                ident: `T`,
-                                                                token_idx: TokenIdx(
-                                                                    104,
-                                                                ),
-                                                            },
-                                                        },
-                                                    },
-                                                    traits: Some(
-                                                        (
-                                                            ColonToken(
-                                                                TokenIdx(
-                                                                    105,
-                                                                ),
+                                                ImplicitParameterDeclPattern {
+                                                    annotated_variance_token: None,
+                                                    symbol: 0,
+                                                    variant: ImplicitParameterDeclPatternVariant::Type {
+                                                        ident_token: IdentToken {
+                                                            ident: `T`,
+                                                            token_idx: TokenIdx(
+                                                                104,
                                                             ),
-                                                            Some(
+                                                        },
+                                                        traits: Some(
+                                                            (
+                                                                ColonToken(
+                                                                    TokenIdx(
+                                                                        105,
+                                                                    ),
+                                                                ),
                                                                 0,
                                                             ),
                                                         ),
-                                                    ),
+                                                    },
                                                 },
                                             ],
                                             commas: [],
@@ -2894,8 +2966,24 @@ Ok(
                                                     },
                                                     roots: [
                                                         ExprRoot {
+                                                            kind: Traits,
+                                                            expr_idx: 0,
+                                                        },
+                                                        ExprRoot {
+                                                            kind: ExplicitParameterType,
+                                                            expr_idx: 3,
+                                                        },
+                                                        ExprRoot {
+                                                            kind: ExplicitParameterType,
+                                                            expr_idx: 4,
+                                                        },
+                                                        ExprRoot {
+                                                            kind: ExplicitParameterType,
+                                                            expr_idx: 5,
+                                                        },
+                                                        ExprRoot {
                                                             kind: ReturnType,
-                                                            expr: 6,
+                                                            expr_idx: 6,
                                                         },
                                                     ],
                                                 },
@@ -3771,9 +3859,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        2,
-                                                    ),
+                                                    initial_value: 2,
                                                 },
                                                 Stmt::Let {
                                                     let_token: LetToken {
@@ -3800,9 +3886,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        5,
-                                                    ),
+                                                    initial_value: 5,
                                                 },
                                                 Stmt::Let {
                                                     let_token: LetToken {
@@ -3829,9 +3913,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    initial_value: Ok(
-                                                        6,
-                                                    ),
+                                                    initial_value: 6,
                                                 },
                                                 Stmt::While {
                                                     while_token: WhileToken {
@@ -4070,8 +4152,48 @@ Ok(
                                         },
                                         roots: [
                                             ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 2,
+                                            },
+                                            ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 5,
+                                            },
+                                            ExprRoot {
+                                                kind: LetStmtInitialValue,
+                                                expr_idx: 6,
+                                            },
+                                            ExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 10,
+                                            },
+                                            ExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 22,
+                                            },
+                                            ExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 25,
+                                            },
+                                            ExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 41,
+                                            },
+                                            ExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 52,
+                                            },
+                                            ExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 60,
+                                            },
+                                            ExprRoot {
+                                                kind: EvalExpr,
+                                                expr_idx: 61,
+                                            },
+                                            ExprRoot {
                                                 kind: BlockExpr,
-                                                expr: 62,
+                                                expr_idx: 62,
                                             },
                                         ],
                                     },
