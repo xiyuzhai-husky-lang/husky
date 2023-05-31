@@ -198,7 +198,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                 // ad hoc
                 ExprRootKind::Traits => (),
             }
-            self.cache_new_expr_term(expr_root.expr())
+            self.cache_new_expr_term(expr_root.expr_idx())
         }
     }
 

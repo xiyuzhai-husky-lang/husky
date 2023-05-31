@@ -6,6 +6,7 @@ pub struct ExpectAnyDerived;
 impl ExpectFluffyTerm for ExpectAnyDerived {
     type Outcome = ();
 
+    #[inline(always)]
     fn retrieve_outcome(_outcome: &FluffyTermExpectationOutcome) -> &Self::Outcome {
         &()
     }
@@ -19,6 +20,7 @@ impl ExpectFluffyTerm for ExpectAnyDerived {
         FinalDestination::AnyDerived
     }
 
+    #[inline(always)]
     fn destination(&self) -> Option<FluffyTerm> {
         None
     }

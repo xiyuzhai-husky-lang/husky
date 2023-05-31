@@ -15,8 +15,10 @@
                 FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
             ),
         ),
-        Ok(
-            DeclarativeTerm(`Fp(~ [] mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent, [](invariant ~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent -> core::option::Option core::num::f32, ) -> mnist_classifier::fermi::FermiMatchResult`),
+        Err(
+            DeclarativeTypeError::Derived(
+                DerivedDeclarativeTypeError::SignatureError,
+            ),
         ),
     ),
 ]

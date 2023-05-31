@@ -332,7 +332,7 @@ Ok(
             ),
             end_line: 263,
             end_character: Some(
-                31,
+                30,
             ),
             kind: Some(
                 Region,

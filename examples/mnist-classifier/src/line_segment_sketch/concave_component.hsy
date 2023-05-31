@@ -23,7 +23,7 @@ impl ConcaveComponent:
 
     val hausdorff_norm: f32 =
         let mut hausdorff_norm = 0.0
-        let curve_start = self.strokes.firstx().start
+        let curve_start = self.strokes.first()!.start
         let curve_ls = self.line_segment()
         let dp_norm = curve_ls.displacement().norm()
         // todo: change self to iter().max()
@@ -45,7 +45,7 @@ impl ConcaveComponent:
         return angle_change
     
     val bounding_box: BoundingBox =
-        let start_point = self.strokes.firstx().start
+        let start_point = self.strokes.first()!.start
         let mut xmin = start_point.x
         let mut xmax = start_point.x
         let mut ymin = start_point.y
@@ -66,24 +66,24 @@ impl ConcaveComponent:
 
     fn line_segment() -> LineSegment:
         LineSegment(
-            self.strokes.firstx().start.clone(),
-            self.strokes.lastx().end.clone()
+            self.strokes.first()!.start.clone(),
+            self.strokes.last()!.end.clone()
         )
 
     fn start() -> Point2d:
-        self.strokes.firstx().start.clone()
+        self.strokes.first()!.start.clone()
     
     fn end() -> Point2d:
-        self.strokes.lastx().end.clone()
+        self.strokes.last()!.end.clone()
     
     fn displacement() -> Vector2d:
         self.line_segment().displacement()
 
     fn start_tangent() -> Vector2d:
-        self.strokes.firstx().displacement()        
+        self.strokes.first()!.displacement()        
 
     fn end_tangent() -> Vector2d:
-        self.strokes.lastx().displacement()
+        self.strokes.last()!.displacement()
 
 
 pub fn find_concave_components(line_segment_sketch: &LineSegmentSketch) -> []ConcaveComponent:

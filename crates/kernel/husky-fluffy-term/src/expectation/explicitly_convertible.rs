@@ -33,6 +33,7 @@ pub struct ExpectExplicitlyConvertibleOutcome {
 impl ExpectFluffyTerm for ExpectExplicitlyConvertible {
     type Outcome = ExpectExplicitlyConvertibleOutcome;
 
+    #[inline(always)]
     fn retrieve_outcome(outcome: &FluffyTermExpectationOutcome) -> &Self::Outcome {
         match outcome {
             FluffyTermExpectationOutcome::ExplicitlyConvertible(outcome) => outcome,
@@ -49,6 +50,7 @@ impl ExpectFluffyTerm for ExpectExplicitlyConvertible {
         todo!()
     }
 
+    #[inline(always)]
     fn destination(&self) -> Option<FluffyTerm> {
         Some(self.destination)
     }

@@ -182,7 +182,7 @@ Ok(
                                                         ident: Ident(
                                                             Word(
                                                                 Id {
-                                                                    value: 412,
+                                                                    value: 411,
                                                                 },
                                                             ),
                                                         ),
@@ -333,6 +333,15 @@ Ok(
                                                         159,
                                                     ),
                                                 },
+                                                Expr::Err(
+                                                    ExprError::Original(
+                                                        UnexpectedKeyword(
+                                                            TokenIdx(
+                                                                161,
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
                                                 Expr::EntityPath {
                                                     entity_path_expr: 1,
                                                     path: Some(
@@ -346,9 +355,9 @@ Ok(
                                                 Expr::Prefix {
                                                     opr: Tilde,
                                                     opr_token_idx: TokenIdx(
-                                                        162,
+                                                        163,
                                                     ),
-                                                    opd: 5,
+                                                    opd: 6,
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 2,
@@ -360,29 +369,34 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                Expr::Bracketed {
+                                                Expr::ExplicitApplicationOrRitchieCall {
+                                                    function: 5,
+                                                    implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
-                                                        161,
+                                                        162,
                                                     ),
-                                                    item: 6,
+                                                    items: ArenaIdxRange(
+                                                        7..8,
+                                                    ),
+                                                    commas: [],
                                                     rpar_token_idx: TokenIdx(
-                                                        164,
+                                                        165,
                                                     ),
                                                 },
                                                 Expr::Prefix {
                                                     opr: Option,
                                                     opr_token_idx: TokenIdx(
-                                                        166,
+                                                        167,
                                                     ),
-                                                    opd: 7,
+                                                    opd: 8,
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 8,
+                                                    lopd: 9,
                                                     opr: Curry,
                                                     opr_token_idx: TokenIdx(
-                                                        165,
+                                                        166,
                                                     ),
-                                                    ropd: 9,
+                                                    ropd: 10,
                                                 },
                                                 Expr::ExplicitApplicationOrRitchieCall {
                                                     function: 4,
@@ -391,11 +405,11 @@ Ok(
                                                         160,
                                                     ),
                                                     items: ArenaIdxRange(
-                                                        10..11,
+                                                        11..12,
                                                     ),
                                                     commas: [],
                                                     rpar_token_idx: TokenIdx(
-                                                        168,
+                                                        169,
                                                     ),
                                                 },
                                                 Expr::EntityPath {
@@ -425,7 +439,7 @@ Ok(
                                                 },
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        163,
+                                                        164,
                                                     ),
                                                     ident: `ConcaveComponent`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -436,7 +450,7 @@ Ok(
                                                 },
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        167,
+                                                        168,
                                                     ),
                                                     ident: `f32`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -447,7 +461,7 @@ Ok(
                                                 },
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        171,
+                                                        172,
                                                     ),
                                                     ident: `FermiMatchResult`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -570,7 +584,7 @@ Ok(
                                                 (
                                                     ExplicitParameter {
                                                         pattern_expr: 1,
-                                                        ty: 11,
+                                                        ty: 12,
                                                     },
                                                     ArenaIdxRange(
                                                         1..2,
@@ -585,11 +599,11 @@ Ok(
                                             },
                                             ExprRoot {
                                                 kind: ExplicitParameterType,
-                                                expr_idx: 11,
+                                                expr_idx: 12,
                                             },
                                             ExprRoot {
                                                 kind: ReturnType,
-                                                expr_idx: 12,
+                                                expr_idx: 13,
                                             },
                                         ],
                                     },
@@ -626,7 +640,7 @@ Ok(
                                                     157,
                                                 ),
                                             ),
-                                            ty: 11,
+                                            ty: 12,
                                         },
                                     ],
                                     commas: [
@@ -638,26 +652,26 @@ Ok(
                                     ],
                                     rpar: RightParenthesisToken(
                                         TokenIdx(
-                                            169,
+                                            170,
                                         ),
                                     ),
                                 },
                                 curry_token: Some(
                                     CurryToken(
                                         TokenIdx(
-                                            170,
+                                            171,
                                         ),
                                     ),
                                 ),
                                 return_ty: Some(
                                     ReturnTypeExpr {
-                                        expr: 12,
+                                        expr: 13,
                                     },
                                 ),
                                 eol_colon: EolToken::Colon(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            172,
+                                            173,
                                         ),
                                     },
                                 ),

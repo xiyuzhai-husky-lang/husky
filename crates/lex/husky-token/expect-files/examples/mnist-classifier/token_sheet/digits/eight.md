@@ -506,7 +506,7 @@ Ok(
                 ),
             ),
             Token::Ident(
-                `firstx`,
+                `first`,
             ),
             Token::Punctuation(
                 Punctuation(
@@ -520,6 +520,11 @@ Ok(
                     PunctuationMapped::Ket(
                         Par,
                     ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Exclamation,
                 ),
             ),
             Token::Punctuation(
@@ -560,7 +565,7 @@ Ok(
                 ),
             ),
             Token::Ident(
-                `firstx`,
+                `first`,
             ),
             Token::Punctuation(
                 Punctuation(
@@ -574,6 +579,11 @@ Ok(
                     PunctuationMapped::Ket(
                         Par,
                     ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Exclamation,
                 ),
             ),
             Token::Punctuation(
@@ -644,7 +654,7 @@ Ok(
             84,
             96,
             107,
-            131,
+            133,
         ],
         indents: [
             0,

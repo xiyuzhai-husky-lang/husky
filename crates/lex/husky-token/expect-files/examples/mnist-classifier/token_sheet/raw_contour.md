@@ -6210,7 +6210,7 @@ Ok(
                 ),
             ),
             Token::Ident(
-                `lastx`,
+                `last`,
             ),
             Token::Punctuation(
                 Punctuation(
@@ -6224,6 +6224,11 @@ Ok(
                     PunctuationMapped::Ket(
                         Par,
                     ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Exclamation,
                 ),
             ),
             Token::Punctuation(
@@ -6427,7 +6432,7 @@ Ok(
                 ),
             ),
             Token::Ident(
-                `lastx`,
+                `last`,
             ),
             Token::Punctuation(
                 Punctuation(
@@ -6441,6 +6446,11 @@ Ok(
                     PunctuationMapped::Ket(
                         Par,
                     ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Exclamation,
                 ),
             ),
             Token::Punctuation(
@@ -6601,7 +6611,7 @@ Ok(
                 ),
             ),
             Token::Ident(
-                `lastx`,
+                `last`,
             ),
             Token::Punctuation(
                 Punctuation(
@@ -6615,6 +6625,11 @@ Ok(
                     PunctuationMapped::Ket(
                         Par,
                     ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Exclamation,
                 ),
             ),
             Token::Punctuation(
@@ -7304,7 +7319,7 @@ Ok(
                 ),
             ),
             Token::Ident(
-                `popx`,
+                `pop`,
             ),
             Token::Punctuation(
                 Punctuation(
@@ -7551,42 +7566,42 @@ Ok(
             1267,
             1270,
             1294,
-            1304,
-            1317,
-            1321,
-            1325,
-            1339,
-            1353,
-            1356,
-            1359,
-            1377,
-            1391,
-            1395,
-            1399,
-            1401,
-            1414,
+            1305,
+            1318,
+            1322,
+            1326,
+            1340,
+            1355,
+            1358,
+            1361,
+            1379,
+            1394,
+            1398,
+            1402,
+            1404,
             1417,
             1420,
             1423,
             1426,
             1429,
-            1433,
-            1440,
-            1445,
+            1432,
+            1436,
+            1443,
             1448,
-            1458,
-            1465,
-            1470,
+            1451,
+            1461,
+            1468,
             1473,
-            1481,
-            1492,
-            1503,
+            1476,
+            1484,
+            1495,
             1506,
-            1512,
-            1514,
-            1528,
-            1534,
-            1545,
+            1509,
+            1515,
+            1517,
+            1531,
+            1537,
+            1548,
         ],
         indents: [
             0,

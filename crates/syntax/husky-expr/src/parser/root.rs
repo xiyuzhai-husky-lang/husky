@@ -15,7 +15,7 @@ impl ExprRoot {
         self.kind
     }
 
-    pub fn expr(&self) -> ExprIdx {
+    pub fn expr_idx(&self) -> ExprIdx {
         self.expr_idx
     }
 }

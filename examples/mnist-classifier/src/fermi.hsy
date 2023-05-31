@@ -27,7 +27,7 @@ impl FermiMatchResult:
 
 pub fn fermi_match(
     concave_components: ~[]ConcaveComponent,
-    templates: []((~ConcaveComponent) -> ?f32)
+    templates: [](fn (~ConcaveComponent) -> ?f32)
 ) -> FermiMatchResult:
     let mut others = concave_components.collect_refs()
     let mut matches: []?~ConcaveComponent = []

@@ -86,13 +86,13 @@ impl ExprRegionData {
     pub fn return_ty(&self) -> Option<ExprIdx> {
         self.roots
             .iter()
-            .find_map(|root| (root.kind() == ExprRootKind::ReturnType).then_some(root.expr()))
+            .find_map(|root| (root.kind() == ExprRootKind::ReturnType).then_some(root.expr_idx()))
     }
 
     pub fn self_ty(&self) -> Option<ExprIdx> {
         self.roots
             .iter()
-            .find_map(|root| (root.kind() == ExprRootKind::SelfType).then_some(root.expr()))
+            .find_map(|root| (root.kind() == ExprRootKind::SelfType).then_some(root.expr_idx()))
     }
 }
 
