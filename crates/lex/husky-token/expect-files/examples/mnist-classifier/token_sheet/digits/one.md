@@ -22,7 +22,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Val,
                 ),
             ),
@@ -104,7 +104,7 @@ Ok(
                 Keyword::Pub,
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Val,
                 ),
             ),
@@ -2279,7 +2279,7 @@ Ok(
                 `One`,
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Fn,
                 ),
             ),
@@ -2412,7 +2412,7 @@ Ok(
                 `y`,
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Fn,
                 ),
             ),
@@ -2576,7 +2576,7 @@ Ok(
                 `y`,
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Fn,
                 ),
             ),

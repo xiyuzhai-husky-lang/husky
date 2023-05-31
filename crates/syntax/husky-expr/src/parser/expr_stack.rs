@@ -3,6 +3,15 @@ use salsa::DebugWithDb;
 
 use super::*;
 
+/// stack based expression parsing.
+///
+/// finished expression if exists, sits on top of unfinished ones.
+///
+/// For example,
+/// ```husky
+/// a + b * (c + d
+/// ```
+/// in the above `c + d` would be the finished expression, `a +`, `b *` and `(c + d` would be unfinished expressions.
 #[derive(Default, Debug)]
 pub(crate) struct ExprStack {
     unfinished_exprs: Vec<(UnfinishedExpr, Precedence)>,
@@ -115,6 +124,7 @@ impl Expr {
             } => arena[owner].base_entity_path(db, arena),
             Expr::EmptyHtmlTag { .. } => BaseEntityPath::Err,
             Expr::RitchieCall { .. } => todo!(),
+            Expr::Ritchie { .. } => todo!(),
         }
     }
 }
@@ -148,6 +158,10 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         self.stack.unfinished_exprs.last_mut().map(|(opr, _)| opr)
     }
 
+    /// make `top_expr` the top expression.
+    /// - if there is already a finished expression, interpret it as a function,
+    /// and `top_expr` as an argument;
+    /// - otherwise just adds it in the trivial way
     pub(super) fn set_top_expr(&mut self, top_expr: TopExpr) {
         if let Some(function) = self.take_finished_expr() {
             self.push_unfinished_expr(UnfinishedExpr::Application { function });
@@ -158,6 +172,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         }
     }
 
+    /// if there's no need for the information of unfinished expressions, call `finished_expr` would be faster
     pub(super) fn top_expr<'d>(&'d self) -> TopExprRef<'d> {
         if let Some(ref finished_expr) = self.stack.finished_expr {
             TopExprRef::Finished(finished_expr)
@@ -242,10 +257,38 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 }
                 UnfinishedExpr::LambdaHead { inputs, start } => todo!(),
                 UnfinishedExpr::KeyedArgumentList { .. } => todo!(),
+                UnfinishedExpr::Ritchie {
+                    ritchie_kind_token_idx,
+                    ritchie_kind,
+                    lpar_token,
+                    argument_tys,
+                    commas,
+                    rpar_token_idx,
+                    light_arrow_token,
+                } => {
+                    let finished_expr = self.take_finished_expr();
+                    self.stack.finished_expr = Some(match finished_expr {
+                        Some(return_ty) => Expr::Ritchie {
+                            ritchie_kind_token_idx,
+                            ritchie_kind,
+                            lpar_token,
+                            parameter_ty_exprs: argument_tys,
+                            commas,
+                            rpar_token_idx,
+                            light_arrow_token: Some(light_arrow_token),
+                            return_ty_expr: Some(self.alloc_expr(return_ty)),
+                        },
+                        None => Expr::Err(
+                            OriginalExprError::ExpectedTypeAfterLightArrow { light_arrow_token }
+                                .into(),
+                        ),
+                    })
+                }
             }
         }
     }
 
+    /// use this when the incoming token might change the nature of the top expression
     pub(super) fn replace_top_expr(&mut self, f: impl FnOnce(&mut Self, Option<Expr>) -> TopExpr) {
         let finished_expr = self.take_finished_expr();
         let top_expr = f(self, finished_expr);

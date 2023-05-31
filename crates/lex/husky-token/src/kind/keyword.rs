@@ -28,7 +28,7 @@ use std::ops::Deref;
 #[enum_class::from_variants]
 pub enum Keyword {
     Config(ConfigKeyword),
-    Form(FormKeyword),
+    Fugitive(FugitiveKeyword),
     TypeEntity(TypeEntityKeyword),
     Stmt(StmtKeyword),
     Modifier(ModifierKeyword),
@@ -62,7 +62,7 @@ impl Keyword {
     pub const fn code(&self) -> &'static str {
         match self {
             Keyword::Config(keyword) => keyword.code(),
-            Keyword::Form(keyword) => keyword.code(),
+            Keyword::Fugitive(keyword) => keyword.code(),
             Keyword::TypeEntity(keyword) => keyword.code(),
             Keyword::Stmt(keyword) => keyword.code(),
             Keyword::Use => "use",

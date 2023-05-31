@@ -472,6 +472,31 @@ impl<'a> DeclarativeTermEngine<'a> {
                 empty_html_ket,
             } => todo!(),
             Expr::RitchieCall { .. } => todo!(),
+            Expr::Ritchie {
+                ritchie_kind,
+                parameter_ty_exprs,
+                return_ty_expr,
+                ..
+            } => {
+                let parameter_tys: SmallVec<[_; 2]> = parameter_ty_exprs
+                    .into_iter()
+                    .map(|argument_ty_expr| {
+                        Ok(DeclarativeTermRitchieParameterContractedType::new(
+                            // todo: handle &mut !!
+                            Contract::Pure,
+                            self.infer_new_expr_term(argument_ty_expr)?,
+                        ))
+                    })
+                    .collect::<DeclarativeTermResult2<SmallVec<_>>>()?;
+                let return_ty = match return_ty_expr {
+                    Some(return_ty_expr) => self.infer_new_expr_term(return_ty_expr)?,
+                    None => self.declarative_term_menu.unit(),
+                };
+                Ok(
+                    DeclarativeTermRitchie::new(self.db, ritchie_kind, parameter_tys, return_ty)
+                        .into(),
+                )
+            }
         }
     }
 

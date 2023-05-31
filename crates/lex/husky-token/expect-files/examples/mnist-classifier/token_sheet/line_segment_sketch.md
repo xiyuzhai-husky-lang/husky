@@ -414,7 +414,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Fn,
                 ),
             ),
@@ -538,7 +538,7 @@ Ok(
                 Keyword::Static,
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Fn,
                 ),
             ),
@@ -718,7 +718,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Fn,
                 ),
             ),
@@ -898,7 +898,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Fn,
                 ),
             ),
@@ -981,7 +981,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Val,
                 ),
             ),
@@ -1038,7 +1038,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Val,
                 ),
             ),
@@ -1599,7 +1599,7 @@ Ok(
                 Keyword::Static,
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Fn,
                 ),
             ),
@@ -1721,7 +1721,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Fn,
                 ),
             ),
@@ -2174,7 +2174,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Fn,
                 ),
             ),
@@ -2627,7 +2627,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Fn,
                 ),
             ),
@@ -3706,7 +3706,7 @@ Ok(
                 `end`,
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Fn,
                 ),
             ),
@@ -4958,7 +4958,7 @@ Ok(
                 `start0`,
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Fn,
                 ),
             ),

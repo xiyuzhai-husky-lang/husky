@@ -147,15 +147,28 @@ pub enum Expr {
         implicit_arguments: Option<ImplicitArgumentList>,
         lpar_token_idx: TokenIdx,
         items: ExprIdxRange,
-        commas: Vec<TokenIdx>,
+        commas: Commas,
         rpar_token_idx: TokenIdx,
+    },
+    /// function type or trait
+    Ritchie {
+        ritchie_kind_token_idx: TokenIdx,
+        ritchie_kind: RitchieKind,
+        lpar_token: LeftParenthesisToken,
+        parameter_ty_exprs: ExprIdxRange,
+        commas: Commas,
+        rpar_token_idx: TokenIdx,
+        light_arrow_token: Option<LightArrowToken>,
+        /// it's guaranteed that `return_ty_expr` is some if and only if
+        /// `light_arrow_token` is some
+        return_ty_expr: Option<ExprIdx>,
     },
     RitchieCall {
         function: ExprIdx,
         implicit_arguments: Option<ImplicitArgumentList>,
         lpar_token_idx: TokenIdx,
         items: ExprIdxRange,
-        commas: Vec<TokenIdx>,
+        commas: Commas,
         keyed_arguments: SmallVecMap<KeyedArgumentExpr, 2>,
         rpar_token_idx: TokenIdx,
     },
@@ -195,7 +208,7 @@ pub enum Expr {
         lpar_token_idx: TokenIdx,
         /// guaranteed that items.len() > 0
         items: ExprIdxRange,
-        commas: Vec<TokenIdx>,
+        commas: Commas,
         rpar_token_idx: TokenIdx,
     },
     /// there are two cases
@@ -245,7 +258,7 @@ pub struct KeyedArgumentExpr {
 pub struct ImplicitArgumentList {
     langle: TokenIdx,
     arguments: ExprIdxRange,
-    commas: Vec<TokenIdx>,
+    commas: Commas,
     rangle: TokenIdx,
 }
 
@@ -253,7 +266,7 @@ impl ImplicitArgumentList {
     pub(crate) fn new(
         langle: TokenIdx,
         arguments: ExprIdxRange,
-        commas: Vec<TokenIdx>,
+        commas: Commas,
         rangle: TokenIdx,
     ) -> Self {
         Self {
@@ -284,3 +297,5 @@ pub type ExprArena = Arena<Expr>;
 pub type ExprIdx = ArenaIdx<Expr>;
 pub type ExprIdxRange = ArenaIdxRange<Expr>;
 pub type ExprMap<V> = ArenaMap<Expr, V>;
+
+type Commas = SmallVec<[TokenIdx; 2]>;

@@ -18,26 +18,45 @@ pub(super) enum UnfinishedExpr {
         punctuation_token_idx: TokenIdx,
     },
     SimpleList {
-        opr: UnfinishedListOpr,
+        opr: UnfinishedSimpleListOpr,
+        // todo: move this into opr
         bra: Bracket,
+        // todo: move this into opr
         bra_token_idx: TokenIdx,
+        // todo: use SmallVec
         items: Vec<Expr>,
-        commas: Vec<TokenIdx>,
+        // todo: use SmallVec
+        commas: Commas,
     },
     KeyedArgumentList {
         function: ExprIdx,
         bra: Bracket,
         bra_token_idx: TokenIdx,
+        // todo: use SmallVec
         arguments: Vec<Expr>,
-        commas: Vec<TokenIdx>,
+        // todo: use SmallVec
+        commas: Commas,
         keyed_arguments: SmallVec<[KeyedArgumentExpr; 2]>,
     },
     LambdaHead {
+        // todo: use SmallVec
         inputs: Vec<(RangedIdent, Option<ExprIdx>)>,
         start: TextPosition,
     },
     Application {
         function: Expr,
+    },
+    /// just needs the return type
+    Ritchie {
+        ritchie_kind_token_idx: TokenIdx,
+        ritchie_kind: RitchieKind,
+        lpar_token: LeftParenthesisToken,
+        // todo: use SmallVec
+        argument_tys: ExprIdxRange,
+        // todo: use SmallVec
+        commas: Commas,
+        rpar_token_idx: TokenIdx,
+        light_arrow_token: LightArrowToken,
     },
 }
 
@@ -81,6 +100,7 @@ impl UnfinishedExpr {
             | UnfinishedExpr::KeyedArgumentList { .. } => Precedence::None,
             UnfinishedExpr::LambdaHead { .. } => Precedence::LambdaHead,
             UnfinishedExpr::Application { .. } => Precedence::Application,
+            UnfinishedExpr::Ritchie { .. } => Precedence::Curry,
         }
     }
 }

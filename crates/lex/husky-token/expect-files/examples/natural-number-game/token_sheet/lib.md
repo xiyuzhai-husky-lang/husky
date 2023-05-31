@@ -97,12 +97,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Keyword(
@@ -147,12 +142,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Eq,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::RaOrGt,
+                    PunctuationMapped::HeavyArrow,
                 ),
             ),
             Token::Ident(
@@ -213,7 +203,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Theorem,
                 ),
             ),
@@ -652,11 +642,11 @@ Ok(
             9,
             12,
             18,
-            25,
-            45,
-            83,
-            84,
-            113,
+            24,
+            43,
+            81,
+            82,
+            111,
         ],
         indents: [
             0,

@@ -34,7 +34,7 @@ pub enum FluffyTermData<'a> {
     Hole(HoleKind, Hole),
     Category(TermCategory),
     Ritchie {
-        ritchie_kind: TermRitchieKind,
+        ritchie_kind: RitchieKind,
         parameter_contracted_tys: &'a [FluffyTermRitchieParameterContractedType],
         return_ty: FluffyTerm,
     },
@@ -275,7 +275,7 @@ impl<'a, _Db: EtherealTermDb + ?Sized> ::salsa::DebugWithDb<_Db> for FluffyTermD
                 let mut debug_struct = &mut f.debug_struct("FluffyTermData::Ritchie");
                 debug_struct = debug_struct.field(
                     "ritchie_kind",
-                    &::salsa::debug::helper::SalsaDebug::<TermRitchieKind, _Db>::salsa_debug(
+                    &::salsa::debug::helper::SalsaDebug::<RitchieKind, _Db>::salsa_debug(
                         #[allow(clippy::needless_borrow)]
                         ritchie_kind,
                         _db,

@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
-pub(super) enum UnfinishedListOpr {
+pub(super) enum UnfinishedSimpleListOpr {
     NewTuple,
     Index {
         owner: ExprIdx,
@@ -14,6 +14,11 @@ pub(super) enum UnfinishedListOpr {
     FunctionInstantiation {},
     FunctionCall {
         function: ExprIdx,
+    },
+    RitchieArguments {
+        ritchie_kind_token_idx: TokenIdx,
+        ritchie_kind: RitchieKind,
+        lpar_token: LeftParenthesisToken,
     },
     TemplateInstantiation {
         template: ExprIdx,

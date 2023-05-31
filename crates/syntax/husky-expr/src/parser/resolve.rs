@@ -41,9 +41,11 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             )),
                         },
                     },
-
                     PronounKeyword::Super => todo!(),
                 },
+                Keyword::Fugitive(FugitiveKeyword::Fn) => {
+                    ResolvedToken::Ritchie(token_idx, RitchieKind::FnType)
+                }
                 _ => ResolvedToken::AtomicExpr(Expr::Err(
                     OriginalExprError::UnexpectedKeyword(token_idx).into(),
                 )),
@@ -126,7 +128,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 PunctuationMapped::Dot => ResolvedToken::Dot(token_idx),
                 PunctuationMapped::Colon => match self.last_unfinished_expr() {
                     Some(UnfinishedExpr::SimpleList {
-                        opr: UnfinishedListOpr::BoxList { .. },
+                        opr: UnfinishedSimpleListOpr::BoxList { .. },
                         items,
                         ..
                     }) => {
@@ -207,6 +209,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 },
                 PunctuationMapped::ForAll => todo!(),
                 PunctuationMapped::Exists => todo!(),
+                PunctuationMapped::HeavyArrow => todo!(),
             },
             Token::WordOpr(opr) => match opr {
                 WordOpr::And => ResolvedToken::BinaryOpr(
@@ -233,12 +236,11 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         prefix_opr: PrefixOpr,
         other: ResolvedToken,
     ) -> ResolvedToken {
-        match self.top_expr() {
-            TopExprRef::Unfinished(_)
-            | TopExprRef::Finished(Expr::List { .. })
-            | TopExprRef::Finished(Expr::BoxColonList { .. })
-            | TopExprRef::None => ResolvedToken::PrefixOpr(token_idx, prefix_opr),
-            TopExprRef::Finished(_) => other,
+        match self.finished_expr() {
+            Some(Expr::List { .. }) | Some(Expr::BoxColonList { .. }) | None => {
+                ResolvedToken::PrefixOpr(token_idx, prefix_opr)
+            }
+            Some(_) => other,
         }
     }
 }
@@ -324,4 +326,5 @@ pub(crate) enum ResolvedToken {
     ListItem(TokenIdx),
     Be(TokenIdx),
     ColonRightAfterLBox(TokenIdx),
+    Ritchie(TokenIdx, RitchieKind),
 }

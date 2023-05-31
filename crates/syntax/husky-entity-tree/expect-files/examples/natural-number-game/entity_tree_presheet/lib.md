@@ -43,7 +43,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `OddNat`,
                                 token_idx: TokenIdx(
-                                    85,
+                                    83,
                                 ),
                             },
                         },
@@ -66,7 +66,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `EvenNat`,
                                 token_idx: TokenIdx(
-                                    114,
+                                    112,
                                 ),
                             },
                         },

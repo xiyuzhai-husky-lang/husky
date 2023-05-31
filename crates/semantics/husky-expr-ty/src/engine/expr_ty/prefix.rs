@@ -88,7 +88,7 @@ impl<'a> ExprTypeEngine<'a> {
             }
             PrefixOpr::Tilde => match final_destination {
                 FinalDestination::Sort => {
-                    self.infer_new_expr_ty_discarded(opd, self.expect_eqs_ty0());
+                    self.infer_new_expr_ty_discarded(opd, self.expect_ty0_subtype());
                     Ok((
                         ExprDisambiguation::Tilde(TildeDisambiguation::Leash),
                         Ok(self.term_menu.ty0().into()),
@@ -102,7 +102,7 @@ impl<'a> ExprTypeEngine<'a> {
                 )),
             },
             PrefixOpr::Ref => {
-                self.infer_new_expr_ty_discarded(opd, self.expect_eqs_ty0());
+                self.infer_new_expr_ty_discarded(opd, self.expect_ty0_subtype());
                 // Should consider more cases, could also be taking references
                 Ok((ExprDisambiguation::Trivial, Ok(self.term_menu.ty0().into())))
             }
@@ -112,7 +112,7 @@ impl<'a> ExprTypeEngine<'a> {
             PrefixOpr::Array(_) => todo!(),
             PrefixOpr::Option => {
                 // todo!("consider universe");
-                self.infer_new_expr_ty_discarded(opd, self.expect_eqs_ty0());
+                self.infer_new_expr_ty_discarded(opd, self.expect_ty0_subtype());
                 Ok((ExprDisambiguation::Trivial, Ok(self.term_menu.ty0().into())))
             }
         }
@@ -121,7 +121,7 @@ impl<'a> ExprTypeEngine<'a> {
     fn calc_bitnot_expr_ty(&mut self, opd: ExprIdx) -> ExprTypeResult<FluffyTerm> {
         let Some(ty) = self.infer_new_expr_ty(
             opd,
-            self.expect_eqs_ty0(),
+            self.expect_ty0_subtype(),
         ) else {
             Err(DerivedExprTypeError::BitNotOperandTypeNotInferred)?
         };

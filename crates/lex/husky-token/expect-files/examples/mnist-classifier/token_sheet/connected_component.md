@@ -206,7 +206,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Fn,
                 ),
             ),
@@ -378,7 +378,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Fn,
                 ),
             ),
@@ -461,7 +461,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Val,
                 ),
             ),
@@ -518,7 +518,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Val,
                 ),
             ),
@@ -820,7 +820,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Val,
                 ),
             ),
@@ -1052,7 +1052,7 @@ Ok(
                 `f32`,
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Val,
                 ),
             ),
@@ -1228,7 +1228,7 @@ Ok(
                 `f32`,
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Val,
                 ),
             ),
@@ -1383,7 +1383,7 @@ Ok(
                 `f32`,
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Val,
                 ),
             ),
@@ -1979,7 +1979,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Val,
                 ),
             ),
@@ -2027,7 +2027,7 @@ Ok(
                 `f32`,
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Val,
                 ),
             ),
@@ -2075,7 +2075,7 @@ Ok(
                 `f32`,
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Fn,
                 ),
             ),
@@ -2378,7 +2378,7 @@ Ok(
                 `f32`,
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Fn,
                 ),
             ),
@@ -2681,7 +2681,7 @@ Ok(
                 `f32`,
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Fn,
                 ),
             ),
@@ -3115,7 +3115,7 @@ Ok(
                 Keyword::Pub,
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Fn,
                 ),
             ),

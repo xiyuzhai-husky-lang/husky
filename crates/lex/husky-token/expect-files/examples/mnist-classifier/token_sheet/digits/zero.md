@@ -22,7 +22,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Val,
                 ),
             ),
@@ -85,7 +85,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Fn,
                 ),
             ),
@@ -240,7 +240,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Val,
                 ),
             ),

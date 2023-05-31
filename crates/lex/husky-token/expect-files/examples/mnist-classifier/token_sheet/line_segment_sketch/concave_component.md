@@ -271,7 +271,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Fn,
                 ),
             ),
@@ -354,7 +354,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Val,
                 ),
             ),
@@ -388,7 +388,7 @@ Ok(
                 `hausdorff_norm`,
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Val,
                 ),
             ),
@@ -480,7 +480,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Val,
                 ),
             ),
@@ -886,7 +886,7 @@ Ok(
                 `hausdorff_norm`,
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Val,
                 ),
             ),
@@ -1217,7 +1217,7 @@ Ok(
                 `angle_change`,
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Val,
                 ),
             ),
@@ -1799,7 +1799,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Val,
                 ),
             ),
@@ -1876,7 +1876,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Fn,
                 ),
             ),
@@ -2075,7 +2075,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Fn,
                 ),
             ),
@@ -2182,7 +2182,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Fn,
                 ),
             ),
@@ -2289,7 +2289,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Fn,
                 ),
             ),
@@ -2375,7 +2375,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Fn,
                 ),
             ),
@@ -2474,7 +2474,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Fn,
                 ),
             ),
@@ -2576,7 +2576,7 @@ Ok(
                 Keyword::Pub,
             ),
             Token::Keyword(
-                Keyword::Form(
+                Keyword::Fugitive(
                     Fn,
                 ),
             ),

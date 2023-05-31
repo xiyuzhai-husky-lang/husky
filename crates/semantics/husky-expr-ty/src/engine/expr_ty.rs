@@ -31,6 +31,7 @@ impl<'a> ExprTypeEngine<'a> {
         self.expr_ty_infos[expr_idx].ty().ok()
     }
 
+    /// infer the type of a new expression but don't need the result for now
     pub(super) fn infer_new_expr_ty_discarded<E: ExpectFluffyTerm>(
         &mut self,
         expr_idx: ExprIdx,
@@ -331,6 +332,19 @@ impl<'a> ExprTypeEngine<'a> {
                 ExprDisambiguation::Trivial,
                 Ok(self.term_menu.html_ty_ontology().into()),
             )),
+            Expr::Ritchie {
+                parameter_ty_exprs,
+                return_ty_expr,
+                ..
+            } => {
+                for parameter_ty_expr in parameter_ty_exprs {
+                    self.infer_new_expr_ty_discarded(parameter_ty_expr, self.expect_ty0_subtype());
+                }
+                return_ty_expr.map(|return_ty_expr| {
+                    self.infer_new_expr_ty_discarded(return_ty_expr, self.expect_ty0_subtype())
+                });
+                Ok((ExprDisambiguation::Trivial, Ok(self.term_menu.ty0().into())))
+            }
             Expr::Err(_) => Err(DerivedExprTypeError::ExprError.into()),
         }
     }

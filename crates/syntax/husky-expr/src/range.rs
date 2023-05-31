@@ -321,6 +321,17 @@ impl<'a> ExprRangeCalculator<'a> {
                 empty_html_ket,
                 ..
             } => TokenIdxRange::new_closed(*empty_html_bra_idx, empty_html_ket.token_idx()),
+            Expr::Ritchie {
+                ritchie_kind_token_idx,
+                rpar_token_idx,
+                return_ty_expr,
+                ..
+            } => match return_ty_expr {
+                Some(return_ty_expr) => {
+                    TokenIdxRange::new(*ritchie_kind_token_idx, self[*return_ty_expr].end())
+                }
+                None => TokenIdxRange::new_closed(*ritchie_kind_token_idx, *rpar_token_idx),
+            },
             Expr::Err(error) => match error {
                 ExprError::Original(error) => error.token_idx_range(),
                 ExprError::Derived(_) => todo!(),

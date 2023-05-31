@@ -50,12 +50,15 @@ impl Punctuation {
             PunctuationMapped::Eq => Convexity::Concave,
             PunctuationMapped::ForAll => Convexity::Concave,
             PunctuationMapped::Exists => Convexity::Concave,
+            PunctuationMapped::HeavyArrow => Convexity::Concave,
             _ => unreachable!(),
         }
     }
 
     /// `->`
-    pub const THIN_ARROW: Self = Self(PunctuationMapped::Binary(BinaryOpr::Curry));
+    pub const LIGHT_ARROW: Self = Self(PunctuationMapped::Binary(BinaryOpr::Curry));
+    /// `=>`
+    pub const HEAVY_ARROW: Self = Self(PunctuationMapped::HeavyArrow);
     /// `:`
     pub const COLON: Self = Self(PunctuationMapped::Colon);
     /// `::`
@@ -245,6 +248,8 @@ pub enum PunctuationMapped {
     ForAll,
     /// `∃`
     Exists,
+    /// `=>`
+    HeavyArrow,
 }
 
 impl PunctuationMapped {
@@ -282,6 +287,7 @@ impl PunctuationMapped {
             PunctuationMapped::Tilde => todo!(),
             PunctuationMapped::ForAll => todo!(),
             PunctuationMapped::Exists => todo!(),
+            PunctuationMapped::HeavyArrow => todo!(),
         }
     }
 
@@ -327,6 +333,7 @@ impl PunctuationMapped {
             PunctuationMapped::Tilde => todo!(),
             PunctuationMapped::ForAll => todo!(),
             PunctuationMapped::Exists => todo!(),
+            PunctuationMapped::HeavyArrow => todo!(),
         }
     }
 }

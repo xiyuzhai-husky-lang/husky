@@ -184,6 +184,7 @@ impl Diagnose for OriginalExprError {
                 format!("Syntax Error: UnexpectedLeftCurlyBrace")
             }
             OriginalExprError::ExpectedTraits(_) => todo!(),
+            OriginalExprError::ExpectedTypeAfterLightArrow { light_arrow_token } => todo!(),
         }
     }
 

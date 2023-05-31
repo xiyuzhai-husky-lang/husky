@@ -1,7 +1,7 @@
+use super::*;
 use husky_print_utils::p;
 use parsec::{parse_consecutive_list, parse_consecutive_vec_map, StreamParser};
-
-use super::*;
+use smallvec::smallvec;
 
 impl<'a, 'b> ExprParseContext<'a, 'b> {
     pub(crate) fn accept_token(&mut self, token: ResolvedToken) {
@@ -18,10 +18,13 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             ResolvedToken::ColonRightAfterLBox(colon_token_idx) => {
                 self.accept_colon_right_after_lbox(colon_token_idx)
             }
+            ResolvedToken::Ritchie(token_idx, ritchie_kind) => {
+                self.accept_ritchie(token_idx, ritchie_kind)
+            }
         }
     }
 
-    pub(crate) fn accept_list_end(&mut self, ket: Bracket, ket_token_idx: TokenIdx) {
+    fn accept_list_end(&mut self, ket: Bracket, ket_token_idx: TokenIdx) {
         self.reduce(Precedence::ListItem);
         match self.take_last_unfinished_expr().unwrap() {
             UnfinishedExpr::SimpleList {
@@ -40,7 +43,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     }
                     let items = this.alloc_expr_batch(items);
                     match opr {
-                        UnfinishedListOpr::NewTuple => match (items.len(), commas.len()) {
+                        UnfinishedSimpleListOpr::NewTuple => match (items.len(), commas.len()) {
                             (0, 0) => Expr::Unit {
                                 lpar_token_idx: bra_token_idx,
                                 rpar_token_idx: ket_token_idx,
@@ -58,28 +61,32 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             },
                         }
                         .into(),
-                        UnfinishedListOpr::Index { owner } => Expr::IndexOrCompositionWithList {
-                            owner,
+                        UnfinishedSimpleListOpr::Index { owner } => {
+                            Expr::IndexOrCompositionWithList {
+                                owner,
+                                lbox_token_idx: bra_token_idx,
+                                items,
+                                rbox_token_idx: ket_token_idx,
+                            }
+                            .into()
+                        }
+                        UnfinishedSimpleListOpr::BoxList => Expr::List {
                             lbox_token_idx: bra_token_idx,
                             items,
                             rbox_token_idx: ket_token_idx,
                         }
                         .into(),
-                        UnfinishedListOpr::BoxList => Expr::List {
-                            lbox_token_idx: bra_token_idx,
-                            items,
-                            rbox_token_idx: ket_token_idx,
+                        UnfinishedSimpleListOpr::BoxColonList { colon_token_idx } => {
+                            Expr::BoxColonList {
+                                lbox_token_idx: bra_token_idx,
+                                colon_token_idx,
+                                items,
+                                rbox_token_idx: ket_token_idx,
+                            }
+                            .into()
                         }
-                        .into(),
-                        UnfinishedListOpr::BoxColonList { colon_token_idx } => Expr::BoxColonList {
-                            lbox_token_idx: bra_token_idx,
-                            colon_token_idx,
-                            items,
-                            rbox_token_idx: ket_token_idx,
-                        }
-                        .into(),
-                        UnfinishedListOpr::NewLambdaHead => todo!(),
-                        UnfinishedListOpr::FunctionCall { function } => {
+                        UnfinishedSimpleListOpr::NewLambdaHead => todo!(),
+                        UnfinishedSimpleListOpr::FunctionCall { function } => {
                             // ad hoc
                             let implicit_arguments: Option<ImplicitArgumentList> = None;
                             Expr::ExplicitApplicationOrRitchieCall {
@@ -92,8 +99,8 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             }
                             .into()
                         }
-                        UnfinishedListOpr::MethodInstantiation { .. } => todo!(),
-                        UnfinishedListOpr::MethodCall {
+                        UnfinishedSimpleListOpr::MethodInstantiation { .. } => todo!(),
+                        UnfinishedSimpleListOpr::MethodCall {
                             self_expr,
                             dot_token_idx,
                             ident_token,
@@ -108,7 +115,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             rpar_token_idx: ket_token_idx,
                         }
                         .into(),
-                        UnfinishedListOpr::TemplateInstantiation { template } => {
+                        UnfinishedSimpleListOpr::TemplateInstantiation { template } => {
                             Expr::TemplateInstantiation {
                                 template,
                                 implicit_arguments: ImplicitArgumentList::new(
@@ -120,7 +127,25 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             }
                             .into()
                         }
-                        UnfinishedListOpr::FunctionInstantiation {} => todo!(),
+                        UnfinishedSimpleListOpr::FunctionInstantiation {} => todo!(),
+                        UnfinishedSimpleListOpr::RitchieArguments {
+                            ritchie_kind_token_idx,
+                            ritchie_kind,
+                            lpar_token,
+                        } => match this.parse::<LightArrowToken>() {
+                            Ok(Some(light_arrow_token)) => UnfinishedExpr::Ritchie {
+                                ritchie_kind_token_idx,
+                                ritchie_kind,
+                                lpar_token,
+                                argument_tys: items,
+                                commas,
+                                rpar_token_idx: ket_token_idx,
+                                light_arrow_token,
+                            }
+                            .into(),
+                            Ok(None) => todo!(),
+                            Err(_) => todo!(),
+                        },
                     }
                 })
             }
@@ -161,7 +186,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 match this.parse::<IdentToken>() {
                     Ok(Some(ident_token)) => match this.parse::<LeftParenthesisToken>() {
                         Ok(Some(lpar)) => UnfinishedExpr::SimpleList {
-                            opr: UnfinishedListOpr::MethodCall {
+                            opr: UnfinishedSimpleListOpr::MethodCall {
                                 self_expr,
                                 dot_token_idx,
                                 ident_token,
@@ -170,12 +195,12 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             bra: Bracket::Par,
                             bra_token_idx: lpar.token_idx(),
                             items: vec![],
-                            commas: vec![],
+                            commas: smallvec![],
                         }
                         .into(),
                         Ok(None) => match this.parse::<ColonColonLeftAngleBracketToken>() {
                             Ok(Some(langle)) => UnfinishedExpr::SimpleList {
-                                opr: UnfinishedListOpr::MethodInstantiation {
+                                opr: UnfinishedSimpleListOpr::MethodInstantiation {
                                     self_expr,
                                     dot_token_idx,
                                     ident_token,
@@ -183,7 +208,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                                 bra: Bracket::TemplateAngle,
                                 bra_token_idx: langle.token_idx(),
                                 items: vec![],
-                                commas: vec![],
+                                commas: smallvec![],
                             }
                             .into(),
                             Ok(None) => Expr::Field {
@@ -255,7 +280,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         self.set_top_expr(expr.into())
     }
 
-    pub(crate) fn accept_binary_opr(&mut self, binary: BinaryOpr, binary_token_idx: TokenIdx) {
+    fn accept_binary_opr(&mut self, binary: BinaryOpr, binary_token_idx: TokenIdx) {
         self.reduce(binary.into());
         let lopd = self.take_finished_expr().unwrap_or(Expr::Err(
             OriginalExprError::NoLeftOperandForBinaryOperator { binary_token_idx }.into(),
@@ -274,7 +299,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         let unfinished_expr = self.take_last_unfinished_expr().unwrap();
         match unfinished_expr {
             UnfinishedExpr::SimpleList {
-                opr: UnfinishedListOpr::BoxList,
+                opr: UnfinishedSimpleListOpr::BoxList,
                 bra,
                 bra_token_idx,
                 items,
@@ -283,7 +308,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 assert!(items.is_empty());
                 self.set_top_expr(
                     UnfinishedExpr::SimpleList {
-                        opr: UnfinishedListOpr::BoxColonList { colon_token_idx },
+                        opr: UnfinishedSimpleListOpr::BoxColonList { colon_token_idx },
                         bra,
                         bra_token_idx,
                         items,
@@ -296,48 +321,48 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         }
     }
 
-    pub(super) fn accept_list_start(&mut self, bra: Bracket, bra_token_idx: TokenIdx) {
+    fn accept_list_start(&mut self, bra: Bracket, bra_token_idx: TokenIdx) {
         self.replace_top_expr(|parser, finished_expr| -> TopExpr {
             let finished_expr = finished_expr.map(|expr| parser.alloc_expr(expr));
             match bra {
                 Bracket::Par => match finished_expr {
                     Some(function) => UnfinishedExpr::SimpleList {
-                        opr: UnfinishedListOpr::FunctionCall { function },
+                        opr: UnfinishedSimpleListOpr::FunctionCall { function },
                         bra,
                         bra_token_idx,
                         items: vec![],
-                        commas: vec![],
+                        commas: smallvec![],
                     }
                     .into(),
                     None => UnfinishedExpr::SimpleList {
-                        opr: UnfinishedListOpr::NewTuple,
+                        opr: UnfinishedSimpleListOpr::NewTuple,
                         bra,
                         bra_token_idx,
                         items: vec![],
-                        commas: vec![],
+                        commas: smallvec![],
                     }
                     .into(),
                 },
                 Bracket::Box => UnfinishedExpr::SimpleList {
                     opr: match finished_expr {
-                        Some(finished_expr) => UnfinishedListOpr::Index {
+                        Some(finished_expr) => UnfinishedSimpleListOpr::Index {
                             owner: finished_expr,
                         },
-                        None => UnfinishedListOpr::BoxList,
+                        None => UnfinishedSimpleListOpr::BoxList,
                     },
                     bra,
                     bra_token_idx,
                     items: vec![],
-                    commas: vec![],
+                    commas: smallvec![],
                 }
                 .into(),
                 Bracket::TemplateAngle => match finished_expr {
                     Some(template) => UnfinishedExpr::SimpleList {
-                        opr: UnfinishedListOpr::TemplateInstantiation { template },
+                        opr: UnfinishedSimpleListOpr::TemplateInstantiation { template },
                         bra,
                         bra_token_idx,
                         items: vec![],
-                        commas: vec![],
+                        commas: smallvec![],
                     }
                     .into(),
                     None => todo!(),
@@ -372,5 +397,26 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 }
             }
         })
+    }
+
+    fn accept_ritchie(&mut self, ritchie_kind_token_idx: TokenIdx, ritchie_kind: RitchieKind) {
+        match self.parse::<LeftParenthesisToken>() {
+            Ok(Some(lpar_token)) => self.set_top_expr(
+                UnfinishedExpr::SimpleList {
+                    opr: UnfinishedSimpleListOpr::RitchieArguments {
+                        ritchie_kind_token_idx,
+                        ritchie_kind,
+                        lpar_token,
+                    },
+                    bra: Bracket::Par,
+                    bra_token_idx: lpar_token.token_idx(),
+                    items: vec![],
+                    commas: smallvec![],
+                }
+                .into(),
+            ),
+            Ok(None) => todo!(),
+            Err(_) => todo!(),
+        }
     }
 }

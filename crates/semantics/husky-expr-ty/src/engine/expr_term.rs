@@ -106,6 +106,7 @@ impl<'a> ExprTypeEngine<'a> {
                 lpar_token_idx,
                 rpar_token_idx,
             } => todo!(),
+            Expr::Ritchie { .. } => todo!(),
         }
     }
 
