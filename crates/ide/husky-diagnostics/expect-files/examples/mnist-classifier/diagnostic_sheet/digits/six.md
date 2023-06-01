@@ -12,19 +12,9 @@ DiagnosticSheet {
     expr_diagnostic_sheet: ExprDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [16:9, 16:20),
-            },
-            Diagnostic {
                 message: "Syntax Error: unterminated list",
                 severity: Error,
                 range: [16:20, 16:21),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [31:13, 31:24),
             },
             Diagnostic {
                 message: "Syntax Error: unterminated list",
@@ -32,19 +22,9 @@ DiagnosticSheet {
                 range: [31:24, 31:25),
             },
             Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [39:9, 39:20),
-            },
-            Diagnostic {
                 message: "Syntax Error: unterminated list",
                 severity: Error,
                 range: [39:20, 39:21),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [50:5, 50:16),
             },
             Diagnostic {
                 message: "Syntax Error: unterminated list",

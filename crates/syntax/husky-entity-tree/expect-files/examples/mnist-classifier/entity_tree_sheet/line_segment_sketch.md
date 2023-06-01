@@ -1020,7 +1020,7 @@ Ok(
                     use_expr_idx: 0,
                     visibility: Scope::Pub,
                     progress: Ok(
-                        46,
+                        47,
                     ),
                 },
                 UseAllRule {

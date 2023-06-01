@@ -153,6 +153,41 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `narrow_down`,
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FugitivePath(`malamute::narrow_down`, `Gn`),
+                                            ),
+                                            visibility: Scope::Pub,
+                                            ast_idx: 0,
+                                            ident_token: IdentToken {
+                                                ident: `narrow_down`,
+                                                token_idx: TokenIdx(
+                                                    2,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                        ),
+                                    ),
+                                    visibility: Scope::PubUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 24,
+                                    use_expr_idx: 18,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `MnistLabel`,
                             visibility: Scope::PubUnder(
                                 `mnist_classifier`,
@@ -1482,8 +1517,8 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier`,
                             ),
-                            progress: Err(
-                                (),
+                            progress: Ok(
+                                1,
                             ),
                         },
                         UseAllRule {
@@ -1511,7 +1546,7 @@ Ok(
                                 `mnist_classifier`,
                             ),
                             progress: Ok(
-                                30,
+                                31,
                             ),
                         },
                         UseAllRule {
@@ -1525,7 +1560,7 @@ Ok(
                                 `mnist_classifier`,
                             ),
                             progress: Ok(
-                                48,
+                                49,
                             ),
                         },
                         UseAllRule {
@@ -1539,7 +1574,7 @@ Ok(
                                 `mnist_classifier`,
                             ),
                             progress: Ok(
-                                30,
+                                31,
                             ),
                         },
                         UseAllRule {
@@ -1553,7 +1588,7 @@ Ok(
                                 `mnist_classifier`,
                             ),
                             progress: Ok(
-                                45,
+                                46,
                             ),
                         },
                         UseAllRule {
@@ -1581,18 +1616,12 @@ Ok(
                                 `mnist_classifier`,
                             ),
                             progress: Ok(
-                                32,
+                                33,
                             ),
                         },
                     ],
                 ),
-                errors: [
-                    EntityTreeError::Derived(
-                        DerivedEntityTreeError::InvalidModulePath(
-                            `malamute`,
-                        ),
-                    ),
-                ],
+                errors: [],
             },
             EntityTreeSheet {
                 module_path: `mnist_classifier::connected_component`,
@@ -1942,6 +1971,55 @@ Ok(
                                     ),
                                     path: EntityPath::Module(
                                         `mnist_classifier::major`,
+                                    ),
+                                    visibility: Scope::PubUnder(
+                                        `mnist_classifier::connected_component`,
+                                    ),
+                                    ast_idx: 119,
+                                    use_expr_idx: 3,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `narrow_down`,
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::connected_component`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                    ),
+                                                    visibility: Scope::Pub,
+                                                    ast_idx: 0,
+                                                    ident_token: IdentToken {
+                                                        ident: `narrow_down`,
+                                                        token_idx: TokenIdx(
+                                                            2,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                ),
+                                            ),
+                                            visibility: Scope::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 24,
+                                            use_expr_idx: 18,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                        ),
                                     ),
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::connected_component`,
@@ -3068,7 +3146,7 @@ Ok(
                                 `mnist_classifier::connected_component`,
                             ),
                             progress: Ok(
-                                30,
+                                31,
                             ),
                         },
                         UseAllRule {
@@ -3082,7 +3160,7 @@ Ok(
                                 `mnist_classifier::connected_component`,
                             ),
                             progress: Ok(
-                                45,
+                                46,
                             ),
                         },
                     ],
@@ -3560,6 +3638,55 @@ Ok(
                                     ),
                                     path: EntityPath::Module(
                                         `mnist_classifier::major`,
+                                    ),
+                                    visibility: Scope::PubUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 202,
+                                    use_expr_idx: 9,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `narrow_down`,
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                    ),
+                                                    visibility: Scope::Pub,
+                                                    ast_idx: 0,
+                                                    ident_token: IdentToken {
+                                                        ident: `narrow_down`,
+                                                        token_idx: TokenIdx(
+                                                            2,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                ),
+                                            ),
+                                            visibility: Scope::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 24,
+                                            use_expr_idx: 18,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                        ),
                                     ),
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::raw_contour`,
@@ -5030,7 +5157,7 @@ Ok(
                                 `mnist_classifier::raw_contour`,
                             ),
                             progress: Ok(
-                                30,
+                                31,
                             ),
                         },
                         UseAllRule {
@@ -5058,7 +5185,7 @@ Ok(
                                 `mnist_classifier::raw_contour`,
                             ),
                             progress: Ok(
-                                32,
+                                33,
                             ),
                         },
                         UseAllRule {
@@ -6345,7 +6472,7 @@ Ok(
                             use_expr_idx: 0,
                             visibility: Scope::Pub,
                             progress: Ok(
-                                46,
+                                47,
                             ),
                         },
                         UseAllRule {
@@ -6668,6 +6795,55 @@ Ok(
                                     ),
                                     path: EntityPath::Module(
                                         `mnist_classifier::major`,
+                                    ),
+                                    visibility: Scope::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 73,
+                                    use_expr_idx: 14,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `narrow_down`,
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                    ),
+                                                    visibility: Scope::Pub,
+                                                    ast_idx: 0,
+                                                    ident_token: IdentToken {
+                                                        ident: `narrow_down`,
+                                                        token_idx: TokenIdx(
+                                                            2,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                ),
+                                            ),
+                                            visibility: Scope::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 24,
+                                            use_expr_idx: 18,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                        ),
                                     ),
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch::concave_component`,
@@ -8785,7 +8961,7 @@ Ok(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             progress: Ok(
-                                30,
+                                31,
                             ),
                         },
                         UseAllRule {
@@ -11035,7 +11211,7 @@ Ok(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             progress: Ok(
-                                45,
+                                46,
                             ),
                         },
                         UseAllRule {
@@ -11671,6 +11847,55 @@ Ok(
                                     ),
                                     path: EntityPath::Module(
                                         `mnist_classifier::major`,
+                                    ),
+                                    visibility: Scope::PubUnder(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                    ast_idx: 21,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `narrow_down`,
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::fermi`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                    ),
+                                                    visibility: Scope::Pub,
+                                                    ast_idx: 0,
+                                                    ident_token: IdentToken {
+                                                        ident: `narrow_down`,
+                                                        token_idx: TokenIdx(
+                                                            2,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                ),
+                                            ),
+                                            visibility: Scope::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 24,
+                                            use_expr_idx: 18,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                        ),
                                     ),
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::fermi`,
@@ -12826,7 +13051,7 @@ Ok(
                                 `mnist_classifier::fermi`,
                             ),
                             progress: Ok(
-                                30,
+                                31,
                             ),
                         },
                     ],
@@ -13300,6 +13525,55 @@ Ok(
                                     ),
                                     path: EntityPath::Module(
                                         `mnist_classifier::major`,
+                                    ),
+                                    visibility: Scope::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 26,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `narrow_down`,
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                    ),
+                                                    visibility: Scope::Pub,
+                                                    ast_idx: 0,
+                                                    ident_token: IdentToken {
+                                                        ident: `narrow_down`,
+                                                        token_idx: TokenIdx(
+                                                            2,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                ),
+                                            ),
+                                            visibility: Scope::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 24,
+                                            use_expr_idx: 18,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                        ),
                                     ),
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
@@ -15683,7 +15957,7 @@ Ok(
                                 `mnist_classifier::digits`,
                             ),
                             progress: Ok(
-                                30,
+                                31,
                             ),
                         },
                     ],
@@ -16446,6 +16720,69 @@ Ok(
                                     ),
                                     path: EntityPath::Module(
                                         `mnist_classifier::major`,
+                                    ),
+                                    visibility: Scope::PubUnder(
+                                        `mnist_classifier::digits::zero`,
+                                    ),
+                                    ast_idx: 25,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `narrow_down`,
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::digits::zero`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Form(
+                                                                FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                            ),
+                                                            visibility: Scope::Pub,
+                                                            ast_idx: 0,
+                                                            ident_token: IdentToken {
+                                                                ident: `narrow_down`,
+                                                                token_idx: TokenIdx(
+                                                                    2,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                        ),
+                                                    ),
+                                                    visibility: Scope::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 24,
+                                                    use_expr_idx: 18,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                ),
+                                            ),
+                                            visibility: Scope::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                        ),
                                     ),
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::zero`,
@@ -18280,7 +18617,7 @@ Ok(
                                 `mnist_classifier::digits::zero`,
                             ),
                             progress: Ok(
-                                48,
+                                49,
                             ),
                         },
                     ],
@@ -19038,6 +19375,69 @@ Ok(
                                     ),
                                     path: EntityPath::Module(
                                         `mnist_classifier::major`,
+                                    ),
+                                    visibility: Scope::PubUnder(
+                                        `mnist_classifier::digits::one`,
+                                    ),
+                                    ast_idx: 61,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `narrow_down`,
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::digits::one`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Form(
+                                                                FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                            ),
+                                                            visibility: Scope::Pub,
+                                                            ast_idx: 0,
+                                                            ident_token: IdentToken {
+                                                                ident: `narrow_down`,
+                                                                token_idx: TokenIdx(
+                                                                    2,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                        ),
+                                                    ),
+                                                    visibility: Scope::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 24,
+                                                    use_expr_idx: 18,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                ),
+                                            ),
+                                            visibility: Scope::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                        ),
                                     ),
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::one`,
@@ -20923,7 +21323,7 @@ Ok(
                                 `mnist_classifier::digits::one`,
                             ),
                             progress: Ok(
-                                48,
+                                49,
                             ),
                         },
                     ],
@@ -21732,6 +22132,69 @@ Ok(
                                     ),
                                     path: EntityPath::Module(
                                         `mnist_classifier::major`,
+                                    ),
+                                    visibility: Scope::PubUnder(
+                                        `mnist_classifier::digits::six`,
+                                    ),
+                                    ast_idx: 49,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `narrow_down`,
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::digits::six`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Form(
+                                                                FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                            ),
+                                                            visibility: Scope::Pub,
+                                                            ast_idx: 0,
+                                                            ident_token: IdentToken {
+                                                                ident: `narrow_down`,
+                                                                token_idx: TokenIdx(
+                                                                    2,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                        ),
+                                                    ),
+                                                    visibility: Scope::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 24,
+                                                    use_expr_idx: 18,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                ),
+                                            ),
+                                            visibility: Scope::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                        ),
                                     ),
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::six`,
@@ -23566,7 +24029,7 @@ Ok(
                                 `mnist_classifier::digits::six`,
                             ),
                             progress: Ok(
-                                48,
+                                49,
                             ),
                         },
                     ],
@@ -24375,6 +24838,69 @@ Ok(
                                     ),
                                     path: EntityPath::Module(
                                         `mnist_classifier::major`,
+                                    ),
+                                    visibility: Scope::PubUnder(
+                                        `mnist_classifier::digits::three`,
+                                    ),
+                                    ast_idx: 27,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `narrow_down`,
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::digits::three`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Form(
+                                                                FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                            ),
+                                                            visibility: Scope::Pub,
+                                                            ast_idx: 0,
+                                                            ident_token: IdentToken {
+                                                                ident: `narrow_down`,
+                                                                token_idx: TokenIdx(
+                                                                    2,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                        ),
+                                                    ),
+                                                    visibility: Scope::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 24,
+                                                    use_expr_idx: 18,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                ),
+                                            ),
+                                            visibility: Scope::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                        ),
                                     ),
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::three`,
@@ -26209,7 +26735,7 @@ Ok(
                                 `mnist_classifier::digits::three`,
                             ),
                             progress: Ok(
-                                48,
+                                49,
                             ),
                         },
                     ],
@@ -27064,6 +27590,69 @@ Ok(
                                     ),
                                     path: EntityPath::Module(
                                         `mnist_classifier::major`,
+                                    ),
+                                    visibility: Scope::PubUnder(
+                                        `mnist_classifier::digits::four`,
+                                    ),
+                                    ast_idx: 37,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `narrow_down`,
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::digits::four`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Form(
+                                                                FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                            ),
+                                                            visibility: Scope::Pub,
+                                                            ast_idx: 0,
+                                                            ident_token: IdentToken {
+                                                                ident: `narrow_down`,
+                                                                token_idx: TokenIdx(
+                                                                    2,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                        ),
+                                                    ),
+                                                    visibility: Scope::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 24,
+                                                    use_expr_idx: 18,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                ),
+                                            ),
+                                            visibility: Scope::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                        ),
                                     ),
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::four`,
@@ -28949,7 +29538,7 @@ Ok(
                                 `mnist_classifier::digits::four`,
                             ),
                             progress: Ok(
-                                48,
+                                49,
                             ),
                         },
                     ],
@@ -29666,6 +30255,69 @@ Ok(
                                     ),
                                     path: EntityPath::Module(
                                         `mnist_classifier::major`,
+                                    ),
+                                    visibility: Scope::PubUnder(
+                                        `mnist_classifier::digits::five`,
+                                    ),
+                                    ast_idx: 1,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `narrow_down`,
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::digits::five`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Form(
+                                                                FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                            ),
+                                                            visibility: Scope::Pub,
+                                                            ast_idx: 0,
+                                                            ident_token: IdentToken {
+                                                                ident: `narrow_down`,
+                                                                token_idx: TokenIdx(
+                                                                    2,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                        ),
+                                                    ),
+                                                    visibility: Scope::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 24,
+                                                    use_expr_idx: 18,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                ),
+                                            ),
+                                            visibility: Scope::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                        ),
                                     ),
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::five`,
@@ -31500,7 +32152,7 @@ Ok(
                                 `mnist_classifier::digits::five`,
                             ),
                             progress: Ok(
-                                48,
+                                49,
                             ),
                         },
                     ],
@@ -32332,6 +32984,69 @@ Ok(
                                     ),
                                     path: EntityPath::Module(
                                         `mnist_classifier::major`,
+                                    ),
+                                    visibility: Scope::PubUnder(
+                                        `mnist_classifier::digits::seven`,
+                                    ),
+                                    ast_idx: 39,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `narrow_down`,
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Form(
+                                                                FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                            ),
+                                                            visibility: Scope::Pub,
+                                                            ast_idx: 0,
+                                                            ident_token: IdentToken {
+                                                                ident: `narrow_down`,
+                                                                token_idx: TokenIdx(
+                                                                    2,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                        ),
+                                                    ),
+                                                    visibility: Scope::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 24,
+                                                    use_expr_idx: 18,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                ),
+                                            ),
+                                            visibility: Scope::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                        ),
                                     ),
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
@@ -34166,7 +34881,7 @@ Ok(
                                 `mnist_classifier::digits::seven`,
                             ),
                             progress: Ok(
-                                48,
+                                49,
                             ),
                         },
                     ],
@@ -34929,6 +35644,69 @@ Ok(
                                     ),
                                     path: EntityPath::Module(
                                         `mnist_classifier::major`,
+                                    ),
+                                    visibility: Scope::PubUnder(
+                                        `mnist_classifier::digits::eight`,
+                                    ),
+                                    ast_idx: 17,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `narrow_down`,
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::digits::eight`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Form(
+                                                                FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                            ),
+                                                            visibility: Scope::Pub,
+                                                            ast_idx: 0,
+                                                            ident_token: IdentToken {
+                                                                ident: `narrow_down`,
+                                                                token_idx: TokenIdx(
+                                                                    2,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                        ),
+                                                    ),
+                                                    visibility: Scope::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 24,
+                                                    use_expr_idx: 18,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                ),
+                                            ),
+                                            visibility: Scope::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                        ),
                                     ),
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::eight`,
@@ -36763,7 +37541,7 @@ Ok(
                                 `mnist_classifier::digits::eight`,
                             ),
                             progress: Ok(
-                                48,
+                                49,
                             ),
                         },
                     ],
@@ -37572,6 +38350,69 @@ Ok(
                                     ),
                                     path: EntityPath::Module(
                                         `mnist_classifier::major`,
+                                    ),
+                                    visibility: Scope::PubUnder(
+                                        `mnist_classifier::digits::nine`,
+                                    ),
+                                    ast_idx: 35,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `narrow_down`,
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::digits::nine`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Form(
+                                                                FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                            ),
+                                                            visibility: Scope::Pub,
+                                                            ast_idx: 0,
+                                                            ident_token: IdentToken {
+                                                                ident: `narrow_down`,
+                                                                token_idx: TokenIdx(
+                                                                    2,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                        ),
+                                                    ),
+                                                    visibility: Scope::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 24,
+                                                    use_expr_idx: 18,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                ),
+                                            ),
+                                            visibility: Scope::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                        ),
                                     ),
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::nine`,
@@ -39406,7 +40247,7 @@ Ok(
                                 `mnist_classifier::digits::nine`,
                             ),
                             progress: Ok(
-                                48,
+                                49,
                             ),
                         },
                     ],
@@ -40215,6 +41056,69 @@ Ok(
                                     ),
                                     path: EntityPath::Module(
                                         `mnist_classifier::major`,
+                                    ),
+                                    visibility: Scope::PubUnder(
+                                        `mnist_classifier::digits::two`,
+                                    ),
+                                    ast_idx: 49,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `narrow_down`,
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::digits::two`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Form(
+                                                                FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                            ),
+                                                            visibility: Scope::Pub,
+                                                            ast_idx: 0,
+                                                            ident_token: IdentToken {
+                                                                ident: `narrow_down`,
+                                                                token_idx: TokenIdx(
+                                                                    2,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                        ),
+                                                    ),
+                                                    visibility: Scope::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 24,
+                                                    use_expr_idx: 18,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                ),
+                                            ),
+                                            visibility: Scope::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                        ),
                                     ),
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::two`,
@@ -42049,7 +42953,7 @@ Ok(
                                 `mnist_classifier::digits::two`,
                             ),
                             progress: Ok(
-                                48,
+                                49,
                             ),
                         },
                     ],
@@ -42415,6 +43319,55 @@ Ok(
                                     ),
                                     path: EntityPath::Module(
                                         `mnist_classifier::major`,
+                                    ),
+                                    visibility: Scope::PubUnder(
+                                        `mnist_classifier::major`,
+                                    ),
+                                    ast_idx: 18,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `narrow_down`,
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::major`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                    ),
+                                                    visibility: Scope::Pub,
+                                                    ast_idx: 0,
+                                                    ident_token: IdentToken {
+                                                        ident: `narrow_down`,
+                                                        token_idx: TokenIdx(
+                                                            2,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                ),
+                                            ),
+                                            visibility: Scope::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 24,
+                                            use_expr_idx: 18,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                        ),
                                     ),
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::major`,
@@ -43301,7 +44254,7 @@ Ok(
                                 `mnist_classifier::major`,
                             ),
                             progress: Ok(
-                                30,
+                                31,
                             ),
                         },
                     ],

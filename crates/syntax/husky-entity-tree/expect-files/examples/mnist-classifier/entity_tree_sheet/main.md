@@ -151,6 +151,41 @@ Ok(
                     ),
                 },
                 EntitySymbolEntry {
+                    ident: `narrow_down`,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier`,
+                    ),
+                    symbol: EntitySymbol::Use(
+                        UseSymbol {
+                            original_symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FugitivePath(`malamute::narrow_down`, `Gn`),
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 0,
+                                    ident_token: IdentToken {
+                                        ident: `narrow_down`,
+                                        token_idx: TokenIdx(
+                                            2,
+                                        ),
+                                    },
+                                },
+                            ),
+                            path: EntityPath::ModuleItem(
+                                ModuleItemPath::Form(
+                                    FugitivePath(`malamute::narrow_down`, `Gn`),
+                                ),
+                            ),
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            ast_idx: 24,
+                            use_expr_idx: 18,
+                        },
+                    ),
+                },
+                EntitySymbolEntry {
                     ident: `MnistLabel`,
                     visibility: Scope::PubUnder(
                         `mnist_classifier`,
@@ -1480,8 +1515,8 @@ Ok(
                     visibility: Scope::PubUnder(
                         `mnist_classifier`,
                     ),
-                    progress: Err(
-                        (),
+                    progress: Ok(
+                        1,
                     ),
                 },
                 UseAllRule {
@@ -1509,7 +1544,7 @@ Ok(
                         `mnist_classifier`,
                     ),
                     progress: Ok(
-                        30,
+                        31,
                     ),
                 },
                 UseAllRule {
@@ -1523,7 +1558,7 @@ Ok(
                         `mnist_classifier`,
                     ),
                     progress: Ok(
-                        48,
+                        49,
                     ),
                 },
                 UseAllRule {
@@ -1537,7 +1572,7 @@ Ok(
                         `mnist_classifier`,
                     ),
                     progress: Ok(
-                        30,
+                        31,
                     ),
                 },
                 UseAllRule {
@@ -1551,7 +1586,7 @@ Ok(
                         `mnist_classifier`,
                     ),
                     progress: Ok(
-                        45,
+                        46,
                     ),
                 },
                 UseAllRule {
@@ -1579,17 +1614,11 @@ Ok(
                         `mnist_classifier`,
                     ),
                     progress: Ok(
-                        32,
+                        33,
                     ),
                 },
             ],
         ),
-        errors: [
-            EntityTreeError::Derived(
-                DerivedEntityTreeError::InvalidModulePath(
-                    `malamute`,
-                ),
-            ),
-        ],
+        errors: [],
     },
 )
