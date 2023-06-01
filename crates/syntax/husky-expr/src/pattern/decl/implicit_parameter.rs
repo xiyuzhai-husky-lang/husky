@@ -51,7 +51,7 @@ impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for ImplicitParameterDecl
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> ExprResult<Option<Self>> {
-        let annotated_variance_token = ctx.parse_with_err_as_none();
+        let annotated_variance_token = ctx.parse_err_as_none();
         if let Some(ident_token) = ctx.parse::<IdentToken>()? {
             let access_start = ctx.save_state().next_token_idx();
             let parameter_symbol = CurrentSymbol::new(

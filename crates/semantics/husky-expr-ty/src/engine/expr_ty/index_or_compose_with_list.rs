@@ -45,7 +45,7 @@ impl<'a> ExprTypeEngine<'a> {
             })
             .collect::<ExprTypeResult<SmallVec<[_; 2]>>>()?;
         let index_ty = match index_tys.len() {
-            0 => todo!(),
+            0 => Err(OriginalExprTypeError::ExpectedIndices)?,
             1 => index_tys[0],
             _ => todo!(),
         };

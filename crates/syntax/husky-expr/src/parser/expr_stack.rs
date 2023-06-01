@@ -250,7 +250,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 UnfinishedExpr::ListItem {
                     separator_token_idx,
                 } => todo!(),
-                UnfinishedExpr::SimpleList { bra_token_idx, .. } => {
+                UnfinishedExpr::List { bra_token_idx, .. } => {
                     self.stack.finished_expr = Some(Expr::Err(
                         OriginalExprError::UnterminatedList { bra_token_idx }.into(),
                     ))
@@ -303,7 +303,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
     pub(super) fn last_bra(&self) -> Option<Bracket> {
         for (unfinished_expr, _) in self.stack.unfinished_exprs.iter().rev() {
             match unfinished_expr {
-                UnfinishedExpr::SimpleList {
+                UnfinishedExpr::List {
                     opr,
                     bra,
                     bra_token_idx,
@@ -320,7 +320,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         let mut bras = vec![];
         for (unfinished_expr, _) in self.stack.unfinished_exprs.iter().rev() {
             match unfinished_expr {
-                UnfinishedExpr::SimpleList { bra, .. } => {
+                UnfinishedExpr::List { bra, .. } => {
                     bras.push(*bra);
                     if bras.len() >= 2 {
                         return bras;

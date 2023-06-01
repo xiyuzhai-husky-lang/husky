@@ -92,9 +92,13 @@ impl<'a> ExprTypeEngine<'a> {
             Expr::IndexOrCompositionWithList {
                 owner,
                 lbox_token_idx,
-                items: indices,
+                items,
                 rbox_token_idx,
-            } => Err(todo!()),
+            } => match self.expr_disambiguation(expr_idx) {
+                Ok(ExprDisambiguation::IndexOrComposeWithList(_)) => todo!(),
+                Err(e) => Err(DerivedExprTermError::ExprTypeError.into()),
+                Ok(_) => unreachable!(),
+            },
             Expr::EmptyHtmlTag {
                 empty_html_bra_idx: langle_token_idx,
                 function_ident,

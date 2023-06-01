@@ -53,7 +53,7 @@ impl ImplBlock {
             module_symbol_context,
         );
         let impl_token = parser.parse::<ImplToken>().unwrap().unwrap();
-        if let Some(_) = parser.parse_with_err_as_none::<LeftAngleBracketOrLessThanToken>() {
+        if let Some(_) = parser.parse_err_as_none::<LeftAngleBracketOrLessThanToken>() {
             match ignore_implicit_parameters(&mut parser) {
                 Ok(_) => (),
                 Err(_e) => todo!(),

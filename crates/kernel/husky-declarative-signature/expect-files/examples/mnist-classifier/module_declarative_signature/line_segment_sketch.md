@@ -454,40 +454,6 @@
     Ok(
         SignatureTemplate::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                TypeItemDeclarativeSignatureTemplate::MemoizedField(
-                    TypeMemoizedFieldDeclarativeSignatureTemplate {
-                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
-                                data: [],
-                            },
-                            ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
-                        },
-                        return_ty: DeclarativeTerm(`[] mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
-                    },
-                ),
-            ),
-        ),
-    ),
-    Ok(
-        SignatureTemplate::AssociatedItem(
-            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                TypeItemDeclarativeSignatureTemplate::MemoizedField(
-                    TypeMemoizedFieldDeclarativeSignatureTemplate {
-                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
-                                data: [],
-                            },
-                            ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
-                        },
-                        return_ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
-                    },
-                ),
-            ),
-        ),
-    ),
-    Ok(
-        SignatureTemplate::AssociatedItem(
-            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::AssociatedFn(
                     TypeAssociatedFnDeclarativeSignatureTemplate {
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {

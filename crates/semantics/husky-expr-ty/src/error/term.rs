@@ -47,6 +47,8 @@ pub enum DerivedExprTermError {
     ExplicitApplicationFunctionTermNotInferred,
     #[error("ExplicitApplicationArgumentTermNotInferred")]
     ExplicitApplicationArgumentTermNotInferred,
+    #[error("expr type error")]
+    ExprTypeError,
 }
 
 pub type ExprTermResult<T> = Result<T, ExprTermError>;

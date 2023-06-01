@@ -56,6 +56,12 @@ impl TokenIdxRange {
             end: TokenIdxRangeEnd(token_idx + 1),
         }
     }
+    pub fn new_drained(token_idx: TokenIdx) -> Self {
+        Self {
+            start: TokenIdxRangeStart(token_idx - 1),
+            end: TokenIdxRangeEnd(token_idx),
+        }
+    }
 
     pub fn new_closed(first: TokenIdx, last: TokenIdx) -> Self {
         Self {

@@ -156,9 +156,12 @@ impl Diagnose for (ExprIdx, &'_ OriginalExprTypeError) {
                 )
             }
             OriginalExprTypeError::ExpectedCurryButGotRitchieInstead => {
-                format!("Type Error: ExpectedCurryButGotRitchieInstead")
+                format!("Type Error: expected curry but got Ritchie instead")
             }
             OriginalExprTypeError::CannotIndexIntoType { self_expr_ty } => todo!(),
+            OriginalExprTypeError::ExpectedIndices => {
+                format!("Type Error: expected indices")
+            }
         }
     }
 

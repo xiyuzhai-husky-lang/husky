@@ -5,26 +5,28 @@ use husky_token::Punctuation;
 use salsa::DebugWithDb;
 use std::ops::ControlFlow;
 
-pub type TokenResolveResult<T> = ControlFlow<(), T>;
+pub type TokenDisambiguationResult<T> = ControlFlow<(), T>;
 
 impl<'a, 'b> ExprParseContext<'a, 'b> {
     pub(crate) fn resolve_token(
         &mut self,
         token_idx: TokenIdx,
         token: Token,
-    ) -> TokenResolveResult<ResolvedToken> {
-        TokenResolveResult::Continue(match token {
+    ) -> TokenDisambiguationResult<DisambiguatedToken> {
+        TokenDisambiguationResult::Continue(match token {
             Token::Keyword(keyword) => match keyword {
                 Keyword::Connection(keyword) => match keyword {
                     ConnectionKeyword::For | ConnectionKeyword::Where => {
-                        return TokenResolveResult::Break(())
+                        return TokenDisambiguationResult::Break(())
                     }
                 },
                 Keyword::Pronoun(pronoun) => match pronoun {
                     PronounKeyword::Crate => todo!(),
                     PronounKeyword::SelfType => match self.allow_self_ty() {
-                        AllowSelfType::True => ResolvedToken::AtomicExpr(Expr::SelfType(token_idx)),
-                        AllowSelfType::False => ResolvedToken::AtomicExpr(Expr::Err(
+                        AllowSelfType::True => {
+                            DisambiguatedToken::AtomicExpr(Expr::SelfType(token_idx))
+                        }
+                        AllowSelfType::False => DisambiguatedToken::AtomicExpr(Expr::Err(
                             OriginalExprError::SelfTypeNotAllowed(token_idx).into(),
                         )),
                     },
@@ -34,9 +36,9 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         }
                         _ => match self.allow_self_value() {
                             AllowSelfValue::True => {
-                                ResolvedToken::AtomicExpr(Expr::SelfValue(token_idx))
+                                DisambiguatedToken::AtomicExpr(Expr::SelfValue(token_idx))
                             }
-                            AllowSelfValue::False => ResolvedToken::AtomicExpr(Expr::Err(
+                            AllowSelfValue::False => DisambiguatedToken::AtomicExpr(Expr::Err(
                                 OriginalExprError::SelfValueNotAllowed(token_idx).into(),
                             )),
                         },
@@ -44,17 +46,35 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     PronounKeyword::Super => todo!(),
                 },
                 Keyword::Fugitive(FugitiveKeyword::Fn) => {
-                    ResolvedToken::Ritchie(token_idx, RitchieKind::FnType)
+                    DisambiguatedToken::Ritchie(token_idx, RitchieKind::FnType)
                 }
-                _ => ResolvedToken::AtomicExpr(Expr::Err(
+                _ => DisambiguatedToken::AtomicExpr(Expr::Err(
                     OriginalExprError::UnexpectedKeyword(token_idx).into(),
                 )),
             },
-            Token::Ident(ident) => self.resolve_ident(token_idx, ident),
+            Token::Ident(ident) => match (self.parse_err_as_none::<EqToken>(), self.top_expr()) {
+                (
+                    Some(eq_token),
+                    TopExprRef::Unfinished(UnfinishedExpr::List {
+                        opr,
+                        bra,
+                        bra_token_idx,
+                        items,
+                        commas,
+                    }),
+                ) => DisambiguatedToken::IncompleteKeywordArgument {
+                    ident_token_idx: token_idx,
+                    ident,
+                    eq_token,
+                },
+                _ => self.resolve_ident(token_idx, ident),
+            },
             Token::Label(_) => todo!(),
             Token::Punctuation(punct) => match punct.mapped() {
-                PunctuationMapped::Binary(binary) => ResolvedToken::BinaryOpr(token_idx, binary),
-                PunctuationMapped::Bra(bra) => ResolvedToken::Bra(token_idx, bra),
+                PunctuationMapped::Binary(binary) => {
+                    DisambiguatedToken::BinaryOpr(token_idx, binary)
+                }
+                PunctuationMapped::Bra(bra) => DisambiguatedToken::Bra(token_idx, bra),
                 PunctuationMapped::Ket(ket) => match self.last_bra() {
                     Some(bra) => {
                         if bra != ket {
@@ -62,18 +82,20 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             p!(self.unfinished_exprs());
                             todo!()
                         }
-                        ResolvedToken::Ket(token_idx, ket)
+                        DisambiguatedToken::Ket(token_idx, ket)
                     }
-                    None => return TokenResolveResult::Break(()),
+                    None => return TokenDisambiguationResult::Break(()),
                 },
-                PunctuationMapped::Suffix(suffix) => ResolvedToken::SuffixOpr(token_idx, suffix),
+                PunctuationMapped::Suffix(suffix) => {
+                    DisambiguatedToken::SuffixOpr(token_idx, suffix)
+                }
                 PunctuationMapped::LaOrLt => match self.top_expr() {
                     TopExprRef::Unfinished(_) => todo!(),
                     TopExprRef::Finished(expr) => {
                         match expr.base_entity_path(self.db(), &self.parser.expr_arena) {
                             BaseEntityPath::Uncertain {
                                 inclination: BaseEntityPathInclination::TypeOrVariant,
-                            } => ResolvedToken::Bra(token_idx, Bracket::TemplateAngle),
+                            } => DisambiguatedToken::Bra(token_idx, Bracket::TemplateAngle),
                             BaseEntityPath::Some(entity_path) => {
                                 match entity_path.entity_kind(self.db()) {
                                     EntityKind::Module => todo!(),
@@ -82,16 +104,17 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                                         connection,
                                     } => match module_item_kind {
                                         ModuleItemKind::Fugitive(FugitiveKind::Val) => {
-                                            ResolvedToken::BinaryOpr(
+                                            DisambiguatedToken::BinaryOpr(
                                                 token_idx,
                                                 BinaryComparisonOpr::Less.into(),
                                             )
                                         }
                                         ModuleItemKind::Type(_)
                                         | ModuleItemKind::Fugitive(_)
-                                        | ModuleItemKind::Trait => {
-                                            ResolvedToken::Bra(token_idx, Bracket::TemplateAngle)
-                                        }
+                                        | ModuleItemKind::Trait => DisambiguatedToken::Bra(
+                                            token_idx,
+                                            Bracket::TemplateAngle,
+                                        ),
                                     },
                                     EntityKind::AssociatedItem {
                                         associated_item_kind,
@@ -99,133 +122,148 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                                     EntityKind::TypeVariant => todo!(),
                                 }
                             }
-                            _ => ResolvedToken::BinaryOpr(
+                            _ => DisambiguatedToken::BinaryOpr(
                                 token_idx,
                                 BinaryOpr::Comparison(BinaryComparisonOpr::Less),
                             ),
                         }
                     }
-                    TopExprRef::None => ResolvedToken::Bra(token_idx, Bracket::HtmlAngle),
+                    TopExprRef::None => DisambiguatedToken::Bra(token_idx, Bracket::HtmlAngle),
                 },
                 PunctuationMapped::ColonColonLa => todo!(),
                 PunctuationMapped::RaOrGt => match (self.last_bra(), self.env_bra()) {
                     (Some(Bracket::TemplateAngle), _) => {
-                        ResolvedToken::Ket(token_idx, Bracket::TemplateAngle)
+                        DisambiguatedToken::Ket(token_idx, Bracket::TemplateAngle)
                     }
-                    (None, Some(Bracket::TemplateAngle)) => return TokenResolveResult::Break(()),
-                    _ => ResolvedToken::BinaryOpr(token_idx, BinaryComparisonOpr::Greater.into()),
+                    (None, Some(Bracket::TemplateAngle)) => {
+                        return TokenDisambiguationResult::Break(())
+                    }
+                    _ => DisambiguatedToken::BinaryOpr(
+                        token_idx,
+                        BinaryComparisonOpr::Greater.into(),
+                    ),
                 },
-                PunctuationMapped::Sheba => ResolvedToken::AtomicExpr(Expr::Err(
+                PunctuationMapped::Sheba => DisambiguatedToken::AtomicExpr(Expr::Err(
                     OriginalExprError::UnexpectedSheba(token_idx).into(),
                 )),
                 PunctuationMapped::Shr => {
-                    ResolvedToken::BinaryOpr(token_idx, BinaryOpr::Shift(BinaryShiftOpr::Shr))
+                    DisambiguatedToken::BinaryOpr(token_idx, BinaryOpr::Shift(BinaryShiftOpr::Shr))
                 }
-                PunctuationMapped::DeriveAssign => return TokenResolveResult::Break(()),
-                PunctuationMapped::Minus => ResolvedToken::PrefixOpr(token_idx, PrefixOpr::Minus),
+                PunctuationMapped::DeriveAssign => return TokenDisambiguationResult::Break(()),
+                PunctuationMapped::Minus => {
+                    DisambiguatedToken::PrefixOpr(token_idx, PrefixOpr::Minus)
+                }
                 PunctuationMapped::DoubleVertical => todo!(),
-                PunctuationMapped::Tilde => ResolvedToken::PrefixOpr(token_idx, PrefixOpr::Tilde),
-                PunctuationMapped::Dot => ResolvedToken::Dot(token_idx),
+                PunctuationMapped::Tilde => {
+                    DisambiguatedToken::PrefixOpr(token_idx, PrefixOpr::Tilde)
+                }
+                PunctuationMapped::Dot => DisambiguatedToken::Dot(token_idx),
                 PunctuationMapped::Colon => match self.last_unfinished_expr() {
-                    Some(UnfinishedExpr::SimpleList {
+                    Some(UnfinishedExpr::List {
                         opr: UnfinishedSimpleListOpr::BoxList { .. },
                         items,
                         ..
                     }) => {
                         if items.len() == 0 && self.finished_expr().is_none() {
-                            ResolvedToken::ColonRightAfterLBox(token_idx)
+                            DisambiguatedToken::ColonRightAfterLBox(token_idx)
                         } else {
                             match self.token_stream.is_empty() {
-                                true => return TokenResolveResult::Break(()),
-                                false => ResolvedToken::BinaryOpr(token_idx, BinaryOpr::Ins),
+                                true => return TokenDisambiguationResult::Break(()),
+                                false => DisambiguatedToken::BinaryOpr(token_idx, BinaryOpr::Ins),
                             }
                         }
                     }
                     _ => match self.peek() {
                         // not end of token group
-                        Some(_) => ResolvedToken::BinaryOpr(token_idx, BinaryOpr::Ins),
+                        Some(_) => DisambiguatedToken::BinaryOpr(token_idx, BinaryOpr::Ins),
                         // end of token group
-                        None => return TokenResolveResult::Break(()),
+                        None => return TokenDisambiguationResult::Break(()),
                     },
                 },
                 PunctuationMapped::Comma => {
                     self.reduce(Precedence::ListItem);
                     match self.last_unfinished_expr() {
                         Some(expr) => match expr {
-                            UnfinishedExpr::SimpleList { .. } => ResolvedToken::ListItem(token_idx),
-                            _ => return TokenResolveResult::Break(()),
+                            UnfinishedExpr::List { .. } => DisambiguatedToken::ListItem(token_idx),
+                            _ => return TokenDisambiguationResult::Break(()),
                         },
-                        None => return TokenResolveResult::Break(()),
+                        None => return TokenDisambiguationResult::Break(()),
                     }
                 }
                 PunctuationMapped::Vertical => match self.last_unfinished_expr() {
-                    Some(UnfinishedExpr::SimpleList {
+                    Some(UnfinishedExpr::List {
                         bra: Bracket::Lambda,
                         ..
-                    }) => ResolvedToken::Ket(token_idx, Bracket::Lambda),
+                    }) => DisambiguatedToken::Ket(token_idx, Bracket::Lambda),
                     _ => match self.finished_expr().is_some() {
-                        true => ResolvedToken::BinaryOpr(
+                        true => DisambiguatedToken::BinaryOpr(
                             token_idx,
                             BinaryOpr::Closed(BinaryClosedOpr::BitOr),
                         ),
-                        false => ResolvedToken::Bra(token_idx, Bracket::Lambda),
+                        false => DisambiguatedToken::Bra(token_idx, Bracket::Lambda),
                     },
                 },
                 PunctuationMapped::DoubleExclamation => todo!(),
-                PunctuationMapped::Semicolon => return TokenResolveResult::Break(()),
-                PunctuationMapped::EmptyHtmlKet => return TokenResolveResult::Break(()),
-                PunctuationMapped::At => return TokenResolveResult::Break(()),
-                PunctuationMapped::AtEq => return TokenResolveResult::Break(()),
+                PunctuationMapped::Semicolon => return TokenDisambiguationResult::Break(()),
+                PunctuationMapped::EmptyHtmlKet => return TokenDisambiguationResult::Break(()),
+                PunctuationMapped::At => return TokenDisambiguationResult::Break(()),
+                PunctuationMapped::AtEq => return TokenDisambiguationResult::Break(()),
                 PunctuationMapped::Exclamation => self.resolve_prefix_or_other(
                     token_idx,
                     PrefixOpr::Not,
-                    ResolvedToken::SuffixOpr(token_idx, SuffixOpr::UnwrapOrComposeWithNot),
+                    DisambiguatedToken::SuffixOpr(token_idx, SuffixOpr::UnwrapOrComposeWithNot),
                 ),
                 PunctuationMapped::Question => self.resolve_prefix_or_other(
                     token_idx,
                     PrefixOpr::Option,
-                    ResolvedToken::SuffixOpr(token_idx, SuffixOpr::UnveilOrComposeWithOption),
+                    DisambiguatedToken::SuffixOpr(token_idx, SuffixOpr::UnveilOrComposeWithOption),
                 ),
-                PunctuationMapped::Pound => return TokenResolveResult::Break(()),
+                PunctuationMapped::Pound => return TokenDisambiguationResult::Break(()),
                 PunctuationMapped::Ambersand => self.resolve_prefix_or_other(
                     token_idx,
                     PrefixOpr::Ref,
-                    ResolvedToken::BinaryOpr(token_idx, BinaryOpr::Closed(BinaryClosedOpr::BitOr)),
+                    DisambiguatedToken::BinaryOpr(
+                        token_idx,
+                        BinaryOpr::Closed(BinaryClosedOpr::BitOr),
+                    ),
                 ),
                 PunctuationMapped::DotDot => todo!(),
-                PunctuationMapped::Star => {
-                    ResolvedToken::BinaryOpr(token_idx, BinaryOpr::Closed(BinaryClosedOpr::Mul))
-                }
+                PunctuationMapped::Star => DisambiguatedToken::BinaryOpr(
+                    token_idx,
+                    BinaryOpr::Closed(BinaryClosedOpr::Mul),
+                ),
                 PunctuationMapped::Eq => match self.env() {
                     Some(env) => match env {
                         ExprEnvironment::TypeBeforeEq => match self.last_bra() {
                             Some(_) => todo!(),
-                            None => return TokenResolveResult::Break(()),
+                            None => return TokenDisambiguationResult::Break(()),
                         },
                         ExprEnvironment::WithinBracket(_) => todo!(),
                         ExprEnvironment::Condition(_) => todo!(),
                     },
-                    None => ResolvedToken::BinaryOpr(token_idx, BinaryOpr::Assign),
+                    None => DisambiguatedToken::BinaryOpr(token_idx, BinaryOpr::Assign),
                 },
                 PunctuationMapped::ForAll => todo!(),
                 PunctuationMapped::Exists => todo!(),
                 PunctuationMapped::HeavyArrow => todo!(),
             },
             Token::WordOpr(opr) => match opr {
-                WordOpr::And => ResolvedToken::BinaryOpr(
+                WordOpr::And => DisambiguatedToken::BinaryOpr(
                     token_idx,
                     BinaryOpr::ShortCircuitLogic(BinaryShortcuitLogicOpr::And),
                 ),
-                WordOpr::Or => ResolvedToken::BinaryOpr(
+                WordOpr::Or => DisambiguatedToken::BinaryOpr(
                     token_idx,
                     BinaryOpr::ShortCircuitLogic(BinaryShortcuitLogicOpr::Or),
                 ),
-                WordOpr::As => ResolvedToken::BinaryOpr(token_idx, BinaryOpr::As),
-                WordOpr::Be => ResolvedToken::Be(token_idx),
+                WordOpr::As => DisambiguatedToken::BinaryOpr(token_idx, BinaryOpr::As),
+                WordOpr::Be => DisambiguatedToken::Be(token_idx),
             },
-            Token::Literal(literal) => ResolvedToken::AtomicExpr(Expr::Literal(token_idx, literal)),
+            Token::Literal(literal) => {
+                DisambiguatedToken::AtomicExpr(Expr::Literal(token_idx, literal))
+            }
             Token::Error(error) => {
-                ResolvedToken::AtomicExpr(Expr::Err(DerivedExprError::Token(error).into()))
+                DisambiguatedToken::AtomicExpr(Expr::Err(DerivedExprError::Token(error).into()))
             }
         })
     }
@@ -234,11 +272,11 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         &mut self,
         token_idx: TokenIdx,
         prefix_opr: PrefixOpr,
-        other: ResolvedToken,
-    ) -> ResolvedToken {
+        other: DisambiguatedToken,
+    ) -> DisambiguatedToken {
         match self.finished_expr() {
             Some(Expr::List { .. }) | Some(Expr::BoxColonList { .. }) | None => {
-                ResolvedToken::PrefixOpr(token_idx, prefix_opr)
+                DisambiguatedToken::PrefixOpr(token_idx, prefix_opr)
             }
             Some(_) => other,
         }
@@ -246,7 +284,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
 }
 
 impl<'a, 'b> ExprParseContext<'a, 'b> {
-    fn resolve_ident(&mut self, token_idx: TokenIdx, ident: Ident) -> ResolvedToken {
+    fn resolve_ident(&mut self, token_idx: TokenIdx, ident: Ident) -> DisambiguatedToken {
         if let Some(opn) = self.last_unfinished_expr() {
             match opn {
                 UnfinishedExpr::Binary {
@@ -264,7 +302,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         todo!()
                     }
                     BaseEntityPath::Uncertain { .. } => {
-                        return ResolvedToken::AtomicExpr(Expr::Err(
+                        return DisambiguatedToken::AtomicExpr(Expr::Err(
                             OriginalExprError::UnresolvedSubentity { token_idx, ident }.into(),
                         ))
                     }
@@ -273,7 +311,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 _ => (),
             }
         }
-        ResolvedToken::AtomicExpr(
+        DisambiguatedToken::AtomicExpr(
             match self
                 .parser
                 .symbol_context
@@ -315,7 +353,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
 }
 
 #[derive(Debug)]
-pub(crate) enum ResolvedToken {
+pub(crate) enum DisambiguatedToken {
     AtomicExpr(Expr),
     BinaryOpr(TokenIdx, BinaryOpr),
     PrefixOpr(TokenIdx, PrefixOpr),
@@ -327,4 +365,9 @@ pub(crate) enum ResolvedToken {
     Be(TokenIdx),
     ColonRightAfterLBox(TokenIdx),
     Ritchie(TokenIdx, RitchieKind),
+    IncompleteKeywordArgument {
+        ident_token_idx: TokenIdx,
+        ident: Ident,
+        eq_token: EqToken,
+    },
 }
