@@ -12,11 +12,6 @@ DiagnosticSheet {
     expr_diagnostic_sheet: ExprDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [21:5, 21:16),
-            },
-            Diagnostic {
                 message: "Syntax Error: unterminated list",
                 severity: Error,
                 range: [21:16, 21:17),

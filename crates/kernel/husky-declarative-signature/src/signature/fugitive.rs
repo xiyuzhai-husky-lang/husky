@@ -15,9 +15,9 @@ use crate::*;
 #[enum_class::from_variants]
 pub enum FugitiveDeclarativeSignatureTemplate {
     Fn(FnDeclarativeSignatureTemplate),
-    Val(ValDeclarativeSignatureTemplate),
     Gn(GnDeclarativeSignatureTemplate),
     TypeAlias(TypeAliasDeclarativeSignatureTemplate),
+    Val(ValDeclarativeSignatureTemplate),
 }
 
 impl HasDeclarativeSignatureTemplate for FugitivePath {

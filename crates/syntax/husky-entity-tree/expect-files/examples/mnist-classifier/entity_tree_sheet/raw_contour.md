@@ -480,6 +480,55 @@ Ok(
                     ),
                 },
                 EntitySymbolEntry {
+                    ident: `narrow_down`,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::raw_contour`,
+                    ),
+                    symbol: EntitySymbol::Use(
+                        UseSymbol {
+                            original_symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FugitivePath(`malamute::narrow_down`, `Gn`),
+                                            ),
+                                            visibility: Scope::Pub,
+                                            ast_idx: 0,
+                                            ident_token: IdentToken {
+                                                ident: `narrow_down`,
+                                                token_idx: TokenIdx(
+                                                    2,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                        ),
+                                    ),
+                                    visibility: Scope::PubUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 24,
+                                    use_expr_idx: 18,
+                                },
+                            ),
+                            path: EntityPath::ModuleItem(
+                                ModuleItemPath::Form(
+                                    FugitivePath(`malamute::narrow_down`, `Gn`),
+                                ),
+                            ),
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            ast_idx: 202,
+                            use_expr_idx: 9,
+                        },
+                    ),
+                },
+                EntitySymbolEntry {
                     ident: `MnistLabel`,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::raw_contour`,
@@ -1940,7 +1989,7 @@ Ok(
                         `mnist_classifier::raw_contour`,
                     ),
                     progress: Ok(
-                        30,
+                        31,
                     ),
                 },
                 UseAllRule {
@@ -1968,7 +2017,7 @@ Ok(
                         `mnist_classifier::raw_contour`,
                     ),
                     progress: Ok(
-                        32,
+                        33,
                     ),
                 },
                 UseAllRule {

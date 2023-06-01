@@ -49,6 +49,7 @@ pub struct DefnJar(
     FnDefn,
     fn_defn,
     GnDefn,
+    gn_defn,
     // morphism_defn,
     TypeAliasDefn,
     // type_alias_defn,

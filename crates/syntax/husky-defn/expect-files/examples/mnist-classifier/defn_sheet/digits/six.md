@@ -949,24 +949,18 @@ Ok(
                                                         },
                                                     ),
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        UnrecognizedIdent {
-                                                            token_idx: TokenIdx(
-                                                                85,
-                                                            ),
-                                                            ident: Ident(
-                                                                Word(
-                                                                    Id {
-                                                                        value: 425,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::EntityPath {
                                                     entity_path_expr: 5,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Form(
+                                                                FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 6,
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
@@ -976,7 +970,7 @@ Ok(
                                                     ),
                                                 },
                                                 Expr::EntityPath {
-                                                    entity_path_expr: 6,
+                                                    entity_path_expr: 7,
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
@@ -1011,7 +1005,7 @@ Ok(
                                                     ropd: 24,
                                                 },
                                                 Expr::EntityPath {
-                                                    entity_path_expr: 7,
+                                                    entity_path_expr: 8,
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
@@ -1151,7 +1145,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::EntityPath {
-                                                    entity_path_expr: 8,
+                                                    entity_path_expr: 9,
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
@@ -1173,7 +1167,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::EntityPath {
-                                                    entity_path_expr: 9,
+                                                    entity_path_expr: 10,
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
@@ -1272,7 +1266,7 @@ Ok(
                                                     ropd: 47,
                                                 },
                                                 Expr::EntityPath {
-                                                    entity_path_expr: 10,
+                                                    entity_path_expr: 11,
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
@@ -1299,22 +1293,16 @@ Ok(
                                                     ),
                                                     ropd: 50,
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        UnrecognizedIdent {
-                                                            token_idx: TokenIdx(
-                                                                159,
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 12,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Form(
+                                                                FugitivePath(`malamute::narrow_down`, `Gn`),
                                                             ),
-                                                            ident: Ident(
-                                                                Word(
-                                                                    Id {
-                                                                        value: 425,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
+                                                        ),
                                                     ),
-                                                ),
+                                                },
                                                 Expr::Err(
                                                     ExprError::Original(
                                                         UnterminatedList {
@@ -1341,7 +1329,7 @@ Ok(
                                                     ropd: 54,
                                                 },
                                                 Expr::EntityPath {
-                                                    entity_path_expr: 12,
+                                                    entity_path_expr: 14,
                                                     path: Some(
                                                         EntityPath::TypeVariant(
                                                             TypeVariantPath {
@@ -1352,7 +1340,7 @@ Ok(
                                                     ),
                                                 },
                                                 Expr::EntityPath {
-                                                    entity_path_expr: 13,
+                                                    entity_path_expr: 15,
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
@@ -1427,24 +1415,18 @@ Ok(
                                                         186,
                                                     ),
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        UnrecognizedIdent {
-                                                            token_idx: TokenIdx(
-                                                                187,
-                                                            ),
-                                                            ident: Ident(
-                                                                Word(
-                                                                    Id {
-                                                                        value: 425,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::EntityPath {
-                                                    entity_path_expr: 15,
+                                                    entity_path_expr: 16,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Form(
+                                                                FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 18,
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
@@ -1527,45 +1509,39 @@ Ok(
                                                     ropd: 70,
                                                 },
                                                 Expr::EntityPath {
-                                                    entity_path_expr: 17,
-                                                    path: Some(
-                                                        EntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                                                ident: `Six`,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                                Expr::EntityPath {
-                                                    entity_path_expr: 19,
-                                                    path: Some(
-                                                        EntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                                                ident: `Six`,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        UnrecognizedIdent {
-                                                            token_idx: TokenIdx(
-                                                                222,
-                                                            ),
-                                                            ident: Ident(
-                                                                Word(
-                                                                    Id {
-                                                                        value: 425,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
-                                                Expr::EntityPath {
                                                     entity_path_expr: 20,
+                                                    path: Some(
+                                                        EntityPath::TypeVariant(
+                                                            TypeVariantPath {
+                                                                ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                ident: `Six`,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 22,
+                                                    path: Some(
+                                                        EntityPath::TypeVariant(
+                                                            TypeVariantPath {
+                                                                ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                ident: `Six`,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 23,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Form(
+                                                                FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 24,
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
@@ -1600,7 +1576,7 @@ Ok(
                                                     ropd: 77,
                                                 },
                                                 Expr::EntityPath {
-                                                    entity_path_expr: 21,
+                                                    entity_path_expr: 25,
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
@@ -1640,7 +1616,7 @@ Ok(
                                                     ropd: 81,
                                                 },
                                                 Expr::EntityPath {
-                                                    entity_path_expr: 22,
+                                                    entity_path_expr: 26,
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
@@ -1952,7 +1928,7 @@ Ok(
                                                     ropd: 109,
                                                 },
                                                 Expr::EntityPath {
-                                                    entity_path_expr: 24,
+                                                    entity_path_expr: 28,
                                                     path: Some(
                                                         EntityPath::TypeVariant(
                                                             TypeVariantPath {
@@ -2028,6 +2004,17 @@ Ok(
                                                 },
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
+                                                        85,
+                                                    ),
+                                                    ident: `narrow_down`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
                                                         87,
                                                     ),
                                                     ident: `six_match`,
@@ -2094,6 +2081,17 @@ Ok(
                                                 },
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
+                                                        159,
+                                                    ),
+                                                    ident: `narrow_down`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
                                                         169,
                                                     ),
                                                     ident: `MnistLabel`,
@@ -2104,7 +2102,7 @@ Ok(
                                                     ),
                                                 },
                                                 EntityPathExpr::Subentity {
-                                                    parent: 11,
+                                                    parent: 13,
                                                     scope_resolution_token: ScopeResolutionToken(
                                                         TokenIdx(
                                                             170,
@@ -2135,6 +2133,17 @@ Ok(
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
                                                             FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        187,
+                                                    ),
+                                                    ident: `narrow_down`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FugitivePath(`malamute::narrow_down`, `Gn`),
                                                         ),
                                                     ),
                                                 },
@@ -2172,7 +2181,7 @@ Ok(
                                                     ),
                                                 },
                                                 EntityPathExpr::Subentity {
-                                                    parent: 16,
+                                                    parent: 19,
                                                     scope_resolution_token: ScopeResolutionToken(
                                                         TokenIdx(
                                                             216,
@@ -2207,7 +2216,7 @@ Ok(
                                                     ),
                                                 },
                                                 EntityPathExpr::Subentity {
-                                                    parent: 18,
+                                                    parent: 21,
                                                     scope_resolution_token: ScopeResolutionToken(
                                                         TokenIdx(
                                                             220,
@@ -2227,6 +2236,17 @@ Ok(
                                                                 ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                                                                 ident: `Six`,
                                                             },
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        222,
+                                                    ),
+                                                    ident: `narrow_down`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FugitivePath(`malamute::narrow_down`, `Gn`),
                                                         ),
                                                     ),
                                                 },
@@ -2275,7 +2295,7 @@ Ok(
                                                     ),
                                                 },
                                                 EntityPathExpr::Subentity {
-                                                    parent: 23,
+                                                    parent: 27,
                                                     scope_resolution_token: ScopeResolutionToken(
                                                         TokenIdx(
                                                             291,

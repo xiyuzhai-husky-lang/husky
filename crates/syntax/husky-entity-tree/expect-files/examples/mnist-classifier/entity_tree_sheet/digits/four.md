@@ -857,6 +857,69 @@ Ok(
                     ),
                 },
                 EntitySymbolEntry {
+                    ident: `narrow_down`,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::digits::four`,
+                    ),
+                    symbol: EntitySymbol::Use(
+                        UseSymbol {
+                            original_symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                    ),
+                                                    visibility: Scope::Pub,
+                                                    ast_idx: 0,
+                                                    ident_token: IdentToken {
+                                                        ident: `narrow_down`,
+                                                        token_idx: TokenIdx(
+                                                            2,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                ),
+                                            ),
+                                            visibility: Scope::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 24,
+                                            use_expr_idx: 18,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FugitivePath(`malamute::narrow_down`, `Gn`),
+                                        ),
+                                    ),
+                                    visibility: Scope::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 26,
+                                },
+                            ),
+                            path: EntityPath::ModuleItem(
+                                ModuleItemPath::Form(
+                                    FugitivePath(`malamute::narrow_down`, `Gn`),
+                                ),
+                            ),
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::digits::four`,
+                            ),
+                            ast_idx: 37,
+                            use_expr_idx: 0,
+                        },
+                    ),
+                },
+                EntitySymbolEntry {
                     ident: `MnistLabel`,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::digits::four`,
@@ -2732,7 +2795,7 @@ Ok(
                         `mnist_classifier::digits::four`,
                     ),
                     progress: Ok(
-                        48,
+                        49,
                     ),
                 },
             ],

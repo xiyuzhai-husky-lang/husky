@@ -53,7 +53,7 @@ impl HasDefn for FugitiveDecl {
         match self {
             FugitiveDecl::Fn(decl) => decl.defn(db).into(),
             FugitiveDecl::Val(decl) => decl.defn(db).into(),
-            FugitiveDecl::Gn(_) => todo!(),
+            FugitiveDecl::Gn(decl) => decl.defn(db).into(),
         }
     }
 }
