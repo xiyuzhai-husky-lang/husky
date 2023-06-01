@@ -17,7 +17,7 @@ pub(super) enum UnfinishedExpr {
         punctuation: PrefixOpr,
         punctuation_token_idx: TokenIdx,
     },
-    SimpleList {
+    List {
         opr: UnfinishedSimpleListOpr,
         // todo: move this into opr
         bra: Bracket,
@@ -96,7 +96,7 @@ impl UnfinishedExpr {
             UnfinishedExpr::Binary { punctuation, .. } => (*punctuation).into(),
             UnfinishedExpr::Prefix { .. } => Precedence::Prefix,
             UnfinishedExpr::ListItem { .. }
-            | UnfinishedExpr::SimpleList { .. }
+            | UnfinishedExpr::List { .. }
             | UnfinishedExpr::KeyedArgumentList { .. } => Precedence::None,
             UnfinishedExpr::LambdaHead { .. } => Precedence::LambdaHead,
             UnfinishedExpr::Application { .. } => Precedence::Application,

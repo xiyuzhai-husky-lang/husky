@@ -73,6 +73,8 @@ pub enum OriginalExprTypeError {
     ExpectedCurryButGotRitchieInstead,
     #[error("CannotIndexIntoType")]
     CannotIndexIntoType { self_expr_ty: FluffyTerm },
+    #[error("expected indices")]
+    ExpectedIndices,
 }
 
 impl OriginalError for OriginalExprTypeError {

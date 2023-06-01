@@ -11,7 +11,7 @@
         ),
         expr_ty_infos: [
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         TypePath(
                             Ontology,
@@ -32,7 +32,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Tilde(
                             Leash,
@@ -53,7 +53,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         List(
                             ArrayFunctor,
@@ -74,7 +74,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
+                disambiguation_and_ty_result: Err(
                     Derived(
                         TypeError(
                             DeclarativeTypeError(
@@ -88,7 +88,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
@@ -107,7 +107,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Tilde(
                             Leash,
@@ -352,7 +352,7 @@
         ),
         expr_ty_infos: [
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         TypePath(
                             Ontology,
@@ -373,7 +373,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
@@ -392,7 +392,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         List(
                             ListFunctor,
@@ -413,7 +413,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
+                disambiguation_and_ty_result: Err(
                     Derived(
                         TypeError(
                             DeclarativeTypeError(
@@ -427,7 +427,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
@@ -646,7 +646,7 @@
         ),
         expr_ty_infos: [
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         TypePath(
                             Constructor,
@@ -669,7 +669,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
+                disambiguation_and_ty_result: Err(
                     Derived(
                         TypeError(
                             DeclarativeTypeError(
@@ -761,7 +761,7 @@
         ),
         expr_ty_infos: [
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         TypePath(
                             Ontology,
@@ -868,7 +868,7 @@
         ),
         expr_ty_infos: [
             ExprTypeInfo {
-                variant_and_ty_result: Err(
+                disambiguation_and_ty_result: Err(
                     Derived(
                         TypeError(
                             DeclarativeTypeError(
@@ -933,673 +933,13 @@
                             disambiguator: 0,
                         },
                     ),
-                    ident: `norm`,
-                },
-            ),
-        ),
-        expr_ty_infos: [
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        TypePath(
-                            Ontology,
-                        ),
-                        Ok(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    0,
-                ),
-            },
-        ],
-        extra_expr_errors: [],
-        expr_fluffy_terms: [],
-        symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
-        },
-        symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
-        },
-        fluffy_term_region: FluffyTermRegion {
-            terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
-                solid_terms: SolidTerms {
-                    entries: VecSet {
-                        data: [],
-                    },
-                },
-            },
-            expectations: Expectations {
-                arena: Arena {
-                    data: [
-                        ExpectationEntry {
-                            src: ExpectationSource {
-                                expr_idx: 0,
-                                kind: Expr,
-                            },
-                            expectee: Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                            data: EqsSort(
-                                ExpectEqsCategory {
-                                    smallest_universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                            resolve_progress: Resolved(
-                                Ok(
-                                    EqsSort(
-                                        TermUniverse(
-                                            1,
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ],
-                },
-                first_unresolved_expectation: 0,
-            },
-        },
-        return_ty: None,
-        self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent)`),
-        ),
-    },
-    ExprTypeRegion {
-        path: RegionPath::Decl(
-            DeclRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                            disambiguator: 0,
-                        },
-                    ),
-                    ident: `rel_norm`,
-                },
-            ),
-        ),
-        expr_ty_infos: [
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        TypePath(
-                            Ontology,
-                        ),
-                        Ok(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    0,
-                ),
-            },
-        ],
-        extra_expr_errors: [],
-        expr_fluffy_terms: [],
-        symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
-        },
-        symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
-        },
-        fluffy_term_region: FluffyTermRegion {
-            terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
-                solid_terms: SolidTerms {
-                    entries: VecSet {
-                        data: [],
-                    },
-                },
-            },
-            expectations: Expectations {
-                arena: Arena {
-                    data: [
-                        ExpectationEntry {
-                            src: ExpectationSource {
-                                expr_idx: 0,
-                                kind: Expr,
-                            },
-                            expectee: Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                            data: EqsSort(
-                                ExpectEqsCategory {
-                                    smallest_universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                            resolve_progress: Resolved(
-                                Ok(
-                                    EqsSort(
-                                        TermUniverse(
-                                            1,
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ],
-                },
-                first_unresolved_expectation: 0,
-            },
-        },
-        return_ty: None,
-        self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent)`),
-        ),
-    },
-    ExprTypeRegion {
-        path: RegionPath::Decl(
-            DeclRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                            disambiguator: 0,
-                        },
-                    ),
-                    ident: `hausdorff_norm`,
-                },
-            ),
-        ),
-        expr_ty_infos: [
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        TypePath(
-                            Ontology,
-                        ),
-                        Ok(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    0,
-                ),
-            },
-        ],
-        extra_expr_errors: [],
-        expr_fluffy_terms: [],
-        symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
-        },
-        symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
-        },
-        fluffy_term_region: FluffyTermRegion {
-            terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
-                solid_terms: SolidTerms {
-                    entries: VecSet {
-                        data: [],
-                    },
-                },
-            },
-            expectations: Expectations {
-                arena: Arena {
-                    data: [
-                        ExpectationEntry {
-                            src: ExpectationSource {
-                                expr_idx: 0,
-                                kind: Expr,
-                            },
-                            expectee: Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                            data: EqsSort(
-                                ExpectEqsCategory {
-                                    smallest_universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                            resolve_progress: Resolved(
-                                Ok(
-                                    EqsSort(
-                                        TermUniverse(
-                                            1,
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ],
-                },
-                first_unresolved_expectation: 0,
-            },
-        },
-        return_ty: None,
-        self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent)`),
-        ),
-    },
-    ExprTypeRegion {
-        path: RegionPath::Decl(
-            DeclRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                            disambiguator: 0,
-                        },
-                    ),
-                    ident: `angle_change`,
-                },
-            ),
-        ),
-        expr_ty_infos: [
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        TypePath(
-                            Ontology,
-                        ),
-                        Ok(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    0,
-                ),
-            },
-        ],
-        extra_expr_errors: [],
-        expr_fluffy_terms: [],
-        symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
-        },
-        symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
-        },
-        fluffy_term_region: FluffyTermRegion {
-            terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
-                solid_terms: SolidTerms {
-                    entries: VecSet {
-                        data: [],
-                    },
-                },
-            },
-            expectations: Expectations {
-                arena: Arena {
-                    data: [
-                        ExpectationEntry {
-                            src: ExpectationSource {
-                                expr_idx: 0,
-                                kind: Expr,
-                            },
-                            expectee: Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                            data: EqsSort(
-                                ExpectEqsCategory {
-                                    smallest_universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                            resolve_progress: Resolved(
-                                Ok(
-                                    EqsSort(
-                                        TermUniverse(
-                                            1,
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ],
-                },
-                first_unresolved_expectation: 0,
-            },
-        },
-        return_ty: None,
-        self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent)`),
-        ),
-    },
-    ExprTypeRegion {
-        path: RegionPath::Decl(
-            DeclRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                            disambiguator: 0,
-                        },
-                    ),
-                    ident: `bounding_box`,
-                },
-            ),
-        ),
-        expr_ty_infos: [
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        TypePath(
-                            Ontology,
-                        ),
-                        Ok(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    0,
-                ),
-            },
-        ],
-        extra_expr_errors: [],
-        expr_fluffy_terms: [],
-        symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
-        },
-        symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
-        },
-        fluffy_term_region: FluffyTermRegion {
-            terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
-                solid_terms: SolidTerms {
-                    entries: VecSet {
-                        data: [],
-                    },
-                },
-            },
-            expectations: Expectations {
-                arena: Arena {
-                    data: [
-                        ExpectationEntry {
-                            src: ExpectationSource {
-                                expr_idx: 0,
-                                kind: Expr,
-                            },
-                            expectee: Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                            data: EqsSort(
-                                ExpectEqsCategory {
-                                    smallest_universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                            resolve_progress: Resolved(
-                                Ok(
-                                    EqsSort(
-                                        TermUniverse(
-                                            1,
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ],
-                },
-                first_unresolved_expectation: 0,
-            },
-        },
-        return_ty: None,
-        self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent)`),
-        ),
-    },
-    ExprTypeRegion {
-        path: RegionPath::Decl(
-            DeclRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                            disambiguator: 0,
-                        },
-                    ),
-                    ident: `relative_bounding_box`,
-                },
-            ),
-        ),
-        expr_ty_infos: [
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        TypePath(
-                            Ontology,
-                        ),
-                        Ok(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    0,
-                ),
-            },
-        ],
-        extra_expr_errors: [],
-        expr_fluffy_terms: [],
-        symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
-        },
-        symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
-        },
-        fluffy_term_region: FluffyTermRegion {
-            terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
-                solid_terms: SolidTerms {
-                    entries: VecSet {
-                        data: [],
-                    },
-                },
-            },
-            expectations: Expectations {
-                arena: Arena {
-                    data: [
-                        ExpectationEntry {
-                            src: ExpectationSource {
-                                expr_idx: 0,
-                                kind: Expr,
-                            },
-                            expectee: Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                            data: EqsSort(
-                                ExpectEqsCategory {
-                                    smallest_universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                            resolve_progress: Resolved(
-                                Ok(
-                                    EqsSort(
-                                        TermUniverse(
-                                            1,
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ],
-                },
-                first_unresolved_expectation: 0,
-            },
-        },
-        return_ty: None,
-        self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent)`),
-        ),
-    },
-    ExprTypeRegion {
-        path: RegionPath::Decl(
-            DeclRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                            disambiguator: 0,
-                        },
-                    ),
                     ident: `line_segment`,
                 },
             ),
         ),
         expr_ty_infos: [
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         TypePath(
                             Ontology,
@@ -1709,7 +1049,7 @@
         ),
         expr_ty_infos: [
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         TypePath(
                             Ontology,
@@ -1819,7 +1159,7 @@
         ),
         expr_ty_infos: [
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         TypePath(
                             Ontology,
@@ -1929,7 +1269,7 @@
         ),
         expr_ty_infos: [
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         TypePath(
                             Ontology,
@@ -2039,7 +1379,7 @@
         ),
         expr_ty_infos: [
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         TypePath(
                             Ontology,
@@ -2149,7 +1489,7 @@
         ),
         expr_ty_infos: [
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         TypePath(
                             Ontology,

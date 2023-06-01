@@ -9,7 +9,7 @@ impl<'a> ExprTypeEngine<'a> {
         &self,
         expr_idx: ExprIdx,
     ) -> ExprTypeResultRef<&ExprDisambiguation> {
-        self.expr_ty_infos[expr_idx].variant()
+        self.expr_ty_infos[expr_idx].disambiguation()
     }
 
     pub(crate) fn debug<'b>(
@@ -17,6 +17,13 @@ impl<'a> ExprTypeEngine<'a> {
         t: &'b impl salsa::DebugWithDb<dyn ExprTypeDb + 'a>,
     ) -> salsa::DebugWith<'b, dyn ExprTypeDb + 'a> {
         t.debug(self.db())
+    }
+
+    pub(super) fn expr_disambiguation(
+        &self,
+        expr_idx: ExprIdx,
+    ) -> ExprTypeResultRef<&ExprDisambiguation> {
+        self.expr_ty_infos[expr_idx].disambiguation()
     }
 }
 

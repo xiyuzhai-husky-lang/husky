@@ -25,7 +25,7 @@ impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for ExplicitParameterDecl
         };
         let self_parameter: Option<SelfParameterDeclPattern> = ctx.parse()?;
         let comma_after_self_parameter = if self_parameter.is_some() {
-            ctx.parse_with_err_as_none::<CommaToken>()
+            ctx.parse_err_as_none::<CommaToken>()
         } else {
             None
         };

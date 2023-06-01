@@ -86,7 +86,7 @@ impl ExprTypeRegion {
         // todo: change this to always some
         self.expr_ty_infos
             .get(expr_idx)
-            .map(|ty_info| ty_info.variant())
+            .map(|ty_info| ty_info.disambiguation())
     }
 }
 

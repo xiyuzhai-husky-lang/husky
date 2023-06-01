@@ -10,10 +10,57 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_diagnostic_sheet: ExprDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "Syntax Error: expect initial value",
+                severity: Error,
+                range: [127:45, 127:46),
+            },
+        ],
     },
     decl_diagnostic_sheet: DeclDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "Syntax Error: ExpectEqTokenForVariable",
+                severity: Error,
+                range: [30:37, 30:38),
+            },
+            Diagnostic {
+                message: "Syntax Error: ExpectEqTokenForVariable",
+                severity: Error,
+                range: [33:30, 33:31),
+            },
+            Diagnostic {
+                message: "Syntax Error: ExpectEqTokenForVariable",
+                severity: Error,
+                range: [42:29, 42:30),
+            },
+            Diagnostic {
+                message: "Syntax Error: ExpectEqTokenForVariable",
+                severity: Error,
+                range: [52:28, 52:29),
+            },
+            Diagnostic {
+                message: "Syntax Error: ExpectEqTokenForVariable",
+                severity: Error,
+                range: [59:28, 59:29),
+            },
+            Diagnostic {
+                message: "Syntax Error: ExpectEqTokenForVariable",
+                severity: Error,
+                range: [66:55, 66:56),
+            },
+            Diagnostic {
+                message: "Syntax Error: ExpectEqTokenForVariable",
+                severity: Error,
+                range: [90:26, 90:27),
+            },
+            Diagnostic {
+                message: "Syntax Error: ExpectEqTokenForVariable",
+                severity: Error,
+                range: [93:26, 93:27),
+            },
+        ],
     },
     defn_diagnostic_sheet: DefnDiagnosticSheet {
         diagnostics: [],
@@ -21,14 +68,14 @@ DiagnosticSheet {
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
             Diagnostic {
+                message: "Type Error: expected indices",
+                severity: Error,
+                range: [127:23, 127:46),
+            },
+            Diagnostic {
                 message: "Type Error: no method named `clone` for type `FluffyTerm::Solid(SolidTerm(0))`",
                 severity: Error,
                 range: [128:30, 128:35),
-            },
-            Diagnostic {
-                message: "type path mismatch: expect core::option::Option, but got core::mem::Leash instead",
-                severity: Error,
-                range: [40:25, 40:32),
             },
         ],
     },

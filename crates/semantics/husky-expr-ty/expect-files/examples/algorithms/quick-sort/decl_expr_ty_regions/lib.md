@@ -11,7 +11,7 @@
         ),
         expr_ty_infos: [
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
@@ -30,7 +30,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
@@ -49,7 +49,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
@@ -259,7 +259,7 @@
         ),
         expr_ty_infos: [
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
@@ -278,7 +278,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
@@ -297,7 +297,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
@@ -316,7 +316,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         TypePath(
                             Ontology,
@@ -337,7 +337,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         TypePath(
                             Ontology,
@@ -694,7 +694,7 @@
         ),
         expr_ty_infos: [
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
@@ -713,7 +713,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
@@ -732,7 +732,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
@@ -751,7 +751,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         TypePath(
                             Ontology,
@@ -772,7 +772,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         TypePath(
                             Ontology,
@@ -793,7 +793,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         TypePath(
                             Ontology,

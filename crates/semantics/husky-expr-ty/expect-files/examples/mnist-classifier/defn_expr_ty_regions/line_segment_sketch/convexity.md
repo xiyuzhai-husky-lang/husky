@@ -11,7 +11,7 @@
         ),
         expr_ty_infos: [
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
@@ -28,7 +28,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
+                disambiguation_and_ty_result: Err(
                     Derived(
                         FluffyTermError(
                             Todo,
@@ -38,7 +38,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
+                disambiguation_and_ty_result: Err(
                     Derived(
                         MethodOwnerTypeNotInferred,
                     ),
@@ -46,7 +46,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
@@ -63,7 +63,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
+                disambiguation_and_ty_result: Err(
                     Derived(
                         FluffyTermError(
                             Todo,
@@ -73,7 +73,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
@@ -90,7 +90,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Err(
@@ -103,7 +103,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
@@ -124,7 +124,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
+                disambiguation_and_ty_result: Err(
                     Derived(
                         ApplicationOrRitchieCallFunctionTypeNotInferred,
                     ),
@@ -132,7 +132,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
+                disambiguation_and_ty_result: Err(
                     Derived(
                         MethodOwnerTypeNotInferred,
                     ),
@@ -140,7 +140,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
@@ -157,7 +157,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
+                disambiguation_and_ty_result: Err(
                     Derived(
                         FluffyTermError(
                             Todo,
@@ -167,7 +167,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
@@ -184,7 +184,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
@@ -205,7 +205,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
@@ -226,7 +226,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
@@ -247,7 +247,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Err(
@@ -260,7 +260,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
@@ -281,7 +281,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
+                disambiguation_and_ty_result: Err(
                     Derived(
                         ApplicationOrRitchieCallFunctionTypeNotInferred,
                     ),
@@ -289,7 +289,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
+                disambiguation_and_ty_result: Err(
                     Derived(
                         MethodOwnerTypeNotInferred,
                     ),
@@ -297,7 +297,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Err(
@@ -310,7 +310,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Err(
@@ -323,7 +323,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
+                disambiguation_and_ty_result: Err(
                     Derived(
                         MethodOwnerTypeNotInferred,
                     ),
@@ -331,7 +331,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Err(
@@ -344,7 +344,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
@@ -361,7 +361,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
@@ -382,7 +382,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
@@ -399,7 +399,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
@@ -416,7 +416,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
@@ -433,7 +433,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
+                disambiguation_and_ty_result: Err(
                     Derived(
                         FluffyTermError(
                             Todo,
@@ -443,7 +443,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
@@ -460,7 +460,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
@@ -481,7 +481,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
@@ -502,7 +502,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
@@ -523,7 +523,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Err(
@@ -536,7 +536,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
@@ -557,7 +557,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
+                disambiguation_and_ty_result: Err(
                     Derived(
                         ApplicationOrRitchieCallFunctionTypeNotInferred,
                     ),
@@ -565,7 +565,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
+                disambiguation_and_ty_result: Err(
                     Derived(
                         FieldOwnerTypeNotInferred,
                     ),
@@ -573,7 +573,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Err(
@@ -586,7 +586,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
+                disambiguation_and_ty_result: Err(
                     Derived(
                         FieldOwnerTypeNotInferred,
                     ),
@@ -594,7 +594,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Err(
@@ -607,7 +607,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
+                disambiguation_and_ty_result: Err(
                     Derived(
                         FieldOwnerTypeNotInferred,
                     ),
@@ -615,7 +615,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
@@ -632,7 +632,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
+                disambiguation_and_ty_result: Err(
                     Derived(
                         FluffyTermError(
                             Todo,
@@ -642,7 +642,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Err(
@@ -655,7 +655,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
+                disambiguation_and_ty_result: Err(
                     Derived(
                         FieldOwnerTypeNotInferred,
                     ),
@@ -663,7 +663,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Err(
@@ -676,7 +676,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
+                disambiguation_and_ty_result: Err(
                     Derived(
                         MethodOwnerTypeNotInferred,
                     ),
@@ -684,7 +684,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Err(
@@ -697,7 +697,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Err(
@@ -710,7 +710,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Err(
@@ -723,7 +723,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
+                disambiguation_and_ty_result: Err(
                     Derived(
                         MethodOwnerTypeNotInferred,
                     ),
@@ -731,7 +731,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Err(
@@ -744,7 +744,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
+                disambiguation_and_ty_result: Err(
                     Derived(
                         MethodOwnerTypeNotInferred,
                     ),
@@ -752,17 +752,26 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                ExplicitApplicationFunctionTypeNotInferred,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 35,
-                                        },
-                                    ),
+                            Hollow(
+                                HollowTerm(
+                                    2,
                                 ),
                             ),
                         ),
@@ -773,7 +782,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
@@ -790,24 +799,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Hollow(
-                                HollowTerm(
-                                    2,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    23,
-                ),
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
@@ -820,11 +812,11 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    24,
+                    23,
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
+                disambiguation_and_ty_result: Err(
                     Derived(
                         FluffyTermError(
                             Todo,
@@ -834,7 +826,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
@@ -847,11 +839,11 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    25,
+                    24,
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Err(
@@ -864,7 +856,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
@@ -881,11 +873,11 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    26,
+                    25,
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
+                disambiguation_and_ty_result: Err(
                     Derived(
                         ApplicationOrRitchieCallFunctionTypeNotInferred,
                     ),
@@ -893,7 +885,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
+                disambiguation_and_ty_result: Err(
                     Derived(
                         FieldOwnerTypeNotInferred,
                     ),
@@ -901,7 +893,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Err(
@@ -914,7 +906,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
+                disambiguation_and_ty_result: Err(
                     Derived(
                         FieldOwnerTypeNotInferred,
                     ),
@@ -922,7 +914,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Err(
@@ -935,7 +927,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
+                disambiguation_and_ty_result: Err(
                     Derived(
                         FieldOwnerTypeNotInferred,
                     ),
@@ -943,7 +935,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
@@ -956,11 +948,11 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    27,
+                    26,
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
+                disambiguation_and_ty_result: Err(
                     Derived(
                         FluffyTermError(
                             Todo,
@@ -970,7 +962,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Err(
@@ -983,7 +975,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
+                disambiguation_and_ty_result: Err(
                     Derived(
                         FieldOwnerTypeNotInferred,
                     ),
@@ -991,7 +983,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Err(
@@ -1004,7 +996,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
+                disambiguation_and_ty_result: Err(
                     Derived(
                         MethodOwnerTypeNotInferred,
                     ),
@@ -1012,7 +1004,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Err(
@@ -1025,7 +1017,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Err(
@@ -1038,7 +1030,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Err(
@@ -1051,7 +1043,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
+                disambiguation_and_ty_result: Err(
                     Derived(
                         MethodOwnerTypeNotInferred,
                     ),
@@ -1059,7 +1051,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Err(
@@ -1072,7 +1064,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
+                disambiguation_and_ty_result: Err(
                     Derived(
                         MethodOwnerTypeNotInferred,
                     ),
@@ -1080,7 +1072,46 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                ExplicitApplicationFunctionTypeNotInferred,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
@@ -1088,9 +1119,39 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 35,
+                                            value: 33,
                                         },
                                     ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    27,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            Hollow(
+                                HollowTerm(
+                                    3,
                                 ),
                             ),
                         ),
@@ -1101,33 +1162,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
@@ -1148,58 +1183,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Hollow(
-                                HollowTerm(
-                                    3,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    30,
-                ),
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 33,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    31,
-                ),
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
@@ -1216,7 +1200,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    32,
+                    30,
                 ),
             },
         ],
@@ -1825,44 +1809,6 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 57,
-                                kind: Expr,
-                            },
-                            expectee: EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 35,
-                                        },
-                                    ),
-                                ),
-                            ),
-                            data: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
-                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
-                                        contract: Pure,
-                                        ty: EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 35,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                },
-                            ),
-                            resolve_progress: Resolved(
-                                Ok(
-                                    ImplicitlyConvertible(
-                                        Trivial,
-                                    ),
-                                ),
-                            ),
-                        },
-                        ExpectationEntry {
-                            src: ExpectationSource {
                                 expr_idx: 58,
                                 kind: Expr,
                             },
@@ -1954,44 +1900,6 @@
                                 ExpectAnyOriginal,
                             ),
                             resolve_progress: Unresolved,
-                        },
-                        ExpectationEntry {
-                            src: ExpectationSource {
-                                expr_idx: 86,
-                                kind: Expr,
-                            },
-                            expectee: EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 35,
-                                        },
-                                    ),
-                                ),
-                            ),
-                            data: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
-                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
-                                        contract: Pure,
-                                        ty: EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 35,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                },
-                            ),
-                            resolve_progress: Resolved(
-                                Ok(
-                                    ImplicitlyConvertible(
-                                        Trivial,
-                                    ),
-                                ),
-                            ),
                         },
                         ExpectationEntry {
                             src: ExpectationSource {

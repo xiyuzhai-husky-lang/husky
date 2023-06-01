@@ -21,10 +21,46 @@ DiagnosticSheet {
                 severity: Error,
                 range: [9:16, 9:17),
             },
+            Diagnostic {
+                message: "Syntax Error: expect initial value",
+                severity: Error,
+                range: [90:55, 90:56),
+            },
         ],
     },
     decl_diagnostic_sheet: DeclDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "Syntax Error: ExpectEqTokenForVariable",
+                severity: Error,
+                range: [17:20, 17:21),
+            },
+            Diagnostic {
+                message: "Syntax Error: ExpectEqTokenForVariable",
+                severity: Error,
+                range: [21:24, 21:25),
+            },
+            Diagnostic {
+                message: "Syntax Error: ExpectEqTokenForVariable",
+                severity: Error,
+                range: [24:30, 24:31),
+            },
+            Diagnostic {
+                message: "Syntax Error: ExpectEqTokenForVariable",
+                severity: Error,
+                range: [37:28, 37:29),
+            },
+            Diagnostic {
+                message: "Syntax Error: ExpectEqTokenForVariable",
+                severity: Error,
+                range: [47:36, 47:37),
+            },
+            Diagnostic {
+                message: "Syntax Error: ExpectEqTokenForVariable",
+                severity: Error,
+                range: [64:53, 64:54),
+            },
+        ],
     },
     defn_diagnostic_sheet: DefnDiagnosticSheet {
         diagnostics: [],

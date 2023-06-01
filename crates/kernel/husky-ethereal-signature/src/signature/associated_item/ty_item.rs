@@ -73,20 +73,27 @@ pub(crate) fn ty_method_ethereal_signature_templates_map(
     Ok(ty_path
         .ty_method_declarative_signature_templates_map(db)?
         .iter()
-        .map(|(ident, result)| {
-            let result = match result {
-                Ok(templates) => match templates {
-                    TypeMethodDeclarativeSignatureTemplates::MethodFn(templates) => templates
-                        .iter()
-                        .copied()
-                        .map(|template| template.ethereal_signature_template(db))
-                        .collect::<EtherealSignatureResult<SmallVecImpl<_>>>()
-                        .map(TypeMethodEtherealSignatureTemplates::MethodFn),
-                    TypeMethodDeclarativeSignatureTemplates::MethodFunction(templates) => todo!(),
-                },
-                Err(e) => Err(todo!()),
-            };
-            (*ident, result)
-        })
+        .map(
+            |(ident, result)| -> (
+                Ident,
+                EtherealSignatureResult<TypeMethodEtherealSignatureTemplates>,
+            ) {
+                let result = match result {
+                    Ok(templates) => match templates {
+                        TypeMethodDeclarativeSignatureTemplates::MethodFn(templates) => templates
+                            .iter()
+                            .copied()
+                            .map(|template| template.ethereal_signature_template(db))
+                            .collect::<EtherealSignatureResult<SmallVecImpl<_>>>()
+                            .map(TypeMethodEtherealSignatureTemplates::MethodFn),
+                        TypeMethodDeclarativeSignatureTemplates::MethodFunction(templates) => {
+                            todo!()
+                        }
+                    },
+                    Err(e) => Err(EtherealSignatureError::DerivedFromDeclarative),
+                };
+                (*ident, result)
+            },
+        )
         .collect())
 }

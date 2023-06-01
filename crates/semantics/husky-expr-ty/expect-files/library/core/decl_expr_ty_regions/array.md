@@ -11,7 +11,7 @@
         ),
         expr_ty_infos: [
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         TypePath(
                             Ontology,

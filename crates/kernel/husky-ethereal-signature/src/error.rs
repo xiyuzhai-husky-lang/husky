@@ -4,6 +4,7 @@ use husky_declarative_signature::DeclarativeSignatureError;
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum EtherealSignatureError {
     TermError,
+    DerivedFromDeclarative,
 }
 
 impl From<DeclarativeSignatureError> for EtherealSignatureError {

@@ -11,7 +11,7 @@
         ),
         expr_ty_infos: [
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         TypePath(
                             Ontology,
@@ -32,7 +32,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
@@ -51,7 +51,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         List(
                             ArrayFunctor,
@@ -72,7 +72,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
+                disambiguation_and_ty_result: Err(
                     Derived(
                         TypeError(
                             DeclarativeTypeError(
@@ -86,7 +86,7 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
@@ -105,7 +105,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         Tilde(
                             Leash,
@@ -353,7 +353,7 @@
         ),
         expr_ty_infos: [
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         TypePath(
                             Constructor,
@@ -376,7 +376,7 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
+                disambiguation_and_ty_result: Err(
                     Derived(
                         TypeError(
                             DeclarativeTypeError(
@@ -468,7 +468,7 @@
         ),
         expr_ty_infos: [
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
+                disambiguation_and_ty_result: Ok(
                     (
                         TypePath(
                             Ontology,

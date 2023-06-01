@@ -10,31 +10,26 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_diagnostic_sheet: ExprDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Syntax Error: unterminated list",
-                severity: Error,
-                range: [16:20, 16:21),
-            },
-            Diagnostic {
-                message: "Syntax Error: unterminated list",
-                severity: Error,
-                range: [31:24, 31:25),
-            },
-            Diagnostic {
-                message: "Syntax Error: unterminated list",
-                severity: Error,
-                range: [39:20, 39:21),
-            },
-            Diagnostic {
-                message: "Syntax Error: unterminated list",
-                severity: Error,
-                range: [50:16, 50:17),
-            },
-        ],
+        diagnostics: [],
     },
     decl_diagnostic_sheet: DeclDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "Syntax Error: ExpectEqTokenForVariable",
+                severity: Error,
+                range: [3:34, 3:35),
+            },
+            Diagnostic {
+                message: "Syntax Error: ExpectEqTokenForVariable",
+                severity: Error,
+                range: [6:43, 6:44),
+            },
+            Diagnostic {
+                message: "Syntax Error: ExpectEqTokenForVariable",
+                severity: Error,
+                range: [9:37, 9:38),
+            },
+        ],
     },
     defn_diagnostic_sheet: DefnDiagnosticSheet {
         diagnostics: [],

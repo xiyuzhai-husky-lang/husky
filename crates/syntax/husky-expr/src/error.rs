@@ -149,7 +149,11 @@ impl OriginalExprError {
             | OriginalExprError::ExpectedFunctionIdentAfterOpeningHtmlBra(token_stream_state)
             | OriginalExprError::ExpectedConstantImplicitParameterType(token_stream_state)
             | OriginalExprError::ExpectedTraits(token_stream_state) => {
-                todo!()
+                let token_idx = token_stream_state.next_token_idx();
+                match token_stream_state.drained() {
+                    true => TokenIdxRange::new_drained(token_idx),
+                    false => TokenIdxRange::new_single(token_idx),
+                }
             }
             OriginalExprError::MismatchingBracket {
                 ket_token_idx: token_idx,

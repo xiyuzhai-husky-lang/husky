@@ -16,10 +16,36 @@ DiagnosticSheet {
                 severity: Error,
                 range: [172:35, 172:47),
             },
+            Diagnostic {
+                message: "Syntax Error: expect initial value",
+                severity: Error,
+                range: [181:43, 181:44),
+            },
         ],
     },
     decl_diagnostic_sheet: DeclDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "Syntax Error: ExpectEqTokenForVariable",
+                severity: Error,
+                range: [16:49, 16:50),
+            },
+            Diagnostic {
+                message: "Syntax Error: ExpectEqTokenForVariable",
+                severity: Error,
+                range: [19:36, 19:37),
+            },
+            Diagnostic {
+                message: "Syntax Error: ExpectEqTokenForVariable",
+                severity: Error,
+                range: [36:53, 36:54),
+            },
+            Diagnostic {
+                message: "Syntax Error: ExpectEqTokenForVariable",
+                severity: Error,
+                range: [39:27, 39:28),
+            },
+        ],
     },
     defn_diagnostic_sheet: DefnDiagnosticSheet {
         diagnostics: [],
@@ -32,24 +58,9 @@ DiagnosticSheet {
                 range: [102:74, 102:83),
             },
             Diagnostic {
-                message: "Type Error: no method named `last` for type `FluffyTerm::Solid(SolidTerm(0))`",
+                message: "Type Error: expected indices",
                 severity: Error,
-                range: [219:33, 219:37),
-            },
-            Diagnostic {
-                message: "Type Error: no method named `last` for type `FluffyTerm::Solid(SolidTerm(0))`",
-                severity: Error,
-                range: [226:33, 226:37),
-            },
-            Diagnostic {
-                message: "Type Error: no method named `last` for type `FluffyTerm::Solid(SolidTerm(0))`",
-                severity: Error,
-                range: [233:33, 233:37),
-            },
-            Diagnostic {
-                message: "Type Error: no method named `pop` for type `FluffyTerm::Solid(SolidTerm(0))`",
-                severity: Error,
-                range: [264:25, 264:28),
+                range: [181:32, 181:44),
             },
             Diagnostic {
                 message: "OriginalFluffyTermExpectationError::Todo",

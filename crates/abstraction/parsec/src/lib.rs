@@ -44,7 +44,7 @@ pub trait StreamParser: HasStreamState {
     fn parse<P: ParseFromStream<Self>>(
         &mut self,
     ) -> Result<Option<P>, <P as ParseFromStream<Self>>::Error>;
-    fn parse_with_err_as_none<P: ParseFromStream<Self>>(&mut self) -> Option<P>;
+    fn parse_err_as_none<P: ParseFromStream<Self>>(&mut self) -> Option<P>;
 
     fn parse_expected<T: ParseFromStream<Self>, E: OriginalError>(
         &mut self,
@@ -82,9 +82,8 @@ where
         P::parse_from_with_rollback_when_no_error(self)
     }
 
-    /// deprecated
     #[inline(always)]
-    fn parse_with_err_as_none<T: ParseFromStream<Self>>(&mut self) -> Option<T> {
+    fn parse_err_as_none<T: ParseFromStream<Self>>(&mut self) -> Option<T> {
         T::try_parse_from_with_rollback(self)
     }
 
