@@ -1203,9 +1203,13 @@ Ok(
                                                         152,
                                                     ),
                                                 },
-                                                Expr::ExplicitApplication {
-                                                    function: 55,
-                                                    argument: 56,
+                                                Expr::Binary {
+                                                    lopd: 55,
+                                                    opr: Assign,
+                                                    opr_token_idx: TokenIdx(
+                                                        141,
+                                                    ),
+                                                    ropd: 56,
                                                 },
                                                 Expr::Literal(
                                                     TokenIdx(
@@ -1532,9 +1536,13 @@ Ok(
                                                         210,
                                                     ),
                                                 },
-                                                Expr::ExplicitApplication {
-                                                    function: 84,
-                                                    argument: 85,
+                                                Expr::Binary {
+                                                    lopd: 84,
+                                                    opr: Assign,
+                                                    opr_token_idx: TokenIdx(
+                                                        199,
+                                                    ),
+                                                    ropd: 85,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `current_raw_cross`,

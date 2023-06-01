@@ -21,6 +21,7 @@ pub(crate) enum Precedence {
     Be = 23,
     /// means `->`
     Curry = 17,
+    KeyedArgument = 14,
     ListItem = 11,
     LambdaHead = 3,
     Method = 2,

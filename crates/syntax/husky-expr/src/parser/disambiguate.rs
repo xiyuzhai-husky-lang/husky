@@ -53,13 +53,16 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 )),
             },
             Token::Ident(ident) => match self.top_expr() {
-                TopExprRef::Unfinished(UnfinishedExpr::List {
-                    opr,
-                    bra,
-                    bra_token_idx,
-                    items,
-                    commas,
-                }) => match self.parse_err_as_none::<EqToken>() {
+                TopExprRef::Incomplete(
+                    IncompleteExpr::List {
+                        opr:
+                            IncompleteListOpr::FunctionCall { .. }
+                            | IncompleteListOpr::MethodCall { .. },
+                        ..
+                    }
+                    | IncompleteExpr::FnCallKeyedArgumentList { .. }
+                    | IncompleteExpr::MethodFnCallKeyedArgumentList { .. },
+                ) => match self.parse_err_as_none::<EqToken>() {
                     Some(eq_token) => DisambiguatedToken::IncompleteKeywordArgument {
                         ident_token_idx: token_idx,
                         ident,
@@ -78,8 +81,6 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 PunctuationMapped::Ket(ket) => match self.last_bra() {
                     Some(bra) => {
                         if bra != ket {
-                            p!(bra, ket);
-                            p!(self.unfinished_exprs());
                             todo!()
                         }
                         DisambiguatedToken::Ket(token_idx, ket)
@@ -90,7 +91,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     DisambiguatedToken::SuffixOpr(token_idx, suffix)
                 }
                 PunctuationMapped::LaOrLt => match self.top_expr() {
-                    TopExprRef::Unfinished(_) => todo!(),
+                    TopExprRef::Incomplete(_) => todo!(),
                     TopExprRef::Finished(expr) => {
                         match expr.base_entity_path(self.db(), &self.parser.expr_arena) {
                             BaseEntityPath::Uncertain {
@@ -158,13 +159,13 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     DisambiguatedToken::PrefixOpr(token_idx, PrefixOpr::Tilde)
                 }
                 PunctuationMapped::Dot => DisambiguatedToken::Dot(token_idx),
-                PunctuationMapped::Colon => match self.last_unfinished_expr() {
-                    Some(UnfinishedExpr::List {
-                        opr: UnfinishedSimpleListOpr::BoxList { .. },
+                PunctuationMapped::Colon => match self.last_incomplete_expr() {
+                    Some(IncompleteExpr::List {
+                        opr: IncompleteListOpr::BoxList { .. },
                         items,
                         ..
                     }) => {
-                        if items.len() == 0 && self.finished_expr().is_none() {
+                        if items.len() == 0 && self.complete_expr().is_none() {
                             DisambiguatedToken::ColonRightAfterLBox(token_idx)
                         } else {
                             match self.token_stream.is_empty() {
@@ -182,20 +183,20 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 },
                 PunctuationMapped::Comma => {
                     self.reduce(Precedence::ListItem);
-                    match self.last_unfinished_expr() {
+                    match self.last_incomplete_expr() {
                         Some(expr) => match expr {
-                            UnfinishedExpr::List { .. } => DisambiguatedToken::ListItem(token_idx),
+                            IncompleteExpr::List { .. } => DisambiguatedToken::Comma(token_idx),
                             _ => return TokenDisambiguationResult::Break(()),
                         },
                         None => return TokenDisambiguationResult::Break(()),
                     }
                 }
-                PunctuationMapped::Vertical => match self.last_unfinished_expr() {
-                    Some(UnfinishedExpr::List {
+                PunctuationMapped::Vertical => match self.last_incomplete_expr() {
+                    Some(IncompleteExpr::List {
                         bra: Bracket::Lambda,
                         ..
                     }) => DisambiguatedToken::Ket(token_idx, Bracket::Lambda),
-                    _ => match self.finished_expr().is_some() {
+                    _ => match self.complete_expr().is_some() {
                         true => DisambiguatedToken::BinaryOpr(
                             token_idx,
                             BinaryOpr::Closed(BinaryClosedOpr::BitOr),
@@ -274,7 +275,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         prefix_opr: PrefixOpr,
         other: DisambiguatedToken,
     ) -> DisambiguatedToken {
-        match self.finished_expr() {
+        match self.complete_expr() {
             Some(Expr::List { .. }) | Some(Expr::BoxColonList { .. }) | None => {
                 DisambiguatedToken::PrefixOpr(token_idx, prefix_opr)
             }
@@ -285,9 +286,9 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
 
 impl<'a, 'b> ExprParseContext<'a, 'b> {
     fn resolve_ident(&mut self, token_idx: TokenIdx, ident: Ident) -> DisambiguatedToken {
-        if let Some(opn) = self.last_unfinished_expr() {
+        if let Some(opn) = self.last_incomplete_expr() {
             match opn {
-                UnfinishedExpr::Binary {
+                IncompleteExpr::Binary {
                     punctuation: BinaryOpr::ScopeResolution,
                     lopd,
                     ..
@@ -361,7 +362,7 @@ pub(crate) enum DisambiguatedToken {
     Bra(TokenIdx, Bracket),
     Ket(TokenIdx, Bracket),
     Dot(TokenIdx),
-    ListItem(TokenIdx),
+    Comma(TokenIdx),
     Be(TokenIdx),
     ColonRightAfterLBox(TokenIdx),
     Ritchie(TokenIdx, RitchieKind),

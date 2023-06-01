@@ -163,13 +163,13 @@ pub enum Expr {
         /// `light_arrow_token` is some
         return_ty_expr: Option<ExprIdx>,
     },
-    RitchieCall {
+    FnCall {
         function: ExprIdx,
         implicit_arguments: Option<ImplicitArgumentList>,
         lpar_token_idx: TokenIdx,
-        items: ExprIdxRange,
+        arguments: ExprIdxRange,
         commas: Commas,
-        keyed_arguments: SmallVecMap<KeyedArgumentExpr, 2>,
+        keyed_arguments: SmallVec<[KeyedArgumentExpr; 2]>,
         rpar_token_idx: TokenIdx,
     },
     Field {
@@ -250,8 +250,9 @@ pub enum Expr {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct KeyedArgumentExpr {
+    key_token_idx: TokenIdx,
     key: Ident,
-    value: ExprIdx,
+    argument: ExprIdx,
 }
 
 #[derive(Debug, PartialEq, Eq)]

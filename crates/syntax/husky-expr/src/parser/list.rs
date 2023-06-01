@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
-pub(super) enum UnfinishedSimpleListOpr {
+pub(super) enum IncompleteListOpr {
     NewTuple,
     Index {
         owner: ExprIdx,

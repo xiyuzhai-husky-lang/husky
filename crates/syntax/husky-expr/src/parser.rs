@@ -5,9 +5,9 @@ mod debug;
 mod disambiguate;
 mod env;
 mod expr_stack;
+mod incomplete_expr;
 mod list;
 mod root;
-mod unfinished_expr;
 
 pub use self::block::*;
 pub use self::env::*;
@@ -25,13 +25,13 @@ use husky_print_utils::p;
 use husky_token::Token;
 use husky_token::TokenStream;
 use husky_vfs::{ModulePath, Toolchain};
+use incomplete_expr::*;
 use list::*;
 use original_error::OriginalError;
 use parsec::{HasStreamState, StreamParser};
 use salsa::DebugWithDb;
 use std::ops::ControlFlow;
 use symbol::*;
-use unfinished_expr::*;
 
 #[macro_use]
 macro_rules! report {

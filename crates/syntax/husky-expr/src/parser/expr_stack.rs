@@ -1,7 +1,7 @@
+use super::*;
 use husky_print_utils::p;
 use salsa::DebugWithDb;
-
-use super::*;
+use smallvec::smallvec;
 
 /// stack based expression parsing.
 ///
@@ -14,17 +14,17 @@ use super::*;
 /// in the above `c + d` would be the finished expression, `a +`, `b *` and `(c + d` would be unfinished expressions.
 #[derive(Default, Debug)]
 pub(crate) struct ExprStack {
-    unfinished_exprs: Vec<(UnfinishedExpr, Precedence)>,
-    finished_expr: Option<Expr>,
+    incomplete_exprs: Vec<(IncompleteExpr, Precedence)>,
+    complete_expr: Option<Expr>,
 }
 
 pub(super) enum TopExpr {
-    Unfinished(UnfinishedExpr),
+    Unfinished(IncompleteExpr),
     Finished(Expr),
 }
 
 pub(super) enum TopExprRef<'a> {
-    Unfinished(&'a UnfinishedExpr),
+    Incomplete(&'a IncompleteExpr),
     Finished(&'a Expr),
     None,
 }
@@ -35,15 +35,15 @@ impl From<Expr> for TopExpr {
     }
 }
 
-impl From<UnfinishedExpr> for TopExpr {
-    fn from(v: UnfinishedExpr) -> Self {
+impl From<IncompleteExpr> for TopExpr {
+    fn from(v: IncompleteExpr) -> Self {
         Self::Unfinished(v)
     }
 }
 
 impl ExprStack {
     pub(super) fn prev_unfinished_expr_precedence(&self) -> Option<Precedence> {
-        self.unfinished_exprs
+        self.incomplete_exprs
             .last()
             .map(|(_, precedence)| *precedence)
     }
@@ -123,68 +123,82 @@ impl Expr {
                 rbox_token_idx,
             } => arena[owner].base_entity_path(db, arena),
             Expr::EmptyHtmlTag { .. } => BaseEntityPath::Err,
-            Expr::RitchieCall { .. } => todo!(),
+            Expr::FnCall { .. } => todo!(),
             Expr::Ritchie { .. } => todo!(),
         }
     }
 }
 
 impl<'a, 'b> ExprParseContext<'a, 'b> {
-    pub(super) fn finished_expr(&self) -> Option<&Expr> {
-        self.stack.finished_expr.as_ref()
+    pub(super) fn complete_expr(&self) -> Option<&Expr> {
+        self.stack.complete_expr.as_ref()
     }
 
-    pub(super) fn unfinished_exprs(&self) -> &[(UnfinishedExpr, Precedence)] {
-        &self.stack.unfinished_exprs
+    pub(super) fn incomplete_exprs(&self) -> &[(IncompleteExpr, Precedence)] {
+        &self.stack.incomplete_exprs
     }
 
-    pub(super) fn take_last_unfinished_expr(&mut self) -> Option<UnfinishedExpr> {
-        self.stack.unfinished_exprs.pop().map(|(expr, _)| expr)
+    pub(super) fn take_last_incomplete_expr(&mut self) -> Option<IncompleteExpr> {
+        self.stack.incomplete_exprs.pop().map(|(expr, _)| expr)
     }
 
-    fn push_unfinished_expr(&mut self, unfinished_expr: UnfinishedExpr) {
-        assert!(self.stack.finished_expr.is_none());
+    fn push_unfinished_expr(&mut self, unfinished_expr: IncompleteExpr) {
+        assert!(self.stack.complete_expr.is_none());
         let precedence = unfinished_expr.precedence();
         self.stack
-            .unfinished_exprs
+            .incomplete_exprs
             .push((unfinished_expr, precedence))
     }
 
-    pub(super) fn last_unfinished_expr(&self) -> Option<&UnfinishedExpr> {
-        self.stack.unfinished_exprs.last().map(|(opr, _)| opr)
+    pub(super) fn last_incomplete_expr(&self) -> Option<&IncompleteExpr> {
+        self.stack.incomplete_exprs.last().map(|(opr, _)| opr)
     }
 
-    pub(super) fn last_unfinished_expr_mut(&mut self) -> Option<&mut UnfinishedExpr> {
-        self.stack.unfinished_exprs.last_mut().map(|(opr, _)| opr)
+    pub(super) fn last_incomplete_expr_mut(&mut self) -> Option<&mut IncompleteExpr> {
+        self.stack.incomplete_exprs.last_mut().map(|(opr, _)| opr)
     }
 
     /// make `top_expr` the top expression.
     /// - if there is already a finished expression, interpret it as a function,
     /// and `top_expr` as an argument;
     /// - otherwise just adds it in the trivial way
-    pub(super) fn set_top_expr(&mut self, top_expr: TopExpr) {
-        if let Some(function) = self.take_finished_expr() {
-            self.push_unfinished_expr(UnfinishedExpr::Application { function });
+    pub(super) fn push_top_expr(&mut self, top_expr: TopExpr) {
+        if let Some(function) = self.take_complete_expr() {
+            self.push_unfinished_expr(IncompleteExpr::Application { function });
         }
         match top_expr {
             TopExpr::Unfinished(unfinished_expr) => self.push_unfinished_expr(unfinished_expr),
-            TopExpr::Finished(finished_expr) => self.stack.finished_expr = Some(finished_expr),
+            TopExpr::Finished(finished_expr) => self.stack.complete_expr = Some(finished_expr),
         }
     }
 
     /// if there's no need for the information of unfinished expressions, call `finished_expr` would be faster
     pub(super) fn top_expr<'d>(&'d self) -> TopExprRef<'d> {
-        if let Some(ref finished_expr) = self.stack.finished_expr {
+        if let Some(ref finished_expr) = self.stack.complete_expr {
             TopExprRef::Finished(finished_expr)
-        } else if let Some((unfinished_expr, _)) = self.stack.unfinished_exprs.last() {
-            TopExprRef::Unfinished(unfinished_expr)
+        } else if let Some((unfinished_expr, _)) = self.stack.incomplete_exprs.last() {
+            TopExprRef::Incomplete(unfinished_expr)
         } else {
             TopExprRef::None
         }
     }
 
-    pub(super) fn take_finished_expr(&mut self) -> Option<Expr> {
-        std::mem::take(&mut self.stack.finished_expr)
+    pub(super) fn take_complete_expr(&mut self) -> Option<Expr> {
+        std::mem::take(&mut self.stack.complete_expr)
+    }
+
+    pub(super) fn set_complete_expr(&mut self, expr: Expr) {
+        debug_assert!(self.complete_expr().is_none());
+        self.stack.complete_expr = Some(expr)
+    }
+
+    fn reduce_aux(&mut self, f: impl Fn(&mut Self, Option<Expr>, IncompleteExpr) -> TopExpr) {
+        let complete_expr = self.take_complete_expr();
+        let Some((incomplete_expr, _)) = self.stack.incomplete_exprs.pop() else {
+            unreachable!()
+        };
+        let top_expr = f(self, complete_expr, incomplete_expr);
+        self.push_top_expr(top_expr)
     }
 
     pub(super) fn reduce(&mut self, next_precedence: Precedence) {
@@ -196,15 +210,15 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             if prev_precedence == Precedence::Curry && next_precedence == Precedence::Curry {
                 break;
             }
-            match self.stack.unfinished_exprs.pop().unwrap().0 {
-                UnfinishedExpr::Binary {
+            match self.stack.incomplete_exprs.pop().unwrap().0 {
+                IncompleteExpr::Binary {
                     lopd,
                     punctuation,
                     punctuation_token_idx,
                 } => {
                     let lopd = self.alloc_expr(lopd);
-                    let finished_expr = self.take_finished_expr();
-                    self.stack.finished_expr = Some(match finished_expr {
+                    let finished_expr = self.take_complete_expr();
+                    self.stack.complete_expr = Some(match finished_expr {
                         Some(ropd) => Expr::Binary {
                             lopd,
                             opr: punctuation,
@@ -220,19 +234,19 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         ),
                     })
                 }
-                UnfinishedExpr::Application { function } => {
-                    let argument = self.take_finished_expr().unwrap();
+                IncompleteExpr::Application { function } => {
+                    let argument = self.take_complete_expr().unwrap();
                     let function = self.alloc_expr(function);
                     let argument = self.alloc_expr(argument);
-                    self.stack.finished_expr =
+                    self.stack.complete_expr =
                         Some(Expr::ExplicitApplication { function, argument })
                 }
-                UnfinishedExpr::Prefix {
+                IncompleteExpr::Prefix {
                     punctuation,
                     punctuation_token_idx,
                 } => {
-                    let finished_expr = self.take_finished_expr();
-                    self.stack.finished_expr = Some(match finished_expr {
+                    let finished_expr = self.take_complete_expr();
+                    self.stack.complete_expr = Some(match finished_expr {
                         Some(opd) => Expr::Prefix {
                             opr: punctuation,
                             opr_token_idx: punctuation_token_idx,
@@ -247,17 +261,27 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         ),
                     })
                 }
-                UnfinishedExpr::ListItem {
+                IncompleteExpr::ListItem {
                     separator_token_idx,
                 } => todo!(),
-                UnfinishedExpr::List { bra_token_idx, .. } => {
-                    self.stack.finished_expr = Some(Expr::Err(
+                IncompleteExpr::List { bra_token_idx, .. } => {
+                    self.stack.complete_expr = Some(Expr::Err(
                         OriginalExprError::UnterminatedList { bra_token_idx }.into(),
                     ))
                 }
-                UnfinishedExpr::LambdaHead { inputs, start } => todo!(),
-                UnfinishedExpr::KeyedArgumentList { .. } => todo!(),
-                UnfinishedExpr::Ritchie {
+                IncompleteExpr::LambdaHead { inputs, start } => todo!(),
+                IncompleteExpr::FnCallKeyedArgumentList {
+                    lpar_token_idx: bra_token_idx,
+                    ..
+                } => {
+                    self.stack.complete_expr = Some(Expr::Err(
+                        OriginalExprError::UnterminatedFunctionCallKeyedArgumentList {
+                            bra_token_idx,
+                        }
+                        .into(),
+                    ))
+                }
+                IncompleteExpr::Ritchie {
                     ritchie_kind_token_idx,
                     ritchie_kind,
                     lpar_token,
@@ -266,8 +290,8 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     rpar_token_idx,
                     light_arrow_token,
                 } => {
-                    let finished_expr = self.take_finished_expr();
-                    self.stack.finished_expr = Some(match finished_expr {
+                    let finished_expr = self.take_complete_expr();
+                    self.stack.complete_expr = Some(match finished_expr {
                         Some(return_ty) => Expr::Ritchie {
                             ritchie_kind_token_idx,
                             ritchie_kind,
@@ -284,32 +308,126 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         ),
                     })
                 }
+                IncompleteExpr::KeyedArgument {
+                    key_token_idx,
+                    key,
+                    eq_token,
+                } => {
+                    self.reduce_aux(|this, argument, incomplete_expr| {
+                        let Some(argument) =  argument else {
+                            todo!()
+                        };
+                        let argument = this.alloc_expr(argument);
+                        match incomplete_expr {
+                            IncompleteExpr::List {
+                                opr: IncompleteListOpr::FunctionCall { function },
+                                bra,
+                                bra_token_idx,
+                                items,
+                                commas,
+                            } => IncompleteExpr::FnCallKeyedArgumentList {
+                                function,
+                                implicit_arguments: /* ad hoc */ None,
+                                bra,
+                                lpar_token_idx: bra_token_idx,
+                                arguments: this.alloc_expr_batch(items),
+                                keyed_arguments: smallvec![KeyedArgumentExpr {
+                                    key_token_idx,
+                                    key,
+                                    argument
+                                }],
+                                commas,
+                            }
+                            .into(),
+                            IncompleteExpr::List {
+                                opr:
+                                    IncompleteListOpr::MethodCall {
+                                        self_expr,
+                                        dot_token_idx,
+                                        ident_token,
+                                        implicit_arguments,
+                                    },
+                                bra,
+                                bra_token_idx,
+                                items,
+                                commas,
+                            } => todo!(),
+                            IncompleteExpr::FnCallKeyedArgumentList { .. } => todo!(),
+                            IncompleteExpr::MethodFnCallKeyedArgumentList {
+                                self_expr,
+                                dot_token_idx,
+                                ident_token,
+                                implicit_arguments,
+                                bra,
+                                bra_token_idx,
+                                arguments,
+                                commas,
+                                keyed_arguments,
+                            } => todo!(),
+                            _ => unreachable!(),
+                        }
+                    })
+                    // self.stack.finished_expr = Some(match finished_expr {
+                    //     Some(return_ty) => Expr::Ritchie {
+                    //         ritchie_kind_token_idx,
+                    //         ritchie_kind,
+                    //         lpar_token,
+                    //         parameter_ty_exprs: argument_tys,
+                    //         commas,
+                    //         rpar_token_idx,
+                    //         light_arrow_token: Some(light_arrow_token),
+                    //         return_ty_expr: Some(self.alloc_expr(return_ty)),
+                    //     },
+                    //     None => Expr::Err(
+                    //         OriginalExprError::ExpectedTypeAfterLightArrow { light_arrow_token }
+                    //             .into(),
+                    //     ),
+                    // })
+                }
+                IncompleteExpr::MethodFnCallKeyedArgumentList {
+                    self_expr,
+                    dot_token_idx,
+                    ident_token,
+                    implicit_arguments,
+                    bra,
+                    bra_token_idx,
+                    arguments,
+                    commas,
+                    keyed_arguments,
+                } => todo!(),
             }
         }
     }
 
     /// use this when the incoming token might change the nature of the top expression
-    pub(super) fn replace_top_expr(&mut self, f: impl FnOnce(&mut Self, Option<Expr>) -> TopExpr) {
-        let finished_expr = self.take_finished_expr();
-        let top_expr = f(self, finished_expr);
-        self.set_top_expr(top_expr)
+    pub(super) fn take_complete_and_push_to_top(
+        &mut self,
+        f: impl FnOnce(&mut Self, Option<Expr>) -> TopExpr,
+    ) {
+        let complete_expr = self.take_complete_expr();
+        let top_expr = f(self, complete_expr);
+        self.push_top_expr(top_expr)
     }
 
     pub(super) fn finish_batch(&mut self) -> Option<ExprIdx> {
-        assert!(self.stack.unfinished_exprs.len() == 0);
-        std::mem::take(&mut self.stack.finished_expr).map(|expr| self.parser.alloc_expr(expr))
+        assert!(self.stack.incomplete_exprs.len() == 0);
+        std::mem::take(&mut self.stack.complete_expr).map(|expr| self.parser.alloc_expr(expr))
     }
 
     pub(super) fn last_bra(&self) -> Option<Bracket> {
-        for (unfinished_expr, _) in self.stack.unfinished_exprs.iter().rev() {
+        for (unfinished_expr, _) in self.stack.incomplete_exprs.iter().rev() {
             match unfinished_expr {
-                UnfinishedExpr::List {
+                IncompleteExpr::List {
                     opr,
                     bra,
                     bra_token_idx,
                     items,
                     commas,
                 } => return Some(*bra),
+                IncompleteExpr::FnCallKeyedArgumentList { .. }
+                | IncompleteExpr::MethodFnCallKeyedArgumentList { .. } => {
+                    return Some(Bracket::Par)
+                }
                 _ => (),
             }
         }
@@ -318,9 +436,9 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
 
     pub(super) fn last_two_bras(&self) -> Vec<Bracket> {
         let mut bras = vec![];
-        for (unfinished_expr, _) in self.stack.unfinished_exprs.iter().rev() {
+        for (unfinished_expr, _) in self.stack.incomplete_exprs.iter().rev() {
             match unfinished_expr {
-                UnfinishedExpr::List { bra, .. } => {
+                IncompleteExpr::List { bra, .. } => {
                     bras.push(*bra);
                     if bras.len() >= 2 {
                         return bras;

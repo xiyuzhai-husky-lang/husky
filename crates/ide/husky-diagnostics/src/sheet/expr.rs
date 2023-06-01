@@ -137,6 +137,12 @@ impl Diagnose for OriginalExprError {
             OriginalExprError::UnterminatedList { .. } => {
                 format!("Syntax Error: unterminated list")
             }
+            OriginalExprError::UnterminatedFunctionCallKeyedArgumentList { bra_token_idx } => {
+                format!("Syntax Error: unterminated function call keyed argument list")
+            }
+            OriginalExprError::UnterminatedMethodCallKeyedArgumentList { bra_token_idx } => {
+                format!("Syntax Error: unterminated method call keyed argument list")
+            }
             OriginalExprError::UnexpectedSheba(_) => format!("Syntax Error: unexpected `$`"),
             OriginalExprError::UnrecognizedIdent {
                 token_idx: _,
