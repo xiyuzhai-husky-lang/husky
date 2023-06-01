@@ -342,7 +342,7 @@
                                 ty: ExplicitApplication(
                                     DeclarativeTermExplicitApplication(
                                         Id {
-                                            value: 49,
+                                            value: 59,
                                         },
                                     ),
                                 ),
@@ -368,7 +368,7 @@
                                 ty: ExplicitApplication(
                                     DeclarativeTermExplicitApplication(
                                         Id {
-                                            value: 47,
+                                            value: 57,
                                         },
                                     ),
                                 ),
@@ -431,6 +431,74 @@
                     },
                     ty: DeclarativeTerm(`mnist_classifier::raw_contour::RawContour`),
                 },
+            ),
+        ),
+    ),
+    Ok(
+        SignatureTemplate::AssociatedItem(
+            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                TypeItemDeclarativeSignatureTemplate::MemoizedField(
+                    TypeMemoizedFieldDeclarativeSignatureTemplate {
+                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            ty: DeclarativeTerm(`mnist_classifier::raw_contour::RawContour`),
+                        },
+                        return_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
+                    },
+                ),
+            ),
+        ),
+    ),
+    Ok(
+        SignatureTemplate::AssociatedItem(
+            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                TypeItemDeclarativeSignatureTemplate::MemoizedField(
+                    TypeMemoizedFieldDeclarativeSignatureTemplate {
+                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            ty: DeclarativeTerm(`mnist_classifier::raw_contour::RawContour`),
+                        },
+                        return_ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
+                    },
+                ),
+            ),
+        ),
+    ),
+    Ok(
+        SignatureTemplate::AssociatedItem(
+            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                TypeItemDeclarativeSignatureTemplate::MemoizedField(
+                    TypeMemoizedFieldDeclarativeSignatureTemplate {
+                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            ty: DeclarativeTerm(`mnist_classifier::raw_contour::RawContour`),
+                        },
+                        return_ty: DeclarativeTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
+                    },
+                ),
+            ),
+        ),
+    ),
+    Ok(
+        SignatureTemplate::AssociatedItem(
+            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                TypeItemDeclarativeSignatureTemplate::MemoizedField(
+                    TypeMemoizedFieldDeclarativeSignatureTemplate {
+                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            ty: DeclarativeTerm(`mnist_classifier::raw_contour::RawContour`),
+                        },
+                        return_ty: DeclarativeTerm(`core::num::f32`),
+                    },
+                ),
             ),
         ),
     ),

@@ -213,6 +213,142 @@
     Ok(
         SignatureTemplate::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                TypeItemDeclarativeSignatureTemplate::MemoizedField(
+                    TypeMemoizedFieldDeclarativeSignatureTemplate {
+                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
+                        },
+                        return_ty: DeclarativeTerm(`[] mnist_classifier::raw_contour::RawContour`),
+                    },
+                ),
+            ),
+        ),
+    ),
+    Ok(
+        SignatureTemplate::AssociatedItem(
+            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                TypeItemDeclarativeSignatureTemplate::MemoizedField(
+                    TypeMemoizedFieldDeclarativeSignatureTemplate {
+                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
+                        },
+                        return_ty: DeclarativeTerm(`mnist_classifier::connected_component::EffHoles`),
+                    },
+                ),
+            ),
+        ),
+    ),
+    Ok(
+        SignatureTemplate::AssociatedItem(
+            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                TypeItemDeclarativeSignatureTemplate::MemoizedField(
+                    TypeMemoizedFieldDeclarativeSignatureTemplate {
+                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
+                        },
+                        return_ty: DeclarativeTerm(`core::num::f32`),
+                    },
+                ),
+            ),
+        ),
+    ),
+    Ok(
+        SignatureTemplate::AssociatedItem(
+            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                TypeItemDeclarativeSignatureTemplate::MemoizedField(
+                    TypeMemoizedFieldDeclarativeSignatureTemplate {
+                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
+                        },
+                        return_ty: DeclarativeTerm(`core::num::f32`),
+                    },
+                ),
+            ),
+        ),
+    ),
+    Ok(
+        SignatureTemplate::AssociatedItem(
+            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                TypeItemDeclarativeSignatureTemplate::MemoizedField(
+                    TypeMemoizedFieldDeclarativeSignatureTemplate {
+                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
+                        },
+                        return_ty: DeclarativeTerm(`core::num::f32`),
+                    },
+                ),
+            ),
+        ),
+    ),
+    Ok(
+        SignatureTemplate::AssociatedItem(
+            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                TypeItemDeclarativeSignatureTemplate::MemoizedField(
+                    TypeMemoizedFieldDeclarativeSignatureTemplate {
+                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
+                        },
+                        return_ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponentDistribution`),
+                    },
+                ),
+            ),
+        ),
+    ),
+    Ok(
+        SignatureTemplate::AssociatedItem(
+            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                TypeItemDeclarativeSignatureTemplate::MemoizedField(
+                    TypeMemoizedFieldDeclarativeSignatureTemplate {
+                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
+                        },
+                        return_ty: DeclarativeTerm(`core::num::f32`),
+                    },
+                ),
+            ),
+        ),
+    ),
+    Ok(
+        SignatureTemplate::AssociatedItem(
+            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                TypeItemDeclarativeSignatureTemplate::MemoizedField(
+                    TypeMemoizedFieldDeclarativeSignatureTemplate {
+                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
+                        },
+                        return_ty: DeclarativeTerm(`core::num::f32`),
+                    },
+                ),
+            ),
+        ),
+    ),
+    Ok(
+        SignatureTemplate::AssociatedItem(
+            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
                         impl_block: TypeImplBlockDeclarativeSignatureTemplate {

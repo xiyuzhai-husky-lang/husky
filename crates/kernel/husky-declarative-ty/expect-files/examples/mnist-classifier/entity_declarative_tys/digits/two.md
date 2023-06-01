@@ -5,10 +5,8 @@
                 FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
             ),
         ),
-        Err(
-            DeclarativeTypeError::Derived(
-                DerivedDeclarativeTypeError::SignatureError,
-            ),
+        Ok(
+            DeclarativeTerm(`{val_type} mnist_classifier::fermi::FermiMatchResult`),
         ),
     ),
     (
@@ -47,10 +45,8 @@
                 FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
             ),
         ),
-        Err(
-            DeclarativeTypeError::Derived(
-                DerivedDeclarativeTypeError::SignatureError,
-            ),
+        Ok(
+            DeclarativeTerm(`{val_type} core::option::Option mnist::MnistLabel`),
         ),
     ),
 ]

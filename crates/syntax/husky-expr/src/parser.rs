@@ -2,10 +2,10 @@ mod accept;
 mod alloc;
 mod block;
 mod debug;
+mod disambiguate;
 mod env;
 mod expr_stack;
 mod list;
-mod resolve;
 mod root;
 mod unfinished_expr;
 
@@ -14,6 +14,7 @@ pub use self::env::*;
 pub use self::root::*;
 
 use crate::*;
+use disambiguate::*;
 use expr_stack::*;
 use husky_ast::{Ast, AstIdxRange, AstSheet};
 use husky_entity_tree::{
@@ -27,7 +28,6 @@ use husky_vfs::{ModulePath, Toolchain};
 use list::*;
 use original_error::OriginalError;
 use parsec::{HasStreamState, StreamParser};
-use resolve::*;
 use salsa::DebugWithDb;
 use std::ops::ControlFlow;
 use symbol::*;
