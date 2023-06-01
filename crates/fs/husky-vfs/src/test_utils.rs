@@ -39,35 +39,32 @@ pub trait VfsTestUtils: VfsDb {
     where
         U: VfsTestUnit,
     {
-        for _dir in test_dirs() {
-            let toolchain = self.dev_toolchain().unwrap();
-            for domain in vfs_test_suites() {
-                for (path, name) in collect_package_relative_dirs(
-                    <Self as salsa::DbWithJar<WordJar>>::as_jar_db(self),
-                    &domain.src_base(),
+        let toolchain = self.dev_toolchain().unwrap();
+        for domain in vfs_test_suites() {
+            for (path, name) in collect_package_relative_dirs(
+                <Self as salsa::DbWithJar<WordJar>>::as_jar_db(self),
+                &domain.src_base(),
+            )
+            .into_iter()
+            {
+                let vfs_db = <Self as salsa::DbWithJar<VfsJar>>::as_jar_db(self);
+                let package_path = PackagePath::new_local_package(
+                    vfs_db,
+                    toolchain,
+                    name,
+                    &path.to_logical_path(&domain.src_base()),
                 )
-                .into_iter()
-                {
-                    let vfs_db = <Self as salsa::DbWithJar<VfsJar>>::as_jar_db(self);
-                    let package_path = PackagePath::new_local_package(
-                        vfs_db,
-                        toolchain,
-                        name,
-                        &path.to_logical_path(&domain.src_base()),
-                    )
-                    .unwrap();
-                    for unit in <U as VfsTestUnit>::collect_from_package_path(vfs_db, package_path)
-                    {
-                        f(self, unit);
-                        if let Some(adversarials_base) = domain.adversarials_base() {
-                            vfs_adversarial_test(
-                                self,
-                                task_name,
-                                &path.to_logical_path(adversarials_base),
-                                unit,
-                                &f,
-                            )
-                        }
+                .unwrap();
+                for unit in <U as VfsTestUnit>::collect_from_package_path(vfs_db, package_path) {
+                    f(self, unit);
+                    if let Some(adversarials_base) = domain.adversarials_base() {
+                        vfs_adversarial_test(
+                            self,
+                            task_name,
+                            &path.to_logical_path(adversarials_base),
+                            unit,
+                            &f,
+                        )
                     }
                 }
             }
@@ -106,11 +103,3 @@ const EXPECT_FILE_EXTENSION: &'static str = "md";
 const ADVERSARIAL_EXTENSION: &'static str = "json";
 
 impl<Db> VfsTestUtils for Db where Db: VfsDb + ?Sized {}
-
-fn test_dirs() -> Vec<PathBuf> {
-    let env = HuskyLangDevPaths::new();
-    vec![
-        env.lang_dev_library_dir().to_owned(),
-        env.lang_dev_examples_dir().to_owned(),
-    ]
-}
