@@ -96,6 +96,10 @@ pub enum OriginalExprError {
     ExpectedBlock(TokenGroupIdx),
     #[error("unterminated list")]
     UnterminatedList { bra_token_idx: TokenIdx },
+    #[error("unterminated list")]
+    UnterminatedFunctionCallKeyedArgumentList { bra_token_idx: TokenIdx },
+    #[error("unterminated list")]
+    UnterminatedMethodCallKeyedArgumentList { bra_token_idx: TokenIdx },
     #[error("no left operand for binary operator")]
     NoLeftOperandForBinaryOperator { binary_token_idx: TokenIdx },
     #[error("no right operand for binary operator")]
@@ -188,6 +192,12 @@ impl OriginalExprError {
             | OriginalExprError::ExpectedBePattern(token_idx)
             | OriginalExprError::ExpectedParameterPattern(token_idx)
             | OriginalExprError::UnterminatedList {
+                bra_token_idx: token_idx,
+            }
+            | OriginalExprError::UnterminatedFunctionCallKeyedArgumentList {
+                bra_token_idx: token_idx,
+            }
+            | OriginalExprError::UnterminatedMethodCallKeyedArgumentList {
                 bra_token_idx: token_idx,
             }
             | OriginalExprError::UnexpectedSheba(token_idx)

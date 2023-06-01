@@ -4,7 +4,7 @@ use smallvec::SmallVec;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
-pub(super) enum UnfinishedExpr {
+pub(super) enum IncompleteExpr {
     Binary {
         lopd: Expr,
         punctuation: BinaryOpr,
@@ -18,7 +18,7 @@ pub(super) enum UnfinishedExpr {
         punctuation_token_idx: TokenIdx,
     },
     List {
-        opr: UnfinishedSimpleListOpr,
+        opr: IncompleteListOpr,
         // todo: move this into opr
         bra: Bracket,
         // todo: move this into opr
@@ -28,12 +28,26 @@ pub(super) enum UnfinishedExpr {
         // todo: use SmallVec
         commas: Commas,
     },
-    KeyedArgumentList {
+    FnCallKeyedArgumentList {
         function: ExprIdx,
+        implicit_arguments: Option<ImplicitArgumentList>,
+        bra: Bracket,
+        lpar_token_idx: TokenIdx,
+        // todo: use SmallVec
+        arguments: ExprIdxRange,
+        // todo: use SmallVec
+        keyed_arguments: SmallVec<[KeyedArgumentExpr; 2]>,
+        commas: Commas,
+    },
+    MethodFnCallKeyedArgumentList {
+        self_expr: ExprIdx,
+        dot_token_idx: TokenIdx,
+        ident_token: IdentToken,
+        implicit_arguments: Option<ImplicitArgumentList>,
         bra: Bracket,
         bra_token_idx: TokenIdx,
         // todo: use SmallVec
-        arguments: Vec<Expr>,
+        arguments: ExprIdxRange,
         // todo: use SmallVec
         commas: Commas,
         keyed_arguments: SmallVec<[KeyedArgumentExpr; 2]>,
@@ -57,6 +71,11 @@ pub(super) enum UnfinishedExpr {
         commas: Commas,
         rpar_token_idx: TokenIdx,
         light_arrow_token: LightArrowToken,
+    },
+    KeyedArgument {
+        key_token_idx: TokenIdx,
+        key: Ident,
+        eq_token: EqToken,
     },
 }
 
@@ -90,17 +109,19 @@ impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for HtmlArgumentExpr {
     }
 }
 
-impl UnfinishedExpr {
+impl IncompleteExpr {
     pub(super) fn precedence(&self) -> Precedence {
         match self {
-            UnfinishedExpr::Binary { punctuation, .. } => (*punctuation).into(),
-            UnfinishedExpr::Prefix { .. } => Precedence::Prefix,
-            UnfinishedExpr::ListItem { .. }
-            | UnfinishedExpr::List { .. }
-            | UnfinishedExpr::KeyedArgumentList { .. } => Precedence::None,
-            UnfinishedExpr::LambdaHead { .. } => Precedence::LambdaHead,
-            UnfinishedExpr::Application { .. } => Precedence::Application,
-            UnfinishedExpr::Ritchie { .. } => Precedence::Curry,
+            IncompleteExpr::Binary { punctuation, .. } => (*punctuation).into(),
+            IncompleteExpr::Prefix { .. } => Precedence::Prefix,
+            IncompleteExpr::ListItem { .. }
+            | IncompleteExpr::List { .. }
+            | IncompleteExpr::FnCallKeyedArgumentList { .. }
+            | IncompleteExpr::MethodFnCallKeyedArgumentList { .. } => Precedence::None,
+            IncompleteExpr::LambdaHead { .. } => Precedence::LambdaHead,
+            IncompleteExpr::Application { .. } => Precedence::Application,
+            IncompleteExpr::Ritchie { .. } => Precedence::Curry,
+            IncompleteExpr::KeyedArgument { .. } => Precedence::KeyedArgument,
         }
     }
 }
