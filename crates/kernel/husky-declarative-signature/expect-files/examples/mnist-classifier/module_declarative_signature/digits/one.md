@@ -1,6 +1,24 @@
 [
     Ok(
         SignatureTemplate::Form(
+            FugitiveDeclarativeSignatureTemplate::Val(
+                ValDeclarativeSignatureTemplate {
+                    initialization_ty: DeclarativeTerm(`mnist_classifier::fermi::FermiMatchResult`),
+                },
+            ),
+        ),
+    ),
+    Ok(
+        SignatureTemplate::Form(
+            FugitiveDeclarativeSignatureTemplate::Val(
+                ValDeclarativeSignatureTemplate {
+                    initialization_ty: DeclarativeTerm(`core::option::Option mnist::MnistLabel`),
+                },
+            ),
+        ),
+    ),
+    Ok(
+        SignatureTemplate::Form(
             FugitiveDeclarativeSignatureTemplate::Fn(
                 FnDeclarativeSignatureTemplate {
                     implicit_parameters: ImplicitParameterDeclarativeSignatures {
@@ -13,7 +31,7 @@
                                 ty: ExplicitApplication(
                                     DeclarativeTermExplicitApplication(
                                         Id {
-                                            value: 36,
+                                            value: 38,
                                         },
                                     ),
                                 ),
@@ -39,7 +57,7 @@
                                 ty: ExplicitApplication(
                                     DeclarativeTermExplicitApplication(
                                         Id {
-                                            value: 36,
+                                            value: 38,
                                         },
                                     ),
                                 ),
@@ -65,7 +83,7 @@
                                 ty: ExplicitApplication(
                                     DeclarativeTermExplicitApplication(
                                         Id {
-                                            value: 36,
+                                            value: 38,
                                         },
                                     ),
                                 ),

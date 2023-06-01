@@ -52,20 +52,20 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     OriginalExprError::UnexpectedKeyword(token_idx).into(),
                 )),
             },
-            Token::Ident(ident) => match (self.parse_err_as_none::<EqToken>(), self.top_expr()) {
-                (
-                    Some(eq_token),
-                    TopExprRef::Unfinished(UnfinishedExpr::List {
-                        opr,
-                        bra,
-                        bra_token_idx,
-                        items,
-                        commas,
-                    }),
-                ) => DisambiguatedToken::IncompleteKeywordArgument {
-                    ident_token_idx: token_idx,
-                    ident,
-                    eq_token,
+            Token::Ident(ident) => match self.top_expr() {
+                TopExprRef::Unfinished(UnfinishedExpr::List {
+                    opr,
+                    bra,
+                    bra_token_idx,
+                    items,
+                    commas,
+                }) => match self.parse_err_as_none::<EqToken>() {
+                    Some(eq_token) => DisambiguatedToken::IncompleteKeywordArgument {
+                        ident_token_idx: token_idx,
+                        ident,
+                        eq_token,
+                    },
+                    None => self.resolve_ident(token_idx, ident),
                 },
                 _ => self.resolve_ident(token_idx, ident),
             },
