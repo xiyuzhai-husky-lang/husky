@@ -26,7 +26,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`Fp(core::raw_bits::r32, core::num::i32) -> core::raw_bits::r32`),
+            DeclarativeTerm(`fn(core::raw_bits::r32, core::num::i32) -> core::raw_bits::r32`),
         ),
     ),
     (
@@ -36,7 +36,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`Fp(core::raw_bits::r32, core::num::i32) -> core::raw_bits::r32`),
+            DeclarativeTerm(`fn(core::raw_bits::r32, core::num::i32) -> core::raw_bits::r32`),
         ),
     ),
     (
@@ -46,7 +46,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`Fp(core::raw_bits::r32, core::num::i32) -> core::raw_bits::r32`),
+            DeclarativeTerm(`fn(core::raw_bits::r32, core::num::i32) -> core::raw_bits::r32`),
         ),
     ),
     (
@@ -56,7 +56,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`Fp(core::raw_bits::r32, core::raw_bits::r32, core::num::i32) -> mnist_classifier::raw_contour::Direction`),
+            DeclarativeTerm(`fn(core::raw_bits::r32, core::raw_bits::r32, core::num::i32) -> mnist_classifier::raw_contour::Direction`),
         ),
     ),
     (
@@ -66,7 +66,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`Fp(mnist_classifier::raw_contour::Direction, mnist_classifier::raw_contour::Direction) -> core::num::i32`),
+            DeclarativeTerm(`fn(mnist_classifier::raw_contour::Direction, mnist_classifier::raw_contour::Direction) -> core::num::i32`),
         ),
     ),
     (
@@ -76,7 +76,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`Fp(core::raw_bits::r32, core::raw_bits::r32, core::num::i32, mnist_classifier::raw_contour::Direction) -> mnist_classifier::raw_contour::Direction`),
+            DeclarativeTerm(`fn(core::raw_bits::r32, core::raw_bits::r32, core::num::i32, mnist_classifier::raw_contour::Direction) -> mnist_classifier::raw_contour::Direction`),
         ),
     ),
     (
@@ -96,7 +96,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`Fp([] mnist_classifier::geom2d::Point2d) -> mnist_classifier::geom2d::Point2d`),
+            DeclarativeTerm(`fn([] mnist_classifier::geom2d::Point2d) -> mnist_classifier::geom2d::Point2d`),
         ),
     ),
     (
@@ -106,7 +106,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`Fp(core::mem::Ref mnist_classifier::connected_component::ConnectedComponent) -> [] mnist_classifier::raw_contour::RawContour`),
+            DeclarativeTerm(`fn(core::mem::Ref mnist_classifier::connected_component::ConnectedComponent) -> [] mnist_classifier::raw_contour::RawContour`),
         ),
     ),
 ]

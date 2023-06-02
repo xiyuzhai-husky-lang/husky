@@ -8,7 +8,7 @@ pub enum ExprDisambiguation {
     IndexOrComposeWithList(IndexOrComposeWithListExprDisambiguation),
     UnveilOrComposeWithOption(UnveilOrComposeWithOptionExprDisambiguation),
     UnwrapOrComposeWithNot(UnwrapOrComposeWithNotExprDisambiguation),
-    ExplicitApplicationOrRitchieCall(ApplicationOrRitchieCallExprDisambiguation),
+    ExplicitApplicationOrFunctionCall(ApplicationOrFunctionCallExprDisambiguation),
     TypePath(TypePathDisambiguation),
     List(ListExprDisambiguation),
     ExplicitApplication(ExplicitApplicationDisambiguation),
@@ -48,9 +48,10 @@ pub enum UnwrapOrComposeWithNotExprDisambiguation {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum ApplicationOrRitchieCallExprDisambiguation {
+pub enum ApplicationOrFunctionCallExprDisambiguation {
     Application,
     RitchieCall,
+    GnCall,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

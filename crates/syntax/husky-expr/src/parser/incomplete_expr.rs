@@ -28,7 +28,7 @@ pub(super) enum IncompleteExpr {
         // todo: use SmallVec
         commas: Commas,
     },
-    FnCallKeyedArgumentList {
+    RitchieCallKeyedArgumentList {
         function: ExprIdx,
         implicit_arguments: Option<ImplicitArgumentList>,
         bra: Bracket,
@@ -39,7 +39,7 @@ pub(super) enum IncompleteExpr {
         keyed_arguments: SmallVec<[KeyedArgumentExpr; 2]>,
         commas: Commas,
     },
-    MethodFnCallKeyedArgumentList {
+    MethodRitchieCallKeyedArgumentList {
         self_expr: ExprIdx,
         dot_token_idx: TokenIdx,
         ident_token: IdentToken,
@@ -116,8 +116,8 @@ impl IncompleteExpr {
             IncompleteExpr::Prefix { .. } => Precedence::Prefix,
             IncompleteExpr::ListItem { .. }
             | IncompleteExpr::List { .. }
-            | IncompleteExpr::FnCallKeyedArgumentList { .. }
-            | IncompleteExpr::MethodFnCallKeyedArgumentList { .. } => Precedence::None,
+            | IncompleteExpr::RitchieCallKeyedArgumentList { .. }
+            | IncompleteExpr::MethodRitchieCallKeyedArgumentList { .. } => Precedence::None,
             IncompleteExpr::LambdaHead { .. } => Precedence::LambdaHead,
             IncompleteExpr::Application { .. } => Precedence::Application,
             IncompleteExpr::Ritchie { .. } => Precedence::Curry,

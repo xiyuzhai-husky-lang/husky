@@ -6,7 +6,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`Fp(mnist_classifier::line_segment_sketch::LineSegmentSketch, core::num::i32) -> core::basic::bool`),
+            DeclarativeTerm(`fn(mnist_classifier::line_segment_sketch::LineSegmentSketch, core::num::i32) -> core::basic::bool`),
         ),
     ),
 ]

@@ -60,8 +60,8 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             | IncompleteListOpr::MethodCall { .. },
                         ..
                     }
-                    | IncompleteExpr::FnCallKeyedArgumentList { .. }
-                    | IncompleteExpr::MethodFnCallKeyedArgumentList { .. },
+                    | IncompleteExpr::RitchieCallKeyedArgumentList { .. }
+                    | IncompleteExpr::MethodRitchieCallKeyedArgumentList { .. },
                 ) => match self.parse_err_as_none::<EqToken>() {
                     Some(eq_token) => DisambiguatedToken::IncompleteKeywordArgument {
                         ident_token_idx: token_idx,

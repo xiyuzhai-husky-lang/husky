@@ -98,9 +98,10 @@ impl EtherealTermRitchie {
         ctx: &mut TermShowContext,
     ) -> std::fmt::Result {
         match self.ritchie_kind(db) {
-            RitchieKind::FnType => f.write_str("Fp(")?,
+            RitchieKind::FnType => f.write_str("fn(")?,
             RitchieKind::FnTrait => f.write_str("Fn(")?,
             RitchieKind::FnMutTrait => f.write_str("FnMut(")?,
+            RitchieKind::GnType => f.write_str("gn(")?,
         }
         for (i, parameter_contracted_ty) in self.parameter_contracted_tys(db).iter().enumerate() {
             if i > 0 {
@@ -152,9 +153,10 @@ where
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<EtherealTermJar>>::as_jar_db(db);
         match self.ritchie_kind(db) {
-            RitchieKind::FnType => f.write_str("Fp(")?,
+            RitchieKind::FnType => f.write_str("fn(")?,
             RitchieKind::FnTrait => f.write_str("Fn(")?,
             RitchieKind::FnMutTrait => f.write_str("FnMut(")?,
+            RitchieKind::GnType => f.write_str("gn(")?,
         }
         for (i, parameter_ty) in self.parameter_contracted_tys(db).iter().enumerate() {
             if i > 0 {

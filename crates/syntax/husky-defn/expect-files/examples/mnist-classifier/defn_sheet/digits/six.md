@@ -1011,7 +1011,7 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                                Expr::FnCall {
+                                                Expr::RitchieCall {
                                                     function: 20,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
@@ -1371,7 +1371,7 @@ Ok(
                                                         pattern_symbol_idx: 9,
                                                     },
                                                 },
-                                                Expr::FnCall {
+                                                Expr::RitchieCall {
                                                     function: 54,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
@@ -1586,7 +1586,7 @@ Ok(
                                                         200,
                                                     ),
                                                 },
-                                                Expr::FnCall {
+                                                Expr::RitchieCall {
                                                     function: 65,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
@@ -1737,7 +1737,7 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                                Expr::FnCall {
+                                                Expr::RitchieCall {
                                                     function: 81,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(

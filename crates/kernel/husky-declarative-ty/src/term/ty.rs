@@ -18,7 +18,7 @@ pub fn declarative_term_declarative_ty(
         DeclarativeTerm::Universe(_) => todo!(),
         DeclarativeTerm::Curry(_) => todo!(),
         DeclarativeTerm::Ritchie(declarative_term) => Ok(match declarative_term.ritchie_kind(db) {
-            RitchieKind::FnType => declarative_term_menu.ty0().into(),
+            RitchieKind::FnType | RitchieKind::GnType => declarative_term_menu.ty0().into(),
             RitchieKind::FnTrait | RitchieKind::FnMutTrait => declarative_term_menu.trai_ty(),
         }),
         DeclarativeTerm::Abstraction(_) => todo!(),

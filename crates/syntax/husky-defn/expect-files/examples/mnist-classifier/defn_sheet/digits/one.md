@@ -2638,7 +2638,7 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                                Expr::FnCall {
+                                                Expr::RitchieCall {
                                                     function: 193,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(

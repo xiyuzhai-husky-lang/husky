@@ -18,7 +18,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`Fp(core::mem::Ref mnist_classifier::line_segment_sketch::LineSegmentSketch) -> [] mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+            DeclarativeTerm(`fn(core::mem::Ref mnist_classifier::line_segment_sketch::LineSegmentSketch) -> [] mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
         ),
     ),
 ]

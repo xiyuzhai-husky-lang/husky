@@ -26,7 +26,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`Fp(~ mnist_classifier::raw_contour::RawContour) -> core::option::Option core::num::f32`),
+            DeclarativeTerm(`fn(~ mnist_classifier::raw_contour::RawContour) -> core::option::Option core::num::f32`),
         ),
     ),
     (
@@ -46,7 +46,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`Fp(core::raw_bits::r32, core::raw_bits::r32) -> core::raw_bits::r32`),
+            DeclarativeTerm(`fn(core::raw_bits::r32, core::raw_bits::r32) -> core::raw_bits::r32`),
         ),
     ),
     (
@@ -56,7 +56,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`Fp(mnist::BinaryImage28) -> [] mnist_classifier::connected_component::ConnectedComponent`),
+            DeclarativeTerm(`fn(mnist::BinaryImage28) -> [] mnist_classifier::connected_component::ConnectedComponent`),
         ),
     ),
 ]

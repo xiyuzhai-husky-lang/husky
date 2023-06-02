@@ -163,7 +163,7 @@ pub enum Expr {
         /// `light_arrow_token` is some
         return_ty_expr: Option<ExprIdx>,
     },
-    FnCall {
+    RitchieCall {
         function: ExprIdx,
         implicit_arguments: Option<ImplicitArgumentList>,
         lpar_token_idx: TokenIdx,

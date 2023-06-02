@@ -151,7 +151,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     }
                 })
             }
-            IncompleteExpr::FnCallKeyedArgumentList {
+            IncompleteExpr::RitchieCallKeyedArgumentList {
                 function,
                 implicit_arguments,
                 bra,
@@ -163,7 +163,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 if ket != Bracket::Par {
                     todo!()
                 }
-                self.set_complete_expr(Expr::FnCall {
+                self.set_complete_expr(Expr::RitchieCall {
                     function,
                     implicit_arguments,
                     lpar_token_idx,
@@ -173,7 +173,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     rpar_token_idx: ket_token_idx,
                 })
             }
-            IncompleteExpr::MethodFnCallKeyedArgumentList {
+            IncompleteExpr::MethodRitchieCallKeyedArgumentList {
                 self_expr,
                 dot_token_idx,
                 ident_token,
@@ -297,8 +297,8 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     items.push(item);
                     commas.push(comma_token_idx)
                 }
-                IncompleteExpr::FnCallKeyedArgumentList { .. } => todo!(),
-                IncompleteExpr::MethodFnCallKeyedArgumentList { .. } => todo!(),
+                IncompleteExpr::RitchieCallKeyedArgumentList { .. } => todo!(),
+                IncompleteExpr::MethodRitchieCallKeyedArgumentList { .. } => todo!(),
                 _ => unreachable!(),
             },
             None => unreachable!(),
