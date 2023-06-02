@@ -6,7 +6,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`Fp() -> core::basic::unit`),
+            DeclarativeTerm(`fn() -> core::basic::unit`),
         ),
     ),
 ]

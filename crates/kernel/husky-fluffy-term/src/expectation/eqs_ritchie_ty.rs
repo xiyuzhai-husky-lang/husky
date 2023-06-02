@@ -1,24 +1,26 @@
+use husky_word::{IdentMap, IdentPairMap};
+
 use super::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = FluffyTermDb)]
-pub struct ExpectEqsFunctionType {
+pub struct ExpectEqsRitchieType {
     final_destination: FinalDestination,
 }
 
-impl ExpectEqsFunctionType {
+impl ExpectEqsRitchieType {
     pub fn new(final_destination: FinalDestination) -> Self {
         Self { final_destination }
     }
 }
 
-impl ExpectFluffyTerm for ExpectEqsFunctionType {
-    type Outcome = ExpectEqsFunctionTypeOutcome;
+impl ExpectFluffyTerm for ExpectEqsRitchieType {
+    type Outcome = ExpectEqsRitchieTypeOutcome;
 
     #[inline(always)]
     fn retrieve_outcome(outcome: &FluffyTermExpectationOutcome) -> &Self::Outcome {
         match outcome {
-            FluffyTermExpectationOutcome::EqsFunctionCallType(outcome) => outcome,
+            FluffyTermExpectationOutcome::EqsRitchieCallType(outcome) => outcome,
             _ => unreachable!(),
         }
     }
@@ -40,37 +42,22 @@ impl ExpectFluffyTerm for ExpectEqsFunctionType {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::derive_debug_with_db(db = FluffyTermDb)]
-pub struct ExpectEqsFunctionTypeOutcome {
+pub struct ExpectEqsRitchieTypeOutcome {
     pub(crate) implicit_parameter_substitutions: SmallVec<[ImplicitParameterSubstitution; 2]>,
     pub(crate) return_ty: FluffyTerm,
-    pub(crate) variant: ExpectEqsFunctionTypeOutcomeVariant,
+    pub(crate) ritchie_kind: RitchieKind,
+    pub(crate) parameter_contracted_tys: Vec<FluffyTermRitchieParameterContractedType>,
+    pub(crate) keyed_parameter_contracted_tys:
+        IdentPairMap<FluffyTermRitchieParameterContractedType>,
 }
 
-impl ExpectEqsFunctionTypeOutcome {
-    pub fn variant(&self) -> &ExpectEqsFunctionTypeOutcomeVariant {
-        &self.variant
-    }
-
+impl ExpectEqsRitchieTypeOutcome {
     pub fn return_ty(&self) -> FluffyTerm {
         self.return_ty
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone)]
-#[salsa::derive_debug_with_db(db = FluffyTermDb)]
-pub enum ExpectEqsFunctionTypeOutcomeVariant {
-    Ritchie {
-        ritchie_kind: RitchieKind,
-        parameter_contracted_tys: Vec<FluffyTermRitchieParameterContractedType>,
-    },
-    Curry {
-        parameter_symbol: Option<FluffyTerm>,
-        parameter_ty: FluffyTerm,
-        return_ty: FluffyTerm,
-    },
-}
-
-impl ExpectEqsFunctionType {
+impl ExpectEqsRitchieType {
     pub(super) fn resolve(
         &self,
         db: &dyn FluffyTermDb,
@@ -113,13 +100,12 @@ impl ExpectEqsFunctionType {
                 parameter_contracted_tys,
                 return_ty,
             } => Some(FluffyTermExpectationEffect {
-                result: Ok(ExpectEqsFunctionTypeOutcome {
+                result: Ok(ExpectEqsRitchieTypeOutcome {
                     implicit_parameter_substitutions: smallvec![],
                     return_ty,
-                    variant: ExpectEqsFunctionTypeOutcomeVariant::Ritchie {
-                        ritchie_kind,
-                        parameter_contracted_tys: parameter_contracted_tys.to_vec(),
-                    },
+                    ritchie_kind,
+                    parameter_contracted_tys: parameter_contracted_tys.to_vec(),
+                    keyed_parameter_contracted_tys: todo!(),
                 }
                 .into()),
                 actions: smallvec![],
@@ -145,19 +131,7 @@ impl ExpectEqsFunctionType {
         return_ty: FluffyTerm,
     ) -> Option<FluffyTermExpectationEffect> {
         match curry_kind {
-            CurryKind::Explicit => Some(FluffyTermExpectationEffect {
-                result: Ok(ExpectEqsFunctionTypeOutcome {
-                    implicit_parameter_substitutions: smallvec![],
-                    return_ty,
-                    variant: ExpectEqsFunctionTypeOutcomeVariant::Curry {
-                        parameter_symbol,
-                        parameter_ty,
-                        return_ty,
-                    },
-                }
-                .into()),
-                actions: smallvec![],
-            }),
+            CurryKind::Explicit => todo!(),
             CurryKind::Implicit => match parameter_symbol {
                 Some(parameter_symbol) => {
                     let implicit_symbol = terms.new_hole_from_parameter_symbol(

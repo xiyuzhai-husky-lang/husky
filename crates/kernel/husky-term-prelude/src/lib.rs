@@ -48,4 +48,5 @@ pub enum RitchieKind {
     FnType,
     FnTrait,
     FnMutTrait,
+    GnType,
 }

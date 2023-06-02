@@ -3,6 +3,7 @@ mod box_list;
 mod current_symbol;
 mod explicit_application;
 mod field;
+mod function_call;
 mod index_or_compose_with_list;
 mod literal;
 mod method;
@@ -186,16 +187,29 @@ impl<'a> ExprTypeEngine<'a> {
             Expr::ExplicitApplicationOrRitchieCall {
                 function,
                 ref implicit_arguments,
-                ref items,
+                items,
                 ..
             } => self.calc_explicit_application_or_ritchie_call_expr_ty(
                 expr_idx,
                 function,
                 expr_ty_expectation,
-                implicit_arguments,
+                implicit_arguments.as_ref(),
                 items,
             ),
-            Expr::FnCall { .. } => todo!(),
+            Expr::RitchieCall {
+                function,
+                ref implicit_arguments,
+                arguments,
+                ref keyed_arguments,
+                ..
+            } => self.calc_ritchie_call_expr_ty(
+                expr_idx,
+                function,
+                expr_ty_expectation.final_destination(self),
+                implicit_arguments.as_ref(),
+                arguments,
+                keyed_arguments,
+            ),
             Expr::Field {
                 owner, ident_token, ..
             } => self.calc_field_expr_ty(owner, ident_token),
@@ -362,68 +376,6 @@ impl<'a> ExprTypeEngine<'a> {
                 .ty(self.db, disambiguation)?
                 .into()),
         ))
-    }
-
-    fn calc_explicit_application_or_ritchie_call_expr_ty(
-        &mut self,
-        expr_idx: ExprIdx,
-        function: ExprIdx,
-        expr_ty_expectation: &impl ExpectFluffyTerm,
-        implicit_arguments: &Option<ImplicitArgumentList>,
-        items: &idx_arena::ArenaIdxRange<Expr>,
-    ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
-        let Some(expectation_ok) = self.infer_new_expr_ty_for_outcome(
-            function,
-            ExpectEqsFunctionType::new(expr_ty_expectation.final_destination(self)),
-        ) else {
-            for item in items {
-                self.infer_new_expr_ty(item, ExpectAnyDerived);
-            }
-            Err(DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred)?
-        };
-        if let Some(implicit_arguments) = implicit_arguments {
-            todo!()
-        }
-        match expectation_ok.variant() {
-            ExpectEqsFunctionTypeOutcomeVariant::Ritchie {
-                ritchie_kind,
-                parameter_contracted_tys,
-            } => {
-                self.calc_ritchie_call_nonself_arguments_expr_ty(
-                    expr_idx,
-                    parameter_contracted_tys,
-                    *items,
-                );
-                Ok((
-                    ExprDisambiguation::ExplicitApplicationOrRitchieCall(
-                        ApplicationOrRitchieCallExprDisambiguation::RitchieCall,
-                    ),
-                    Ok(expectation_ok.return_ty()),
-                ))
-            }
-            ExpectEqsFunctionTypeOutcomeVariant::Curry {
-                parameter_symbol,
-                parameter_ty,
-                return_ty,
-            } => {
-                match items.len() {
-                    0 => unreachable!(),
-                    1 => self.infer_new_expr_ty_discarded(
-                        items.start(),
-                        ExpectImplicitlyConvertible::new_const(*parameter_ty),
-                    ),
-                    // parameter_ty must be a tuple
-                    // distribute the types for a tuple
-                    _ => todo!(),
-                }
-                Ok((
-                    ExprDisambiguation::ExplicitApplicationOrRitchieCall(
-                        ApplicationOrRitchieCallExprDisambiguation::Application,
-                    ),
-                    Ok(*return_ty),
-                ))
-            }
-        }
     }
 
     fn calc_explicit_application(

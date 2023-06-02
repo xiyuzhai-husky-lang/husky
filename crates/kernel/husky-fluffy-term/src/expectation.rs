@@ -4,6 +4,7 @@ mod any_towards_final_destination;
 mod eqs_category;
 mod eqs_exactly;
 mod eqs_function_ty;
+mod eqs_ritchie_ty;
 mod explicitly_convertible;
 mod implicitly_convertible;
 mod ins_sort;
@@ -15,6 +16,7 @@ pub use self::any_towards_final_destination::*;
 pub use self::eqs_category::*;
 pub use self::eqs_exactly::*;
 pub use self::eqs_function_ty::*;
+pub use self::eqs_ritchie_ty::*;
 pub use self::explicitly_convertible::*;
 pub use self::implicitly_convertible::*;
 pub use self::ins_sort::*;
@@ -39,6 +41,7 @@ pub enum ExpectationData {
     FrameVariableType,
     EqsExactly(ExpectSubtype),
     EqsFunctionType(ExpectEqsFunctionType),
+    EqsRitchieType(ExpectEqsRitchieType),
     AnyOriginal(ExpectAnyOriginal),
     AnyDerived(ExpectAnyDerived),
     NumType(ExpectNumType),
@@ -130,7 +133,8 @@ pub enum FluffyTermExpectationOutcome {
     InsSort(ExpectInsSortOutcome),
     EqsSort(TermUniverse),
     EqsExactly(ExpectSubtypeOutcome),
-    EqsRitchieCallType(ExpectEqsFunctionTypeOutcome),
+    EqsFunctionCallType(ExpectEqsFunctionTypeOutcome),
+    EqsRitchieCallType(ExpectEqsRitchieTypeOutcome),
     NumType(ExpectNumTypeOutcome),
 }
 
@@ -142,6 +146,7 @@ impl FluffyTermExpectationOutcome {
             FluffyTermExpectationOutcome::InsSort(result) => result.resolved(),
             FluffyTermExpectationOutcome::EqsSort(_) => todo!(),
             FluffyTermExpectationOutcome::EqsExactly(result) => result.resolved(),
+            FluffyTermExpectationOutcome::EqsFunctionCallType(_) => todo!(),
             FluffyTermExpectationOutcome::EqsRitchieCallType(_) => todo!(),
             FluffyTermExpectationOutcome::NumType(_) => todo!(),
         }
@@ -261,6 +266,9 @@ impl ExpectationEntry {
             }
             ExpectationData::FrameVariableType => todo!(),
             ExpectationData::EqsFunctionType(ref expectation) => {
+                expectation.resolve(db, terms, idx, self.expectee())
+            }
+            ExpectationData::EqsRitchieType(ref expectation) => {
                 expectation.resolve(db, terms, idx, self.expectee())
             }
             ExpectationData::InsSort(ref expectation) => {

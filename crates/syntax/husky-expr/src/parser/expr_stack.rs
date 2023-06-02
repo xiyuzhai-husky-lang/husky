@@ -123,7 +123,7 @@ impl Expr {
                 rbox_token_idx,
             } => arena[owner].base_entity_path(db, arena),
             Expr::EmptyHtmlTag { .. } => BaseEntityPath::Err,
-            Expr::FnCall { .. } => todo!(),
+            Expr::RitchieCall { .. } => todo!(),
             Expr::Ritchie { .. } => todo!(),
         }
     }
@@ -270,7 +270,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     ))
                 }
                 IncompleteExpr::LambdaHead { inputs, start } => todo!(),
-                IncompleteExpr::FnCallKeyedArgumentList {
+                IncompleteExpr::RitchieCallKeyedArgumentList {
                     lpar_token_idx: bra_token_idx,
                     ..
                 } => {
@@ -325,7 +325,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                                 bra_token_idx,
                                 items,
                                 commas,
-                            } => IncompleteExpr::FnCallKeyedArgumentList {
+                            } => IncompleteExpr::RitchieCallKeyedArgumentList {
                                 function,
                                 implicit_arguments: /* ad hoc */ None,
                                 bra,
@@ -352,8 +352,8 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                                 items,
                                 commas,
                             } => todo!(),
-                            IncompleteExpr::FnCallKeyedArgumentList { .. } => todo!(),
-                            IncompleteExpr::MethodFnCallKeyedArgumentList {
+                            IncompleteExpr::RitchieCallKeyedArgumentList { .. } => todo!(),
+                            IncompleteExpr::MethodRitchieCallKeyedArgumentList {
                                 self_expr,
                                 dot_token_idx,
                                 ident_token,
@@ -384,7 +384,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     //     ),
                     // })
                 }
-                IncompleteExpr::MethodFnCallKeyedArgumentList {
+                IncompleteExpr::MethodRitchieCallKeyedArgumentList {
                     self_expr,
                     dot_token_idx,
                     ident_token,
@@ -424,8 +424,8 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     items,
                     commas,
                 } => return Some(*bra),
-                IncompleteExpr::FnCallKeyedArgumentList { .. }
-                | IncompleteExpr::MethodFnCallKeyedArgumentList { .. } => {
+                IncompleteExpr::RitchieCallKeyedArgumentList { .. }
+                | IncompleteExpr::MethodRitchieCallKeyedArgumentList { .. } => {
                     return Some(Bracket::Par)
                 }
                 _ => (),

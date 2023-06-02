@@ -28,7 +28,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`Fp(mnist_classifier::geom2d::Vector2d, core::num::f32) -> mnist_classifier::geom2d::Vector2d`),
+            DeclarativeTerm(`fn(mnist_classifier::geom2d::Vector2d, core::num::f32) -> mnist_classifier::geom2d::Vector2d`),
         ),
     ),
     (
@@ -38,7 +38,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`Fp(mnist_classifier::geom2d::Vector2d, core::num::f32) -> mnist_classifier::geom2d::Vector2d`),
+            DeclarativeTerm(`fn(mnist_classifier::geom2d::Vector2d, core::num::f32) -> mnist_classifier::geom2d::Vector2d`),
         ),
     ),
     (
@@ -48,7 +48,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`Fp(~ mnist_classifier::raw_contour::RawContour, core::num::i32, core::num::f32) -> core::num::i32`),
+            DeclarativeTerm(`fn(~ mnist_classifier::raw_contour::RawContour, core::num::i32, core::num::f32) -> core::num::i32`),
         ),
     ),
     (
@@ -58,7 +58,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`Fp(~ mnist_classifier::raw_contour::RawContour, core::num::i32, core::num::i32, core::num::f32) -> core::num::i32`),
+            DeclarativeTerm(`fn(~ mnist_classifier::raw_contour::RawContour, core::num::i32, core::num::i32, core::num::f32) -> core::num::i32`),
         ),
     ),
     (
@@ -68,7 +68,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`Fp(~ mnist_classifier::raw_contour::RawContour, core::num::f32) -> [] mnist_classifier::line_segment_sketch::LineSegmentStroke`),
+            DeclarativeTerm(`fn(~ mnist_classifier::raw_contour::RawContour, core::num::f32) -> [] mnist_classifier::line_segment_sketch::LineSegmentStroke`),
         ),
     ),
 ]
