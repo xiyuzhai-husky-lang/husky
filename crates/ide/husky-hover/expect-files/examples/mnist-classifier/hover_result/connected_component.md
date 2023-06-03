@@ -160,7 +160,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 215;\n\ntoken_line_group_idx = 27\n\ntoken = Token::Ident(\n    `hole_ilen`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 215;\n\ntoken_line_group_idx = 27\n\ntoken = Token::Ident(\n    `hole_ilen`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 3,\n    current_symbol_kind: CurrentSymbolKind::LetVariable {\n        pattern_symbol_idx: 2,\n    },\n    expr_region: ExprRegionLeash(_),\n};\n\nCurrentSymbol {\n    modifier: Pure,\n    access_start: TokenIdx(\n        201,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                220,\n            ),\n        ),\n    ),\n    variant: CurrentSymbolVariant::LetVariable {\n        ident: `hole_ilen`,\n        pattern_symbol_idx: 2,\n    },\n}\n",
                             },
                         ),
                         range: Some(
@@ -250,7 +250,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 344;\n\ntoken_line_group_idx = 49\n\ntoken = Token::Ident(\n    `row_end`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 344;\n\ntoken_line_group_idx = 49\n\ntoken = Token::Ident(\n    `row_end`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 1,\n    current_symbol_kind: CurrentSymbolKind::LetVariable {\n        pattern_symbol_idx: 1,\n    },\n    expr_region: ExprRegionLeash(_),\n};\n\nCurrentSymbol {\n    modifier: Mut,\n    access_start: TokenIdx(\n        322,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                417,\n            ),\n        ),\n    ),\n    variant: CurrentSymbolVariant::LetVariable {\n        ident: `row_end`,\n        pattern_symbol_idx: 1,\n    },\n}\n",
                             },
                         ),
                         range: Some(
@@ -280,7 +280,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 387;\n\ntoken_line_group_idx = 55\n\ntoken = Token::Ident(\n    `i2`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 387;\n\ntoken_line_group_idx = 55\n\ntoken = Token::Ident(\n    `i2`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 7,\n    current_symbol_kind: CurrentSymbolKind::FrameVariable(\n        42,\n    ),\n    expr_region: ExprRegionLeash(_),\n};\n\nCurrentSymbol {\n    modifier: Pure,\n    access_start: TokenIdx(\n        393,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                405,\n            ),\n        ),\n    ),\n    variant: CurrentSymbolVariant::FrameVariable {\n        ident: `i2`,\n        expr_idx: 42,\n    },\n}\n",
                             },
                         ),
                         range: Some(
@@ -310,7 +310,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 430;\n\ntoken_line_group_idx = 60\n\ntoken = Token::Ident(\n    `lower_mass`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 430;\n\ntoken_line_group_idx = 60\n\ntoken = Token::Ident(\n    `lower_mass`,\n);\n\ntoken_info = TokenInfo::Entity(\n    Some(\n        EntityPath::AssociatedItem(\n            AssociatedItemPath::TypeItem(\n                TypeItemPath {\n                    parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),\n                    ident: `lower_mass`,\n                    item_kind: MemoizedField,\n                },\n            ),\n        ),\n    ),\n    Some(\n        AssociatedItem {\n            associated_item_kind: TypeItem(\n                MemoizedField,\n            ),\n        },\n    ),\n);\n\n\n",
                             },
                         ),
                         range: Some(

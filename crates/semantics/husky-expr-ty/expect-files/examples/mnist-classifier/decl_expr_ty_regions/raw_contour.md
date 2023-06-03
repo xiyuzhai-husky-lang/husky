@@ -224,7 +224,7 @@
                             ),
                             resolve_progress: Resolved(
                                 Ok(
-                                    EqsRitchieCallType(
+                                    EqsFunctionCallType(
                                         ExpectEqsFunctionTypeOutcome {
                                             implicit_parameter_substitutions: [],
                                             return_ty: Category(
@@ -271,6 +271,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Const,
                                         ty: Category(
                                             TermCategory {
@@ -2764,7 +2765,7 @@
                             ),
                             resolve_progress: Resolved(
                                 Ok(
-                                    EqsRitchieCallType(
+                                    EqsFunctionCallType(
                                         ExpectEqsFunctionTypeOutcome {
                                             implicit_parameter_substitutions: [],
                                             return_ty: Category(
@@ -2811,6 +2812,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Const,
                                         ty: Category(
                                             TermCategory {
@@ -3125,7 +3127,7 @@
                             ),
                             resolve_progress: Resolved(
                                 Ok(
-                                    EqsRitchieCallType(
+                                    EqsFunctionCallType(
                                         ExpectEqsFunctionTypeOutcome {
                                             implicit_parameter_substitutions: [],
                                             return_ty: Category(
@@ -3172,6 +3174,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Const,
                                         ty: Category(
                                             TermCategory {
@@ -3591,6 +3594,446 @@
         },
         return_ty: None,
         self_ty: None,
+    },
+    ExprTypeRegion {
+        path: RegionPath::Decl(
+            DeclRegionPath::AssociatedItem(
+                AssociatedItemId {
+                    impl_block_id: ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module_path: `mnist_classifier::raw_contour`,
+                            ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                            disambiguator: 0,
+                        },
+                    ),
+                    ident: `line_segment_sketch`,
+                },
+            ),
+        ),
+        expr_ty_infos: [
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        TypePath(
+                            Ontology,
+                        ),
+                        Ok(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    0,
+                ),
+            },
+        ],
+        extra_expr_errors: [],
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [],
+                    },
+                },
+            },
+            expectations: Expectations {
+                arena: Arena {
+                    data: [
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 0,
+                                kind: Expr,
+                            },
+                            expectee: Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                            data: EqsSort(
+                                ExpectEqsCategory {
+                                    smallest_universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    EqsSort(
+                                        TermUniverse(
+                                            1,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ],
+                },
+                first_unresolved_expectation: 0,
+            },
+        },
+        return_ty: None,
+        self_ty: Some(
+            EtherealTerm(`TypeOntology(mnist_classifier::raw_contour::RawContour)`),
+        ),
+    },
+    ExprTypeRegion {
+        path: RegionPath::Decl(
+            DeclRegionPath::AssociatedItem(
+                AssociatedItemId {
+                    impl_block_id: ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module_path: `mnist_classifier::raw_contour`,
+                            ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                            disambiguator: 0,
+                        },
+                    ),
+                    ident: `bounding_box`,
+                },
+            ),
+        ),
+        expr_ty_infos: [
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        TypePath(
+                            Ontology,
+                        ),
+                        Ok(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    0,
+                ),
+            },
+        ],
+        extra_expr_errors: [],
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [],
+                    },
+                },
+            },
+            expectations: Expectations {
+                arena: Arena {
+                    data: [
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 0,
+                                kind: Expr,
+                            },
+                            expectee: Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                            data: EqsSort(
+                                ExpectEqsCategory {
+                                    smallest_universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    EqsSort(
+                                        TermUniverse(
+                                            1,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ],
+                },
+                first_unresolved_expectation: 0,
+            },
+        },
+        return_ty: None,
+        self_ty: Some(
+            EtherealTerm(`TypeOntology(mnist_classifier::raw_contour::RawContour)`),
+        ),
+    },
+    ExprTypeRegion {
+        path: RegionPath::Decl(
+            DeclRegionPath::AssociatedItem(
+                AssociatedItemId {
+                    impl_block_id: ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module_path: `mnist_classifier::raw_contour`,
+                            ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                            disambiguator: 0,
+                        },
+                    ),
+                    ident: `relative_bounding_box`,
+                },
+            ),
+        ),
+        expr_ty_infos: [
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        TypePath(
+                            Ontology,
+                        ),
+                        Ok(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    0,
+                ),
+            },
+        ],
+        extra_expr_errors: [],
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [],
+                    },
+                },
+            },
+            expectations: Expectations {
+                arena: Arena {
+                    data: [
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 0,
+                                kind: Expr,
+                            },
+                            expectee: Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                            data: EqsSort(
+                                ExpectEqsCategory {
+                                    smallest_universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    EqsSort(
+                                        TermUniverse(
+                                            1,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ],
+                },
+                first_unresolved_expectation: 0,
+            },
+        },
+        return_ty: None,
+        self_ty: Some(
+            EtherealTerm(`TypeOntology(mnist_classifier::raw_contour::RawContour)`),
+        ),
+    },
+    ExprTypeRegion {
+        path: RegionPath::Decl(
+            DeclRegionPath::AssociatedItem(
+                AssociatedItemId {
+                    impl_block_id: ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module_path: `mnist_classifier::raw_contour`,
+                            ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                            disambiguator: 0,
+                        },
+                    ),
+                    ident: `contour_len`,
+                },
+            ),
+        ),
+        expr_ty_infos: [
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        TypePath(
+                            Ontology,
+                        ),
+                        Ok(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    0,
+                ),
+            },
+        ],
+        extra_expr_errors: [],
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [],
+                    },
+                },
+            },
+            expectations: Expectations {
+                arena: Arena {
+                    data: [
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 0,
+                                kind: Expr,
+                            },
+                            expectee: Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                            data: EqsSort(
+                                ExpectEqsCategory {
+                                    smallest_universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    EqsSort(
+                                        TermUniverse(
+                                            1,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ],
+                },
+                first_unresolved_expectation: 0,
+            },
+        },
+        return_ty: None,
+        self_ty: Some(
+            EtherealTerm(`TypeOntology(mnist_classifier::raw_contour::RawContour)`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(

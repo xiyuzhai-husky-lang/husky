@@ -914,7 +914,7 @@
                             Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 4,
+                                        value: 8,
                                     },
                                 ),
                             ),
@@ -1132,7 +1132,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExplicitApplicationOrRitchieCall(
+                        ExplicitApplicationOrFunctionCall(
                             RitchieCall,
                         ),
                         Ok(
@@ -1374,6 +1374,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -1480,6 +1481,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -1518,6 +1520,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -1628,6 +1631,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -1711,6 +1715,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -1846,7 +1851,7 @@
                             expectee: Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 4,
+                                        value: 8,
                                     },
                                 ),
                             ),
@@ -1857,7 +1862,7 @@
                             ),
                             resolve_progress: Resolved(
                                 Ok(
-                                    EqsRitchieCallType(
+                                    EqsFunctionCallType(
                                         ExpectEqsFunctionTypeOutcome {
                                             implicit_parameter_substitutions: [],
                                             return_ty: EntityPath(
@@ -1873,6 +1878,7 @@
                                                 ritchie_kind: FnType,
                                                 parameter_contracted_tys: [
                                                     FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
                                                         contract: Move,
                                                         ty: EntityPath(
                                                             TypeOntology(
@@ -1885,6 +1891,7 @@
                                                         ),
                                                     },
                                                     FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
                                                         contract: Move,
                                                         ty: EntityPath(
                                                             TypeOntology(
@@ -1954,6 +1961,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Move,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -2026,6 +2034,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Move,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -2064,6 +2073,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Move,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -2102,6 +2112,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Move,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -3048,7 +3059,7 @@
                             Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 4,
+                                        value: 8,
                                     },
                                 ),
                             ),
@@ -3266,7 +3277,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExplicitApplicationOrRitchieCall(
+                        ExplicitApplicationOrFunctionCall(
                             RitchieCall,
                         ),
                         Ok(
@@ -3508,6 +3519,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -3614,6 +3626,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -3652,6 +3665,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -3762,6 +3776,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -3845,6 +3860,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -3980,7 +3996,7 @@
                             expectee: Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 4,
+                                        value: 8,
                                     },
                                 ),
                             ),
@@ -3991,7 +4007,7 @@
                             ),
                             resolve_progress: Resolved(
                                 Ok(
-                                    EqsRitchieCallType(
+                                    EqsFunctionCallType(
                                         ExpectEqsFunctionTypeOutcome {
                                             implicit_parameter_substitutions: [],
                                             return_ty: EntityPath(
@@ -4007,6 +4023,7 @@
                                                 ritchie_kind: FnType,
                                                 parameter_contracted_tys: [
                                                     FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
                                                         contract: Move,
                                                         ty: EntityPath(
                                                             TypeOntology(
@@ -4019,6 +4036,7 @@
                                                         ),
                                                     },
                                                     FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
                                                         contract: Move,
                                                         ty: EntityPath(
                                                             TypeOntology(
@@ -4088,6 +4106,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Move,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -4160,6 +4179,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Move,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -4198,6 +4218,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Move,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -4236,6 +4257,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Move,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -4393,6 +4415,7 @@
                                     FluffyMethodFnSignature {
                                         nonself_parameter_contracted_tys: [
                                             FluffyTermRitchieParameterContractedType {
+                                                kind: Regular,
                                                 contract: Pure,
                                                 ty: EntityPath(
                                                     TypeOntology(
@@ -4405,6 +4428,7 @@
                                                 ),
                                             },
                                             FluffyTermRitchieParameterContractedType {
+                                                kind: Regular,
                                                 contract: Pure,
                                                 ty: EntityPath(
                                                     TypeOntology(
@@ -4797,6 +4821,7 @@
                                     FluffyMethodFnSignature {
                                         nonself_parameter_contracted_tys: [
                                             FluffyTermRitchieParameterContractedType {
+                                                kind: Regular,
                                                 contract: Pure,
                                                 ty: EntityPath(
                                                     TypeOntology(
@@ -4809,6 +4834,7 @@
                                                 ),
                                             },
                                             FluffyTermRitchieParameterContractedType {
+                                                kind: Regular,
                                                 contract: Pure,
                                                 ty: EntityPath(
                                                     TypeOntology(
@@ -4855,14 +4881,22 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
-                        Err(
-                            Derived(
-                                ExplicitApplicationFunctionTypeNotInferred,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 35,
+                                        },
+                                    ),
+                                ),
                             ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    16,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
@@ -4899,7 +4933,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    16,
+                    17,
                 ),
             },
             ExprTypeInfo {
@@ -4914,40 +4948,6 @@
                                             value: 33,
                                         },
                                     ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    17,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        TypePath(
-                            Constructor,
-                        ),
-                        Ok(
-                            Ritchie(
-                                EtherealTermRitchie(
-                                    Id {
-                                        value: 10,
-                                    },
                                 ),
                             ),
                         ),
@@ -4973,46 +4973,6 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
-                        Ok(
-                            Solid(
-                                SolidTerm(
-                                    2,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    19,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        ExplicitApplicationOrRitchieCall(
-                            RitchieCall,
-                        ),
-                        Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 82,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    20,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
                         TypePath(
                             Constructor,
                         ),
@@ -5020,7 +4980,7 @@
                             Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 10,
+                                        value: 15,
                                     },
                                 ),
                             ),
@@ -5028,7 +4988,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    21,
+                    19,
                 ),
             },
             ExprTypeInfo {
@@ -5058,13 +5018,13 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    22,
+                    20,
                 ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExplicitApplicationOrRitchieCall(
+                        ExplicitApplicationOrFunctionCall(
                             RitchieCall,
                         ),
                         Ok(
@@ -5081,7 +5041,81 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
+                    21,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        TypePath(
+                            Constructor,
+                        ),
+                        Ok(
+                            Ritchie(
+                                EtherealTermRitchie(
+                                    Id {
+                                        value: 15,
+                                    },
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    22,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            Solid(
+                                SolidTerm(
+                                    2,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
                     23,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExplicitApplicationOrFunctionCall(
+                            RitchieCall,
+                        ),
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 82,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    24,
                 ),
             },
             ExprTypeInfo {
@@ -5098,7 +5132,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    24,
+                    25,
                 ),
             },
             ExprTypeInfo {
@@ -5175,6 +5209,27 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
+                    27,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 33,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
                     26,
                 ),
             },
@@ -5196,28 +5251,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    25,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 33,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    27,
+                    28,
                 ),
             },
             ExprTypeInfo {
@@ -5268,48 +5302,6 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    29,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 33,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    28,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 33,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
                     30,
                 ),
             },
@@ -5331,7 +5323,49 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
+                    29,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 33,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
                     31,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 33,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    32,
                 ),
             },
             ExprTypeInfo {
@@ -5382,53 +5416,6 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    32,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                BinaryOperationLeftOperandTypeNotInferred,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 33,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
                     33,
                 ),
             },
@@ -5451,7 +5438,7 @@
                         Trivial,
                         Err(
                             Derived(
-                                CurrentSymbolTypeError,
+                                BinaryOperationLeftOperandTypeNotInferred,
                             ),
                         ),
                     ),
@@ -5509,14 +5496,69 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 33,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    35,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
                         Err(
                             Derived(
-                                ExplicitApplicationFunctionTypeNotInferred,
+                                CurrentSymbolTypeError,
                             ),
                         ),
                     ),
                 ),
                 expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 35,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    36,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
@@ -5545,7 +5587,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    35,
+                    37,
                 ),
             },
             ExprTypeInfo {
@@ -5566,7 +5608,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    36,
+                    38,
                 ),
             },
             ExprTypeInfo {
@@ -5579,61 +5621,8 @@
                             Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 10,
+                                        value: 15,
                                     },
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    37,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Solid(
-                                SolidTerm(
-                                    2,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    38,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        ExplicitApplicationOrRitchieCall(
-                            RitchieCall,
-                        ),
-                        Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 82,
-                                        },
-                                    ),
                                 ),
                             ),
                         ),
@@ -5646,15 +5635,24 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
-                            Constructor,
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
                         ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
                         Ok(
-                            Ritchie(
-                                EtherealTermRitchie(
-                                    Id {
-                                        value: 10,
-                                    },
+                            Solid(
+                                SolidTerm(
+                                    2,
                                 ),
                             ),
                         ),
@@ -5662,6 +5660,50 @@
                 ),
                 expectation_rule_idx: Some(
                     40,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExplicitApplicationOrFunctionCall(
+                            RitchieCall,
+                        ),
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 82,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    41,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        TypePath(
+                            Constructor,
+                        ),
+                        Ok(
+                            Ritchie(
+                                EtherealTermRitchie(
+                                    Id {
+                                        value: 15,
+                                    },
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    42,
                 ),
             },
             ExprTypeInfo {
@@ -5691,13 +5733,13 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    41,
+                    43,
                 ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExplicitApplicationOrRitchieCall(
+                        ExplicitApplicationOrFunctionCall(
                             RitchieCall,
                         ),
                         Ok(
@@ -5714,7 +5756,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    42,
+                    44,
                 ),
             },
             ExprTypeInfo {
@@ -5759,117 +5801,6 @@
                             Hollow(
                                 HollowTerm(
                                     5,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    43,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 33,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    44,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                ExplicitApplicationFunctionTypeNotInferred,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Hollow(
-                                HollowTerm(
-                                    6,
                                 ),
                             ),
                         ),
@@ -5930,14 +5861,141 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 35,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    47,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
                         Err(
                             Derived(
-                                ExplicitApplicationFunctionTypeNotInferred,
+                                CurrentSymbolTypeError,
                             ),
                         ),
                     ),
                 ),
                 expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    Derived(
+                        MethodOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            Hollow(
+                                HollowTerm(
+                                    6,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    48,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 33,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    49,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 35,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    50,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
@@ -5979,7 +6037,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    47,
+                    51,
                 ),
             },
             ExprTypeInfo {
@@ -6009,7 +6067,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    49,
+                    53,
                 ),
             },
             ExprTypeInfo {
@@ -6026,7 +6084,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    48,
+                    52,
                 ),
             },
             ExprTypeInfo {
@@ -6076,6 +6134,7 @@
                                     FluffyMethodFnSignature {
                                         nonself_parameter_contracted_tys: [
                                             FluffyTermRitchieParameterContractedType {
+                                                kind: Regular,
                                                 contract: Pure,
                                                 ty: EntityPath(
                                                     TypeOntology(
@@ -6088,6 +6147,7 @@
                                                 ),
                                             },
                                             FluffyTermRitchieParameterContractedType {
+                                                kind: Regular,
                                                 contract: Pure,
                                                 ty: EntityPath(
                                                     TypeOntology(
@@ -6127,21 +6187,29 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    50,
+                    54,
                 ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
-                        Err(
-                            Derived(
-                                ExplicitApplicationFunctionTypeNotInferred,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 35,
+                                        },
+                                    ),
+                                ),
                             ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    55,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
@@ -6170,7 +6238,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    51,
+                    56,
                 ),
             },
             ExprTypeInfo {
@@ -6191,7 +6259,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    52,
+                    57,
                 ),
             },
             ExprTypeInfo {
@@ -6225,7 +6293,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    53,
+                    58,
                 ),
             },
         ],
@@ -6546,6 +6614,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -6667,6 +6736,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -6720,6 +6790,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -6758,6 +6829,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -6807,6 +6879,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -6864,6 +6937,45 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
+                                expr_idx: 30,
+                                kind: Expr,
+                            },
+                            expectee: EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 35,
+                                        },
+                                    ),
+                                ),
+                            ),
+                            data: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
+                                        contract: Pure,
+                                        ty: EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    Id {
+                                                        value: 35,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        Trivial,
+                                    ),
+                                ),
+                            ),
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
                                 expr_idx: 33,
                                 kind: Expr,
                             },
@@ -6894,6 +7006,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -6923,7 +7036,7 @@
                             expectee: Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 10,
+                                        value: 15,
                                     },
                                 ),
                             ),
@@ -6934,7 +7047,7 @@
                             ),
                             resolve_progress: Resolved(
                                 Ok(
-                                    EqsRitchieCallType(
+                                    EqsFunctionCallType(
                                         ExpectEqsFunctionTypeOutcome {
                                             implicit_parameter_substitutions: [],
                                             return_ty: EntityPath(
@@ -6950,6 +7063,7 @@
                                                 ritchie_kind: FnType,
                                                 parameter_contracted_tys: [
                                                     FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
                                                         contract: Pure,
                                                         ty: EntityPath(
                                                             TypeOntology(
@@ -6962,6 +7076,7 @@
                                                         ),
                                                     },
                                                     FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
                                                         contract: Pure,
                                                         ty: EntityPath(
                                                             TypeOntology(
@@ -6993,6 +7108,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -7041,7 +7157,7 @@
                             expectee: Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 10,
+                                        value: 15,
                                     },
                                 ),
                             ),
@@ -7052,7 +7168,7 @@
                             ),
                             resolve_progress: Resolved(
                                 Ok(
-                                    EqsRitchieCallType(
+                                    EqsFunctionCallType(
                                         ExpectEqsFunctionTypeOutcome {
                                             implicit_parameter_substitutions: [],
                                             return_ty: EntityPath(
@@ -7068,6 +7184,7 @@
                                                 ritchie_kind: FnType,
                                                 parameter_contracted_tys: [
                                                     FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
                                                         contract: Pure,
                                                         ty: EntityPath(
                                                             TypeOntology(
@@ -7080,6 +7197,7 @@
                                                         ),
                                                     },
                                                     FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
                                                         contract: Pure,
                                                         ty: EntityPath(
                                                             TypeOntology(
@@ -7111,6 +7229,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -7183,6 +7302,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -7236,6 +7356,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -7274,6 +7395,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -7327,6 +7449,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -7365,6 +7488,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -7418,6 +7542,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -7456,12 +7581,52 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
                                                         value: 33,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        Trivial,
+                                    ),
+                                ),
+                            ),
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 72,
+                                kind: Expr,
+                            },
+                            expectee: EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 35,
+                                        },
+                                    ),
+                                ),
+                            ),
+                            data: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
+                                        contract: Pure,
+                                        ty: EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    Id {
+                                                        value: 35,
                                                     },
                                                 ),
                                             ),
@@ -7509,6 +7674,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -7538,7 +7704,7 @@
                             expectee: Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 10,
+                                        value: 15,
                                     },
                                 ),
                             ),
@@ -7549,7 +7715,7 @@
                             ),
                             resolve_progress: Resolved(
                                 Ok(
-                                    EqsRitchieCallType(
+                                    EqsFunctionCallType(
                                         ExpectEqsFunctionTypeOutcome {
                                             implicit_parameter_substitutions: [],
                                             return_ty: EntityPath(
@@ -7565,6 +7731,7 @@
                                                 ritchie_kind: FnType,
                                                 parameter_contracted_tys: [
                                                     FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
                                                         contract: Pure,
                                                         ty: EntityPath(
                                                             TypeOntology(
@@ -7577,6 +7744,7 @@
                                                         ),
                                                     },
                                                     FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
                                                         contract: Pure,
                                                         ty: EntityPath(
                                                             TypeOntology(
@@ -7608,6 +7776,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -7656,7 +7825,7 @@
                             expectee: Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 10,
+                                        value: 15,
                                     },
                                 ),
                             ),
@@ -7667,7 +7836,7 @@
                             ),
                             resolve_progress: Resolved(
                                 Ok(
-                                    EqsRitchieCallType(
+                                    EqsFunctionCallType(
                                         ExpectEqsFunctionTypeOutcome {
                                             implicit_parameter_substitutions: [],
                                             return_ty: EntityPath(
@@ -7683,6 +7852,7 @@
                                                 ritchie_kind: FnType,
                                                 parameter_contracted_tys: [
                                                     FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
                                                         contract: Pure,
                                                         ty: EntityPath(
                                                             TypeOntology(
@@ -7695,6 +7865,7 @@
                                                         ),
                                                     },
                                                     FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
                                                         contract: Pure,
                                                         ty: EntityPath(
                                                             TypeOntology(
@@ -7726,6 +7897,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -7798,12 +7970,52 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
                                                         value: 33,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        Trivial,
+                                    ),
+                                ),
+                            ),
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 91,
+                                kind: Expr,
+                            },
+                            expectee: EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 35,
+                                        },
+                                    ),
+                                ),
+                            ),
+                            data: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
+                                        contract: Pure,
+                                        ty: EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    Id {
+                                                        value: 35,
                                                     },
                                                 ),
                                             ),
@@ -7851,12 +8063,52 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
                                                         value: 33,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        Trivial,
+                                    ),
+                                ),
+                            ),
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 99,
+                                kind: Expr,
+                            },
+                            expectee: EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 35,
+                                        },
+                                    ),
+                                ),
+                            ),
+                            data: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
+                                        contract: Pure,
+                                        ty: EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    Id {
+                                                        value: 35,
                                                     },
                                                 ),
                                             ),
@@ -7900,6 +8152,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -7957,6 +8210,45 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
+                                expr_idx: 109,
+                                kind: Expr,
+                            },
+                            expectee: EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 35,
+                                        },
+                                    ),
+                                ),
+                            ),
+                            data: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
+                                        contract: Pure,
+                                        ty: EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    Id {
+                                                        value: 35,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        Trivial,
+                                    ),
+                                ),
+                            ),
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
                                 expr_idx: 111,
                                 kind: Expr,
                             },
@@ -7987,6 +8279,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -8025,6 +8318,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Move,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -8182,6 +8476,7 @@
                                     FluffyMethodFnSignature {
                                         nonself_parameter_contracted_tys: [
                                             FluffyTermRitchieParameterContractedType {
+                                                kind: Regular,
                                                 contract: Pure,
                                                 ty: EntityPath(
                                                     TypeOntology(
@@ -8194,6 +8489,7 @@
                                                 ),
                                             },
                                             FluffyTermRitchieParameterContractedType {
+                                                kind: Regular,
                                                 contract: Pure,
                                                 ty: EntityPath(
                                                     TypeOntology(
@@ -8573,6 +8869,7 @@
                                     FluffyMethodFnSignature {
                                         nonself_parameter_contracted_tys: [
                                             FluffyTermRitchieParameterContractedType {
+                                                kind: Regular,
                                                 contract: Pure,
                                                 ty: EntityPath(
                                                     TypeOntology(
@@ -8585,6 +8882,7 @@
                                                 ),
                                             },
                                             FluffyTermRitchieParameterContractedType {
+                                                kind: Regular,
                                                 contract: Pure,
                                                 ty: EntityPath(
                                                     TypeOntology(
@@ -8631,14 +8929,22 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
-                        Err(
-                            Derived(
-                                ExplicitApplicationFunctionTypeNotInferred,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 35,
+                                        },
+                                    ),
+                                ),
                             ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    16,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
@@ -8675,7 +8981,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    16,
+                    17,
                 ),
             },
             ExprTypeInfo {
@@ -8696,7 +9002,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    17,
+                    18,
                 ),
             },
             ExprTypeInfo {
@@ -8726,7 +9032,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    18,
+                    19,
                 ),
             },
             ExprTypeInfo {
@@ -8747,38 +9053,8 @@
                             Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 10,
+                                        value: 15,
                                     },
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    19,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Solid(
-                                SolidTerm(
-                                    3,
                                 ),
                             ),
                         ),
@@ -8791,7 +9067,37 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExplicitApplicationOrRitchieCall(
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            Solid(
+                                SolidTerm(
+                                    3,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    21,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExplicitApplicationOrFunctionCall(
                             RitchieCall,
                         ),
                         Ok(
@@ -8808,7 +9114,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    21,
+                    22,
                 ),
             },
             ExprTypeInfo {
@@ -8821,7 +9127,7 @@
                             Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 10,
+                                        value: 15,
                                     },
                                 ),
                             ),
@@ -8829,7 +9135,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    22,
+                    23,
                 ),
             },
             ExprTypeInfo {
@@ -8859,13 +9165,13 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    23,
+                    24,
                 ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExplicitApplicationOrRitchieCall(
+                        ExplicitApplicationOrFunctionCall(
                             RitchieCall,
                         ),
                         Ok(
@@ -8882,7 +9188,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    24,
+                    25,
                 ),
             },
             ExprTypeInfo {
@@ -8899,7 +9205,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    25,
+                    26,
                 ),
             },
             ExprTypeInfo {
@@ -8946,7 +9252,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    26,
+                    27,
                 ),
             },
             ExprTypeInfo {
@@ -8963,7 +9269,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    27,
+                    28,
                 ),
             },
             ExprTypeInfo {
@@ -8993,7 +9299,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    29,
+                    30,
                 ),
             },
             ExprTypeInfo {
@@ -9010,7 +9316,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    28,
+                    29,
                 ),
             },
             ExprTypeInfo {
@@ -9047,6 +9353,7 @@
                                     FluffyMethodFnSignature {
                                         nonself_parameter_contracted_tys: [
                                             FluffyTermRitchieParameterContractedType {
+                                                kind: Regular,
                                                 contract: Pure,
                                                 ty: EntityPath(
                                                     TypeOntology(
@@ -9059,6 +9366,7 @@
                                                 ),
                                             },
                                             FluffyTermRitchieParameterContractedType {
+                                                kind: Regular,
                                                 contract: Pure,
                                                 ty: EntityPath(
                                                     TypeOntology(
@@ -9098,7 +9406,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    30,
+                    31,
                 ),
             },
             ExprTypeInfo {
@@ -9149,53 +9457,6 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    31,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                BinaryOperationLeftOperandTypeNotInferred,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 33,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
                     32,
                 ),
             },
@@ -9218,7 +9479,7 @@
                         Trivial,
                         Err(
                             Derived(
-                                CurrentSymbolTypeError,
+                                BinaryOperationLeftOperandTypeNotInferred,
                             ),
                         ),
                     ),
@@ -9276,14 +9537,69 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 33,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    34,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
                         Err(
                             Derived(
-                                ExplicitApplicationFunctionTypeNotInferred,
+                                CurrentSymbolTypeError,
                             ),
                         ),
                     ),
                 ),
                 expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 35,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    35,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
@@ -9312,7 +9628,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    34,
+                    36,
                 ),
             },
             ExprTypeInfo {
@@ -9333,7 +9649,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    35,
+                    37,
                 ),
             },
             ExprTypeInfo {
@@ -9346,61 +9662,8 @@
                             Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 10,
+                                        value: 15,
                                     },
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    36,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Solid(
-                                SolidTerm(
-                                    3,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    37,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        ExplicitApplicationOrRitchieCall(
-                            RitchieCall,
-                        ),
-                        Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 82,
-                                        },
-                                    ),
                                 ),
                             ),
                         ),
@@ -9413,15 +9676,24 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
-                            Constructor,
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
                         ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
                         Ok(
-                            Ritchie(
-                                EtherealTermRitchie(
-                                    Id {
-                                        value: 10,
-                                    },
+                            Solid(
+                                SolidTerm(
+                                    3,
                                 ),
                             ),
                         ),
@@ -9429,6 +9701,50 @@
                 ),
                 expectation_rule_idx: Some(
                     39,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExplicitApplicationOrFunctionCall(
+                            RitchieCall,
+                        ),
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 82,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    40,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        TypePath(
+                            Constructor,
+                        ),
+                        Ok(
+                            Ritchie(
+                                EtherealTermRitchie(
+                                    Id {
+                                        value: 15,
+                                    },
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    41,
                 ),
             },
             ExprTypeInfo {
@@ -9458,13 +9774,13 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    40,
+                    42,
                 ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExplicitApplicationOrRitchieCall(
+                        ExplicitApplicationOrFunctionCall(
                             RitchieCall,
                         ),
                         Ok(
@@ -9481,7 +9797,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    41,
+                    43,
                 ),
             },
             ExprTypeInfo {
@@ -9526,117 +9842,6 @@
                             Hollow(
                                 HollowTerm(
                                     4,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    42,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 33,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    43,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                ExplicitApplicationFunctionTypeNotInferred,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Hollow(
-                                HollowTerm(
-                                    5,
                                 ),
                             ),
                         ),
@@ -9697,14 +9902,141 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 35,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    46,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
                         Err(
                             Derived(
-                                ExplicitApplicationFunctionTypeNotInferred,
+                                CurrentSymbolTypeError,
                             ),
                         ),
                     ),
                 ),
                 expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    Derived(
+                        MethodOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            Hollow(
+                                HollowTerm(
+                                    5,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    47,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 33,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    48,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 35,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    49,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
@@ -9754,7 +10086,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    46,
+                    50,
                 ),
             },
             ExprTypeInfo {
@@ -9775,7 +10107,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    47,
+                    51,
                 ),
             },
             ExprTypeInfo {
@@ -9805,7 +10137,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    48,
+                    52,
                 ),
             },
             ExprTypeInfo {
@@ -9856,7 +10188,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    50,
+                    54,
                 ),
             },
             ExprTypeInfo {
@@ -9907,70 +10239,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    52,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 33,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    51,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 33,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    53,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 33,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    54,
+                    56,
                 ),
             },
             ExprTypeInfo {
@@ -10012,49 +10281,112 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    49,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 33,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    56,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 33,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
                     57,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 33,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    58,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 33,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    59,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 33,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    53,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 33,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    60,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 33,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    61,
                 ),
             },
             ExprTypeInfo {
@@ -10110,7 +10442,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    58,
+                    62,
                 ),
             },
             ExprTypeInfo {
@@ -10131,7 +10463,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    59,
+                    63,
                 ),
             },
             ExprTypeInfo {
@@ -10161,7 +10493,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    60,
+                    64,
                 ),
             },
             ExprTypeInfo {
@@ -10182,7 +10514,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    61,
+                    65,
                 ),
             },
         ],
@@ -10556,6 +10888,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -10677,6 +11010,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -10730,6 +11064,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -10768,6 +11103,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -10817,6 +11153,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -10874,6 +11211,45 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
+                                expr_idx: 29,
+                                kind: Expr,
+                            },
+                            expectee: EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 35,
+                                        },
+                                    ),
+                                ),
+                            ),
+                            data: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
+                                        contract: Pure,
+                                        ty: EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    Id {
+                                                        value: 35,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        Trivial,
+                                    ),
+                                ),
+                            ),
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
                                 expr_idx: 32,
                                 kind: Expr,
                             },
@@ -10904,6 +11280,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -10948,7 +11325,7 @@
                             expectee: Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 10,
+                                        value: 15,
                                     },
                                 ),
                             ),
@@ -10959,7 +11336,7 @@
                             ),
                             resolve_progress: Resolved(
                                 Ok(
-                                    EqsRitchieCallType(
+                                    EqsFunctionCallType(
                                         ExpectEqsFunctionTypeOutcome {
                                             implicit_parameter_substitutions: [],
                                             return_ty: EntityPath(
@@ -10975,6 +11352,7 @@
                                                 ritchie_kind: FnType,
                                                 parameter_contracted_tys: [
                                                     FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
                                                         contract: Pure,
                                                         ty: EntityPath(
                                                             TypeOntology(
@@ -10987,6 +11365,7 @@
                                                         ),
                                                     },
                                                     FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
                                                         contract: Pure,
                                                         ty: EntityPath(
                                                             TypeOntology(
@@ -11018,6 +11397,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -11066,7 +11446,7 @@
                             expectee: Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 10,
+                                        value: 15,
                                     },
                                 ),
                             ),
@@ -11077,7 +11457,7 @@
                             ),
                             resolve_progress: Resolved(
                                 Ok(
-                                    EqsRitchieCallType(
+                                    EqsFunctionCallType(
                                         ExpectEqsFunctionTypeOutcome {
                                             implicit_parameter_substitutions: [],
                                             return_ty: EntityPath(
@@ -11093,6 +11473,7 @@
                                                 ritchie_kind: FnType,
                                                 parameter_contracted_tys: [
                                                     FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
                                                         contract: Pure,
                                                         ty: EntityPath(
                                                             TypeOntology(
@@ -11105,6 +11486,7 @@
                                                         ),
                                                     },
                                                     FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
                                                         contract: Pure,
                                                         ty: EntityPath(
                                                             TypeOntology(
@@ -11136,6 +11518,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -11208,6 +11591,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -11257,6 +11641,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -11344,6 +11729,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -11382,12 +11768,52 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
                                                         value: 33,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        Trivial,
+                                    ),
+                                ),
+                            ),
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 67,
+                                kind: Expr,
+                            },
+                            expectee: EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 35,
+                                        },
+                                    ),
+                                ),
+                            ),
+                            data: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
+                                        contract: Pure,
+                                        ty: EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    Id {
+                                                        value: 35,
                                                     },
                                                 ),
                                             ),
@@ -11435,6 +11861,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -11464,7 +11891,7 @@
                             expectee: Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 10,
+                                        value: 15,
                                     },
                                 ),
                             ),
@@ -11475,7 +11902,7 @@
                             ),
                             resolve_progress: Resolved(
                                 Ok(
-                                    EqsRitchieCallType(
+                                    EqsFunctionCallType(
                                         ExpectEqsFunctionTypeOutcome {
                                             implicit_parameter_substitutions: [],
                                             return_ty: EntityPath(
@@ -11491,6 +11918,7 @@
                                                 ritchie_kind: FnType,
                                                 parameter_contracted_tys: [
                                                     FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
                                                         contract: Pure,
                                                         ty: EntityPath(
                                                             TypeOntology(
@@ -11503,6 +11931,7 @@
                                                         ),
                                                     },
                                                     FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
                                                         contract: Pure,
                                                         ty: EntityPath(
                                                             TypeOntology(
@@ -11534,6 +11963,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -11582,7 +12012,7 @@
                             expectee: Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 10,
+                                        value: 15,
                                     },
                                 ),
                             ),
@@ -11593,7 +12023,7 @@
                             ),
                             resolve_progress: Resolved(
                                 Ok(
-                                    EqsRitchieCallType(
+                                    EqsFunctionCallType(
                                         ExpectEqsFunctionTypeOutcome {
                                             implicit_parameter_substitutions: [],
                                             return_ty: EntityPath(
@@ -11609,6 +12039,7 @@
                                                 ritchie_kind: FnType,
                                                 parameter_contracted_tys: [
                                                     FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
                                                         contract: Pure,
                                                         ty: EntityPath(
                                                             TypeOntology(
@@ -11621,6 +12052,7 @@
                                                         ),
                                                     },
                                                     FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
                                                         contract: Pure,
                                                         ty: EntityPath(
                                                             TypeOntology(
@@ -11652,6 +12084,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -11724,12 +12157,52 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
                                                         value: 33,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        Trivial,
+                                    ),
+                                ),
+                            ),
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 86,
+                                kind: Expr,
+                            },
+                            expectee: EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 35,
+                                        },
+                                    ),
+                                ),
+                            ),
+                            data: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
+                                        contract: Pure,
+                                        ty: EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    Id {
+                                                        value: 35,
                                                     },
                                                 ),
                                             ),
@@ -11777,12 +12250,52 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
                                                         value: 33,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        Trivial,
+                                    ),
+                                ),
+                            ),
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 94,
+                                kind: Expr,
+                            },
+                            expectee: EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 35,
+                                        },
+                                    ),
+                                ),
+                            ),
+                            data: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
+                                        contract: Pure,
+                                        ty: EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    Id {
+                                                        value: 35,
                                                     },
                                                 ),
                                             ),
@@ -11830,6 +12343,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -11883,6 +12397,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -11936,6 +12451,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -11989,6 +12505,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -12027,6 +12544,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -12065,6 +12583,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -12103,6 +12622,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -12141,6 +12661,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -12194,6 +12715,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -12228,6 +12750,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Move,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -12266,6 +12789,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Move,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -12488,7 +13012,7 @@
                             Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 11,
+                                        value: 16,
                                     },
                                 ),
                             ),
@@ -12562,7 +13086,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExplicitApplicationOrRitchieCall(
+                        ExplicitApplicationOrFunctionCall(
                             RitchieCall,
                         ),
                         Ok(
@@ -12586,14 +13110,22 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
-                        Err(
-                            Derived(
-                                ExplicitApplicationFunctionTypeNotInferred,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 35,
+                                        },
+                                    ),
+                                ),
                             ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    9,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
@@ -12623,7 +13155,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    9,
+                    10,
                 ),
             },
             ExprTypeInfo {
@@ -12678,7 +13210,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    10,
+                    11,
                 ),
             },
             ExprTypeInfo {
@@ -12716,7 +13248,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    11,
+                    12,
                 ),
             },
             ExprTypeInfo {
@@ -12737,7 +13269,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    12,
+                    13,
                 ),
             },
             ExprTypeInfo {
@@ -12854,7 +13386,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    13,
+                    14,
                 ),
             },
             ExprTypeInfo {
@@ -12905,49 +13437,28 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    15,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 33,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    14,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 33,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
                     16,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 33,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    15,
                 ),
             },
             ExprTypeInfo {
@@ -12976,6 +13487,27 @@
                     (
                         Trivial,
                         Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 33,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    18,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
                             Solid(
                                 SolidTerm(
                                     0,
@@ -12985,7 +13517,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    18,
+                    19,
                 ),
             },
             ExprTypeInfo {
@@ -13092,7 +13624,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    19,
+                    20,
                 ),
             },
             ExprTypeInfo {
@@ -13150,7 +13682,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    20,
+                    21,
                 ),
             },
             ExprTypeInfo {
@@ -13184,21 +13716,29 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    21,
+                    22,
                 ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
-                        Err(
-                            Derived(
-                                ExplicitApplicationFunctionTypeNotInferred,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 35,
+                                        },
+                                    ),
+                                ),
                             ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    23,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
@@ -13223,7 +13763,7 @@
                             Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 12,
+                                        value: 17,
                                     },
                                 ),
                             ),
@@ -13231,7 +13771,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    22,
+                    24,
                 ),
             },
             ExprTypeInfo {
@@ -13248,7 +13788,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    23,
+                    25,
                 ),
             },
             ExprTypeInfo {
@@ -13291,7 +13831,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    24,
+                    26,
                 ),
             },
             ExprTypeInfo {
@@ -13310,7 +13850,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExplicitApplicationOrRitchieCall(
+                        ExplicitApplicationOrFunctionCall(
                             RitchieCall,
                         ),
                         Ok(
@@ -13327,21 +13867,29 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    25,
+                    27,
                 ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
-                        Err(
-                            Derived(
-                                ExplicitApplicationFunctionTypeNotInferred,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 35,
+                                        },
+                                    ),
+                                ),
                             ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    28,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
@@ -13371,7 +13919,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    26,
+                    29,
                 ),
             },
             ExprTypeInfo {
@@ -13443,7 +13991,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    27,
+                    30,
                 ),
             },
             ExprTypeInfo {
@@ -13464,7 +14012,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    28,
+                    31,
                 ),
             },
             ExprTypeInfo {
@@ -13644,7 +14192,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    29,
+                    32,
                 ),
             },
             ExprTypeInfo {
@@ -13689,107 +14237,6 @@
                             Hollow(
                                 HollowTerm(
                                     9,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    31,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 33,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    30,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 33,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    32,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Hollow(
-                                HollowTerm(
-                                    10,
                                 ),
                             ),
                         ),
@@ -13876,13 +14323,21 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    Derived(
+                        MethodOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
                             Hollow(
                                 HollowTerm(
-                                    11,
+                                    10,
                                 ),
                             ),
                         ),
@@ -13938,6 +14393,57 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    Derived(
+                        MethodOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            Hollow(
+                                HollowTerm(
+                                    11,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    40,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
                         Ok(
                             EntityPath(
                                 TypeOntology(
@@ -13953,6 +14459,48 @@
                 ),
                 expectation_rule_idx: Some(
                     39,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 33,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    41,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 33,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    42,
                 ),
             },
             ExprTypeInfo {
@@ -14046,7 +14594,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    40,
+                    43,
                 ),
             },
             ExprTypeInfo {
@@ -14090,14 +14638,22 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
-                        Err(
-                            Derived(
-                                ExplicitApplicationFunctionTypeNotInferred,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 35,
+                                        },
+                                    ),
+                                ),
                             ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    44,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
@@ -14113,7 +14669,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    41,
+                    45,
                 ),
             },
             ExprTypeInfo {
@@ -14177,14 +14733,22 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
-                        Err(
-                            Derived(
-                                ExplicitApplicationFunctionTypeNotInferred,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 35,
+                                        },
+                                    ),
+                                ),
                             ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    46,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
@@ -14250,14 +14814,22 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
-                        Err(
-                            Derived(
-                                ExplicitApplicationFunctionTypeNotInferred,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 35,
+                                        },
+                                    ),
+                                ),
                             ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    47,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
@@ -14286,7 +14858,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    42,
+                    48,
                 ),
             },
             ExprTypeInfo {
@@ -14319,14 +14891,22 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
-                        Err(
-                            Derived(
-                                ExplicitApplicationFunctionTypeNotInferred,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 35,
+                                        },
+                                    ),
+                                ),
                             ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    49,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
@@ -14342,7 +14922,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    43,
+                    50,
                 ),
             },
             ExprTypeInfo {
@@ -14523,7 +15103,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    44,
+                    51,
                 ),
             },
             ExprTypeInfo {
@@ -14683,7 +15263,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    46,
+                    53,
                 ),
             },
             ExprTypeInfo {
@@ -14700,7 +15280,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    45,
+                    52,
                 ),
             },
             ExprTypeInfo {
@@ -14763,7 +15343,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    47,
+                    54,
                 ),
             },
             ExprTypeInfo {
@@ -15197,6 +15777,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -15226,7 +15807,7 @@
                             expectee: Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 11,
+                                        value: 16,
                                     },
                                 ),
                             ),
@@ -15237,7 +15818,7 @@
                             ),
                             resolve_progress: Resolved(
                                 Ok(
-                                    EqsRitchieCallType(
+                                    EqsFunctionCallType(
                                         ExpectEqsFunctionTypeOutcome {
                                             implicit_parameter_substitutions: [],
                                             return_ty: EntityPath(
@@ -15253,6 +15834,7 @@
                                                 ritchie_kind: FnType,
                                                 parameter_contracted_tys: [
                                                     FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
                                                         contract: Pure,
                                                         ty: Application(
                                                             EtherealTermApplication(
@@ -15263,6 +15845,7 @@
                                                         ),
                                                     },
                                                     FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
                                                         contract: Pure,
                                                         ty: EntityPath(
                                                             TypeOntology(
@@ -15275,6 +15858,7 @@
                                                         ),
                                                     },
                                                     FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
                                                         contract: Pure,
                                                         ty: EntityPath(
                                                             TypeOntology(
@@ -15306,6 +15890,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: Application(
                                             EtherealTermApplication(
@@ -15338,6 +15923,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -15377,6 +15963,45 @@
                                 ExpectAnyDerived,
                             ),
                             resolve_progress: Unresolved,
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 18,
+                                kind: Expr,
+                            },
+                            expectee: EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 35,
+                                        },
+                                    ),
+                                ),
+                            ),
+                            data: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
+                                        contract: Pure,
+                                        ty: EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    Id {
+                                                        value: 35,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        Trivial,
+                                    ),
+                                ),
+                            ),
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
@@ -15444,6 +16069,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -15497,6 +16123,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -15550,6 +16177,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -15588,6 +16216,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -15656,6 +16285,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -15698,13 +16328,52 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
+                                expr_idx: 65,
+                                kind: Expr,
+                            },
+                            expectee: EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 35,
+                                        },
+                                    ),
+                                ),
+                            ),
+                            data: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
+                                        contract: Pure,
+                                        ty: EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    Id {
+                                                        value: 35,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        Trivial,
+                                    ),
+                                ),
+                            ),
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
                                 expr_idx: 67,
                                 kind: Expr,
                             },
                             expectee: Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 12,
+                                        value: 17,
                                     },
                                 ),
                             ),
@@ -15715,7 +16384,7 @@
                             ),
                             resolve_progress: Resolved(
                                 Ok(
-                                    EqsRitchieCallType(
+                                    EqsFunctionCallType(
                                         ExpectEqsFunctionTypeOutcome {
                                             implicit_parameter_substitutions: [],
                                             return_ty: EntityPath(
@@ -15731,6 +16400,7 @@
                                                 ritchie_kind: FnType,
                                                 parameter_contracted_tys: [
                                                     FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
                                                         contract: Pure,
                                                         ty: Application(
                                                             EtherealTermApplication(
@@ -15741,6 +16411,7 @@
                                                         ),
                                                     },
                                                     FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
                                                         contract: Pure,
                                                         ty: EntityPath(
                                                             TypeOntology(
@@ -15753,6 +16424,7 @@
                                                         ),
                                                     },
                                                     FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
                                                         contract: Pure,
                                                         ty: EntityPath(
                                                             TypeOntology(
@@ -15765,6 +16437,7 @@
                                                         ),
                                                     },
                                                     FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
                                                         contract: Pure,
                                                         ty: EntityPath(
                                                             TypeOntology(
@@ -15796,6 +16469,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: Application(
                                             EtherealTermApplication(
@@ -15828,6 +16502,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -15867,6 +16542,45 @@
                                 ExpectAnyDerived,
                             ),
                             resolve_progress: Unresolved,
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 74,
+                                kind: Expr,
+                            },
+                            expectee: EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 35,
+                                        },
+                                    ),
+                                ),
+                            ),
+                            data: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
+                                        contract: Pure,
+                                        ty: EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    Id {
+                                                        value: 35,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        Trivial,
+                                    ),
+                                ),
+                            ),
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
@@ -15915,6 +16629,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -15968,6 +16683,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -16021,6 +16737,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -16059,6 +16776,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -16112,6 +16830,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -16150,6 +16869,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -16203,6 +16923,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -16241,6 +16962,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -16279,6 +17001,45 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
+                                expr_idx: 133,
+                                kind: Expr,
+                            },
+                            expectee: EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 35,
+                                        },
+                                    ),
+                                ),
+                            ),
+                            data: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
+                                        contract: Pure,
+                                        ty: EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    Id {
+                                                        value: 35,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        Trivial,
+                                    ),
+                                ),
+                            ),
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
                                 expr_idx: 134,
                                 kind: Expr,
                             },
@@ -16294,6 +17055,84 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
+                                expr_idx: 140,
+                                kind: Expr,
+                            },
+                            expectee: EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 35,
+                                        },
+                                    ),
+                                ),
+                            ),
+                            data: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
+                                        contract: Pure,
+                                        ty: EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    Id {
+                                                        value: 35,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        Trivial,
+                                    ),
+                                ),
+                            ),
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 146,
+                                kind: Expr,
+                            },
+                            expectee: EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 35,
+                                        },
+                                    ),
+                                ),
+                            ),
+                            data: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
+                                        contract: Pure,
+                                        ty: EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    Id {
+                                                        value: 35,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        Trivial,
+                                    ),
+                                ),
+                            ),
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
                                 expr_idx: 148,
                                 kind: Expr,
                             },
@@ -16306,6 +17145,45 @@
                                 ExpectAnyDerived,
                             ),
                             resolve_progress: Unresolved,
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 151,
+                                kind: Expr,
+                            },
+                            expectee: EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 35,
+                                        },
+                                    ),
+                                ),
+                            ),
+                            data: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
+                                        contract: Pure,
+                                        ty: EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    Id {
+                                                        value: 35,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        Trivial,
+                                    ),
+                                ),
+                            ),
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
@@ -16339,6 +17217,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -16407,6 +17286,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -16992,6 +17872,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -17030,6 +17911,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -17113,6 +17995,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -17385,6 +18268,1410 @@
         return_ty: Some(
             EtherealTerm(`TypeOntology(core::visual::Html)`),
         ),
+        self_ty: None,
+    },
+    ExprTypeRegion {
+        path: RegionPath::Defn(
+            DefnRegionPath::AssociatedItem(
+                AssociatedItemId {
+                    impl_block_id: ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module_path: `mnist_classifier::line_segment_sketch`,
+                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                            disambiguator: 0,
+                        },
+                    ),
+                    ident: `concave_components`,
+                },
+            ),
+        ),
+        expr_ty_infos: [
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    Derived(
+                        TypeError(
+                            DeclarativeTypeError(
+                                Derived(
+                                    SignatureError,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                SelfTypeNotInferredForSelfValue,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    Derived(
+                        ApplicationOrRitchieCallFunctionTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                BlockTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+        ],
+        extra_expr_errors: [],
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [],
+                    },
+                },
+            },
+            expectations: Expectations {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
+        },
+        return_ty: None,
+        self_ty: None,
+    },
+    ExprTypeRegion {
+        path: RegionPath::Defn(
+            DefnRegionPath::AssociatedItem(
+                AssociatedItemId {
+                    impl_block_id: ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module_path: `mnist_classifier::line_segment_sketch`,
+                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                            disambiguator: 0,
+                        },
+                    ),
+                    ident: `bounding_box`,
+                },
+            ),
+        ),
+        expr_ty_infos: [
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                SelfTypeNotInferredForSelfValue,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            Hollow(
+                                HollowTerm(
+                                    0,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    0,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    Derived(
+                        ApplicationOrRitchieCallFunctionTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                SelfTypeNotInferredForSelfValue,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    Derived(
+                        MethodOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                SelfTypeNotInferredForSelfValue,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    Derived(
+                        ApplicationOrRitchieCallFunctionTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    Derived(
+                        MethodOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 35,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    1,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    Derived(
+                        MethodOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 35,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    2,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    Derived(
+                        MethodOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 35,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    3,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    Derived(
+                        MethodOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 35,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    4,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        TypePath(
+                            Constructor,
+                        ),
+                        Ok(
+                            Ritchie(
+                                EtherealTermRitchie(
+                                    Id {
+                                        value: 13,
+                                    },
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    5,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        TypePath(
+                            Constructor,
+                        ),
+                        Ok(
+                            Ritchie(
+                                EtherealTermRitchie(
+                                    Id {
+                                        value: 9,
+                                    },
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    6,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        TypePath(
+                            Constructor,
+                        ),
+                        Ok(
+                            Ritchie(
+                                EtherealTermRitchie(
+                                    Id {
+                                        value: 9,
+                                    },
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    8,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExplicitApplicationOrFunctionCall(
+                            RitchieCall,
+                        ),
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 83,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    7,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExplicitApplicationOrFunctionCall(
+                            RitchieCall,
+                        ),
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 83,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    9,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExplicitApplicationOrFunctionCall(
+                            RitchieCall,
+                        ),
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 84,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    10,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 34,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    11,
+                ),
+            },
+        ],
+        extra_expr_errors: [],
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [
+                    None,
+                    None,
+                    None,
+                    None,
+                    None,
+                    None,
+                    None,
+                ],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [
+                    None,
+                    None,
+                    None,
+                    None,
+                    None,
+                    None,
+                    None,
+                ],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                hollow_terms: HollowTerms {
+                    entries: [
+                        HollowTermEntry {
+                            data: Hole {
+                                hole_source: Expr(
+                                    2,
+                                ),
+                                hole_kind: UnspecifiedIntegerType,
+                                fill: None,
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                    ],
+                    first_unresolved_term_idx: 0,
+                },
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [],
+                    },
+                },
+            },
+            expectations: Expectations {
+                arena: Arena {
+                    data: [
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 2,
+                                kind: Expr,
+                            },
+                            expectee: Hollow(
+                                HollowTerm(
+                                    0,
+                                ),
+                            ),
+                            data: AnyDerived(
+                                ExpectAnyDerived,
+                            ),
+                            resolve_progress: Unresolved,
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 28,
+                                kind: Expr,
+                            },
+                            expectee: EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 35,
+                                        },
+                                    ),
+                                ),
+                            ),
+                            data: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
+                                        contract: Pure,
+                                        ty: EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    Id {
+                                                        value: 35,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        Trivial,
+                                    ),
+                                ),
+                            ),
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 34,
+                                kind: Expr,
+                            },
+                            expectee: EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 35,
+                                        },
+                                    ),
+                                ),
+                            ),
+                            data: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
+                                        contract: Pure,
+                                        ty: EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    Id {
+                                                        value: 35,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        Trivial,
+                                    ),
+                                ),
+                            ),
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 40,
+                                kind: Expr,
+                            },
+                            expectee: EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 35,
+                                        },
+                                    ),
+                                ),
+                            ),
+                            data: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
+                                        contract: Pure,
+                                        ty: EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    Id {
+                                                        value: 35,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        Trivial,
+                                    ),
+                                ),
+                            ),
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 46,
+                                kind: Expr,
+                            },
+                            expectee: EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 35,
+                                        },
+                                    ),
+                                ),
+                            ),
+                            data: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
+                                        contract: Pure,
+                                        ty: EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    Id {
+                                                        value: 35,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        Trivial,
+                                    ),
+                                ),
+                            ),
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 47,
+                                kind: Expr,
+                            },
+                            expectee: Ritchie(
+                                EtherealTermRitchie(
+                                    Id {
+                                        value: 13,
+                                    },
+                                ),
+                            ),
+                            data: EqsFunctionType(
+                                ExpectEqsFunctionType {
+                                    final_destination: AnyDerived,
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    EqsFunctionCallType(
+                                        ExpectEqsFunctionTypeOutcome {
+                                            implicit_parameter_substitutions: [],
+                                            return_ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 84,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            variant: Ritchie {
+                                                ritchie_kind: FnType,
+                                                parameter_contracted_tys: [
+                                                    FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
+                                                        contract: Move,
+                                                        ty: EntityPath(
+                                                            TypeOntology(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 83,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
+                                                        contract: Move,
+                                                        ty: EntityPath(
+                                                            TypeOntology(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 83,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 48,
+                                kind: Expr,
+                            },
+                            expectee: Ritchie(
+                                EtherealTermRitchie(
+                                    Id {
+                                        value: 9,
+                                    },
+                                ),
+                            ),
+                            data: EqsFunctionType(
+                                ExpectEqsFunctionType {
+                                    final_destination: TypeOntology,
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    EqsFunctionCallType(
+                                        ExpectEqsFunctionTypeOutcome {
+                                            implicit_parameter_substitutions: [],
+                                            return_ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 83,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            variant: Ritchie {
+                                                ritchie_kind: FnType,
+                                                parameter_contracted_tys: [
+                                                    FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
+                                                        contract: Move,
+                                                        ty: EntityPath(
+                                                            TypeOntology(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 56,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
+                                                        contract: Move,
+                                                        ty: EntityPath(
+                                                            TypeOntology(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 56,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 54,
+                                kind: Expr,
+                            },
+                            expectee: EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 83,
+                                        },
+                                    ),
+                                ),
+                            ),
+                            data: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
+                                        contract: Move,
+                                        ty: EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    Id {
+                                                        value: 83,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        Trivial,
+                                    ),
+                                ),
+                            ),
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 51,
+                                kind: Expr,
+                            },
+                            expectee: Ritchie(
+                                EtherealTermRitchie(
+                                    Id {
+                                        value: 9,
+                                    },
+                                ),
+                            ),
+                            data: EqsFunctionType(
+                                ExpectEqsFunctionType {
+                                    final_destination: TypeOntology,
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    EqsFunctionCallType(
+                                        ExpectEqsFunctionTypeOutcome {
+                                            implicit_parameter_substitutions: [],
+                                            return_ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 83,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            variant: Ritchie {
+                                                ritchie_kind: FnType,
+                                                parameter_contracted_tys: [
+                                                    FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
+                                                        contract: Move,
+                                                        ty: EntityPath(
+                                                            TypeOntology(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 56,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
+                                                        contract: Move,
+                                                        ty: EntityPath(
+                                                            TypeOntology(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 56,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 55,
+                                kind: Expr,
+                            },
+                            expectee: EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 83,
+                                        },
+                                    ),
+                                ),
+                            ),
+                            data: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
+                                        contract: Move,
+                                        ty: EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    Id {
+                                                        value: 83,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        Trivial,
+                                    ),
+                                ),
+                            ),
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 56,
+                                kind: Expr,
+                            },
+                            expectee: EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 84,
+                                        },
+                                    ),
+                                ),
+                            ),
+                            data: AnyDerived(
+                                ExpectAnyDerived,
+                            ),
+                            resolve_progress: Unresolved,
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 57,
+                                kind: Expr,
+                            },
+                            expectee: EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 34,
+                                        },
+                                    ),
+                                ),
+                            ),
+                            data: AnyDerived(
+                                ExpectAnyDerived,
+                            ),
+                            resolve_progress: Unresolved,
+                        },
+                    ],
+                },
+                first_unresolved_expectation: 0,
+            },
+        },
+        return_ty: None,
         self_ty: None,
     },
     ExprTypeRegion {

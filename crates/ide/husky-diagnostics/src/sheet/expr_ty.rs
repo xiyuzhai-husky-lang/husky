@@ -162,6 +162,9 @@ impl Diagnose for (ExprIdx, &'_ OriginalExprTypeError) {
             OriginalExprTypeError::ExpectedIndices => {
                 format!("Type Error: expected indices")
             }
+            OriginalExprTypeError::CannotUnveil => {
+                format!("Type Error: cannot unveil")
+            }
         }
     }
 

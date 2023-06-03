@@ -25,7 +25,7 @@
                             Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 3,
+                                        value: 7,
                                     },
                                 ),
                             ),
@@ -259,7 +259,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExplicitApplicationOrRitchieCall(
+                        ExplicitApplicationOrFunctionCall(
                             RitchieCall,
                         ),
                         Ok(
@@ -487,7 +487,7 @@
                             expectee: Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 3,
+                                        value: 7,
                                     },
                                 ),
                             ),
@@ -498,7 +498,7 @@
                             ),
                             resolve_progress: Resolved(
                                 Ok(
-                                    EqsRitchieCallType(
+                                    EqsFunctionCallType(
                                         ExpectEqsFunctionTypeOutcome {
                                             implicit_parameter_substitutions: [],
                                             return_ty: EntityPath(
@@ -514,6 +514,7 @@
                                                 ritchie_kind: FnType,
                                                 parameter_contracted_tys: [
                                                     FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
                                                         contract: Move,
                                                         ty: EntityPath(
                                                             TypeOntology(
@@ -526,6 +527,7 @@
                                                         ),
                                                     },
                                                     FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
                                                         contract: Move,
                                                         ty: EntityPath(
                                                             TypeOntology(
@@ -601,6 +603,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: Hollow(
                                             HollowTerm(
@@ -685,6 +688,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Move,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -763,6 +767,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: Hollow(
                                             HollowTerm(
@@ -847,6 +852,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Move,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -885,6 +891,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Move,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -923,6 +930,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Move,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -980,7 +988,7 @@
                             Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 4,
+                                        value: 8,
                                     },
                                 ),
                             ),
@@ -1036,7 +1044,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExplicitApplicationOrRitchieCall(
+                        ExplicitApplicationOrFunctionCall(
                             RitchieCall,
                         ),
                         Ok(
@@ -1119,7 +1127,7 @@
                             expectee: Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 4,
+                                        value: 8,
                                     },
                                 ),
                             ),
@@ -1130,7 +1138,7 @@
                             ),
                             resolve_progress: Resolved(
                                 Ok(
-                                    EqsRitchieCallType(
+                                    EqsFunctionCallType(
                                         ExpectEqsFunctionTypeOutcome {
                                             implicit_parameter_substitutions: [],
                                             return_ty: EntityPath(
@@ -1146,6 +1154,7 @@
                                                 ritchie_kind: FnType,
                                                 parameter_contracted_tys: [
                                                     FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
                                                         contract: Move,
                                                         ty: EntityPath(
                                                             TypeOntology(
@@ -1158,6 +1167,7 @@
                                                         ),
                                                     },
                                                     FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
                                                         contract: Move,
                                                         ty: EntityPath(
                                                             TypeOntology(
@@ -1193,6 +1203,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Move,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -1231,6 +1242,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Move,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -1288,7 +1300,7 @@
                             Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 4,
+                                        value: 8,
                                     },
                                 ),
                             ),
@@ -1522,7 +1534,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExplicitApplicationOrRitchieCall(
+                        ExplicitApplicationOrFunctionCall(
                             RitchieCall,
                         ),
                         Ok(
@@ -1653,7 +1665,7 @@
                             expectee: Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 4,
+                                        value: 8,
                                     },
                                 ),
                             ),
@@ -1664,7 +1676,7 @@
                             ),
                             resolve_progress: Resolved(
                                 Ok(
-                                    EqsRitchieCallType(
+                                    EqsFunctionCallType(
                                         ExpectEqsFunctionTypeOutcome {
                                             implicit_parameter_substitutions: [],
                                             return_ty: EntityPath(
@@ -1680,6 +1692,7 @@
                                                 ritchie_kind: FnType,
                                                 parameter_contracted_tys: [
                                                     FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
                                                         contract: Move,
                                                         ty: EntityPath(
                                                             TypeOntology(
@@ -1692,6 +1705,7 @@
                                                         ),
                                                     },
                                                     FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
                                                         contract: Move,
                                                         ty: EntityPath(
                                                             TypeOntology(
@@ -1761,6 +1775,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Move,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -1833,6 +1848,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Move,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -1871,6 +1887,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Move,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -1909,6 +1926,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Move,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -2364,7 +2382,7 @@
                             Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 3,
+                                        value: 7,
                                     },
                                 ),
                             ),
@@ -2420,7 +2438,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExplicitApplicationOrRitchieCall(
+                        ExplicitApplicationOrFunctionCall(
                             RitchieCall,
                         ),
                         Ok(
@@ -2503,7 +2521,7 @@
                             expectee: Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 3,
+                                        value: 7,
                                     },
                                 ),
                             ),
@@ -2514,7 +2532,7 @@
                             ),
                             resolve_progress: Resolved(
                                 Ok(
-                                    EqsRitchieCallType(
+                                    EqsFunctionCallType(
                                         ExpectEqsFunctionTypeOutcome {
                                             implicit_parameter_substitutions: [],
                                             return_ty: EntityPath(
@@ -2530,6 +2548,7 @@
                                                 ritchie_kind: FnType,
                                                 parameter_contracted_tys: [
                                                     FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
                                                         contract: Move,
                                                         ty: EntityPath(
                                                             TypeOntology(
@@ -2542,6 +2561,7 @@
                                                         ),
                                                     },
                                                     FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
                                                         contract: Move,
                                                         ty: EntityPath(
                                                             TypeOntology(
@@ -2577,6 +2597,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Move,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -2615,6 +2636,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Move,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -2672,7 +2694,7 @@
                             Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 4,
+                                        value: 8,
                                     },
                                 ),
                             ),
@@ -2906,7 +2928,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExplicitApplicationOrRitchieCall(
+                        ExplicitApplicationOrFunctionCall(
                             RitchieCall,
                         ),
                         Ok(
@@ -3037,7 +3059,7 @@
                             expectee: Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 4,
+                                        value: 8,
                                     },
                                 ),
                             ),
@@ -3048,7 +3070,7 @@
                             ),
                             resolve_progress: Resolved(
                                 Ok(
-                                    EqsRitchieCallType(
+                                    EqsFunctionCallType(
                                         ExpectEqsFunctionTypeOutcome {
                                             implicit_parameter_substitutions: [],
                                             return_ty: EntityPath(
@@ -3064,6 +3086,7 @@
                                                 ritchie_kind: FnType,
                                                 parameter_contracted_tys: [
                                                     FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
                                                         contract: Move,
                                                         ty: EntityPath(
                                                             TypeOntology(
@@ -3076,6 +3099,7 @@
                                                         ),
                                                     },
                                                     FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
                                                         contract: Move,
                                                         ty: EntityPath(
                                                             TypeOntology(
@@ -3145,6 +3169,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Move,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -3217,6 +3242,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Move,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -3255,6 +3281,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Move,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -3293,6 +3320,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Move,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -5074,6 +5102,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -5108,6 +5137,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -5146,6 +5176,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Move,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -5195,6 +5226,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Move,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -5319,6 +5351,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -5376,6 +5409,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -5414,6 +5448,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Move,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -5452,6 +5487,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Move,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -6675,6 +6711,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -6762,6 +6799,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -6860,6 +6898,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -6894,6 +6933,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -6932,6 +6972,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Move,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -6981,6 +7022,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Move,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -7150,6 +7192,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Move,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -7655,7 +7698,7 @@
                             Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 5,
+                                        value: 9,
                                     },
                                 ),
                             ),
@@ -7695,7 +7738,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExplicitApplicationOrRitchieCall(
+                        ExplicitApplicationOrFunctionCall(
                             RitchieCall,
                         ),
                         Ok(
@@ -7843,6 +7886,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -8054,7 +8098,7 @@
                             expectee: Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 5,
+                                        value: 9,
                                     },
                                 ),
                             ),
@@ -8065,7 +8109,7 @@
                             ),
                             resolve_progress: Resolved(
                                 Ok(
-                                    EqsRitchieCallType(
+                                    EqsFunctionCallType(
                                         ExpectEqsFunctionTypeOutcome {
                                             implicit_parameter_substitutions: [],
                                             return_ty: EntityPath(
@@ -8081,6 +8125,7 @@
                                                 ritchie_kind: FnType,
                                                 parameter_contracted_tys: [
                                                     FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
                                                         contract: Move,
                                                         ty: EntityPath(
                                                             TypeOntology(
@@ -8093,6 +8138,7 @@
                                                         ),
                                                     },
                                                     FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
                                                         contract: Move,
                                                         ty: EntityPath(
                                                             TypeOntology(
@@ -8128,6 +8174,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Move,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -8166,6 +8213,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Move,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -8557,6 +8605,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Move,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -8595,6 +8644,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Move,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -8652,7 +8702,7 @@
                             Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 6,
+                                        value: 10,
                                     },
                                 ),
                             ),
@@ -8860,7 +8910,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExplicitApplicationOrRitchieCall(
+                        ExplicitApplicationOrFunctionCall(
                             RitchieCall,
                         ),
                         Ok(
@@ -8991,7 +9041,7 @@
                             expectee: Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 6,
+                                        value: 10,
                                     },
                                 ),
                             ),
@@ -9002,7 +9052,7 @@
                             ),
                             resolve_progress: Resolved(
                                 Ok(
-                                    EqsRitchieCallType(
+                                    EqsFunctionCallType(
                                         ExpectEqsFunctionTypeOutcome {
                                             implicit_parameter_substitutions: [],
                                             return_ty: EntityPath(
@@ -9018,6 +9068,7 @@
                                                 ritchie_kind: FnType,
                                                 parameter_contracted_tys: [
                                                     FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
                                                         contract: Move,
                                                         ty: EntityPath(
                                                             TypeOntology(
@@ -9030,6 +9081,7 @@
                                                         ),
                                                     },
                                                     FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
                                                         contract: Move,
                                                         ty: EntityPath(
                                                             TypeOntology(
@@ -9133,6 +9185,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Move,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -9171,6 +9224,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Move,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -9228,7 +9282,7 @@
                             Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 7,
+                                        value: 11,
                                     },
                                 ),
                             ),
@@ -9436,7 +9490,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExplicitApplicationOrRitchieCall(
+                        ExplicitApplicationOrFunctionCall(
                             RitchieCall,
                         ),
                         Ok(
@@ -9567,7 +9621,7 @@
                             expectee: Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 7,
+                                        value: 11,
                                     },
                                 ),
                             ),
@@ -9578,7 +9632,7 @@
                             ),
                             resolve_progress: Resolved(
                                 Ok(
-                                    EqsRitchieCallType(
+                                    EqsFunctionCallType(
                                         ExpectEqsFunctionTypeOutcome {
                                             implicit_parameter_substitutions: [],
                                             return_ty: EntityPath(
@@ -9594,6 +9648,7 @@
                                                 ritchie_kind: FnType,
                                                 parameter_contracted_tys: [
                                                     FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
                                                         contract: Move,
                                                         ty: EntityPath(
                                                             TypeOntology(
@@ -9606,6 +9661,7 @@
                                                         ),
                                                     },
                                                     FluffyTermRitchieParameterContractedType {
+                                                        kind: Regular,
                                                         contract: Move,
                                                         ty: EntityPath(
                                                             TypeOntology(
@@ -9709,6 +9765,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Move,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -9747,6 +9804,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Move,
                                         ty: EntityPath(
                                             TypeOntology(

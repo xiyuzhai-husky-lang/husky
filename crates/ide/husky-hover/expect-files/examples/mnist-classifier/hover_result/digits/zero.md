@@ -190,7 +190,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 72;\n\ntoken_line_group_idx = 9\n\ntoken = Token::Ident(\n    `open_one_match`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 72;\n\ntoken_line_group_idx = 9\n\ntoken = Token::Ident(\n    `open_one_match`,\n);\n\ntoken_info = TokenInfo::Entity(\n    Some(\n        EntityPath::ModuleItem(\n            ModuleItemPath::Form(\n                FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),\n            ),\n        ),\n    ),\n    None,\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -310,7 +310,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 120;\n\ntoken_line_group_idx = 15\n\ntoken = Token::Ident(\n    `Zero`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 120;\n\ntoken_line_group_idx = 15\n\ntoken = Token::Ident(\n    `Zero`,\n);\n\ntoken_info = TokenInfo::Entity(\n    Some(\n        EntityPath::TypeVariant(\n            TypeVariantPath {\n                ty_path: TypePath(`mnist::MnistLabel`, `Enum`),\n                ident: `Zero`,\n            },\n        ),\n    ),\n    None,\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -430,7 +430,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 168;\n\ntoken_line_group_idx = 20\n\ntoken = Token::Ident(\n    `major_connected_component`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 168;\n\ntoken_line_group_idx = 20\n\ntoken = Token::Ident(\n    `major_connected_component`,\n);\n\ntoken_info = TokenInfo::Entity(\n    Some(\n        EntityPath::ModuleItem(\n            ModuleItemPath::Form(\n                FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),\n            ),\n        ),\n    ),\n    None,\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -490,7 +490,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 192;\n\ntoken_line_group_idx = 22\n\ntoken = Token::Ident(\n    `major_hole`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 192;\n\ntoken_line_group_idx = 22\n\ntoken = Token::Ident(\n    `major_hole`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 7,\n    current_symbol_kind: CurrentSymbolKind::LetVariable {\n        pattern_symbol_idx: 7,\n    },\n    expr_region: ExprRegionLeash(_),\n};\n\nCurrentSymbol {\n    modifier: Pure,\n    access_start: TokenIdx(\n        180,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                244,\n            ),\n        ),\n    ),\n    variant: CurrentSymbolVariant::LetVariable {\n        ident: `major_hole`,\n        pattern_symbol_idx: 7,\n    },\n}\n",
                             },
                         ),
                         range: Some(
@@ -520,7 +520,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 204;\n\ntoken_line_group_idx = 22\n\ntoken = Token::Ident(\n    `ymin`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 204;\n\ntoken_line_group_idx = 22\n\ntoken = Token::Ident(\n    `ymin`,\n);\n\ntoken_info = TokenInfo::Method;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -580,7 +580,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 228;\n\ntoken_line_group_idx = 24\n\ntoken = Token::Ident(\n    `a`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 228;\n\ntoken_line_group_idx = 24\n\ntoken = Token::Ident(\n    `a`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 8,\n    current_symbol_kind: CurrentSymbolKind::LetVariable {\n        pattern_symbol_idx: 8,\n    },\n    expr_region: ExprRegionLeash(_),\n};\n\nCurrentSymbol {\n    modifier: Pure,\n    access_start: TokenIdx(\n        191,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                244,\n            ),\n        ),\n    ),\n    variant: CurrentSymbolVariant::LetVariable {\n        ident: `a`,\n        pattern_symbol_idx: 8,\n    },\n}\n",
                             },
                         ),
                         range: Some(
@@ -610,7 +610,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 240;\n\ntoken_line_group_idx = 26\n\ntoken = Token::Ident(\n    `norm`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 240;\n\ntoken_line_group_idx = 26\n\ntoken = Token::Ident(\n    `norm`,\n);\n\ntoken_info = TokenInfo::Field;\n\n\n",
                             },
                         ),
                         range: Some(

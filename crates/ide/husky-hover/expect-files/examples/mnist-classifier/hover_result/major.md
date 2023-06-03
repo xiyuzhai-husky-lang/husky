@@ -160,7 +160,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 35;\n\ntoken_line_group_idx = 6\n\ntoken = Token::Ident(\n    `i`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 35;\n\ntoken_line_group_idx = 6\n\ntoken = Token::Ident(\n    `i`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 2,\n    current_symbol_kind: CurrentSymbolKind::FrameVariable(\n        3,\n    ),\n    expr_region: ExprRegionLeash(_),\n};\n\nCurrentSymbol {\n    modifier: Pure,\n    access_start: TokenIdx(\n        43,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                63,\n            ),\n        ),\n    ),\n    variant: CurrentSymbolVariant::FrameVariable {\n        ident: `i`,\n        expr_idx: 3,\n    },\n}\n",
                             },
                         ),
                         range: Some(
@@ -310,7 +310,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 70;\n\ntoken_line_group_idx = 12\n\ntoken = Token::Ident(\n    `ignored_connected_components_row_span_sum_sum`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 70;\n\ntoken_line_group_idx = 12\n\ntoken = Token::Ident(\n    `ignored_connected_components_row_span_sum_sum`,\n);\n\ntoken_info = TokenInfo::Entity(\n    Some(\n        EntityPath::ModuleItem(\n            ModuleItemPath::Form(\n                FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),\n            ),\n        ),\n    ),\n    Some(\n        ModuleItem {\n            module_item_kind: Fugitive(\n                Val,\n            ),\n            connection: Connected,\n        },\n    ),\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -370,7 +370,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 84;\n\ntoken_line_group_idx = 14\n\ntoken = Token::Ident(\n    `ilen`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 84;\n\ntoken_line_group_idx = 14\n\ntoken = Token::Ident(\n    `ilen`,\n);\n\ntoken_info = TokenInfo::Method;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -520,7 +520,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 119;\n\ntoken_line_group_idx = 19\n\ntoken = Token::Ident(\n    `RawContour`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 119;\n\ntoken_line_group_idx = 19\n\ntoken = Token::Ident(\n    `RawContour`,\n);\n\ntoken_info = TokenInfo::Entity(\n    Some(\n        EntityPath::ModuleItem(\n            ModuleItemPath::Type(\n                TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),\n            ),\n        ),\n    ),\n    None,\n);\n\n\n",
                             },
                         ),
                         range: Some(

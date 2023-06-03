@@ -13,23 +13,18 @@ DiagnosticSheet {
         diagnostics: [],
     },
     decl_diagnostic_sheet: DeclDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Syntax Error: ExpectEqTokenForVariable",
-                severity: Error,
-                range: [3:39, 3:40),
-            },
-            Diagnostic {
-                message: "Syntax Error: ExpectEqTokenForVariable",
-                severity: Error,
-                range: [10:38, 10:39),
-            },
-        ],
+        diagnostics: [],
     },
     defn_diagnostic_sheet: DefnDiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "Type Error: cannot unveil",
+                severity: Error,
+                range: [21:5, 26:7),
+            },
+        ],
     },
 }

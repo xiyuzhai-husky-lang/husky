@@ -238,7 +238,7 @@
                             ),
                             resolve_progress: Resolved(
                                 Ok(
-                                    EqsRitchieCallType(
+                                    EqsFunctionCallType(
                                         ExpectEqsFunctionTypeOutcome {
                                             implicit_parameter_substitutions: [],
                                             return_ty: Category(

@@ -387,7 +387,7 @@ impl<'a> InferContext<'a> {
                     }
                 }
             }
-            Expr::FunctionCall { .. } => todo!(),
+            Expr::FunctionCall { .. } => (),
             Expr::Ritchie { .. } => (),
         }
     }
