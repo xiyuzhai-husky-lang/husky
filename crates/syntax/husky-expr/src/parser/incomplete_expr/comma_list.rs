@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
-pub(super) enum IncompleteListOpr {
+pub(in crate::parser) enum IncompleteCommaListOpr {
     NewTuple,
     Index {
         owner: ExprIdx,
@@ -12,7 +12,7 @@ pub(super) enum IncompleteListOpr {
     },
     NewLambdaHead,
     FunctionInstantiation {},
-    FunctionCall {
+    FunctionApplicationOrCall {
         function: ExprIdx,
     },
     RitchieArguments {
@@ -28,7 +28,7 @@ pub(super) enum IncompleteListOpr {
         dot_token_idx: TokenIdx,
         ident_token: IdentToken,
     },
-    MethodCall {
+    MethodApplicationOrCall {
         self_expr: ExprIdx,
         dot_token_idx: TokenIdx,
         ident_token: IdentToken,

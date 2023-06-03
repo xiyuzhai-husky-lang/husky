@@ -123,7 +123,7 @@ impl Expr {
                 rbox_token_idx,
             } => arena[owner].base_entity_path(db, arena),
             Expr::EmptyHtmlTag { .. } => BaseEntityPath::Err,
-            Expr::RitchieCall { .. } => todo!(),
+            Expr::FunctionCall { .. } => todo!(),
             Expr::Ritchie { .. } => todo!(),
         }
     }
@@ -264,13 +264,13 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 IncompleteExpr::ListItem {
                     separator_token_idx,
                 } => todo!(),
-                IncompleteExpr::List { bra_token_idx, .. } => {
+                IncompleteExpr::CommaList { bra_token_idx, .. } => {
                     self.stack.complete_expr = Some(Expr::Err(
                         OriginalExprError::UnterminatedList { bra_token_idx }.into(),
                     ))
                 }
                 IncompleteExpr::LambdaHead { inputs, start } => todo!(),
-                IncompleteExpr::RitchieCallKeyedArgumentList {
+                IncompleteExpr::CallList {
                     lpar_token_idx: bra_token_idx,
                     ..
                 } => {
@@ -319,29 +319,61 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         };
                         let argument = this.alloc_expr(argument);
                         match incomplete_expr {
-                            IncompleteExpr::List {
-                                opr: IncompleteListOpr::FunctionCall { function },
+                            IncompleteExpr::CommaList {
+                                opr: IncompleteCommaListOpr::FunctionApplicationOrCall { function },
                                 bra,
                                 bra_token_idx,
-                                items,
+                                mut items,
                                 commas,
-                            } => IncompleteExpr::RitchieCallKeyedArgumentList {
-                                function,
-                                implicit_arguments: /* ad hoc */ None,
-                                bra,
-                                lpar_token_idx: bra_token_idx,
-                                arguments: this.alloc_expr_batch(items),
-                                keyed_arguments: smallvec![KeyedArgumentExpr {
-                                    key_token_idx,
-                                    key,
-                                    argument
-                                }],
-                                commas,
+                            } => {
+                                debug_assert!(commas.len() <= items.len());
+                                debug_assert!(commas.len() + 1 >= items.len());
+                                let last_item_without_separator = if commas.len() < items.len() {
+                                    items.pop()
+                                } else {
+                                    None
+                                };
+                                let mut items: SmallVec<[_; 4]> =
+                                    std::iter::zip(items.into_iter(), commas.into_iter())
+                                        .map(|(item, comma_token_idx)| CallListItem {
+                                            kind: CallListItemKind::Argument,
+                                            separator: CallListSeparator::Comma(comma_token_idx),
+                                            argument: this.alloc_expr(item),
+                                        })
+                                        .collect();
+                                if let Some(last_item_without_separator) =
+                                    last_item_without_separator
+                                {
+                                    items.push(CallListItem {
+                                        kind: CallListItemKind::Argument,
+                                        separator: CallListSeparator::None,
+                                        argument: this.alloc_expr(last_item_without_separator),
+                                    })
+                                }
+                                IncompleteExpr::CallList {
+                                    opr: IncompleteCallListOpr::FunctionCall {
+                                    function,
+                                    implicit_arguments: /* ad hoc */ None,
+                                },
+                                    lpar_token_idx: bra_token_idx,
+                                    items,
+                                    // function,
+                                    // implicit_arguments: /* ad hoc */ None,
+                                    // bra,
+                                    // lpar_token_idx: bra_token_idx,
+                                    // arguments: this.alloc_expr_batch(items),
+                                    // keyed_arguments: smallvec![KeyedArgumentExpr {
+                                    //     key_token_idx,
+                                    //     key,
+                                    //     argument
+                                    // }],
+                                    // commas,
+                                }
+                                .into()
                             }
-                            .into(),
-                            IncompleteExpr::List {
+                            IncompleteExpr::CommaList {
                                 opr:
-                                    IncompleteListOpr::MethodCall {
+                                    IncompleteCommaListOpr::MethodApplicationOrCall {
                                         self_expr,
                                         dot_token_idx,
                                         ident_token,
@@ -352,18 +384,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                                 items,
                                 commas,
                             } => todo!(),
-                            IncompleteExpr::RitchieCallKeyedArgumentList { .. } => todo!(),
-                            IncompleteExpr::MethodRitchieCallKeyedArgumentList {
-                                self_expr,
-                                dot_token_idx,
-                                ident_token,
-                                implicit_arguments,
-                                bra,
-                                bra_token_idx,
-                                arguments,
-                                commas,
-                                keyed_arguments,
-                            } => todo!(),
+                            IncompleteExpr::CallList { .. } => todo!(),
                             _ => unreachable!(),
                         }
                     })
@@ -384,17 +405,6 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     //     ),
                     // })
                 }
-                IncompleteExpr::MethodRitchieCallKeyedArgumentList {
-                    self_expr,
-                    dot_token_idx,
-                    ident_token,
-                    implicit_arguments,
-                    bra,
-                    bra_token_idx,
-                    arguments,
-                    commas,
-                    keyed_arguments,
-                } => todo!(),
             }
         }
     }
@@ -417,17 +427,14 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
     pub(super) fn last_bra(&self) -> Option<Bracket> {
         for (unfinished_expr, _) in self.stack.incomplete_exprs.iter().rev() {
             match unfinished_expr {
-                IncompleteExpr::List {
+                IncompleteExpr::CommaList {
                     opr,
                     bra,
                     bra_token_idx,
                     items,
                     commas,
                 } => return Some(*bra),
-                IncompleteExpr::RitchieCallKeyedArgumentList { .. }
-                | IncompleteExpr::MethodRitchieCallKeyedArgumentList { .. } => {
-                    return Some(Bracket::Par)
-                }
+                IncompleteExpr::CallList { .. } => return Some(Bracket::Par),
                 _ => (),
             }
         }
@@ -438,7 +445,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         let mut bras = vec![];
         for (unfinished_expr, _) in self.stack.incomplete_exprs.iter().rev() {
             match unfinished_expr {
-                IncompleteExpr::List { bra, .. } => {
+                IncompleteExpr::CommaList { bra, .. } => {
                     bras.push(*bra);
                     if bras.len() >= 2 {
                         return bras;

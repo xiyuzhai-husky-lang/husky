@@ -1534,39 +1534,39 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                                Expr::RitchieCall {
+                                                Expr::FunctionCall {
                                                     function: 35,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
                                                         132,
                                                     ),
-                                                    arguments: ArenaIdxRange(
-                                                        40..43,
-                                                    ),
-                                                    commas: [
-                                                        TokenIdx(
-                                                            136,
-                                                        ),
-                                                        TokenIdx(
-                                                            140,
-                                                        ),
-                                                        TokenIdx(
-                                                            144,
-                                                        ),
-                                                    ],
-                                                    keyed_arguments: [
-                                                        KeyedArgumentExpr {
-                                                            key_token_idx: TokenIdx(
-                                                                145,
-                                                            ),
-                                                            key: Ident(
-                                                                Word(
-                                                                    Id {
-                                                                        value: 426,
-                                                                    },
+                                                    items: [
+                                                        CallListItem {
+                                                            kind: Argument,
+                                                            separator: Comma(
+                                                                TokenIdx(
+                                                                    136,
                                                                 ),
                                                             ),
-                                                            argument: 39,
+                                                            argument: 40,
+                                                        },
+                                                        CallListItem {
+                                                            kind: Argument,
+                                                            separator: Comma(
+                                                                TokenIdx(
+                                                                    140,
+                                                                ),
+                                                            ),
+                                                            argument: 41,
+                                                        },
+                                                        CallListItem {
+                                                            kind: Argument,
+                                                            separator: Comma(
+                                                                TokenIdx(
+                                                                    144,
+                                                                ),
+                                                            ),
+                                                            argument: 42,
                                                         },
                                                     ],
                                                     rpar_token_idx: TokenIdx(

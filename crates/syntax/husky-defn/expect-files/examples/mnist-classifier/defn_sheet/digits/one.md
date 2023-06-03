@@ -2638,36 +2638,30 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                                Expr::RitchieCall {
+                                                Expr::FunctionCall {
                                                     function: 193,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
                                                         433,
                                                     ),
-                                                    arguments: ArenaIdxRange(
-                                                        197..199,
-                                                    ),
-                                                    commas: [
-                                                        TokenIdx(
-                                                            437,
-                                                        ),
-                                                        TokenIdx(
-                                                            441,
-                                                        ),
-                                                    ],
-                                                    keyed_arguments: [
-                                                        KeyedArgumentExpr {
-                                                            key_token_idx: TokenIdx(
-                                                                442,
-                                                            ),
-                                                            key: Ident(
-                                                                Word(
-                                                                    Id {
-                                                                        value: 426,
-                                                                    },
+                                                    items: [
+                                                        CallListItem {
+                                                            kind: Argument,
+                                                            separator: Comma(
+                                                                TokenIdx(
+                                                                    437,
                                                                 ),
                                                             ),
-                                                            argument: 196,
+                                                            argument: 197,
+                                                        },
+                                                        CallListItem {
+                                                            kind: Argument,
+                                                            separator: Comma(
+                                                                TokenIdx(
+                                                                    441,
+                                                                ),
+                                                            ),
+                                                            argument: 198,
                                                         },
                                                     ],
                                                     rpar_token_idx: TokenIdx(

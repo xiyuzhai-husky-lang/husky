@@ -196,19 +196,17 @@ impl<'a> ExprTypeEngine<'a> {
                 implicit_arguments.as_ref(),
                 items,
             ),
-            Expr::RitchieCall {
+            Expr::FunctionCall {
                 function,
                 ref implicit_arguments,
-                arguments,
-                ref keyed_arguments,
+                ref items,
                 ..
             } => self.calc_ritchie_call_expr_ty(
                 expr_idx,
                 function,
                 expr_ty_expectation.final_destination(self),
                 implicit_arguments.as_ref(),
-                arguments,
-                keyed_arguments,
+                items,
             ),
             Expr::Field {
                 owner, ident_token, ..

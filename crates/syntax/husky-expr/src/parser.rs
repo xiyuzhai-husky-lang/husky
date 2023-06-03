@@ -6,13 +6,14 @@ mod disambiguate;
 mod env;
 mod expr_stack;
 mod incomplete_expr;
-mod list;
 mod root;
 
 pub use self::block::*;
 pub use self::env::*;
 pub use self::root::*;
 
+use self::incomplete_expr::*;
+use crate::symbol::*;
 use crate::*;
 use disambiguate::*;
 use expr_stack::*;
@@ -25,13 +26,10 @@ use husky_print_utils::p;
 use husky_token::Token;
 use husky_token::TokenStream;
 use husky_vfs::{ModulePath, Toolchain};
-use incomplete_expr::*;
-use list::*;
 use original_error::OriginalError;
 use parsec::{HasStreamState, StreamParser};
 use salsa::DebugWithDb;
 use std::ops::ControlFlow;
-use symbol::*;
 
 #[macro_use]
 macro_rules! report {
