@@ -43,3 +43,5 @@ impl FluffyTermRitchieParameterContractedType {
         self.ty
     }
 }
+
+pub struct FluffyTermRitchieVariadics {}

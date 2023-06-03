@@ -36,6 +36,8 @@ pub enum FluffyTermData<'a> {
     Ritchie {
         ritchie_kind: RitchieKind,
         parameter_contracted_tys: &'a [FluffyTermRitchieParameterContractedType],
+        variadics: (),
+        keyed_parameter_contracted_tys: (),
         return_ty: FluffyTerm,
     },
     PlaceHole {
@@ -271,6 +273,8 @@ impl<'a, _Db: EtherealTermDb + ?Sized> ::salsa::DebugWithDb<_Db> for FluffyTermD
                 ref ritchie_kind,
                 ref parameter_contracted_tys,
                 ref return_ty,
+                variadics,
+                keyed_parameter_contracted_tys,
             } => {
                 let mut debug_struct = &mut f.debug_struct("FluffyTermData::Ritchie");
                 debug_struct = debug_struct.field(
@@ -314,18 +318,57 @@ impl<'a, _Db: EtherealTermDb + ?Sized> ::salsa::DebugWithDb<_Db> for FluffyTermD
     }
 }
 
+#[derive(Debug, PartialEq, Eq)]
+pub struct TermRitchieFluffyData {
+    ritchie_kind: RitchieKind,
+    parameter_contracted_tys: SmallVec<[FluffyTermRitchieParameterContractedType; 2]>,
+    variadics: (),
+    keyed_parameter_contracted_tys: (),
+    return_ty: EtherealTerm,
+}
+
+impl TermRitchieFluffyData {
+    fn as_ref<'a>(&'a self) -> FluffyTermData<'a> {
+        FluffyTermData::Ritchie {
+            ritchie_kind: self.ritchie_kind,
+            parameter_contracted_tys: &self.parameter_contracted_tys,
+            variadics: (),
+            keyed_parameter_contracted_tys: (),
+            return_ty: todo!(),
+        }
+    }
+}
+
 #[salsa::tracked(jar = FluffyTermJar, return_ref)]
 pub(crate) fn term_ritchie_fluffy_data(
     db: &dyn FluffyTermDb,
     term: EtherealTermRitchie,
-) -> SmallVec<[FluffyTermRitchieParameterContractedType; 2]> {
-    term.parameter_contracted_tys(db)
-        .iter()
-        .copied()
-        .map(Into::into)
-        .collect()
+) -> TermRitchieFluffyData {
+    TermRitchieFluffyData {
+        ritchie_kind: term.ritchie_kind(db),
+        parameter_contracted_tys: term
+            .parameter_contracted_tys(db)
+            .iter()
+            .copied()
+            .map(Into::into)
+            .collect(),
+        variadics: (),
+        keyed_parameter_contracted_tys: (),
+        return_ty: term.return_ty(db),
+    }
 }
 
+#[derive(Debug, PartialEq, Eq)]
+pub(crate) enum TermApplicationFluffyData {
+    TypeOntology {
+        path: TypePath,
+        refined_path: Either<PreludeTypePath, CustomTypePath>,
+        arguments: SmallVec<[FluffyTerm; 2]>,
+        ty_ethereal_term: EtherealTerm,
+    },
+}
+
+/// can't directly return FluffyTermData<'_> because of lifetime
 #[salsa::tracked(jar = FluffyTermJar, return_ref)]
 pub(crate) fn term_application_fluffy_data(
     db: &dyn FluffyTermDb,
@@ -342,33 +385,26 @@ pub(crate) fn term_application_fluffy_data(
                 .copied()
                 .map(Into::into)
                 .collect(),
+            ty_ethereal_term: term.into(),
         },
         TermFunctionReduced::Trait(_) => todo!(),
         TermFunctionReduced::Other(_) => todo!(),
     }
 }
 
-#[derive(Debug, PartialEq, Eq)]
-pub(crate) enum TermApplicationFluffyData {
-    TypeOntology {
-        path: TypePath,
-        refined_path: Either<PreludeTypePath, CustomTypePath>,
-        arguments: SmallVec<[FluffyTerm; 2]>,
-    },
-}
-
 impl TermApplicationFluffyData {
-    fn to_fluffy<'a>(&'a self, ty_ethereal_term: EtherealTerm) -> FluffyTermData<'a> {
+    fn as_ref<'a>(&'a self) -> FluffyTermData<'a> {
         match self {
             TermApplicationFluffyData::TypeOntology {
                 path,
                 refined_path,
                 arguments,
+                ty_ethereal_term,
             } => FluffyTermData::TypeOntology {
                 path: *path,
                 refined_path: *refined_path,
                 arguments,
-                ty_ethereal_term: Some(ty_ethereal_term),
+                ty_ethereal_term: Some(*ty_ethereal_term),
             },
         }
     }

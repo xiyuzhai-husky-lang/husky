@@ -43,12 +43,12 @@ impl ExpectFluffyTerm for ExpectEqsRitchieType {
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::derive_debug_with_db(db = FluffyTermDb)]
 pub struct ExpectEqsRitchieTypeOutcome {
-    pub(crate) implicit_parameter_substitutions: SmallVec<[ImplicitParameterSubstitution; 2]>,
-    pub(crate) return_ty: FluffyTerm,
     pub(crate) ritchie_kind: RitchieKind,
-    pub(crate) parameter_contracted_tys: Vec<FluffyTermRitchieParameterContractedType>,
+    pub(crate) implicit_parameter_substitutions: SmallVec<[ImplicitParameterSubstitution; 2]>,
+    pub(crate) parameter_contracted_tys: SmallVec<[FluffyTermRitchieParameterContractedType; 2]>,
     pub(crate) keyed_parameter_contracted_tys:
         IdentPairMap<FluffyTermRitchieParameterContractedType>,
+    pub(crate) return_ty: FluffyTerm,
 }
 
 impl ExpectEqsRitchieTypeOutcome {
@@ -99,13 +99,14 @@ impl ExpectEqsRitchieType {
                 ritchie_kind,
                 parameter_contracted_tys,
                 return_ty,
+                ..
             } => Some(FluffyTermExpectationEffect {
                 result: Ok(ExpectEqsRitchieTypeOutcome {
-                    implicit_parameter_substitutions: smallvec![],
-                    return_ty,
                     ritchie_kind,
-                    parameter_contracted_tys: parameter_contracted_tys.to_vec(),
+                    implicit_parameter_substitutions: smallvec![],
+                    parameter_contracted_tys: parameter_contracted_tys.to_smallvec(),
                     keyed_parameter_contracted_tys: todo!(),
+                    return_ty,
                 }
                 .into()),
                 actions: smallvec![],

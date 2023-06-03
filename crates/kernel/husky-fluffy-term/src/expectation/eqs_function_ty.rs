@@ -112,6 +112,7 @@ impl ExpectEqsFunctionType {
                 ritchie_kind,
                 parameter_contracted_tys,
                 return_ty,
+                ..
             } => Some(FluffyTermExpectationEffect {
                 result: Ok(ExpectEqsFunctionTypeOutcome {
                     implicit_parameter_substitutions: smallvec![],
