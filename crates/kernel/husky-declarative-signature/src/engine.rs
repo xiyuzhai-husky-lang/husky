@@ -384,9 +384,9 @@ impl<'a> DeclarativeTermEngine<'a> {
                 dot_token_idx: _,
                 ident_token: _,
             } => todo!(),
-            Expr::MethodCall { .. } => todo!(),
+            Expr::MethodApplicationOrCall { .. } => todo!(),
             Expr::TemplateInstantiation { .. } => todo!(),
-            Expr::ExplicitApplicationOrRitchieCall {
+            Expr::FunctionApplicationOrCall {
                 function,
                 ref implicit_arguments,
                 items,

@@ -67,14 +67,14 @@ impl<'a> ExprTypeEngine<'a> {
                 opr: punctuation,
                 opr_token_idx: punctuation_token_idx,
             } => Err(todo!()),
-            Expr::ExplicitApplicationOrRitchieCall { .. } => Err(todo!()),
+            Expr::FunctionApplicationOrCall { .. } => Err(todo!()),
             Expr::FunctionCall { .. } => todo!(),
             Expr::Field {
                 owner,
                 dot_token_idx,
                 ident_token,
             } => Err(todo!()),
-            Expr::MethodCall { .. } => Err(todo!()),
+            Expr::MethodApplicationOrCall { .. } => Err(todo!()),
             Expr::TemplateInstantiation { .. } => Err(todo!()),
             Expr::ExplicitApplication { function, argument } => {
                 // todo: implicit arguments

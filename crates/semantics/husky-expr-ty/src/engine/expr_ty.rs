@@ -184,24 +184,26 @@ impl<'a> ExprTypeEngine<'a> {
             Expr::Suffix { opd, opr, .. } => {
                 self.calc_suffix_expr_ty(opd, opr, expr_ty_expectation.final_destination(self))
             }
-            Expr::ExplicitApplicationOrRitchieCall {
+            Expr::FunctionApplicationOrCall {
                 function,
                 ref implicit_arguments,
                 items,
+                ref commas,
                 ..
-            } => self.calc_explicit_application_or_ritchie_call_expr_ty(
+            } => self.calc_function_application_or_call_expr_ty(
                 expr_idx,
                 function,
                 expr_ty_expectation,
                 implicit_arguments.as_ref(),
                 items,
+                commas,
             ),
             Expr::FunctionCall {
                 function,
                 ref implicit_arguments,
                 ref items,
                 ..
-            } => self.calc_ritchie_call_expr_ty(
+            } => self.calc_function_call_expr_ty(
                 expr_idx,
                 function,
                 expr_ty_expectation.final_destination(self),
@@ -211,18 +213,20 @@ impl<'a> ExprTypeEngine<'a> {
             Expr::Field {
                 owner, ident_token, ..
             } => self.calc_field_expr_ty(owner, ident_token),
-            Expr::MethodCall {
+            Expr::MethodApplicationOrCall {
                 self_argument,
                 ident_token,
                 ref implicit_arguments,
-                nonself_arguments,
+                items: nonself_arguments,
+                ref commas,
                 ..
-            } => self.calc_method_expr_ty(
+            } => self.calc_method_application_or_call_ty(
                 expr_idx,
                 self_argument,
                 ident_token,
                 implicit_arguments.as_ref(),
                 nonself_arguments,
+                commas,
             ),
             Expr::TemplateInstantiation {
                 template,

@@ -6,8 +6,15 @@ use husky_term_prelude::Contract;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct ExplicitParameterEtherealSignatureTemplate {
+    kind: ExplicitParameterKindTemplate,
     contract: Contract,
     ty: EtherealTerm,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+pub enum ExplicitParameterKindTemplate {
+    Regular,
+    Keyed { ident: Ident },
 }
 
 impl ExplicitParameterEtherealSignatureTemplate {
@@ -16,6 +23,7 @@ impl ExplicitParameterEtherealSignatureTemplate {
         declarative_signature: &ExplicitParameterDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {
         Ok(Self {
+            kind: ExplicitParameterKindTemplate::Regular,
             contract: declarative_signature.contract(),
             ty: EtherealTerm::ty_from_declarative(db, declarative_signature.ty())?,
         })
@@ -27,6 +35,10 @@ impl ExplicitParameterEtherealSignatureTemplate {
 
     pub fn ty(&self) -> EtherealTerm {
         self.ty
+    }
+
+    pub fn kind(&self) -> ExplicitParameterKindTemplate {
+        self.kind
     }
 }
 

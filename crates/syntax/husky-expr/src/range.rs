@@ -252,7 +252,7 @@ impl<'a> ExprRangeCalculator<'a> {
                 opr,
                 opr_token_idx,
             } => self[opd].to(TokenIdxRangeEnd::new_after(*opr_token_idx)),
-            Expr::ExplicitApplicationOrRitchieCall {
+            Expr::FunctionApplicationOrCall {
                 function: first_expr,
                 rpar_token_idx,
                 ..
@@ -262,7 +262,7 @@ impl<'a> ExprRangeCalculator<'a> {
                 rpar_token_idx,
                 ..
             }
-            | Expr::MethodCall {
+            | Expr::MethodApplicationOrCall {
                 self_argument: first_expr,
                 rpar_token_idx,
                 ..

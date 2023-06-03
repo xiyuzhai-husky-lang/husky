@@ -1,10 +1,20 @@
 use super::*;
-use husky_ethereal_signature::ExplicitParameterEtherealSignatureTemplate;
+use husky_ethereal_signature::{
+    ExplicitParameterEtherealSignatureTemplate, ExplicitParameterKindTemplate,
+};
+use husky_word::Ident;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct FluffyTermRitchieParameterContractedType {
+    kind: FluffyExplicitParameterKind,
     contract: Contract,
     ty: FluffyTerm,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum FluffyExplicitParameterKind {
+    Regular,
+    Keyed { ident: Ident },
 }
 
 impl From<TermRitchieParameterContractedType> for FluffyTermRitchieParameterContractedType {
@@ -12,6 +22,7 @@ impl From<TermRitchieParameterContractedType> for FluffyTermRitchieParameterCont
         Self {
             contract: contracted_ty.contract(),
             ty: contracted_ty.ty().into(),
+            kind: FluffyExplicitParameterKind::Regular,
         }
     }
 }
@@ -25,6 +36,20 @@ impl Instantiator {
         FluffyTermRitchieParameterContractedType {
             contract: explicit_parameter.contract(),
             ty: self.instantiate_term(engine, explicit_parameter.ty()),
+            kind: self.instantiate_explicit_parameter_kind(explicit_parameter.kind()),
+        }
+    }
+
+    #[inline(always)]
+    fn instantiate_explicit_parameter_kind(
+        &self,
+        kind: ExplicitParameterKindTemplate,
+    ) -> FluffyExplicitParameterKind {
+        match kind {
+            ExplicitParameterKindTemplate::Regular => FluffyExplicitParameterKind::Regular,
+            ExplicitParameterKindTemplate::Keyed { ident } => {
+                FluffyExplicitParameterKind::Keyed { ident }
+            }
         }
     }
 }
@@ -32,7 +57,15 @@ impl Instantiator {
 impl FluffyTermRitchieParameterContractedType {
     #[inline(always)]
     pub fn new(contract: Contract, ty: FluffyTerm) -> Self {
-        Self { contract, ty }
+        Self {
+            kind: FluffyExplicitParameterKind::Regular,
+            contract,
+            ty,
+        }
+    }
+
+    pub fn kind(&self) -> FluffyExplicitParameterKind {
+        self.kind
     }
 
     pub fn contract(self) -> Contract {

@@ -2288,7 +2288,7 @@ Ok(
                                                         ),
                                                         ropd: 10,
                                                     },
-                                                    Expr::ExplicitApplicationOrRitchieCall {
+                                                    Expr::FunctionApplicationOrCall {
                                                         function: 0,
                                                         implicit_arguments: None,
                                                         lpar_token_idx: TokenIdx(
@@ -2957,7 +2957,7 @@ Ok(
                                                             ),
                                                         },
                                                     },
-                                                    Expr::ExplicitApplicationOrRitchieCall {
+                                                    Expr::FunctionApplicationOrCall {
                                                         function: 0,
                                                         implicit_arguments: None,
                                                         lpar_token_idx: TokenIdx(
@@ -3810,7 +3810,7 @@ Ok(
                                                         ),
                                                         ropd: 8,
                                                     },
-                                                    Expr::ExplicitApplicationOrRitchieCall {
+                                                    Expr::FunctionApplicationOrCall {
                                                         function: 0,
                                                         implicit_arguments: None,
                                                         lpar_token_idx: TokenIdx(
@@ -4511,7 +4511,7 @@ Ok(
                                                             117,
                                                         ),
                                                     },
-                                                    Expr::MethodCall {
+                                                    Expr::MethodApplicationOrCall {
                                                         self_argument: 11,
                                                         dot_token_idx: TokenIdx(
                                                             118,
@@ -4526,9 +4526,10 @@ Ok(
                                                         lpar_token_idx: TokenIdx(
                                                             120,
                                                         ),
-                                                        nonself_arguments: ArenaIdxRange(
+                                                        items: ArenaIdxRange(
                                                             12..12,
                                                         ),
+                                                        commas: [],
                                                         rpar_token_idx: TokenIdx(
                                                             121,
                                                         ),
@@ -5263,7 +5264,7 @@ Ok(
                                                             ident: `other`,
                                                         },
                                                     },
-                                                    Expr::MethodCall {
+                                                    Expr::MethodApplicationOrCall {
                                                         self_argument: 0,
                                                         dot_token_idx: TokenIdx(
                                                             133,
@@ -5278,14 +5279,15 @@ Ok(
                                                         lpar_token_idx: TokenIdx(
                                                             135,
                                                         ),
-                                                        nonself_arguments: ArenaIdxRange(
+                                                        items: ArenaIdxRange(
                                                             1..2,
                                                         ),
+                                                        commas: [],
                                                         rpar_token_idx: TokenIdx(
                                                             137,
                                                         ),
                                                     },
-                                                    Expr::MethodCall {
+                                                    Expr::MethodApplicationOrCall {
                                                         self_argument: 2,
                                                         dot_token_idx: TokenIdx(
                                                             138,
@@ -5300,9 +5302,10 @@ Ok(
                                                         lpar_token_idx: TokenIdx(
                                                             140,
                                                         ),
-                                                        nonself_arguments: ArenaIdxRange(
+                                                        items: ArenaIdxRange(
                                                             3..3,
                                                         ),
+                                                        commas: [],
                                                         rpar_token_idx: TokenIdx(
                                                             141,
                                                         ),
@@ -6051,7 +6054,7 @@ Ok(
                                                             ),
                                                         },
                                                     },
-                                                    Expr::ExplicitApplicationOrRitchieCall {
+                                                    Expr::FunctionApplicationOrCall {
                                                         function: 0,
                                                         implicit_arguments: None,
                                                         lpar_token_idx: TokenIdx(
@@ -6902,7 +6905,7 @@ Ok(
                                                         ),
                                                         ropd: 8,
                                                     },
-                                                    Expr::ExplicitApplicationOrRitchieCall {
+                                                    Expr::FunctionApplicationOrCall {
                                                         function: 0,
                                                         implicit_arguments: None,
                                                         lpar_token_idx: TokenIdx(
@@ -7603,7 +7606,7 @@ Ok(
                                                             241,
                                                         ),
                                                     },
-                                                    Expr::MethodCall {
+                                                    Expr::MethodApplicationOrCall {
                                                         self_argument: 11,
                                                         dot_token_idx: TokenIdx(
                                                             242,
@@ -7618,9 +7621,10 @@ Ok(
                                                         lpar_token_idx: TokenIdx(
                                                             244,
                                                         ),
-                                                        nonself_arguments: ArenaIdxRange(
+                                                        items: ArenaIdxRange(
                                                             12..12,
                                                         ),
+                                                        commas: [],
                                                         rpar_token_idx: TokenIdx(
                                                             245,
                                                         ),
@@ -10028,7 +10032,7 @@ Ok(
                                                             ),
                                                         },
                                                     },
-                                                    Expr::MethodCall {
+                                                    Expr::MethodApplicationOrCall {
                                                         self_argument: 1,
                                                         dot_token_idx: TokenIdx(
                                                             315,
@@ -10043,9 +10047,10 @@ Ok(
                                                         lpar_token_idx: TokenIdx(
                                                             317,
                                                         ),
-                                                        nonself_arguments: ArenaIdxRange(
+                                                        items: ArenaIdxRange(
                                                             2..2,
                                                         ),
+                                                        commas: [],
                                                         rpar_token_idx: TokenIdx(
                                                             318,
                                                         ),
@@ -10077,7 +10082,7 @@ Ok(
                                                             Unspecified,
                                                         ),
                                                     ),
-                                                    Expr::MethodCall {
+                                                    Expr::MethodApplicationOrCall {
                                                         self_argument: 5,
                                                         dot_token_idx: TokenIdx(
                                                             320,
@@ -10092,9 +10097,10 @@ Ok(
                                                         lpar_token_idx: TokenIdx(
                                                             322,
                                                         ),
-                                                        nonself_arguments: ArenaIdxRange(
+                                                        items: ArenaIdxRange(
                                                             6..7,
                                                         ),
+                                                        commas: [],
                                                         rpar_token_idx: TokenIdx(
                                                             324,
                                                         ),
@@ -10195,7 +10201,7 @@ Ok(
                                                             ),
                                                         },
                                                     },
-                                                    Expr::MethodCall {
+                                                    Expr::MethodApplicationOrCall {
                                                         self_argument: 18,
                                                         dot_token_idx: TokenIdx(
                                                             346,
@@ -10210,9 +10216,10 @@ Ok(
                                                         lpar_token_idx: TokenIdx(
                                                             348,
                                                         ),
-                                                        nonself_arguments: ArenaIdxRange(
+                                                        items: ArenaIdxRange(
                                                             19..19,
                                                         ),
+                                                        commas: [],
                                                         rpar_token_idx: TokenIdx(
                                                             349,
                                                         ),
@@ -10261,7 +10268,7 @@ Ok(
                                                             352,
                                                         ),
                                                     },
-                                                    Expr::MethodCall {
+                                                    Expr::MethodApplicationOrCall {
                                                         self_argument: 23,
                                                         dot_token_idx: TokenIdx(
                                                             357,
@@ -10276,9 +10283,10 @@ Ok(
                                                         lpar_token_idx: TokenIdx(
                                                             359,
                                                         ),
-                                                        nonself_arguments: ArenaIdxRange(
+                                                        items: ArenaIdxRange(
                                                             24..24,
                                                         ),
+                                                        commas: [],
                                                         rpar_token_idx: TokenIdx(
                                                             360,
                                                         ),
@@ -11271,7 +11279,7 @@ Ok(
                                                             ident: `other`,
                                                         },
                                                     },
-                                                    Expr::MethodCall {
+                                                    Expr::MethodApplicationOrCall {
                                                         self_argument: 0,
                                                         dot_token_idx: TokenIdx(
                                                             376,
@@ -11286,14 +11294,15 @@ Ok(
                                                         lpar_token_idx: TokenIdx(
                                                             378,
                                                         ),
-                                                        nonself_arguments: ArenaIdxRange(
+                                                        items: ArenaIdxRange(
                                                             1..2,
                                                         ),
+                                                        commas: [],
                                                         rpar_token_idx: TokenIdx(
                                                             380,
                                                         ),
                                                     },
-                                                    Expr::MethodCall {
+                                                    Expr::MethodApplicationOrCall {
                                                         self_argument: 2,
                                                         dot_token_idx: TokenIdx(
                                                             381,
@@ -11308,9 +11317,10 @@ Ok(
                                                         lpar_token_idx: TokenIdx(
                                                             383,
                                                         ),
-                                                        nonself_arguments: ArenaIdxRange(
+                                                        items: ArenaIdxRange(
                                                             3..3,
                                                         ),
+                                                        commas: [],
                                                         rpar_token_idx: TokenIdx(
                                                             384,
                                                         ),
@@ -12195,7 +12205,7 @@ Ok(
                                                             402,
                                                         ),
                                                     ),
-                                                    Expr::MethodCall {
+                                                    Expr::MethodApplicationOrCall {
                                                         self_argument: 0,
                                                         dot_token_idx: TokenIdx(
                                                             403,
@@ -12210,9 +12220,10 @@ Ok(
                                                         lpar_token_idx: TokenIdx(
                                                             405,
                                                         ),
-                                                        nonself_arguments: ArenaIdxRange(
+                                                        items: ArenaIdxRange(
                                                             1..1,
                                                         ),
+                                                        commas: [],
                                                         rpar_token_idx: TokenIdx(
                                                             406,
                                                         ),
@@ -12255,7 +12266,7 @@ Ok(
                                                             ident: `other`,
                                                         },
                                                     },
-                                                    Expr::MethodCall {
+                                                    Expr::MethodApplicationOrCall {
                                                         self_argument: 5,
                                                         dot_token_idx: TokenIdx(
                                                             415,
@@ -12270,9 +12281,10 @@ Ok(
                                                         lpar_token_idx: TokenIdx(
                                                             417,
                                                         ),
-                                                        nonself_arguments: ArenaIdxRange(
+                                                        items: ArenaIdxRange(
                                                             6..6,
                                                         ),
+                                                        commas: [],
                                                         rpar_token_idx: TokenIdx(
                                                             418,
                                                         ),
@@ -12350,7 +12362,7 @@ Ok(
                                                         ),
                                                         ropd: 13,
                                                     },
-                                                    Expr::MethodCall {
+                                                    Expr::MethodApplicationOrCall {
                                                         self_argument: 10,
                                                         dot_token_idx: TokenIdx(
                                                             428,
@@ -12365,9 +12377,10 @@ Ok(
                                                         lpar_token_idx: TokenIdx(
                                                             430,
                                                         ),
-                                                        nonself_arguments: ArenaIdxRange(
+                                                        items: ArenaIdxRange(
                                                             11..12,
                                                         ),
+                                                        commas: [],
                                                         rpar_token_idx: TokenIdx(
                                                             432,
                                                         ),
@@ -12408,7 +12421,7 @@ Ok(
                                                             Unspecified,
                                                         ),
                                                     ),
-                                                    Expr::MethodCall {
+                                                    Expr::MethodApplicationOrCall {
                                                         self_argument: 18,
                                                         dot_token_idx: TokenIdx(
                                                             440,
@@ -12423,9 +12436,10 @@ Ok(
                                                         lpar_token_idx: TokenIdx(
                                                             442,
                                                         ),
-                                                        nonself_arguments: ArenaIdxRange(
+                                                        items: ArenaIdxRange(
                                                             19..20,
                                                         ),
+                                                        commas: [],
                                                         rpar_token_idx: TokenIdx(
                                                             444,
                                                         ),
@@ -12524,7 +12538,7 @@ Ok(
                                                             ident: `other`,
                                                         },
                                                     },
-                                                    Expr::MethodCall {
+                                                    Expr::MethodApplicationOrCall {
                                                         self_argument: 30,
                                                         dot_token_idx: TokenIdx(
                                                             467,
@@ -12539,9 +12553,10 @@ Ok(
                                                         lpar_token_idx: TokenIdx(
                                                             469,
                                                         ),
-                                                        nonself_arguments: ArenaIdxRange(
+                                                        items: ArenaIdxRange(
                                                             31..32,
                                                         ),
+                                                        commas: [],
                                                         rpar_token_idx: TokenIdx(
                                                             471,
                                                         ),
@@ -12583,7 +12598,7 @@ Ok(
                                                             474,
                                                         ),
                                                     },
-                                                    Expr::MethodCall {
+                                                    Expr::MethodApplicationOrCall {
                                                         self_argument: 35,
                                                         dot_token_idx: TokenIdx(
                                                             477,
@@ -12598,9 +12613,10 @@ Ok(
                                                         lpar_token_idx: TokenIdx(
                                                             479,
                                                         ),
-                                                        nonself_arguments: ArenaIdxRange(
+                                                        items: ArenaIdxRange(
                                                             36..36,
                                                         ),
+                                                        commas: [],
                                                         rpar_token_idx: TokenIdx(
                                                             480,
                                                         ),
@@ -14240,7 +14256,7 @@ Ok(
                                                             pattern_symbol_idx: 2,
                                                         },
                                                     },
-                                                    Expr::ExplicitApplicationOrRitchieCall {
+                                                    Expr::FunctionApplicationOrCall {
                                                         function: 26,
                                                         implicit_arguments: None,
                                                         lpar_token_idx: TokenIdx(
@@ -16361,7 +16377,7 @@ Ok(
                                                             ),
                                                         },
                                                     },
-                                                    Expr::MethodCall {
+                                                    Expr::MethodApplicationOrCall {
                                                         self_argument: 2,
                                                         dot_token_idx: TokenIdx(
                                                             627,
@@ -16376,14 +16392,15 @@ Ok(
                                                         lpar_token_idx: TokenIdx(
                                                             629,
                                                         ),
-                                                        nonself_arguments: ArenaIdxRange(
+                                                        items: ArenaIdxRange(
                                                             4..5,
                                                         ),
+                                                        commas: [],
                                                         rpar_token_idx: TokenIdx(
                                                             633,
                                                         ),
                                                     },
-                                                    Expr::MethodCall {
+                                                    Expr::MethodApplicationOrCall {
                                                         self_argument: 6,
                                                         dot_token_idx: TokenIdx(
                                                             638,
@@ -16398,14 +16415,15 @@ Ok(
                                                         lpar_token_idx: TokenIdx(
                                                             640,
                                                         ),
-                                                        nonself_arguments: ArenaIdxRange(
+                                                        items: ArenaIdxRange(
                                                             8..9,
                                                         ),
+                                                        commas: [],
                                                         rpar_token_idx: TokenIdx(
                                                             644,
                                                         ),
                                                     },
-                                                    Expr::ExplicitApplicationOrRitchieCall {
+                                                    Expr::FunctionApplicationOrCall {
                                                         function: 0,
                                                         implicit_arguments: None,
                                                         lpar_token_idx: TokenIdx(
@@ -17251,7 +17269,7 @@ Ok(
                                                             ),
                                                         },
                                                     },
-                                                    Expr::MethodCall {
+                                                    Expr::MethodApplicationOrCall {
                                                         self_argument: 2,
                                                         dot_token_idx: TokenIdx(
                                                             662,
@@ -17266,14 +17284,15 @@ Ok(
                                                         lpar_token_idx: TokenIdx(
                                                             664,
                                                         ),
-                                                        nonself_arguments: ArenaIdxRange(
+                                                        items: ArenaIdxRange(
                                                             4..5,
                                                         ),
+                                                        commas: [],
                                                         rpar_token_idx: TokenIdx(
                                                             668,
                                                         ),
                                                     },
-                                                    Expr::MethodCall {
+                                                    Expr::MethodApplicationOrCall {
                                                         self_argument: 6,
                                                         dot_token_idx: TokenIdx(
                                                             673,
@@ -17288,14 +17307,15 @@ Ok(
                                                         lpar_token_idx: TokenIdx(
                                                             675,
                                                         ),
-                                                        nonself_arguments: ArenaIdxRange(
+                                                        items: ArenaIdxRange(
                                                             8..9,
                                                         ),
+                                                        commas: [],
                                                         rpar_token_idx: TokenIdx(
                                                             679,
                                                         ),
                                                     },
-                                                    Expr::ExplicitApplicationOrRitchieCall {
+                                                    Expr::FunctionApplicationOrCall {
                                                         function: 0,
                                                         implicit_arguments: None,
                                                         lpar_token_idx: TokenIdx(
