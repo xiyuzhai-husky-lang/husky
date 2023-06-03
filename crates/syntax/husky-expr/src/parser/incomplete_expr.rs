@@ -1,3 +1,9 @@
+mod call_list;
+mod comma_list;
+
+pub(crate) use self::call_list::*;
+pub(crate) use self::comma_list::*;
+
 use parsec::ParseFromStream;
 use smallvec::SmallVec;
 
@@ -17,8 +23,8 @@ pub(super) enum IncompleteExpr {
         punctuation: PrefixOpr,
         punctuation_token_idx: TokenIdx,
     },
-    List {
-        opr: IncompleteListOpr,
+    CommaList {
+        opr: IncompleteCommaListOpr,
         // todo: move this into opr
         bra: Bracket,
         // todo: move this into opr
@@ -28,29 +34,10 @@ pub(super) enum IncompleteExpr {
         // todo: use SmallVec
         commas: Commas,
     },
-    RitchieCallKeyedArgumentList {
-        function: ExprIdx,
-        implicit_arguments: Option<ImplicitArgumentList>,
-        bra: Bracket,
+    CallList {
+        opr: IncompleteCallListOpr,
         lpar_token_idx: TokenIdx,
-        // todo: use SmallVec
-        arguments: ExprIdxRange,
-        // todo: use SmallVec
-        keyed_arguments: SmallVec<[KeyedArgumentExpr; 2]>,
-        commas: Commas,
-    },
-    MethodRitchieCallKeyedArgumentList {
-        self_expr: ExprIdx,
-        dot_token_idx: TokenIdx,
-        ident_token: IdentToken,
-        implicit_arguments: Option<ImplicitArgumentList>,
-        bra: Bracket,
-        bra_token_idx: TokenIdx,
-        // todo: use SmallVec
-        arguments: ExprIdxRange,
-        // todo: use SmallVec
-        commas: Commas,
-        keyed_arguments: SmallVec<[KeyedArgumentExpr; 2]>,
+        items: SmallVec<[CallListItem; 4]>,
     },
     LambdaHead {
         // todo: use SmallVec
@@ -115,9 +102,8 @@ impl IncompleteExpr {
             IncompleteExpr::Binary { punctuation, .. } => (*punctuation).into(),
             IncompleteExpr::Prefix { .. } => Precedence::Prefix,
             IncompleteExpr::ListItem { .. }
-            | IncompleteExpr::List { .. }
-            | IncompleteExpr::RitchieCallKeyedArgumentList { .. }
-            | IncompleteExpr::MethodRitchieCallKeyedArgumentList { .. } => Precedence::None,
+            | IncompleteExpr::CommaList { .. }
+            | IncompleteExpr::CallList { .. } => Precedence::None,
             IncompleteExpr::LambdaHead { .. } => Precedence::LambdaHead,
             IncompleteExpr::Application { .. } => Precedence::Application,
             IncompleteExpr::Ritchie { .. } => Precedence::Curry,

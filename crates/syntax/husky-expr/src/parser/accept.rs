@@ -33,7 +33,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         self.reduce(Precedence::ListItem);
         let last_incomplete_expr = self.take_last_incomplete_expr().unwrap();
         match last_incomplete_expr {
-            IncompleteExpr::List {
+            IncompleteExpr::CommaList {
                 opr,
                 bra,
                 bra_token_idx,
@@ -49,7 +49,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     }
                     let items = this.alloc_expr_batch(items);
                     match opr {
-                        IncompleteListOpr::NewTuple => match (items.len(), commas.len()) {
+                        IncompleteCommaListOpr::NewTuple => match (items.len(), commas.len()) {
                             (0, 0) => Expr::Unit {
                                 lpar_token_idx: bra_token_idx,
                                 rpar_token_idx: ket_token_idx,
@@ -67,28 +67,32 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             },
                         }
                         .into(),
-                        IncompleteListOpr::Index { owner } => Expr::IndexOrCompositionWithList {
-                            owner,
+                        IncompleteCommaListOpr::Index { owner } => {
+                            Expr::IndexOrCompositionWithList {
+                                owner,
+                                lbox_token_idx: bra_token_idx,
+                                items,
+                                rbox_token_idx: ket_token_idx,
+                            }
+                            .into()
+                        }
+                        IncompleteCommaListOpr::BoxList => Expr::List {
                             lbox_token_idx: bra_token_idx,
                             items,
                             rbox_token_idx: ket_token_idx,
                         }
                         .into(),
-                        IncompleteListOpr::BoxList => Expr::List {
-                            lbox_token_idx: bra_token_idx,
-                            items,
-                            rbox_token_idx: ket_token_idx,
+                        IncompleteCommaListOpr::BoxColonList { colon_token_idx } => {
+                            Expr::BoxColonList {
+                                lbox_token_idx: bra_token_idx,
+                                colon_token_idx,
+                                items,
+                                rbox_token_idx: ket_token_idx,
+                            }
+                            .into()
                         }
-                        .into(),
-                        IncompleteListOpr::BoxColonList { colon_token_idx } => Expr::BoxColonList {
-                            lbox_token_idx: bra_token_idx,
-                            colon_token_idx,
-                            items,
-                            rbox_token_idx: ket_token_idx,
-                        }
-                        .into(),
-                        IncompleteListOpr::NewLambdaHead => todo!(),
-                        IncompleteListOpr::FunctionCall { function } => {
+                        IncompleteCommaListOpr::NewLambdaHead => todo!(),
+                        IncompleteCommaListOpr::FunctionApplicationOrCall { function } => {
                             // ad hoc
                             let implicit_arguments: Option<ImplicitArgumentList> = None;
                             Expr::ExplicitApplicationOrRitchieCall {
@@ -101,8 +105,8 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             }
                             .into()
                         }
-                        IncompleteListOpr::MethodInstantiation { .. } => todo!(),
-                        IncompleteListOpr::MethodCall {
+                        IncompleteCommaListOpr::MethodInstantiation { .. } => todo!(),
+                        IncompleteCommaListOpr::MethodApplicationOrCall {
                             self_expr,
                             dot_token_idx,
                             ident_token,
@@ -117,7 +121,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             rpar_token_idx: ket_token_idx,
                         }
                         .into(),
-                        IncompleteListOpr::TemplateInstantiation { template } => {
+                        IncompleteCommaListOpr::TemplateInstantiation { template } => {
                             Expr::TemplateInstantiation {
                                 template,
                                 implicit_arguments: ImplicitArgumentList::new(
@@ -129,8 +133,8 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             }
                             .into()
                         }
-                        IncompleteListOpr::FunctionInstantiation {} => todo!(),
-                        IncompleteListOpr::RitchieArguments {
+                        IncompleteCommaListOpr::FunctionInstantiation {} => todo!(),
+                        IncompleteCommaListOpr::RitchieArguments {
                             ritchie_kind_token_idx,
                             ritchie_kind,
                             lpar_token,
@@ -151,44 +155,56 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     }
                 })
             }
-            IncompleteExpr::RitchieCallKeyedArgumentList {
-                function,
-                implicit_arguments,
-                bra,
+            IncompleteExpr::CallList {
+                opr,
                 lpar_token_idx,
-                arguments,
-                keyed_arguments,
-                commas,
-            } => {
-                if ket != Bracket::Par {
-                    todo!()
-                }
-                self.set_complete_expr(Expr::RitchieCall {
+                items,
+            } => match opr {
+                IncompleteCallListOpr::FunctionCall {
+                    function,
+                    implicit_arguments,
+                } => self.set_complete_expr(Expr::FunctionCall {
                     function,
                     implicit_arguments,
                     lpar_token_idx,
-                    arguments,
-                    commas,
-                    keyed_arguments,
+                    items,
                     rpar_token_idx: ket_token_idx,
-                })
-            }
-            IncompleteExpr::MethodRitchieCallKeyedArgumentList {
-                self_expr,
-                dot_token_idx,
-                ident_token,
-                implicit_arguments,
-                bra,
-                bra_token_idx,
-                arguments,
-                commas,
-                keyed_arguments,
-            } => {
-                if ket != Bracket::Par {
-                    todo!()
-                }
-                todo!()
-            }
+                }),
+                IncompleteCallListOpr::MethodCall {
+                    self_expr,
+                    dot_token_idx,
+                    ident_token,
+                    implicit_arguments,
+                } => todo!(),
+            },
+            // IncompleteExpr::RitchieCallKeyedArgumentList {
+            //     function,
+            //     implicit_arguments,
+            //     bra,
+            //     lpar_token_idx,
+            //     arguments,
+            //     keyed_arguments,
+            //     commas,
+            // } => {
+            //     if ket != Bracket::Par {
+            //         todo!()
+            //     }
+            // IncompleteExpr::MethodRitchieCallKeyedArgumentList {
+            //     self_expr,
+            //     dot_token_idx,
+            //     ident_token,
+            //     implicit_arguments,
+            //     bra,
+            //     bra_token_idx,
+            //     arguments,
+            //     commas,
+            //     keyed_arguments,
+            // } => {
+            //     if ket != Bracket::Par {
+            //         todo!()
+            //     }
+            //     todo!()
+            // }
             _ => {
                 p!(last_incomplete_expr);
                 p!(self.parser.path.debug(self.db()));
@@ -230,8 +246,8 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 let self_expr = this.alloc_expr(self_expr);
                 match this.parse::<IdentToken>() {
                     Ok(Some(ident_token)) => match this.parse::<LeftParenthesisToken>() {
-                        Ok(Some(lpar)) => IncompleteExpr::List {
-                            opr: IncompleteListOpr::MethodCall {
+                        Ok(Some(lpar)) => IncompleteExpr::CommaList {
+                            opr: IncompleteCommaListOpr::MethodApplicationOrCall {
                                 self_expr,
                                 dot_token_idx,
                                 ident_token,
@@ -244,8 +260,8 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         }
                         .into(),
                         Ok(None) => match this.parse::<ColonColonLeftAngleBracketToken>() {
-                            Ok(Some(langle)) => IncompleteExpr::List {
-                                opr: IncompleteListOpr::MethodInstantiation {
+                            Ok(Some(langle)) => IncompleteExpr::CommaList {
+                                opr: IncompleteCommaListOpr::MethodInstantiation {
                                     self_expr,
                                     dot_token_idx,
                                     ident_token,
@@ -287,7 +303,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         ));
         match self.last_incomplete_expr_mut() {
             Some(expr) => match expr {
-                IncompleteExpr::List {
+                IncompleteExpr::CommaList {
                     opr,
                     bra,
                     bra_token_idx,
@@ -297,8 +313,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     items.push(item);
                     commas.push(comma_token_idx)
                 }
-                IncompleteExpr::RitchieCallKeyedArgumentList { .. } => todo!(),
-                IncompleteExpr::MethodRitchieCallKeyedArgumentList { .. } => todo!(),
+                IncompleteExpr::CallList { .. } => todo!(),
                 _ => unreachable!(),
             },
             None => unreachable!(),
@@ -345,8 +360,8 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         assert!(self.complete_expr().is_none());
         let unfinished_expr = self.take_last_incomplete_expr().unwrap();
         match unfinished_expr {
-            IncompleteExpr::List {
-                opr: IncompleteListOpr::BoxList,
+            IncompleteExpr::CommaList {
+                opr: IncompleteCommaListOpr::BoxList,
                 bra,
                 bra_token_idx,
                 items,
@@ -354,8 +369,8 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             } => {
                 assert!(items.is_empty());
                 self.push_top_expr(
-                    IncompleteExpr::List {
-                        opr: IncompleteListOpr::BoxColonList { colon_token_idx },
+                    IncompleteExpr::CommaList {
+                        opr: IncompleteCommaListOpr::BoxColonList { colon_token_idx },
                         bra,
                         bra_token_idx,
                         items,
@@ -373,16 +388,16 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             let finished_expr = finished_expr.map(|expr| parser.alloc_expr(expr));
             match bra {
                 Bracket::Par => match finished_expr {
-                    Some(function) => IncompleteExpr::List {
-                        opr: IncompleteListOpr::FunctionCall { function },
+                    Some(function) => IncompleteExpr::CommaList {
+                        opr: IncompleteCommaListOpr::FunctionApplicationOrCall { function },
                         bra,
                         bra_token_idx,
                         items: vec![],
                         commas: smallvec![],
                     }
                     .into(),
-                    None => IncompleteExpr::List {
-                        opr: IncompleteListOpr::NewTuple,
+                    None => IncompleteExpr::CommaList {
+                        opr: IncompleteCommaListOpr::NewTuple,
                         bra,
                         bra_token_idx,
                         items: vec![],
@@ -390,12 +405,12 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     }
                     .into(),
                 },
-                Bracket::Box => IncompleteExpr::List {
+                Bracket::Box => IncompleteExpr::CommaList {
                     opr: match finished_expr {
-                        Some(finished_expr) => IncompleteListOpr::Index {
+                        Some(finished_expr) => IncompleteCommaListOpr::Index {
                             owner: finished_expr,
                         },
-                        None => IncompleteListOpr::BoxList,
+                        None => IncompleteCommaListOpr::BoxList,
                     },
                     bra,
                     bra_token_idx,
@@ -404,8 +419,8 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 }
                 .into(),
                 Bracket::TemplateAngle => match finished_expr {
-                    Some(template) => IncompleteExpr::List {
-                        opr: IncompleteListOpr::TemplateInstantiation { template },
+                    Some(template) => IncompleteExpr::CommaList {
+                        opr: IncompleteCommaListOpr::TemplateInstantiation { template },
                         bra,
                         bra_token_idx,
                         items: vec![],
@@ -449,8 +464,8 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
     fn accept_ritchie(&mut self, ritchie_kind_token_idx: TokenIdx, ritchie_kind: RitchieKind) {
         match self.parse::<LeftParenthesisToken>() {
             Ok(Some(lpar_token)) => self.push_top_expr(
-                IncompleteExpr::List {
-                    opr: IncompleteListOpr::RitchieArguments {
+                IncompleteExpr::CommaList {
+                    opr: IncompleteCommaListOpr::RitchieArguments {
                         ritchie_kind_token_idx,
                         ritchie_kind,
                         lpar_token,

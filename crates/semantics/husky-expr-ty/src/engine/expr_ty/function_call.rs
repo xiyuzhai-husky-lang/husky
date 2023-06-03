@@ -69,15 +69,15 @@ impl<'a> ExprTypeEngine<'a> {
         function: ExprIdx,
         final_destination: FinalDestination,
         implicit_arguments: Option<&ImplicitArgumentList>,
-        arguments: ExprIdxRange,
-        keyed_arguments: &[KeyedArgumentExpr],
+        items: &[CallListItem],
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         let Some(expectation_ok) = self.infer_new_expr_ty_for_outcome(
             function,
             ExpectEqsRitchieType::new(final_destination),
         ) else {
-            for item in arguments {
-                self.infer_new_expr_ty(item, ExpectAnyDerived);
+            for item in items {
+                todo!()
+                // self.infer_new_expr_ty(item, ExpectAnyDerived);
             }
             Err(DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred)?
         };

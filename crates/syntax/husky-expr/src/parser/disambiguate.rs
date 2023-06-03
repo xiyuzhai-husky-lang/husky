@@ -54,14 +54,13 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             },
             Token::Ident(ident) => match self.top_expr() {
                 TopExprRef::Incomplete(
-                    IncompleteExpr::List {
+                    IncompleteExpr::CommaList {
                         opr:
-                            IncompleteListOpr::FunctionCall { .. }
-                            | IncompleteListOpr::MethodCall { .. },
+                            IncompleteCommaListOpr::FunctionApplicationOrCall { .. }
+                            | IncompleteCommaListOpr::MethodApplicationOrCall { .. },
                         ..
                     }
-                    | IncompleteExpr::RitchieCallKeyedArgumentList { .. }
-                    | IncompleteExpr::MethodRitchieCallKeyedArgumentList { .. },
+                    | IncompleteExpr::CallList { .. },
                 ) => match self.parse_err_as_none::<EqToken>() {
                     Some(eq_token) => DisambiguatedToken::IncompleteKeywordArgument {
                         ident_token_idx: token_idx,
@@ -160,8 +159,8 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 }
                 PunctuationMapped::Dot => DisambiguatedToken::Dot(token_idx),
                 PunctuationMapped::Colon => match self.last_incomplete_expr() {
-                    Some(IncompleteExpr::List {
-                        opr: IncompleteListOpr::BoxList { .. },
+                    Some(IncompleteExpr::CommaList {
+                        opr: IncompleteCommaListOpr::BoxList { .. },
                         items,
                         ..
                     }) => {
@@ -185,14 +184,16 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     self.reduce(Precedence::ListItem);
                     match self.last_incomplete_expr() {
                         Some(expr) => match expr {
-                            IncompleteExpr::List { .. } => DisambiguatedToken::Comma(token_idx),
+                            IncompleteExpr::CommaList { .. } => {
+                                DisambiguatedToken::Comma(token_idx)
+                            }
                             _ => return TokenDisambiguationResult::Break(()),
                         },
                         None => return TokenDisambiguationResult::Break(()),
                     }
                 }
                 PunctuationMapped::Vertical => match self.last_incomplete_expr() {
-                    Some(IncompleteExpr::List {
+                    Some(IncompleteExpr::CommaList {
                         bra: Bracket::Lambda,
                         ..
                     }) => DisambiguatedToken::Ket(token_idx, Bracket::Lambda),
