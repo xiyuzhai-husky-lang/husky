@@ -683,6 +683,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(
@@ -751,6 +752,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Pure,
                                         ty: EntityPath(
                                             TypeOntology(

@@ -13,18 +13,7 @@ DiagnosticSheet {
         diagnostics: [],
     },
     decl_diagnostic_sheet: DeclDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Syntax Error: ExpectEqTokenForVariable",
-                severity: Error,
-                range: [3:34, 3:35),
-            },
-            Diagnostic {
-                message: "Syntax Error: ExpectEqTokenForVariable",
-                severity: Error,
-                range: [23:37, 23:38),
-            },
-        ],
+        diagnostics: [],
     },
     defn_diagnostic_sheet: DefnDiagnosticSheet {
         diagnostics: [],

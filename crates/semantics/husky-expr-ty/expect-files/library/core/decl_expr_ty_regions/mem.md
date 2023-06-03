@@ -492,7 +492,7 @@
                             ),
                             resolve_progress: Resolved(
                                 Ok(
-                                    EqsRitchieCallType(
+                                    EqsFunctionCallType(
                                         ExpectEqsFunctionTypeOutcome {
                                             implicit_parameter_substitutions: [],
                                             return_ty: Category(
@@ -539,6 +539,7 @@
                             data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
                                     parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
                                         contract: Const,
                                         ty: Category(
                                             TermCategory {

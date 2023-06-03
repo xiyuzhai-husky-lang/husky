@@ -365,347 +365,1045 @@ Ok(
             ),
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::AssociatedItem(
+                        AssociatedItemPath::TypeItem(
+                            TypeItemPath {
+                                parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                ident: `raw_contours`,
+                                item_kind: MemoizedField,
+                            },
+                        ),
+                    ),
+                ),
+                Some(
+                    AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            MemoizedField,
+                        ),
+                    },
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::BoxPrefix,
+            TokenInfo::BoxPrefix,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::SelfValue,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::AssociatedItem(
+                        AssociatedItemPath::TypeItem(
+                            TypeItemPath {
+                                parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                ident: `eff_holes`,
+                                item_kind: MemoizedField,
+                            },
+                        ),
+                    ),
+                ),
+                Some(
+                    AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            MemoizedField,
+                        ),
+                    },
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::SelfValue,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 1,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::BoxPrefix,
+            TokenInfo::BoxPrefix,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 1,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 1,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 1,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::AssociatedItem(
+                        AssociatedItemPath::TypeItem(
+                            TypeItemPath {
+                                parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                ident: `max_hole_ilen`,
+                                item_kind: MemoizedField,
+                            },
+                        ),
+                    ),
+                ),
+                Some(
+                    AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            MemoizedField,
+                        ),
+                    },
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::f32`, `Extern`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 1,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::SelfValue,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 2,
+                current_symbol_kind: CurrentSymbolKind::FrameVariable(
+                    4,
+                ),
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 1,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 3,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 2,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 1,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 2,
+                current_symbol_kind: CurrentSymbolKind::FrameVariable(
+                    4,
+                ),
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 3,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 2,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 3,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 2,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::f32`, `Extern`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::AssociatedItem(
+                        AssociatedItemPath::TypeItem(
+                            TypeItemPath {
+                                parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                ident: `max_row_span`,
+                                item_kind: MemoizedField,
+                            },
+                        ),
+                    ),
+                ),
+                Some(
+                    AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            MemoizedField,
+                        ),
+                    },
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::f32`, `Extern`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: CurrentSymbolKind::FrameVariable(
+                    2,
+                ),
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::SelfValue,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: CurrentSymbolKind::FrameVariable(
+                    2,
+                ),
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::f32`, `Extern`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::AssociatedItem(
+                        AssociatedItemPath::TypeItem(
+                            TypeItemPath {
+                                parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                ident: `row_span_sum`,
+                                item_kind: MemoizedField,
+                            },
+                        ),
+                    ),
+                ),
+                Some(
+                    AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            MemoizedField,
+                        ),
+                    },
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::f32`, `Extern`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: CurrentSymbolKind::FrameVariable(
+                    2,
+                ),
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::SelfValue,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: CurrentSymbolKind::FrameVariable(
+                    2,
+                ),
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::f32`, `Extern`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::AssociatedItem(
+                        AssociatedItemPath::TypeItem(
+                            TypeItemPath {
+                                parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                ident: `distribution`,
+                                item_kind: MemoizedField,
+                            },
+                        ),
+                    ),
+                ),
+                Some(
+                    AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            MemoizedField,
+                        ),
+                    },
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::SelfValue,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 1,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 1,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::SelfValue,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 1,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 2,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 2,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 1,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 3,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 3,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 2,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 2,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 4,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 4,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 5,
+                current_symbol_kind: CurrentSymbolKind::FrameVariable(
+                    27,
+                ),
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 3,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 3,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 4,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 4,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::SelfValue,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 5,
+                current_symbol_kind: CurrentSymbolKind::FrameVariable(
+                    27,
+                ),
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 6,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 5,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 1,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 7,
+                current_symbol_kind: CurrentSymbolKind::FrameVariable(
+                    42,
+                ),
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 1,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 3,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 3,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 6,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 5,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::SelfValue,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 7,
+                current_symbol_kind: CurrentSymbolKind::FrameVariable(
+                    42,
+                ),
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 1,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 4,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 4,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 6,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 5,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::AssociatedItem(
+                        AssociatedItemPath::TypeItem(
+                            TypeItemPath {
+                                parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                ident: `upper_mass`,
+                                item_kind: MemoizedField,
+                            },
+                        ),
+                    ),
+                ),
+                Some(
+                    AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            MemoizedField,
+                        ),
+                    },
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::f32`, `Extern`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::SelfValue,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::f32`, `Extern`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::AssociatedItem(
+                        AssociatedItemPath::TypeItem(
+                            TypeItemPath {
+                                parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                ident: `lower_mass`,
+                                item_kind: MemoizedField,
+                            },
+                        ),
+                    ),
+                ),
+                Some(
+                    AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            MemoizedField,
+                        ),
+                    },
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::f32`, `Extern`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::SelfValue,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::f32`, `Extern`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             TokenInfo::None,
             TokenInfo::Entity(
                 Some(
@@ -1443,7 +2141,7 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
                 current_symbol_kind: CurrentSymbolKind::FrameVariable(
-                    7,
+                    6,
                 ),
                 expr_region: ExprRegionLeash(_),
             },
@@ -1462,7 +2160,7 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
                 current_symbol_kind: CurrentSymbolKind::FrameVariable(
-                    7,
+                    6,
                 ),
                 expr_region: ExprRegionLeash(_),
             },
@@ -1488,7 +2186,7 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
                 current_symbol_kind: CurrentSymbolKind::FrameVariable(
-                    7,
+                    6,
                 ),
                 expr_region: ExprRegionLeash(_),
             },
@@ -1546,7 +2244,7 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
                 current_symbol_kind: CurrentSymbolKind::FrameVariable(
-                    7,
+                    6,
                 ),
                 expr_region: ExprRegionLeash(_),
             },
@@ -1624,7 +2322,7 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
                 current_symbol_kind: CurrentSymbolKind::FrameVariable(
-                    7,
+                    6,
                 ),
                 expr_region: ExprRegionLeash(_),
             },
@@ -1807,7 +2505,7 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
                 current_symbol_kind: CurrentSymbolKind::FrameVariable(
-                    7,
+                    6,
                 ),
                 expr_region: ExprRegionLeash(_),
             },
@@ -1955,7 +2653,7 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
                 current_symbol_kind: CurrentSymbolKind::FrameVariable(
-                    7,
+                    6,
                 ),
                 expr_region: ExprRegionLeash(_),
             },
@@ -1963,7 +2661,7 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 12,
                 current_symbol_kind: CurrentSymbolKind::FrameVariable(
-                    104,
+                    103,
                 ),
                 expr_region: ExprRegionLeash(_),
             },
@@ -1981,7 +2679,7 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 12,
                 current_symbol_kind: CurrentSymbolKind::FrameVariable(
-                    104,
+                    103,
                 ),
                 expr_region: ExprRegionLeash(_),
             },
@@ -2000,7 +2698,7 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 12,
                 current_symbol_kind: CurrentSymbolKind::FrameVariable(
-                    104,
+                    103,
                 ),
                 expr_region: ExprRegionLeash(_),
             },

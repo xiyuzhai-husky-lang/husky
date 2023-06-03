@@ -123,24 +123,53 @@ impl<'a> ExprTypeEngine<'a> {
         Ok(self.term_menu.unit_ty_ontology().into())
     }
 
-    fn calc_ambiguous_suffix_expr_ty<D: Into<ExprDisambiguation>>(
+    fn calc_ambiguous_suffix_expr_ty<D: std::fmt::Debug + Into<ExprDisambiguation>>(
         &mut self,
         opd: ExprIdx,
         final_destination: FinalDestination,
-        (left_disambiguation, left_f): (D, fn(&mut Self, ExprIdx) -> ExprTypeResult<FluffyTerm>),
-        (right_disambiguation, right_f): (D, fn(&mut Self, ExprIdx) -> ExprTypeResult<FluffyTerm>),
+        (true_suffix, true_suffix_f): (D, fn(&mut Self, ExprIdx) -> ExprTypeResult<FluffyTerm>),
+        (application_composition, application_composition_f): (
+            D,
+            fn(&mut Self, ExprIdx) -> ExprTypeResult<FluffyTerm>,
+        ),
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         match self.infer_new_expr_ty(
             opd,
             ExpectAnyTowardsFinalDestination::new(final_destination),
         ) {
-            Some(_) => todo!(),
+            Some(opd_ty) => match opd_ty.data(self) {
+                FluffyTermData::Literal(_) => todo!(),
+                FluffyTermData::TypeOntology { .. } | FluffyTermData::PlaceTypeOntology { .. } => {
+                    Ok((true_suffix.into(), true_suffix_f(self, opd)))
+                }
+                FluffyTermData::Curry {
+                    curry_kind,
+                    variance,
+                    parameter_variable,
+                    parameter_ty,
+                    return_ty,
+                } => todo!(),
+                FluffyTermData::Hole(_, _) => todo!(),
+                FluffyTermData::Category(_) => todo!(),
+                FluffyTermData::Ritchie {
+                    ritchie_kind,
+                    parameter_contracted_tys,
+                    variadics,
+                    keyed_parameter_contracted_tys,
+                    return_ty,
+                } => todo!(),
+                FluffyTermData::PlaceHole {
+                    place,
+                    hole_kind,
+                    hole,
+                } => todo!(),
+            },
             None => Err(DerivedExprTypeError::UnableToInferSuffixOperandType.into()),
         }
     }
 
     fn calc_unveil_expr_ty(&mut self, opd: ExprIdx) -> ExprTypeResult<FluffyTerm> {
-        todo!()
+        Err(OriginalExprTypeError::CannotUnveil)?
     }
 
     fn calc_compose_with_option_expr_ty(&mut self, opd: ExprIdx) -> ExprTypeResult<FluffyTerm> {

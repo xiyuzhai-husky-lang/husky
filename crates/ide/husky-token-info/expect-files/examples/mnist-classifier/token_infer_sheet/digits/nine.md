@@ -17,208 +17,657 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FugitivePath(`mnist_classifier::digits::nine::nine_match`, `Val`),
+                        ),
+                    ),
+                ),
+                Some(
+                    ModuleItem {
+                        module_item_kind: Fugitive(
+                            Val,
+                        ),
+                        connection: Connected,
+                    },
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FugitivePath(`mnist_classifier::digits::nine::downmost`, `Fn`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FugitivePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
+                        ),
+                    ),
+                ),
+                Some(
+                    ModuleItem {
+                        module_item_kind: Fugitive(
+                            Val,
+                        ),
+                        connection: Connected,
+                    },
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FugitivePath(`mnist_classifier::digits::nine::big_cc`, `Fn`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                        ),
+                    ),
+                ),
+                Some(
+                    ModuleItem {
+                        module_item_kind: Fugitive(
+                            Val,
+                        ),
+                        connection: Connected,
+                    },
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist::MnistLabel`, `Enum`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 1,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 2,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 2,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 2,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 2,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 3,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 3,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 4,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 4,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FugitivePath(`mnist_classifier::digits::nine::nine_match`, `Val`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 4,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 4,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 5,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 5,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 6,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 6,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 4,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 4,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 7,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 7,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 7,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 7,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 2,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 2,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 8,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 8,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 9,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 9,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FugitivePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 9,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 9,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 10,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 10,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FugitivePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 11,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 11,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 12,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 12,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FugitivePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 12,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 12,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 13,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 13,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 12,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 12,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 12,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 12,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FugitivePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 14,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 14,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 14,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 14,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 14,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 14,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist::MnistLabel`, `Enum`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::TypeVariant(
+                        TypeVariantPath {
+                            ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                            ident: `Nine`,
+                        },
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist::MnistLabel`, `Enum`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::TypeVariant(
+                        TypeVariantPath {
+                            ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                            ident: `Nine`,
+                        },
+                    ),
+                ),
+                None,
+            ),
             TokenInfo::None,
             TokenInfo::Entity(
                 Some(

@@ -75,6 +75,8 @@ pub enum OriginalExprTypeError {
     CannotIndexIntoType { self_expr_ty: FluffyTerm },
     #[error("expected indices")]
     ExpectedIndices,
+    #[error("cannot unveil")]
+    CannotUnveil,
 }
 
 impl OriginalError for OriginalExprTypeError {
