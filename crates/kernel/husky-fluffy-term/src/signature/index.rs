@@ -116,6 +116,7 @@ fn list_index_signature(
             ritchie_kind,
             parameter_contracted_tys,
             return_ty,
+            ..
         } => todo!(),
         FluffyTermData::PlaceHole {
             place,

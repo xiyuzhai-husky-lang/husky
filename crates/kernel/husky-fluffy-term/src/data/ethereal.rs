@@ -28,15 +28,9 @@ pub(super) fn ethereal_term_data<'a>(
             parameter_ty: term.parameter_ty(db).into(),
             return_ty: term.return_ty(db).into(),
         },
-        EtherealTerm::Ritchie(term) => FluffyTermData::Ritchie {
-            ritchie_kind: term.ritchie_kind(db),
-            parameter_contracted_tys: term_ritchie_fluffy_data(db, term),
-            return_ty: term.return_ty(db).into(),
-        },
+        EtherealTerm::Ritchie(term) => term_ritchie_fluffy_data(db, term).as_ref(),
         EtherealTerm::Abstraction(_) => todo!(),
-        EtherealTerm::Application(term) => {
-            term_application_fluffy_data(db, term).to_fluffy(term.into())
-        }
+        EtherealTerm::Application(term) => term_application_fluffy_data(db, term).as_ref(),
         EtherealTerm::Subentity(_) => todo!(),
         EtherealTerm::AsTraitSubentity(_) => todo!(),
         EtherealTerm::TraitConstraint(_) => todo!(),

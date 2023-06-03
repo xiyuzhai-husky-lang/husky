@@ -301,6 +301,7 @@ impl<'a> ExprTypeEngine<'a> {
                                     ritchie_kind,
                                     parameter_contracted_tys,
                                     return_ty,
+                                    ..
                                 } => todo!(),
                                 FluffyTermData::PlaceTypeOntology { .. } => todo!(),
                                 FluffyTermData::PlaceHole {
