@@ -79,9 +79,9 @@ impl Expr {
                 opr_token_idx: punctuation_token_idx,
             } => todo!(),
             Expr::Field { .. } => BaseEntityPath::None,
-            Expr::MethodCall { .. } => BaseEntityPath::None,
+            Expr::MethodApplicationOrCall { .. } => BaseEntityPath::None,
             Expr::ExplicitApplication { function, argument } => todo!(),
-            Expr::ExplicitApplicationOrRitchieCall { .. } => todo!(),
+            Expr::FunctionApplicationOrCall { .. } => todo!(),
             // although unit is a valid entity,
             // but unit doesn't contains any subentity, so effectively none
             // ad hoc
@@ -338,7 +338,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                                         .map(|(item, comma_token_idx)| CallListItem {
                                             kind: CallListItemKind::Argument,
                                             separator: CallListSeparator::Comma(comma_token_idx),
-                                            argument: this.alloc_expr(item),
+                                            argument_expr_idx: this.alloc_expr(item),
                                         })
                                         .collect();
                                 if let Some(last_item_without_separator) =
@@ -347,7 +347,8 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                                     items.push(CallListItem {
                                         kind: CallListItemKind::Argument,
                                         separator: CallListSeparator::None,
-                                        argument: this.alloc_expr(last_item_without_separator),
+                                        argument_expr_idx: this
+                                            .alloc_expr(last_item_without_separator),
                                     })
                                 }
                                 IncompleteExpr::CallList {

@@ -395,7 +395,7 @@ Ok(
                                                         8,
                                                     ),
                                                 },
-                                                Expr::ExplicitApplicationOrRitchieCall {
+                                                Expr::FunctionApplicationOrCall {
                                                     function: 4,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(

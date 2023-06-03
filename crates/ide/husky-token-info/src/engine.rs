@@ -303,7 +303,7 @@ impl<'a> InferContext<'a> {
             Expr::Field { ident_token, .. } => {
                 self.sheet.add(ident_token.token_idx(), TokenInfo::Field)
             }
-            Expr::MethodCall { ident_token, .. } => {
+            Expr::MethodApplicationOrCall { ident_token, .. } => {
                 self.sheet.add(ident_token.token_idx(), TokenInfo::Method)
             }
             Expr::Literal(_, _)
@@ -319,7 +319,7 @@ impl<'a> InferContext<'a> {
             | Expr::Block { .. }
             | Expr::Be { .. } => (),
             Expr::BoxColonList { .. } => (),
-            Expr::ExplicitApplicationOrRitchieCall { function, .. }
+            Expr::FunctionApplicationOrCall { function, .. }
             | Expr::ExplicitApplication { function, .. } => {
                 match self.expr_region_data[*function] {
                     Expr::List {

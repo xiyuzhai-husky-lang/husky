@@ -221,10 +221,8 @@ impl ExpectationResolveProgress {
     pub fn duplicate(&self, src: FluffyTermExpectationIdx) -> Self {
         match self {
             ExpectationResolveProgress::Unresolved => ExpectationResolveProgress::Unresolved,
-            ExpectationResolveProgress::Resolved(expectation_result) => match expectation_result {
-                Ok(expectation_ok) => {
-                    ExpectationResolveProgress::Resolved(Ok(expectation_ok.clone()))
-                }
+            ExpectationResolveProgress::Resolved(result) => match result {
+                Ok(outcome) => ExpectationResolveProgress::Resolved(Ok(outcome.clone())),
                 Err(_) => ExpectationResolveProgress::Resolved(Err(
                     DerivedFluffyTermExpectationError::Duplication(src).into(),
                 )),

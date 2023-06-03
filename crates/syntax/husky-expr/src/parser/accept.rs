@@ -95,7 +95,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         IncompleteCommaListOpr::FunctionApplicationOrCall { function } => {
                             // ad hoc
                             let implicit_arguments: Option<ImplicitArgumentList> = None;
-                            Expr::ExplicitApplicationOrRitchieCall {
+                            Expr::FunctionApplicationOrCall {
                                 function,
                                 implicit_arguments,
                                 lpar_token_idx: bra_token_idx,
@@ -111,13 +111,14 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             dot_token_idx,
                             ident_token,
                             implicit_arguments,
-                        } => Expr::MethodCall {
+                        } => Expr::MethodApplicationOrCall {
                             self_argument: self_expr,
                             dot_token_idx,
                             ident_token,
                             implicit_arguments,
                             lpar_token_idx: bra_token_idx,
-                            nonself_arguments: items,
+                            items,
+                            commas,
                             rpar_token_idx: ket_token_idx,
                         }
                         .into(),

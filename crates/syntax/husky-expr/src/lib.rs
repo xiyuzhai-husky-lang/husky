@@ -142,7 +142,7 @@ pub enum Expr {
     /// - `f(,)` can be interpreted in two ways:
     ///   - `f` is a curry function, this is an application of `f` upon zero element tuple `(,)`
     ///   - `f` is a Ritchie function, this is a Ritchie function call with zero element
-    ExplicitApplicationOrRitchieCall {
+    FunctionApplicationOrCall {
         function: ExprIdx,
         implicit_arguments: Option<ImplicitArgumentList>,
         lpar_token_idx: TokenIdx,
@@ -175,13 +175,14 @@ pub enum Expr {
         dot_token_idx: TokenIdx,
         ident_token: IdentToken,
     },
-    MethodCall {
+    MethodApplicationOrCall {
         self_argument: ExprIdx,
         dot_token_idx: TokenIdx,
         ident_token: IdentToken,
         implicit_arguments: Option<ImplicitArgumentList>,
         lpar_token_idx: TokenIdx,
-        nonself_arguments: ExprIdxRange,
+        items: ExprIdxRange,
+        commas: Commas,
         rpar_token_idx: TokenIdx,
     },
     TemplateInstantiation {
@@ -257,7 +258,32 @@ pub struct KeyedArgumentExpr {
 pub struct CallListItem {
     kind: CallListItemKind,
     separator: CallListSeparator,
-    argument: ExprIdx,
+    argument_expr_idx: ExprIdx,
+}
+
+impl CallListItem {
+    pub fn new_regular(argument_expr_idx: ExprIdx, comma: Option<TokenIdx>) -> Self {
+        Self {
+            kind: CallListItemKind::Argument,
+            separator: match comma {
+                Some(comma_token_idx) => CallListSeparator::Comma(comma_token_idx),
+                None => CallListSeparator::None,
+            },
+            argument_expr_idx,
+        }
+    }
+
+    pub fn kind(&self) -> CallListItemKind {
+        self.kind
+    }
+
+    pub fn separator(&self) -> CallListSeparator {
+        self.separator
+    }
+
+    pub fn argument_expr_idx(&self) -> ExprIdx {
+        self.argument_expr_idx
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
