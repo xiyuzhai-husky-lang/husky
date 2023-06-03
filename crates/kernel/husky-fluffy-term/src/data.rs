@@ -334,7 +334,7 @@ impl TermRitchieFluffyData {
             parameter_contracted_tys: &self.parameter_contracted_tys,
             variadics: (),
             keyed_parameter_contracted_tys: (),
-            return_ty: todo!(),
+            return_ty: self.return_ty.into(),
         }
     }
 }
