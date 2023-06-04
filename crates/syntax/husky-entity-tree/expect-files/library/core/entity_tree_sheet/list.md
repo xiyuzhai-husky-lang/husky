@@ -38,7 +38,7 @@ Ok(
                             8,
                         ),
                     },
-                    ty_expr: 44,
+                    ty_expr: 0,
                     body: Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(

@@ -22,7 +22,7 @@
                             ty: ExplicitApplication(
                                 DeclarativeTermExplicitApplication(
                                     Id {
-                                        value: 63,
+                                        value: 65,
                                     },
                                 ),
                             ),

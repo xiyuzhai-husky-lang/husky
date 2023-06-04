@@ -38,7 +38,7 @@ pub enum OriginalMajorPathExprError {
     #[error("unrecognized identifier")]
     UnrecognizedIdent(IdentToken),
     #[error("expect identifier")]
-    ExpectIdent(TokenStreamState),
+    ExpectedIdent(TokenStreamState),
 }
 
 impl OriginalError for OriginalMajorPathExprError {
@@ -88,7 +88,7 @@ impl<'a, 'b> MajorPathExprParser<'a, 'b> {
         &mut self,
     ) -> MajorPathExprResult<(MajorPathExprIdx, ModuleItemPath)> {
         let ident_token: IdentToken =
-            self.parse_expected(OriginalMajorPathExprError::ExpectIdent)?;
+            self.parse_expected(OriginalMajorPathExprError::ExpectedIdent)?;
         let Some(entity_symbol) = self
             .module_symbol_context
             .resolve_ident(ident_token.token_idx(),ident_token.ident()) else {

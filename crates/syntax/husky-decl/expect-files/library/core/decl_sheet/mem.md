@@ -536,11 +536,11 @@ Ok(
                                             30,
                                         ),
                                     },
-                                    trai_expr: 0,
+                                    trai_expr: 1,
                                     for_token: TokenIdx(
                                         35,
                                     ),
-                                    ty_expr: 1,
+                                    ty_expr: 2,
                                     items: None,
                                 },
                                 impl_token: ImplToken {

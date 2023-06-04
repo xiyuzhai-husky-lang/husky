@@ -1,5 +1,5 @@
 DiagnosticSheet {
-    [salsa id]: 39,
+    [salsa id]: 40,
     entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {
         diagnostics: [],
     },

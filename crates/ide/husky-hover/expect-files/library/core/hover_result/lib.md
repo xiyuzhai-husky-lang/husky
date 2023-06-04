@@ -40,7 +40,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 2;\n\ntoken_line_group_idx = 0\n\ntoken = Token::Ident(\n    `basic`,\n);\n\ntoken_info = TokenInfo::SubmoduleIdent;\n\nsubmodule ident\n",
+                                value: "\ntoken_idx = 2;\n\ntoken_line_group_idx = 0\n\ntoken = Token::Ident(\n    `array`,\n);\n\ntoken_info = TokenInfo::SubmoduleIdent;\n\nsubmodule ident\n",
                             },
                         ),
                         range: Some(
@@ -130,7 +130,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 8;\n\ntoken_line_group_idx = 2\n\ntoken = Token::Ident(\n    `logic`,\n);\n\ntoken_info = TokenInfo::SubmoduleIdent;\n\nsubmodule ident\n",
+                                value: "\ntoken_idx = 8;\n\ntoken_line_group_idx = 2\n\ntoken = Token::Ident(\n    `clone`,\n);\n\ntoken_info = TokenInfo::SubmoduleIdent;\n\nsubmodule ident\n",
                             },
                         ),
                         range: Some(
@@ -220,7 +220,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 14;\n\ntoken_line_group_idx = 4\n\ntoken = Token::Ident(\n    `num`,\n);\n\ntoken_info = TokenInfo::SubmoduleIdent;\n\nsubmodule ident\n",
+                                value: "\ntoken_idx = 14;\n\ntoken_line_group_idx = 4\n\ntoken = Token::Ident(\n    `default`,\n);\n\ntoken_info = TokenInfo::SubmoduleIdent;\n\nsubmodule ident\n",
                             },
                         ),
                         range: Some(
@@ -231,7 +231,7 @@ Ok(
                                 },
                                 end: Position {
                                     line: 4,
-                                    character: 11,
+                                    character: 15,
                                 },
                             },
                         ),
@@ -310,7 +310,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 20;\n\ntoken_line_group_idx = 6\n\ntoken = Token::Ident(\n    `prelude`,\n);\n\ntoken_info = TokenInfo::SubmoduleIdent;\n\nsubmodule ident\n",
+                                value: "\ntoken_idx = 20;\n\ntoken_line_group_idx = 6\n\ntoken = Token::Ident(\n    `list`,\n);\n\ntoken_info = TokenInfo::SubmoduleIdent;\n\nsubmodule ident\n",
                             },
                         ),
                         range: Some(
@@ -321,7 +321,7 @@ Ok(
                                 },
                                 end: Position {
                                     line: 6,
-                                    character: 15,
+                                    character: 12,
                                 },
                             },
                         ),
@@ -400,7 +400,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 26;\n\ntoken_line_group_idx = 8\n\ntoken = Token::Ident(\n    `fmt`,\n);\n\ntoken_info = TokenInfo::SubmoduleIdent;\n\nsubmodule ident\n",
+                                value: "\ntoken_idx = 26;\n\ntoken_line_group_idx = 8\n\ntoken = Token::Ident(\n    `marker`,\n);\n\ntoken_info = TokenInfo::SubmoduleIdent;\n\nsubmodule ident\n",
                             },
                         ),
                         range: Some(
@@ -411,7 +411,7 @@ Ok(
                                 },
                                 end: Position {
                                     line: 8,
-                                    character: 11,
+                                    character: 14,
                                 },
                             },
                         ),
@@ -490,7 +490,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 32;\n\ntoken_line_group_idx = 10\n\ntoken = Token::Ident(\n    `marker`,\n);\n\ntoken_info = TokenInfo::SubmoduleIdent;\n\nsubmodule ident\n",
+                                value: "\ntoken_idx = 32;\n\ntoken_line_group_idx = 10\n\ntoken = Token::Ident(\n    `num`,\n);\n\ntoken_info = TokenInfo::SubmoduleIdent;\n\nsubmodule ident\n",
                             },
                         ),
                         range: Some(
@@ -501,7 +501,7 @@ Ok(
                                 },
                                 end: Position {
                                     line: 10,
-                                    character: 14,
+                                    character: 11,
                                 },
                             },
                         ),
@@ -580,7 +580,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 38;\n\ntoken_line_group_idx = 12\n\ntoken = Token::Ident(\n    `array`,\n);\n\ntoken_info = TokenInfo::SubmoduleIdent;\n\nsubmodule ident\n",
+                                value: "\ntoken_idx = 38;\n\ntoken_line_group_idx = 12\n\ntoken = Token::Ident(\n    `option`,\n);\n\ntoken_info = TokenInfo::SubmoduleIdent;\n\nsubmodule ident\n",
                             },
                         ),
                         range: Some(
@@ -591,7 +591,7 @@ Ok(
                                 },
                                 end: Position {
                                     line: 12,
-                                    character: 13,
+                                    character: 14,
                                 },
                             },
                         ),
@@ -670,7 +670,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 44;\n\ntoken_line_group_idx = 14\n\ntoken = Token::Ident(\n    `str`,\n);\n\ntoken_info = TokenInfo::SubmoduleIdent;\n\nsubmodule ident\n",
+                                value: "\ntoken_idx = 44;\n\ntoken_line_group_idx = 14\n\ntoken = Token::Ident(\n    `raw_bits`,\n);\n\ntoken_info = TokenInfo::SubmoduleIdent;\n\nsubmodule ident\n",
                             },
                         ),
                         range: Some(
@@ -681,7 +681,7 @@ Ok(
                                 },
                                 end: Position {
                                     line: 14,
-                                    character: 11,
+                                    character: 16,
                                 },
                             },
                         ),
@@ -760,7 +760,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 50;\n\ntoken_line_group_idx = 16\n\ntoken = Token::Ident(\n    `visual`,\n);\n\ntoken_info = TokenInfo::SubmoduleIdent;\n\nsubmodule ident\n",
+                                value: "\ntoken_idx = 50;\n\ntoken_line_group_idx = 16\n\ntoken = Token::Ident(\n    `str`,\n);\n\ntoken_info = TokenInfo::SubmoduleIdent;\n\nsubmodule ident\n",
                             },
                         ),
                         range: Some(
@@ -771,7 +771,37 @@ Ok(
                                 },
                                 end: Position {
                                     line: 16,
-                                    character: 14,
+                                    character: 11,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                52,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "Other\ntoken_idx = 52;\n\ntoken_line_group_idx = 17\n\ntoken = Token::Keyword(\n    Keyword::Mod,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 17,
+                                    character: 4,
+                                },
+                                end: Position {
+                                    line: 17,
+                                    character: 7,
                                 },
                             },
                         ),

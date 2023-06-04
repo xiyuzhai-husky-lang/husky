@@ -88,7 +88,7 @@ impl Diagnose for IllFormedImplBlock {
                             ident_token.ident().data(ctx.db())
                         )
                     }
-                    OriginalMajorPathExprError::ExpectIdent(_) => todo!(),
+                    OriginalMajorPathExprError::ExpectedIdent(_) => format!("expected identifier",),
                 },
                 MajorPathExprError::Derived(_) => todo!(),
             },
@@ -112,7 +112,12 @@ impl Diagnose for IllFormedImplBlock {
                     OriginalMajorPathExprError::UnrecognizedIdent(ident_token) => {
                         ctx.token_idx_text_range(ident_token.token_idx())
                     }
-                    OriginalMajorPathExprError::ExpectIdent(_) => todo!(),
+                    OriginalMajorPathExprError::ExpectedIdent(token_stream_state) => {
+                        match token_stream_state.drained() {
+                            true => todo!(),
+                            false => ctx.token_idx_text_range(token_stream_state.next_token_idx()),
+                        }
+                    }
                 },
                 MajorPathExprError::Derived(_) => todo!(),
             },

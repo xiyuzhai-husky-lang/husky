@@ -320,7 +320,7 @@ Ok(
                             30,
                         ),
                     },
-                    ty_expr: 2,
+                    ty_expr: 3,
                     body: Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
@@ -344,11 +344,11 @@ Ok(
                             41,
                         ),
                     },
-                    trai_expr: 3,
+                    trai_expr: 4,
                     for_token: TokenIdx(
                         44,
                     ),
-                    ty_expr: 4,
+                    ty_expr: 5,
                     items: Some(
                         TraitForType(
                             TraitForTypeItems {
@@ -373,7 +373,7 @@ Ok(
                             82,
                         ),
                     },
-                    ty_expr: 5,
+                    ty_expr: 6,
                     body: Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
@@ -397,11 +397,11 @@ Ok(
                             93,
                         ),
                     },
-                    trai_expr: 6,
+                    trai_expr: 7,
                     for_token: TokenIdx(
                         96,
                     ),
-                    ty_expr: 7,
+                    ty_expr: 8,
                     items: Some(
                         TraitForType(
                             TraitForTypeItems {
@@ -426,7 +426,7 @@ Ok(
                             134,
                         ),
                     },
-                    ty_expr: 8,
+                    ty_expr: 9,
                     body: Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
@@ -450,11 +450,11 @@ Ok(
                             145,
                         ),
                     },
-                    trai_expr: 9,
+                    trai_expr: 10,
                     for_token: TokenIdx(
                         148,
                     ),
-                    ty_expr: 10,
+                    ty_expr: 11,
                     items: Some(
                         TraitForType(
                             TraitForTypeItems {
@@ -479,7 +479,7 @@ Ok(
                             185,
                         ),
                     },
-                    ty_expr: 11,
+                    ty_expr: 12,
                     body: Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
@@ -503,11 +503,11 @@ Ok(
                             196,
                         ),
                     },
-                    trai_expr: 12,
+                    trai_expr: 13,
                     for_token: TokenIdx(
                         199,
                     ),
-                    ty_expr: 13,
+                    ty_expr: 14,
                     items: Some(
                         TraitForType(
                             TraitForTypeItems {
@@ -532,7 +532,7 @@ Ok(
                             237,
                         ),
                     },
-                    ty_expr: 14,
+                    ty_expr: 15,
                     body: Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
@@ -556,11 +556,11 @@ Ok(
                             248,
                         ),
                     },
-                    trai_expr: 15,
+                    trai_expr: 16,
                     for_token: TokenIdx(
                         251,
                     ),
-                    ty_expr: 16,
+                    ty_expr: 17,
                     items: Some(
                         TraitForType(
                             TraitForTypeItems {
@@ -585,7 +585,7 @@ Ok(
                             289,
                         ),
                     },
-                    ty_expr: 17,
+                    ty_expr: 18,
                     body: Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
@@ -609,11 +609,11 @@ Ok(
                             300,
                         ),
                     },
-                    trai_expr: 18,
+                    trai_expr: 19,
                     for_token: TokenIdx(
                         303,
                     ),
-                    ty_expr: 19,
+                    ty_expr: 20,
                     items: Some(
                         TraitForType(
                             TraitForTypeItems {
@@ -638,7 +638,7 @@ Ok(
                             341,
                         ),
                     },
-                    ty_expr: 20,
+                    ty_expr: 21,
                     body: Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
@@ -662,11 +662,11 @@ Ok(
                             352,
                         ),
                     },
-                    trai_expr: 21,
+                    trai_expr: 22,
                     for_token: TokenIdx(
                         355,
                     ),
-                    ty_expr: 22,
+                    ty_expr: 23,
                     items: Some(
                         TraitForType(
                             TraitForTypeItems {
@@ -691,7 +691,7 @@ Ok(
                             393,
                         ),
                     },
-                    ty_expr: 23,
+                    ty_expr: 24,
                     body: Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
@@ -715,11 +715,11 @@ Ok(
                             404,
                         ),
                     },
-                    trai_expr: 24,
+                    trai_expr: 25,
                     for_token: TokenIdx(
                         407,
                     ),
-                    ty_expr: 25,
+                    ty_expr: 26,
                     items: Some(
                         TraitForType(
                             TraitForTypeItems {
@@ -744,7 +744,7 @@ Ok(
                             445,
                         ),
                     },
-                    ty_expr: 26,
+                    ty_expr: 27,
                     body: Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
@@ -768,11 +768,11 @@ Ok(
                             456,
                         ),
                     },
-                    trai_expr: 27,
+                    trai_expr: 28,
                     for_token: TokenIdx(
                         459,
                     ),
-                    ty_expr: 28,
+                    ty_expr: 29,
                     items: Some(
                         TraitForType(
                             TraitForTypeItems {
@@ -797,7 +797,7 @@ Ok(
                             497,
                         ),
                     },
-                    ty_expr: 29,
+                    ty_expr: 30,
                     body: Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
@@ -821,11 +821,11 @@ Ok(
                             508,
                         ),
                     },
-                    trai_expr: 30,
+                    trai_expr: 31,
                     for_token: TokenIdx(
                         511,
                     ),
-                    ty_expr: 31,
+                    ty_expr: 32,
                     items: Some(
                         TraitForType(
                             TraitForTypeItems {
@@ -850,7 +850,7 @@ Ok(
                             549,
                         ),
                     },
-                    ty_expr: 32,
+                    ty_expr: 33,
                     body: Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
@@ -874,11 +874,11 @@ Ok(
                             560,
                         ),
                     },
-                    trai_expr: 33,
+                    trai_expr: 34,
                     for_token: TokenIdx(
                         563,
                     ),
-                    ty_expr: 34,
+                    ty_expr: 35,
                     items: Some(
                         TraitForType(
                             TraitForTypeItems {
@@ -903,7 +903,7 @@ Ok(
                             601,
                         ),
                     },
-                    ty_expr: 35,
+                    ty_expr: 36,
                     body: Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
@@ -927,11 +927,11 @@ Ok(
                             612,
                         ),
                     },
-                    trai_expr: 36,
+                    trai_expr: 37,
                     for_token: TokenIdx(
                         615,
                     ),
-                    ty_expr: 37,
+                    ty_expr: 38,
                     items: Some(
                         TraitForType(
                             TraitForTypeItems {
@@ -956,7 +956,7 @@ Ok(
                             653,
                         ),
                     },
-                    ty_expr: 38,
+                    ty_expr: 39,
                     body: Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
@@ -980,11 +980,11 @@ Ok(
                             672,
                         ),
                     },
-                    trai_expr: 39,
+                    trai_expr: 40,
                     for_token: TokenIdx(
                         675,
                     ),
-                    ty_expr: 40,
+                    ty_expr: 41,
                     items: Some(
                         TraitForType(
                             TraitForTypeItems {
@@ -1009,7 +1009,7 @@ Ok(
                             712,
                         ),
                     },
-                    ty_expr: 41,
+                    ty_expr: 42,
                     body: Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
@@ -1033,11 +1033,11 @@ Ok(
                             723,
                         ),
                     },
-                    trai_expr: 42,
+                    trai_expr: 43,
                     for_token: TokenIdx(
                         726,
                     ),
-                    ty_expr: 43,
+                    ty_expr: 44,
                     items: Some(
                         TraitForType(
                             TraitForTypeItems {
@@ -1106,11 +1106,11 @@ Ok(
                             SubmoduleSymbol {
                                 path: `core::ops`,
                                 visibility: Scope::Pub,
-                                ast_idx: 5,
+                                ast_idx: 11,
                                 ident_token: IdentToken {
                                     ident: `ops`,
                                     token_idx: TokenIdx(
-                                        17,
+                                        35,
                                     ),
                                 },
                             },
