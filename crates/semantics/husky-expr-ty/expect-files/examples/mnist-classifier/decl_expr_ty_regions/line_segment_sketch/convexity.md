@@ -133,14 +133,14 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 87,
+                                        value: 89,
                                     },
                                 ),
                                 refined_path: Right(
                                     CustomTypePath(
                                         TypePath(
                                             Id {
-                                                value: 87,
+                                                value: 89,
                                             },
                                         ),
                                     ),
@@ -151,7 +151,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 87,
+                                                    value: 89,
                                                 },
                                             ),
                                         ),
@@ -168,7 +168,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 46,
+                                        value: 47,
                                     },
                                 ),
                                 refined_path: Left(
@@ -184,7 +184,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 46,
+                                                    value: 47,
                                                 },
                                             ),
                                         ),

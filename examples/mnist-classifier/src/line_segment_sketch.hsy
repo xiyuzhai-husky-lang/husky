@@ -154,7 +154,7 @@ fn extend_start(ct: ~RawContour, start0: i32, end: i32, r: f32) -> i32:
         return start0
 
 fn find_line_segments(ct: ~RawContour, r: f32) -> []LineSegmentStroke:
-    let mut line_segments = []LineSegmentStroke()
+    let mut line_segments: []LineSegmentStroke = []
     let mut start = 0
     let mut end = 1
     let mut max_end = ct.points.ilen()

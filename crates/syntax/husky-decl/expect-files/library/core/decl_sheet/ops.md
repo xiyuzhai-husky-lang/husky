@@ -13,7 +13,7 @@ Ok(
                     Decl::Trait(
                         TraitDecl {
                             path: TraitPath(`core::ops::Add`),
-                            ast_idx: 26,
+                            ast_idx: 29,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -139,7 +139,7 @@ Ok(
                     Decl::Trait(
                         TraitDecl {
                             path: TraitPath(`core::ops::AddAssign`),
-                            ast_idx: 28,
+                            ast_idx: 31,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -265,7 +265,7 @@ Ok(
                     Decl::Trait(
                         TraitDecl {
                             path: TraitPath(`core::ops::BitAnd`),
-                            ast_idx: 30,
+                            ast_idx: 33,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -391,7 +391,7 @@ Ok(
                     Decl::Trait(
                         TraitDecl {
                             path: TraitPath(`core::ops::BitAndAssign`),
-                            ast_idx: 32,
+                            ast_idx: 35,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -517,7 +517,7 @@ Ok(
                     Decl::Trait(
                         TraitDecl {
                             path: TraitPath(`core::ops::BitOr`),
-                            ast_idx: 34,
+                            ast_idx: 37,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -643,7 +643,7 @@ Ok(
                     Decl::Trait(
                         TraitDecl {
                             path: TraitPath(`core::ops::BitOrAssign`),
-                            ast_idx: 36,
+                            ast_idx: 39,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -769,7 +769,7 @@ Ok(
                     Decl::Trait(
                         TraitDecl {
                             path: TraitPath(`core::ops::BitXor`),
-                            ast_idx: 38,
+                            ast_idx: 41,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -895,7 +895,7 @@ Ok(
                     Decl::Trait(
                         TraitDecl {
                             path: TraitPath(`core::ops::BitXorAssign`),
-                            ast_idx: 40,
+                            ast_idx: 43,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -1021,7 +1021,7 @@ Ok(
                     Decl::Trait(
                         TraitDecl {
                             path: TraitPath(`core::ops::Div`),
-                            ast_idx: 42,
+                            ast_idx: 45,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -1147,7 +1147,7 @@ Ok(
                     Decl::Trait(
                         TraitDecl {
                             path: TraitPath(`core::ops::DivAssign`),
-                            ast_idx: 44,
+                            ast_idx: 47,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -1273,7 +1273,7 @@ Ok(
                     Decl::Trait(
                         TraitDecl {
                             path: TraitPath(`core::ops::Mul`),
-                            ast_idx: 46,
+                            ast_idx: 49,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -1399,7 +1399,7 @@ Ok(
                     Decl::Trait(
                         TraitDecl {
                             path: TraitPath(`core::ops::MulAssign`),
-                            ast_idx: 48,
+                            ast_idx: 51,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -1525,7 +1525,7 @@ Ok(
                     Decl::Trait(
                         TraitDecl {
                             path: TraitPath(`core::ops::Neg`),
-                            ast_idx: 50,
+                            ast_idx: 53,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -1594,7 +1594,7 @@ Ok(
                     Decl::Trait(
                         TraitDecl {
                             path: TraitPath(`core::ops::Not`),
-                            ast_idx: 52,
+                            ast_idx: 55,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -1663,7 +1663,7 @@ Ok(
                     Decl::Trait(
                         TraitDecl {
                             path: TraitPath(`core::ops::Sub`),
-                            ast_idx: 54,
+                            ast_idx: 57,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -1774,6 +1774,302 @@ Ok(
                                 },
                             ),
                         },
+                    ),
+                ),
+            ),
+            (
+                DeclRegionPath::Entity(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::ops::Unveil`),
+                        ),
+                    ),
+                ),
+                Ok(
+                    Decl::Trait(
+                        TraitDecl {
+                            path: TraitPath(`core::ops::Unveil`),
+                            ast_idx: 58,
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: None,
+                                    path: RegionPath::Decl(
+                                        DeclRegionPath::Entity(
+                                            EntityPath::ModuleItem(
+                                                ModuleItemPath::Trait(
+                                                    TraitPath(`core::ops::Unveil`),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_contracts: ArenaMap {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_modifiers: ArenaMap {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [
+                                                CurrentSymbol {
+                                                    modifier: Const,
+                                                    access_start: TokenIdx(
+                                                        410,
+                                                    ),
+                                                    access_end: None,
+                                                    variant: CurrentSymbolVariant::ImplicitParameter {
+                                                        implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                            ident_token: IdentToken {
+                                                                ident: `T`,
+                                                                token_idx: TokenIdx(
+                                                                    409,
+                                                                ),
+                                                            },
+                                                        },
+                                                    },
+                                                },
+                                            ],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: False,
+                                        pattern_ty_constraints: [
+                                            (
+                                                ImplicitTypeParameter,
+                                                ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                            ),
+                                        ],
+                                    },
+                                    roots: [],
+                                },
+                            },
+                            implicit_parameter_decl_list: Some(
+                                ImplicitParameterDeclList {
+                                    langle: LeftAngleBracketOrLessThanToken(
+                                        TokenIdx(
+                                            408,
+                                        ),
+                                    ),
+                                    implicit_parameters: [
+                                        ImplicitParameterDeclPattern {
+                                            annotated_variance_token: None,
+                                            symbol: 0,
+                                            variant: ImplicitParameterDeclPatternVariant::Type {
+                                                ident_token: IdentToken {
+                                                    ident: `T`,
+                                                    token_idx: TokenIdx(
+                                                        409,
+                                                    ),
+                                                },
+                                                traits: None,
+                                            },
+                                        },
+                                    ],
+                                    commas: [],
+                                    decl_list_result: Ok(
+                                        (),
+                                    ),
+                                    rangle: RightAngleBracketToken(
+                                        TokenIdx(
+                                            410,
+                                        ),
+                                    ),
+                                },
+                            ),
+                        },
+                    ),
+                ),
+            ),
+            (
+                DeclRegionPath::Entity(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::ops::ControlFlow`, `Enum`),
+                        ),
+                    ),
+                ),
+                Ok(
+                    Decl::Type(
+                        TypeDecl::Enum(
+                            EnumTypeDecl {
+                                path: TypePath(`core::ops::ControlFlow`, `Enum`),
+                                ast_idx: 59,
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: None,
+                                        path: RegionPath::Decl(
+                                            DeclRegionPath::Entity(
+                                                EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::ops::ControlFlow`, `Enum`),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_contracts: ArenaMap {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_modifiers: ArenaMap {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [
+                                                    CurrentSymbol {
+                                                        modifier: Const,
+                                                        access_start: TokenIdx(
+                                                            439,
+                                                        ),
+                                                        access_end: None,
+                                                        variant: CurrentSymbolVariant::ImplicitParameter {
+                                                            implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                                ident_token: IdentToken {
+                                                                    ident: `R`,
+                                                                    token_idx: TokenIdx(
+                                                                        438,
+                                                                    ),
+                                                                },
+                                                            },
+                                                        },
+                                                    },
+                                                    CurrentSymbol {
+                                                        modifier: Const,
+                                                        access_start: TokenIdx(
+                                                            441,
+                                                        ),
+                                                        access_end: None,
+                                                        variant: CurrentSymbolVariant::ImplicitParameter {
+                                                            implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                                ident_token: IdentToken {
+                                                                    ident: `C`,
+                                                                    token_idx: TokenIdx(
+                                                                        440,
+                                                                    ),
+                                                                },
+                                                            },
+                                                        },
+                                                    },
+                                                ],
+                                            },
+                                            allow_self_type: True,
+                                            allow_self_value: True,
+                                            pattern_ty_constraints: [
+                                                (
+                                                    ImplicitTypeParameter,
+                                                    ArenaIdxRange(
+                                                        0..1,
+                                                    ),
+                                                ),
+                                                (
+                                                    ImplicitTypeParameter,
+                                                    ArenaIdxRange(
+                                                        1..2,
+                                                    ),
+                                                ),
+                                            ],
+                                        },
+                                        roots: [],
+                                    },
+                                },
+                                implicit_parameter_decl_list: Some(
+                                    ImplicitParameterDeclList {
+                                        langle: LeftAngleBracketOrLessThanToken(
+                                            TokenIdx(
+                                                437,
+                                            ),
+                                        ),
+                                        implicit_parameters: [
+                                            ImplicitParameterDeclPattern {
+                                                annotated_variance_token: None,
+                                                symbol: 0,
+                                                variant: ImplicitParameterDeclPatternVariant::Type {
+                                                    ident_token: IdentToken {
+                                                        ident: `R`,
+                                                        token_idx: TokenIdx(
+                                                            438,
+                                                        ),
+                                                    },
+                                                    traits: None,
+                                                },
+                                            },
+                                            ImplicitParameterDeclPattern {
+                                                annotated_variance_token: None,
+                                                symbol: 1,
+                                                variant: ImplicitParameterDeclPatternVariant::Type {
+                                                    ident_token: IdentToken {
+                                                        ident: `C`,
+                                                        token_idx: TokenIdx(
+                                                            440,
+                                                        ),
+                                                    },
+                                                    traits: None,
+                                                },
+                                            },
+                                        ],
+                                        commas: [
+                                            CommaToken(
+                                                TokenIdx(
+                                                    439,
+                                                ),
+                                            ),
+                                        ],
+                                        decl_list_result: Ok(
+                                            (),
+                                        ),
+                                        rangle: RightAngleBracketToken(
+                                            TokenIdx(
+                                                441,
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            },
+                        ),
                     ),
                 ),
             ),

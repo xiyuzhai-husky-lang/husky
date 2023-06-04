@@ -475,14 +475,14 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 80,
+                                        value: 82,
                                     },
                                 ),
                                 refined_path: Right(
                                     CustomTypePath(
                                         TypePath(
                                             Id {
-                                                value: 80,
+                                                value: 82,
                                             },
                                         ),
                                     ),
@@ -493,7 +493,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 80,
+                                                    value: 82,
                                                 },
                                             ),
                                         ),

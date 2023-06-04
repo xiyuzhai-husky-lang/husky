@@ -902,6 +902,93 @@ Ok(
                         body: None,
                     },
                 },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        56,
+                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: PubUnder(
+                            ModulePath(
+                                Id {
+                                    value: 13,
+                                },
+                            ),
+                        ),
+                        variant: Protected,
+                    },
+                    entity_kind: AssociatedItem {
+                        associated_item_kind: TraitItem(
+                            AssociatedType,
+                        ),
+                    },
+                    ident_token: IdentToken {
+                        ident: `Continue`,
+                        token_idx: TokenIdx(
+                            415,
+                        ),
+                    },
+                    is_generic: false,
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            416,
+                        ),
+                        drained: false,
+                    },
+                    block: AssociatedItem {
+                        body: None,
+                    },
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        57,
+                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: PubUnder(
+                            ModulePath(
+                                Id {
+                                    value: 13,
+                                },
+                            ),
+                        ),
+                        variant: Protected,
+                    },
+                    entity_kind: AssociatedItem {
+                        associated_item_kind: TraitItem(
+                            MethodFn,
+                        ),
+                    },
+                    ident_token: IdentToken {
+                        ident: `branch`,
+                        token_idx: TokenIdx(
+                            418,
+                        ),
+                    },
+                    is_generic: false,
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            419,
+                        ),
+                        drained: false,
+                    },
+                    block: AssociatedItem {
+                        body: None,
+                    },
+                },
+                Ast::Err {
+                    token_group_idx: TokenGroupIdx(
+                        59,
+                    ),
+                    error: AstError::Original(
+                        OriginalAstError::ExpectedIdentForTypeVariant(
+                            TokenStreamState {
+                                next_token_idx: TokenIdx(
+                                    443,
+                                ),
+                                drained: true,
+                            },
+                        ),
+                    ),
+                },
                 Ast::Attr {
                     token_group_idx: TokenGroupIdx(
                         0,
@@ -1667,10 +1754,104 @@ Ok(
                         ),
                     },
                 },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        55,
+                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    405,
+                                ),
+                            },
+                        },
+                    },
+                    entity_kind: ModuleItem {
+                        module_item_kind: Trait,
+                        connection: Connected,
+                    },
+                    ident_token: IdentToken {
+                        ident: `Unveil`,
+                        token_idx: TokenIdx(
+                            407,
+                        ),
+                    },
+                    is_generic: true,
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            408,
+                        ),
+                        drained: false,
+                    },
+                    block: Trait {
+                        path: TraitPath(
+                            Id {
+                                value: 24,
+                            },
+                        ),
+                        items: Some(
+                            TraitItems {
+                                ast_idx_range: ArenaIdxRange(
+                                    25..27,
+                                ),
+                            },
+                        ),
+                    },
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        58,
+                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    434,
+                                ),
+                            },
+                        },
+                    },
+                    entity_kind: ModuleItem {
+                        module_item_kind: Type(
+                            Enum,
+                        ),
+                        connection: Connected,
+                    },
+                    ident_token: IdentToken {
+                        ident: `ControlFlow`,
+                        token_idx: TokenIdx(
+                            436,
+                        ),
+                    },
+                    is_generic: true,
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            437,
+                        ),
+                        drained: false,
+                    },
+                    block: Type {
+                        path: TypePath(
+                            Id {
+                                value: 28,
+                            },
+                        ),
+                        variants: Some(
+                            TypeVariants {
+                                ast_idx_range: ArenaIdxRange(
+                                    27..28,
+                                ),
+                            },
+                        ),
+                    },
+                },
             ],
         },
         top_level_asts: ArenaIdxRange(
-            25..55,
+            28..60,
         ),
         siblings: [
             ArenaIdxRange(
@@ -1794,7 +1975,16 @@ Ok(
                 23..25,
             ),
             ArenaIdxRange(
-                25..55,
+                25..25,
+            ),
+            ArenaIdxRange(
+                25..25,
+            ),
+            ArenaIdxRange(
+                25..27,
+            ),
+            ArenaIdxRange(
+                28..60,
             ),
         ],
     },
