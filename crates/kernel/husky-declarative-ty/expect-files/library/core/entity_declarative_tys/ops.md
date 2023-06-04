@@ -149,4 +149,24 @@
             DeclarativeTerm(`invariant Type -> core::basic::Trait`),
         ),
     ),
+    (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Trait(
+                TraitPath(`core::ops::Unveil`),
+            ),
+        ),
+        Ok(
+            DeclarativeTerm(`invariant Type -> core::basic::Trait`),
+        ),
+    ),
+    (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Type(
+                TypePath(`core::ops::ControlFlow`, `Enum`),
+            ),
+        ),
+        Ok(
+            DeclarativeTerm(`independent Type -> independent Type -> Type`),
+        ),
+    ),
 ]

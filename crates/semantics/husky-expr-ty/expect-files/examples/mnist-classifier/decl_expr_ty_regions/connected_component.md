@@ -726,7 +726,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 43,
+                                        value: 44,
                                     },
                                 ),
                                 refined_path: Left(
@@ -739,7 +739,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 77,
+                                                    value: 79,
                                                 },
                                             ),
                                         ),
@@ -1127,7 +1127,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 58,
+                                        value: 60,
                                     },
                                 ),
                                 refined_path: Left(
@@ -1143,7 +1143,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 58,
+                                                    value: 60,
                                                 },
                                             ),
                                         ),
@@ -1160,7 +1160,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 58,
+                                        value: 60,
                                     },
                                 ),
                                 refined_path: Left(
@@ -1176,7 +1176,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 58,
+                                                    value: 60,
                                                 },
                                             ),
                                         ),
@@ -1428,14 +1428,14 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 93,
+                                        value: 95,
                                     },
                                 ),
                                 refined_path: Right(
                                     CustomTypePath(
                                         TypePath(
                                             Id {
-                                                value: 93,
+                                                value: 95,
                                             },
                                         ),
                                     ),
@@ -1446,7 +1446,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 93,
+                                                    value: 95,
                                                 },
                                             ),
                                         ),
@@ -1637,7 +1637,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 72,
+                                            value: 74,
                                         },
                                     ),
                                 ),
@@ -1713,7 +1713,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 72,
+                                            value: 74,
                                         },
                                     ),
                                 ),
@@ -3090,7 +3090,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 46,
+                                        value: 47,
                                     },
                                 ),
                                 refined_path: Left(
@@ -3106,7 +3106,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 46,
+                                                    value: 47,
                                                 },
                                             ),
                                         ),
@@ -3296,7 +3296,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 46,
+                                        value: 47,
                                     },
                                 ),
                                 refined_path: Left(
@@ -3312,7 +3312,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 46,
+                                                    value: 47,
                                                 },
                                             ),
                                         ),

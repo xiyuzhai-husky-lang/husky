@@ -2008,6 +2008,172 @@ Ok(
                     PunctuationMapped::Semicolon,
                 ),
             ),
+            Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
+                Keyword::Trait,
+            ),
+            Token::Ident(
+                `Unveil`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::LaOrLt,
+                ),
+            ),
+            Token::Ident(
+                `T`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::RaOrGt,
+                ),
+            ),
+            Token::Ident(
+                `extends`,
+            ),
+            Token::Ident(
+                `Sized`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Colon,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Fugitive(
+                    Type,
+                ),
+            ),
+            Token::Ident(
+                `Continue`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Semicolon,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Fugitive(
+                    Fn,
+                ),
+            ),
+            Token::Ident(
+                `branch`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Ident(
+                `t`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Colon,
+                ),
+            ),
+            Token::Ident(
+                `T`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        Curry,
+                    ),
+                ),
+            ),
+            Token::Ident(
+                `ControlFlow`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::LaOrLt,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Pronoun(
+                    SelfType,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Comma,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Pronoun(
+                    SelfType,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        ScopeResolution,
+                    ),
+                ),
+            ),
+            Token::Ident(
+                `Continue`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::RaOrGt,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Semicolon,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
+                Keyword::TypeEntity(
+                    Enum,
+                ),
+            ),
+            Token::Ident(
+                `ControlFlow`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::LaOrLt,
+                ),
+            ),
+            Token::Ident(
+                `R`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Comma,
+                ),
+            ),
+            Token::Ident(
+                `C`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::RaOrGt,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Vertical,
+                ),
+            ),
         ],
         group_starts: [
             0,
@@ -2065,6 +2231,11 @@ Ok(
             383,
             390,
             393,
+            405,
+            414,
+            417,
+            434,
+            442,
         ],
         indents: [
             0,
@@ -2122,6 +2293,11 @@ Ok(
             0,
             4,
             4,
+            0,
+            4,
+            4,
+            0,
+            0,
         ],
     },
 )

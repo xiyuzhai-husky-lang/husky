@@ -103,7 +103,7 @@
                                 place: Const,
                                 path: TypePath(
                                     Id {
-                                        value: 55,
+                                        value: 56,
                                     },
                                 ),
                                 refined_path: Left(
@@ -119,7 +119,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 55,
+                                                    value: 56,
                                                 },
                                             ),
                                         ),

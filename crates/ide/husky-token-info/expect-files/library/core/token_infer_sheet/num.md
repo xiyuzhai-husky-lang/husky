@@ -48,7 +48,7 @@ Ok(
                                 TraitPath(`core::ops::Add`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 26,
+                            ast_idx: 29,
                             ident_token: IdentToken {
                                 ident: `Add`,
                                 token_idx: TokenIdx(

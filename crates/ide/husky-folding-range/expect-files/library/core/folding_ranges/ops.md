@@ -195,5 +195,31 @@ Ok(
                 Region,
             ),
         },
+        FoldingRange {
+            start_line: 80,
+            start_character: Some(
+                0,
+            ),
+            end_line: 83,
+            end_character: Some(
+                57,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 85,
+            start_character: Some(
+                0,
+            ),
+            end_line: 86,
+            end_character: Some(
+                1,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
     ],
 )

@@ -32,29 +32,24 @@ DiagnosticSheet {
                 range: [102:74, 102:83),
             },
             Diagnostic {
-                message: "Type Error: no method named `last` for type `FluffyTerm::Solid(SolidTerm(0))`",
+                message: "Type Error: no method named `last` for type `FluffyTerm::Solid(SolidTerm(1))`",
                 severity: Error,
                 range: [219:33, 219:37),
             },
             Diagnostic {
-                message: "Type Error: no method named `last` for type `FluffyTerm::Solid(SolidTerm(0))`",
+                message: "Type Error: no method named `last` for type `FluffyTerm::Solid(SolidTerm(1))`",
                 severity: Error,
                 range: [226:33, 226:37),
             },
             Diagnostic {
-                message: "Type Error: no method named `last` for type `FluffyTerm::Solid(SolidTerm(0))`",
+                message: "Type Error: no method named `last` for type `FluffyTerm::Solid(SolidTerm(1))`",
                 severity: Error,
                 range: [233:33, 233:37),
             },
             Diagnostic {
-                message: "Type Error: no method named `pop` for type `FluffyTerm::Solid(SolidTerm(0))`",
+                message: "Type Error: no method named `pop` for type `FluffyTerm::Solid(SolidTerm(1))`",
                 severity: Error,
                 range: [264:25, 264:28),
-            },
-            Diagnostic {
-                message: "OriginalFluffyTermExpectationError::Todo",
-                severity: Error,
-                range: [171:22, 171:24),
             },
         ],
     },

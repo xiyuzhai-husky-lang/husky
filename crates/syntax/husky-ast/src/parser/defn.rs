@@ -139,6 +139,7 @@ impl<'a> AstParser<'a> {
                     .parse_expected::<IdentToken, _>(OriginalAstError::ExpectedIdentForTypeVariant)
                 {
                     Ok(ident_token) => {
+                        // check that variant name is available
                         for ty_variant in &ty_variants {
                             match ty_variant {
                                 Ast::TypeVariant {
@@ -158,7 +159,10 @@ impl<'a> AstParser<'a> {
                             state_after: aux_parser.save_state(),
                         }
                     }
-                    Err(_) => todo!(),
+                    Err(error) => Ast::Err {
+                        token_group_idx,
+                        error,
+                    },
                 },
             )
         }

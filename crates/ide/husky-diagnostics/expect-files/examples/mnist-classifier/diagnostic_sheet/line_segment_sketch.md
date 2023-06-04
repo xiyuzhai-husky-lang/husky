@@ -30,12 +30,6 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "OriginalFluffyTermExpectationError::Todo",
-                severity: Error,
-                range: [157:29, 157:31),
-            },
-        ],
+        diagnostics: [],
     },
 }

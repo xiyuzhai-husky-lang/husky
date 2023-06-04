@@ -1710,7 +1710,7 @@ Ok(
                     block: Type {
                         path: TypePath(
                             Id {
-                                value: 46,
+                                value: 47,
                             },
                         ),
                         variants: None,
@@ -1780,7 +1780,7 @@ Ok(
                     block: Type {
                         path: TypePath(
                             Id {
-                                value: 47,
+                                value: 48,
                             },
                         ),
                         variants: None,
