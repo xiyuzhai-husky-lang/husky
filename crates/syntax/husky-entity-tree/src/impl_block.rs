@@ -36,21 +36,24 @@ impl ImplBlock {
 }
 
 impl ImplBlock {
-    pub(crate) fn parse_from_token_group<'a>(
+    pub(crate) fn parse_from_token_group<'a, 'b>(
         db: &dyn EntityTreeDb,
+        crate_root_path: ModulePath,
         registry: &mut ImplBlockRegistry,
         module_symbol_context: ModuleSymbolContext<'a>,
+        entity_tree_context: EntityTreeSymbolContext<'a, 'b>,
         module_path: ModulePath,
         ast_idx: AstIdx,
         items: Option<ImplBlockItems>, // there could be no items for trait impl block
         token_stream: TokenStream<'a>,
         princiapl_entity_path_expr_arena: &mut MajorPathExprArena,
     ) -> Self {
-        let mut parser = MajorPathExprParser::new(
+        let mut parser = ModuleItemPathExprParser::new(
             db,
+            crate_root_path,
             token_stream,
             princiapl_entity_path_expr_arena,
-            module_symbol_context,
+            entity_tree_context,
         );
         let impl_token = parser.parse::<ImplToken>().unwrap().unwrap();
         if let Some(_) = parser.parse_err_as_none::<LeftAngleBracketOrLessThanToken>() {

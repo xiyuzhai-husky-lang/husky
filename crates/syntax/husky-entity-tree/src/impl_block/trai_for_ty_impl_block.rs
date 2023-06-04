@@ -6,9 +6,9 @@ pub struct TraitForTypeImplBlock {
     pub id: TraitForTypeImplBlockId,
     pub ast_idx: AstIdx,
     pub impl_token: ImplToken,
-    pub trai_expr: MajorPathExprIdx,
+    pub trai_expr: ModuleItemPathExprIdx,
     pub for_token: TokenIdx,
-    pub ty_expr: MajorPathExprIdx,
+    pub ty_expr: ModuleItemPathExprIdx,
     pub items: Option<ImplBlockItems>,
 }
 
@@ -19,10 +19,10 @@ impl TraitForTypeImplBlock {
         module_path: ModulePath,
         ast_idx: AstIdx,
         impl_token: ImplToken,
-        trai_expr: MajorPathExprIdx,
+        trai_expr: ModuleItemPathExprIdx,
         trai_path: TraitPath,
         for_token: TokenIdx,
-        ty_expr: MajorPathExprIdx,
+        ty_expr: ModuleItemPathExprIdx,
         ty_path: TypePath,
         items: Option<ImplBlockItems>,
     ) -> Self {

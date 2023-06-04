@@ -8,7 +8,7 @@ use thiserror::Error;
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub struct ParentUseExpr {
-    pub parent_name_token: NameToken,
+    pub parent_name_token: PathNameToken,
     pub scope_resolution_token: UseExprResult<ScopeResolutionToken>,
     pub children: UseExprResult<UseExprChildren>,
 }
@@ -20,43 +20,9 @@ pub struct ParentUseExpr {
 pub enum UseExpr {
     All { star_token: StarToken },
     Leaf { ident_token: IdentToken },
-    SelfOne { self_value_token: SelfValueToken },
+    SelfOne { self_mod_token: SelfModToken },
     Parent(ParentUseExpr),
     Err(UseExprError),
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = EntityTreeDb)]
-#[enum_class::from_variants]
-pub enum NameToken {
-    Ident(IdentToken),
-    Crate(CrateToken),
-    SelfValue(SelfValueToken),
-    Super(SuperToken),
-}
-
-impl NameToken {
-    pub fn token_idx(self) -> TokenIdx {
-        match self {
-            NameToken::Ident(token) => token.token_idx(),
-            NameToken::Crate(token) => token.token_idx(),
-            NameToken::SelfValue(token) => token.token_idx(),
-            NameToken::Super(token) => token.token_idx(),
-        }
-    }
-
-    pub fn ident_token(self) -> Option<IdentToken> {
-        match self {
-            NameToken::Ident(ident_token) => Some(ident_token),
-            NameToken::Crate(_) | NameToken::SelfValue(_) | NameToken::Super(_) => None,
-        }
-    }
-    pub fn ident(self) -> Option<Ident> {
-        match self {
-            NameToken::Ident(ident_token) => Some(ident_token.ident()),
-            NameToken::Crate(_) | NameToken::SelfValue(_) | NameToken::Super(_) => None,
-        }
-    }
 }
 
 impl From<UseExprResult<UseExpr>> for UseExpr {
@@ -189,7 +155,7 @@ pub enum OriginalUseExprError {
     #[error("invalid `self` as use root")]
     InvalidSelfAsRoot {
         use_token: UseToken,
-        self_token: SelfValueToken,
+        self_mod_token: SelfModToken,
     },
 }
 
@@ -272,11 +238,9 @@ impl<'a, 'b> UseExprParser<'a, 'b> {
                 ident_token,
             }
             .into()),
-            UseExpr::SelfOne {
-                self_value_token: self_token,
-            } => Err(OriginalUseExprError::InvalidSelfAsRoot {
+            UseExpr::SelfOne { self_mod_token } => Err(OriginalUseExprError::InvalidSelfAsRoot {
                 use_token,
-                self_token,
+                self_mod_token,
             }
             .into()),
             UseExpr::Parent(_) => Ok(UseExprRoot {
@@ -292,7 +256,7 @@ impl<'a, 'b> UseExprParser<'a, 'b> {
             return Ok( UseExpr::Leaf { ident_token })
         };
         Ok(UseExpr::Parent(ParentUseExpr {
-            parent_name_token: NameToken::Ident(ident_token),
+            parent_name_token: PathNameToken::Ident(ident_token),
             scope_resolution_token: Ok(scope_resolution_token),
             children: self.parse_children(),
         }))
@@ -326,39 +290,40 @@ impl<'a, 'b> ParseFromStream<UseExprParser<'a, 'b>> for UseExpr {
         if let Some(star_token) = ctx.parse::<StarToken>()? {
             return Ok(Some(UseExpr::All { star_token }));
         }
-        if let Some(crate_token) = ctx.parse::<CrateToken>()? {
-            Ok(Some(UseExpr::Parent(ParentUseExpr {
-                parent_name_token: NameToken::Crate(crate_token),
-                scope_resolution_token: ctx
-                    .parse_expected(OriginalUseExprError::ExpectScopeResolution),
-                children: ctx.parse_children(),
-            })))
-        } else if let Some(super_token) = ctx.parse::<SuperToken>()? {
-            Ok(Some(UseExpr::Parent(ParentUseExpr {
-                parent_name_token: NameToken::Super(super_token),
-                scope_resolution_token: ctx
-                    .parse_expected(OriginalUseExprError::ExpectScopeResolution),
-                children: ctx.parse_children(),
-            })))
-        } else if let Some(self_value_token) = ctx.parse::<SelfValueToken>()? {
-            // differentiate betwee self one and self children
-            if ctx.peek() == Some(&Token::Punctuation(Punctuation::COLON_COLON)) {
-                Ok(Some(UseExpr::Parent(ParentUseExpr {
-                    parent_name_token: self_value_token.into(),
-                    scope_resolution_token: Ok(ctx
-                        .parse()
-                        .expect("guaranteed by peek")
-                        .expect("guaranteed by peek")),
-                    children: ctx.parse_children(),
-                })))
-            } else {
-                Ok(Some(UseExpr::SelfOne { self_value_token }))
+        let Some(path_name_token) = ctx.parse::<PathNameToken>()? else {
+            return Ok(None)
+        };
+        match path_name_token {
+            PathNameToken::Ident(ident_token) => {
+                Ok(Some(ctx.parse_use_expr_after_ident(ident_token)?))
             }
-        } else {
-            let Some(ident_token) = ctx.parse::<IdentToken>()? else {
-                return Ok(None);
-            };
-            Ok(Some(ctx.parse_use_expr_after_ident(ident_token)?))
+            PathNameToken::CrateRoot(crate_token) => Ok(Some(UseExpr::Parent(ParentUseExpr {
+                parent_name_token: PathNameToken::CrateRoot(crate_token),
+                scope_resolution_token: ctx
+                    .parse_expected(OriginalUseExprError::ExpectScopeResolution),
+                children: ctx.parse_children(),
+            }))),
+            PathNameToken::SelfMod(self_mod_token) => {
+                // differentiate betwee self one and self children
+                if ctx.peek() == Some(&Token::Punctuation(Punctuation::COLON_COLON)) {
+                    Ok(Some(UseExpr::Parent(ParentUseExpr {
+                        parent_name_token: self_mod_token.into(),
+                        scope_resolution_token: Ok(ctx
+                            .parse()
+                            .expect("guaranteed by peek")
+                            .expect("guaranteed by peek")),
+                        children: ctx.parse_children(),
+                    })))
+                } else {
+                    Ok(Some(UseExpr::SelfOne { self_mod_token }))
+                }
+            }
+            PathNameToken::Super(super_token) => Ok(Some(UseExpr::Parent(ParentUseExpr {
+                parent_name_token: PathNameToken::Super(super_token),
+                scope_resolution_token: ctx
+                    .parse_expected(OriginalUseExprError::ExpectScopeResolution),
+                children: ctx.parse_children(),
+            }))),
         }
     }
 }

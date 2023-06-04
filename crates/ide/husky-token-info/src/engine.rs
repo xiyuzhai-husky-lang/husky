@@ -97,9 +97,7 @@ impl<'a> InferEngine<'a> {
                 },
             ),
             UseExpr::Err(_) => (),
-            UseExpr::SelfOne {
-                self_value_token: _,
-            } => todo!(),
+            UseExpr::SelfOne { self_mod_token: _ } => todo!(),
         }
     }
 

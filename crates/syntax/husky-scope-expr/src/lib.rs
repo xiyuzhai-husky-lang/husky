@@ -34,13 +34,15 @@ impl VisibilityExpr {
     ) -> VisibilityExprResult<Self> {
         Ok(if let Some(pub_token) = token_stream.parse::<PubToken>()? {
             if let Some(lpar) = token_stream.parse::<LeftParenthesisToken>()? {
-                let state = token_stream.save_state();
-                if let Some(crate_token) = token_stream.parse::<CrateToken>()? {
-                    todo!()
-                } else if let Some(super_token) = token_stream.parse::<SuperToken>()? {
-                    VisibilityExpr {
+                let path_name_token: PathNameToken = token_stream
+                    .parse_expected(OriginalVisibilityExprError::ExpectedCrateOrSuper)?;
+                match path_name_token {
+                    PathNameToken::Ident(_) => todo!(),
+                    PathNameToken::CrateRoot(_) => todo!(),
+                    PathNameToken::SelfMod(_) => todo!(),
+                    PathNameToken::Super(super_token) => VisibilityExpr {
                         visibility: Scope::PubUnder(module_path.parent(db).ok_or(
-                            OriginalVisibilityExprError::NoSuperForRoot(state.next_token_idx()),
+                            OriginalVisibilityExprError::NoSuperForRoot(super_token.token_idx()),
                         )?),
                         variant: VisibilityExprVariant::PubUnder {
                             pub_token,
@@ -50,10 +52,9 @@ impl VisibilityExpr {
                                 OriginalVisibilityExprError::ExpectedRightParenthesis,
                             )?,
                         },
-                    }
-                } else {
-                    Err(OriginalVisibilityExprError::ExpectedCrateOrSuper(state))?
+                    },
                 }
+                // Err(OriginalVisibilityExprError::ExpectedCrateOrSuper(state))?
             } else {
                 VisibilityExpr {
                     visibility: Scope::Pub,

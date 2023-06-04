@@ -1,5 +1,5 @@
 use crate::ParentUseExpr;
-use husky_token::TokenIdx;
+use husky_token::{PathNameToken, TokenIdx};
 
 use super::*;
 
@@ -9,7 +9,7 @@ pub(crate) enum PresheetAction {
     ResolveUseExpr {
         module_path: ModulePath,
         rule_idx: UseExprRuleIdx,
-        name_token: NameToken,
+        path_name_token: PathNameToken,
         symbol: EntitySymbol,
     },
     UpdateUseAll {
@@ -45,7 +45,7 @@ impl<'a> EntityTreePresheetMut<'a> {
                     Some(parent) => match rule.variant() {
                         UseExprRuleVariant::Leaf { ident_token }
                         | UseExprRuleVariant::Parent {
-                            parent_name_token: NameToken::Ident(ident_token),
+                            parent_name_token: PathNameToken::Ident(ident_token),
                             ..
                         } => (
                             (*ident_token).into(),
@@ -53,19 +53,19 @@ impl<'a> EntityTreePresheetMut<'a> {
                                 .ok_or(*ident_token),
                         ),
                         UseExprRuleVariant::Parent {
-                            parent_name_token: NameToken::SelfValue(_self_value_token),
+                            parent_name_token: PathNameToken::SelfMod(self_mod_token),
                             children: _,
                         } => {
                             todo!()
                         }
                         UseExprRuleVariant::Parent {
-                            parent_name_token: NameToken::Super(_),
+                            parent_name_token: PathNameToken::Super(_),
                             children: _,
                         } => {
                             todo!()
                         }
                         UseExprRuleVariant::Parent {
-                            parent_name_token: NameToken::Crate(_crate_token),
+                            parent_name_token: PathNameToken::CrateRoot(_crate_token),
                             children: _,
                         } => {
                             // todo: prevent this in the parsing stage
@@ -75,14 +75,17 @@ impl<'a> EntityTreePresheetMut<'a> {
                     None => match rule.variant() {
                         UseExprRuleVariant::Leaf { ident_token }
                         | UseExprRuleVariant::Parent {
-                            parent_name_token: NameToken::Ident(ident_token),
+                            parent_name_token: PathNameToken::Ident(ident_token),
                             ..
-                        } => (
-                            (*ident_token).into(),
-                            ctx.resolve_ident(ident_token.ident()).ok_or(*ident_token),
-                        ),
+                        } => {
+                            let ident_token = *ident_token;
+                            (
+                                ident_token.into(),
+                                ctx.resolve_ident(ident_token).ok_or(ident_token),
+                            )
+                        }
                         UseExprRuleVariant::Parent {
-                            parent_name_token: NameToken::SelfValue(self_value_token),
+                            parent_name_token: PathNameToken::SelfMod(self_value_token),
                             children: _,
                         } => (
                             (*self_value_token).into(),
@@ -91,7 +94,7 @@ impl<'a> EntityTreePresheetMut<'a> {
                             }),
                         ),
                         UseExprRuleVariant::Parent {
-                            parent_name_token: NameToken::Super(super_token),
+                            parent_name_token: PathNameToken::Super(super_token),
                             children: _,
                         } => match self.module_path.parent(ctx.db()) {
                             Some(super_module_path) => (
@@ -104,7 +107,7 @@ impl<'a> EntityTreePresheetMut<'a> {
                             None => todo!(),
                         },
                         UseExprRuleVariant::Parent {
-                            parent_name_token: NameToken::Crate(crate_token),
+                            parent_name_token: PathNameToken::CrateRoot(crate_token),
                             children: _,
                         } => (
                             (*crate_token).into(),
@@ -119,7 +122,7 @@ impl<'a> EntityTreePresheetMut<'a> {
                         module_path: self.module_path,
                         rule_idx,
                         symbol,
-                        name_token,
+                        path_name_token: name_token,
                     },
                     Err(ident_token) => PresheetAction::Err {
                         module_path: self.module_path,
@@ -143,7 +146,7 @@ impl<'a> EntityTreePresheetMut<'a> {
         &mut self,
         db: &dyn EntityTreeDb,
         rule_idx: UseExprRuleIdx,
-        name_token: NameToken,
+        name_token: PathNameToken,
         original_symbol: EntitySymbol,
     ) {
         let rule = &mut self.use_expr_rules[rule_idx];
@@ -213,9 +216,7 @@ impl<'a> EntityTreePresheetMut<'a> {
                             children: Err(_), ..
                         })
                         | UseExpr::Err(_) => (),
-                        UseExpr::SelfOne {
-                            self_value_token: _,
-                        } => todo!(),
+                        UseExpr::SelfOne { self_mod_token: _ } => todo!(),
                     }
                 }
             }

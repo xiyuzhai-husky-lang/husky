@@ -3,8 +3,8 @@ use super::*;
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct IdentToken {
-    ident: Ident,
-    token_idx: TokenIdx,
+    pub(super) ident: Ident,
+    pub(super) token_idx: TokenIdx,
 }
 
 impl IdentToken {

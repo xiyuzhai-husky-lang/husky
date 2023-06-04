@@ -1,4 +1,4 @@
-use husky_token::IdentToken;
+use husky_token::{IdentToken, PathNameToken};
 use husky_word::Ident;
 
 use crate::{ParentUseExpr, *};
@@ -67,7 +67,7 @@ pub struct UseExprRule {
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub enum UseExprRuleVariant {
     Parent {
-        parent_name_token: NameToken,
+        parent_name_token: PathNameToken,
         children: UseExprIdxRange,
     },
     Leaf {
@@ -169,7 +169,7 @@ impl UseExprRule {
     pub(crate) fn ident(&self) -> Option<Ident> {
         match self.variant {
             UseExprRuleVariant::Parent {
-                parent_name_token: NameToken::Ident(ident_token),
+                parent_name_token: PathNameToken::Ident(ident_token),
                 ..
             }
             | UseExprRuleVariant::Leaf { ident_token } => Some(ident_token.ident()),
