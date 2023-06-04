@@ -11,7 +11,7 @@ impl<'a> EntityTreeCollector<'a> {
         actions
     }
 
-    fn context<'b>(
+    pub(super) fn context<'b>(
         &'b self,
         presheet: &'b EntityTreePresheetMut<'a>,
     ) -> EntityTreeSymbolContext<'a, 'b> {
@@ -19,7 +19,7 @@ impl<'a> EntityTreeCollector<'a> {
         EntityTreeSymbolContext::new(
             self.db,
             self.crate_path,
-            self.crate_root,
+            self.crate_root_path,
             crate_prelude(
                 self.opt_universal_prelude,
                 self.core_prelude_module,
@@ -31,3 +31,23 @@ impl<'a> EntityTreeCollector<'a> {
         )
     }
 }
+
+#[macro_use]
+macro_rules! context {
+    ($self: ident, $presheet: expr) => {{
+        EntityTreeSymbolContext::new(
+            $self.db,
+            $self.crate_path,
+            $self.crate_root_path,
+            crate_prelude(
+                $self.opt_universal_prelude,
+                $self.core_prelude_module,
+                &$self.presheets,
+                $self.crate_specific_prelude,
+            ),
+            $presheet,
+            &$self.presheets,
+        )
+    }};
+}
+pub(super) use context;

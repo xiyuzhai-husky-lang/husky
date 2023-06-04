@@ -1,8 +1,10 @@
 use crate::*;
 
+use husky_token::{IdentToken, TokenIdx};
 use husky_word::Ident;
 use vec_like::VecMap;
 
+// can see other modules in the crate
 pub(crate) struct EntityTreeSymbolContext<'a, 'b>
 where
     'a: 'b,
@@ -37,7 +39,8 @@ where
         }
     }
 
-    pub(crate) fn resolve_ident(&self, ident: Ident) -> Option<EntitySymbol> {
+    pub(crate) fn resolve_ident(&self, ident_token: IdentToken) -> Option<EntitySymbol> {
+        let ident = ident_token.ident();
         self.current_sheet
             .module_specific_symbols()
             .resolve_ident(ident)

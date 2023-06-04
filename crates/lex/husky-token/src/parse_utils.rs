@@ -2,13 +2,15 @@ mod context;
 mod ident;
 mod keyword;
 mod label;
+mod path_name;
 mod punctuation;
 
-pub use context::*;
-pub use ident::*;
-pub use keyword::*;
-pub use label::*;
-pub use punctuation::*;
+pub use self::context::*;
+pub use self::ident::*;
+pub use self::keyword::*;
+pub use self::label::*;
+pub use self::path_name::*;
+pub use self::punctuation::*;
 
 use crate::*;
 use parsec::*;

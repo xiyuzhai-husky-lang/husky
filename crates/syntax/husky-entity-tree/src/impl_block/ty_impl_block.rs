@@ -6,7 +6,7 @@ pub struct TypeImplBlock {
     pub id: TypeImplBlockId,
     pub ast_idx: AstIdx,
     pub impl_token: ImplToken,
-    pub ty_expr: MajorPathExprIdx,
+    pub ty_expr: ModuleItemPathExprIdx,
     pub body: ImplBlockItems,
 }
 
@@ -19,7 +19,7 @@ impl TypeImplBlock {
         ast_idx: AstIdx,
         body: ImplBlockItems,
         ty_path: TypePath,
-        ty_expr: MajorPathExprIdx,
+        ty_expr: ModuleItemPathExprIdx,
     ) -> Self {
         Self::new_inner(
             db,

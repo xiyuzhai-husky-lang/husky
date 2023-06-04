@@ -1,3 +1,4 @@
+#[macro_use]
 mod action;
 
 use crate::*;
@@ -7,7 +8,7 @@ use vec_like::VecMap;
 pub(crate) struct EntityTreeCollector<'a> {
     db: &'a dyn EntityTreeDb,
     crate_path: CratePath,
-    crate_root: ModulePath,
+    crate_root_path: ModulePath,
     impl_registry: ImplBlockRegistry,
     presheets: VecMap<EntityTreePresheetMut<'a>>,
     core_prelude_module: ModulePath,
@@ -24,11 +25,10 @@ impl<'a> EntityTreeCollector<'a> {
     ) -> EntityTreeBundleResult<Self> {
         let crate_root = ModulePath::new_root(db, crate_path);
         let all_modules = db.all_modules_within_crate(crate_path);
+        // uniqueness test
+        #[cfg(test)]
         for i in 0..all_modules.len() {
             for j in (i + 1)..all_modules.len() {
-                if all_modules[i] == all_modules[j] {
-                    p!(all_modules[i].debug(db))
-                }
                 assert!(all_modules[i] != all_modules[j])
             }
         }
@@ -58,7 +58,7 @@ impl<'a> EntityTreeCollector<'a> {
         Ok(Self {
             db,
             crate_path,
-            crate_root,
+            crate_root_path: crate_root,
             impl_registry: ImplBlockRegistry::default(),
             presheets,
             core_prelude_module,
@@ -124,10 +124,13 @@ impl<'a> EntityTreeCollector<'a> {
                             crate_prelude,
                             presheet.module_specific_symbols(),
                         );
+                        context!(self, presheet);
                         Some(ImplBlock::parse_from_token_group(
                             self.db,
+                            self.crate_root_path,
                             &mut self.impl_registry,
                             module_symbol_context,
+                            context!(self, presheet),
                             module_path,
                             ast_idx,
                             *items,
@@ -152,7 +155,7 @@ impl<'a> EntityTreeCollector<'a> {
             PresheetAction::ResolveUseExpr {
                 module_path,
                 rule_idx,
-                name_token,
+                path_name_token: name_token,
                 symbol,
             } => self.presheets[module_path].resolve_use_expr(db, rule_idx, name_token, symbol),
             PresheetAction::UpdateUseAll {

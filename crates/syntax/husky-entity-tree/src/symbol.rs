@@ -105,6 +105,7 @@ impl EntitySymbol {
     }
 }
 
+// can only see module symbols
 #[derive(Debug, Clone, Copy)]
 pub struct ModuleSymbolContext<'a> {
     crate_prelude: CrateSymbolContext<'a>,

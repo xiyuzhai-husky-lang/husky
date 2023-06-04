@@ -470,61 +470,6 @@ fn use_token_works() {
     assert!(t(&db, "a").unwrap().is_none());
 }
 
-// crate
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = TokenDb)]
-pub struct CrateToken {
-    token_idx: TokenIdx,
-}
-
-impl CrateToken {
-    pub fn token_idx(&self) -> TokenIdx {
-        self.token_idx
-    }
-}
-
-impl<'a, Context> parsec::ParseFromStream<Context> for CrateToken
-where
-    Context: TokenParseContext<'a>,
-{
-    type Error = TokenError;
-
-    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
-        if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
-            match token {
-                Token::Keyword(Keyword::Pronoun(PronounKeyword::Crate)) => {
-                    Ok(Some(CrateToken { token_idx }))
-                }
-                Token::Error(error) => Err(error),
-                Token::Label(_)
-                | Token::Punctuation(_)
-                | Token::Ident(_)
-                | Token::WordOpr(_)
-                | Token::Literal(_)
-                | Token::Keyword(_) => Ok(None),
-            }
-        } else {
-            Ok(None)
-        }
-    }
-}
-
-#[test]
-fn crate_token_works() {
-    fn t(db: &DB, input: &str) -> TokenResult<Option<CrateToken>> {
-        quick_parse(db, input)
-    }
-
-    let db = DB::default();
-    assert!(t(&db, "crate").unwrap().is_some());
-    assert!(t(&db, "use").unwrap().is_none());
-    assert!(t(&db, ":@").unwrap().is_none());
-    assert!(t(&db, ".").unwrap().is_none());
-    assert!(t(&db, "||").unwrap().is_none());
-    assert!(t(&db, "a").unwrap().is_none());
-}
-
 // self value
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -627,61 +572,6 @@ fn self_type_token_works() {
 
     let db = DB::default();
     assert!(t(&db, "Self").unwrap().is_some());
-    assert!(t(&db, "use").unwrap().is_none());
-    assert!(t(&db, ":@").unwrap().is_none());
-    assert!(t(&db, ".").unwrap().is_none());
-    assert!(t(&db, "||").unwrap().is_none());
-    assert!(t(&db, "a").unwrap().is_none());
-}
-
-/// `super` super token
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = TokenDb)]
-pub struct SuperToken {
-    token_idx: TokenIdx,
-}
-
-impl SuperToken {
-    pub fn token_idx(&self) -> TokenIdx {
-        self.token_idx
-    }
-}
-
-impl<'a, Context> parsec::ParseFromStream<Context> for SuperToken
-where
-    Context: TokenParseContext<'a>,
-{
-    type Error = TokenError;
-
-    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
-        if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
-            match token {
-                Token::Keyword(Keyword::Pronoun(PronounKeyword::Super)) => {
-                    Ok(Some(SuperToken { token_idx }))
-                }
-                Token::Error(error) => Err(error),
-                Token::Label(_)
-                | Token::Punctuation(_)
-                | Token::Ident(_)
-                | Token::WordOpr(_)
-                | Token::Literal(_)
-                | Token::Keyword(_) => Ok(None),
-            }
-        } else {
-            Ok(None)
-        }
-    }
-}
-
-#[test]
-fn super_token_works() {
-    fn t(db: &DB, input: &str) -> TokenResult<Option<SuperToken>> {
-        quick_parse(db, input)
-    }
-
-    let db = DB::default();
-    assert!(t(&db, "super").unwrap().is_some());
-    assert!(t(&db, "Self").unwrap().is_none());
     assert!(t(&db, "use").unwrap().is_none());
     assert!(t(&db, ":@").unwrap().is_none());
     assert!(t(&db, ".").unwrap().is_none());
