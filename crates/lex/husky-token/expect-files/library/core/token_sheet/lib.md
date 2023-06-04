@@ -8,7 +8,34 @@ Ok(
                 Keyword::Mod,
             ),
             Token::Ident(
+                `array`,
+            ),
+            Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
+                Keyword::Mod,
+            ),
+            Token::Ident(
                 `basic`,
+            ),
+            Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
+                Keyword::Mod,
+            ),
+            Token::Ident(
+                `clone`,
+            ),
+            Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
+                Keyword::Mod,
+            ),
+            Token::Ident(
+                `cmp`,
             ),
             Token::Keyword(
                 Keyword::Pub,
@@ -26,7 +53,34 @@ Ok(
                 Keyword::Mod,
             ),
             Token::Ident(
+                `fmt`,
+            ),
+            Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
+                Keyword::Mod,
+            ),
+            Token::Ident(
+                `list`,
+            ),
+            Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
+                Keyword::Mod,
+            ),
+            Token::Ident(
                 `logic`,
+            ),
+            Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
+                Keyword::Mod,
+            ),
+            Token::Ident(
+                `marker`,
             ),
             Token::Keyword(
                 Keyword::Pub,
@@ -62,6 +116,15 @@ Ok(
                 Keyword::Mod,
             ),
             Token::Ident(
+                `option`,
+            ),
+            Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
+                Keyword::Mod,
+            ),
+            Token::Ident(
                 `prelude`,
             ),
             Token::Keyword(
@@ -80,52 +143,7 @@ Ok(
                 Keyword::Mod,
             ),
             Token::Ident(
-                `fmt`,
-            ),
-            Token::Keyword(
-                Keyword::Pub,
-            ),
-            Token::Keyword(
-                Keyword::Mod,
-            ),
-            Token::Ident(
-                `clone`,
-            ),
-            Token::Keyword(
-                Keyword::Pub,
-            ),
-            Token::Keyword(
-                Keyword::Mod,
-            ),
-            Token::Ident(
-                `marker`,
-            ),
-            Token::Keyword(
-                Keyword::Pub,
-            ),
-            Token::Keyword(
-                Keyword::Mod,
-            ),
-            Token::Ident(
-                `list`,
-            ),
-            Token::Keyword(
-                Keyword::Pub,
-            ),
-            Token::Keyword(
-                Keyword::Mod,
-            ),
-            Token::Ident(
-                `array`,
-            ),
-            Token::Keyword(
-                Keyword::Pub,
-            ),
-            Token::Keyword(
-                Keyword::Mod,
-            ),
-            Token::Ident(
-                `cmp`,
+                `result`,
             ),
             Token::Keyword(
                 Keyword::Pub,
@@ -135,15 +153,6 @@ Ok(
             ),
             Token::Ident(
                 `str`,
-            ),
-            Token::Keyword(
-                Keyword::Pub,
-            ),
-            Token::Keyword(
-                Keyword::Mod,
-            ),
-            Token::Ident(
-                `option`,
             ),
             Token::Keyword(
                 Keyword::Pub,
@@ -173,8 +182,10 @@ Ok(
             42,
             45,
             48,
+            51,
         ],
         indents: [
+            0,
             0,
             0,
             0,

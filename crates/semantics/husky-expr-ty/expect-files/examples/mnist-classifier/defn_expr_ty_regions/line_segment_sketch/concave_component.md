@@ -238,7 +238,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 34,
+                                            value: 36,
                                         },
                                     ),
                                 ),
@@ -259,7 +259,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 34,
+                                            value: 36,
                                         },
                                     ),
                                 ),
@@ -280,7 +280,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 34,
+                                            value: 36,
                                         },
                                     ),
                                 ),
@@ -301,7 +301,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 34,
+                                            value: 36,
                                         },
                                     ),
                                 ),
@@ -413,7 +413,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 34,
+                                            value: 36,
                                         },
                                     ),
                                 ),
@@ -535,7 +535,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 34,
+                                            value: 36,
                                         },
                                     ),
                                 ),
@@ -556,7 +556,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 34,
+                                            value: 36,
                                         },
                                     ),
                                 ),
@@ -577,7 +577,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 34,
+                                            value: 36,
                                         },
                                     ),
                                 ),
@@ -598,7 +598,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 34,
+                                            value: 36,
                                         },
                                     ),
                                 ),
@@ -701,7 +701,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 34,
+                                            value: 36,
                                         },
                                     ),
                                 ),
@@ -859,7 +859,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 38,
                                         },
                                     ),
                                 ),
@@ -936,7 +936,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 38,
                                         },
                                     ),
                                 ),
@@ -970,7 +970,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 35,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -1053,7 +1053,7 @@
                             data: TypeOntology {
                                 path: TypePath(
                                     Id {
-                                        value: 61,
+                                        value: 41,
                                     },
                                 ),
                                 refined_path: Left(
@@ -1255,7 +1255,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 34,
+                                            value: 36,
                                         },
                                     ),
                                 ),
@@ -1269,7 +1269,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 34,
+                                                        value: 36,
                                                     },
                                                 ),
                                             ),
@@ -1311,7 +1311,7 @@
                                                 TypeOntology(
                                                     TypePath(
                                                         Id {
-                                                            value: 34,
+                                                            value: 36,
                                                         },
                                                     ),
                                                 ),
@@ -1326,7 +1326,7 @@
                                                             TypeOntology(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 89,
+                                                                        value: 91,
                                                                     },
                                                                 ),
                                                             ),
@@ -1339,7 +1339,7 @@
                                                             TypeOntology(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 47,
+                                                                        value: 50,
                                                                     },
                                                                 ),
                                                             ),
@@ -1361,7 +1361,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 34,
+                                            value: 36,
                                         },
                                     ),
                                 ),
@@ -1375,7 +1375,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 34,
+                                                        value: 36,
                                                     },
                                                 ),
                                             ),
@@ -1400,7 +1400,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 34,
+                                            value: 36,
                                         },
                                     ),
                                 ),
@@ -1414,7 +1414,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 34,
+                                                        value: 36,
                                                     },
                                                 ),
                                             ),
@@ -1439,7 +1439,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 34,
+                                            value: 36,
                                         },
                                     ),
                                 ),
@@ -1453,7 +1453,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 34,
+                                                        value: 36,
                                                     },
                                                 ),
                                             ),
@@ -1478,7 +1478,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 34,
+                                            value: 36,
                                         },
                                     ),
                                 ),
@@ -1492,7 +1492,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 34,
+                                                        value: 36,
                                                     },
                                                 ),
                                             ),
@@ -1517,7 +1517,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 34,
+                                            value: 36,
                                         },
                                     ),
                                 ),
@@ -1531,7 +1531,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 34,
+                                                        value: 36,
                                                     },
                                                 ),
                                             ),
@@ -1573,7 +1573,7 @@
                                                 TypeOntology(
                                                     TypePath(
                                                         Id {
-                                                            value: 34,
+                                                            value: 36,
                                                         },
                                                     ),
                                                 ),
@@ -1588,7 +1588,7 @@
                                                             TypeOntology(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 89,
+                                                                        value: 91,
                                                                     },
                                                                 ),
                                                             ),
@@ -1601,7 +1601,7 @@
                                                             TypeOntology(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 47,
+                                                                        value: 50,
                                                                     },
                                                                 ),
                                                             ),
@@ -1623,7 +1623,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 34,
+                                            value: 36,
                                         },
                                     ),
                                 ),
@@ -1637,7 +1637,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 34,
+                                                        value: 36,
                                                     },
                                                 ),
                                             ),
@@ -1662,7 +1662,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 34,
+                                            value: 36,
                                         },
                                     ),
                                 ),
@@ -1676,7 +1676,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 34,
+                                                        value: 36,
                                                     },
                                                 ),
                                             ),
@@ -1701,7 +1701,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 34,
+                                            value: 36,
                                         },
                                     ),
                                 ),
@@ -1715,7 +1715,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 34,
+                                                        value: 36,
                                                     },
                                                 ),
                                             ),
@@ -1755,7 +1755,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 34,
+                                            value: 36,
                                         },
                                     ),
                                 ),
@@ -1769,7 +1769,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 34,
+                                                        value: 36,
                                                     },
                                                 ),
                                             ),
@@ -1794,7 +1794,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 38,
                                         },
                                     ),
                                 ),
@@ -1808,7 +1808,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 36,
+                                                        value: 38,
                                                     },
                                                 ),
                                             ),
@@ -1848,7 +1848,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 38,
                                         },
                                     ),
                                 ),
@@ -1862,7 +1862,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 36,
+                                                        value: 38,
                                                     },
                                                 ),
                                             ),
@@ -1887,7 +1887,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 35,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -2536,7 +2536,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 34,
+                                            value: 36,
                                         },
                                     ),
                                 ),
@@ -2583,7 +2583,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 38,
                                         },
                                     ),
                                 ),
@@ -2617,7 +2617,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 35,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -2714,45 +2714,6 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 34,
-                                        },
-                                    ),
-                                ),
-                            ),
-                            data: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
-                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
-                                        kind: Regular,
-                                        contract: Pure,
-                                        ty: EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 34,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                },
-                            ),
-                            resolve_progress: Resolved(
-                                Ok(
-                                    ImplicitlyConvertible(
-                                        Trivial,
-                                    ),
-                                ),
-                            ),
-                        },
-                        ExpectationEntry {
-                            src: ExpectationSource {
-                                expr_idx: 33,
-                                kind: Expr,
-                            },
-                            expectee: EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
                                             value: 36,
                                         },
                                     ),
@@ -2785,6 +2746,45 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
+                                expr_idx: 33,
+                                kind: Expr,
+                            },
+                            expectee: EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 38,
+                                        },
+                                    ),
+                                ),
+                            ),
+                            data: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        kind: Regular,
+                                        contract: Pure,
+                                        ty: EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    Id {
+                                                        value: 38,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        Trivial,
+                                    ),
+                                ),
+                            ),
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
                                 expr_idx: 35,
                                 kind: Expr,
                             },
@@ -2792,7 +2792,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 35,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -3052,7 +3052,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 34,
+                                            value: 36,
                                         },
                                     ),
                                 ),
@@ -3094,7 +3094,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 38,
                                         },
                                     ),
                                 ),
@@ -3141,7 +3141,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 38,
                                         },
                                     ),
                                 ),
@@ -3175,7 +3175,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 35,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -3266,7 +3266,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 34,
+                                            value: 36,
                                         },
                                     ),
                                 ),
@@ -3285,7 +3285,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 38,
                                         },
                                     ),
                                 ),
@@ -3299,7 +3299,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 36,
+                                                        value: 38,
                                                     },
                                                 ),
                                             ),
@@ -3324,7 +3324,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 38,
                                         },
                                     ),
                                 ),
@@ -3338,7 +3338,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 36,
+                                                        value: 38,
                                                     },
                                                 ),
                                             ),
@@ -3363,7 +3363,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 35,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -3698,7 +3698,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 38,
                                         },
                                     ),
                                 ),
@@ -3774,7 +3774,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 38,
                                         },
                                     ),
                                 ),
@@ -3850,7 +3850,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 38,
                                         },
                                     ),
                                 ),
@@ -3926,7 +3926,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 38,
                                         },
                                     ),
                                 ),
@@ -4064,7 +4064,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 85,
+                                            value: 87,
                                         },
                                     ),
                                 ),
@@ -4087,7 +4087,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 85,
+                                            value: 87,
                                         },
                                     ),
                                 ),
@@ -4110,7 +4110,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 86,
+                                            value: 88,
                                         },
                                     ),
                                 ),
@@ -4131,7 +4131,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 35,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -4202,7 +4202,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 38,
                                         },
                                     ),
                                 ),
@@ -4216,7 +4216,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 36,
+                                                        value: 38,
                                                     },
                                                 ),
                                             ),
@@ -4241,7 +4241,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 38,
                                         },
                                     ),
                                 ),
@@ -4255,7 +4255,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 36,
+                                                        value: 38,
                                                     },
                                                 ),
                                             ),
@@ -4280,7 +4280,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 38,
                                         },
                                     ),
                                 ),
@@ -4294,7 +4294,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 36,
+                                                        value: 38,
                                                     },
                                                 ),
                                             ),
@@ -4319,7 +4319,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 38,
                                         },
                                     ),
                                 ),
@@ -4333,7 +4333,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 36,
+                                                        value: 38,
                                                     },
                                                 ),
                                             ),
@@ -4375,7 +4375,7 @@
                                                 TypeOntology(
                                                     TypePath(
                                                         Id {
-                                                            value: 86,
+                                                            value: 88,
                                                         },
                                                     ),
                                                 ),
@@ -4390,7 +4390,7 @@
                                                             TypeOntology(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 85,
+                                                                        value: 87,
                                                                     },
                                                                 ),
                                                             ),
@@ -4403,7 +4403,7 @@
                                                             TypeOntology(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 85,
+                                                                        value: 87,
                                                                     },
                                                                 ),
                                                             ),
@@ -4442,7 +4442,7 @@
                                                 TypeOntology(
                                                     TypePath(
                                                         Id {
-                                                            value: 85,
+                                                            value: 87,
                                                         },
                                                     ),
                                                 ),
@@ -4457,7 +4457,7 @@
                                                             TypeOntology(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 57,
+                                                                        value: 60,
                                                                     },
                                                                 ),
                                                             ),
@@ -4470,7 +4470,7 @@
                                                             TypeOntology(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 57,
+                                                                        value: 60,
                                                                     },
                                                                 ),
                                                             ),
@@ -4492,7 +4492,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 85,
+                                            value: 87,
                                         },
                                     ),
                                 ),
@@ -4506,7 +4506,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 85,
+                                                        value: 87,
                                                     },
                                                 ),
                                             ),
@@ -4548,7 +4548,7 @@
                                                 TypeOntology(
                                                     TypePath(
                                                         Id {
-                                                            value: 85,
+                                                            value: 87,
                                                         },
                                                     ),
                                                 ),
@@ -4563,7 +4563,7 @@
                                                             TypeOntology(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 57,
+                                                                        value: 60,
                                                                     },
                                                                 ),
                                                             ),
@@ -4576,7 +4576,7 @@
                                                             TypeOntology(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 57,
+                                                                        value: 60,
                                                                     },
                                                                 ),
                                                             ),
@@ -4598,7 +4598,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 85,
+                                            value: 87,
                                         },
                                     ),
                                 ),
@@ -4612,7 +4612,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 85,
+                                                        value: 87,
                                                     },
                                                 ),
                                             ),
@@ -4637,7 +4637,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 86,
+                                            value: 88,
                                         },
                                     ),
                                 ),
@@ -4656,7 +4656,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 35,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -4956,7 +4956,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 92,
+                                            value: 94,
                                         },
                                     ),
                                 ),
@@ -4977,7 +4977,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 92,
+                                            value: 94,
                                         },
                                     ),
                                 ),
@@ -5049,7 +5049,7 @@
                                                 TypeOntology(
                                                     TypePath(
                                                         Id {
-                                                            value: 92,
+                                                            value: 94,
                                                         },
                                                     ),
                                                 ),
@@ -5064,7 +5064,7 @@
                                                             TypeOntology(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 82,
+                                                                        value: 84,
                                                                     },
                                                                 ),
                                                             ),
@@ -5077,7 +5077,7 @@
                                                             TypeOntology(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 82,
+                                                                        value: 84,
                                                                     },
                                                                 ),
                                                             ),
@@ -5099,7 +5099,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 92,
+                                            value: 94,
                                         },
                                     ),
                                 ),
@@ -5113,7 +5113,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 92,
+                                                        value: 94,
                                                     },
                                                 ),
                                             ),
@@ -5138,7 +5138,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 92,
+                                            value: 94,
                                         },
                                     ),
                                 ),
@@ -5152,7 +5152,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 92,
+                                                        value: 94,
                                                     },
                                                 ),
                                             ),

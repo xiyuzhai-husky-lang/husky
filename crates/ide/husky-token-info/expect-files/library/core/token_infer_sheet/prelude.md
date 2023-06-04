@@ -25,11 +25,11 @@ Ok(
                         SubmoduleSymbol {
                             path: `core::basic`,
                             visibility: Scope::Pub,
-                            ast_idx: 0,
+                            ast_idx: 1,
                             ident_token: IdentToken {
                                 ident: `basic`,
                                 token_idx: TokenIdx(
-                                    2,
+                                    5,
                                 ),
                             },
                         },
@@ -62,11 +62,11 @@ Ok(
                         SubmoduleSymbol {
                             path: `core::num`,
                             visibility: Scope::Pub,
-                            ast_idx: 4,
+                            ast_idx: 10,
                             ident_token: IdentToken {
                                 ident: `num`,
                                 token_idx: TokenIdx(
-                                    14,
+                                    32,
                                 ),
                             },
                         },
@@ -99,11 +99,11 @@ Ok(
                         SubmoduleSymbol {
                             path: `core::raw_bits`,
                             visibility: Scope::Pub,
-                            ast_idx: 7,
+                            ast_idx: 14,
                             ident_token: IdentToken {
                                 ident: `raw_bits`,
                                 token_idx: TokenIdx(
-                                    23,
+                                    44,
                                 ),
                             },
                         },
@@ -136,11 +136,11 @@ Ok(
                         SubmoduleSymbol {
                             path: `core::fmt`,
                             visibility: Scope::Pub,
-                            ast_idx: 8,
+                            ast_idx: 5,
                             ident_token: IdentToken {
                                 ident: `fmt`,
                                 token_idx: TokenIdx(
-                                    26,
+                                    17,
                                 ),
                             },
                         },
@@ -173,11 +173,11 @@ Ok(
                         SubmoduleSymbol {
                             path: `core::visual`,
                             visibility: Scope::Pub,
-                            ast_idx: 16,
+                            ast_idx: 17,
                             ident_token: IdentToken {
                                 ident: `visual`,
                                 token_idx: TokenIdx(
-                                    50,
+                                    53,
                                 ),
                             },
                         },
@@ -210,11 +210,11 @@ Ok(
                         SubmoduleSymbol {
                             path: `core::marker`,
                             visibility: Scope::Pub,
-                            ast_idx: 10,
+                            ast_idx: 8,
                             ident_token: IdentToken {
                                 ident: `marker`,
                                 token_idx: TokenIdx(
-                                    32,
+                                    26,
                                 ),
                             },
                         },
@@ -247,11 +247,11 @@ Ok(
                         SubmoduleSymbol {
                             path: `core::clone`,
                             visibility: Scope::Pub,
-                            ast_idx: 9,
+                            ast_idx: 2,
                             ident_token: IdentToken {
                                 ident: `clone`,
                                 token_idx: TokenIdx(
-                                    29,
+                                    8,
                                 ),
                             },
                         },
@@ -284,11 +284,11 @@ Ok(
                         SubmoduleSymbol {
                             path: `core::cmp`,
                             visibility: Scope::Pub,
-                            ast_idx: 13,
+                            ast_idx: 3,
                             ident_token: IdentToken {
                                 ident: `cmp`,
                                 token_idx: TokenIdx(
-                                    41,
+                                    11,
                                 ),
                             },
                         },

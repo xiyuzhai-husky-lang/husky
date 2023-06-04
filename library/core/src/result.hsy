@@ -1,0 +1,11 @@
+// pub use Result::*
+
+pub enum Result<T, E>
+| Ok(T)
+| Err(E)
+
+impl<T, E1, E2> crate::ops::Unveil (Result T E1) for Result T E2:
+    type Continue = E1
+
+    fn branch(result: Result T E1) -> Result T E2:
+        todo

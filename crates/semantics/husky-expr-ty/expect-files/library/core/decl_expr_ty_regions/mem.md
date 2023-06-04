@@ -81,7 +81,7 @@
                                 place: Const,
                                 path: TypePath(
                                     Id {
-                                        value: 72,
+                                        value: 74,
                                     },
                                 ),
                                 refined_path: Left(
@@ -93,7 +93,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 72,
+                                                    value: 74,
                                                 },
                                             ),
                                         ),
@@ -196,7 +196,7 @@
                                 place: Const,
                                 path: TypePath(
                                     Id {
-                                        value: 72,
+                                        value: 74,
                                     },
                                 ),
                                 refined_path: Left(
@@ -208,7 +208,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 72,
+                                                    value: 74,
                                                 },
                                             ),
                                         ),
@@ -327,7 +327,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 74,
+                                            value: 76,
                                         },
                                     ),
                                 ),
@@ -463,7 +463,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 74,
+                                            value: 76,
                                         },
                                     ),
                                 ),

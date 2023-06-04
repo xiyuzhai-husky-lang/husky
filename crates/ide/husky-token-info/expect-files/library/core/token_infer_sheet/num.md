@@ -24,11 +24,11 @@ Ok(
                         SubmoduleSymbol {
                             path: `core::ops`,
                             visibility: Scope::Pub,
-                            ast_idx: 5,
+                            ast_idx: 11,
                             ident_token: IdentToken {
                                 ident: `ops`,
                                 token_idx: TokenIdx(
-                                    17,
+                                    35,
                                 ),
                             },
                         },

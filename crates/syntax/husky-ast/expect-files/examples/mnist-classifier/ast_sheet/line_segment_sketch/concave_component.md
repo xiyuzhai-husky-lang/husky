@@ -16,7 +16,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 40,
+                                    value: 41,
                                 },
                             ),
                         ),
@@ -317,7 +317,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 40,
+                                    value: 41,
                                 },
                             ),
                         ),
@@ -359,7 +359,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 40,
+                                    value: 41,
                                 },
                             ),
                         ),
@@ -401,7 +401,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 40,
+                                    value: 41,
                                 },
                             ),
                         ),
@@ -443,7 +443,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 40,
+                                    value: 41,
                                 },
                             ),
                         ),
@@ -485,7 +485,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 40,
+                                    value: 41,
                                 },
                             ),
                         ),
@@ -527,7 +527,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 40,
+                                    value: 41,
                                 },
                             ),
                         ),
@@ -569,7 +569,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 40,
+                                    value: 41,
                                 },
                             ),
                         ),
@@ -611,7 +611,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 40,
+                                    value: 41,
                                 },
                             ),
                         ),
@@ -653,7 +653,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 40,
+                                    value: 41,
                                 },
                             ),
                         ),
@@ -695,7 +695,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 40,
+                                    value: 41,
                                 },
                             ),
                         ),
@@ -737,7 +737,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 40,
+                                    value: 41,
                                 },
                             ),
                         ),
@@ -779,7 +779,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 40,
+                                    value: 41,
                                 },
                             ),
                         ),
@@ -942,7 +942,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 40,
+                                    value: 41,
                                 },
                             ),
                         ),
@@ -958,7 +958,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 40,
+                                    value: 41,
                                 },
                             ),
                         ),
@@ -974,7 +974,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 40,
+                                    value: 41,
                                 },
                             ),
                         ),
@@ -990,7 +990,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 40,
+                                    value: 41,
                                 },
                             ),
                         ),
@@ -1006,7 +1006,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 40,
+                                    value: 41,
                                 },
                             ),
                         ),
@@ -1050,7 +1050,7 @@ Ok(
                     block: Type {
                         path: TypePath(
                             Id {
-                                value: 44,
+                                value: 45,
                             },
                         ),
                         variants: None,

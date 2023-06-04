@@ -170,7 +170,7 @@ Ok(
                                                             ident: Ident(
                                                                 Word(
                                                                     Id {
-                                                                        value: 520,
+                                                                        value: 526,
                                                                     },
                                                                 ),
                                                             ),

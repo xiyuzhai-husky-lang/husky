@@ -19,20 +19,21 @@ impl NormalAstChildren for TraitForTypeItems {
     fn determine_entity_kind(
         entity_keyword_group: EntityKindKeywordGroup,
     ) -> AstResult<EntityKind> {
-        Ok(match entity_keyword_group {
+        let trait_item_kind = match entity_keyword_group {
             EntityKindKeywordGroup::Mod(_) => todo!(),
-            EntityKindKeywordGroup::Fn(_) => EntityKind::AssociatedItem {
-                associated_item_kind: AssociatedItemKind::TraitForTypeItem(TraitItemKind::MethodFn),
-            },
+            EntityKindKeywordGroup::Fn(_) => TraitItemKind::MethodFn,
             EntityKindKeywordGroup::ConstFn(_, _) => todo!(),
             EntityKindKeywordGroup::StaticFn(_, _) => todo!(),
             EntityKindKeywordGroup::StaticConstFn(_, _, _) => todo!(),
             EntityKindKeywordGroup::Gn(_) => todo!(),
             EntityKindKeywordGroup::GeneralDef(_) => todo!(),
             EntityKindKeywordGroup::TypeEntity(_) => todo!(),
-            EntityKindKeywordGroup::Type(_) => todo!(),
+            EntityKindKeywordGroup::Type(_) => TraitItemKind::AssociatedType,
             EntityKindKeywordGroup::Trait(_) => todo!(),
             EntityKindKeywordGroup::Val(_) => todo!(),
+        };
+        Ok(EntityKind::AssociatedItem {
+            associated_item_kind: AssociatedItemKind::TraitForTypeItem(trait_item_kind),
         })
     }
 }

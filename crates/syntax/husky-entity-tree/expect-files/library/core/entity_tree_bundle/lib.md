@@ -6,15 +6,15 @@ Ok(
                 symbols: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
-                            ident: `basic`,
+                            ident: `array`,
                             visibility: Scope::Pub,
                             symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
-                                    path: `core::basic`,
+                                    path: `core::array`,
                                     visibility: Scope::Pub,
                                     ast_idx: 0,
                                     ident_token: IdentToken {
-                                        ident: `basic`,
+                                        ident: `array`,
                                         token_idx: TokenIdx(
                                             2,
                                         ),
@@ -23,136 +23,17 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `default`,
+                            ident: `basic`,
                             visibility: Scope::Pub,
                             symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
-                                    path: `core::default`,
+                                    path: `core::basic`,
                                     visibility: Scope::Pub,
                                     ast_idx: 1,
                                     ident_token: IdentToken {
-                                        ident: `default`,
+                                        ident: `basic`,
                                         token_idx: TokenIdx(
                                             5,
-                                        ),
-                                    },
-                                },
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `logic`,
-                            visibility: Scope::Pub,
-                            symbol: EntitySymbol::Submodule(
-                                SubmoduleSymbol {
-                                    path: `core::logic`,
-                                    visibility: Scope::Pub,
-                                    ast_idx: 2,
-                                    ident_token: IdentToken {
-                                        ident: `logic`,
-                                        token_idx: TokenIdx(
-                                            8,
-                                        ),
-                                    },
-                                },
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `mem`,
-                            visibility: Scope::Pub,
-                            symbol: EntitySymbol::Submodule(
-                                SubmoduleSymbol {
-                                    path: `core::mem`,
-                                    visibility: Scope::Pub,
-                                    ast_idx: 3,
-                                    ident_token: IdentToken {
-                                        ident: `mem`,
-                                        token_idx: TokenIdx(
-                                            11,
-                                        ),
-                                    },
-                                },
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `num`,
-                            visibility: Scope::Pub,
-                            symbol: EntitySymbol::Submodule(
-                                SubmoduleSymbol {
-                                    path: `core::num`,
-                                    visibility: Scope::Pub,
-                                    ast_idx: 4,
-                                    ident_token: IdentToken {
-                                        ident: `num`,
-                                        token_idx: TokenIdx(
-                                            14,
-                                        ),
-                                    },
-                                },
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `ops`,
-                            visibility: Scope::Pub,
-                            symbol: EntitySymbol::Submodule(
-                                SubmoduleSymbol {
-                                    path: `core::ops`,
-                                    visibility: Scope::Pub,
-                                    ast_idx: 5,
-                                    ident_token: IdentToken {
-                                        ident: `ops`,
-                                        token_idx: TokenIdx(
-                                            17,
-                                        ),
-                                    },
-                                },
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `prelude`,
-                            visibility: Scope::Pub,
-                            symbol: EntitySymbol::Submodule(
-                                SubmoduleSymbol {
-                                    path: `core::prelude`,
-                                    visibility: Scope::Pub,
-                                    ast_idx: 6,
-                                    ident_token: IdentToken {
-                                        ident: `prelude`,
-                                        token_idx: TokenIdx(
-                                            20,
-                                        ),
-                                    },
-                                },
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `raw_bits`,
-                            visibility: Scope::Pub,
-                            symbol: EntitySymbol::Submodule(
-                                SubmoduleSymbol {
-                                    path: `core::raw_bits`,
-                                    visibility: Scope::Pub,
-                                    ast_idx: 7,
-                                    ident_token: IdentToken {
-                                        ident: `raw_bits`,
-                                        token_idx: TokenIdx(
-                                            23,
-                                        ),
-                                    },
-                                },
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `fmt`,
-                            visibility: Scope::Pub,
-                            symbol: EntitySymbol::Submodule(
-                                SubmoduleSymbol {
-                                    path: `core::fmt`,
-                                    visibility: Scope::Pub,
-                                    ast_idx: 8,
-                                    ident_token: IdentToken {
-                                        ident: `fmt`,
-                                        token_idx: TokenIdx(
-                                            26,
                                         ),
                                     },
                                 },
@@ -165,62 +46,11 @@ Ok(
                                 SubmoduleSymbol {
                                     path: `core::clone`,
                                     visibility: Scope::Pub,
-                                    ast_idx: 9,
+                                    ast_idx: 2,
                                     ident_token: IdentToken {
                                         ident: `clone`,
                                         token_idx: TokenIdx(
-                                            29,
-                                        ),
-                                    },
-                                },
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `marker`,
-                            visibility: Scope::Pub,
-                            symbol: EntitySymbol::Submodule(
-                                SubmoduleSymbol {
-                                    path: `core::marker`,
-                                    visibility: Scope::Pub,
-                                    ast_idx: 10,
-                                    ident_token: IdentToken {
-                                        ident: `marker`,
-                                        token_idx: TokenIdx(
-                                            32,
-                                        ),
-                                    },
-                                },
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `list`,
-                            visibility: Scope::Pub,
-                            symbol: EntitySymbol::Submodule(
-                                SubmoduleSymbol {
-                                    path: `core::list`,
-                                    visibility: Scope::Pub,
-                                    ast_idx: 11,
-                                    ident_token: IdentToken {
-                                        ident: `list`,
-                                        token_idx: TokenIdx(
-                                            35,
-                                        ),
-                                    },
-                                },
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `array`,
-                            visibility: Scope::Pub,
-                            symbol: EntitySymbol::Submodule(
-                                SubmoduleSymbol {
-                                    path: `core::array`,
-                                    visibility: Scope::Pub,
-                                    ast_idx: 12,
-                                    ident_token: IdentToken {
-                                        ident: `array`,
-                                        token_idx: TokenIdx(
-                                            38,
+                                            8,
                                         ),
                                     },
                                 },
@@ -233,28 +63,147 @@ Ok(
                                 SubmoduleSymbol {
                                     path: `core::cmp`,
                                     visibility: Scope::Pub,
-                                    ast_idx: 13,
+                                    ast_idx: 3,
                                     ident_token: IdentToken {
                                         ident: `cmp`,
                                         token_idx: TokenIdx(
-                                            41,
+                                            11,
                                         ),
                                     },
                                 },
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `str`,
+                            ident: `default`,
                             visibility: Scope::Pub,
                             symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
-                                    path: `core::str`,
+                                    path: `core::default`,
                                     visibility: Scope::Pub,
-                                    ast_idx: 14,
+                                    ast_idx: 4,
                                     ident_token: IdentToken {
-                                        ident: `str`,
+                                        ident: `default`,
                                         token_idx: TokenIdx(
-                                            44,
+                                            14,
+                                        ),
+                                    },
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `fmt`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::Submodule(
+                                SubmoduleSymbol {
+                                    path: `core::fmt`,
+                                    visibility: Scope::Pub,
+                                    ast_idx: 5,
+                                    ident_token: IdentToken {
+                                        ident: `fmt`,
+                                        token_idx: TokenIdx(
+                                            17,
+                                        ),
+                                    },
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `list`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::Submodule(
+                                SubmoduleSymbol {
+                                    path: `core::list`,
+                                    visibility: Scope::Pub,
+                                    ast_idx: 6,
+                                    ident_token: IdentToken {
+                                        ident: `list`,
+                                        token_idx: TokenIdx(
+                                            20,
+                                        ),
+                                    },
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `logic`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::Submodule(
+                                SubmoduleSymbol {
+                                    path: `core::logic`,
+                                    visibility: Scope::Pub,
+                                    ast_idx: 7,
+                                    ident_token: IdentToken {
+                                        ident: `logic`,
+                                        token_idx: TokenIdx(
+                                            23,
+                                        ),
+                                    },
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `marker`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::Submodule(
+                                SubmoduleSymbol {
+                                    path: `core::marker`,
+                                    visibility: Scope::Pub,
+                                    ast_idx: 8,
+                                    ident_token: IdentToken {
+                                        ident: `marker`,
+                                        token_idx: TokenIdx(
+                                            26,
+                                        ),
+                                    },
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `mem`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::Submodule(
+                                SubmoduleSymbol {
+                                    path: `core::mem`,
+                                    visibility: Scope::Pub,
+                                    ast_idx: 9,
+                                    ident_token: IdentToken {
+                                        ident: `mem`,
+                                        token_idx: TokenIdx(
+                                            29,
+                                        ),
+                                    },
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `num`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::Submodule(
+                                SubmoduleSymbol {
+                                    path: `core::num`,
+                                    visibility: Scope::Pub,
+                                    ast_idx: 10,
+                                    ident_token: IdentToken {
+                                        ident: `num`,
+                                        token_idx: TokenIdx(
+                                            32,
+                                        ),
+                                    },
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ops`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::Submodule(
+                                SubmoduleSymbol {
+                                    path: `core::ops`,
+                                    visibility: Scope::Pub,
+                                    ast_idx: 11,
+                                    ident_token: IdentToken {
+                                        ident: `ops`,
+                                        token_idx: TokenIdx(
+                                            35,
                                         ),
                                     },
                                 },
@@ -267,11 +216,79 @@ Ok(
                                 SubmoduleSymbol {
                                     path: `core::option`,
                                     visibility: Scope::Pub,
-                                    ast_idx: 15,
+                                    ast_idx: 12,
                                     ident_token: IdentToken {
                                         ident: `option`,
                                         token_idx: TokenIdx(
+                                            38,
+                                        ),
+                                    },
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `prelude`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::Submodule(
+                                SubmoduleSymbol {
+                                    path: `core::prelude`,
+                                    visibility: Scope::Pub,
+                                    ast_idx: 13,
+                                    ident_token: IdentToken {
+                                        ident: `prelude`,
+                                        token_idx: TokenIdx(
+                                            41,
+                                        ),
+                                    },
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `raw_bits`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::Submodule(
+                                SubmoduleSymbol {
+                                    path: `core::raw_bits`,
+                                    visibility: Scope::Pub,
+                                    ast_idx: 14,
+                                    ident_token: IdentToken {
+                                        ident: `raw_bits`,
+                                        token_idx: TokenIdx(
+                                            44,
+                                        ),
+                                    },
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `result`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::Submodule(
+                                SubmoduleSymbol {
+                                    path: `core::result`,
+                                    visibility: Scope::Pub,
+                                    ast_idx: 15,
+                                    ident_token: IdentToken {
+                                        ident: `result`,
+                                        token_idx: TokenIdx(
                                             47,
+                                        ),
+                                    },
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `str`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::Submodule(
+                                SubmoduleSymbol {
+                                    path: `core::str`,
+                                    visibility: Scope::Pub,
+                                    ast_idx: 16,
+                                    ident_token: IdentToken {
+                                        ident: `str`,
+                                        token_idx: TokenIdx(
+                                            50,
                                         ),
                                     },
                                 },
@@ -284,11 +301,45 @@ Ok(
                                 SubmoduleSymbol {
                                     path: `core::visual`,
                                     visibility: Scope::Pub,
-                                    ast_idx: 16,
+                                    ast_idx: 17,
                                     ident_token: IdentToken {
                                         ident: `visual`,
                                         token_idx: TokenIdx(
-                                            50,
+                                            53,
+                                        ),
+                                    },
+                                },
+                            ),
+                        },
+                    ],
+                ),
+                impl_blocks: [],
+                use_expr_rules: UseExprRules(
+                    [],
+                ),
+                use_all_rules: UseAllRules(
+                    [],
+                ),
+                errors: [],
+            },
+            EntityTreeSheet {
+                module_path: `core::array`,
+                symbols: EntitySymbolTable(
+                    [
+                        EntitySymbolEntry {
+                            ident: `Array`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Type(
+                                        TypePath(`core::array::Array`, `Extern`),
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 0,
+                                    ident_token: IdentToken {
+                                        ident: `Array`,
+                                        token_idx: TokenIdx(
+                                            2,
                                         ),
                                     },
                                 },
@@ -416,11 +467,228 @@ Ok(
                 errors: [],
             },
             EntityTreeSheet {
+                module_path: `core::clone`,
+                symbols: EntitySymbolTable(
+                    [
+                        EntitySymbolEntry {
+                            ident: `Clone`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Trait(
+                                        TraitPath(`core::clone::Clone`),
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 1,
+                                    ident_token: IdentToken {
+                                        ident: `Clone`,
+                                        token_idx: TokenIdx(
+                                            2,
+                                        ),
+                                    },
+                                },
+                            ),
+                        },
+                    ],
+                ),
+                impl_blocks: [],
+                use_expr_rules: UseExprRules(
+                    [],
+                ),
+                use_all_rules: UseAllRules(
+                    [],
+                ),
+                errors: [],
+            },
+            EntityTreeSheet {
+                module_path: `core::cmp`,
+                symbols: EntitySymbolTable(
+                    [
+                        EntitySymbolEntry {
+                            ident: `PartialEq`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Trait(
+                                        TraitPath(`core::cmp::PartialEq`),
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 0,
+                                    ident_token: IdentToken {
+                                        ident: `PartialEq`,
+                                        token_idx: TokenIdx(
+                                            2,
+                                        ),
+                                    },
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `Eq`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Trait(
+                                        TraitPath(`core::cmp::Eq`),
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 1,
+                                    ident_token: IdentToken {
+                                        ident: `Eq`,
+                                        token_idx: TokenIdx(
+                                            6,
+                                        ),
+                                    },
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `PartialOrd`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Trait(
+                                        TraitPath(`core::cmp::PartialOrd`),
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 2,
+                                    ident_token: IdentToken {
+                                        ident: `PartialOrd`,
+                                        token_idx: TokenIdx(
+                                            10,
+                                        ),
+                                    },
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `Ord`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Trait(
+                                        TraitPath(`core::cmp::Ord`),
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 3,
+                                    ident_token: IdentToken {
+                                        ident: `Ord`,
+                                        token_idx: TokenIdx(
+                                            14,
+                                        ),
+                                    },
+                                },
+                            ),
+                        },
+                    ],
+                ),
+                impl_blocks: [],
+                use_expr_rules: UseExprRules(
+                    [],
+                ),
+                use_all_rules: UseAllRules(
+                    [],
+                ),
+                errors: [],
+            },
+            EntityTreeSheet {
                 module_path: `core::default`,
                 symbols: EntitySymbolTable(
                     [],
                 ),
                 impl_blocks: [],
+                use_expr_rules: UseExprRules(
+                    [],
+                ),
+                use_all_rules: UseAllRules(
+                    [],
+                ),
+                errors: [],
+            },
+            EntityTreeSheet {
+                module_path: `core::fmt`,
+                symbols: EntitySymbolTable(
+                    [
+                        EntitySymbolEntry {
+                            ident: `Debug`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Trait(
+                                        TraitPath(`core::fmt::Debug`),
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 0,
+                                    ident_token: IdentToken {
+                                        ident: `Debug`,
+                                        token_idx: TokenIdx(
+                                            2,
+                                        ),
+                                    },
+                                },
+                            ),
+                        },
+                    ],
+                ),
+                impl_blocks: [],
+                use_expr_rules: UseExprRules(
+                    [],
+                ),
+                use_all_rules: UseAllRules(
+                    [],
+                ),
+                errors: [],
+            },
+            EntityTreeSheet {
+                module_path: `core::list`,
+                symbols: EntitySymbolTable(
+                    [
+                        EntitySymbolEntry {
+                            ident: `List`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Type(
+                                        TypePath(`core::list::List`, `Extern`),
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 2,
+                                    ident_token: IdentToken {
+                                        ident: `List`,
+                                        token_idx: TokenIdx(
+                                            2,
+                                        ),
+                                    },
+                                },
+                            ),
+                        },
+                    ],
+                ),
+                impl_blocks: [
+                    ImplBlock::Type(
+                        TypeImplBlock {
+                            id: TypeImplBlockId {
+                                module_path: `core::list`,
+                                ty_path: TypePath(`core::list::List`, `Extern`),
+                                disambiguator: 0,
+                            },
+                            ast_idx: 3,
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    8,
+                                ),
+                            },
+                            ty_expr: 0,
+                            body: Type(
+                                TypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        0..2,
+                                    ),
+                                },
+                            ),
+                        },
+                    ),
+                ],
                 use_expr_rules: UseExprRules(
                     [],
                 ),
@@ -485,6 +753,59 @@ Ok(
                                         ident: `LogicOr`,
                                         token_idx: TokenIdx(
                                             28,
+                                        ),
+                                    },
+                                },
+                            ),
+                        },
+                    ],
+                ),
+                impl_blocks: [],
+                use_expr_rules: UseExprRules(
+                    [],
+                ),
+                use_all_rules: UseAllRules(
+                    [],
+                ),
+                errors: [],
+            },
+            EntityTreeSheet {
+                module_path: `core::marker`,
+                symbols: EntitySymbolTable(
+                    [
+                        EntitySymbolEntry {
+                            ident: `Copy`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Trait(
+                                        TraitPath(`core::marker::Copy`),
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 0,
+                                    ident_token: IdentToken {
+                                        ident: `Copy`,
+                                        token_idx: TokenIdx(
+                                            2,
+                                        ),
+                                    },
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `Sized`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Trait(
+                                        TraitPath(`core::marker::Sized`),
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 1,
+                                    ident_token: IdentToken {
+                                        ident: `Sized`,
+                                        token_idx: TokenIdx(
+                                            6,
                                         ),
                                     },
                                 },
@@ -579,11 +900,11 @@ Ok(
                                     30,
                                 ),
                             },
-                            trai_expr: 0,
+                            trai_expr: 1,
                             for_token: TokenIdx(
                                 35,
                             ),
-                            ty_expr: 1,
+                            ty_expr: 2,
                             items: None,
                         },
                     ),
@@ -917,7 +1238,7 @@ Ok(
                                     30,
                                 ),
                             },
-                            ty_expr: 2,
+                            ty_expr: 3,
                             body: Type(
                                 TypeItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -941,11 +1262,11 @@ Ok(
                                     41,
                                 ),
                             },
-                            trai_expr: 3,
+                            trai_expr: 4,
                             for_token: TokenIdx(
                                 44,
                             ),
-                            ty_expr: 4,
+                            ty_expr: 5,
                             items: Some(
                                 TraitForType(
                                     TraitForTypeItems {
@@ -970,7 +1291,7 @@ Ok(
                                     82,
                                 ),
                             },
-                            ty_expr: 5,
+                            ty_expr: 6,
                             body: Type(
                                 TypeItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -994,11 +1315,11 @@ Ok(
                                     93,
                                 ),
                             },
-                            trai_expr: 6,
+                            trai_expr: 7,
                             for_token: TokenIdx(
                                 96,
                             ),
-                            ty_expr: 7,
+                            ty_expr: 8,
                             items: Some(
                                 TraitForType(
                                     TraitForTypeItems {
@@ -1023,7 +1344,7 @@ Ok(
                                     134,
                                 ),
                             },
-                            ty_expr: 8,
+                            ty_expr: 9,
                             body: Type(
                                 TypeItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -1047,11 +1368,11 @@ Ok(
                                     145,
                                 ),
                             },
-                            trai_expr: 9,
+                            trai_expr: 10,
                             for_token: TokenIdx(
                                 148,
                             ),
-                            ty_expr: 10,
+                            ty_expr: 11,
                             items: Some(
                                 TraitForType(
                                     TraitForTypeItems {
@@ -1076,7 +1397,7 @@ Ok(
                                     185,
                                 ),
                             },
-                            ty_expr: 11,
+                            ty_expr: 12,
                             body: Type(
                                 TypeItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -1100,11 +1421,11 @@ Ok(
                                     196,
                                 ),
                             },
-                            trai_expr: 12,
+                            trai_expr: 13,
                             for_token: TokenIdx(
                                 199,
                             ),
-                            ty_expr: 13,
+                            ty_expr: 14,
                             items: Some(
                                 TraitForType(
                                     TraitForTypeItems {
@@ -1129,7 +1450,7 @@ Ok(
                                     237,
                                 ),
                             },
-                            ty_expr: 14,
+                            ty_expr: 15,
                             body: Type(
                                 TypeItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -1153,11 +1474,11 @@ Ok(
                                     248,
                                 ),
                             },
-                            trai_expr: 15,
+                            trai_expr: 16,
                             for_token: TokenIdx(
                                 251,
                             ),
-                            ty_expr: 16,
+                            ty_expr: 17,
                             items: Some(
                                 TraitForType(
                                     TraitForTypeItems {
@@ -1182,7 +1503,7 @@ Ok(
                                     289,
                                 ),
                             },
-                            ty_expr: 17,
+                            ty_expr: 18,
                             body: Type(
                                 TypeItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -1206,11 +1527,11 @@ Ok(
                                     300,
                                 ),
                             },
-                            trai_expr: 18,
+                            trai_expr: 19,
                             for_token: TokenIdx(
                                 303,
                             ),
-                            ty_expr: 19,
+                            ty_expr: 20,
                             items: Some(
                                 TraitForType(
                                     TraitForTypeItems {
@@ -1235,7 +1556,7 @@ Ok(
                                     341,
                                 ),
                             },
-                            ty_expr: 20,
+                            ty_expr: 21,
                             body: Type(
                                 TypeItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -1259,11 +1580,11 @@ Ok(
                                     352,
                                 ),
                             },
-                            trai_expr: 21,
+                            trai_expr: 22,
                             for_token: TokenIdx(
                                 355,
                             ),
-                            ty_expr: 22,
+                            ty_expr: 23,
                             items: Some(
                                 TraitForType(
                                     TraitForTypeItems {
@@ -1288,7 +1609,7 @@ Ok(
                                     393,
                                 ),
                             },
-                            ty_expr: 23,
+                            ty_expr: 24,
                             body: Type(
                                 TypeItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -1312,11 +1633,11 @@ Ok(
                                     404,
                                 ),
                             },
-                            trai_expr: 24,
+                            trai_expr: 25,
                             for_token: TokenIdx(
                                 407,
                             ),
-                            ty_expr: 25,
+                            ty_expr: 26,
                             items: Some(
                                 TraitForType(
                                     TraitForTypeItems {
@@ -1341,7 +1662,7 @@ Ok(
                                     445,
                                 ),
                             },
-                            ty_expr: 26,
+                            ty_expr: 27,
                             body: Type(
                                 TypeItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -1365,11 +1686,11 @@ Ok(
                                     456,
                                 ),
                             },
-                            trai_expr: 27,
+                            trai_expr: 28,
                             for_token: TokenIdx(
                                 459,
                             ),
-                            ty_expr: 28,
+                            ty_expr: 29,
                             items: Some(
                                 TraitForType(
                                     TraitForTypeItems {
@@ -1394,7 +1715,7 @@ Ok(
                                     497,
                                 ),
                             },
-                            ty_expr: 29,
+                            ty_expr: 30,
                             body: Type(
                                 TypeItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -1418,11 +1739,11 @@ Ok(
                                     508,
                                 ),
                             },
-                            trai_expr: 30,
+                            trai_expr: 31,
                             for_token: TokenIdx(
                                 511,
                             ),
-                            ty_expr: 31,
+                            ty_expr: 32,
                             items: Some(
                                 TraitForType(
                                     TraitForTypeItems {
@@ -1447,7 +1768,7 @@ Ok(
                                     549,
                                 ),
                             },
-                            ty_expr: 32,
+                            ty_expr: 33,
                             body: Type(
                                 TypeItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -1471,11 +1792,11 @@ Ok(
                                     560,
                                 ),
                             },
-                            trai_expr: 33,
+                            trai_expr: 34,
                             for_token: TokenIdx(
                                 563,
                             ),
-                            ty_expr: 34,
+                            ty_expr: 35,
                             items: Some(
                                 TraitForType(
                                     TraitForTypeItems {
@@ -1500,7 +1821,7 @@ Ok(
                                     601,
                                 ),
                             },
-                            ty_expr: 35,
+                            ty_expr: 36,
                             body: Type(
                                 TypeItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -1524,11 +1845,11 @@ Ok(
                                     612,
                                 ),
                             },
-                            trai_expr: 36,
+                            trai_expr: 37,
                             for_token: TokenIdx(
                                 615,
                             ),
-                            ty_expr: 37,
+                            ty_expr: 38,
                             items: Some(
                                 TraitForType(
                                     TraitForTypeItems {
@@ -1553,7 +1874,7 @@ Ok(
                                     653,
                                 ),
                             },
-                            ty_expr: 38,
+                            ty_expr: 39,
                             body: Type(
                                 TypeItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -1577,11 +1898,11 @@ Ok(
                                     672,
                                 ),
                             },
-                            trai_expr: 39,
+                            trai_expr: 40,
                             for_token: TokenIdx(
                                 675,
                             ),
-                            ty_expr: 40,
+                            ty_expr: 41,
                             items: Some(
                                 TraitForType(
                                     TraitForTypeItems {
@@ -1606,7 +1927,7 @@ Ok(
                                     712,
                                 ),
                             },
-                            ty_expr: 41,
+                            ty_expr: 42,
                             body: Type(
                                 TypeItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -1630,11 +1951,11 @@ Ok(
                                     723,
                                 ),
                             },
-                            trai_expr: 42,
+                            trai_expr: 43,
                             for_token: TokenIdx(
                                 726,
                             ),
-                            ty_expr: 43,
+                            ty_expr: 44,
                             items: Some(
                                 TraitForType(
                                     TraitForTypeItems {
@@ -1703,11 +2024,11 @@ Ok(
                                     SubmoduleSymbol {
                                         path: `core::ops`,
                                         visibility: Scope::Pub,
-                                        ast_idx: 5,
+                                        ast_idx: 11,
                                         ident_token: IdentToken {
                                             ident: `ops`,
                                             token_idx: TokenIdx(
-                                                17,
+                                                35,
                                             ),
                                         },
                                     },
@@ -2080,6 +2401,40 @@ Ok(
                                         ident: `ControlFlow`,
                                         token_idx: TokenIdx(
                                             436,
+                                        ),
+                                    },
+                                },
+                            ),
+                        },
+                    ],
+                ),
+                impl_blocks: [],
+                use_expr_rules: UseExprRules(
+                    [],
+                ),
+                use_all_rules: UseAllRules(
+                    [],
+                ),
+                errors: [],
+            },
+            EntityTreeSheet {
+                module_path: `core::option`,
+                symbols: EntitySymbolTable(
+                    [
+                        EntitySymbolEntry {
+                            ident: `Option`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Type(
+                                        TypePath(`core::option::Option`, `Enum`),
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 2,
+                                    ident_token: IdentToken {
+                                        ident: `Option`,
+                                        token_idx: TokenIdx(
+                                            2,
                                         ),
                                     },
                                 },
@@ -3246,11 +3601,11 @@ Ok(
                                     SubmoduleSymbol {
                                         path: `core::basic`,
                                         visibility: Scope::Pub,
-                                        ast_idx: 0,
+                                        ast_idx: 1,
                                         ident_token: IdentToken {
                                             ident: `basic`,
                                             token_idx: TokenIdx(
-                                                2,
+                                                5,
                                             ),
                                         },
                                     },
@@ -3284,11 +3639,11 @@ Ok(
                                     SubmoduleSymbol {
                                         path: `core::num`,
                                         visibility: Scope::Pub,
-                                        ast_idx: 4,
+                                        ast_idx: 10,
                                         ident_token: IdentToken {
                                             ident: `num`,
                                             token_idx: TokenIdx(
-                                                14,
+                                                32,
                                             ),
                                         },
                                     },
@@ -3322,11 +3677,11 @@ Ok(
                                     SubmoduleSymbol {
                                         path: `core::raw_bits`,
                                         visibility: Scope::Pub,
-                                        ast_idx: 7,
+                                        ast_idx: 14,
                                         ident_token: IdentToken {
                                             ident: `raw_bits`,
                                             token_idx: TokenIdx(
-                                                23,
+                                                44,
                                             ),
                                         },
                                     },
@@ -3360,11 +3715,11 @@ Ok(
                                     SubmoduleSymbol {
                                         path: `core::fmt`,
                                         visibility: Scope::Pub,
-                                        ast_idx: 8,
+                                        ast_idx: 5,
                                         ident_token: IdentToken {
                                             ident: `fmt`,
                                             token_idx: TokenIdx(
-                                                26,
+                                                17,
                                             ),
                                         },
                                     },
@@ -3398,11 +3753,11 @@ Ok(
                                     SubmoduleSymbol {
                                         path: `core::visual`,
                                         visibility: Scope::Pub,
-                                        ast_idx: 16,
+                                        ast_idx: 17,
                                         ident_token: IdentToken {
                                             ident: `visual`,
                                             token_idx: TokenIdx(
-                                                50,
+                                                53,
                                             ),
                                         },
                                     },
@@ -3436,11 +3791,11 @@ Ok(
                                     SubmoduleSymbol {
                                         path: `core::marker`,
                                         visibility: Scope::Pub,
-                                        ast_idx: 10,
+                                        ast_idx: 8,
                                         ident_token: IdentToken {
                                             ident: `marker`,
                                             token_idx: TokenIdx(
-                                                32,
+                                                26,
                                             ),
                                         },
                                     },
@@ -3474,11 +3829,11 @@ Ok(
                                     SubmoduleSymbol {
                                         path: `core::clone`,
                                         visibility: Scope::Pub,
-                                        ast_idx: 9,
+                                        ast_idx: 2,
                                         ident_token: IdentToken {
                                             ident: `clone`,
                                             token_idx: TokenIdx(
-                                                29,
+                                                8,
                                             ),
                                         },
                                     },
@@ -3512,11 +3867,11 @@ Ok(
                                     SubmoduleSymbol {
                                         path: `core::cmp`,
                                         visibility: Scope::Pub,
-                                        ast_idx: 13,
+                                        ast_idx: 3,
                                         ident_token: IdentToken {
                                             ident: `cmp`,
                                             token_idx: TokenIdx(
-                                                41,
+                                                11,
                                             ),
                                         },
                                     },
@@ -3662,142 +4017,21 @@ Ok(
                 errors: [],
             },
             EntityTreeSheet {
-                module_path: `core::fmt`,
+                module_path: `core::result`,
                 symbols: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
-                            ident: `Debug`,
-                            visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Trait(
-                                        TraitPath(`core::fmt::Debug`),
-                                    ),
-                                    visibility: Scope::Pub,
-                                    ast_idx: 0,
-                                    ident_token: IdentToken {
-                                        ident: `Debug`,
-                                        token_idx: TokenIdx(
-                                            2,
-                                        ),
-                                    },
-                                },
-                            ),
-                        },
-                    ],
-                ),
-                impl_blocks: [],
-                use_expr_rules: UseExprRules(
-                    [],
-                ),
-                use_all_rules: UseAllRules(
-                    [],
-                ),
-                errors: [],
-            },
-            EntityTreeSheet {
-                module_path: `core::clone`,
-                symbols: EntitySymbolTable(
-                    [
-                        EntitySymbolEntry {
-                            ident: `Clone`,
-                            visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Trait(
-                                        TraitPath(`core::clone::Clone`),
-                                    ),
-                                    visibility: Scope::Pub,
-                                    ast_idx: 1,
-                                    ident_token: IdentToken {
-                                        ident: `Clone`,
-                                        token_idx: TokenIdx(
-                                            2,
-                                        ),
-                                    },
-                                },
-                            ),
-                        },
-                    ],
-                ),
-                impl_blocks: [],
-                use_expr_rules: UseExprRules(
-                    [],
-                ),
-                use_all_rules: UseAllRules(
-                    [],
-                ),
-                errors: [],
-            },
-            EntityTreeSheet {
-                module_path: `core::marker`,
-                symbols: EntitySymbolTable(
-                    [
-                        EntitySymbolEntry {
-                            ident: `Copy`,
-                            visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Trait(
-                                        TraitPath(`core::marker::Copy`),
-                                    ),
-                                    visibility: Scope::Pub,
-                                    ast_idx: 0,
-                                    ident_token: IdentToken {
-                                        ident: `Copy`,
-                                        token_idx: TokenIdx(
-                                            2,
-                                        ),
-                                    },
-                                },
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `Sized`,
-                            visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Trait(
-                                        TraitPath(`core::marker::Sized`),
-                                    ),
-                                    visibility: Scope::Pub,
-                                    ast_idx: 1,
-                                    ident_token: IdentToken {
-                                        ident: `Sized`,
-                                        token_idx: TokenIdx(
-                                            6,
-                                        ),
-                                    },
-                                },
-                            ),
-                        },
-                    ],
-                ),
-                impl_blocks: [],
-                use_expr_rules: UseExprRules(
-                    [],
-                ),
-                use_all_rules: UseAllRules(
-                    [],
-                ),
-                errors: [],
-            },
-            EntityTreeSheet {
-                module_path: `core::list`,
-                symbols: EntitySymbolTable(
-                    [
-                        EntitySymbolEntry {
-                            ident: `List`,
+                            ident: `Result`,
                             visibility: Scope::Pub,
                             symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
                                     path: ModuleItemPath::Type(
-                                        TypePath(`core::list::List`, `Extern`),
+                                        TypePath(`core::result::Result`, `Enum`),
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 2,
+                                    ast_idx: 5,
                                     ident_token: IdentToken {
-                                        ident: `List`,
+                                        ident: `Result`,
                                         token_idx: TokenIdx(
                                             2,
                                         ),
@@ -3808,155 +4042,42 @@ Ok(
                     ],
                 ),
                 impl_blocks: [
-                    ImplBlock::Type(
-                        TypeImplBlock {
-                            id: TypeImplBlockId {
-                                module_path: `core::list`,
-                                ty_path: TypePath(`core::list::List`, `Extern`),
+                    ImplBlock::IllFormed(
+                        IllFormedImplBlock {
+                            id: IllFormedImplBlockId {
+                                module: `core::result`,
                                 disambiguator: 0,
                             },
-                            ast_idx: 3,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    8,
+                                    18,
                                 ),
                             },
-                            ty_expr: 44,
-                            body: Type(
-                                TypeItems {
-                                    ast_idx_range: ArenaIdxRange(
-                                        0..2,
+                            ast_idx: 6,
+                            items: Some(
+                                TraitForType(
+                                    TraitForTypeItems {
+                                        ast_idx_range: ArenaIdxRange(
+                                            3..5,
+                                        ),
+                                    },
+                                ),
+                            ),
+                            ill_form: ImplBlockIllForm::MajorPath(
+                                MajorPathExprError::Original(
+                                    OriginalMajorPathExprError::ExpectedIdent(
+                                        TokenStreamState {
+                                            next_token_idx: TokenIdx(
+                                                26,
+                                            ),
+                                            drained: false,
+                                        },
                                     ),
-                                },
+                                ),
                             ),
                         },
                     ),
                 ],
-                use_expr_rules: UseExprRules(
-                    [],
-                ),
-                use_all_rules: UseAllRules(
-                    [],
-                ),
-                errors: [],
-            },
-            EntityTreeSheet {
-                module_path: `core::array`,
-                symbols: EntitySymbolTable(
-                    [
-                        EntitySymbolEntry {
-                            ident: `Array`,
-                            visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Type(
-                                        TypePath(`core::array::Array`, `Extern`),
-                                    ),
-                                    visibility: Scope::Pub,
-                                    ast_idx: 0,
-                                    ident_token: IdentToken {
-                                        ident: `Array`,
-                                        token_idx: TokenIdx(
-                                            2,
-                                        ),
-                                    },
-                                },
-                            ),
-                        },
-                    ],
-                ),
-                impl_blocks: [],
-                use_expr_rules: UseExprRules(
-                    [],
-                ),
-                use_all_rules: UseAllRules(
-                    [],
-                ),
-                errors: [],
-            },
-            EntityTreeSheet {
-                module_path: `core::cmp`,
-                symbols: EntitySymbolTable(
-                    [
-                        EntitySymbolEntry {
-                            ident: `PartialEq`,
-                            visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Trait(
-                                        TraitPath(`core::cmp::PartialEq`),
-                                    ),
-                                    visibility: Scope::Pub,
-                                    ast_idx: 0,
-                                    ident_token: IdentToken {
-                                        ident: `PartialEq`,
-                                        token_idx: TokenIdx(
-                                            2,
-                                        ),
-                                    },
-                                },
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `Eq`,
-                            visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Trait(
-                                        TraitPath(`core::cmp::Eq`),
-                                    ),
-                                    visibility: Scope::Pub,
-                                    ast_idx: 1,
-                                    ident_token: IdentToken {
-                                        ident: `Eq`,
-                                        token_idx: TokenIdx(
-                                            6,
-                                        ),
-                                    },
-                                },
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `PartialOrd`,
-                            visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Trait(
-                                        TraitPath(`core::cmp::PartialOrd`),
-                                    ),
-                                    visibility: Scope::Pub,
-                                    ast_idx: 2,
-                                    ident_token: IdentToken {
-                                        ident: `PartialOrd`,
-                                        token_idx: TokenIdx(
-                                            10,
-                                        ),
-                                    },
-                                },
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `Ord`,
-                            visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Trait(
-                                        TraitPath(`core::cmp::Ord`),
-                                    ),
-                                    visibility: Scope::Pub,
-                                    ast_idx: 3,
-                                    ident_token: IdentToken {
-                                        ident: `Ord`,
-                                        token_idx: TokenIdx(
-                                            14,
-                                        ),
-                                    },
-                                },
-                            ),
-                        },
-                    ],
-                ),
-                impl_blocks: [],
                 use_expr_rules: UseExprRules(
                     [],
                 ),
@@ -4002,40 +4123,6 @@ Ok(
                                         ident: `StringLiteral`,
                                         token_idx: TokenIdx(
                                             6,
-                                        ),
-                                    },
-                                },
-                            ),
-                        },
-                    ],
-                ),
-                impl_blocks: [],
-                use_expr_rules: UseExprRules(
-                    [],
-                ),
-                use_all_rules: UseAllRules(
-                    [],
-                ),
-                errors: [],
-            },
-            EntityTreeSheet {
-                module_path: `core::option`,
-                symbols: EntitySymbolTable(
-                    [
-                        EntitySymbolEntry {
-                            ident: `Option`,
-                            visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Type(
-                                        TypePath(`core::option::Option`, `Enum`),
-                                    ),
-                                    visibility: Scope::Pub,
-                                    ast_idx: 2,
-                                    ident_token: IdentToken {
-                                        ident: `Option`,
-                                        token_idx: TokenIdx(
-                                            2,
                                         ),
                                     },
                                 },
@@ -4108,6 +4195,19 @@ Ok(
         ],
         principal_entity_path_expr_arena: Arena {
             data: [
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `List`,
+                        token_idx: TokenIdx(
+                            12,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::list::List`, `Extern`),
+                        ),
+                    ),
+                },
                 MajorPathExpr::Root {
                     ident_token: IdentToken {
                         ident: `Copy`,
@@ -4677,19 +4777,6 @@ Ok(
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`core::num::f64`, `Extern`),
-                        ),
-                    ),
-                },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `List`,
-                        token_idx: TokenIdx(
-                            12,
-                        ),
-                    },
-                    entity_path: EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::list::List`, `Extern`),
                         ),
                     ),
                 },

@@ -10,7 +10,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 48,
+                                    value: 49,
                                 },
                             ),
                         ),
@@ -33,7 +33,7 @@ Ok(
                     block: Submodule {
                         path: ModulePath(
                             Id {
-                                value: 49,
+                                value: 50,
                             },
                         ),
                     },
@@ -46,7 +46,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 48,
+                                    value: 49,
                                 },
                             ),
                         ),
@@ -69,7 +69,7 @@ Ok(
                     block: Submodule {
                         path: ModulePath(
                             Id {
-                                value: 50,
+                                value: 51,
                             },
                         ),
                     },
@@ -82,7 +82,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 48,
+                                    value: 49,
                                 },
                             ),
                         ),
@@ -105,7 +105,7 @@ Ok(
                     block: Submodule {
                         path: ModulePath(
                             Id {
-                                value: 51,
+                                value: 52,
                             },
                         ),
                     },
@@ -118,7 +118,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 48,
+                                    value: 49,
                                 },
                             ),
                         ),
@@ -141,7 +141,7 @@ Ok(
                     block: Submodule {
                         path: ModulePath(
                             Id {
-                                value: 52,
+                                value: 53,
                             },
                         ),
                     },
@@ -154,7 +154,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 48,
+                                    value: 49,
                                 },
                             ),
                         ),
@@ -177,7 +177,7 @@ Ok(
                     block: Submodule {
                         path: ModulePath(
                             Id {
-                                value: 53,
+                                value: 54,
                             },
                         ),
                     },

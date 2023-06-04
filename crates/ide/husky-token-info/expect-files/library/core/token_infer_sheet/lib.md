@@ -52,6 +52,9 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::SubmoduleIdent,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::SubmoduleIdent,
         ],
     },
 )
