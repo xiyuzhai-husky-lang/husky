@@ -16,9 +16,9 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         TokenDisambiguationResult::Continue(match token {
             Token::Keyword(keyword) => match keyword {
                 Keyword::Connection(keyword) => match keyword {
-                    ConnectionKeyword::For | ConnectionKeyword::Where => {
-                        return TokenDisambiguationResult::Break(())
-                    }
+                    ConnectionKeyword::For
+                    | ConnectionKeyword::Where
+                    | ConnectionKeyword::Extends => return TokenDisambiguationResult::Break(()),
                 },
                 Keyword::Pronoun(pronoun) => match pronoun {
                     PronounKeyword::Crate => todo!(),

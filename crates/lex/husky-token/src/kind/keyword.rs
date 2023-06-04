@@ -1,5 +1,6 @@
 mod ambiguous;
 mod config;
+mod connection;
 mod end;
 mod form;
 mod modifier;
@@ -7,14 +8,15 @@ mod pronoun;
 mod stmt;
 mod ty;
 
-pub use ambiguous::*;
-pub use config::*;
-pub use end::*;
-pub use form::*;
-pub use modifier::*;
-pub use pronoun::*;
-pub use stmt::*;
-pub use ty::*;
+pub use self::ambiguous::*;
+pub use self::config::*;
+pub use self::connection::*;
+pub use self::end::*;
+pub use self::form::*;
+pub use self::modifier::*;
+pub use self::pronoun::*;
+pub use self::stmt::*;
+pub use self::ty::*;
 
 use crate::*;
 
@@ -44,12 +46,6 @@ pub enum Keyword {
     Const,
     Static,
     Async,
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum ConnectionKeyword {
-    For,
-    Where,
 }
 
 impl std::fmt::Display for Keyword {

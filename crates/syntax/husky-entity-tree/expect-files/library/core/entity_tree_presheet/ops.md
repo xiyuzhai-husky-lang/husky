@@ -12,7 +12,7 @@ Ok(
                                 TraitPath(`core::ops::Add`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 29,
+                            ast_idx: 30,
                             ident_token: IdentToken {
                                 ident: `Add`,
                                 token_idx: TokenIdx(
@@ -31,7 +31,7 @@ Ok(
                                 TraitPath(`core::ops::AddAssign`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 31,
+                            ast_idx: 32,
                             ident_token: IdentToken {
                                 ident: `AddAssign`,
                                 token_idx: TokenIdx(
@@ -50,7 +50,7 @@ Ok(
                                 TraitPath(`core::ops::BitAnd`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 33,
+                            ast_idx: 34,
                             ident_token: IdentToken {
                                 ident: `BitAnd`,
                                 token_idx: TokenIdx(
@@ -69,7 +69,7 @@ Ok(
                                 TraitPath(`core::ops::BitAndAssign`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 35,
+                            ast_idx: 36,
                             ident_token: IdentToken {
                                 ident: `BitAndAssign`,
                                 token_idx: TokenIdx(
@@ -88,7 +88,7 @@ Ok(
                                 TraitPath(`core::ops::BitOr`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 37,
+                            ast_idx: 38,
                             ident_token: IdentToken {
                                 ident: `BitOr`,
                                 token_idx: TokenIdx(
@@ -107,7 +107,7 @@ Ok(
                                 TraitPath(`core::ops::BitOrAssign`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 39,
+                            ast_idx: 40,
                             ident_token: IdentToken {
                                 ident: `BitOrAssign`,
                                 token_idx: TokenIdx(
@@ -126,7 +126,7 @@ Ok(
                                 TraitPath(`core::ops::BitXor`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 41,
+                            ast_idx: 42,
                             ident_token: IdentToken {
                                 ident: `BitXor`,
                                 token_idx: TokenIdx(
@@ -145,7 +145,7 @@ Ok(
                                 TraitPath(`core::ops::BitXorAssign`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 43,
+                            ast_idx: 44,
                             ident_token: IdentToken {
                                 ident: `BitXorAssign`,
                                 token_idx: TokenIdx(
@@ -164,7 +164,7 @@ Ok(
                                 TraitPath(`core::ops::Div`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 45,
+                            ast_idx: 46,
                             ident_token: IdentToken {
                                 ident: `Div`,
                                 token_idx: TokenIdx(
@@ -183,7 +183,7 @@ Ok(
                                 TraitPath(`core::ops::DivAssign`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 47,
+                            ast_idx: 48,
                             ident_token: IdentToken {
                                 ident: `DivAssign`,
                                 token_idx: TokenIdx(
@@ -202,7 +202,7 @@ Ok(
                                 TraitPath(`core::ops::Mul`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 49,
+                            ast_idx: 50,
                             ident_token: IdentToken {
                                 ident: `Mul`,
                                 token_idx: TokenIdx(
@@ -221,7 +221,7 @@ Ok(
                                 TraitPath(`core::ops::MulAssign`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 51,
+                            ast_idx: 52,
                             ident_token: IdentToken {
                                 ident: `MulAssign`,
                                 token_idx: TokenIdx(
@@ -240,7 +240,7 @@ Ok(
                                 TraitPath(`core::ops::Neg`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 53,
+                            ast_idx: 54,
                             ident_token: IdentToken {
                                 ident: `Neg`,
                                 token_idx: TokenIdx(
@@ -259,7 +259,7 @@ Ok(
                                 TraitPath(`core::ops::Not`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 55,
+                            ast_idx: 56,
                             ident_token: IdentToken {
                                 ident: `Not`,
                                 token_idx: TokenIdx(
@@ -278,7 +278,7 @@ Ok(
                                 TraitPath(`core::ops::Sub`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 57,
+                            ast_idx: 58,
                             ident_token: IdentToken {
                                 ident: `Sub`,
                                 token_idx: TokenIdx(
@@ -297,7 +297,7 @@ Ok(
                                 TraitPath(`core::ops::Unveil`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 58,
+                            ast_idx: 59,
                             ident_token: IdentToken {
                                 ident: `Unveil`,
                                 token_idx: TokenIdx(
@@ -316,7 +316,7 @@ Ok(
                                 TypePath(`core::ops::ControlFlow`, `Enum`),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 59,
+                            ast_idx: 60,
                             ident_token: IdentToken {
                                 ident: `ControlFlow`,
                                 token_idx: TokenIdx(

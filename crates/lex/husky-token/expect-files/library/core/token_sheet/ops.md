@@ -2030,8 +2030,10 @@ Ok(
                     PunctuationMapped::RaOrGt,
                 ),
             ),
-            Token::Ident(
-                `extends`,
+            Token::Keyword(
+                Keyword::Connection(
+                    Extends,
+                ),
             ),
             Token::Ident(
                 `Sized`,
@@ -2174,6 +2176,51 @@ Ok(
                     PunctuationMapped::Vertical,
                 ),
             ),
+            Token::Ident(
+                `Return`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Ident(
+                `R`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Vertical,
+                ),
+            ),
+            Token::Ident(
+                `Continue`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Ident(
+                `C`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
+                ),
+            ),
         ],
         group_starts: [
             0,
@@ -2236,6 +2283,7 @@ Ok(
             417,
             434,
             442,
+            447,
         ],
         indents: [
             0,
@@ -2296,6 +2344,7 @@ Ok(
             0,
             4,
             4,
+            0,
             0,
             0,
         ],
