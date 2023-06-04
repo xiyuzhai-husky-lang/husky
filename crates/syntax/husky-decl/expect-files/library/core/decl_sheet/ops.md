@@ -13,7 +13,7 @@ Ok(
                     Decl::Trait(
                         TraitDecl {
                             path: TraitPath(`core::ops::Add`),
-                            ast_idx: 29,
+                            ast_idx: 30,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -139,7 +139,7 @@ Ok(
                     Decl::Trait(
                         TraitDecl {
                             path: TraitPath(`core::ops::AddAssign`),
-                            ast_idx: 31,
+                            ast_idx: 32,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -265,7 +265,7 @@ Ok(
                     Decl::Trait(
                         TraitDecl {
                             path: TraitPath(`core::ops::BitAnd`),
-                            ast_idx: 33,
+                            ast_idx: 34,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -391,7 +391,7 @@ Ok(
                     Decl::Trait(
                         TraitDecl {
                             path: TraitPath(`core::ops::BitAndAssign`),
-                            ast_idx: 35,
+                            ast_idx: 36,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -517,7 +517,7 @@ Ok(
                     Decl::Trait(
                         TraitDecl {
                             path: TraitPath(`core::ops::BitOr`),
-                            ast_idx: 37,
+                            ast_idx: 38,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -643,7 +643,7 @@ Ok(
                     Decl::Trait(
                         TraitDecl {
                             path: TraitPath(`core::ops::BitOrAssign`),
-                            ast_idx: 39,
+                            ast_idx: 40,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -769,7 +769,7 @@ Ok(
                     Decl::Trait(
                         TraitDecl {
                             path: TraitPath(`core::ops::BitXor`),
-                            ast_idx: 41,
+                            ast_idx: 42,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -895,7 +895,7 @@ Ok(
                     Decl::Trait(
                         TraitDecl {
                             path: TraitPath(`core::ops::BitXorAssign`),
-                            ast_idx: 43,
+                            ast_idx: 44,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -1021,7 +1021,7 @@ Ok(
                     Decl::Trait(
                         TraitDecl {
                             path: TraitPath(`core::ops::Div`),
-                            ast_idx: 45,
+                            ast_idx: 46,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -1147,7 +1147,7 @@ Ok(
                     Decl::Trait(
                         TraitDecl {
                             path: TraitPath(`core::ops::DivAssign`),
-                            ast_idx: 47,
+                            ast_idx: 48,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -1273,7 +1273,7 @@ Ok(
                     Decl::Trait(
                         TraitDecl {
                             path: TraitPath(`core::ops::Mul`),
-                            ast_idx: 49,
+                            ast_idx: 50,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -1399,7 +1399,7 @@ Ok(
                     Decl::Trait(
                         TraitDecl {
                             path: TraitPath(`core::ops::MulAssign`),
-                            ast_idx: 51,
+                            ast_idx: 52,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -1525,7 +1525,7 @@ Ok(
                     Decl::Trait(
                         TraitDecl {
                             path: TraitPath(`core::ops::Neg`),
-                            ast_idx: 53,
+                            ast_idx: 54,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -1594,7 +1594,7 @@ Ok(
                     Decl::Trait(
                         TraitDecl {
                             path: TraitPath(`core::ops::Not`),
-                            ast_idx: 55,
+                            ast_idx: 56,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -1663,7 +1663,7 @@ Ok(
                     Decl::Trait(
                         TraitDecl {
                             path: TraitPath(`core::ops::Sub`),
-                            ast_idx: 57,
+                            ast_idx: 58,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -1789,7 +1789,7 @@ Ok(
                     Decl::Trait(
                         TraitDecl {
                             path: TraitPath(`core::ops::Unveil`),
-                            ast_idx: 58,
+                            ast_idx: 59,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -1916,7 +1916,7 @@ Ok(
                         TypeDecl::Enum(
                             EnumTypeDecl {
                                 path: TypePath(`core::ops::ControlFlow`, `Enum`),
-                                ast_idx: 59,
+                                ast_idx: 60,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,

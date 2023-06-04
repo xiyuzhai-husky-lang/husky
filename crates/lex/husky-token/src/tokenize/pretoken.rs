@@ -129,6 +129,12 @@ impl From<PronounKeyword> for Pretoken {
     }
 }
 
+impl From<ConnectionKeyword> for Pretoken {
+    fn from(val: ConnectionKeyword) -> Self {
+        Pretoken::Certain(val.into())
+    }
+}
+
 impl From<BoolLiteral> for Pretoken {
     fn from(value: BoolLiteral) -> Self {
         Pretoken::Certain(value.into())

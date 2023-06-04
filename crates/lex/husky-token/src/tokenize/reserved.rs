@@ -50,6 +50,8 @@ pub(crate) fn reserved_words(_db: &dyn TokenDb) -> VecPairMap<&'static str, Pret
         ModifierKeyword::Covariant,
         ModifierKeyword::Contravariant,
         ModifierKeyword::Invariant,
+        ConnectionKeyword::Extends,
+        ConnectionKeyword::Where,
         Keyword::Pub,
         Keyword::Async,
         Keyword::Static,

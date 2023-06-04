@@ -974,20 +974,57 @@ Ok(
                         body: None,
                     },
                 },
-                Ast::Err {
+                Ast::TypeVariant {
                     token_group_idx: TokenGroupIdx(
                         59,
                     ),
-                    error: AstError::Original(
-                        OriginalAstError::ExpectedIdentForTypeVariant(
-                            TokenStreamState {
-                                next_token_idx: TokenIdx(
-                                    443,
-                                ),
-                                drained: true,
-                            },
+                    path: TypeVariantPath {
+                        ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
+                        ident: `Return`,
+                    },
+                    vertical_token: VerticalToken(
+                        TokenIdx(
+                            442,
                         ),
                     ),
+                    ident_token: IdentToken {
+                        ident: `Return`,
+                        token_idx: TokenIdx(
+                            443,
+                        ),
+                    },
+                    state_after: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            444,
+                        ),
+                        drained: false,
+                    },
+                },
+                Ast::TypeVariant {
+                    token_group_idx: TokenGroupIdx(
+                        60,
+                    ),
+                    path: TypeVariantPath {
+                        ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
+                        ident: `Continue`,
+                    },
+                    vertical_token: VerticalToken(
+                        TokenIdx(
+                            447,
+                        ),
+                    ),
+                    ident_token: IdentToken {
+                        ident: `Continue`,
+                        token_idx: TokenIdx(
+                            448,
+                        ),
+                    },
+                    state_after: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            449,
+                        ),
+                        drained: false,
+                    },
                 },
                 Ast::Attr {
                     token_group_idx: TokenGroupIdx(
@@ -1842,7 +1879,7 @@ Ok(
                         variants: Some(
                             TypeVariants {
                                 ast_idx_range: ArenaIdxRange(
-                                    27..28,
+                                    27..29,
                                 ),
                             },
                         ),
@@ -1851,7 +1888,7 @@ Ok(
             ],
         },
         top_level_asts: ArenaIdxRange(
-            28..60,
+            29..61,
         ),
         siblings: [
             ArenaIdxRange(
@@ -1984,7 +2021,7 @@ Ok(
                 25..27,
             ),
             ArenaIdxRange(
-                28..60,
+                29..61,
             ),
         ],
     },
