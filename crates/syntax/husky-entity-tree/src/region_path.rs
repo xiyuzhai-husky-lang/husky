@@ -1,3 +1,5 @@
+use husky_token::TokenSheetData;
+
 use crate::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -10,17 +12,27 @@ pub enum RegionPath {
 }
 
 impl RegionPath {
-    pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
+    pub fn module_path(self, db: &dyn EntityTreeDb) -> Option<ModulePath> {
         match self {
-            RegionPath::Snippet(_) => todo!(),
-            RegionPath::Decr(id) => id.module_path(db),
-            RegionPath::Decl(path) => path.module_path(db),
-            RegionPath::Defn(path) => path.module_path(db),
+            RegionPath::Snippet(_) => None,
+            RegionPath::Decr(id) => Some(id.module_path(db)),
+            RegionPath::Decl(path) => Some(path.module_path(db)),
+            RegionPath::Defn(path) => Some(path.module_path(db)),
         }
     }
 
     pub fn toolchain(self, db: &dyn EntityTreeDb) -> Toolchain {
-        self.module_path(db).toolchain(db)
+        match self {
+            RegionPath::Snippet(_) => todo!(),
+            _ => self.module_path(db).unwrap().toolchain(db),
+        }
+    }
+
+    pub fn token_sheet_data<'a>(self, db: &'a dyn EntityTreeDb) -> VfsResult<&'a TokenSheetData> {
+        match self.module_path(db) {
+            Some(module_path) => db.token_sheet_data(module_path),
+            None => todo!(),
+        }
     }
 }
 

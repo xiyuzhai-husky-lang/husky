@@ -116,7 +116,10 @@ impl<'a> ExprRangeCalculator<'a> {
     fn new(db: &'a dyn ExprDb, expr_region: ExprRegion) -> Self {
         let expr_region_data = expr_region.data(db);
         let path = expr_region_data.path();
-        let token_sheet_data = db.token_sheet_data(path.module_path(db)).unwrap();
+        let token_sheet_data = match path.module_path(db) {
+            Some(module_path) => db.token_sheet_data(module_path).unwrap(),
+            None => todo!(),
+        };
         ExprRangeCalculator {
             token_sheet_data,
             expr_region_data,
@@ -162,10 +165,9 @@ impl<'a> ExprRangeCalculator<'a> {
     fn calc_entity_path_expr_range(&self, expr: &EntityPathExpr) -> TokenIdxRange {
         match expr {
             EntityPathExpr::Root {
-                token_idx,
-                ident,
+                path_name_token,
                 entity_path,
-            } => TokenIdxRange::new_single(*token_idx),
+            } => TokenIdxRange::new_single(path_name_token.token_idx()),
             EntityPathExpr::Subentity {
                 parent,
                 scope_resolution_token,
