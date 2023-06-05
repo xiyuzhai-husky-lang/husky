@@ -21,7 +21,19 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     | ConnectionKeyword::Extends => return TokenDisambiguationResult::Break(()),
                 },
                 Keyword::Pronoun(pronoun) => match pronoun {
-                    PronounKeyword::Crate => todo!(),
+                    PronounKeyword::Crate => {
+                        let Some(crate_root_path) = self.parser.crate_root_path else {
+                            todo!("return Expr::Err")
+                        };
+                        let (entity_path_expr, path) = self.parse_entity_path_expr(
+                            CrateToken::new(token_idx).into(),
+                            crate_root_path.into(),
+                        );
+                        DisambiguatedToken::AtomicExpr(Expr::EntityPath {
+                            entity_path_expr,
+                            path,
+                        })
+                    }
                     PronounKeyword::SelfType => match self.allow_self_ty() {
                         AllowSelfType::True => {
                             DisambiguatedToken::AtomicExpr(Expr::SelfType(token_idx))
@@ -63,7 +75,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     | IncompleteExpr::CallList { .. },
                 ) => match self.parse_err_as_none::<EqToken>() {
                     Some(eq_token) => DisambiguatedToken::IncompleteKeywordArgument {
-                        ident_token_idx: token_idx,
+                        token_idx,
                         ident,
                         eq_token,
                     },
@@ -325,8 +337,10 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     //     symbol_idx: variable_idx,
                     // },
                     Symbol::Entity(entity_path) => {
-                        let (entity_path_expr, entity_path) =
-                            self.parse_entity_path_expr(token_idx, ident, entity_path);
+                        let (entity_path_expr, entity_path) = self.parse_entity_path_expr(
+                            IdentToken::new(ident, token_idx).into(),
+                            entity_path,
+                        );
                         Expr::EntityPath {
                             entity_path_expr,
                             path: entity_path,
@@ -368,7 +382,7 @@ pub(crate) enum DisambiguatedToken {
     ColonRightAfterLBox(TokenIdx),
     Ritchie(TokenIdx, RitchieKind),
     IncompleteKeywordArgument {
-        ident_token_idx: TokenIdx,
+        token_idx: TokenIdx,
         ident: Ident,
         eq_token: EqToken,
     },

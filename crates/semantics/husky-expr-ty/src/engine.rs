@@ -103,9 +103,7 @@ impl<'a> ExprTypeEngine<'a> {
             toolchain,
             entity_path_menu: db.entity_path_menu(toolchain),
             term_menu: db.ethereal_term_menu(toolchain),
-            token_sheet_data: db
-                .token_sheet_data(expr_region_data.path().module_path(db))
-                .unwrap(),
+            token_sheet_data: expr_region_data.path().token_sheet_data(db).unwrap(),
             expr_region_data,
             declarative_term_region: db.declarative_term_region(expr_region),
             fluffy_term_region: FluffyTermRegion::new(

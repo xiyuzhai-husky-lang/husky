@@ -19,6 +19,10 @@ pub struct CrateToken {
 }
 
 impl CrateToken {
+    pub fn new(token_idx: TokenIdx) -> Self {
+        Self { token_idx }
+    }
+
     pub fn token_idx(&self) -> TokenIdx {
         self.token_idx
     }

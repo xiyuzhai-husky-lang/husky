@@ -662,10 +662,14 @@ Ok(
                                         entity_path_expr_arena: Arena {
                                             data: [
                                                 EntityPathExpr::Root {
-                                                    token_idx: TokenIdx(
-                                                        34,
+                                                    path_name_token: PathNameToken::Ident(
+                                                        IdentToken {
+                                                            ident: `Copy`,
+                                                            token_idx: TokenIdx(
+                                                                34,
+                                                            ),
+                                                        },
                                                     ),
-                                                    ident: `Copy`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Trait(
                                                             TraitPath(`core::marker::Copy`),
@@ -673,10 +677,14 @@ Ok(
                                                     ),
                                                 },
                                                 EntityPathExpr::Root {
-                                                    token_idx: TokenIdx(
-                                                        36,
+                                                    path_name_token: PathNameToken::Ident(
+                                                        IdentToken {
+                                                            ident: `Leash`,
+                                                            token_idx: TokenIdx(
+                                                                36,
+                                                            ),
+                                                        },
                                                     ),
-                                                    ident: `Leash`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`core::mem::Leash`, `Extern`),

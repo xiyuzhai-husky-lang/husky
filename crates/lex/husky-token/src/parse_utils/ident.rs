@@ -8,6 +8,10 @@ pub struct IdentToken {
 }
 
 impl IdentToken {
+    pub fn new(ident: Ident, token_idx: TokenIdx) -> Self {
+        Self { ident, token_idx }
+    }
+
     pub fn ident(&self) -> Ident {
         self.ident
     }

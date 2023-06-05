@@ -22,7 +22,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 self.accept_ritchie(token_idx, ritchie_kind)
             }
             DisambiguatedToken::IncompleteKeywordArgument {
-                ident_token_idx,
+                token_idx: ident_token_idx,
                 ident,
                 eq_token,
             } => self.accept_incomplete_keyword_argument(ident_token_idx, ident, eq_token),

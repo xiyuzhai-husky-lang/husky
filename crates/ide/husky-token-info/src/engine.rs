@@ -394,11 +394,12 @@ impl<'a> InferContext<'a> {
         match entity_path_expr {
             EntityPathExpr::Root {
                 entity_path,
-                token_idx,
+                path_name_token,
                 ..
-            } => self
-                .sheet
-                .add(*token_idx, TokenInfo::Entity(Some(*entity_path), None)),
+            } => self.sheet.add(
+                path_name_token.token_idx(),
+                TokenInfo::Entity(Some(*entity_path), None),
+            ),
             EntityPathExpr::Subentity {
                 path: Ok(entity_path),
                 ident_token: Ok(ident_token),

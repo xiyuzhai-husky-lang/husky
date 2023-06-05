@@ -44,10 +44,14 @@ Ok(
                                         entity_path_expr_arena: Arena {
                                             data: [
                                                 EntityPathExpr::Root {
-                                                    token_idx: TokenIdx(
-                                                        7,
+                                                    path_name_token: PathNameToken::Ident(
+                                                        IdentToken {
+                                                            ident: `usize`,
+                                                            token_idx: TokenIdx(
+                                                                7,
+                                                            ),
+                                                        },
                                                     ),
-                                                    ident: `usize`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`core::num::usize`, `Extern`),

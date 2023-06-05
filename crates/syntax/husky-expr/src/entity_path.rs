@@ -11,8 +11,7 @@ use thiserror::Error;
 #[salsa::derive_debug_with_db(db = ExprDb)]
 pub enum EntityPathExpr {
     Root {
-        token_idx: TokenIdx,
-        ident: Ident,
+        path_name_token: PathNameToken,
         entity_path: EntityPath,
     },
     Subentity {
@@ -30,13 +29,11 @@ pub type EntityPathExprIdx = ArenaIdx<EntityPathExpr>;
 impl<'a, 'b> ExprParseContext<'a, 'b> {
     pub(crate) fn parse_entity_path_expr(
         &mut self,
-        token_idx: TokenIdx,
-        ident: Ident,
+        path_name_token: PathNameToken,
         entity_path: EntityPath,
     ) -> (EntityPathExprIdx, Option<EntityPath>) {
         let root = self.alloc_entity_path_expr(EntityPathExpr::Root {
-            token_idx,
-            ident,
+            path_name_token,
             entity_path,
         });
         match self.parse_err_as_none::<ScopeResolutionToken>() {

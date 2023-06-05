@@ -45,6 +45,9 @@ use report;
 pub struct ExprParser<'a> {
     db: &'a dyn ExprDb,
     path: RegionPath,
+    // todo: make this option
+    module_path: Option<ModulePath>,
+    crate_root_path: Option<ModulePath>,
     token_sheet_data: &'a TokenSheetData,
     parent_expr_region: Option<ExprRegion>,
     symbol_context: SymbolContextMut<'a>,
@@ -65,9 +68,13 @@ impl<'a> ExprParser<'a> {
         allow_self_type: AllowSelfType,
         allow_self_value: AllowSelfValue,
     ) -> Self {
+        let module_path = path.module_path(db);
         Self {
             db,
-            path: path.into(),
+            path,
+            module_path,
+            crate_root_path: module_path
+                .map(|module_path| module_path.crate_path(db).root_module_path(db)),
             token_sheet_data,
             parent_expr_region,
             symbol_context: SymbolContextMut::new(
