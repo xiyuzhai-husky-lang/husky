@@ -280,7 +280,7 @@ Ok(
                         `core::num`,
                     ),
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Crate(
+                        parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     1,
@@ -311,7 +311,7 @@ Ok(
                 },
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: NameToken::Ident(
+                        parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `ops`,
                                 token_idx: TokenIdx(
@@ -335,7 +335,7 @@ Ok(
                 ),
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: NameToken::Crate(
+                        parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     1,

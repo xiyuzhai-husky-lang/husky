@@ -940,7 +940,7 @@ Ok(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Crate(
+                        parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     1,
@@ -965,7 +965,7 @@ Ok(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Crate(
+                        parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     7,
@@ -990,7 +990,7 @@ Ok(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Crate(
+                        parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     13,
@@ -1015,7 +1015,7 @@ Ok(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Ident(
+                        parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `line_segment_sketch`,
                                 token_idx: TokenIdx(
@@ -1057,7 +1057,7 @@ Ok(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Ident(
+                        parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `raw_contour`,
                                 token_idx: TokenIdx(
@@ -1099,7 +1099,7 @@ Ok(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Ident(
+                        parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `geom2d`,
                                 token_idx: TokenIdx(

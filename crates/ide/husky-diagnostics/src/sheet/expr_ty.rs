@@ -220,6 +220,9 @@ impl Diagnose for (ExpectationSource, &'_ OriginalFluffyTermExpectationError) {
                 expected_path.display(ctx.db()),
                 expectee_path.display(ctx.db())
             ),
+            OriginalFluffyTermExpectationError::ExpectedType { expectee } => {
+                format!("expected type",)
+            }
         }
     }
 

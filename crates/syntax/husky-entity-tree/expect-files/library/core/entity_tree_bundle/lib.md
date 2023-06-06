@@ -1977,7 +1977,7 @@ Ok(
                                 `core::num`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
+                                parent_name_token: PathNameToken::CrateRoot(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             1,
@@ -2002,7 +2002,7 @@ Ok(
                                 `core::num`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
+                                parent_name_token: PathNameToken::Ident(
                                     IdentToken {
                                         ident: `ops`,
                                         token_idx: TokenIdx(
@@ -3395,7 +3395,7 @@ Ok(
                             use_expr_idx: 2,
                             visibility: Scope::Pub,
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
+                                parent_name_token: PathNameToken::CrateRoot(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             2,
@@ -3418,7 +3418,7 @@ Ok(
                             use_expr_idx: 5,
                             visibility: Scope::Pub,
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
+                                parent_name_token: PathNameToken::CrateRoot(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             9,
@@ -3441,7 +3441,7 @@ Ok(
                             use_expr_idx: 8,
                             visibility: Scope::Pub,
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
+                                parent_name_token: PathNameToken::CrateRoot(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             16,
@@ -3464,7 +3464,7 @@ Ok(
                             use_expr_idx: 11,
                             visibility: Scope::Pub,
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
+                                parent_name_token: PathNameToken::CrateRoot(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             23,
@@ -3487,7 +3487,7 @@ Ok(
                             use_expr_idx: 14,
                             visibility: Scope::Pub,
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
+                                parent_name_token: PathNameToken::CrateRoot(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             30,
@@ -3510,7 +3510,7 @@ Ok(
                             use_expr_idx: 17,
                             visibility: Scope::Pub,
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
+                                parent_name_token: PathNameToken::CrateRoot(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             37,
@@ -3533,7 +3533,7 @@ Ok(
                             use_expr_idx: 20,
                             visibility: Scope::Pub,
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
+                                parent_name_token: PathNameToken::CrateRoot(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             44,
@@ -3556,7 +3556,7 @@ Ok(
                             use_expr_idx: 23,
                             visibility: Scope::Pub,
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
+                                parent_name_token: PathNameToken::CrateRoot(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             51,
@@ -3579,7 +3579,7 @@ Ok(
                             use_expr_idx: 1,
                             visibility: Scope::Pub,
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
+                                parent_name_token: PathNameToken::Ident(
                                     IdentToken {
                                         ident: `basic`,
                                         token_idx: TokenIdx(
@@ -3617,7 +3617,7 @@ Ok(
                             use_expr_idx: 4,
                             visibility: Scope::Pub,
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
+                                parent_name_token: PathNameToken::Ident(
                                     IdentToken {
                                         ident: `num`,
                                         token_idx: TokenIdx(
@@ -3655,7 +3655,7 @@ Ok(
                             use_expr_idx: 7,
                             visibility: Scope::Pub,
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
+                                parent_name_token: PathNameToken::Ident(
                                     IdentToken {
                                         ident: `raw_bits`,
                                         token_idx: TokenIdx(
@@ -3693,7 +3693,7 @@ Ok(
                             use_expr_idx: 10,
                             visibility: Scope::Pub,
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
+                                parent_name_token: PathNameToken::Ident(
                                     IdentToken {
                                         ident: `fmt`,
                                         token_idx: TokenIdx(
@@ -3731,7 +3731,7 @@ Ok(
                             use_expr_idx: 13,
                             visibility: Scope::Pub,
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
+                                parent_name_token: PathNameToken::Ident(
                                     IdentToken {
                                         ident: `visual`,
                                         token_idx: TokenIdx(
@@ -3769,7 +3769,7 @@ Ok(
                             use_expr_idx: 16,
                             visibility: Scope::Pub,
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
+                                parent_name_token: PathNameToken::Ident(
                                     IdentToken {
                                         ident: `marker`,
                                         token_idx: TokenIdx(
@@ -3807,7 +3807,7 @@ Ok(
                             use_expr_idx: 19,
                             visibility: Scope::Pub,
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
+                                parent_name_token: PathNameToken::Ident(
                                     IdentToken {
                                         ident: `clone`,
                                         token_idx: TokenIdx(
@@ -3845,7 +3845,7 @@ Ok(
                             use_expr_idx: 22,
                             visibility: Scope::Pub,
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
+                                parent_name_token: PathNameToken::Ident(
                                     IdentToken {
                                         ident: `cmp`,
                                         token_idx: TokenIdx(
@@ -4042,18 +4042,25 @@ Ok(
                     ],
                 ),
                 impl_blocks: [
-                    ImplBlock::IllFormed(
-                        IllFormedImplBlock {
-                            id: IllFormedImplBlockId {
-                                module: `core::result`,
+                    ImplBlock::TraitForType(
+                        TraitForTypeImplBlock {
+                            id: TraitForTypeImplBlockId {
+                                module_path: `core::result`,
+                                trai_path: TraitPath(`core::ops::Unveil`),
+                                ty_path: TypePath(`core::result::Result`, `Enum`),
                                 disambiguator: 0,
                             },
+                            ast_idx: 6,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     18,
                                 ),
                             },
-                            ast_idx: 6,
+                            trai_expr: 47,
+                            for_token: TokenIdx(
+                                36,
+                            ),
+                            ty_expr: 48,
                             items: Some(
                                 TraitForType(
                                     TraitForTypeItems {
@@ -4061,18 +4068,6 @@ Ok(
                                             3..5,
                                         ),
                                     },
-                                ),
-                            ),
-                            ill_form: ImplBlockIllForm::MajorPath(
-                                MajorPathExprError::Original(
-                                    OriginalMajorPathExprError::ExpectedIdent(
-                                        TokenStreamState {
-                                            next_token_idx: TokenIdx(
-                                                26,
-                                            ),
-                                            drained: false,
-                                        },
-                                    ),
                                 ),
                             ),
                         },
@@ -4195,588 +4190,739 @@ Ok(
         ],
         principal_entity_path_expr_arena: Arena {
             data: [
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `List`,
-                        token_idx: TokenIdx(
-                            12,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `List`,
+                            token_idx: TokenIdx(
+                                12,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`core::list::List`, `Extern`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `Copy`,
-                        token_idx: TokenIdx(
-                            34,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `Copy`,
+                            token_idx: TokenIdx(
+                                34,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Trait(
                             TraitPath(`core::marker::Copy`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `Leash`,
-                        token_idx: TokenIdx(
-                            36,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `Leash`,
+                            token_idx: TokenIdx(
+                                36,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`core::mem::Leash`, `Extern`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `i8`,
-                        token_idx: TokenIdx(
-                            31,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `i8`,
+                            token_idx: TokenIdx(
+                                31,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`core::num::i8`, `Extern`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `Add`,
-                        token_idx: TokenIdx(
-                            42,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `Add`,
+                            token_idx: TokenIdx(
+                                42,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Trait(
                             TraitPath(`core::ops::Add`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `i8`,
-                        token_idx: TokenIdx(
-                            45,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `i8`,
+                            token_idx: TokenIdx(
+                                45,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`core::num::i8`, `Extern`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `i16`,
-                        token_idx: TokenIdx(
-                            83,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `i16`,
+                            token_idx: TokenIdx(
+                                83,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`core::num::i16`, `Extern`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `Add`,
-                        token_idx: TokenIdx(
-                            94,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `Add`,
+                            token_idx: TokenIdx(
+                                94,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Trait(
                             TraitPath(`core::ops::Add`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `i16`,
-                        token_idx: TokenIdx(
-                            97,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `i16`,
+                            token_idx: TokenIdx(
+                                97,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`core::num::i16`, `Extern`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `i32`,
-                        token_idx: TokenIdx(
-                            135,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `i32`,
+                            token_idx: TokenIdx(
+                                135,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`core::num::i32`, `Extern`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `Add`,
-                        token_idx: TokenIdx(
-                            146,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `Add`,
+                            token_idx: TokenIdx(
+                                146,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Trait(
                             TraitPath(`core::ops::Add`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `i32`,
-                        token_idx: TokenIdx(
-                            149,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `i32`,
+                            token_idx: TokenIdx(
+                                149,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`core::num::i32`, `Extern`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `i64`,
-                        token_idx: TokenIdx(
-                            186,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `i64`,
+                            token_idx: TokenIdx(
+                                186,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`core::num::i64`, `Extern`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `Add`,
-                        token_idx: TokenIdx(
-                            197,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `Add`,
+                            token_idx: TokenIdx(
+                                197,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Trait(
                             TraitPath(`core::ops::Add`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `i64`,
-                        token_idx: TokenIdx(
-                            200,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `i64`,
+                            token_idx: TokenIdx(
+                                200,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`core::num::i64`, `Extern`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `i128`,
-                        token_idx: TokenIdx(
-                            238,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `i128`,
+                            token_idx: TokenIdx(
+                                238,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`core::num::i128`, `Extern`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `Add`,
-                        token_idx: TokenIdx(
-                            249,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `Add`,
+                            token_idx: TokenIdx(
+                                249,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Trait(
                             TraitPath(`core::ops::Add`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `i128`,
-                        token_idx: TokenIdx(
-                            252,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `i128`,
+                            token_idx: TokenIdx(
+                                252,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`core::num::i128`, `Extern`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `isize`,
-                        token_idx: TokenIdx(
-                            290,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `isize`,
+                            token_idx: TokenIdx(
+                                290,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`core::num::isize`, `Extern`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `Add`,
-                        token_idx: TokenIdx(
-                            301,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `Add`,
+                            token_idx: TokenIdx(
+                                301,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Trait(
                             TraitPath(`core::ops::Add`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `isize`,
-                        token_idx: TokenIdx(
-                            304,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `isize`,
+                            token_idx: TokenIdx(
+                                304,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`core::num::isize`, `Extern`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `u8`,
-                        token_idx: TokenIdx(
-                            342,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `u8`,
+                            token_idx: TokenIdx(
+                                342,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`core::num::u8`, `Extern`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `Add`,
-                        token_idx: TokenIdx(
-                            353,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `Add`,
+                            token_idx: TokenIdx(
+                                353,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Trait(
                             TraitPath(`core::ops::Add`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `u8`,
-                        token_idx: TokenIdx(
-                            356,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `u8`,
+                            token_idx: TokenIdx(
+                                356,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`core::num::u8`, `Extern`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `u16`,
-                        token_idx: TokenIdx(
-                            394,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `u16`,
+                            token_idx: TokenIdx(
+                                394,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`core::num::u16`, `Extern`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `Add`,
-                        token_idx: TokenIdx(
-                            405,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `Add`,
+                            token_idx: TokenIdx(
+                                405,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Trait(
                             TraitPath(`core::ops::Add`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `u16`,
-                        token_idx: TokenIdx(
-                            408,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `u16`,
+                            token_idx: TokenIdx(
+                                408,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`core::num::u16`, `Extern`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `u32`,
-                        token_idx: TokenIdx(
-                            446,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `u32`,
+                            token_idx: TokenIdx(
+                                446,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`core::num::u32`, `Extern`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `Add`,
-                        token_idx: TokenIdx(
-                            457,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `Add`,
+                            token_idx: TokenIdx(
+                                457,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Trait(
                             TraitPath(`core::ops::Add`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `u32`,
-                        token_idx: TokenIdx(
-                            460,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `u32`,
+                            token_idx: TokenIdx(
+                                460,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`core::num::u32`, `Extern`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `u64`,
-                        token_idx: TokenIdx(
-                            498,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `u64`,
+                            token_idx: TokenIdx(
+                                498,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`core::num::u64`, `Extern`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `Add`,
-                        token_idx: TokenIdx(
-                            509,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `Add`,
+                            token_idx: TokenIdx(
+                                509,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Trait(
                             TraitPath(`core::ops::Add`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `u64`,
-                        token_idx: TokenIdx(
-                            512,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `u64`,
+                            token_idx: TokenIdx(
+                                512,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`core::num::u64`, `Extern`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `u128`,
-                        token_idx: TokenIdx(
-                            550,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `u128`,
+                            token_idx: TokenIdx(
+                                550,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`core::num::u128`, `Extern`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `Add`,
-                        token_idx: TokenIdx(
-                            561,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `Add`,
+                            token_idx: TokenIdx(
+                                561,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Trait(
                             TraitPath(`core::ops::Add`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `u128`,
-                        token_idx: TokenIdx(
-                            564,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `u128`,
+                            token_idx: TokenIdx(
+                                564,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`core::num::u128`, `Extern`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `usize`,
-                        token_idx: TokenIdx(
-                            602,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `usize`,
+                            token_idx: TokenIdx(
+                                602,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`core::num::usize`, `Extern`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `Add`,
-                        token_idx: TokenIdx(
-                            613,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `Add`,
+                            token_idx: TokenIdx(
+                                613,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Trait(
                             TraitPath(`core::ops::Add`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `usize`,
-                        token_idx: TokenIdx(
-                            616,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `usize`,
+                            token_idx: TokenIdx(
+                                616,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`core::num::usize`, `Extern`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `f32`,
-                        token_idx: TokenIdx(
-                            654,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `f32`,
+                            token_idx: TokenIdx(
+                                654,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`core::num::f32`, `Extern`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `Add`,
-                        token_idx: TokenIdx(
-                            673,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `Add`,
+                            token_idx: TokenIdx(
+                                673,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Trait(
                             TraitPath(`core::ops::Add`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `f32`,
-                        token_idx: TokenIdx(
-                            676,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `f32`,
+                            token_idx: TokenIdx(
+                                676,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`core::num::f32`, `Extern`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `f64`,
-                        token_idx: TokenIdx(
-                            713,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `f64`,
+                            token_idx: TokenIdx(
+                                713,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`core::num::f64`, `Extern`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `Add`,
-                        token_idx: TokenIdx(
-                            724,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `Add`,
+                            token_idx: TokenIdx(
+                                724,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Trait(
                             TraitPath(`core::ops::Add`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `f64`,
-                        token_idx: TokenIdx(
-                            727,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `f64`,
+                            token_idx: TokenIdx(
+                                727,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`core::num::f64`, `Extern`),
+                        ),
+                    ),
+                },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `Unveil`,
+                            token_idx: TokenIdx(
+                                30,
+                            ),
+                        },
+                    ),
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::ops::Unveil`),
+                        ),
+                    ),
+                },
+                ModuleItemPathExpr::Subentity {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `ops`,
+                            token_idx: TokenIdx(
+                                28,
+                            ),
+                        },
+                    ),
+                    scope_resolution_token: ScopeResolutionToken(
+                        TokenIdx(
+                            29,
+                        ),
+                    ),
+                    subexpr: 45,
+                },
+                ModuleItemPathExpr::Subentity {
+                    name_token: PathNameToken::CrateRoot(
+                        CrateToken {
+                            token_idx: TokenIdx(
+                                26,
+                            ),
+                        },
+                    ),
+                    scope_resolution_token: ScopeResolutionToken(
+                        TokenIdx(
+                            27,
+                        ),
+                    ),
+                    subexpr: 46,
+                },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `Result`,
+                            token_idx: TokenIdx(
+                                37,
+                            ),
+                        },
+                    ),
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::result::Result`, `Enum`),
                         ),
                     ),
                 },

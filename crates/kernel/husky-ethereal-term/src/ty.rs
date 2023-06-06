@@ -125,7 +125,6 @@ impl HasTypeGivenToolchain for EtherealTerm {
 pub enum RawType {
     Prelude(PreludeTypePath),
     Declarative(DeclarativeTerm),
-    Ethereal(EtherealTerm),
 }
 
 impl EtherealTerm {
@@ -140,15 +139,18 @@ impl EtherealTerm {
                 TermTypeExpectation::FinalDestinationEqsSort,
             )?),
             RawType::Prelude(prelude_ty_path) => Right(prelude_ty_path),
-            RawType::Ethereal(_) => todo!(),
         })
     }
 
     pub fn raw_ty(self, db: &dyn EtherealTermDb) -> EtherealTermResult<RawType> {
         Ok(match self {
             EtherealTerm::Literal(literal) => RawType::Prelude(literal.ty()),
-            EtherealTerm::Symbol(symbol) => RawType::Ethereal(symbol.ty(db)),
-            EtherealTerm::Variable(variable) => RawType::Ethereal(variable.ty(db)),
+            EtherealTerm::Symbol(symbol) => {
+                RawType::Declarative(symbol.ty(db).into_declarative(db))
+            }
+            EtherealTerm::Variable(variable) => {
+                RawType::Declarative(variable.ty(db).into_declarative(db))
+            }
             EtherealTerm::EntityPath(path) => match path {
                 TermEntityPath::Form(_) => todo!(),
                 TermEntityPath::Trait(path) => {

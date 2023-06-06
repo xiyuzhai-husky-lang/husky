@@ -25,6 +25,37 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "expected type",
+                severity: Error,
+                range: [3:32, 3:34),
+            },
+            Diagnostic {
+                message: "OriginalFluffyTermExpectationError::Todo",
+                severity: Error,
+                range: [3:31, 3:34),
+            },
+            Diagnostic {
+                message: "expected type",
+                severity: Error,
+                range: [22:30, 22:32),
+            },
+            Diagnostic {
+                message: "OriginalFluffyTermExpectationError::Todo",
+                severity: Error,
+                range: [22:29, 22:32),
+            },
+            Diagnostic {
+                message: "expected type",
+                severity: Error,
+                range: [32:36, 32:38),
+            },
+            Diagnostic {
+                message: "OriginalFluffyTermExpectationError::Todo",
+                severity: Error,
+                range: [32:35, 32:38),
+            },
+        ],
     },
 }

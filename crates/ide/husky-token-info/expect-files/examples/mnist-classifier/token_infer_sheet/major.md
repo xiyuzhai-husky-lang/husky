@@ -36,8 +36,8 @@ Ok(
             ),
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::BoxPrefix,
-            TokenInfo::BoxPrefix,
+            TokenInfo::None,
+            TokenInfo::None,
             TokenInfo::Entity(
                 Some(
                     EntityPath::ModuleItem(
@@ -374,8 +374,8 @@ Ok(
             ),
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::BoxPrefix,
-            TokenInfo::BoxPrefix,
+            TokenInfo::None,
+            TokenInfo::None,
             TokenInfo::Entity(
                 Some(
                     EntityPath::ModuleItem(
@@ -511,8 +511,8 @@ Ok(
             ),
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::BoxPrefix,
-            TokenInfo::BoxPrefix,
+            TokenInfo::None,
+            TokenInfo::None,
             TokenInfo::Entity(
                 Some(
                     EntityPath::ModuleItem(

@@ -30,6 +30,17 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "expected type",
+                severity: Error,
+                range: [9:15, 9:18),
+            },
+            Diagnostic {
+                message: "OriginalFluffyTermExpectationError::Todo",
+                severity: Error,
+                range: [9:14, 9:18),
+            },
+        ],
     },
 }

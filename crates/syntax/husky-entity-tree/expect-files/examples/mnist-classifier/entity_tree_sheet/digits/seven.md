@@ -2687,7 +2687,7 @@ Ok(
                         `mnist_classifier::digits::seven`,
                     ),
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Super(
+                        parent_name_token: PathNameToken::Super(
                             SuperToken {
                                 token_idx: TokenIdx(
                                     1,

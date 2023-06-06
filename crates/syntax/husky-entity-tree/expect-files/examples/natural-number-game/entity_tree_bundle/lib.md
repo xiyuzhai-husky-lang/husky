@@ -112,13 +112,15 @@ Ok(
         ],
         principal_entity_path_expr_arena: Arena {
             data: [
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `Nat`,
-                        token_idx: TokenIdx(
-                            10,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `Nat`,
+                            token_idx: TokenIdx(
+                                10,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`natural_number_game::Nat`, `Inductive`),

@@ -51,11 +51,69 @@ fn parse_expr_works() {
     let db = DB::default();
     expect_test::expect![[r#"
         (
-            ExprRegion(
-                Id {
-                    value: 1,
+            ExprRegionData {
+                parent: None,
+                path: Snippet(
+                    Toolchain(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                ),
+                expr_arena: Arena {
+                    data: [
+                        Literal(
+                            TokenIdx(
+                                0,
+                            ),
+                            Integer(
+                                Unspecified,
+                            ),
+                        ),
+                    ],
                 },
-            ),
+                entity_path_expr_arena: Arena {
+                    data: [],
+                },
+                stmt_arena: Arena {
+                    data: [],
+                },
+                pattern_expr_region: PatternExprRegion {
+                    pattern_expr_arena: Arena {
+                        data: [],
+                    },
+                    pattern_expr_contracts: ArenaMap {
+                        data: [],
+                    },
+                    pattern_infos: [],
+                    pattern_symbol_arena: Arena {
+                        data: [],
+                    },
+                    pattern_symbol_maps: ArenaMap {
+                        data: [],
+                    },
+                    pattern_symbol_modifiers: ArenaMap {
+                        data: [],
+                    },
+                },
+                symbol_region: SymbolRegion {
+                    inherited_symbol_arena: Arena {
+                        data: [],
+                    },
+                    current_symbol_arena: Arena {
+                        data: [],
+                    },
+                    allow_self_type: False,
+                    allow_self_value: False,
+                    pattern_ty_constraints: [],
+                },
+                roots: [
+                    ExprRoot {
+                        kind: Snippet,
+                        expr_idx: 0,
+                    },
+                ],
+            },
             Some(
                 0,
             ),
@@ -65,11 +123,76 @@ fn parse_expr_works() {
 
     expect_test::expect![[r#"
         (
-            ExprRegion(
-                Id {
-                    value: 2,
+            ExprRegionData {
+                parent: None,
+                path: Snippet(
+                    Toolchain(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                ),
+                expr_arena: Arena {
+                    data: [
+                        Literal(
+                            TokenIdx(
+                                1,
+                            ),
+                            Integer(
+                                Unspecified,
+                            ),
+                        ),
+                        Prefix {
+                            opr: Minus,
+                            opr_token_idx: TokenIdx(
+                                0,
+                            ),
+                            opd: 0,
+                        },
+                    ],
                 },
-            ),
+                entity_path_expr_arena: Arena {
+                    data: [],
+                },
+                stmt_arena: Arena {
+                    data: [],
+                },
+                pattern_expr_region: PatternExprRegion {
+                    pattern_expr_arena: Arena {
+                        data: [],
+                    },
+                    pattern_expr_contracts: ArenaMap {
+                        data: [],
+                    },
+                    pattern_infos: [],
+                    pattern_symbol_arena: Arena {
+                        data: [],
+                    },
+                    pattern_symbol_maps: ArenaMap {
+                        data: [],
+                    },
+                    pattern_symbol_modifiers: ArenaMap {
+                        data: [],
+                    },
+                },
+                symbol_region: SymbolRegion {
+                    inherited_symbol_arena: Arena {
+                        data: [],
+                    },
+                    current_symbol_arena: Arena {
+                        data: [],
+                    },
+                    allow_self_type: False,
+                    allow_self_value: False,
+                    pattern_ty_constraints: [],
+                },
+                roots: [
+                    ExprRoot {
+                        kind: Snippet,
+                        expr_idx: 1,
+                    },
+                ],
+            },
             Some(
                 1,
             ),
@@ -79,11 +202,71 @@ fn parse_expr_works() {
 
     expect_test::expect![[r#"
         (
-            ExprRegion(
-                Id {
-                    value: 3,
+            ExprRegionData {
+                parent: None,
+                path: Snippet(
+                    Toolchain(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                ),
+                expr_arena: Arena {
+                    data: [
+                        Literal(
+                            TokenIdx(
+                                0,
+                            ),
+                            Integer(
+                                I32(
+                                    1,
+                                ),
+                            ),
+                        ),
+                    ],
                 },
-            ),
+                entity_path_expr_arena: Arena {
+                    data: [],
+                },
+                stmt_arena: Arena {
+                    data: [],
+                },
+                pattern_expr_region: PatternExprRegion {
+                    pattern_expr_arena: Arena {
+                        data: [],
+                    },
+                    pattern_expr_contracts: ArenaMap {
+                        data: [],
+                    },
+                    pattern_infos: [],
+                    pattern_symbol_arena: Arena {
+                        data: [],
+                    },
+                    pattern_symbol_maps: ArenaMap {
+                        data: [],
+                    },
+                    pattern_symbol_modifiers: ArenaMap {
+                        data: [],
+                    },
+                },
+                symbol_region: SymbolRegion {
+                    inherited_symbol_arena: Arena {
+                        data: [],
+                    },
+                    current_symbol_arena: Arena {
+                        data: [],
+                    },
+                    allow_self_type: False,
+                    allow_self_value: False,
+                    pattern_ty_constraints: [],
+                },
+                roots: [
+                    ExprRoot {
+                        kind: Snippet,
+                        expr_idx: 0,
+                    },
+                ],
+            },
             Some(
                 0,
             ),
@@ -93,11 +276,71 @@ fn parse_expr_works() {
 
     expect_test::expect![[r#"
         (
-            ExprRegion(
-                Id {
-                    value: 4,
+            ExprRegionData {
+                parent: None,
+                path: Snippet(
+                    Toolchain(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                ),
+                expr_arena: Arena {
+                    data: [
+                        Literal(
+                            TokenIdx(
+                                0,
+                            ),
+                            Integer(
+                                I64(
+                                    2,
+                                ),
+                            ),
+                        ),
+                    ],
                 },
-            ),
+                entity_path_expr_arena: Arena {
+                    data: [],
+                },
+                stmt_arena: Arena {
+                    data: [],
+                },
+                pattern_expr_region: PatternExprRegion {
+                    pattern_expr_arena: Arena {
+                        data: [],
+                    },
+                    pattern_expr_contracts: ArenaMap {
+                        data: [],
+                    },
+                    pattern_infos: [],
+                    pattern_symbol_arena: Arena {
+                        data: [],
+                    },
+                    pattern_symbol_maps: ArenaMap {
+                        data: [],
+                    },
+                    pattern_symbol_modifiers: ArenaMap {
+                        data: [],
+                    },
+                },
+                symbol_region: SymbolRegion {
+                    inherited_symbol_arena: Arena {
+                        data: [],
+                    },
+                    current_symbol_arena: Arena {
+                        data: [],
+                    },
+                    allow_self_type: False,
+                    allow_self_value: False,
+                    pattern_ty_constraints: [],
+                },
+                roots: [
+                    ExprRoot {
+                        kind: Snippet,
+                        expr_idx: 0,
+                    },
+                ],
+            },
             Some(
                 0,
             ),
@@ -107,11 +350,68 @@ fn parse_expr_works() {
 
     expect_test::expect![[r#"
         (
-            ExprRegion(
-                Id {
-                    value: 5,
+            ExprRegionData {
+                parent: None,
+                path: Snippet(
+                    Toolchain(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                ),
+                expr_arena: Arena {
+                    data: [
+                        Err(
+                            Derived(
+                                Token(
+                                    ParseIntError,
+                                ),
+                            ),
+                        ),
+                    ],
                 },
-            ),
+                entity_path_expr_arena: Arena {
+                    data: [],
+                },
+                stmt_arena: Arena {
+                    data: [],
+                },
+                pattern_expr_region: PatternExprRegion {
+                    pattern_expr_arena: Arena {
+                        data: [],
+                    },
+                    pattern_expr_contracts: ArenaMap {
+                        data: [],
+                    },
+                    pattern_infos: [],
+                    pattern_symbol_arena: Arena {
+                        data: [],
+                    },
+                    pattern_symbol_maps: ArenaMap {
+                        data: [],
+                    },
+                    pattern_symbol_modifiers: ArenaMap {
+                        data: [],
+                    },
+                },
+                symbol_region: SymbolRegion {
+                    inherited_symbol_arena: Arena {
+                        data: [],
+                    },
+                    current_symbol_arena: Arena {
+                        data: [],
+                    },
+                    allow_self_type: False,
+                    allow_self_value: False,
+                    pattern_ty_constraints: [],
+                },
+                roots: [
+                    ExprRoot {
+                        kind: Snippet,
+                        expr_idx: 0,
+                    },
+                ],
+            },
             Some(
                 0,
             ),
@@ -121,11 +421,87 @@ fn parse_expr_works() {
 
     expect_test::expect![[r#"
         (
-            ExprRegion(
-                Id {
-                    value: 6,
+            ExprRegionData {
+                parent: None,
+                path: Snippet(
+                    Toolchain(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                ),
+                expr_arena: Arena {
+                    data: [
+                        Literal(
+                            TokenIdx(
+                                0,
+                            ),
+                            Integer(
+                                Unspecified,
+                            ),
+                        ),
+                        Literal(
+                            TokenIdx(
+                                2,
+                            ),
+                            Integer(
+                                Unspecified,
+                            ),
+                        ),
+                        Binary {
+                            lopd: 0,
+                            opr: Closed(
+                                Add,
+                            ),
+                            opr_token_idx: TokenIdx(
+                                1,
+                            ),
+                            ropd: 1,
+                        },
+                    ],
                 },
-            ),
+                entity_path_expr_arena: Arena {
+                    data: [],
+                },
+                stmt_arena: Arena {
+                    data: [],
+                },
+                pattern_expr_region: PatternExprRegion {
+                    pattern_expr_arena: Arena {
+                        data: [],
+                    },
+                    pattern_expr_contracts: ArenaMap {
+                        data: [],
+                    },
+                    pattern_infos: [],
+                    pattern_symbol_arena: Arena {
+                        data: [],
+                    },
+                    pattern_symbol_maps: ArenaMap {
+                        data: [],
+                    },
+                    pattern_symbol_modifiers: ArenaMap {
+                        data: [],
+                    },
+                },
+                symbol_region: SymbolRegion {
+                    inherited_symbol_arena: Arena {
+                        data: [],
+                    },
+                    current_symbol_arena: Arena {
+                        data: [],
+                    },
+                    allow_self_type: False,
+                    allow_self_value: False,
+                    pattern_ty_constraints: [],
+                },
+                roots: [
+                    ExprRoot {
+                        kind: Snippet,
+                        expr_idx: 2,
+                    },
+                ],
+            },
             Some(
                 2,
             ),
@@ -135,11 +511,116 @@ fn parse_expr_works() {
 
     expect_test::expect![[r#"
         (
-            ExprRegion(
-                Id {
-                    value: 7,
+            ExprRegionData {
+                parent: None,
+                path: Snippet(
+                    Toolchain(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                ),
+                expr_arena: Arena {
+                    data: [
+                        List {
+                            lbox_token_idx: TokenIdx(
+                                0,
+                            ),
+                            items: ArenaIdxRange(
+                                0..0,
+                            ),
+                            rbox_token_idx: TokenIdx(
+                                1,
+                            ),
+                        },
+                        EntityPath {
+                            entity_path_expr: 0,
+                            path: Some(
+                                ModuleItem(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 16,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                        ExplicitApplication {
+                            function: 0,
+                            argument: 1,
+                        },
+                    ],
                 },
-            ),
+                entity_path_expr_arena: Arena {
+                    data: [
+                        Root {
+                            path_name_token: Ident(
+                                IdentToken {
+                                    ident: Ident(
+                                        Word(
+                                            Id {
+                                                value: 9,
+                                            },
+                                        ),
+                                    ),
+                                    token_idx: TokenIdx(
+                                        2,
+                                    ),
+                                },
+                            ),
+                            entity_path: ModuleItem(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 16,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ],
+                },
+                stmt_arena: Arena {
+                    data: [],
+                },
+                pattern_expr_region: PatternExprRegion {
+                    pattern_expr_arena: Arena {
+                        data: [],
+                    },
+                    pattern_expr_contracts: ArenaMap {
+                        data: [],
+                    },
+                    pattern_infos: [],
+                    pattern_symbol_arena: Arena {
+                        data: [],
+                    },
+                    pattern_symbol_maps: ArenaMap {
+                        data: [],
+                    },
+                    pattern_symbol_modifiers: ArenaMap {
+                        data: [],
+                    },
+                },
+                symbol_region: SymbolRegion {
+                    inherited_symbol_arena: Arena {
+                        data: [],
+                    },
+                    current_symbol_arena: Arena {
+                        data: [],
+                    },
+                    allow_self_type: False,
+                    allow_self_value: False,
+                    pattern_ty_constraints: [],
+                },
+                roots: [
+                    ExprRoot {
+                        kind: Snippet,
+                        expr_idx: 2,
+                    },
+                ],
+            },
             Some(
                 2,
             ),
@@ -149,11 +630,124 @@ fn parse_expr_works() {
 
     expect_test::expect![[r#"
         (
-            ExprRegion(
-                Id {
-                    value: 8,
+            ExprRegionData {
+                parent: None,
+                path: Snippet(
+                    Toolchain(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                ),
+                expr_arena: Arena {
+                    data: [
+                        Literal(
+                            TokenIdx(
+                                1,
+                            ),
+                            Integer(
+                                Unspecified,
+                            ),
+                        ),
+                        List {
+                            lbox_token_idx: TokenIdx(
+                                0,
+                            ),
+                            items: ArenaIdxRange(
+                                0..1,
+                            ),
+                            rbox_token_idx: TokenIdx(
+                                2,
+                            ),
+                        },
+                        EntityPath {
+                            entity_path_expr: 0,
+                            path: Some(
+                                ModuleItem(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 16,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                        ExplicitApplication {
+                            function: 1,
+                            argument: 2,
+                        },
+                    ],
                 },
-            ),
+                entity_path_expr_arena: Arena {
+                    data: [
+                        Root {
+                            path_name_token: Ident(
+                                IdentToken {
+                                    ident: Ident(
+                                        Word(
+                                            Id {
+                                                value: 9,
+                                            },
+                                        ),
+                                    ),
+                                    token_idx: TokenIdx(
+                                        3,
+                                    ),
+                                },
+                            ),
+                            entity_path: ModuleItem(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 16,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ],
+                },
+                stmt_arena: Arena {
+                    data: [],
+                },
+                pattern_expr_region: PatternExprRegion {
+                    pattern_expr_arena: Arena {
+                        data: [],
+                    },
+                    pattern_expr_contracts: ArenaMap {
+                        data: [],
+                    },
+                    pattern_infos: [],
+                    pattern_symbol_arena: Arena {
+                        data: [],
+                    },
+                    pattern_symbol_maps: ArenaMap {
+                        data: [],
+                    },
+                    pattern_symbol_modifiers: ArenaMap {
+                        data: [],
+                    },
+                },
+                symbol_region: SymbolRegion {
+                    inherited_symbol_arena: Arena {
+                        data: [],
+                    },
+                    current_symbol_arena: Arena {
+                        data: [],
+                    },
+                    allow_self_type: False,
+                    allow_self_value: False,
+                    pattern_ty_constraints: [],
+                },
+                roots: [
+                    ExprRoot {
+                        kind: Snippet,
+                        expr_idx: 3,
+                    },
+                ],
+            },
             Some(
                 3,
             ),
@@ -163,11 +757,156 @@ fn parse_expr_works() {
 
     expect_test::expect![[r#"
         (
-            ExprRegion(
-                Id {
-                    value: 9,
+            ExprRegionData {
+                parent: None,
+                path: Snippet(
+                    Toolchain(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                ),
+                expr_arena: Arena {
+                    data: [
+                        EntityPath {
+                            entity_path_expr: 0,
+                            path: Some(
+                                ModuleItem(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 16,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                        EntityPath {
+                            entity_path_expr: 1,
+                            path: Some(
+                                ModuleItem(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 16,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                        NewTuple {
+                            lpar_token_idx: TokenIdx(
+                                0,
+                            ),
+                            items: ArenaIdxRange(
+                                0..2,
+                            ),
+                            commas: [
+                                TokenIdx(
+                                    2,
+                                ),
+                            ],
+                            rpar_token_idx: TokenIdx(
+                                4,
+                            ),
+                        },
+                    ],
                 },
-            ),
+                entity_path_expr_arena: Arena {
+                    data: [
+                        Root {
+                            path_name_token: Ident(
+                                IdentToken {
+                                    ident: Ident(
+                                        Word(
+                                            Id {
+                                                value: 9,
+                                            },
+                                        ),
+                                    ),
+                                    token_idx: TokenIdx(
+                                        1,
+                                    ),
+                                },
+                            ),
+                            entity_path: ModuleItem(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 16,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        Root {
+                            path_name_token: Ident(
+                                IdentToken {
+                                    ident: Ident(
+                                        Word(
+                                            Id {
+                                                value: 9,
+                                            },
+                                        ),
+                                    ),
+                                    token_idx: TokenIdx(
+                                        3,
+                                    ),
+                                },
+                            ),
+                            entity_path: ModuleItem(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 16,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ],
+                },
+                stmt_arena: Arena {
+                    data: [],
+                },
+                pattern_expr_region: PatternExprRegion {
+                    pattern_expr_arena: Arena {
+                        data: [],
+                    },
+                    pattern_expr_contracts: ArenaMap {
+                        data: [],
+                    },
+                    pattern_infos: [],
+                    pattern_symbol_arena: Arena {
+                        data: [],
+                    },
+                    pattern_symbol_maps: ArenaMap {
+                        data: [],
+                    },
+                    pattern_symbol_modifiers: ArenaMap {
+                        data: [],
+                    },
+                },
+                symbol_region: SymbolRegion {
+                    inherited_symbol_arena: Arena {
+                        data: [],
+                    },
+                    current_symbol_arena: Arena {
+                        data: [],
+                    },
+                    allow_self_type: False,
+                    allow_self_value: False,
+                    pattern_ty_constraints: [],
+                },
+                roots: [
+                    ExprRoot {
+                        kind: Snippet,
+                        expr_idx: 2,
+                    },
+                ],
+            },
             Some(
                 2,
             ),
@@ -235,11 +974,95 @@ fn parse_expr_works() {
 
     expect_test::expect![[r#"
         (
-            ExprRegion(
-                Id {
-                    value: 10,
+            ExprRegionData {
+                parent: None,
+                path: Snippet(
+                    Toolchain(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                ),
+                expr_arena: Arena {
+                    data: [
+                        Err(
+                            Original(
+                                UnrecognizedIdent {
+                                    token_idx: TokenIdx(
+                                        0,
+                                    ),
+                                    ident: Ident(
+                                        Word(
+                                            Id {
+                                                value: 154,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                        Field {
+                            owner: 0,
+                            dot_token_idx: TokenIdx(
+                                1,
+                            ),
+                            ident_token: IdentToken {
+                                ident: Ident(
+                                    Word(
+                                        Id {
+                                            value: 75,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    2,
+                                ),
+                            },
+                        },
+                    ],
                 },
-            ),
+                entity_path_expr_arena: Arena {
+                    data: [],
+                },
+                stmt_arena: Arena {
+                    data: [],
+                },
+                pattern_expr_region: PatternExprRegion {
+                    pattern_expr_arena: Arena {
+                        data: [],
+                    },
+                    pattern_expr_contracts: ArenaMap {
+                        data: [],
+                    },
+                    pattern_infos: [],
+                    pattern_symbol_arena: Arena {
+                        data: [],
+                    },
+                    pattern_symbol_maps: ArenaMap {
+                        data: [],
+                    },
+                    pattern_symbol_modifiers: ArenaMap {
+                        data: [],
+                    },
+                },
+                symbol_region: SymbolRegion {
+                    inherited_symbol_arena: Arena {
+                        data: [],
+                    },
+                    current_symbol_arena: Arena {
+                        data: [],
+                    },
+                    allow_self_type: False,
+                    allow_self_value: False,
+                    pattern_ty_constraints: [],
+                },
+                roots: [
+                    ExprRoot {
+                        kind: Snippet,
+                        expr_idx: 1,
+                    },
+                ],
+            },
             Some(
                 1,
             ),
@@ -249,11 +1072,106 @@ fn parse_expr_works() {
 
     expect_test::expect![[r#"
         (
-            ExprRegion(
-                Id {
-                    value: 11,
+            ExprRegionData {
+                parent: None,
+                path: Snippet(
+                    Toolchain(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                ),
+                expr_arena: Arena {
+                    data: [
+                        Err(
+                            Original(
+                                UnrecognizedIdent {
+                                    token_idx: TokenIdx(
+                                        0,
+                                    ),
+                                    ident: Ident(
+                                        Word(
+                                            Id {
+                                                value: 154,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                        MethodApplicationOrCall {
+                            self_argument: 0,
+                            dot_token_idx: TokenIdx(
+                                1,
+                            ),
+                            ident_token: IdentToken {
+                                ident: Ident(
+                                    Word(
+                                        Id {
+                                            value: 155,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    2,
+                                ),
+                            },
+                            implicit_arguments: None,
+                            lpar_token_idx: TokenIdx(
+                                3,
+                            ),
+                            items: ArenaIdxRange(
+                                1..1,
+                            ),
+                            commas: [],
+                            rpar_token_idx: TokenIdx(
+                                4,
+                            ),
+                        },
+                    ],
                 },
-            ),
+                entity_path_expr_arena: Arena {
+                    data: [],
+                },
+                stmt_arena: Arena {
+                    data: [],
+                },
+                pattern_expr_region: PatternExprRegion {
+                    pattern_expr_arena: Arena {
+                        data: [],
+                    },
+                    pattern_expr_contracts: ArenaMap {
+                        data: [],
+                    },
+                    pattern_infos: [],
+                    pattern_symbol_arena: Arena {
+                        data: [],
+                    },
+                    pattern_symbol_maps: ArenaMap {
+                        data: [],
+                    },
+                    pattern_symbol_modifiers: ArenaMap {
+                        data: [],
+                    },
+                },
+                symbol_region: SymbolRegion {
+                    inherited_symbol_arena: Arena {
+                        data: [],
+                    },
+                    current_symbol_arena: Arena {
+                        data: [],
+                    },
+                    allow_self_type: False,
+                    allow_self_value: False,
+                    pattern_ty_constraints: [],
+                },
+                roots: [
+                    ExprRoot {
+                        kind: Snippet,
+                        expr_idx: 1,
+                    },
+                ],
+            },
             Some(
                 1,
             ),
@@ -266,5 +1184,98 @@ fn parse_expr_works() {
 fn parse_application_expr_works() {
     let db = DB::default();
     // this is wrong semantically, but useful for specifying syntactic behavior
-    expect_test::expect![[r#""#]].assert_debug_eq(&t(&db, "0 1 2"));
+    expect_test::expect![[r#"
+        (
+            ExprRegionData {
+                parent: None,
+                path: Snippet(
+                    Toolchain(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                ),
+                expr_arena: Arena {
+                    data: [
+                        Literal(
+                            TokenIdx(
+                                0,
+                            ),
+                            Integer(
+                                Unspecified,
+                            ),
+                        ),
+                        Literal(
+                            TokenIdx(
+                                1,
+                            ),
+                            Integer(
+                                Unspecified,
+                            ),
+                        ),
+                        ExplicitApplication {
+                            function: 0,
+                            argument: 1,
+                        },
+                        Literal(
+                            TokenIdx(
+                                2,
+                            ),
+                            Integer(
+                                Unspecified,
+                            ),
+                        ),
+                        ExplicitApplication {
+                            function: 2,
+                            argument: 3,
+                        },
+                    ],
+                },
+                entity_path_expr_arena: Arena {
+                    data: [],
+                },
+                stmt_arena: Arena {
+                    data: [],
+                },
+                pattern_expr_region: PatternExprRegion {
+                    pattern_expr_arena: Arena {
+                        data: [],
+                    },
+                    pattern_expr_contracts: ArenaMap {
+                        data: [],
+                    },
+                    pattern_infos: [],
+                    pattern_symbol_arena: Arena {
+                        data: [],
+                    },
+                    pattern_symbol_maps: ArenaMap {
+                        data: [],
+                    },
+                    pattern_symbol_modifiers: ArenaMap {
+                        data: [],
+                    },
+                },
+                symbol_region: SymbolRegion {
+                    inherited_symbol_arena: Arena {
+                        data: [],
+                    },
+                    current_symbol_arena: Arena {
+                        data: [],
+                    },
+                    allow_self_type: False,
+                    allow_self_value: False,
+                    pattern_ty_constraints: [],
+                },
+                roots: [
+                    ExprRoot {
+                        kind: Snippet,
+                        expr_idx: 4,
+                    },
+                ],
+            },
+            Some(
+                4,
+            ),
+        )
+    "#]].assert_debug_eq(&t(&db, "0 1 2"));
 }

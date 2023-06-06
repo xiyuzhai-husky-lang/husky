@@ -943,7 +943,7 @@ Ok(
                     use_expr_idx: 2,
                     visibility: Scope::Pub,
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Crate(
+                        parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     2,
@@ -966,7 +966,7 @@ Ok(
                     use_expr_idx: 5,
                     visibility: Scope::Pub,
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Crate(
+                        parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     9,
@@ -989,7 +989,7 @@ Ok(
                     use_expr_idx: 8,
                     visibility: Scope::Pub,
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Crate(
+                        parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     16,
@@ -1012,7 +1012,7 @@ Ok(
                     use_expr_idx: 11,
                     visibility: Scope::Pub,
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Crate(
+                        parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     23,
@@ -1035,7 +1035,7 @@ Ok(
                     use_expr_idx: 14,
                     visibility: Scope::Pub,
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Crate(
+                        parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     30,
@@ -1058,7 +1058,7 @@ Ok(
                     use_expr_idx: 17,
                     visibility: Scope::Pub,
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Crate(
+                        parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     37,
@@ -1081,7 +1081,7 @@ Ok(
                     use_expr_idx: 20,
                     visibility: Scope::Pub,
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Crate(
+                        parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     44,
@@ -1104,7 +1104,7 @@ Ok(
                     use_expr_idx: 23,
                     visibility: Scope::Pub,
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Crate(
+                        parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     51,
@@ -1127,7 +1127,7 @@ Ok(
                     use_expr_idx: 1,
                     visibility: Scope::Pub,
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Ident(
+                        parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `basic`,
                                 token_idx: TokenIdx(
@@ -1165,7 +1165,7 @@ Ok(
                     use_expr_idx: 4,
                     visibility: Scope::Pub,
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Ident(
+                        parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `num`,
                                 token_idx: TokenIdx(
@@ -1203,7 +1203,7 @@ Ok(
                     use_expr_idx: 7,
                     visibility: Scope::Pub,
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Ident(
+                        parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `raw_bits`,
                                 token_idx: TokenIdx(
@@ -1241,7 +1241,7 @@ Ok(
                     use_expr_idx: 10,
                     visibility: Scope::Pub,
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Ident(
+                        parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `fmt`,
                                 token_idx: TokenIdx(
@@ -1279,7 +1279,7 @@ Ok(
                     use_expr_idx: 13,
                     visibility: Scope::Pub,
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Ident(
+                        parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `visual`,
                                 token_idx: TokenIdx(
@@ -1317,7 +1317,7 @@ Ok(
                     use_expr_idx: 16,
                     visibility: Scope::Pub,
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Ident(
+                        parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `marker`,
                                 token_idx: TokenIdx(
@@ -1355,7 +1355,7 @@ Ok(
                     use_expr_idx: 19,
                     visibility: Scope::Pub,
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Ident(
+                        parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `clone`,
                                 token_idx: TokenIdx(
@@ -1393,7 +1393,7 @@ Ok(
                     use_expr_idx: 22,
                     visibility: Scope::Pub,
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Ident(
+                        parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `cmp`,
                                 token_idx: TokenIdx(

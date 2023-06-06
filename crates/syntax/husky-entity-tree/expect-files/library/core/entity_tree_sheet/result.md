@@ -25,18 +25,25 @@ Ok(
             ],
         ),
         impl_blocks: [
-            ImplBlock::IllFormed(
-                IllFormedImplBlock {
-                    id: IllFormedImplBlockId {
-                        module: `core::result`,
+            ImplBlock::TraitForType(
+                TraitForTypeImplBlock {
+                    id: TraitForTypeImplBlockId {
+                        module_path: `core::result`,
+                        trai_path: TraitPath(`core::ops::Unveil`),
+                        ty_path: TypePath(`core::result::Result`, `Enum`),
                         disambiguator: 0,
                     },
+                    ast_idx: 6,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             18,
                         ),
                     },
-                    ast_idx: 6,
+                    trai_expr: 47,
+                    for_token: TokenIdx(
+                        36,
+                    ),
+                    ty_expr: 48,
                     items: Some(
                         TraitForType(
                             TraitForTypeItems {
@@ -44,18 +51,6 @@ Ok(
                                     3..5,
                                 ),
                             },
-                        ),
-                    ),
-                    ill_form: ImplBlockIllForm::MajorPath(
-                        MajorPathExprError::Original(
-                            OriginalMajorPathExprError::ExpectedIdent(
-                                TokenStreamState {
-                                    next_token_idx: TokenIdx(
-                                        26,
-                                    ),
-                                    drained: false,
-                                },
-                            ),
                         ),
                     ),
                 },

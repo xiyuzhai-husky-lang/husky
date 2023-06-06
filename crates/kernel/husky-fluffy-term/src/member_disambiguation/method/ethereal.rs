@@ -59,6 +59,7 @@ fn ethereal_ty_method_disambiguation_aux<'a>(
             PreludeBorrowTypePath::Leash => {
                 indirections.push(FluffyIndirection::Leash);
                 if arguments.len() != 1 {
+                    p!((&arguments).debug(engine.db()));
                     todo!()
                 }
                 return JustOk(

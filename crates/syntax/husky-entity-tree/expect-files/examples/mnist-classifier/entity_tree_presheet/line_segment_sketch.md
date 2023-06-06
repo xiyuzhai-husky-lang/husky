@@ -249,7 +249,7 @@ Ok(
                     use_expr_idx: 1,
                     visibility: Scope::Pub,
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Ident(
+                        parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `concave_component`,
                                 token_idx: TokenIdx(
@@ -269,7 +269,7 @@ Ok(
                     use_expr_idx: 3,
                     visibility: Scope::Pub,
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Ident(
+                        parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `convex_component`,
                                 token_idx: TokenIdx(
@@ -289,7 +289,7 @@ Ok(
                     use_expr_idx: 5,
                     visibility: Scope::Pub,
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Ident(
+                        parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `line_segment`,
                                 token_idx: TokenIdx(
@@ -311,7 +311,7 @@ Ok(
                         `mnist_classifier::line_segment_sketch`,
                     ),
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Crate(
+                        parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     24,
@@ -332,7 +332,7 @@ Ok(
                         `mnist_classifier::line_segment_sketch`,
                     ),
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Crate(
+                        parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     30,
@@ -353,7 +353,7 @@ Ok(
                         `mnist_classifier::line_segment_sketch`,
                     ),
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Ident(
+                        parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `line_segment`,
                                 token_idx: TokenIdx(
@@ -384,7 +384,7 @@ Ok(
                 },
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: NameToken::Ident(
+                        parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `concave_component`,
                                 token_idx: TokenIdx(
@@ -415,7 +415,7 @@ Ok(
                 },
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: NameToken::Ident(
+                        parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `convex_component`,
                                 token_idx: TokenIdx(
@@ -446,7 +446,7 @@ Ok(
                 },
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: NameToken::Ident(
+                        parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `line_segment`,
                                 token_idx: TokenIdx(
@@ -477,7 +477,7 @@ Ok(
                 },
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: NameToken::Ident(
+                        parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `geom2d`,
                                 token_idx: TokenIdx(
@@ -501,7 +501,7 @@ Ok(
                 ),
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: NameToken::Crate(
+                        parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     24,
@@ -532,7 +532,7 @@ Ok(
                 },
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: NameToken::Ident(
+                        parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `raw_contour`,
                                 token_idx: TokenIdx(
@@ -556,7 +556,7 @@ Ok(
                 ),
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: NameToken::Crate(
+                        parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     30,
@@ -586,7 +586,7 @@ Ok(
                 },
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: NameToken::Ident(
+                        parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `line_segment`,
                                 token_idx: TokenIdx(

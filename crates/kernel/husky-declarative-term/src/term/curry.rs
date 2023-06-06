@@ -16,7 +16,7 @@ pub struct DeclarativeTermCurry {
 }
 
 impl DeclarativeTermCurry {
-    pub fn new(
+    pub fn new_dependent(
         db: &dyn DeclarativeTermDb,
         curry_kind: CurryKind,
         variance: Variance,

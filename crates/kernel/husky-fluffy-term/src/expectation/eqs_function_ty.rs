@@ -107,7 +107,10 @@ impl ExpectEqsFunctionType {
                 return_ty,
             ),
             FluffyTermData::Hole(_, _) => todo!(),
-            FluffyTermData::Category(_) => todo!(),
+            FluffyTermData::Category(_) => Some(FluffyTermExpectationEffect {
+                result: Err(OriginalFluffyTermExpectationError::Todo.into()),
+                actions: smallvec![],
+            }),
             FluffyTermData::Ritchie {
                 ritchie_kind,
                 parameter_contracted_tys,
