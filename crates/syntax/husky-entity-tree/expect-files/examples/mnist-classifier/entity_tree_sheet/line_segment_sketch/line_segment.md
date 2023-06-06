@@ -268,7 +268,7 @@ Ok(
                         `mnist_classifier::line_segment_sketch::line_segment`,
                     ),
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Crate(
+                        parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     1,
@@ -293,7 +293,7 @@ Ok(
                         `mnist_classifier::line_segment_sketch::line_segment`,
                     ),
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Ident(
+                        parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `geom2d`,
                                 token_idx: TokenIdx(

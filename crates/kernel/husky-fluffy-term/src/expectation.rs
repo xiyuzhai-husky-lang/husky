@@ -189,6 +189,8 @@ pub enum OriginalFluffyTermExpectationError {
         expected_path: TypePath,
         expectee_path: TypePath,
     },
+    #[error("expected category")]
+    ExpectedType { expectee: FluffyTerm },
     #[error("todo")]
     Todo,
 }

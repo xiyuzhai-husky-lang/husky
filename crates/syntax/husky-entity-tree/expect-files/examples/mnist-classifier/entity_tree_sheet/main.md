@@ -1050,8 +1050,8 @@ Ok(
                         `mnist_classifier`,
                     ),
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::SelfValue(
-                            SelfValueToken {
+                        parent_name_token: PathNameToken::SelfMod(
+                            SelfModToken {
                                 token_idx: TokenIdx(
                                     15,
                                 ),
@@ -1075,8 +1075,8 @@ Ok(
                         `mnist_classifier`,
                     ),
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::SelfValue(
-                            SelfValueToken {
+                        parent_name_token: PathNameToken::SelfMod(
+                            SelfModToken {
                                 token_idx: TokenIdx(
                                     21,
                                 ),
@@ -1100,8 +1100,8 @@ Ok(
                         `mnist_classifier`,
                     ),
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::SelfValue(
-                            SelfValueToken {
+                        parent_name_token: PathNameToken::SelfMod(
+                            SelfModToken {
                                 token_idx: TokenIdx(
                                     27,
                                 ),
@@ -1125,8 +1125,8 @@ Ok(
                         `mnist_classifier`,
                     ),
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::SelfValue(
-                            SelfValueToken {
+                        parent_name_token: PathNameToken::SelfMod(
+                            SelfModToken {
                                 token_idx: TokenIdx(
                                     34,
                                 ),
@@ -1150,8 +1150,8 @@ Ok(
                         `mnist_classifier`,
                     ),
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::SelfValue(
-                            SelfValueToken {
+                        parent_name_token: PathNameToken::SelfMod(
+                            SelfModToken {
                                 token_idx: TokenIdx(
                                     40,
                                 ),
@@ -1175,8 +1175,8 @@ Ok(
                         `mnist_classifier`,
                     ),
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::SelfValue(
-                            SelfValueToken {
+                        parent_name_token: PathNameToken::SelfMod(
+                            SelfModToken {
                                 token_idx: TokenIdx(
                                     46,
                                 ),
@@ -1200,7 +1200,7 @@ Ok(
                         `mnist_classifier`,
                     ),
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Ident(
+                        parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `malamute`,
                                 token_idx: TokenIdx(
@@ -1228,7 +1228,7 @@ Ok(
                         `mnist_classifier`,
                     ),
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Ident(
+                        parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `mnist`,
                                 token_idx: TokenIdx(
@@ -1256,7 +1256,7 @@ Ok(
                         `mnist_classifier`,
                     ),
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Ident(
+                        parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `major`,
                                 token_idx: TokenIdx(
@@ -1298,7 +1298,7 @@ Ok(
                         `mnist_classifier`,
                     ),
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Ident(
+                        parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `digits`,
                                 token_idx: TokenIdx(
@@ -1340,7 +1340,7 @@ Ok(
                         `mnist_classifier`,
                     ),
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Ident(
+                        parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `fermi`,
                                 token_idx: TokenIdx(
@@ -1382,7 +1382,7 @@ Ok(
                         `mnist_classifier`,
                     ),
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Ident(
+                        parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `raw_contour`,
                                 token_idx: TokenIdx(
@@ -1424,7 +1424,7 @@ Ok(
                         `mnist_classifier`,
                     ),
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Ident(
+                        parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `line_segment_sketch`,
                                 token_idx: TokenIdx(
@@ -1466,7 +1466,7 @@ Ok(
                         `mnist_classifier`,
                     ),
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Ident(
+                        parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `connected_component`,
                                 token_idx: TokenIdx(

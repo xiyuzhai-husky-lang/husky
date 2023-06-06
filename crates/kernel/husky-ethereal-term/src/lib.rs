@@ -2,7 +2,7 @@
 #![doc = include_str ! ("../README.md")]
 #![feature(trait_upcasting)]
 #![feature(let_chains)]
-
+#![feature(if_let_guard)]
 // #![deny(unsafe_code, missing_docs, clippy::unwrap_used)]
 mod context;
 mod conversion;

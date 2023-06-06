@@ -197,6 +197,24 @@ impl EtherealTerm {
         })
     }
 
+    pub(crate) fn into_declarative(self, db: &dyn EtherealTermDb) -> DeclarativeTerm {
+        match self {
+            EtherealTerm::Literal(lit) => DeclarativeTermLiteral::Resolved(lit).into(),
+            EtherealTerm::Symbol(_) => todo!(),
+            EtherealTerm::Variable(_) => todo!(),
+            EtherealTerm::EntityPath(_) => todo!(),
+            EtherealTerm::Category(cat) => DeclarativeTerm::Category(cat),
+            EtherealTerm::Universe(_) => todo!(),
+            EtherealTerm::Curry(_) => todo!(),
+            EtherealTerm::Ritchie(_) => todo!(),
+            EtherealTerm::Abstraction(_) => todo!(),
+            EtherealTerm::Application(_) => todo!(),
+            EtherealTerm::Subentity(_) => todo!(),
+            EtherealTerm::AsTraitSubentity(_) => todo!(),
+            EtherealTerm::TraitConstraint(_) => todo!(),
+        }
+    }
+
     pub fn from_raw_inner(db: &dyn EtherealTermDb, valid_term: DeclarativeTerm) -> Self {
         todo!()
     }
@@ -288,7 +306,6 @@ pub(crate) fn ethereal_term_from_declarative_term_explicit_application_or_ritchi
             DeclarativeTerm::List(_) => todo!(),
             DeclarativeTerm::Wrapper(_) => todo!(),
         },
-        RawType::Ethereal(_) => todo!(),
         RawType::Prelude(_) => todo!(),
     }
 }
@@ -350,7 +367,7 @@ pub(crate) fn ethereal_term_from_declarative_term_wrapper(
                     todo!()
                 };
                 let leash_ty_ontology = db.ethereal_term_menu(toolchain).leash_ty_ontology();
-                Ok(EtherealTermApplication::new_unchecked(
+                Ok(EtherealTermApplication::new_reduced(
                     db,
                     leash_ty_ontology,
                     inner_ty,

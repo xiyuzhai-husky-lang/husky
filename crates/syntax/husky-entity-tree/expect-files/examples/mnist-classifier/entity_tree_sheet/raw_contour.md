@@ -1755,7 +1755,7 @@ Ok(
                         `mnist_classifier::raw_contour`,
                     ),
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Crate(
+                        parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     1,
@@ -1780,7 +1780,7 @@ Ok(
                         `mnist_classifier::raw_contour`,
                     ),
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Crate(
+                        parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     7,
@@ -1805,7 +1805,7 @@ Ok(
                         `mnist_classifier::raw_contour`,
                     ),
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Crate(
+                        parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     13,
@@ -1830,7 +1830,7 @@ Ok(
                         `mnist_classifier::raw_contour`,
                     ),
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Crate(
+                        parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     19,
@@ -1855,7 +1855,7 @@ Ok(
                         `mnist_classifier::raw_contour`,
                     ),
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Ident(
+                        parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `geom2d`,
                                 token_idx: TokenIdx(
@@ -1897,7 +1897,7 @@ Ok(
                         `mnist_classifier::raw_contour`,
                     ),
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Ident(
+                        parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `connected_component`,
                                 token_idx: TokenIdx(
@@ -1939,7 +1939,7 @@ Ok(
                         `mnist_classifier::raw_contour`,
                     ),
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Ident(
+                        parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `line_segment_sketch`,
                                 token_idx: TokenIdx(

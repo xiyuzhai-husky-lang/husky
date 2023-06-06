@@ -686,6 +686,12 @@ Ok(
                             TraitForTypeItemDefn::AssociatedType(
                                 TraitForTypeAssociatedTypeDefn {
                                     decl: TraitForTypeAssociatedTypeDecl {
+                                        path: TraitForTypeItemPath {
+                                            parent_ty: TypePath(`core::result::Result`, `Enum`),
+                                            trai: TraitPath(`core::ops::Unveil`),
+                                            ident: `Continue`,
+                                            item_kind: AssociatedType,
+                                        },
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
                                                 impl_block_id: ImplBlockId::TraitForType(

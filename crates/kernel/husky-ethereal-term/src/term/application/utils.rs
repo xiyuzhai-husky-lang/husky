@@ -8,6 +8,6 @@ impl EtherealTerm {
         argument: impl Into<EtherealTerm>,
         shift: u8,
     ) -> Self {
-        EtherealTermApplication::new_unchecked(db, self, argument.into(), shift)
+        EtherealTermApplication::new_reduced(db, self, argument.into(), shift)
     }
 }

@@ -18,9 +18,20 @@ pub(crate) fn reduce_term_application(
         EtherealTerm::EntityPath(TermEntityPath::Form(_)) => todo!(),
         EtherealTerm::Ritchie(_) => todo!(),
         EtherealTerm::Abstraction(_) => todo!(),
-        EtherealTerm::Application(_) if shift > 0 => {
-            p!(function.debug(db), argument.debug(db), shift);
-            todo!()
+        EtherealTerm::Application(function_term_application)
+            if let function_shift = function_term_application.shift(db)
+            && function_shift > 0 => {
+            EtherealTermApplication::new_reduced(
+                db,
+                function_term_application.function(db),
+                EtherealTermApplication::new_reduced(
+                    db,
+                    function_term_application.argument(db),
+                    argument,
+                    shift
+                ),
+                function_shift + shift - 1,
+            )
         }
         _ => EtherealTermApplication::new_inner(db, function, argument, shift).into(),
     }

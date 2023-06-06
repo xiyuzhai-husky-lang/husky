@@ -2,6 +2,7 @@ use crate::*;
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TraitForTypeAssociatedTypeDecl {
+    pub path: TraitForTypeItemPath,
     pub associated_item: AssociatedItem,
     pub ast_idx: AstIdx,
     #[return_ref]
@@ -37,9 +38,15 @@ impl<'a> DeclParseContext<'a> {
             None => todo!(),
             _ => unreachable!(),
         };
+        let path = match associated_item.path(self.db()) {
+            Some(AssociatedItemPath::TraitForTypeItem(path)) => path,
+            None => todo!(),
+            _ => unreachable!(),
+        };
         // let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectedEolColon)?;
         Ok(TraitForTypeAssociatedTypeDecl::new(
             self.db(),
+            path,
             associated_item,
             ast_idx,
             implicit_parameter_decl_list,

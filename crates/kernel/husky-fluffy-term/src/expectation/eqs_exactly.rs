@@ -98,12 +98,15 @@ impl ExpectSubtype {
             FluffyTermData::Curry {
                 curry_kind,
                 variance,
-                parameter_variable: parameter_symbol,
+                parameter_variable,
                 parameter_ty,
                 return_ty,
             } => todo!(),
             FluffyTermData::Hole(_, _) => todo!(),
-            FluffyTermData::Category(_) => todo!(),
+            FluffyTermData::Category(_) => Some(FluffyTermExpectationEffect {
+                result: Err(OriginalFluffyTermExpectationError::ExpectedType { expectee }.into()),
+                actions: smallvec![],
+            }),
             FluffyTermData::Ritchie {
                 ritchie_kind,
                 parameter_contracted_tys,

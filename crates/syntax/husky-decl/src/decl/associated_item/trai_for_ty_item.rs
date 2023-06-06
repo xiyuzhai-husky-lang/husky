@@ -58,7 +58,7 @@ impl TraitForTypeItemDecl {
         match self {
             TraitForTypeItemDecl::AssociatedFn(_) => todo!(),
             TraitForTypeItemDecl::MethodFn(decl) => decl.path(db),
-            TraitForTypeItemDecl::AssociatedType(_) => todo!(),
+            TraitForTypeItemDecl::AssociatedType(decl) => decl.path(db),
             TraitForTypeItemDecl::AssociatedVal(_) => todo!(),
         }
     }

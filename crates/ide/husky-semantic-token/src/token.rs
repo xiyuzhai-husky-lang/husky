@@ -87,7 +87,7 @@ impl SemanticToken {
                     AssociatedItemKind::TraitForTypeItem(trai_for_ty_kind) => {
                         match trai_for_ty_kind {
                             TraitItemKind::MethodFn => ext::SemanticTokenType::METHOD,
-                            TraitItemKind::AssociatedType => todo!(),
+                            TraitItemKind::AssociatedType => ext::SemanticTokenType::TYPE,
                         }
                     }
                 },

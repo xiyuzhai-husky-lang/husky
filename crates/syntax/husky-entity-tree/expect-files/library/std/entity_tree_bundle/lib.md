@@ -106,7 +106,7 @@ Ok(
                             use_expr_idx: 2,
                             visibility: Scope::Pub,
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
+                                parent_name_token: PathNameToken::Ident(
                                     IdentToken {
                                         ident: `core`,
                                         token_idx: TokenIdx(

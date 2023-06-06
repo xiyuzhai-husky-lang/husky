@@ -222,7 +222,7 @@ Ok(
                     use_expr_idx: 1,
                     visibility: Scope::Pub,
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Ident(
+                        parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `one`,
                                 token_idx: TokenIdx(
@@ -244,8 +244,8 @@ Ok(
                         `mnist_classifier::digits`,
                     ),
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::SelfValue(
-                            SelfValueToken {
+                        parent_name_token: PathNameToken::SelfMod(
+                            SelfModToken {
                                 token_idx: TokenIdx(
                                     26,
                                 ),
@@ -265,8 +265,8 @@ Ok(
                         `mnist_classifier::digits`,
                     ),
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::SelfValue(
-                            SelfValueToken {
+                        parent_name_token: PathNameToken::SelfMod(
+                            SelfModToken {
                                 token_idx: TokenIdx(
                                     32,
                                 ),
@@ -286,8 +286,8 @@ Ok(
                         `mnist_classifier::digits`,
                     ),
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::SelfValue(
-                            SelfValueToken {
+                        parent_name_token: PathNameToken::SelfMod(
+                            SelfModToken {
                                 token_idx: TokenIdx(
                                     38,
                                 ),
@@ -307,8 +307,8 @@ Ok(
                         `mnist_classifier::digits`,
                     ),
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::SelfValue(
-                            SelfValueToken {
+                        parent_name_token: PathNameToken::SelfMod(
+                            SelfModToken {
                                 token_idx: TokenIdx(
                                     44,
                                 ),
@@ -328,8 +328,8 @@ Ok(
                         `mnist_classifier::digits`,
                     ),
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::SelfValue(
-                            SelfValueToken {
+                        parent_name_token: PathNameToken::SelfMod(
+                            SelfModToken {
                                 token_idx: TokenIdx(
                                     50,
                                 ),
@@ -349,8 +349,8 @@ Ok(
                         `mnist_classifier::digits`,
                     ),
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::SelfValue(
-                            SelfValueToken {
+                        parent_name_token: PathNameToken::SelfMod(
+                            SelfModToken {
                                 token_idx: TokenIdx(
                                     56,
                                 ),
@@ -370,8 +370,8 @@ Ok(
                         `mnist_classifier::digits`,
                     ),
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::SelfValue(
-                            SelfValueToken {
+                        parent_name_token: PathNameToken::SelfMod(
+                            SelfModToken {
                                 token_idx: TokenIdx(
                                     62,
                                 ),
@@ -391,8 +391,8 @@ Ok(
                         `mnist_classifier::digits`,
                     ),
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::SelfValue(
-                            SelfValueToken {
+                        parent_name_token: PathNameToken::SelfMod(
+                            SelfModToken {
                                 token_idx: TokenIdx(
                                     68,
                                 ),
@@ -412,7 +412,7 @@ Ok(
                         `mnist_classifier::digits`,
                     ),
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Crate(
+                        parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     74,
@@ -443,7 +443,7 @@ Ok(
                 },
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: NameToken::Ident(
+                        parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `one`,
                                 token_idx: TokenIdx(
@@ -475,7 +475,7 @@ Ok(
                 },
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: NameToken::Ident(
+                        parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `six`,
                                 token_idx: TokenIdx(
@@ -499,8 +499,8 @@ Ok(
                 ),
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: NameToken::SelfValue(
-                            SelfValueToken {
+                        parent_name_token: PathNameToken::SelfMod(
+                            SelfModToken {
                                 token_idx: TokenIdx(
                                     26,
                                 ),
@@ -530,7 +530,7 @@ Ok(
                 },
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: NameToken::Ident(
+                        parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `zero`,
                                 token_idx: TokenIdx(
@@ -554,8 +554,8 @@ Ok(
                 ),
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: NameToken::SelfValue(
-                            SelfValueToken {
+                        parent_name_token: PathNameToken::SelfMod(
+                            SelfModToken {
                                 token_idx: TokenIdx(
                                     32,
                                 ),
@@ -585,7 +585,7 @@ Ok(
                 },
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: NameToken::Ident(
+                        parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `two`,
                                 token_idx: TokenIdx(
@@ -609,8 +609,8 @@ Ok(
                 ),
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: NameToken::SelfValue(
-                            SelfValueToken {
+                        parent_name_token: PathNameToken::SelfMod(
+                            SelfModToken {
                                 token_idx: TokenIdx(
                                     38,
                                 ),
@@ -640,7 +640,7 @@ Ok(
                 },
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: NameToken::Ident(
+                        parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `three`,
                                 token_idx: TokenIdx(
@@ -664,8 +664,8 @@ Ok(
                 ),
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: NameToken::SelfValue(
-                            SelfValueToken {
+                        parent_name_token: PathNameToken::SelfMod(
+                            SelfModToken {
                                 token_idx: TokenIdx(
                                     44,
                                 ),
@@ -695,7 +695,7 @@ Ok(
                 },
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: NameToken::Ident(
+                        parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `five`,
                                 token_idx: TokenIdx(
@@ -719,8 +719,8 @@ Ok(
                 ),
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: NameToken::SelfValue(
-                            SelfValueToken {
+                        parent_name_token: PathNameToken::SelfMod(
+                            SelfModToken {
                                 token_idx: TokenIdx(
                                     50,
                                 ),
@@ -750,7 +750,7 @@ Ok(
                 },
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: NameToken::Ident(
+                        parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `seven`,
                                 token_idx: TokenIdx(
@@ -774,8 +774,8 @@ Ok(
                 ),
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: NameToken::SelfValue(
-                            SelfValueToken {
+                        parent_name_token: PathNameToken::SelfMod(
+                            SelfModToken {
                                 token_idx: TokenIdx(
                                     56,
                                 ),
@@ -805,7 +805,7 @@ Ok(
                 },
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: NameToken::Ident(
+                        parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `eight`,
                                 token_idx: TokenIdx(
@@ -829,8 +829,8 @@ Ok(
                 ),
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: NameToken::SelfValue(
-                            SelfValueToken {
+                        parent_name_token: PathNameToken::SelfMod(
+                            SelfModToken {
                                 token_idx: TokenIdx(
                                     62,
                                 ),
@@ -860,7 +860,7 @@ Ok(
                 },
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: NameToken::Ident(
+                        parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `nine`,
                                 token_idx: TokenIdx(
@@ -884,8 +884,8 @@ Ok(
                 ),
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: NameToken::SelfValue(
-                            SelfValueToken {
+                        parent_name_token: PathNameToken::SelfMod(
+                            SelfModToken {
                                 token_idx: TokenIdx(
                                     68,
                                 ),
@@ -914,7 +914,7 @@ Ok(
                 },
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: NameToken::Crate(
+                        parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     74,

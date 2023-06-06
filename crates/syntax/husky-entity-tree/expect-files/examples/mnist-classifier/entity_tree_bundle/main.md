@@ -1052,8 +1052,8 @@ Ok(
                                 `mnist_classifier`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::SelfValue(
-                                    SelfValueToken {
+                                parent_name_token: PathNameToken::SelfMod(
+                                    SelfModToken {
                                         token_idx: TokenIdx(
                                             15,
                                         ),
@@ -1077,8 +1077,8 @@ Ok(
                                 `mnist_classifier`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::SelfValue(
-                                    SelfValueToken {
+                                parent_name_token: PathNameToken::SelfMod(
+                                    SelfModToken {
                                         token_idx: TokenIdx(
                                             21,
                                         ),
@@ -1102,8 +1102,8 @@ Ok(
                                 `mnist_classifier`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::SelfValue(
-                                    SelfValueToken {
+                                parent_name_token: PathNameToken::SelfMod(
+                                    SelfModToken {
                                         token_idx: TokenIdx(
                                             27,
                                         ),
@@ -1127,8 +1127,8 @@ Ok(
                                 `mnist_classifier`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::SelfValue(
-                                    SelfValueToken {
+                                parent_name_token: PathNameToken::SelfMod(
+                                    SelfModToken {
                                         token_idx: TokenIdx(
                                             34,
                                         ),
@@ -1152,8 +1152,8 @@ Ok(
                                 `mnist_classifier`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::SelfValue(
-                                    SelfValueToken {
+                                parent_name_token: PathNameToken::SelfMod(
+                                    SelfModToken {
                                         token_idx: TokenIdx(
                                             40,
                                         ),
@@ -1177,8 +1177,8 @@ Ok(
                                 `mnist_classifier`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::SelfValue(
-                                    SelfValueToken {
+                                parent_name_token: PathNameToken::SelfMod(
+                                    SelfModToken {
                                         token_idx: TokenIdx(
                                             46,
                                         ),
@@ -1202,7 +1202,7 @@ Ok(
                                 `mnist_classifier`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
+                                parent_name_token: PathNameToken::Ident(
                                     IdentToken {
                                         ident: `malamute`,
                                         token_idx: TokenIdx(
@@ -1230,7 +1230,7 @@ Ok(
                                 `mnist_classifier`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
+                                parent_name_token: PathNameToken::Ident(
                                     IdentToken {
                                         ident: `mnist`,
                                         token_idx: TokenIdx(
@@ -1258,7 +1258,7 @@ Ok(
                                 `mnist_classifier`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
+                                parent_name_token: PathNameToken::Ident(
                                     IdentToken {
                                         ident: `major`,
                                         token_idx: TokenIdx(
@@ -1300,7 +1300,7 @@ Ok(
                                 `mnist_classifier`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
+                                parent_name_token: PathNameToken::Ident(
                                     IdentToken {
                                         ident: `digits`,
                                         token_idx: TokenIdx(
@@ -1342,7 +1342,7 @@ Ok(
                                 `mnist_classifier`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
+                                parent_name_token: PathNameToken::Ident(
                                     IdentToken {
                                         ident: `fermi`,
                                         token_idx: TokenIdx(
@@ -1384,7 +1384,7 @@ Ok(
                                 `mnist_classifier`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
+                                parent_name_token: PathNameToken::Ident(
                                     IdentToken {
                                         ident: `raw_contour`,
                                         token_idx: TokenIdx(
@@ -1426,7 +1426,7 @@ Ok(
                                 `mnist_classifier`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
+                                parent_name_token: PathNameToken::Ident(
                                     IdentToken {
                                         ident: `line_segment_sketch`,
                                         token_idx: TokenIdx(
@@ -1468,7 +1468,7 @@ Ok(
                                 `mnist_classifier`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
+                                parent_name_token: PathNameToken::Ident(
                                     IdentToken {
                                         ident: `connected_component`,
                                         token_idx: TokenIdx(
@@ -3046,7 +3046,7 @@ Ok(
                                 `mnist_classifier::connected_component`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
+                                parent_name_token: PathNameToken::CrateRoot(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             1,
@@ -3071,7 +3071,7 @@ Ok(
                                 `mnist_classifier::connected_component`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
+                                parent_name_token: PathNameToken::CrateRoot(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             7,
@@ -3096,7 +3096,7 @@ Ok(
                                 `mnist_classifier::connected_component`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
+                                parent_name_token: PathNameToken::Ident(
                                     IdentToken {
                                         ident: `raw_contour`,
                                         token_idx: TokenIdx(
@@ -4923,7 +4923,7 @@ Ok(
                                 `mnist_classifier::raw_contour`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
+                                parent_name_token: PathNameToken::CrateRoot(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             1,
@@ -4948,7 +4948,7 @@ Ok(
                                 `mnist_classifier::raw_contour`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
+                                parent_name_token: PathNameToken::CrateRoot(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             7,
@@ -4973,7 +4973,7 @@ Ok(
                                 `mnist_classifier::raw_contour`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
+                                parent_name_token: PathNameToken::CrateRoot(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             13,
@@ -4998,7 +4998,7 @@ Ok(
                                 `mnist_classifier::raw_contour`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
+                                parent_name_token: PathNameToken::CrateRoot(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             19,
@@ -5023,7 +5023,7 @@ Ok(
                                 `mnist_classifier::raw_contour`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
+                                parent_name_token: PathNameToken::Ident(
                                     IdentToken {
                                         ident: `geom2d`,
                                         token_idx: TokenIdx(
@@ -5065,7 +5065,7 @@ Ok(
                                 `mnist_classifier::raw_contour`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
+                                parent_name_token: PathNameToken::Ident(
                                     IdentToken {
                                         ident: `connected_component`,
                                         token_idx: TokenIdx(
@@ -5107,7 +5107,7 @@ Ok(
                                 `mnist_classifier::raw_contour`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
+                                parent_name_token: PathNameToken::Ident(
                                     IdentToken {
                                         ident: `line_segment_sketch`,
                                         token_idx: TokenIdx(
@@ -6147,7 +6147,7 @@ Ok(
                             use_expr_idx: 1,
                             visibility: Scope::Pub,
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
+                                parent_name_token: PathNameToken::Ident(
                                     IdentToken {
                                         ident: `concave_component`,
                                         token_idx: TokenIdx(
@@ -6183,7 +6183,7 @@ Ok(
                             use_expr_idx: 3,
                             visibility: Scope::Pub,
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
+                                parent_name_token: PathNameToken::Ident(
                                     IdentToken {
                                         ident: `convex_component`,
                                         token_idx: TokenIdx(
@@ -6219,7 +6219,7 @@ Ok(
                             use_expr_idx: 5,
                             visibility: Scope::Pub,
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
+                                parent_name_token: PathNameToken::Ident(
                                     IdentToken {
                                         ident: `line_segment`,
                                         token_idx: TokenIdx(
@@ -6257,7 +6257,7 @@ Ok(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
+                                parent_name_token: PathNameToken::CrateRoot(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             24,
@@ -6282,7 +6282,7 @@ Ok(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
+                                parent_name_token: PathNameToken::CrateRoot(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             30,
@@ -6307,7 +6307,7 @@ Ok(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
+                                parent_name_token: PathNameToken::Ident(
                                     IdentToken {
                                         ident: `line_segment`,
                                         token_idx: TokenIdx(
@@ -6345,7 +6345,7 @@ Ok(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
+                                parent_name_token: PathNameToken::Ident(
                                     IdentToken {
                                         ident: `geom2d`,
                                         token_idx: TokenIdx(
@@ -6387,7 +6387,7 @@ Ok(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
+                                parent_name_token: PathNameToken::Ident(
                                     IdentToken {
                                         ident: `raw_contour`,
                                         token_idx: TokenIdx(
@@ -8576,7 +8576,7 @@ Ok(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
+                                parent_name_token: PathNameToken::CrateRoot(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             1,
@@ -8601,7 +8601,7 @@ Ok(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
+                                parent_name_token: PathNameToken::CrateRoot(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             7,
@@ -8626,7 +8626,7 @@ Ok(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
+                                parent_name_token: PathNameToken::CrateRoot(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             15,
@@ -8651,7 +8651,7 @@ Ok(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
+                                parent_name_token: PathNameToken::CrateRoot(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             23,
@@ -8676,7 +8676,7 @@ Ok(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
+                                parent_name_token: PathNameToken::CrateRoot(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             29,
@@ -8701,7 +8701,7 @@ Ok(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
+                                parent_name_token: PathNameToken::Ident(
                                     IdentToken {
                                         ident: `line_segment_sketch`,
                                         token_idx: TokenIdx(
@@ -8743,7 +8743,7 @@ Ok(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
+                                parent_name_token: PathNameToken::Ident(
                                     IdentToken {
                                         ident: `line_segment_sketch`,
                                         token_idx: TokenIdx(
@@ -8785,7 +8785,7 @@ Ok(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
+                                parent_name_token: PathNameToken::Ident(
                                     IdentToken {
                                         ident: `line_segment_sketch`,
                                         token_idx: TokenIdx(
@@ -8827,7 +8827,7 @@ Ok(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
+                                parent_name_token: PathNameToken::Ident(
                                     IdentToken {
                                         ident: `geom2d`,
                                         token_idx: TokenIdx(
@@ -8869,7 +8869,7 @@ Ok(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
+                                parent_name_token: PathNameToken::Ident(
                                     IdentToken {
                                         ident: `line_segment`,
                                         token_idx: TokenIdx(
@@ -8911,7 +8911,7 @@ Ok(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
+                                parent_name_token: PathNameToken::Ident(
                                     IdentToken {
                                         ident: `convexity`,
                                         token_idx: TokenIdx(
@@ -9965,7 +9965,7 @@ Ok(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
+                                parent_name_token: PathNameToken::CrateRoot(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             1,
@@ -9990,7 +9990,7 @@ Ok(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
+                                parent_name_token: PathNameToken::Ident(
                                     IdentToken {
                                         ident: `line_segment_sketch`,
                                         token_idx: TokenIdx(
@@ -10988,7 +10988,7 @@ Ok(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
+                                parent_name_token: PathNameToken::CrateRoot(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             1,
@@ -11013,7 +11013,7 @@ Ok(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
+                                parent_name_token: PathNameToken::CrateRoot(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             7,
@@ -11038,7 +11038,7 @@ Ok(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
+                                parent_name_token: PathNameToken::CrateRoot(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             13,
@@ -11063,7 +11063,7 @@ Ok(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
+                                parent_name_token: PathNameToken::Ident(
                                     IdentToken {
                                         ident: `line_segment_sketch`,
                                         token_idx: TokenIdx(
@@ -11105,7 +11105,7 @@ Ok(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
+                                parent_name_token: PathNameToken::Ident(
                                     IdentToken {
                                         ident: `raw_contour`,
                                         token_idx: TokenIdx(
@@ -11147,7 +11147,7 @@ Ok(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
+                                parent_name_token: PathNameToken::Ident(
                                     IdentToken {
                                         ident: `geom2d`,
                                         token_idx: TokenIdx(
@@ -11501,7 +11501,7 @@ Ok(
                                 `mnist_classifier::line_segment_sketch::line_segment`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
+                                parent_name_token: PathNameToken::CrateRoot(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             1,
@@ -11526,7 +11526,7 @@ Ok(
                                 `mnist_classifier::line_segment_sketch::line_segment`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
+                                parent_name_token: PathNameToken::Ident(
                                     IdentToken {
                                         ident: `geom2d`,
                                         token_idx: TokenIdx(
@@ -13018,7 +13018,7 @@ Ok(
                                 `mnist_classifier::fermi`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
+                                parent_name_token: PathNameToken::CrateRoot(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             1,
@@ -15003,7 +15003,7 @@ Ok(
                             use_expr_idx: 1,
                             visibility: Scope::Pub,
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
+                                parent_name_token: PathNameToken::Ident(
                                     IdentToken {
                                         ident: `one`,
                                         token_idx: TokenIdx(
@@ -15041,8 +15041,8 @@ Ok(
                                 `mnist_classifier::digits`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::SelfValue(
-                                    SelfValueToken {
+                                parent_name_token: PathNameToken::SelfMod(
+                                    SelfModToken {
                                         token_idx: TokenIdx(
                                             26,
                                         ),
@@ -15066,8 +15066,8 @@ Ok(
                                 `mnist_classifier::digits`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::SelfValue(
-                                    SelfValueToken {
+                                parent_name_token: PathNameToken::SelfMod(
+                                    SelfModToken {
                                         token_idx: TokenIdx(
                                             32,
                                         ),
@@ -15091,8 +15091,8 @@ Ok(
                                 `mnist_classifier::digits`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::SelfValue(
-                                    SelfValueToken {
+                                parent_name_token: PathNameToken::SelfMod(
+                                    SelfModToken {
                                         token_idx: TokenIdx(
                                             38,
                                         ),
@@ -15116,8 +15116,8 @@ Ok(
                                 `mnist_classifier::digits`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::SelfValue(
-                                    SelfValueToken {
+                                parent_name_token: PathNameToken::SelfMod(
+                                    SelfModToken {
                                         token_idx: TokenIdx(
                                             44,
                                         ),
@@ -15141,8 +15141,8 @@ Ok(
                                 `mnist_classifier::digits`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::SelfValue(
-                                    SelfValueToken {
+                                parent_name_token: PathNameToken::SelfMod(
+                                    SelfModToken {
                                         token_idx: TokenIdx(
                                             50,
                                         ),
@@ -15166,8 +15166,8 @@ Ok(
                                 `mnist_classifier::digits`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::SelfValue(
-                                    SelfValueToken {
+                                parent_name_token: PathNameToken::SelfMod(
+                                    SelfModToken {
                                         token_idx: TokenIdx(
                                             56,
                                         ),
@@ -15191,8 +15191,8 @@ Ok(
                                 `mnist_classifier::digits`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::SelfValue(
-                                    SelfValueToken {
+                                parent_name_token: PathNameToken::SelfMod(
+                                    SelfModToken {
                                         token_idx: TokenIdx(
                                             62,
                                         ),
@@ -15216,8 +15216,8 @@ Ok(
                                 `mnist_classifier::digits`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::SelfValue(
-                                    SelfValueToken {
+                                parent_name_token: PathNameToken::SelfMod(
+                                    SelfModToken {
                                         token_idx: TokenIdx(
                                             68,
                                         ),
@@ -15241,7 +15241,7 @@ Ok(
                                 `mnist_classifier::digits`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
+                                parent_name_token: PathNameToken::CrateRoot(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             74,
@@ -15301,7 +15301,7 @@ Ok(
                                 `mnist_classifier::digits`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
+                                parent_name_token: PathNameToken::Ident(
                                     IdentToken {
                                         ident: `six`,
                                         token_idx: TokenIdx(
@@ -15343,7 +15343,7 @@ Ok(
                                 `mnist_classifier::digits`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
+                                parent_name_token: PathNameToken::Ident(
                                     IdentToken {
                                         ident: `zero`,
                                         token_idx: TokenIdx(
@@ -15385,7 +15385,7 @@ Ok(
                                 `mnist_classifier::digits`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
+                                parent_name_token: PathNameToken::Ident(
                                     IdentToken {
                                         ident: `two`,
                                         token_idx: TokenIdx(
@@ -15427,7 +15427,7 @@ Ok(
                                 `mnist_classifier::digits`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
+                                parent_name_token: PathNameToken::Ident(
                                     IdentToken {
                                         ident: `three`,
                                         token_idx: TokenIdx(
@@ -15469,7 +15469,7 @@ Ok(
                                 `mnist_classifier::digits`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
+                                parent_name_token: PathNameToken::Ident(
                                     IdentToken {
                                         ident: `five`,
                                         token_idx: TokenIdx(
@@ -15511,7 +15511,7 @@ Ok(
                                 `mnist_classifier::digits`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
+                                parent_name_token: PathNameToken::Ident(
                                     IdentToken {
                                         ident: `seven`,
                                         token_idx: TokenIdx(
@@ -15553,7 +15553,7 @@ Ok(
                                 `mnist_classifier::digits`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
+                                parent_name_token: PathNameToken::Ident(
                                     IdentToken {
                                         ident: `eight`,
                                         token_idx: TokenIdx(
@@ -15595,7 +15595,7 @@ Ok(
                                 `mnist_classifier::digits`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
+                                parent_name_token: PathNameToken::Ident(
                                     IdentToken {
                                         ident: `nine`,
                                         token_idx: TokenIdx(
@@ -18583,7 +18583,7 @@ Ok(
                                 `mnist_classifier::digits::zero`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Super(
+                                parent_name_token: PathNameToken::Super(
                                     SuperToken {
                                         token_idx: TokenIdx(
                                             1,
@@ -21289,7 +21289,7 @@ Ok(
                                 `mnist_classifier::digits::one`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Super(
+                                parent_name_token: PathNameToken::Super(
                                     SuperToken {
                                         token_idx: TokenIdx(
                                             1,
@@ -23995,7 +23995,7 @@ Ok(
                                 `mnist_classifier::digits::six`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Super(
+                                parent_name_token: PathNameToken::Super(
                                     SuperToken {
                                         token_idx: TokenIdx(
                                             1,
@@ -26701,7 +26701,7 @@ Ok(
                                 `mnist_classifier::digits::three`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Super(
+                                parent_name_token: PathNameToken::Super(
                                     SuperToken {
                                         token_idx: TokenIdx(
                                             1,
@@ -29504,7 +29504,7 @@ Ok(
                                 `mnist_classifier::digits::four`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Super(
+                                parent_name_token: PathNameToken::Super(
                                     SuperToken {
                                         token_idx: TokenIdx(
                                             1,
@@ -32118,7 +32118,7 @@ Ok(
                                 `mnist_classifier::digits::five`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Super(
+                                parent_name_token: PathNameToken::Super(
                                     SuperToken {
                                         token_idx: TokenIdx(
                                             1,
@@ -34847,7 +34847,7 @@ Ok(
                                 `mnist_classifier::digits::seven`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Super(
+                                parent_name_token: PathNameToken::Super(
                                     SuperToken {
                                         token_idx: TokenIdx(
                                             1,
@@ -37507,7 +37507,7 @@ Ok(
                                 `mnist_classifier::digits::eight`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Super(
+                                parent_name_token: PathNameToken::Super(
                                     SuperToken {
                                         token_idx: TokenIdx(
                                             1,
@@ -40213,7 +40213,7 @@ Ok(
                                 `mnist_classifier::digits::nine`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Super(
+                                parent_name_token: PathNameToken::Super(
                                     SuperToken {
                                         token_idx: TokenIdx(
                                             1,
@@ -42919,7 +42919,7 @@ Ok(
                                 `mnist_classifier::digits::two`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Super(
+                                parent_name_token: PathNameToken::Super(
                                     SuperToken {
                                         token_idx: TokenIdx(
                                             1,
@@ -44221,7 +44221,7 @@ Ok(
                                 `mnist_classifier::major`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
+                                parent_name_token: PathNameToken::CrateRoot(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             1,
@@ -44264,312 +44264,360 @@ Ok(
         ],
         principal_entity_path_expr_arena: Arena {
             data: [
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `Visualize`,
-                        token_idx: TokenIdx(
-                            78,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `Visualize`,
+                            token_idx: TokenIdx(
+                                78,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Trait(
                             TraitPath(`core::visual::Visualize`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `ConnectedComponent`,
-                        token_idx: TokenIdx(
-                            80,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `ConnectedComponent`,
+                            token_idx: TokenIdx(
+                                80,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `ConnectedComponent`,
-                        token_idx: TokenIdx(
-                            97,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `ConnectedComponent`,
+                            token_idx: TokenIdx(
+                                97,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `Visualize`,
-                        token_idx: TokenIdx(
-                            39,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `Visualize`,
+                            token_idx: TokenIdx(
+                                39,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Trait(
                             TraitPath(`core::visual::Visualize`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `RawContour`,
-                        token_idx: TokenIdx(
-                            41,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `RawContour`,
+                            token_idx: TokenIdx(
+                                41,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `RawContour`,
-                        token_idx: TokenIdx(
-                            61,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `RawContour`,
+                            token_idx: TokenIdx(
+                                61,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `Point2d`,
-                        token_idx: TokenIdx(
-                            14,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `Point2d`,
+                            token_idx: TokenIdx(
+                                14,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `Vector2d`,
-                        token_idx: TokenIdx(
-                            169,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `Vector2d`,
+                            token_idx: TokenIdx(
+                                169,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `ClosedRange`,
-                        token_idx: TokenIdx(
-                            500,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `ClosedRange`,
+                            token_idx: TokenIdx(
+                                500,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `BoundingBox`,
-                        token_idx: TokenIdx(
-                            610,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `BoundingBox`,
+                            token_idx: TokenIdx(
+                                610,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `RelativeBoundingBox`,
-                        token_idx: TokenIdx(
-                            744,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `RelativeBoundingBox`,
+                            token_idx: TokenIdx(
+                                744,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `Visualize`,
-                        token_idx: TokenIdx(
-                            86,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `Visualize`,
+                            token_idx: TokenIdx(
+                                86,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Trait(
                             TraitPath(`core::visual::Visualize`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `LineSegmentStroke`,
-                        token_idx: TokenIdx(
-                            88,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `LineSegmentStroke`,
+                            token_idx: TokenIdx(
+                                88,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `LineSegmentStroke`,
-                        token_idx: TokenIdx(
-                            113,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `LineSegmentStroke`,
+                            token_idx: TokenIdx(
+                                113,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `Visualize`,
-                        token_idx: TokenIdx(
-                            188,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `Visualize`,
+                            token_idx: TokenIdx(
+                                188,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Trait(
                             TraitPath(`core::visual::Visualize`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `LineSegmentSketch`,
-                        token_idx: TokenIdx(
-                            190,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `LineSegmentSketch`,
+                            token_idx: TokenIdx(
+                                190,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `LineSegmentSketch`,
-                        token_idx: TokenIdx(
-                            207,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `LineSegmentSketch`,
+                            token_idx: TokenIdx(
+                                207,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `Visualize`,
-                        token_idx: TokenIdx(
-                            51,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `Visualize`,
+                            token_idx: TokenIdx(
+                                51,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Trait(
                             TraitPath(`core::visual::Visualize`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `ConcaveComponent`,
-                        token_idx: TokenIdx(
-                            53,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `ConcaveComponent`,
+                            token_idx: TokenIdx(
+                                53,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `ConcaveComponent`,
-                        token_idx: TokenIdx(
-                            70,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `ConcaveComponent`,
+                            token_idx: TokenIdx(
+                                70,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `Visualize`,
-                        token_idx: TokenIdx(
-                            24,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `Visualize`,
+                            token_idx: TokenIdx(
+                                24,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Trait(
                             TraitPath(`core::visual::Visualize`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `ConvexComponent`,
-                        token_idx: TokenIdx(
-                            26,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `ConvexComponent`,
+                            token_idx: TokenIdx(
+                                26,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `LineSegment`,
-                        token_idx: TokenIdx(
-                            20,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `LineSegment`,
+                            token_idx: TokenIdx(
+                                20,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                         ),
                     ),
                 },
-                MajorPathExpr::Root {
-                    ident_token: IdentToken {
-                        ident: `FermiMatchResult`,
-                        token_idx: TokenIdx(
-                            25,
-                        ),
-                    },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `FermiMatchResult`,
+                            token_idx: TokenIdx(
+                                25,
+                            ),
+                        },
+                    ),
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),

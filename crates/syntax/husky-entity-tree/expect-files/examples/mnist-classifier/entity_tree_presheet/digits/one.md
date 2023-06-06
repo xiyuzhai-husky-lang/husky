@@ -125,7 +125,7 @@ Ok(
                         `mnist_classifier::digits::one`,
                     ),
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Super(
+                        parent_name_token: PathNameToken::Super(
                             SuperToken {
                                 token_idx: TokenIdx(
                                     1,
@@ -155,7 +155,7 @@ Ok(
                 },
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: NameToken::Super(
+                        parent_name_token: PathNameToken::Super(
                             SuperToken {
                                 token_idx: TokenIdx(
                                     1,
