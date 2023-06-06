@@ -94,6 +94,7 @@ fn list_index_signature(
             parameter_variable,
             parameter_ty,
             return_ty,
+            ty_ethereal_term,
         } => todo!(),
         FluffyTermData::Hole(hole_kind, _) => match hole_kind {
             HoleKind::UnspecifiedIntegerType => {

@@ -101,6 +101,7 @@ impl ExpectSubtype {
                 parameter_variable,
                 parameter_ty,
                 return_ty,
+                ty_ethereal_term,
             } => todo!(),
             FluffyTermData::Hole(_, _) => todo!(),
             FluffyTermData::Category(_) => Some(FluffyTermExpectationEffect {

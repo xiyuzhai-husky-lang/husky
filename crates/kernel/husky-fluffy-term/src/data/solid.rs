@@ -58,6 +58,7 @@ impl<'a> From<&'a SolidTermData> for FluffyTermData<'a> {
                 parameter_variable: parameter_variable.map(Into::into),
                 parameter_ty: (*parameter_ty).into(),
                 return_ty: (*return_ty).into(),
+                ty_ethereal_term: None,
             },
             SolidTermData::Ritchie {
                 ritchie_kind,

@@ -91,11 +91,8 @@ impl DeclarativeTermCurry {
 }
 
 #[salsa::tracked(jar = DeclarativeTermJar)]
-pub(crate) fn total_number_of_curry_parameters(
-    db: &dyn DeclarativeTermDb,
-    term: DeclarativeTermCurry,
-) -> u8 {
-    term.return_ty(db).total_number_of_curry_parameters(db) + 1
+pub(crate) fn curry_parameter_count(db: &dyn DeclarativeTermDb, term: DeclarativeTermCurry) -> u8 {
+    term.return_ty(db).curry_parameter_count(db) + 1
 }
 
 impl<Db: DeclarativeTermDb + ?Sized> salsa::DisplayWithDb<Db> for DeclarativeTermCurry {

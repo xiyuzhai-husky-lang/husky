@@ -126,6 +126,7 @@ impl SymbolType {
                         parameter_variable,
                         parameter_ty,
                         return_ty,
+                        ty_ethereal_term,
                     } => todo!(),
                     FluffyTermData::Hole(hole_kind, hole) => HollowTermData::PlaceHole {
                         place,

@@ -108,6 +108,7 @@ impl HollowTerm {
                 parameter_variable: parameter_variable.map(Into::into),
                 parameter_ty: (*parameter_ty).into(),
                 return_ty: (*return_ty).into(),
+                ty_ethereal_term: None,
             },
             HollowTermData::Hole {
                 fill: Some(fill), ..

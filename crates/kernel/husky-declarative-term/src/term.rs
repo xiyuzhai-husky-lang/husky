@@ -111,9 +111,9 @@ impl<Db: DeclarativeTermDb + ?Sized> salsa::DisplayWithDb<Db> for DeclarativeTer
 }
 
 impl DeclarativeTerm {
-    pub fn total_number_of_curry_parameters(self, db: &dyn DeclarativeTermDb) -> u8 {
+    pub fn curry_parameter_count(self, db: &dyn DeclarativeTermDb) -> u8 {
         match self {
-            DeclarativeTerm::Curry(term) => total_number_of_curry_parameters(db, term),
+            DeclarativeTerm::Curry(term) => curry_parameter_count(db, term),
             _ => 0,
         }
     }

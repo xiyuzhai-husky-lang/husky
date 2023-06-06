@@ -32,7 +32,7 @@ pub struct DeclarativeTermJar(
     declarative_term_ritchie_variables,
     declarative_term_application_variables,
     DeclarativeTermCurry,
-    total_number_of_curry_parameters,
+    curry_parameter_count,
     DeclarativeTermRitchie,
     DeclarativeTermAbstraction,
     DeclarativeTermExplicitApplication,
