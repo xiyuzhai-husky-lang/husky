@@ -241,7 +241,7 @@
                             resolve_progress: Resolved(
                                 Err(
                                     Original(
-                                        ExpectedType {
+                                        ExpectedSubtype {
                                             expectee: Curry(
                                                 EtherealTermCurry(
                                                     Id {
@@ -274,7 +274,7 @@
                             resolve_progress: Resolved(
                                 Err(
                                     Original(
-                                        Todo,
+                                        ExpectedFunctionType,
                                     ),
                                 ),
                             ),

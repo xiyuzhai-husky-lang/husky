@@ -87,7 +87,7 @@ impl ExpectEqsFunctionType {
                 arguments,
                 ..
             } => Some(FluffyTermExpectationEffect {
-                result: Err(OriginalFluffyTermExpectationError::Todo.into()),
+                result: Err(OriginalFluffyTermExpectationError::ExpectedFunctionType.into()),
                 actions: smallvec![],
             }),
             FluffyTermData::Curry {
@@ -108,7 +108,7 @@ impl ExpectEqsFunctionType {
             ),
             FluffyTermData::Hole(_, _) => todo!(),
             FluffyTermData::Category(_) => Some(FluffyTermExpectationEffect {
-                result: Err(OriginalFluffyTermExpectationError::Todo.into()),
+                result: Err(OriginalFluffyTermExpectationError::ExpectedFunctionType.into()),
                 actions: smallvec![],
             }),
             FluffyTermData::Ritchie {
