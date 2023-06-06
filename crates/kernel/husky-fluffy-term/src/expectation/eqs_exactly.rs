@@ -104,7 +104,9 @@ impl ExpectSubtype {
             } => todo!(),
             FluffyTermData::Hole(_, _) => todo!(),
             FluffyTermData::Category(_) => Some(FluffyTermExpectationEffect {
-                result: Err(OriginalFluffyTermExpectationError::ExpectedType { expectee }.into()),
+                result: Err(
+                    OriginalFluffyTermExpectationError::ExpectedSubtype { expectee }.into(),
+                ),
                 actions: smallvec![],
             }),
             FluffyTermData::Ritchie {

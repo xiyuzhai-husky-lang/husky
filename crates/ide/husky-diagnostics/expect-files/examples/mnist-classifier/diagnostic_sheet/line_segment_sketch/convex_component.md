@@ -32,12 +32,12 @@ DiagnosticSheet {
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "expected type",
+                message: "expected subtype",
                 severity: Error,
                 range: [5:21, 5:24),
             },
             Diagnostic {
-                message: "OriginalFluffyTermExpectationError::Todo",
+                message: "expected function type",
                 severity: Error,
                 range: [5:20, 5:24),
             },

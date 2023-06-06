@@ -72,7 +72,9 @@ impl ExpectEqsCategory {
                 },
             }),
             _ => Some(FluffyTermExpectationEffect {
-                result: Err(OriginalFluffyTermExpectationError::Todo.into()),
+                result: Err(
+                    OriginalFluffyTermExpectationError::ExpectedCategory { expectee }.into(),
+                ),
                 actions: smallvec![],
             }),
         }

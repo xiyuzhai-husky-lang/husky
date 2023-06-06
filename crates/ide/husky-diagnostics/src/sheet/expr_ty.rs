@@ -220,8 +220,14 @@ impl Diagnose for (ExpectationSource, &'_ OriginalFluffyTermExpectationError) {
                 expected_path.display(ctx.db()),
                 expectee_path.display(ctx.db())
             ),
-            OriginalFluffyTermExpectationError::ExpectedType { expectee } => {
-                format!("expected type",)
+            OriginalFluffyTermExpectationError::ExpectedCategory { expectee } => {
+                format!("Term Error: expected category",)
+            }
+            OriginalFluffyTermExpectationError::ExpectedFunctionType => {
+                format!("Term Error: expected function type",)
+            }
+            OriginalFluffyTermExpectationError::ExpectedSubtype { expectee } => {
+                format!("Term Error: expected subtype",)
             }
         }
     }
