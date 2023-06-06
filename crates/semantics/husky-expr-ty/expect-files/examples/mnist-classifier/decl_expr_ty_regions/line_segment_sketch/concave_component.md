@@ -377,20 +377,14 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
-                        Ok(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
+                        Err(
+                            Derived(
+                                UnableToExplicitApplicationArgumentType,
                             ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: Some(
-                    3,
-                ),
+                expectation_rule_idx: None,
             },
         ],
         extra_expr_errors: [],
@@ -537,35 +531,6 @@
                                                 ),
                                             },
                                         },
-                                    ),
-                                ),
-                            ),
-                        },
-                        ExpectationEntry {
-                            src: ExpectationSource {
-                                expr_idx: 4,
-                                kind: Expr,
-                            },
-                            expectee: Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                            data: EqsSort(
-                                ExpectEqsCategory {
-                                    smallest_universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                            resolve_progress: Resolved(
-                                Ok(
-                                    EqsSort(
-                                        TermUniverse(
-                                            1,
-                                        ),
                                     ),
                                 ),
                             ),

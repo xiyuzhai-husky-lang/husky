@@ -1,8 +1,8 @@
 mod binary;
 mod box_list;
 mod current_symbol;
-mod explicit_application;
 mod field;
+mod function_application;
 mod function_call;
 mod index_or_compose_with_list;
 mod literal;
@@ -293,9 +293,10 @@ impl<'a> ExprTypeEngine<'a> {
                                 FluffyTermData::Curry {
                                     curry_kind,
                                     variance,
-                                    parameter_variable: parameter_symbol,
+                                    parameter_variable,
                                     parameter_ty,
                                     return_ty,
+                                    ty_ethereal_term,
                                 } => todo!(),
                                 FluffyTermData::Hole(_, _) => todo!(),
                                 FluffyTermData::Category(_) => todo!(),
@@ -389,7 +390,7 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         Ok((
             ExprDisambiguation::Trivial,
-            self.calc_explicit_application_expr_ty(function, argument, final_destination),
+            self.calc_function_application_expr_ty(function, argument, final_destination),
         ))
     }
 }

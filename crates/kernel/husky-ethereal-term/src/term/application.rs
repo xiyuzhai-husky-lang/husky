@@ -44,31 +44,27 @@ impl EtherealTermApplication {
         function: EtherealTerm,
         argument: EtherealTerm,
     ) -> EtherealTermResult<EtherealTerm> {
-        let (function_parameter_ty_total_number_of_curry_parameters, argument_expectation) = {
+        let (function_parameter_ty_curry_parameter_count, argument_expectation) = {
             match function.raw_ty(db)? {
                 RawType::Declarative(DeclarativeTerm::Curry(function_declarative_ty)) => {
                     let parameter_ty = function_declarative_ty.parameter_ty(db);
-                    let function_parameter_ty_total_number_of_curry_parameters =
-                        parameter_ty.total_number_of_curry_parameters(db);
+                    let function_parameter_ty_curry_parameter_count =
+                        parameter_ty.curry_parameter_count(db);
                     let argument_expectation =
                         parameter_ty_declarative_term_to_argument_ty_expectation(db, parameter_ty);
                     (
-                        function_parameter_ty_total_number_of_curry_parameters,
+                        function_parameter_ty_curry_parameter_count,
                         argument_expectation,
                     )
                 }
                 _ => return Err(todo!()),
             }
         };
-        let argument_ty_total_number_of_curry_parameters =
-            argument.ty_total_number_of_curry_parameters(db)?;
-        if argument_ty_total_number_of_curry_parameters
-            < function_parameter_ty_total_number_of_curry_parameters
-        {
+        let argument_ty_curry_parameter_count = argument.ty_curry_parameter_count(db)?;
+        if argument_ty_curry_parameter_count < function_parameter_ty_curry_parameter_count {
             todo!()
         }
-        let shift = argument_ty_total_number_of_curry_parameters
-            - function_parameter_ty_total_number_of_curry_parameters;
+        let shift = argument_ty_curry_parameter_count - function_parameter_ty_curry_parameter_count;
         let term = Self::new_reduced(db, function, argument, shift);
         Ok(term)
     }
@@ -144,16 +140,16 @@ pub(crate) fn term_uncheck_from_declarative_term_application_aux(
     declarative_ty_expectation: TermTypeExpectation,
 ) -> EtherealTermResult<EtherealTerm> {
     // todo: implicit arguments
-    let (function_parameter_ty_total_number_of_curry_parameters, argument_expectation) = {
+    let (function_parameter_ty_curry_parameter_count, argument_expectation) = {
         match function.raw_ty(db)? {
             RawType::Declarative(DeclarativeTerm::Curry(function_ty)) => {
                 let parameter_ty = function_ty.parameter_ty(db);
-                let function_parameter_ty_total_number_of_curry_parameters =
-                    parameter_ty.total_number_of_curry_parameters(db);
+                let function_parameter_ty_curry_parameter_count =
+                    parameter_ty.curry_parameter_count(db);
                 let argument_expectation =
                     parameter_ty_declarative_term_to_argument_ty_expectation(db, parameter_ty);
                 (
-                    function_parameter_ty_total_number_of_curry_parameters,
+                    function_parameter_ty_curry_parameter_count,
                     argument_expectation,
                 )
             }
@@ -167,15 +163,11 @@ pub(crate) fn term_uncheck_from_declarative_term_application_aux(
         }
     };
     let argument = EtherealTerm::from_declarative(db, argument, argument_expectation)?;
-    let argument_ty_total_number_of_curry_parameters =
-        argument.ty_total_number_of_curry_parameters(db)?;
-    if argument_ty_total_number_of_curry_parameters
-        < function_parameter_ty_total_number_of_curry_parameters
-    {
+    let argument_ty_curry_parameter_count = argument.ty_curry_parameter_count(db)?;
+    if argument_ty_curry_parameter_count < function_parameter_ty_curry_parameter_count {
         todo!()
     }
-    let shift = argument_ty_total_number_of_curry_parameters
-        - function_parameter_ty_total_number_of_curry_parameters;
+    let shift = argument_ty_curry_parameter_count - function_parameter_ty_curry_parameter_count;
     Ok(EtherealTermApplication::new_reduced(
         db, function, argument, shift,
     ))
@@ -266,12 +258,9 @@ pub(crate) fn ethereal_term_application_declarative_ty(
 }
 
 impl EtherealTerm {
-    fn ty_total_number_of_curry_parameters(
-        self,
-        db: &dyn EtherealTermDb,
-    ) -> EtherealTermResult<u8> {
+    fn ty_curry_parameter_count(self, db: &dyn EtherealTermDb) -> EtherealTermResult<u8> {
         Ok(match self.raw_ty(db)? {
-            RawType::Declarative(ty) => ty.total_number_of_curry_parameters(db),
+            RawType::Declarative(ty) => ty.curry_parameter_count(db),
             _ => 0,
         })
     }

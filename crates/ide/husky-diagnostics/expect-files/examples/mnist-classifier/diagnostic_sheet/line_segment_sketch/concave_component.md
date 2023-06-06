@@ -32,12 +32,12 @@ DiagnosticSheet {
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "expected subtype",
+                message: "Term Error: expected subtype",
                 severity: Error,
                 range: [9:15, 9:18),
             },
             Diagnostic {
-                message: "expected function type",
+                message: "Term Error: expected function type",
                 severity: Error,
                 range: [9:14, 9:18),
             },

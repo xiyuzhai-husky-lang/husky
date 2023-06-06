@@ -85,6 +85,7 @@ impl ExpectEqsRitchieType {
                 parameter_variable: parameter_symbol,
                 parameter_ty,
                 return_ty,
+                ty_ethereal_term,
             } => self.resolve_curry(
                 db,
                 terms,
@@ -179,9 +180,10 @@ impl ExpectEqsRitchieType {
             FluffyTermData::Curry {
                 curry_kind,
                 variance,
-                parameter_variable: parameter_symbol,
+                parameter_variable,
                 parameter_ty,
                 return_ty,
+                ty_ethereal_term,
             } => todo!(),
             FluffyTermData::Hole(_, _) => todo!(),
             FluffyTermData::Category(_) => todo!(),

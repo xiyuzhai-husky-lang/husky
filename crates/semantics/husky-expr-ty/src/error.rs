@@ -165,6 +165,8 @@ pub enum DerivedExprTypeError {
     UnableToInferIndexExprType,
     #[error("UnableToInferSuffixOperandType")]
     UnableToInferSuffixOperandType,
+    #[error("UnableToInferFunctionApplicationArgumentType")]
+    UnableToInferFunctionApplicationArgumentType,
 }
 
 pub type ExprTypeResult<T> = Result<T, ExprTypeError>;

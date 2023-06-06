@@ -30,6 +30,7 @@ pub enum FluffyTermData<'a> {
         parameter_variable: Option<FluffyTerm>,
         parameter_ty: FluffyTerm,
         return_ty: FluffyTerm,
+        ty_ethereal_term: Option<EtherealTermCurry>,
     },
     Hole(HoleKind, Hole),
     Category(TermCategory),
@@ -186,6 +187,7 @@ impl<'a, _Db: EtherealTermDb + ?Sized> ::salsa::DebugWithDb<_Db> for FluffyTermD
                 ref parameter_variable,
                 ref parameter_ty,
                 ref return_ty,
+                ..
             } => {
                 let mut debug_struct = &mut f.debug_struct("FluffyTermData::Curry");
                 debug_struct = debug_struct.field(

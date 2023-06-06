@@ -22,13 +22,17 @@ impl FluffyTerm {
         }
     }
 
+    pub fn final_destination(self, engine: &impl FluffyTermEngine) -> FinalDestination {
+        self.final_destination_inner(engine.db(), engine.fluffy_terms())
+    }
+
     /// this term as ty, what's its final destination?
     pub(crate) fn final_destination_inner(
         self,
         db: &dyn FluffyTermDb,
-        terms: &FluffyTerms,
+        fluffy_terms: &FluffyTerms,
     ) -> FinalDestination {
-        match self.data_inner(db, terms) {
+        match self.data_inner(db, fluffy_terms) {
             FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology { .. } => FinalDestination::TypeOntology,
             FluffyTermData::Curry { .. } => todo!(),
@@ -40,6 +44,49 @@ impl FluffyTerm {
             FluffyTermData::Category(_) => FinalDestination::Sort,
             FluffyTermData::Ritchie { .. } => todo!(),
             FluffyTermData::PlaceTypeOntology { .. } => todo!(),
+            FluffyTermData::PlaceHole {
+                place,
+                hole_kind,
+                hole,
+            } => todo!(),
+        }
+    }
+
+    /// the count is always positive but returns i8 for convenience in computing difference
+    /// -> i8 {v: v> 0}
+    pub fn curry_parameter_count(self, engine: &impl FluffyTermEngine) -> i8 {
+        match self.data(engine) {
+            FluffyTermData::Literal(_) => todo!(),
+            FluffyTermData::TypeOntology {
+                path,
+                refined_path,
+                arguments,
+                ty_ethereal_term,
+            } => todo!(),
+            FluffyTermData::PlaceTypeOntology {
+                place,
+                ty_path,
+                refined_ty_path,
+                arguments,
+                base_ty_ethereal_term,
+            } => todo!(),
+            FluffyTermData::Curry {
+                curry_kind,
+                variance,
+                parameter_variable,
+                parameter_ty,
+                return_ty,
+                ty_ethereal_term,
+            } => todo!(),
+            FluffyTermData::Hole(_, _) => todo!(),
+            FluffyTermData::Category(_) => 0,
+            FluffyTermData::Ritchie {
+                ritchie_kind,
+                parameter_contracted_tys,
+                variadics,
+                keyed_parameter_contracted_tys,
+                return_ty,
+            } => todo!(),
             FluffyTermData::PlaceHole {
                 place,
                 hole_kind,

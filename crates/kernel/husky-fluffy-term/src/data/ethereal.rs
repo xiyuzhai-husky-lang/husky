@@ -27,6 +27,7 @@ pub(super) fn ethereal_term_data<'a>(
             parameter_variable: term.parameter_variable(db).map(Into::into),
             parameter_ty: term.parameter_ty(db).into(),
             return_ty: term.return_ty(db).into(),
+            ty_ethereal_term: Some(term),
         },
         EtherealTerm::Ritchie(term) => term_ritchie_fluffy_data(db, term).as_ref(),
         EtherealTerm::Abstraction(_) => todo!(),

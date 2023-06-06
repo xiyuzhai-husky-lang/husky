@@ -33,6 +33,7 @@ impl<'a> ExprTypeEngine<'a> {
                         parameter_variable,
                         parameter_ty,
                         return_ty,
+                        ty_ethereal_term,
                     } => todo!(),
                     FluffyTermData::Hole(hole_kind, _) => match hole_kind {
                         HoleKind::UnspecifiedIntegerType | HoleKind::UnspecifiedFloatType => {
@@ -89,11 +90,20 @@ impl<'a> ExprTypeEngine<'a> {
             }
             PrefixOpr::Tilde => match final_destination {
                 FinalDestination::Sort => {
-                    self.infer_new_expr_ty_discarded(opd, self.expect_ty0_subtype());
-                    Ok((
-                        ExprDisambiguation::Tilde(TildeDisambiguation::Leash),
-                        Ok(self.term_menu.ty0().into()),
-                    ))
+                    let Some(argument_ty) = self.infer_new_expr_ty(
+                        opd,
+                        ExpectAnyTowardsFinalDestination::new(FinalDestination::Sort),
+                    ) else {
+                        Err(DerivedExprTypeError::UnableToInferFunctionApplicationArgumentType)?
+                    };
+                    let shift = argument_ty.curry_parameter_count(self);
+                    match shift {
+                        0 => Ok((
+                            ExprDisambiguation::Tilde(TildeDisambiguation::Leash),
+                            Ok(self.term_menu.ty0().into()),
+                        )),
+                        _ => todo!(),
+                    }
                 }
                 FinalDestination::TypeOntology
                 | FinalDestination::AnyOriginal
@@ -140,6 +150,7 @@ impl<'a> ExprTypeEngine<'a> {
                 parameter_variable,
                 parameter_ty,
                 return_ty,
+                ty_ethereal_term,
             } => todo!(),
             FluffyTermData::Hole(_, _) => todo!(),
             FluffyTermData::Category(_) => todo!(),

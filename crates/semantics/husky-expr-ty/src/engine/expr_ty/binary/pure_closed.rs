@@ -44,6 +44,7 @@ impl<'a> ExprTypeEngine<'a> {
                 parameter_variable,
                 parameter_ty,
                 return_ty,
+                ty_ethereal_term,
             } => todo!(),
             FluffyTermData::Hole(hole_kind, _) | FluffyTermData::PlaceHole { hole_kind, .. } => {
                 match hole_kind {

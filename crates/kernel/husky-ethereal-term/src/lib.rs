@@ -49,7 +49,7 @@ pub struct EtherealTermJar(
     EtherealTermSymbols,
     // curry
     term_curry_symbols,
-    total_number_of_curry_parameters,
+    curry_parameter_count,
     // ritchie
     term_ritchie_symbols,
     term_application_symbols,
@@ -58,7 +58,7 @@ pub struct EtherealTermJar(
     // curry
     EtherealTermCurry,
     term_curry_from_declarative,
-    // total_number_of_curry_parameters,
+    // curry_parameter_count,
     // ritchie
     EtherealTermRitchie,
     ethereal_term_ritchie_from_declarative_term_ritchie,
