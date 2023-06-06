@@ -157,7 +157,7 @@ impl EtherealTerm {
                 TermEntityPath::TypeOntology(path) => {
                     RawType::Declarative(ty_ontology_path_declarative_ty(db, path)?)
                 }
-                TermEntityPath::TypeConstructor(path) => {
+                TermEntityPath::TypeInstance(path) => {
                     RawType::Declarative(ty_constructor_path_declarative_ty(db, path)?)
                 }
             },

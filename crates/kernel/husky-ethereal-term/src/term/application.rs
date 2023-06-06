@@ -147,8 +147,8 @@ pub(crate) fn term_uncheck_from_declarative_term_application_aux(
     // todo: implicit arguments
     let (function_parameter_ty_total_number_of_curry_parameters, argument_expectation) = {
         match function.raw_ty(db)? {
-            RawType::Declarative(DeclarativeTerm::Curry(function_declarative_ty)) => {
-                let parameter_ty = function_declarative_ty.parameter_ty(db);
+            RawType::Declarative(DeclarativeTerm::Curry(function_ty)) => {
+                let parameter_ty = function_ty.parameter_ty(db);
                 let function_parameter_ty_total_number_of_curry_parameters =
                     parameter_ty.total_number_of_curry_parameters(db);
                 let argument_expectation =
@@ -158,10 +158,21 @@ pub(crate) fn term_uncheck_from_declarative_term_application_aux(
                     argument_expectation,
                 )
             }
-            RawType::Ethereal(_) => todo!(),
+            RawType::Ethereal(EtherealTerm::Curry(function_ty)) => {
+                let parameter_ty = function_ty.parameter_ty(db);
+                let function_parameter_ty_total_number_of_curry_parameters =
+                    parameter_ty.total_number_of_curry_parameters(db);
+                let argument_expectation =
+                    parameter_ty_ethereal_term_to_argument_ty_expectation(db, parameter_ty);
+                (
+                    function_parameter_ty_total_number_of_curry_parameters,
+                    argument_expectation,
+                )
+            }
             _ => {
                 use salsa::DebugWithDb;
                 p!(function.debug(db));
+                p!(argument.debug(db));
                 p!(function.raw_ty(db)?.debug(db));
                 todo!()
             }
@@ -193,6 +204,18 @@ fn parameter_ty_declarative_term_to_argument_ty_expectation(
         DeclarativeTerm::Category(_) => TermTypeExpectation::FinalDestinationEqsSort,
         DeclarativeTerm::Curry(_) => todo!(),
         DeclarativeTerm::ExplicitApplication(_) => todo!(),
+        _ => TermTypeExpectation::Any,
+    }
+}
+
+fn parameter_ty_ethereal_term_to_argument_ty_expectation(
+    db: &dyn EtherealTermDb,
+    ethereal_term: EtherealTerm,
+) -> TermTypeExpectation {
+    match ethereal_term.application_expansion(db).function() {
+        TermFunctionReduced::TypeOntology(path) => {
+            TermTypeExpectation::FinalDestinationEqsNonSortTypePath(path)
+        }
         _ => TermTypeExpectation::Any,
     }
 }

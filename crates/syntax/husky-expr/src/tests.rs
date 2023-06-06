@@ -36,13 +36,14 @@ pub(crate) struct DB {
 
 impl salsa::Database for DB {}
 
-pub(crate) fn t<'a>(db: &'a DB, input: &str) -> &'a (ExprRegion, Option<ExprIdx>) {
+pub(crate) fn t<'a>(db: &'a DB, input: &str) -> (&'a ExprRegionData, Option<ExprIdx>) {
     let toolchain = db.dev_toolchain().unwrap();
     let path_menu = db.vfs_path_menu(toolchain);
     let snippet = Snippet::new(db, input.to_owned());
-    parse_expr_from_snippet(db, path_menu.core_library(), snippet)
+    let (expr_region, expr_idx) = parse_expr_from_snippet(db, path_menu.core_library(), snippet)
         .as_ref()
-        .unwrap()
+        .unwrap();
+    (expr_region.data(db), *expr_idx)
 }
 
 #[test]
@@ -259,4 +260,11 @@ fn parse_expr_works() {
         )
     "#]]
     .assert_debug_eq(&t(&db, "x.len()"));
+}
+
+#[test]
+fn parse_application_expr_works() {
+    let db = DB::default();
+    // this is wrong semantically, but useful for specifying syntactic behavior
+    expect_test::expect![[r#""#]].assert_debug_eq(&t(&db, "0 1 2"));
 }

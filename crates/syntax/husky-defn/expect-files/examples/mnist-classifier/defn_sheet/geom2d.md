@@ -56,10 +56,14 @@ Ok(
                                             entity_path_expr_arena: Arena {
                                                 data: [
                                                     EntityPathExpr::Root {
-                                                        token_idx: TokenIdx(
-                                                            6,
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `f32`,
+                                                                token_idx: TokenIdx(
+                                                                    6,
+                                                                ),
+                                                            },
                                                         ),
-                                                        ident: `f32`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::num::f32`, `Extern`),
@@ -67,10 +71,14 @@ Ok(
                                                         ),
                                                     },
                                                     EntityPathExpr::Root {
-                                                        token_idx: TokenIdx(
-                                                            10,
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `f32`,
+                                                                token_idx: TokenIdx(
+                                                                    10,
+                                                                ),
+                                                            },
                                                         ),
-                                                        ident: `f32`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::num::f32`, `Extern`),
@@ -269,10 +277,14 @@ Ok(
                                             entity_path_expr_arena: Arena {
                                                 data: [
                                                     EntityPathExpr::Root {
-                                                        token_idx: TokenIdx(
-                                                            148,
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `f32`,
+                                                                token_idx: TokenIdx(
+                                                                    148,
+                                                                ),
+                                                            },
                                                         ),
-                                                        ident: `f32`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::num::f32`, `Extern`),
@@ -280,10 +292,14 @@ Ok(
                                                         ),
                                                     },
                                                     EntityPathExpr::Root {
-                                                        token_idx: TokenIdx(
-                                                            152,
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `f32`,
+                                                                token_idx: TokenIdx(
+                                                                    152,
+                                                                ),
+                                                            },
                                                         ),
-                                                        ident: `f32`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::num::f32`, `Extern`),
@@ -482,10 +498,14 @@ Ok(
                                             entity_path_expr_arena: Arena {
                                                 data: [
                                                     EntityPathExpr::Root {
-                                                        token_idx: TokenIdx(
-                                                            161,
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `f32`,
+                                                                token_idx: TokenIdx(
+                                                                    161,
+                                                                ),
+                                                            },
                                                         ),
-                                                        ident: `f32`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::num::f32`, `Extern`),
@@ -493,10 +513,14 @@ Ok(
                                                         ),
                                                     },
                                                     EntityPathExpr::Root {
-                                                        token_idx: TokenIdx(
-                                                            165,
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `f32`,
+                                                                token_idx: TokenIdx(
+                                                                    165,
+                                                                ),
+                                                            },
                                                         ),
-                                                        ident: `f32`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::num::f32`, `Extern`),
@@ -695,10 +719,14 @@ Ok(
                                             entity_path_expr_arena: Arena {
                                                 data: [
                                                     EntityPathExpr::Root {
-                                                        token_idx: TokenIdx(
-                                                            492,
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `f32`,
+                                                                token_idx: TokenIdx(
+                                                                    492,
+                                                                ),
+                                                            },
                                                         ),
-                                                        ident: `f32`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::num::f32`, `Extern`),
@@ -706,10 +734,14 @@ Ok(
                                                         ),
                                                     },
                                                     EntityPathExpr::Root {
-                                                        token_idx: TokenIdx(
-                                                            496,
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `f32`,
+                                                                token_idx: TokenIdx(
+                                                                    496,
+                                                                ),
+                                                            },
                                                         ),
-                                                        ident: `f32`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::num::f32`, `Extern`),
@@ -908,10 +940,14 @@ Ok(
                                             entity_path_expr_arena: Arena {
                                                 data: [
                                                     EntityPathExpr::Root {
-                                                        token_idx: TokenIdx(
-                                                            601,
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `ClosedRange`,
+                                                                token_idx: TokenIdx(
+                                                                    601,
+                                                                ),
+                                                            },
                                                         ),
-                                                        ident: `ClosedRange`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -919,10 +955,14 @@ Ok(
                                                         ),
                                                     },
                                                     EntityPathExpr::Root {
-                                                        token_idx: TokenIdx(
-                                                            606,
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `ClosedRange`,
+                                                                token_idx: TokenIdx(
+                                                                    606,
+                                                                ),
+                                                            },
                                                         ),
-                                                        ident: `ClosedRange`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -1125,10 +1165,14 @@ Ok(
                                             entity_path_expr_arena: Arena {
                                                 data: [
                                                     EntityPathExpr::Root {
-                                                        token_idx: TokenIdx(
-                                                            736,
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `ClosedRange`,
+                                                                token_idx: TokenIdx(
+                                                                    736,
+                                                                ),
+                                                            },
                                                         ),
-                                                        ident: `ClosedRange`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -1136,10 +1180,14 @@ Ok(
                                                         ),
                                                     },
                                                     EntityPathExpr::Root {
-                                                        token_idx: TokenIdx(
-                                                            740,
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `ClosedRange`,
+                                                                token_idx: TokenIdx(
+                                                                    740,
+                                                                ),
+                                                            },
                                                         ),
-                                                        ident: `ClosedRange`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -1366,10 +1414,14 @@ Ok(
                                         entity_path_expr_arena: Arena {
                                             data: [
                                                 EntityPathExpr::Root {
-                                                    token_idx: TokenIdx(
-                                                        14,
+                                                    path_name_token: PathNameToken::Ident(
+                                                        IdentToken {
+                                                            ident: `Point2d`,
+                                                            token_idx: TokenIdx(
+                                                                14,
+                                                            ),
+                                                        },
                                                     ),
-                                                    ident: `Point2d`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -1502,10 +1554,14 @@ Ok(
                                                             entity_path_expr_arena: Arena {
                                                                 data: [
                                                                     EntityPathExpr::Root {
-                                                                        token_idx: TokenIdx(
-                                                                            14,
+                                                                        path_name_token: PathNameToken::Ident(
+                                                                            IdentToken {
+                                                                                ident: `Point2d`,
+                                                                                token_idx: TokenIdx(
+                                                                                    14,
+                                                                                ),
+                                                                            },
                                                                         ),
-                                                                        ident: `Point2d`,
                                                                         entity_path: EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
                                                                                 TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -1604,10 +1660,14 @@ Ok(
                                                 entity_path_expr_arena: Arena {
                                                     data: [
                                                         EntityPathExpr::Root {
-                                                            token_idx: TokenIdx(
-                                                                22,
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `i32`,
+                                                                    token_idx: TokenIdx(
+                                                                        22,
+                                                                    ),
+                                                                },
                                                             ),
-                                                            ident: `i32`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`core::num::i32`, `Extern`),
@@ -1615,10 +1675,14 @@ Ok(
                                                             ),
                                                         },
                                                         EntityPathExpr::Root {
-                                                            token_idx: TokenIdx(
-                                                                26,
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `i32`,
+                                                                    token_idx: TokenIdx(
+                                                                        26,
+                                                                    ),
+                                                                },
                                                             ),
-                                                            ident: `i32`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`core::num::i32`, `Extern`),
@@ -1626,10 +1690,14 @@ Ok(
                                                             ),
                                                         },
                                                         EntityPathExpr::Root {
-                                                            token_idx: TokenIdx(
-                                                                29,
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `Point2d`,
+                                                                    token_idx: TokenIdx(
+                                                                        29,
+                                                                    ),
+                                                                },
                                                             ),
-                                                            ident: `Point2d`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -1879,10 +1947,14 @@ Ok(
                                                                     entity_path_expr_arena: Arena {
                                                                         data: [
                                                                             EntityPathExpr::Root {
-                                                                                token_idx: TokenIdx(
-                                                                                    14,
+                                                                                path_name_token: PathNameToken::Ident(
+                                                                                    IdentToken {
+                                                                                        ident: `Point2d`,
+                                                                                        token_idx: TokenIdx(
+                                                                                            14,
+                                                                                        ),
+                                                                                    },
                                                                                 ),
-                                                                                ident: `Point2d`,
                                                                                 entity_path: EntityPath::ModuleItem(
                                                                                     ModuleItemPath::Type(
                                                                                         TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -1981,10 +2053,14 @@ Ok(
                                                         entity_path_expr_arena: Arena {
                                                             data: [
                                                                 EntityPathExpr::Root {
-                                                                    token_idx: TokenIdx(
-                                                                        22,
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `i32`,
+                                                                            token_idx: TokenIdx(
+                                                                                22,
+                                                                            ),
+                                                                        },
                                                                     ),
-                                                                    ident: `i32`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`core::num::i32`, `Extern`),
@@ -1992,10 +2068,14 @@ Ok(
                                                                     ),
                                                                 },
                                                                 EntityPathExpr::Root {
-                                                                    token_idx: TokenIdx(
-                                                                        26,
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `i32`,
+                                                                            token_idx: TokenIdx(
+                                                                                26,
+                                                                            ),
+                                                                        },
                                                                     ),
-                                                                    ident: `i32`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`core::num::i32`, `Extern`),
@@ -2003,10 +2083,14 @@ Ok(
                                                                     ),
                                                                 },
                                                                 EntityPathExpr::Root {
-                                                                    token_idx: TokenIdx(
-                                                                        29,
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `Point2d`,
+                                                                            token_idx: TokenIdx(
+                                                                                29,
+                                                                            ),
+                                                                        },
                                                                     ),
-                                                                    ident: `Point2d`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -2316,10 +2400,14 @@ Ok(
                                             entity_path_expr_arena: Arena {
                                                 data: [
                                                     EntityPathExpr::Root {
-                                                        token_idx: TokenIdx(
-                                                            31,
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `Point2d`,
+                                                                token_idx: TokenIdx(
+                                                                    31,
+                                                                ),
+                                                            },
                                                         ),
-                                                        ident: `Point2d`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -2327,10 +2415,14 @@ Ok(
                                                         ),
                                                     },
                                                     EntityPathExpr::Root {
-                                                        token_idx: TokenIdx(
-                                                            39,
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `f32`,
+                                                                token_idx: TokenIdx(
+                                                                    39,
+                                                                ),
+                                                            },
                                                         ),
-                                                        ident: `f32`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::num::f32`, `Extern`),
@@ -2338,10 +2430,14 @@ Ok(
                                                         ),
                                                     },
                                                     EntityPathExpr::Root {
-                                                        token_idx: TokenIdx(
-                                                            47,
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `f32`,
+                                                                token_idx: TokenIdx(
+                                                                    47,
+                                                                ),
+                                                            },
                                                         ),
-                                                        ident: `f32`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::num::f32`, `Extern`),
@@ -2558,10 +2654,14 @@ Ok(
                                                             entity_path_expr_arena: Arena {
                                                                 data: [
                                                                     EntityPathExpr::Root {
-                                                                        token_idx: TokenIdx(
-                                                                            14,
+                                                                        path_name_token: PathNameToken::Ident(
+                                                                            IdentToken {
+                                                                                ident: `Point2d`,
+                                                                                token_idx: TokenIdx(
+                                                                                    14,
+                                                                                ),
+                                                                            },
                                                                         ),
-                                                                        ident: `Point2d`,
                                                                         entity_path: EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
                                                                                 TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -2640,10 +2740,14 @@ Ok(
                                                 entity_path_expr_arena: Arena {
                                                     data: [
                                                         EntityPathExpr::Root {
-                                                            token_idx: TokenIdx(
-                                                                54,
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `Vector2d`,
+                                                                    token_idx: TokenIdx(
+                                                                        54,
+                                                                    ),
+                                                                },
                                                             ),
-                                                            ident: `Vector2d`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -2764,10 +2868,14 @@ Ok(
                                                                     entity_path_expr_arena: Arena {
                                                                         data: [
                                                                             EntityPathExpr::Root {
-                                                                                token_idx: TokenIdx(
-                                                                                    14,
+                                                                                path_name_token: PathNameToken::Ident(
+                                                                                    IdentToken {
+                                                                                        ident: `Point2d`,
+                                                                                        token_idx: TokenIdx(
+                                                                                            14,
+                                                                                        ),
+                                                                                    },
                                                                                 ),
-                                                                                ident: `Point2d`,
                                                                                 entity_path: EntityPath::ModuleItem(
                                                                                     ModuleItemPath::Type(
                                                                                         TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -2846,10 +2954,14 @@ Ok(
                                                         entity_path_expr_arena: Arena {
                                                             data: [
                                                                 EntityPathExpr::Root {
-                                                                    token_idx: TokenIdx(
-                                                                        54,
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `Vector2d`,
+                                                                            token_idx: TokenIdx(
+                                                                                54,
+                                                                            ),
+                                                                        },
                                                                     ),
-                                                                    ident: `Vector2d`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -2985,10 +3097,14 @@ Ok(
                                             entity_path_expr_arena: Arena {
                                                 data: [
                                                     EntityPathExpr::Root {
-                                                        token_idx: TokenIdx(
-                                                            56,
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `Vector2d`,
+                                                                token_idx: TokenIdx(
+                                                                    56,
+                                                                ),
+                                                            },
                                                         ),
-                                                        ident: `Vector2d`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -3186,10 +3302,14 @@ Ok(
                                                             entity_path_expr_arena: Arena {
                                                                 data: [
                                                                     EntityPathExpr::Root {
-                                                                        token_idx: TokenIdx(
-                                                                            14,
+                                                                        path_name_token: PathNameToken::Ident(
+                                                                            IdentToken {
+                                                                                ident: `Point2d`,
+                                                                                token_idx: TokenIdx(
+                                                                                    14,
+                                                                                ),
+                                                                            },
                                                                         ),
-                                                                        ident: `Point2d`,
                                                                         entity_path: EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
                                                                                 TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -3278,10 +3398,14 @@ Ok(
                                                 entity_path_expr_arena: Arena {
                                                     data: [
                                                         EntityPathExpr::Root {
-                                                            token_idx: TokenIdx(
-                                                                71,
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `Point2d`,
+                                                                    token_idx: TokenIdx(
+                                                                        71,
+                                                                    ),
+                                                                },
                                                             ),
-                                                            ident: `Point2d`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -3289,10 +3413,14 @@ Ok(
                                                             ),
                                                         },
                                                         EntityPathExpr::Root {
-                                                            token_idx: TokenIdx(
-                                                                74,
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `Vector2d`,
+                                                                    token_idx: TokenIdx(
+                                                                        74,
+                                                                    ),
+                                                                },
                                                             ),
-                                                            ident: `Vector2d`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -3479,10 +3607,14 @@ Ok(
                                                                     entity_path_expr_arena: Arena {
                                                                         data: [
                                                                             EntityPathExpr::Root {
-                                                                                token_idx: TokenIdx(
-                                                                                    14,
+                                                                                path_name_token: PathNameToken::Ident(
+                                                                                    IdentToken {
+                                                                                        ident: `Point2d`,
+                                                                                        token_idx: TokenIdx(
+                                                                                            14,
+                                                                                        ),
+                                                                                    },
                                                                                 ),
-                                                                                ident: `Point2d`,
                                                                                 entity_path: EntityPath::ModuleItem(
                                                                                     ModuleItemPath::Type(
                                                                                         TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -3571,10 +3703,14 @@ Ok(
                                                         entity_path_expr_arena: Arena {
                                                             data: [
                                                                 EntityPathExpr::Root {
-                                                                    token_idx: TokenIdx(
-                                                                        71,
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `Point2d`,
+                                                                            token_idx: TokenIdx(
+                                                                                71,
+                                                                            ),
+                                                                        },
                                                                     ),
-                                                                    ident: `Point2d`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -3582,10 +3718,14 @@ Ok(
                                                                     ),
                                                                 },
                                                                 EntityPathExpr::Root {
-                                                                    token_idx: TokenIdx(
-                                                                        74,
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `Vector2d`,
+                                                                            token_idx: TokenIdx(
+                                                                                74,
+                                                                            ),
+                                                                        },
                                                                     ),
-                                                                    ident: `Vector2d`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -3838,10 +3978,14 @@ Ok(
                                             entity_path_expr_arena: Arena {
                                                 data: [
                                                     EntityPathExpr::Root {
-                                                        token_idx: TokenIdx(
-                                                            76,
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `Vector2d`,
+                                                                token_idx: TokenIdx(
+                                                                    76,
+                                                                ),
+                                                            },
                                                         ),
-                                                        ident: `Vector2d`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -4049,10 +4193,14 @@ Ok(
                                                             entity_path_expr_arena: Arena {
                                                                 data: [
                                                                     EntityPathExpr::Root {
-                                                                        token_idx: TokenIdx(
-                                                                            14,
+                                                                        path_name_token: PathNameToken::Ident(
+                                                                            IdentToken {
+                                                                                ident: `Point2d`,
+                                                                                token_idx: TokenIdx(
+                                                                                    14,
+                                                                                ),
+                                                                            },
                                                                         ),
-                                                                        ident: `Point2d`,
                                                                         entity_path: EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
                                                                                 TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -4131,10 +4279,14 @@ Ok(
                                                 entity_path_expr_arena: Arena {
                                                     data: [
                                                         EntityPathExpr::Root {
-                                                            token_idx: TokenIdx(
-                                                                99,
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `f32`,
+                                                                    token_idx: TokenIdx(
+                                                                        99,
+                                                                    ),
+                                                                },
                                                             ),
-                                                            ident: `f32`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`core::num::f32`, `Extern`),
@@ -4255,10 +4407,14 @@ Ok(
                                                                     entity_path_expr_arena: Arena {
                                                                         data: [
                                                                             EntityPathExpr::Root {
-                                                                                token_idx: TokenIdx(
-                                                                                    14,
+                                                                                path_name_token: PathNameToken::Ident(
+                                                                                    IdentToken {
+                                                                                        ident: `Point2d`,
+                                                                                        token_idx: TokenIdx(
+                                                                                            14,
+                                                                                        ),
+                                                                                    },
                                                                                 ),
-                                                                                ident: `Point2d`,
                                                                                 entity_path: EntityPath::ModuleItem(
                                                                                     ModuleItemPath::Type(
                                                                                         TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -4337,10 +4493,14 @@ Ok(
                                                         entity_path_expr_arena: Arena {
                                                             data: [
                                                                 EntityPathExpr::Root {
-                                                                    token_idx: TokenIdx(
-                                                                        99,
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `f32`,
+                                                                            token_idx: TokenIdx(
+                                                                                99,
+                                                                            ),
+                                                                        },
                                                                     ),
-                                                                    ident: `f32`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`core::num::f32`, `Extern`),
@@ -4733,10 +4893,14 @@ Ok(
                                                             entity_path_expr_arena: Arena {
                                                                 data: [
                                                                     EntityPathExpr::Root {
-                                                                        token_idx: TokenIdx(
-                                                                            14,
+                                                                        path_name_token: PathNameToken::Ident(
+                                                                            IdentToken {
+                                                                                ident: `Point2d`,
+                                                                                token_idx: TokenIdx(
+                                                                                    14,
+                                                                                ),
+                                                                            },
                                                                         ),
-                                                                        ident: `Point2d`,
                                                                         entity_path: EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
                                                                                 TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -4825,10 +4989,14 @@ Ok(
                                                 entity_path_expr_arena: Arena {
                                                     data: [
                                                         EntityPathExpr::Root {
-                                                            token_idx: TokenIdx(
-                                                                127,
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `Point2d`,
+                                                                    token_idx: TokenIdx(
+                                                                        127,
+                                                                    ),
+                                                                },
                                                             ),
-                                                            ident: `Point2d`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -4836,10 +5004,14 @@ Ok(
                                                             ),
                                                         },
                                                         EntityPathExpr::Root {
-                                                            token_idx: TokenIdx(
-                                                                130,
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `f32`,
+                                                                    token_idx: TokenIdx(
+                                                                        130,
+                                                                    ),
+                                                                },
                                                             ),
-                                                            ident: `f32`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`core::num::f32`, `Extern`),
@@ -5026,10 +5198,14 @@ Ok(
                                                                     entity_path_expr_arena: Arena {
                                                                         data: [
                                                                             EntityPathExpr::Root {
-                                                                                token_idx: TokenIdx(
-                                                                                    14,
+                                                                                path_name_token: PathNameToken::Ident(
+                                                                                    IdentToken {
+                                                                                        ident: `Point2d`,
+                                                                                        token_idx: TokenIdx(
+                                                                                            14,
+                                                                                        ),
+                                                                                    },
                                                                                 ),
-                                                                                ident: `Point2d`,
                                                                                 entity_path: EntityPath::ModuleItem(
                                                                                     ModuleItemPath::Type(
                                                                                         TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -5118,10 +5294,14 @@ Ok(
                                                         entity_path_expr_arena: Arena {
                                                             data: [
                                                                 EntityPathExpr::Root {
-                                                                    token_idx: TokenIdx(
-                                                                        127,
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `Point2d`,
+                                                                            token_idx: TokenIdx(
+                                                                                127,
+                                                                            ),
+                                                                        },
                                                                     ),
-                                                                    ident: `Point2d`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -5129,10 +5309,14 @@ Ok(
                                                                     ),
                                                                 },
                                                                 EntityPathExpr::Root {
-                                                                    token_idx: TokenIdx(
-                                                                        130,
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `f32`,
+                                                                            token_idx: TokenIdx(
+                                                                                130,
+                                                                            ),
+                                                                        },
                                                                     ),
-                                                                    ident: `f32`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`core::num::f32`, `Extern`),
@@ -5468,10 +5652,14 @@ Ok(
                                         entity_path_expr_arena: Arena {
                                             data: [
                                                 EntityPathExpr::Root {
-                                                    token_idx: TokenIdx(
-                                                        169,
+                                                    path_name_token: PathNameToken::Ident(
+                                                        IdentToken {
+                                                            ident: `Vector2d`,
+                                                            token_idx: TokenIdx(
+                                                                169,
+                                                            ),
+                                                        },
                                                     ),
-                                                    ident: `Vector2d`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -5655,10 +5843,14 @@ Ok(
                                                             entity_path_expr_arena: Arena {
                                                                 data: [
                                                                     EntityPathExpr::Root {
-                                                                        token_idx: TokenIdx(
-                                                                            169,
+                                                                        path_name_token: PathNameToken::Ident(
+                                                                            IdentToken {
+                                                                                ident: `Vector2d`,
+                                                                                token_idx: TokenIdx(
+                                                                                    169,
+                                                                                ),
+                                                                            },
                                                                         ),
-                                                                        ident: `Vector2d`,
                                                                         entity_path: EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
                                                                                 TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -5737,10 +5929,14 @@ Ok(
                                                 entity_path_expr_arena: Arena {
                                                     data: [
                                                         EntityPathExpr::Root {
-                                                            token_idx: TokenIdx(
-                                                                177,
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `Point2d`,
+                                                                    token_idx: TokenIdx(
+                                                                        177,
+                                                                    ),
+                                                                },
                                                             ),
-                                                            ident: `Point2d`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -5861,10 +6057,14 @@ Ok(
                                                                     entity_path_expr_arena: Arena {
                                                                         data: [
                                                                             EntityPathExpr::Root {
-                                                                                token_idx: TokenIdx(
-                                                                                    169,
+                                                                                path_name_token: PathNameToken::Ident(
+                                                                                    IdentToken {
+                                                                                        ident: `Vector2d`,
+                                                                                        token_idx: TokenIdx(
+                                                                                            169,
+                                                                                        ),
+                                                                                    },
                                                                                 ),
-                                                                                ident: `Vector2d`,
                                                                                 entity_path: EntityPath::ModuleItem(
                                                                                     ModuleItemPath::Type(
                                                                                         TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -5943,10 +6143,14 @@ Ok(
                                                         entity_path_expr_arena: Arena {
                                                             data: [
                                                                 EntityPathExpr::Root {
-                                                                    token_idx: TokenIdx(
-                                                                        177,
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `Point2d`,
+                                                                            token_idx: TokenIdx(
+                                                                                177,
+                                                                            ),
+                                                                        },
                                                                     ),
-                                                                    ident: `Point2d`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -6082,10 +6286,14 @@ Ok(
                                             entity_path_expr_arena: Arena {
                                                 data: [
                                                     EntityPathExpr::Root {
-                                                        token_idx: TokenIdx(
-                                                            179,
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `Point2d`,
+                                                                token_idx: TokenIdx(
+                                                                    179,
+                                                                ),
+                                                            },
                                                         ),
-                                                        ident: `Point2d`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -6281,10 +6489,14 @@ Ok(
                                                             entity_path_expr_arena: Arena {
                                                                 data: [
                                                                     EntityPathExpr::Root {
-                                                                        token_idx: TokenIdx(
-                                                                            169,
+                                                                        path_name_token: PathNameToken::Ident(
+                                                                            IdentToken {
+                                                                                ident: `Vector2d`,
+                                                                                token_idx: TokenIdx(
+                                                                                    169,
+                                                                                ),
+                                                                            },
                                                                         ),
-                                                                        ident: `Vector2d`,
                                                                         entity_path: EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
                                                                                 TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -6373,10 +6585,14 @@ Ok(
                                                 entity_path_expr_arena: Arena {
                                                     data: [
                                                         EntityPathExpr::Root {
-                                                            token_idx: TokenIdx(
-                                                                195,
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `Vector2d`,
+                                                                    token_idx: TokenIdx(
+                                                                        195,
+                                                                    ),
+                                                                },
                                                             ),
-                                                            ident: `Vector2d`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -6384,10 +6600,14 @@ Ok(
                                                             ),
                                                         },
                                                         EntityPathExpr::Root {
-                                                            token_idx: TokenIdx(
-                                                                198,
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `Vector2d`,
+                                                                    token_idx: TokenIdx(
+                                                                        198,
+                                                                    ),
+                                                                },
                                                             ),
-                                                            ident: `Vector2d`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -6574,10 +6794,14 @@ Ok(
                                                                     entity_path_expr_arena: Arena {
                                                                         data: [
                                                                             EntityPathExpr::Root {
-                                                                                token_idx: TokenIdx(
-                                                                                    169,
+                                                                                path_name_token: PathNameToken::Ident(
+                                                                                    IdentToken {
+                                                                                        ident: `Vector2d`,
+                                                                                        token_idx: TokenIdx(
+                                                                                            169,
+                                                                                        ),
+                                                                                    },
                                                                                 ),
-                                                                                ident: `Vector2d`,
                                                                                 entity_path: EntityPath::ModuleItem(
                                                                                     ModuleItemPath::Type(
                                                                                         TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -6666,10 +6890,14 @@ Ok(
                                                         entity_path_expr_arena: Arena {
                                                             data: [
                                                                 EntityPathExpr::Root {
-                                                                    token_idx: TokenIdx(
-                                                                        195,
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `Vector2d`,
+                                                                            token_idx: TokenIdx(
+                                                                                195,
+                                                                            ),
+                                                                        },
                                                                     ),
-                                                                    ident: `Vector2d`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -6677,10 +6905,14 @@ Ok(
                                                                     ),
                                                                 },
                                                                 EntityPathExpr::Root {
-                                                                    token_idx: TokenIdx(
-                                                                        198,
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `Vector2d`,
+                                                                            token_idx: TokenIdx(
+                                                                                198,
+                                                                            ),
+                                                                        },
                                                                     ),
-                                                                    ident: `Vector2d`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -6933,10 +7165,14 @@ Ok(
                                             entity_path_expr_arena: Arena {
                                                 data: [
                                                     EntityPathExpr::Root {
-                                                        token_idx: TokenIdx(
-                                                            200,
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `Vector2d`,
+                                                                token_idx: TokenIdx(
+                                                                    200,
+                                                                ),
+                                                            },
                                                         ),
-                                                        ident: `Vector2d`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -7144,10 +7380,14 @@ Ok(
                                                             entity_path_expr_arena: Arena {
                                                                 data: [
                                                                     EntityPathExpr::Root {
-                                                                        token_idx: TokenIdx(
-                                                                            169,
+                                                                        path_name_token: PathNameToken::Ident(
+                                                                            IdentToken {
+                                                                                ident: `Vector2d`,
+                                                                                token_idx: TokenIdx(
+                                                                                    169,
+                                                                                ),
+                                                                            },
                                                                         ),
-                                                                        ident: `Vector2d`,
                                                                         entity_path: EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
                                                                                 TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -7226,10 +7466,14 @@ Ok(
                                                 entity_path_expr_arena: Arena {
                                                     data: [
                                                         EntityPathExpr::Root {
-                                                            token_idx: TokenIdx(
-                                                                223,
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `f32`,
+                                                                    token_idx: TokenIdx(
+                                                                        223,
+                                                                    ),
+                                                                },
                                                             ),
-                                                            ident: `f32`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`core::num::f32`, `Extern`),
@@ -7350,10 +7594,14 @@ Ok(
                                                                     entity_path_expr_arena: Arena {
                                                                         data: [
                                                                             EntityPathExpr::Root {
-                                                                                token_idx: TokenIdx(
-                                                                                    169,
+                                                                                path_name_token: PathNameToken::Ident(
+                                                                                    IdentToken {
+                                                                                        ident: `Vector2d`,
+                                                                                        token_idx: TokenIdx(
+                                                                                            169,
+                                                                                        ),
+                                                                                    },
                                                                                 ),
-                                                                                ident: `Vector2d`,
                                                                                 entity_path: EntityPath::ModuleItem(
                                                                                     ModuleItemPath::Type(
                                                                                         TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -7432,10 +7680,14 @@ Ok(
                                                         entity_path_expr_arena: Arena {
                                                             data: [
                                                                 EntityPathExpr::Root {
-                                                                    token_idx: TokenIdx(
-                                                                        223,
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `f32`,
+                                                                            token_idx: TokenIdx(
+                                                                                223,
+                                                                            ),
+                                                                        },
                                                                     ),
-                                                                    ident: `f32`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`core::num::f32`, `Extern`),
@@ -7828,10 +8080,14 @@ Ok(
                                                             entity_path_expr_arena: Arena {
                                                                 data: [
                                                                     EntityPathExpr::Root {
-                                                                        token_idx: TokenIdx(
-                                                                            169,
+                                                                        path_name_token: PathNameToken::Ident(
+                                                                            IdentToken {
+                                                                                ident: `Vector2d`,
+                                                                                token_idx: TokenIdx(
+                                                                                    169,
+                                                                                ),
+                                                                            },
                                                                         ),
-                                                                        ident: `Vector2d`,
                                                                         entity_path: EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
                                                                                 TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -7920,10 +8176,14 @@ Ok(
                                                 entity_path_expr_arena: Arena {
                                                     data: [
                                                         EntityPathExpr::Root {
-                                                            token_idx: TokenIdx(
-                                                                251,
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `Vector2d`,
+                                                                    token_idx: TokenIdx(
+                                                                        251,
+                                                                    ),
+                                                                },
                                                             ),
-                                                            ident: `Vector2d`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -7931,10 +8191,14 @@ Ok(
                                                             ),
                                                         },
                                                         EntityPathExpr::Root {
-                                                            token_idx: TokenIdx(
-                                                                254,
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `f32`,
+                                                                    token_idx: TokenIdx(
+                                                                        254,
+                                                                    ),
+                                                                },
                                                             ),
-                                                            ident: `f32`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`core::num::f32`, `Extern`),
@@ -8121,10 +8385,14 @@ Ok(
                                                                     entity_path_expr_arena: Arena {
                                                                         data: [
                                                                             EntityPathExpr::Root {
-                                                                                token_idx: TokenIdx(
-                                                                                    169,
+                                                                                path_name_token: PathNameToken::Ident(
+                                                                                    IdentToken {
+                                                                                        ident: `Vector2d`,
+                                                                                        token_idx: TokenIdx(
+                                                                                            169,
+                                                                                        ),
+                                                                                    },
                                                                                 ),
-                                                                                ident: `Vector2d`,
                                                                                 entity_path: EntityPath::ModuleItem(
                                                                                     ModuleItemPath::Type(
                                                                                         TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -8213,10 +8481,14 @@ Ok(
                                                         entity_path_expr_arena: Arena {
                                                             data: [
                                                                 EntityPathExpr::Root {
-                                                                    token_idx: TokenIdx(
-                                                                        251,
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `Vector2d`,
+                                                                            token_idx: TokenIdx(
+                                                                                251,
+                                                                            ),
+                                                                        },
                                                                     ),
-                                                                    ident: `Vector2d`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -8224,10 +8496,14 @@ Ok(
                                                                     ),
                                                                 },
                                                                 EntityPathExpr::Root {
-                                                                    token_idx: TokenIdx(
-                                                                        254,
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `f32`,
+                                                                            token_idx: TokenIdx(
+                                                                                254,
+                                                                            ),
+                                                                        },
                                                                     ),
-                                                                    ident: `f32`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`core::num::f32`, `Extern`),
@@ -8661,10 +8937,14 @@ Ok(
                                                             entity_path_expr_arena: Arena {
                                                                 data: [
                                                                     EntityPathExpr::Root {
-                                                                        token_idx: TokenIdx(
-                                                                            169,
+                                                                        path_name_token: PathNameToken::Ident(
+                                                                            IdentToken {
+                                                                                ident: `Vector2d`,
+                                                                                token_idx: TokenIdx(
+                                                                                    169,
+                                                                                ),
+                                                                            },
                                                                         ),
-                                                                        ident: `Vector2d`,
                                                                         entity_path: EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
                                                                                 TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -8753,10 +9033,14 @@ Ok(
                                                 entity_path_expr_arena: Arena {
                                                     data: [
                                                         EntityPathExpr::Root {
-                                                            token_idx: TokenIdx(
-                                                                276,
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `Vector2d`,
+                                                                    token_idx: TokenIdx(
+                                                                        276,
+                                                                    ),
+                                                                },
                                                             ),
-                                                            ident: `Vector2d`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -8764,10 +9048,14 @@ Ok(
                                                             ),
                                                         },
                                                         EntityPathExpr::Root {
-                                                            token_idx: TokenIdx(
-                                                                279,
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `f32`,
+                                                                    token_idx: TokenIdx(
+                                                                        279,
+                                                                    ),
+                                                                },
                                                             ),
-                                                            ident: `f32`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`core::num::f32`, `Extern`),
@@ -8954,10 +9242,14 @@ Ok(
                                                                     entity_path_expr_arena: Arena {
                                                                         data: [
                                                                             EntityPathExpr::Root {
-                                                                                token_idx: TokenIdx(
-                                                                                    169,
+                                                                                path_name_token: PathNameToken::Ident(
+                                                                                    IdentToken {
+                                                                                        ident: `Vector2d`,
+                                                                                        token_idx: TokenIdx(
+                                                                                            169,
+                                                                                        ),
+                                                                                    },
                                                                                 ),
-                                                                                ident: `Vector2d`,
                                                                                 entity_path: EntityPath::ModuleItem(
                                                                                     ModuleItemPath::Type(
                                                                                         TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -9046,10 +9338,14 @@ Ok(
                                                         entity_path_expr_arena: Arena {
                                                             data: [
                                                                 EntityPathExpr::Root {
-                                                                    token_idx: TokenIdx(
-                                                                        276,
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `Vector2d`,
+                                                                            token_idx: TokenIdx(
+                                                                                276,
+                                                                            ),
+                                                                        },
                                                                     ),
-                                                                    ident: `Vector2d`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -9057,10 +9353,14 @@ Ok(
                                                                     ),
                                                                 },
                                                                 EntityPathExpr::Root {
-                                                                    token_idx: TokenIdx(
-                                                                        279,
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `f32`,
+                                                                            token_idx: TokenIdx(
+                                                                                279,
+                                                                            ),
+                                                                        },
                                                                     ),
-                                                                    ident: `f32`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`core::num::f32`, `Extern`),
@@ -9494,10 +9794,14 @@ Ok(
                                                             entity_path_expr_arena: Arena {
                                                                 data: [
                                                                     EntityPathExpr::Root {
-                                                                        token_idx: TokenIdx(
-                                                                            169,
+                                                                        path_name_token: PathNameToken::Ident(
+                                                                            IdentToken {
+                                                                                ident: `Vector2d`,
+                                                                                token_idx: TokenIdx(
+                                                                                    169,
+                                                                                ),
+                                                                            },
                                                                         ),
-                                                                        ident: `Vector2d`,
                                                                         entity_path: EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
                                                                                 TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -9586,10 +9890,14 @@ Ok(
                                                 entity_path_expr_arena: Arena {
                                                     data: [
                                                         EntityPathExpr::Root {
-                                                            token_idx: TokenIdx(
-                                                                301,
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `bool`,
+                                                                    token_idx: TokenIdx(
+                                                                        301,
+                                                                    ),
+                                                                },
                                                             ),
-                                                            ident: `bool`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`core::basic::bool`, `Extern`),
@@ -9597,10 +9905,14 @@ Ok(
                                                             ),
                                                         },
                                                         EntityPathExpr::Root {
-                                                            token_idx: TokenIdx(
-                                                                304,
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `f32`,
+                                                                    token_idx: TokenIdx(
+                                                                        304,
+                                                                    ),
+                                                                },
                                                             ),
-                                                            ident: `f32`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`core::num::f32`, `Extern`),
@@ -9787,10 +10099,14 @@ Ok(
                                                                     entity_path_expr_arena: Arena {
                                                                         data: [
                                                                             EntityPathExpr::Root {
-                                                                                token_idx: TokenIdx(
-                                                                                    169,
+                                                                                path_name_token: PathNameToken::Ident(
+                                                                                    IdentToken {
+                                                                                        ident: `Vector2d`,
+                                                                                        token_idx: TokenIdx(
+                                                                                            169,
+                                                                                        ),
+                                                                                    },
                                                                                 ),
-                                                                                ident: `Vector2d`,
                                                                                 entity_path: EntityPath::ModuleItem(
                                                                                     ModuleItemPath::Type(
                                                                                         TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -9879,10 +10195,14 @@ Ok(
                                                         entity_path_expr_arena: Arena {
                                                             data: [
                                                                 EntityPathExpr::Root {
-                                                                    token_idx: TokenIdx(
-                                                                        301,
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `bool`,
+                                                                            token_idx: TokenIdx(
+                                                                                301,
+                                                                            ),
+                                                                        },
                                                                     ),
-                                                                    ident: `bool`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`core::basic::bool`, `Extern`),
@@ -9890,10 +10210,14 @@ Ok(
                                                                     ),
                                                                 },
                                                                 EntityPathExpr::Root {
-                                                                    token_idx: TokenIdx(
-                                                                        304,
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `f32`,
+                                                                            token_idx: TokenIdx(
+                                                                                304,
+                                                                            ),
+                                                                        },
                                                                     ),
-                                                                    ident: `f32`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`core::num::f32`, `Extern`),
@@ -10347,10 +10671,14 @@ Ok(
                                             entity_path_expr_arena: Arena {
                                                 data: [
                                                     EntityPathExpr::Root {
-                                                        token_idx: TokenIdx(
-                                                            351,
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `f32`,
+                                                                token_idx: TokenIdx(
+                                                                    351,
+                                                                ),
+                                                            },
                                                         ),
-                                                        ident: `f32`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::num::f32`, `Extern`),
@@ -10748,10 +11076,14 @@ Ok(
                                                             entity_path_expr_arena: Arena {
                                                                 data: [
                                                                     EntityPathExpr::Root {
-                                                                        token_idx: TokenIdx(
-                                                                            169,
+                                                                        path_name_token: PathNameToken::Ident(
+                                                                            IdentToken {
+                                                                                ident: `Vector2d`,
+                                                                                token_idx: TokenIdx(
+                                                                                    169,
+                                                                                ),
+                                                                            },
                                                                         ),
-                                                                        ident: `Vector2d`,
                                                                         entity_path: EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
                                                                                 TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -10840,10 +11172,14 @@ Ok(
                                                 entity_path_expr_arena: Arena {
                                                     data: [
                                                         EntityPathExpr::Root {
-                                                            token_idx: TokenIdx(
-                                                                370,
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `Vector2d`,
+                                                                    token_idx: TokenIdx(
+                                                                        370,
+                                                                    ),
+                                                                },
                                                             ),
-                                                            ident: `Vector2d`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -10851,10 +11187,14 @@ Ok(
                                                             ),
                                                         },
                                                         EntityPathExpr::Root {
-                                                            token_idx: TokenIdx(
-                                                                373,
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `i32`,
+                                                                    token_idx: TokenIdx(
+                                                                        373,
+                                                                    ),
+                                                                },
                                                             ),
-                                                            ident: `i32`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`core::num::i32`, `Extern`),
@@ -11041,10 +11381,14 @@ Ok(
                                                                     entity_path_expr_arena: Arena {
                                                                         data: [
                                                                             EntityPathExpr::Root {
-                                                                                token_idx: TokenIdx(
-                                                                                    169,
+                                                                                path_name_token: PathNameToken::Ident(
+                                                                                    IdentToken {
+                                                                                        ident: `Vector2d`,
+                                                                                        token_idx: TokenIdx(
+                                                                                            169,
+                                                                                        ),
+                                                                                    },
                                                                                 ),
-                                                                                ident: `Vector2d`,
                                                                                 entity_path: EntityPath::ModuleItem(
                                                                                     ModuleItemPath::Type(
                                                                                         TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -11133,10 +11477,14 @@ Ok(
                                                         entity_path_expr_arena: Arena {
                                                             data: [
                                                                 EntityPathExpr::Root {
-                                                                    token_idx: TokenIdx(
-                                                                        370,
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `Vector2d`,
+                                                                            token_idx: TokenIdx(
+                                                                                370,
+                                                                            ),
+                                                                        },
                                                                     ),
-                                                                    ident: `Vector2d`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -11144,10 +11492,14 @@ Ok(
                                                                     ),
                                                                 },
                                                                 EntityPathExpr::Root {
-                                                                    token_idx: TokenIdx(
-                                                                        373,
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `i32`,
+                                                                            token_idx: TokenIdx(
+                                                                                373,
+                                                                            ),
+                                                                        },
                                                                     ),
-                                                                    ident: `i32`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`core::num::i32`, `Extern`),
@@ -11534,10 +11886,14 @@ Ok(
                                                             entity_path_expr_arena: Arena {
                                                                 data: [
                                                                     EntityPathExpr::Root {
-                                                                        token_idx: TokenIdx(
-                                                                            169,
+                                                                        path_name_token: PathNameToken::Ident(
+                                                                            IdentToken {
+                                                                                ident: `Vector2d`,
+                                                                                token_idx: TokenIdx(
+                                                                                    169,
+                                                                                ),
+                                                                            },
                                                                         ),
-                                                                        ident: `Vector2d`,
                                                                         entity_path: EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
                                                                                 TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -11636,10 +11992,14 @@ Ok(
                                                 entity_path_expr_arena: Arena {
                                                     data: [
                                                         EntityPathExpr::Root {
-                                                            token_idx: TokenIdx(
-                                                                390,
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `Vector2d`,
+                                                                    token_idx: TokenIdx(
+                                                                        390,
+                                                                    ),
+                                                                },
                                                             ),
-                                                            ident: `Vector2d`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -11647,10 +12007,14 @@ Ok(
                                                             ),
                                                         },
                                                         EntityPathExpr::Root {
-                                                            token_idx: TokenIdx(
-                                                                394,
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `bool`,
+                                                                    token_idx: TokenIdx(
+                                                                        394,
+                                                                    ),
+                                                                },
                                                             ),
-                                                            ident: `bool`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`core::basic::bool`, `Extern`),
@@ -11658,10 +12022,14 @@ Ok(
                                                             ),
                                                         },
                                                         EntityPathExpr::Root {
-                                                            token_idx: TokenIdx(
-                                                                397,
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `f32`,
+                                                                    token_idx: TokenIdx(
+                                                                        397,
+                                                                    ),
+                                                                },
                                                             ),
-                                                            ident: `f32`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`core::num::f32`, `Extern`),
@@ -11911,10 +12279,14 @@ Ok(
                                                                     entity_path_expr_arena: Arena {
                                                                         data: [
                                                                             EntityPathExpr::Root {
-                                                                                token_idx: TokenIdx(
-                                                                                    169,
+                                                                                path_name_token: PathNameToken::Ident(
+                                                                                    IdentToken {
+                                                                                        ident: `Vector2d`,
+                                                                                        token_idx: TokenIdx(
+                                                                                            169,
+                                                                                        ),
+                                                                                    },
                                                                                 ),
-                                                                                ident: `Vector2d`,
                                                                                 entity_path: EntityPath::ModuleItem(
                                                                                     ModuleItemPath::Type(
                                                                                         TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -12013,10 +12385,14 @@ Ok(
                                                         entity_path_expr_arena: Arena {
                                                             data: [
                                                                 EntityPathExpr::Root {
-                                                                    token_idx: TokenIdx(
-                                                                        390,
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `Vector2d`,
+                                                                            token_idx: TokenIdx(
+                                                                                390,
+                                                                            ),
+                                                                        },
                                                                     ),
-                                                                    ident: `Vector2d`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -12024,10 +12400,14 @@ Ok(
                                                                     ),
                                                                 },
                                                                 EntityPathExpr::Root {
-                                                                    token_idx: TokenIdx(
-                                                                        394,
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `bool`,
+                                                                            token_idx: TokenIdx(
+                                                                                394,
+                                                                            ),
+                                                                        },
                                                                     ),
-                                                                    ident: `bool`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`core::basic::bool`, `Extern`),
@@ -12035,10 +12415,14 @@ Ok(
                                                                     ),
                                                                 },
                                                                 EntityPathExpr::Root {
-                                                                    token_idx: TokenIdx(
-                                                                        397,
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `f32`,
+                                                                            token_idx: TokenIdx(
+                                                                                397,
+                                                                            ),
+                                                                        },
                                                                     ),
-                                                                    ident: `f32`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`core::num::f32`, `Extern`),
@@ -12687,10 +13071,14 @@ Ok(
                                             entity_path_expr_arena: Arena {
                                                 data: [
                                                     EntityPathExpr::Root {
-                                                        token_idx: TokenIdx(
-                                                            473,
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `f32`,
+                                                                token_idx: TokenIdx(
+                                                                    473,
+                                                                ),
+                                                            },
                                                         ),
-                                                        ident: `f32`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::num::f32`, `Extern`),
@@ -13277,10 +13665,14 @@ Ok(
                                         entity_path_expr_arena: Arena {
                                             data: [
                                                 EntityPathExpr::Root {
-                                                    token_idx: TokenIdx(
-                                                        500,
+                                                    path_name_token: PathNameToken::Ident(
+                                                        IdentToken {
+                                                            ident: `ClosedRange`,
+                                                            token_idx: TokenIdx(
+                                                                500,
+                                                            ),
+                                                        },
                                                     ),
-                                                    ident: `ClosedRange`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -13466,10 +13858,14 @@ Ok(
                                                             entity_path_expr_arena: Arena {
                                                                 data: [
                                                                     EntityPathExpr::Root {
-                                                                        token_idx: TokenIdx(
-                                                                            500,
+                                                                        path_name_token: PathNameToken::Ident(
+                                                                            IdentToken {
+                                                                                ident: `ClosedRange`,
+                                                                                token_idx: TokenIdx(
+                                                                                    500,
+                                                                                ),
+                                                                            },
                                                                         ),
-                                                                        ident: `ClosedRange`,
                                                                         entity_path: EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
                                                                                 TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -13558,10 +13954,14 @@ Ok(
                                                 entity_path_expr_arena: Arena {
                                                     data: [
                                                         EntityPathExpr::Root {
-                                                            token_idx: TokenIdx(
-                                                                507,
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `ClosedRange`,
+                                                                    token_idx: TokenIdx(
+                                                                        507,
+                                                                    ),
+                                                                },
                                                             ),
-                                                            ident: `ClosedRange`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -13569,10 +13969,14 @@ Ok(
                                                             ),
                                                         },
                                                         EntityPathExpr::Root {
-                                                            token_idx: TokenIdx(
-                                                                510,
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `ClosedRange`,
+                                                                    token_idx: TokenIdx(
+                                                                        510,
+                                                                    ),
+                                                                },
                                                             ),
-                                                            ident: `ClosedRange`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -13759,10 +14163,14 @@ Ok(
                                                                     entity_path_expr_arena: Arena {
                                                                         data: [
                                                                             EntityPathExpr::Root {
-                                                                                token_idx: TokenIdx(
-                                                                                    500,
+                                                                                path_name_token: PathNameToken::Ident(
+                                                                                    IdentToken {
+                                                                                        ident: `ClosedRange`,
+                                                                                        token_idx: TokenIdx(
+                                                                                            500,
+                                                                                        ),
+                                                                                    },
                                                                                 ),
-                                                                                ident: `ClosedRange`,
                                                                                 entity_path: EntityPath::ModuleItem(
                                                                                     ModuleItemPath::Type(
                                                                                         TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -13851,10 +14259,14 @@ Ok(
                                                         entity_path_expr_arena: Arena {
                                                             data: [
                                                                 EntityPathExpr::Root {
-                                                                    token_idx: TokenIdx(
-                                                                        507,
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `ClosedRange`,
+                                                                            token_idx: TokenIdx(
+                                                                                507,
+                                                                            ),
+                                                                        },
                                                                     ),
-                                                                    ident: `ClosedRange`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -13862,10 +14274,14 @@ Ok(
                                                                     ),
                                                                 },
                                                                 EntityPathExpr::Root {
-                                                                    token_idx: TokenIdx(
-                                                                        510,
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `ClosedRange`,
+                                                                            token_idx: TokenIdx(
+                                                                                510,
+                                                                            ),
+                                                                        },
                                                                     ),
-                                                                    ident: `ClosedRange`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -14287,10 +14703,14 @@ Ok(
                                             entity_path_expr_arena: Arena {
                                                 data: [
                                                     EntityPathExpr::Root {
-                                                        token_idx: TokenIdx(
-                                                            558,
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `ClosedRange`,
+                                                                token_idx: TokenIdx(
+                                                                    558,
+                                                                ),
+                                                            },
                                                         ),
-                                                        ident: `ClosedRange`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -14724,10 +15144,14 @@ Ok(
                                                             entity_path_expr_arena: Arena {
                                                                 data: [
                                                                     EntityPathExpr::Root {
-                                                                        token_idx: TokenIdx(
-                                                                            500,
+                                                                        path_name_token: PathNameToken::Ident(
+                                                                            IdentToken {
+                                                                                ident: `ClosedRange`,
+                                                                                token_idx: TokenIdx(
+                                                                                    500,
+                                                                                ),
+                                                                            },
                                                                         ),
-                                                                        ident: `ClosedRange`,
                                                                         entity_path: EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
                                                                                 TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -14816,10 +15240,14 @@ Ok(
                                                 entity_path_expr_arena: Arena {
                                                     data: [
                                                         EntityPathExpr::Root {
-                                                            token_idx: TokenIdx(
-                                                                570,
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `f32`,
+                                                                    token_idx: TokenIdx(
+                                                                        570,
+                                                                    ),
+                                                                },
                                                             ),
-                                                            ident: `f32`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`core::num::f32`, `Extern`),
@@ -14827,10 +15255,14 @@ Ok(
                                                             ),
                                                         },
                                                         EntityPathExpr::Root {
-                                                            token_idx: TokenIdx(
-                                                                573,
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `f32`,
+                                                                    token_idx: TokenIdx(
+                                                                        573,
+                                                                    ),
+                                                                },
                                                             ),
-                                                            ident: `f32`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`core::num::f32`, `Extern`),
@@ -15017,10 +15449,14 @@ Ok(
                                                                     entity_path_expr_arena: Arena {
                                                                         data: [
                                                                             EntityPathExpr::Root {
-                                                                                token_idx: TokenIdx(
-                                                                                    500,
+                                                                                path_name_token: PathNameToken::Ident(
+                                                                                    IdentToken {
+                                                                                        ident: `ClosedRange`,
+                                                                                        token_idx: TokenIdx(
+                                                                                            500,
+                                                                                        ),
+                                                                                    },
                                                                                 ),
-                                                                                ident: `ClosedRange`,
                                                                                 entity_path: EntityPath::ModuleItem(
                                                                                     ModuleItemPath::Type(
                                                                                         TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -15109,10 +15545,14 @@ Ok(
                                                         entity_path_expr_arena: Arena {
                                                             data: [
                                                                 EntityPathExpr::Root {
-                                                                    token_idx: TokenIdx(
-                                                                        570,
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `f32`,
+                                                                            token_idx: TokenIdx(
+                                                                                570,
+                                                                            ),
+                                                                        },
                                                                     ),
-                                                                    ident: `f32`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`core::num::f32`, `Extern`),
@@ -15120,10 +15560,14 @@ Ok(
                                                                     ),
                                                                 },
                                                                 EntityPathExpr::Root {
-                                                                    token_idx: TokenIdx(
-                                                                        573,
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `f32`,
+                                                                            token_idx: TokenIdx(
+                                                                                573,
+                                                                            ),
+                                                                        },
                                                                     ),
-                                                                    ident: `f32`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`core::num::f32`, `Extern`),
@@ -15584,10 +16028,14 @@ Ok(
                                         entity_path_expr_arena: Arena {
                                             data: [
                                                 EntityPathExpr::Root {
-                                                    token_idx: TokenIdx(
-                                                        610,
+                                                    path_name_token: PathNameToken::Ident(
+                                                        IdentToken {
+                                                            ident: `BoundingBox`,
+                                                            token_idx: TokenIdx(
+                                                                610,
+                                                            ),
+                                                        },
                                                     ),
-                                                    ident: `BoundingBox`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -15773,10 +16221,14 @@ Ok(
                                                             entity_path_expr_arena: Arena {
                                                                 data: [
                                                                     EntityPathExpr::Root {
-                                                                        token_idx: TokenIdx(
-                                                                            610,
+                                                                        path_name_token: PathNameToken::Ident(
+                                                                            IdentToken {
+                                                                                ident: `BoundingBox`,
+                                                                                token_idx: TokenIdx(
+                                                                                    610,
+                                                                                ),
+                                                                            },
                                                                         ),
-                                                                        ident: `BoundingBox`,
                                                                         entity_path: EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
                                                                                 TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -15865,10 +16317,14 @@ Ok(
                                                 entity_path_expr_arena: Arena {
                                                     data: [
                                                         EntityPathExpr::Root {
-                                                            token_idx: TokenIdx(
-                                                                617,
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `BoundingBox`,
+                                                                    token_idx: TokenIdx(
+                                                                        617,
+                                                                    ),
+                                                                },
                                                             ),
-                                                            ident: `BoundingBox`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -15876,10 +16332,14 @@ Ok(
                                                             ),
                                                         },
                                                         EntityPathExpr::Root {
-                                                            token_idx: TokenIdx(
-                                                                620,
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `RelativeBoundingBox`,
+                                                                    token_idx: TokenIdx(
+                                                                        620,
+                                                                    ),
+                                                                },
                                                             ),
-                                                            ident: `RelativeBoundingBox`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
@@ -16066,10 +16526,14 @@ Ok(
                                                                     entity_path_expr_arena: Arena {
                                                                         data: [
                                                                             EntityPathExpr::Root {
-                                                                                token_idx: TokenIdx(
-                                                                                    610,
+                                                                                path_name_token: PathNameToken::Ident(
+                                                                                    IdentToken {
+                                                                                        ident: `BoundingBox`,
+                                                                                        token_idx: TokenIdx(
+                                                                                            610,
+                                                                                        ),
+                                                                                    },
                                                                                 ),
-                                                                                ident: `BoundingBox`,
                                                                                 entity_path: EntityPath::ModuleItem(
                                                                                     ModuleItemPath::Type(
                                                                                         TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -16158,10 +16622,14 @@ Ok(
                                                         entity_path_expr_arena: Arena {
                                                             data: [
                                                                 EntityPathExpr::Root {
-                                                                    token_idx: TokenIdx(
-                                                                        617,
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `BoundingBox`,
+                                                                            token_idx: TokenIdx(
+                                                                                617,
+                                                                            ),
+                                                                        },
                                                                     ),
-                                                                    ident: `BoundingBox`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -16169,10 +16637,14 @@ Ok(
                                                                     ),
                                                                 },
                                                                 EntityPathExpr::Root {
-                                                                    token_idx: TokenIdx(
-                                                                        620,
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `RelativeBoundingBox`,
+                                                                            token_idx: TokenIdx(
+                                                                                620,
+                                                                            ),
+                                                                        },
                                                                     ),
-                                                                    ident: `RelativeBoundingBox`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
@@ -16454,10 +16926,14 @@ Ok(
                                             entity_path_expr_arena: Arena {
                                                 data: [
                                                     EntityPathExpr::Root {
-                                                        token_idx: TokenIdx(
-                                                            622,
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `RelativeBoundingBox`,
+                                                                token_idx: TokenIdx(
+                                                                    622,
+                                                                ),
+                                                            },
                                                         ),
-                                                        ident: `RelativeBoundingBox`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
@@ -16665,10 +17141,14 @@ Ok(
                                                             entity_path_expr_arena: Arena {
                                                                 data: [
                                                                     EntityPathExpr::Root {
-                                                                        token_idx: TokenIdx(
-                                                                            610,
+                                                                        path_name_token: PathNameToken::Ident(
+                                                                            IdentToken {
+                                                                                ident: `BoundingBox`,
+                                                                                token_idx: TokenIdx(
+                                                                                    610,
+                                                                                ),
+                                                                            },
                                                                         ),
-                                                                        ident: `BoundingBox`,
                                                                         entity_path: EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
                                                                                 TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -16757,10 +17237,14 @@ Ok(
                                                 entity_path_expr_arena: Arena {
                                                     data: [
                                                         EntityPathExpr::Root {
-                                                            token_idx: TokenIdx(
-                                                                652,
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `Point2d`,
+                                                                    token_idx: TokenIdx(
+                                                                        652,
+                                                                    ),
+                                                                },
                                                             ),
-                                                            ident: `Point2d`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -16768,10 +17252,14 @@ Ok(
                                                             ),
                                                         },
                                                         EntityPathExpr::Root {
-                                                            token_idx: TokenIdx(
-                                                                655,
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `RelativePoint2d`,
+                                                                    token_idx: TokenIdx(
+                                                                        655,
+                                                                    ),
+                                                                },
                                                             ),
-                                                            ident: `RelativePoint2d`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
@@ -16958,10 +17446,14 @@ Ok(
                                                                     entity_path_expr_arena: Arena {
                                                                         data: [
                                                                             EntityPathExpr::Root {
-                                                                                token_idx: TokenIdx(
-                                                                                    610,
+                                                                                path_name_token: PathNameToken::Ident(
+                                                                                    IdentToken {
+                                                                                        ident: `BoundingBox`,
+                                                                                        token_idx: TokenIdx(
+                                                                                            610,
+                                                                                        ),
+                                                                                    },
                                                                                 ),
-                                                                                ident: `BoundingBox`,
                                                                                 entity_path: EntityPath::ModuleItem(
                                                                                     ModuleItemPath::Type(
                                                                                         TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -17050,10 +17542,14 @@ Ok(
                                                         entity_path_expr_arena: Arena {
                                                             data: [
                                                                 EntityPathExpr::Root {
-                                                                    token_idx: TokenIdx(
-                                                                        652,
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `Point2d`,
+                                                                            token_idx: TokenIdx(
+                                                                                652,
+                                                                            ),
+                                                                        },
                                                                     ),
-                                                                    ident: `Point2d`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -17061,10 +17557,14 @@ Ok(
                                                                     ),
                                                                 },
                                                                 EntityPathExpr::Root {
-                                                                    token_idx: TokenIdx(
-                                                                        655,
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `RelativePoint2d`,
+                                                                            token_idx: TokenIdx(
+                                                                                655,
+                                                                            ),
+                                                                        },
                                                                     ),
-                                                                    ident: `RelativePoint2d`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
@@ -17346,10 +17846,14 @@ Ok(
                                             entity_path_expr_arena: Arena {
                                                 data: [
                                                     EntityPathExpr::Root {
-                                                        token_idx: TokenIdx(
-                                                            657,
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `RelativePoint2d`,
+                                                                token_idx: TokenIdx(
+                                                                    657,
+                                                                ),
+                                                            },
                                                         ),
-                                                        ident: `RelativePoint2d`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
@@ -17557,10 +18061,14 @@ Ok(
                                                             entity_path_expr_arena: Arena {
                                                                 data: [
                                                                     EntityPathExpr::Root {
-                                                                        token_idx: TokenIdx(
-                                                                            610,
+                                                                        path_name_token: PathNameToken::Ident(
+                                                                            IdentToken {
+                                                                                ident: `BoundingBox`,
+                                                                                token_idx: TokenIdx(
+                                                                                    610,
+                                                                                ),
+                                                                            },
                                                                         ),
-                                                                        ident: `BoundingBox`,
                                                                         entity_path: EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
                                                                                 TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -17639,10 +18147,14 @@ Ok(
                                                 entity_path_expr_arena: Arena {
                                                     data: [
                                                         EntityPathExpr::Root {
-                                                            token_idx: TokenIdx(
-                                                                687,
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `f32`,
+                                                                    token_idx: TokenIdx(
+                                                                        687,
+                                                                    ),
+                                                                },
                                                             ),
-                                                            ident: `f32`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`core::num::f32`, `Extern`),
@@ -17763,10 +18275,14 @@ Ok(
                                                                     entity_path_expr_arena: Arena {
                                                                         data: [
                                                                             EntityPathExpr::Root {
-                                                                                token_idx: TokenIdx(
-                                                                                    610,
+                                                                                path_name_token: PathNameToken::Ident(
+                                                                                    IdentToken {
+                                                                                        ident: `BoundingBox`,
+                                                                                        token_idx: TokenIdx(
+                                                                                            610,
+                                                                                        ),
+                                                                                    },
                                                                                 ),
-                                                                                ident: `BoundingBox`,
                                                                                 entity_path: EntityPath::ModuleItem(
                                                                                     ModuleItemPath::Type(
                                                                                         TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -17845,10 +18361,14 @@ Ok(
                                                         entity_path_expr_arena: Arena {
                                                             data: [
                                                                 EntityPathExpr::Root {
-                                                                    token_idx: TokenIdx(
-                                                                        687,
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `f32`,
+                                                                            token_idx: TokenIdx(
+                                                                                687,
+                                                                            ),
+                                                                        },
                                                                     ),
-                                                                    ident: `f32`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`core::num::f32`, `Extern`),
@@ -18140,10 +18660,14 @@ Ok(
                                                             entity_path_expr_arena: Arena {
                                                                 data: [
                                                                     EntityPathExpr::Root {
-                                                                        token_idx: TokenIdx(
-                                                                            610,
+                                                                        path_name_token: PathNameToken::Ident(
+                                                                            IdentToken {
+                                                                                ident: `BoundingBox`,
+                                                                                token_idx: TokenIdx(
+                                                                                    610,
+                                                                                ),
+                                                                            },
                                                                         ),
-                                                                        ident: `BoundingBox`,
                                                                         entity_path: EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
                                                                                 TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -18222,10 +18746,14 @@ Ok(
                                                 entity_path_expr_arena: Arena {
                                                     data: [
                                                         EntityPathExpr::Root {
-                                                            token_idx: TokenIdx(
-                                                                699,
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `f32`,
+                                                                    token_idx: TokenIdx(
+                                                                        699,
+                                                                    ),
+                                                                },
                                                             ),
-                                                            ident: `f32`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`core::num::f32`, `Extern`),
@@ -18346,10 +18874,14 @@ Ok(
                                                                     entity_path_expr_arena: Arena {
                                                                         data: [
                                                                             EntityPathExpr::Root {
-                                                                                token_idx: TokenIdx(
-                                                                                    610,
+                                                                                path_name_token: PathNameToken::Ident(
+                                                                                    IdentToken {
+                                                                                        ident: `BoundingBox`,
+                                                                                        token_idx: TokenIdx(
+                                                                                            610,
+                                                                                        ),
+                                                                                    },
                                                                                 ),
-                                                                                ident: `BoundingBox`,
                                                                                 entity_path: EntityPath::ModuleItem(
                                                                                     ModuleItemPath::Type(
                                                                                         TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -18428,10 +18960,14 @@ Ok(
                                                         entity_path_expr_arena: Arena {
                                                             data: [
                                                                 EntityPathExpr::Root {
-                                                                    token_idx: TokenIdx(
-                                                                        699,
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `f32`,
+                                                                            token_idx: TokenIdx(
+                                                                                699,
+                                                                            ),
+                                                                        },
                                                                     ),
-                                                                    ident: `f32`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`core::num::f32`, `Extern`),
@@ -18723,10 +19259,14 @@ Ok(
                                                             entity_path_expr_arena: Arena {
                                                                 data: [
                                                                     EntityPathExpr::Root {
-                                                                        token_idx: TokenIdx(
-                                                                            610,
+                                                                        path_name_token: PathNameToken::Ident(
+                                                                            IdentToken {
+                                                                                ident: `BoundingBox`,
+                                                                                token_idx: TokenIdx(
+                                                                                    610,
+                                                                                ),
+                                                                            },
                                                                         ),
-                                                                        ident: `BoundingBox`,
                                                                         entity_path: EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
                                                                                 TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -18805,10 +19345,14 @@ Ok(
                                                 entity_path_expr_arena: Arena {
                                                     data: [
                                                         EntityPathExpr::Root {
-                                                            token_idx: TokenIdx(
-                                                                711,
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `f32`,
+                                                                    token_idx: TokenIdx(
+                                                                        711,
+                                                                    ),
+                                                                },
                                                             ),
-                                                            ident: `f32`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`core::num::f32`, `Extern`),
@@ -18929,10 +19473,14 @@ Ok(
                                                                     entity_path_expr_arena: Arena {
                                                                         data: [
                                                                             EntityPathExpr::Root {
-                                                                                token_idx: TokenIdx(
-                                                                                    610,
+                                                                                path_name_token: PathNameToken::Ident(
+                                                                                    IdentToken {
+                                                                                        ident: `BoundingBox`,
+                                                                                        token_idx: TokenIdx(
+                                                                                            610,
+                                                                                        ),
+                                                                                    },
                                                                                 ),
-                                                                                ident: `BoundingBox`,
                                                                                 entity_path: EntityPath::ModuleItem(
                                                                                     ModuleItemPath::Type(
                                                                                         TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -19011,10 +19559,14 @@ Ok(
                                                         entity_path_expr_arena: Arena {
                                                             data: [
                                                                 EntityPathExpr::Root {
-                                                                    token_idx: TokenIdx(
-                                                                        711,
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `f32`,
+                                                                            token_idx: TokenIdx(
+                                                                                711,
+                                                                            ),
+                                                                        },
                                                                     ),
-                                                                    ident: `f32`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`core::num::f32`, `Extern`),
@@ -19306,10 +19858,14 @@ Ok(
                                                             entity_path_expr_arena: Arena {
                                                                 data: [
                                                                     EntityPathExpr::Root {
-                                                                        token_idx: TokenIdx(
-                                                                            610,
+                                                                        path_name_token: PathNameToken::Ident(
+                                                                            IdentToken {
+                                                                                ident: `BoundingBox`,
+                                                                                token_idx: TokenIdx(
+                                                                                    610,
+                                                                                ),
+                                                                            },
                                                                         ),
-                                                                        ident: `BoundingBox`,
                                                                         entity_path: EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
                                                                                 TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -19388,10 +19944,14 @@ Ok(
                                                 entity_path_expr_arena: Arena {
                                                     data: [
                                                         EntityPathExpr::Root {
-                                                            token_idx: TokenIdx(
-                                                                723,
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `f32`,
+                                                                    token_idx: TokenIdx(
+                                                                        723,
+                                                                    ),
+                                                                },
                                                             ),
-                                                            ident: `f32`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`core::num::f32`, `Extern`),
@@ -19512,10 +20072,14 @@ Ok(
                                                                     entity_path_expr_arena: Arena {
                                                                         data: [
                                                                             EntityPathExpr::Root {
-                                                                                token_idx: TokenIdx(
-                                                                                    610,
+                                                                                path_name_token: PathNameToken::Ident(
+                                                                                    IdentToken {
+                                                                                        ident: `BoundingBox`,
+                                                                                        token_idx: TokenIdx(
+                                                                                            610,
+                                                                                        ),
+                                                                                    },
                                                                                 ),
-                                                                                ident: `BoundingBox`,
                                                                                 entity_path: EntityPath::ModuleItem(
                                                                                     ModuleItemPath::Type(
                                                                                         TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -19594,10 +20158,14 @@ Ok(
                                                         entity_path_expr_arena: Arena {
                                                             data: [
                                                                 EntityPathExpr::Root {
-                                                                    token_idx: TokenIdx(
-                                                                        723,
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `f32`,
+                                                                            token_idx: TokenIdx(
+                                                                                723,
+                                                                            ),
+                                                                        },
                                                                     ),
-                                                                    ident: `f32`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`core::num::f32`, `Extern`),
@@ -19838,10 +20406,14 @@ Ok(
                                         entity_path_expr_arena: Arena {
                                             data: [
                                                 EntityPathExpr::Root {
-                                                    token_idx: TokenIdx(
-                                                        744,
+                                                    path_name_token: PathNameToken::Ident(
+                                                        IdentToken {
+                                                            ident: `RelativeBoundingBox`,
+                                                            token_idx: TokenIdx(
+                                                                744,
+                                                            ),
+                                                        },
                                                     ),
-                                                    ident: `RelativeBoundingBox`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
@@ -20027,10 +20599,14 @@ Ok(
                                                             entity_path_expr_arena: Arena {
                                                                 data: [
                                                                     EntityPathExpr::Root {
-                                                                        token_idx: TokenIdx(
-                                                                            744,
+                                                                        path_name_token: PathNameToken::Ident(
+                                                                            IdentToken {
+                                                                                ident: `RelativeBoundingBox`,
+                                                                                token_idx: TokenIdx(
+                                                                                    744,
+                                                                                ),
+                                                                            },
                                                                         ),
-                                                                        ident: `RelativeBoundingBox`,
                                                                         entity_path: EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
                                                                                 TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
@@ -20109,10 +20685,14 @@ Ok(
                                                 entity_path_expr_arena: Arena {
                                                     data: [
                                                         EntityPathExpr::Root {
-                                                            token_idx: TokenIdx(
-                                                                751,
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `f32`,
+                                                                    token_idx: TokenIdx(
+                                                                        751,
+                                                                    ),
+                                                                },
                                                             ),
-                                                            ident: `f32`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`core::num::f32`, `Extern`),
@@ -20233,10 +20813,14 @@ Ok(
                                                                     entity_path_expr_arena: Arena {
                                                                         data: [
                                                                             EntityPathExpr::Root {
-                                                                                token_idx: TokenIdx(
-                                                                                    744,
+                                                                                path_name_token: PathNameToken::Ident(
+                                                                                    IdentToken {
+                                                                                        ident: `RelativeBoundingBox`,
+                                                                                        token_idx: TokenIdx(
+                                                                                            744,
+                                                                                        ),
+                                                                                    },
                                                                                 ),
-                                                                                ident: `RelativeBoundingBox`,
                                                                                 entity_path: EntityPath::ModuleItem(
                                                                                     ModuleItemPath::Type(
                                                                                         TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
@@ -20315,10 +20899,14 @@ Ok(
                                                         entity_path_expr_arena: Arena {
                                                             data: [
                                                                 EntityPathExpr::Root {
-                                                                    token_idx: TokenIdx(
-                                                                        751,
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `f32`,
+                                                                            token_idx: TokenIdx(
+                                                                                751,
+                                                                            ),
+                                                                        },
                                                                     ),
-                                                                    ident: `f32`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`core::num::f32`, `Extern`),
@@ -20610,10 +21198,14 @@ Ok(
                                                             entity_path_expr_arena: Arena {
                                                                 data: [
                                                                     EntityPathExpr::Root {
-                                                                        token_idx: TokenIdx(
-                                                                            744,
+                                                                        path_name_token: PathNameToken::Ident(
+                                                                            IdentToken {
+                                                                                ident: `RelativeBoundingBox`,
+                                                                                token_idx: TokenIdx(
+                                                                                    744,
+                                                                                ),
+                                                                            },
                                                                         ),
-                                                                        ident: `RelativeBoundingBox`,
                                                                         entity_path: EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
                                                                                 TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
@@ -20692,10 +21284,14 @@ Ok(
                                                 entity_path_expr_arena: Arena {
                                                     data: [
                                                         EntityPathExpr::Root {
-                                                            token_idx: TokenIdx(
-                                                                763,
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `f32`,
+                                                                    token_idx: TokenIdx(
+                                                                        763,
+                                                                    ),
+                                                                },
                                                             ),
-                                                            ident: `f32`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`core::num::f32`, `Extern`),
@@ -20816,10 +21412,14 @@ Ok(
                                                                     entity_path_expr_arena: Arena {
                                                                         data: [
                                                                             EntityPathExpr::Root {
-                                                                                token_idx: TokenIdx(
-                                                                                    744,
+                                                                                path_name_token: PathNameToken::Ident(
+                                                                                    IdentToken {
+                                                                                        ident: `RelativeBoundingBox`,
+                                                                                        token_idx: TokenIdx(
+                                                                                            744,
+                                                                                        ),
+                                                                                    },
                                                                                 ),
-                                                                                ident: `RelativeBoundingBox`,
                                                                                 entity_path: EntityPath::ModuleItem(
                                                                                     ModuleItemPath::Type(
                                                                                         TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
@@ -20898,10 +21498,14 @@ Ok(
                                                         entity_path_expr_arena: Arena {
                                                             data: [
                                                                 EntityPathExpr::Root {
-                                                                    token_idx: TokenIdx(
-                                                                        763,
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `f32`,
+                                                                            token_idx: TokenIdx(
+                                                                                763,
+                                                                            ),
+                                                                        },
                                                                     ),
-                                                                    ident: `f32`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`core::num::f32`, `Extern`),
@@ -21193,10 +21797,14 @@ Ok(
                                                             entity_path_expr_arena: Arena {
                                                                 data: [
                                                                     EntityPathExpr::Root {
-                                                                        token_idx: TokenIdx(
-                                                                            744,
+                                                                        path_name_token: PathNameToken::Ident(
+                                                                            IdentToken {
+                                                                                ident: `RelativeBoundingBox`,
+                                                                                token_idx: TokenIdx(
+                                                                                    744,
+                                                                                ),
+                                                                            },
                                                                         ),
-                                                                        ident: `RelativeBoundingBox`,
                                                                         entity_path: EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
                                                                                 TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
@@ -21275,10 +21883,14 @@ Ok(
                                                 entity_path_expr_arena: Arena {
                                                     data: [
                                                         EntityPathExpr::Root {
-                                                            token_idx: TokenIdx(
-                                                                775,
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `f32`,
+                                                                    token_idx: TokenIdx(
+                                                                        775,
+                                                                    ),
+                                                                },
                                                             ),
-                                                            ident: `f32`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`core::num::f32`, `Extern`),
@@ -21399,10 +22011,14 @@ Ok(
                                                                     entity_path_expr_arena: Arena {
                                                                         data: [
                                                                             EntityPathExpr::Root {
-                                                                                token_idx: TokenIdx(
-                                                                                    744,
+                                                                                path_name_token: PathNameToken::Ident(
+                                                                                    IdentToken {
+                                                                                        ident: `RelativeBoundingBox`,
+                                                                                        token_idx: TokenIdx(
+                                                                                            744,
+                                                                                        ),
+                                                                                    },
                                                                                 ),
-                                                                                ident: `RelativeBoundingBox`,
                                                                                 entity_path: EntityPath::ModuleItem(
                                                                                     ModuleItemPath::Type(
                                                                                         TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
@@ -21481,10 +22097,14 @@ Ok(
                                                         entity_path_expr_arena: Arena {
                                                             data: [
                                                                 EntityPathExpr::Root {
-                                                                    token_idx: TokenIdx(
-                                                                        775,
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `f32`,
+                                                                            token_idx: TokenIdx(
+                                                                                775,
+                                                                            ),
+                                                                        },
                                                                     ),
-                                                                    ident: `f32`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`core::num::f32`, `Extern`),
@@ -21776,10 +22396,14 @@ Ok(
                                                             entity_path_expr_arena: Arena {
                                                                 data: [
                                                                     EntityPathExpr::Root {
-                                                                        token_idx: TokenIdx(
-                                                                            744,
+                                                                        path_name_token: PathNameToken::Ident(
+                                                                            IdentToken {
+                                                                                ident: `RelativeBoundingBox`,
+                                                                                token_idx: TokenIdx(
+                                                                                    744,
+                                                                                ),
+                                                                            },
                                                                         ),
-                                                                        ident: `RelativeBoundingBox`,
                                                                         entity_path: EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
                                                                                 TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
@@ -21858,10 +22482,14 @@ Ok(
                                                 entity_path_expr_arena: Arena {
                                                     data: [
                                                         EntityPathExpr::Root {
-                                                            token_idx: TokenIdx(
-                                                                787,
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `f32`,
+                                                                    token_idx: TokenIdx(
+                                                                        787,
+                                                                    ),
+                                                                },
                                                             ),
-                                                            ident: `f32`,
                                                             entity_path: EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`core::num::f32`, `Extern`),
@@ -21982,10 +22610,14 @@ Ok(
                                                                     entity_path_expr_arena: Arena {
                                                                         data: [
                                                                             EntityPathExpr::Root {
-                                                                                token_idx: TokenIdx(
-                                                                                    744,
+                                                                                path_name_token: PathNameToken::Ident(
+                                                                                    IdentToken {
+                                                                                        ident: `RelativeBoundingBox`,
+                                                                                        token_idx: TokenIdx(
+                                                                                            744,
+                                                                                        ),
+                                                                                    },
                                                                                 ),
-                                                                                ident: `RelativeBoundingBox`,
                                                                                 entity_path: EntityPath::ModuleItem(
                                                                                     ModuleItemPath::Type(
                                                                                         TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
@@ -22064,10 +22696,14 @@ Ok(
                                                         entity_path_expr_arena: Arena {
                                                             data: [
                                                                 EntityPathExpr::Root {
-                                                                    token_idx: TokenIdx(
-                                                                        787,
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `f32`,
+                                                                            token_idx: TokenIdx(
+                                                                                787,
+                                                                            ),
+                                                                        },
                                                                     ),
-                                                                    ident: `f32`,
                                                                     entity_path: EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`core::num::f32`, `Extern`),

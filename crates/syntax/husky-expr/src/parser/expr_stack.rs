@@ -163,6 +163,10 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
     /// and `top_expr` as an argument;
     /// - otherwise just adds it in the trivial way
     pub(super) fn push_top_expr(&mut self, top_expr: TopExpr) {
+        // this is for guaranteeing that application is left associative
+        if self.complete_expr().is_some() {
+            self.reduce(Precedence::Application)
+        };
         if let Some(function) = self.take_complete_expr() {
             self.push_unfinished_expr(IncompleteExpr::Application { function });
         }
@@ -235,7 +239,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     })
                 }
                 IncompleteExpr::Application { function } => {
-                    let argument = self.take_complete_expr().unwrap();
+                    let argument = self.take_complete_expr().expect("");
                     let function = self.alloc_expr(function);
                     let argument = self.alloc_expr(argument);
                     self.stack.complete_expr =

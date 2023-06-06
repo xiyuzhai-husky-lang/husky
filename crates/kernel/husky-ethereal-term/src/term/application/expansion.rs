@@ -14,7 +14,7 @@ impl EtherealTerm {
                     function: TermFunctionReduced::TypeOntology(path),
                     arguments: None,
                 },
-                TermEntityPath::TypeConstructor(_) => todo!(),
+                TermEntityPath::TypeInstance(_) => todo!(),
             },
             _ => ApplicationExpansion {
                 function: TermFunctionReduced::Other(self),

@@ -130,10 +130,14 @@ Ok(
                                             entity_path_expr_arena: Arena {
                                                 data: [
                                                     EntityPathExpr::Root {
-                                                        token_idx: TokenIdx(
-                                                            10,
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `Prop`,
+                                                                token_idx: TokenIdx(
+                                                                    10,
+                                                                ),
+                                                            },
                                                         ),
-                                                        ident: `Prop`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::logic::Prop`, `Extern`),
@@ -141,10 +145,14 @@ Ok(
                                                         ),
                                                     },
                                                     EntityPathExpr::Root {
-                                                        token_idx: TokenIdx(
-                                                            14,
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `Prop`,
+                                                                token_idx: TokenIdx(
+                                                                    14,
+                                                                ),
+                                                            },
                                                         ),
-                                                        ident: `Prop`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::logic::Prop`, `Extern`),
@@ -374,10 +382,14 @@ Ok(
                                             entity_path_expr_arena: Arena {
                                                 data: [
                                                     EntityPathExpr::Root {
-                                                        token_idx: TokenIdx(
-                                                            32,
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `Prop`,
+                                                                token_idx: TokenIdx(
+                                                                    32,
+                                                                ),
+                                                            },
                                                         ),
-                                                        ident: `Prop`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::logic::Prop`, `Extern`),
@@ -385,10 +397,14 @@ Ok(
                                                         ),
                                                     },
                                                     EntityPathExpr::Root {
-                                                        token_idx: TokenIdx(
-                                                            36,
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `Prop`,
+                                                                token_idx: TokenIdx(
+                                                                    36,
+                                                                ),
+                                                            },
                                                         ),
-                                                        ident: `Prop`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::logic::Prop`, `Extern`),

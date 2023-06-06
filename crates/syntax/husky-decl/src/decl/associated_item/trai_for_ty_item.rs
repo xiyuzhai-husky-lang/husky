@@ -54,7 +54,7 @@ impl TraitForTypeItemDecl {
         }
     }
 
-    pub fn path(self, db: &dyn DeclDb) -> Option<TraitForTypeItemPath> {
+    pub fn path(self, db: &dyn DeclDb) -> TraitForTypeItemPath {
         match self {
             TraitForTypeItemDecl::AssociatedFn(_) => todo!(),
             TraitForTypeItemDecl::MethodFn(decl) => decl.path(db),
@@ -65,55 +65,31 @@ impl TraitForTypeItemDecl {
 }
 
 impl<'a> DeclParseContext<'a> {
-    pub(super) fn parse_trai_for_ty_method_decl(
+    pub(super) fn parse_trai_for_ty_item_decl(
         &self,
+        trai_item_kind: TraitItemKind,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
         associated_item: AssociatedItem,
         saved_stream_state: TokenStreamState,
-    ) -> DeclResult<TraitForTypeMethodFnDecl> {
-        let Ok(impl_decl) = associated_item.impl_block(self.db()).decl(
-            self.db()
-        ) else {
-            return Err(
-                DerivedDeclError::UnableToParseImplDeclForTyAsTraitMethodFnDecl.into()
-            )
-        };
-        let mut parser = self.expr_parser(
-            DeclRegionPath::AssociatedItem(associated_item.id(self.db())),
-            Some(impl_decl.expr_region(self.db())),
-            AllowSelfType::True,
-            AllowSelfValue::True,
-        );
-        let mut ctx = parser.ctx(None, token_group_idx, saved_stream_state);
-        let implicit_parameter_decl_list = ctx.parse()?;
-        let path = match associated_item.path(self.db()) {
-            Some(AssociatedItemPath::TraitForTypeItem(path)) => Some(path),
-            None => None,
-            _ => unreachable!(),
-        };
-        let parameter_decl_list =
-            ctx.parse_expected(OriginalDeclExprError::ExpectedParameterDeclList)?;
-
-        let curry_token = ctx.parse()?;
-        let return_ty = if curry_token.is_some() {
-            Some(ctx.parse_expected(OriginalDeclExprError::ExpectedOutputType)?)
-        } else {
-            None
-        };
-        let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectedEolColon)?;
-        Ok(TraitForTypeMethodFnDecl::new(
-            self.db(),
-            path,
-            associated_item,
-            ast_idx,
-            parser.finish(),
-            implicit_parameter_decl_list,
-            parameter_decl_list,
-            curry_token,
-            return_ty,
-            eol_colon,
-        )
-        .into())
+    ) -> DeclResult<TraitForTypeItemDecl> {
+        Ok(match trai_item_kind {
+            TraitItemKind::MethodFn => self
+                .parse_trai_for_ty_method_fn_decl(
+                    ast_idx,
+                    token_group_idx,
+                    associated_item,
+                    saved_stream_state,
+                )?
+                .into(),
+            TraitItemKind::AssociatedType => self
+                .parse_trai_for_ty_associated_ty_decl(
+                    ast_idx,
+                    token_group_idx,
+                    associated_item,
+                    saved_stream_state,
+                )?
+                .into(),
+        })
     }
 }

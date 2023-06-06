@@ -48,7 +48,7 @@ impl AssociatedItemDecl {
         match self {
             AssociatedItemDecl::TypeItem(decl) => decl.path(db).map(|path| path.into()),
             AssociatedItemDecl::TraitItem(decl) => Some(decl.path(db).into()),
-            AssociatedItemDecl::TraitForTypeItem(decl) => decl.path(db).map(|path| path.into()),
+            AssociatedItemDecl::TraitForTypeItem(decl) => Some(decl.path(db).into()),
         }
     }
 }
@@ -79,26 +79,24 @@ impl<'a> DeclParseContext<'a> {
                 ..
             } => match associated_item_kind {
                 AssociatedItemKind::TraitItem(_) => todo!(),
-                AssociatedItemKind::TypeItem(ty_item_kind) => self.parse_ty_item_decl(
-                    ty_item_kind,
-                    ast_idx,
-                    token_group_idx,
-                    associated_item,
-                    saved_stream_state,
-                )?,
-                AssociatedItemKind::TraitForTypeItem(trai_for_ty_item_kind) => {
-                    AssociatedItemDecl::TraitForTypeItem(match trai_for_ty_item_kind {
-                        TraitItemKind::MethodFn => self
-                            .parse_trai_for_ty_method_decl(
-                                ast_idx,
-                                token_group_idx,
-                                associated_item,
-                                saved_stream_state,
-                            )?
-                            .into(),
-                        TraitItemKind::AssociatedType => todo!(),
-                    })
-                }
+                AssociatedItemKind::TypeItem(ty_item_kind) => self
+                    .parse_ty_item_decl(
+                        ty_item_kind,
+                        ast_idx,
+                        token_group_idx,
+                        associated_item,
+                        saved_stream_state,
+                    )?
+                    .into(),
+                AssociatedItemKind::TraitForTypeItem(trai_item_kind) => self
+                    .parse_trai_for_ty_item_decl(
+                        trai_item_kind,
+                        ast_idx,
+                        token_group_idx,
+                        associated_item,
+                        saved_stream_state,
+                    )?
+                    .into(),
             },
             _ => unreachable!(),
         })

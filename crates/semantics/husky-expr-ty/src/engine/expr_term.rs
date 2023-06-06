@@ -130,7 +130,7 @@ impl<'a> ExprTypeEngine<'a> {
                         ExprDisambiguation::TypePath(disambiguation) => Ok(match disambiguation {
                             TypePathDisambiguation::Ontology => TermEntityPath::TypeOntology(path),
                             TypePathDisambiguation::Constructor => {
-                                TermEntityPath::TypeConstructor(path)
+                                TermEntityPath::TypeInstance(path)
                             }
                         }
                         .into()),

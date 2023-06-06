@@ -17,11 +17,11 @@ pub enum UnresolvedTermLiteral {
 impl DeclarativeTermLiteral {
     pub(crate) fn show_with_db_fmt(
         self,
-        _f: &mut std::fmt::Formatter<'_>,
+        f: &mut std::fmt::Formatter<'_>,
         _db: &dyn DeclarativeTermDb,
         _ctx: &mut DeclarativeTermShowContext,
     ) -> std::fmt::Result {
-        todo!()
+        f.write_str("DeclarativeTermLiteralTodo")
     }
 }
 
