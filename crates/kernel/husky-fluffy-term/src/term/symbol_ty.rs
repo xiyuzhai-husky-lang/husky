@@ -67,7 +67,7 @@ impl SymbolType {
                     };
                     SolidTerm::new(engine.fluffy_term_region_mut().solid_terms_mut(), data).into()
                 }
-                TermEntityPath::TypeConstructor(_) => todo!(),
+                TermEntityPath::TypeInstance(_) => todo!(),
             },
             FluffyTerm::Category(term) => match place {
                 Place::Const => term.into(),

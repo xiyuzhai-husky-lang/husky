@@ -17,7 +17,7 @@ pub(super) fn ethereal_term_data<'a>(
                 arguments: &[],
                 ty_ethereal_term: Some(path.into()),
             },
-            TermEntityPath::TypeConstructor(_) => todo!(),
+            TermEntityPath::TypeInstance(_) => todo!(),
         },
         EtherealTerm::Category(term) => FluffyTermData::Category(term),
         EtherealTerm::Universe(_) => todo!(),

@@ -174,8 +174,8 @@ impl<'a> DeclParseContext<'a> {
         token_group_idx: TokenGroupIdx,
         associated_item: AssociatedItem,
         saved_stream_state: TokenStreamState,
-    ) -> Result<AssociatedItemDecl, DeclError> {
-        Ok(AssociatedItemDecl::TypeItem(match ty_item_kind {
+    ) -> Result<TypeItemDecl, DeclError> {
+        Ok(match ty_item_kind {
             TypeItemKind::MethodFn => self
                 .parse_ty_method_decl(
                     ast_idx,
@@ -202,7 +202,7 @@ impl<'a> DeclParseContext<'a> {
                 .into(),
             TypeItemKind::AssociatedVal => todo!(),
             TypeItemKind::AssociatedType => todo!(),
-        }))
+        })
     }
 }
 

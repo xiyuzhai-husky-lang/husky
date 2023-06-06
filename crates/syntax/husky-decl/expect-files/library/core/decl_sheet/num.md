@@ -1676,14 +1676,12 @@ Ok(
                         AssociatedItemDecl::TraitForTypeItem(
                             TraitForTypeItemDecl::MethodFn(
                                 TraitForTypeMethodFnDecl {
-                                    path: Some(
-                                        TraitForTypeItemPath {
-                                            parent_ty: TypePath(`core::num::i8`, `Extern`),
-                                            trai: TraitPath(`core::ops::Add`),
-                                            ident: `add`,
-                                            item_kind: MethodFn,
-                                        },
-                                    ),
+                                    path: TraitForTypeItemPath {
+                                        parent_ty: TypePath(`core::num::i8`, `Extern`),
+                                        trai: TraitPath(`core::ops::Add`),
+                                        ident: `add`,
+                                        item_kind: MethodFn,
+                                    },
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::TraitForType(
@@ -1745,6 +1743,55 @@ Ok(
                                         is_generic: false,
                                     },
                                     ast_idx: 1,
+                                    implicit_parameter_decl_list: None,
+                                    explicit_parameter_decl_list: ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
+                                            TokenIdx(
+                                                50,
+                                            ),
+                                        ),
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        regular_parameters: [
+                                            RegularParameterDeclPattern {
+                                                pattern: 0,
+                                                variables: ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                                colon: ColonToken(
+                                                    TokenIdx(
+                                                        52,
+                                                    ),
+                                                ),
+                                                ty: 0,
+                                            },
+                                        ],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                54,
+                                            ),
+                                        ),
+                                    },
+                                    curry_token: Some(
+                                        CurryToken(
+                                            TokenIdx(
+                                                55,
+                                            ),
+                                        ),
+                                    ),
+                                    return_ty: Some(
+                                        ReturnTypeExpr {
+                                            expr: 1,
+                                        },
+                                    ),
+                                    eol_colon: EolToken::Semicolon(
+                                        EolSemicolonToken {
+                                            token_idx: TokenIdx(
+                                                57,
+                                            ),
+                                        },
+                                    ),
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
@@ -2057,55 +2104,6 @@ Ok(
                                             ],
                                         },
                                     },
-                                    implicit_parameter_decl_list: None,
-                                    explicit_parameter_decl_list: ExplicitParameterDeclList {
-                                        lpar: LeftParenthesisToken(
-                                            TokenIdx(
-                                                50,
-                                            ),
-                                        ),
-                                        self_parameter: None,
-                                        comma_after_self_parameter: None,
-                                        regular_parameters: [
-                                            RegularParameterDeclPattern {
-                                                pattern: 0,
-                                                variables: ArenaIdxRange(
-                                                    0..1,
-                                                ),
-                                                colon: ColonToken(
-                                                    TokenIdx(
-                                                        52,
-                                                    ),
-                                                ),
-                                                ty: 0,
-                                            },
-                                        ],
-                                        commas: [],
-                                        rpar: RightParenthesisToken(
-                                            TokenIdx(
-                                                54,
-                                            ),
-                                        ),
-                                    },
-                                    curry_token: Some(
-                                        CurryToken(
-                                            TokenIdx(
-                                                55,
-                                            ),
-                                        ),
-                                    ),
-                                    return_ty: Some(
-                                        ReturnTypeExpr {
-                                            expr: 1,
-                                        },
-                                    ),
-                                    eol_colon: EolToken::Semicolon(
-                                        EolSemicolonToken {
-                                            token_idx: TokenIdx(
-                                                57,
-                                            ),
-                                        },
-                                    ),
                                 },
                             ),
                         ),
@@ -2793,14 +2791,12 @@ Ok(
                         AssociatedItemDecl::TraitForTypeItem(
                             TraitForTypeItemDecl::MethodFn(
                                 TraitForTypeMethodFnDecl {
-                                    path: Some(
-                                        TraitForTypeItemPath {
-                                            parent_ty: TypePath(`core::num::i16`, `Extern`),
-                                            trai: TraitPath(`core::ops::Add`),
-                                            ident: `add`,
-                                            item_kind: MethodFn,
-                                        },
-                                    ),
+                                    path: TraitForTypeItemPath {
+                                        parent_ty: TypePath(`core::num::i16`, `Extern`),
+                                        trai: TraitPath(`core::ops::Add`),
+                                        ident: `add`,
+                                        item_kind: MethodFn,
+                                    },
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::TraitForType(
@@ -2862,6 +2858,55 @@ Ok(
                                         is_generic: false,
                                     },
                                     ast_idx: 3,
+                                    implicit_parameter_decl_list: None,
+                                    explicit_parameter_decl_list: ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
+                                            TokenIdx(
+                                                102,
+                                            ),
+                                        ),
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        regular_parameters: [
+                                            RegularParameterDeclPattern {
+                                                pattern: 0,
+                                                variables: ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                                colon: ColonToken(
+                                                    TokenIdx(
+                                                        104,
+                                                    ),
+                                                ),
+                                                ty: 0,
+                                            },
+                                        ],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                106,
+                                            ),
+                                        ),
+                                    },
+                                    curry_token: Some(
+                                        CurryToken(
+                                            TokenIdx(
+                                                107,
+                                            ),
+                                        ),
+                                    ),
+                                    return_ty: Some(
+                                        ReturnTypeExpr {
+                                            expr: 1,
+                                        },
+                                    ),
+                                    eol_colon: EolToken::Semicolon(
+                                        EolSemicolonToken {
+                                            token_idx: TokenIdx(
+                                                109,
+                                            ),
+                                        },
+                                    ),
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
@@ -3174,55 +3219,6 @@ Ok(
                                             ],
                                         },
                                     },
-                                    implicit_parameter_decl_list: None,
-                                    explicit_parameter_decl_list: ExplicitParameterDeclList {
-                                        lpar: LeftParenthesisToken(
-                                            TokenIdx(
-                                                102,
-                                            ),
-                                        ),
-                                        self_parameter: None,
-                                        comma_after_self_parameter: None,
-                                        regular_parameters: [
-                                            RegularParameterDeclPattern {
-                                                pattern: 0,
-                                                variables: ArenaIdxRange(
-                                                    0..1,
-                                                ),
-                                                colon: ColonToken(
-                                                    TokenIdx(
-                                                        104,
-                                                    ),
-                                                ),
-                                                ty: 0,
-                                            },
-                                        ],
-                                        commas: [],
-                                        rpar: RightParenthesisToken(
-                                            TokenIdx(
-                                                106,
-                                            ),
-                                        ),
-                                    },
-                                    curry_token: Some(
-                                        CurryToken(
-                                            TokenIdx(
-                                                107,
-                                            ),
-                                        ),
-                                    ),
-                                    return_ty: Some(
-                                        ReturnTypeExpr {
-                                            expr: 1,
-                                        },
-                                    ),
-                                    eol_colon: EolToken::Semicolon(
-                                        EolSemicolonToken {
-                                            token_idx: TokenIdx(
-                                                109,
-                                            ),
-                                        },
-                                    ),
                                 },
                             ),
                         ),
@@ -3910,14 +3906,12 @@ Ok(
                         AssociatedItemDecl::TraitForTypeItem(
                             TraitForTypeItemDecl::MethodFn(
                                 TraitForTypeMethodFnDecl {
-                                    path: Some(
-                                        TraitForTypeItemPath {
-                                            parent_ty: TypePath(`core::num::i32`, `Extern`),
-                                            trai: TraitPath(`core::ops::Add`),
-                                            ident: `add`,
-                                            item_kind: MethodFn,
-                                        },
-                                    ),
+                                    path: TraitForTypeItemPath {
+                                        parent_ty: TypePath(`core::num::i32`, `Extern`),
+                                        trai: TraitPath(`core::ops::Add`),
+                                        ident: `add`,
+                                        item_kind: MethodFn,
+                                    },
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::TraitForType(
@@ -3981,6 +3975,55 @@ Ok(
                                         is_generic: false,
                                     },
                                     ast_idx: 5,
+                                    implicit_parameter_decl_list: None,
+                                    explicit_parameter_decl_list: ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
+                                            TokenIdx(
+                                                153,
+                                            ),
+                                        ),
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        regular_parameters: [
+                                            RegularParameterDeclPattern {
+                                                pattern: 0,
+                                                variables: ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                                colon: ColonToken(
+                                                    TokenIdx(
+                                                        155,
+                                                    ),
+                                                ),
+                                                ty: 0,
+                                            },
+                                        ],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                157,
+                                            ),
+                                        ),
+                                    },
+                                    curry_token: Some(
+                                        CurryToken(
+                                            TokenIdx(
+                                                158,
+                                            ),
+                                        ),
+                                    ),
+                                    return_ty: Some(
+                                        ReturnTypeExpr {
+                                            expr: 1,
+                                        },
+                                    ),
+                                    eol_colon: EolToken::Semicolon(
+                                        EolSemicolonToken {
+                                            token_idx: TokenIdx(
+                                                160,
+                                            ),
+                                        },
+                                    ),
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
@@ -4293,55 +4336,6 @@ Ok(
                                             ],
                                         },
                                     },
-                                    implicit_parameter_decl_list: None,
-                                    explicit_parameter_decl_list: ExplicitParameterDeclList {
-                                        lpar: LeftParenthesisToken(
-                                            TokenIdx(
-                                                153,
-                                            ),
-                                        ),
-                                        self_parameter: None,
-                                        comma_after_self_parameter: None,
-                                        regular_parameters: [
-                                            RegularParameterDeclPattern {
-                                                pattern: 0,
-                                                variables: ArenaIdxRange(
-                                                    0..1,
-                                                ),
-                                                colon: ColonToken(
-                                                    TokenIdx(
-                                                        155,
-                                                    ),
-                                                ),
-                                                ty: 0,
-                                            },
-                                        ],
-                                        commas: [],
-                                        rpar: RightParenthesisToken(
-                                            TokenIdx(
-                                                157,
-                                            ),
-                                        ),
-                                    },
-                                    curry_token: Some(
-                                        CurryToken(
-                                            TokenIdx(
-                                                158,
-                                            ),
-                                        ),
-                                    ),
-                                    return_ty: Some(
-                                        ReturnTypeExpr {
-                                            expr: 1,
-                                        },
-                                    ),
-                                    eol_colon: EolToken::Semicolon(
-                                        EolSemicolonToken {
-                                            token_idx: TokenIdx(
-                                                160,
-                                            ),
-                                        },
-                                    ),
                                 },
                             ),
                         ),
@@ -5029,14 +5023,12 @@ Ok(
                         AssociatedItemDecl::TraitForTypeItem(
                             TraitForTypeItemDecl::MethodFn(
                                 TraitForTypeMethodFnDecl {
-                                    path: Some(
-                                        TraitForTypeItemPath {
-                                            parent_ty: TypePath(`core::num::i64`, `Extern`),
-                                            trai: TraitPath(`core::ops::Add`),
-                                            ident: `add`,
-                                            item_kind: MethodFn,
-                                        },
-                                    ),
+                                    path: TraitForTypeItemPath {
+                                        parent_ty: TypePath(`core::num::i64`, `Extern`),
+                                        trai: TraitPath(`core::ops::Add`),
+                                        ident: `add`,
+                                        item_kind: MethodFn,
+                                    },
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::TraitForType(
@@ -5098,6 +5090,55 @@ Ok(
                                         is_generic: false,
                                     },
                                     ast_idx: 7,
+                                    implicit_parameter_decl_list: None,
+                                    explicit_parameter_decl_list: ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
+                                            TokenIdx(
+                                                205,
+                                            ),
+                                        ),
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        regular_parameters: [
+                                            RegularParameterDeclPattern {
+                                                pattern: 0,
+                                                variables: ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                                colon: ColonToken(
+                                                    TokenIdx(
+                                                        207,
+                                                    ),
+                                                ),
+                                                ty: 0,
+                                            },
+                                        ],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                209,
+                                            ),
+                                        ),
+                                    },
+                                    curry_token: Some(
+                                        CurryToken(
+                                            TokenIdx(
+                                                210,
+                                            ),
+                                        ),
+                                    ),
+                                    return_ty: Some(
+                                        ReturnTypeExpr {
+                                            expr: 1,
+                                        },
+                                    ),
+                                    eol_colon: EolToken::Semicolon(
+                                        EolSemicolonToken {
+                                            token_idx: TokenIdx(
+                                                212,
+                                            ),
+                                        },
+                                    ),
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
@@ -5410,55 +5451,6 @@ Ok(
                                             ],
                                         },
                                     },
-                                    implicit_parameter_decl_list: None,
-                                    explicit_parameter_decl_list: ExplicitParameterDeclList {
-                                        lpar: LeftParenthesisToken(
-                                            TokenIdx(
-                                                205,
-                                            ),
-                                        ),
-                                        self_parameter: None,
-                                        comma_after_self_parameter: None,
-                                        regular_parameters: [
-                                            RegularParameterDeclPattern {
-                                                pattern: 0,
-                                                variables: ArenaIdxRange(
-                                                    0..1,
-                                                ),
-                                                colon: ColonToken(
-                                                    TokenIdx(
-                                                        207,
-                                                    ),
-                                                ),
-                                                ty: 0,
-                                            },
-                                        ],
-                                        commas: [],
-                                        rpar: RightParenthesisToken(
-                                            TokenIdx(
-                                                209,
-                                            ),
-                                        ),
-                                    },
-                                    curry_token: Some(
-                                        CurryToken(
-                                            TokenIdx(
-                                                210,
-                                            ),
-                                        ),
-                                    ),
-                                    return_ty: Some(
-                                        ReturnTypeExpr {
-                                            expr: 1,
-                                        },
-                                    ),
-                                    eol_colon: EolToken::Semicolon(
-                                        EolSemicolonToken {
-                                            token_idx: TokenIdx(
-                                                212,
-                                            ),
-                                        },
-                                    ),
                                 },
                             ),
                         ),
@@ -6146,14 +6138,12 @@ Ok(
                         AssociatedItemDecl::TraitForTypeItem(
                             TraitForTypeItemDecl::MethodFn(
                                 TraitForTypeMethodFnDecl {
-                                    path: Some(
-                                        TraitForTypeItemPath {
-                                            parent_ty: TypePath(`core::num::i128`, `Extern`),
-                                            trai: TraitPath(`core::ops::Add`),
-                                            ident: `add`,
-                                            item_kind: MethodFn,
-                                        },
-                                    ),
+                                    path: TraitForTypeItemPath {
+                                        parent_ty: TypePath(`core::num::i128`, `Extern`),
+                                        trai: TraitPath(`core::ops::Add`),
+                                        ident: `add`,
+                                        item_kind: MethodFn,
+                                    },
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::TraitForType(
@@ -6215,6 +6205,55 @@ Ok(
                                         is_generic: false,
                                     },
                                     ast_idx: 9,
+                                    implicit_parameter_decl_list: None,
+                                    explicit_parameter_decl_list: ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
+                                            TokenIdx(
+                                                257,
+                                            ),
+                                        ),
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        regular_parameters: [
+                                            RegularParameterDeclPattern {
+                                                pattern: 0,
+                                                variables: ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                                colon: ColonToken(
+                                                    TokenIdx(
+                                                        259,
+                                                    ),
+                                                ),
+                                                ty: 0,
+                                            },
+                                        ],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                261,
+                                            ),
+                                        ),
+                                    },
+                                    curry_token: Some(
+                                        CurryToken(
+                                            TokenIdx(
+                                                262,
+                                            ),
+                                        ),
+                                    ),
+                                    return_ty: Some(
+                                        ReturnTypeExpr {
+                                            expr: 1,
+                                        },
+                                    ),
+                                    eol_colon: EolToken::Semicolon(
+                                        EolSemicolonToken {
+                                            token_idx: TokenIdx(
+                                                264,
+                                            ),
+                                        },
+                                    ),
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
@@ -6527,55 +6566,6 @@ Ok(
                                             ],
                                         },
                                     },
-                                    implicit_parameter_decl_list: None,
-                                    explicit_parameter_decl_list: ExplicitParameterDeclList {
-                                        lpar: LeftParenthesisToken(
-                                            TokenIdx(
-                                                257,
-                                            ),
-                                        ),
-                                        self_parameter: None,
-                                        comma_after_self_parameter: None,
-                                        regular_parameters: [
-                                            RegularParameterDeclPattern {
-                                                pattern: 0,
-                                                variables: ArenaIdxRange(
-                                                    0..1,
-                                                ),
-                                                colon: ColonToken(
-                                                    TokenIdx(
-                                                        259,
-                                                    ),
-                                                ),
-                                                ty: 0,
-                                            },
-                                        ],
-                                        commas: [],
-                                        rpar: RightParenthesisToken(
-                                            TokenIdx(
-                                                261,
-                                            ),
-                                        ),
-                                    },
-                                    curry_token: Some(
-                                        CurryToken(
-                                            TokenIdx(
-                                                262,
-                                            ),
-                                        ),
-                                    ),
-                                    return_ty: Some(
-                                        ReturnTypeExpr {
-                                            expr: 1,
-                                        },
-                                    ),
-                                    eol_colon: EolToken::Semicolon(
-                                        EolSemicolonToken {
-                                            token_idx: TokenIdx(
-                                                264,
-                                            ),
-                                        },
-                                    ),
                                 },
                             ),
                         ),
@@ -7263,14 +7253,12 @@ Ok(
                         AssociatedItemDecl::TraitForTypeItem(
                             TraitForTypeItemDecl::MethodFn(
                                 TraitForTypeMethodFnDecl {
-                                    path: Some(
-                                        TraitForTypeItemPath {
-                                            parent_ty: TypePath(`core::num::isize`, `Extern`),
-                                            trai: TraitPath(`core::ops::Add`),
-                                            ident: `add`,
-                                            item_kind: MethodFn,
-                                        },
-                                    ),
+                                    path: TraitForTypeItemPath {
+                                        parent_ty: TypePath(`core::num::isize`, `Extern`),
+                                        trai: TraitPath(`core::ops::Add`),
+                                        ident: `add`,
+                                        item_kind: MethodFn,
+                                    },
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::TraitForType(
@@ -7332,6 +7320,55 @@ Ok(
                                         is_generic: false,
                                     },
                                     ast_idx: 11,
+                                    implicit_parameter_decl_list: None,
+                                    explicit_parameter_decl_list: ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
+                                            TokenIdx(
+                                                309,
+                                            ),
+                                        ),
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        regular_parameters: [
+                                            RegularParameterDeclPattern {
+                                                pattern: 0,
+                                                variables: ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                                colon: ColonToken(
+                                                    TokenIdx(
+                                                        311,
+                                                    ),
+                                                ),
+                                                ty: 0,
+                                            },
+                                        ],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                313,
+                                            ),
+                                        ),
+                                    },
+                                    curry_token: Some(
+                                        CurryToken(
+                                            TokenIdx(
+                                                314,
+                                            ),
+                                        ),
+                                    ),
+                                    return_ty: Some(
+                                        ReturnTypeExpr {
+                                            expr: 1,
+                                        },
+                                    ),
+                                    eol_colon: EolToken::Semicolon(
+                                        EolSemicolonToken {
+                                            token_idx: TokenIdx(
+                                                316,
+                                            ),
+                                        },
+                                    ),
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
@@ -7644,55 +7681,6 @@ Ok(
                                             ],
                                         },
                                     },
-                                    implicit_parameter_decl_list: None,
-                                    explicit_parameter_decl_list: ExplicitParameterDeclList {
-                                        lpar: LeftParenthesisToken(
-                                            TokenIdx(
-                                                309,
-                                            ),
-                                        ),
-                                        self_parameter: None,
-                                        comma_after_self_parameter: None,
-                                        regular_parameters: [
-                                            RegularParameterDeclPattern {
-                                                pattern: 0,
-                                                variables: ArenaIdxRange(
-                                                    0..1,
-                                                ),
-                                                colon: ColonToken(
-                                                    TokenIdx(
-                                                        311,
-                                                    ),
-                                                ),
-                                                ty: 0,
-                                            },
-                                        ],
-                                        commas: [],
-                                        rpar: RightParenthesisToken(
-                                            TokenIdx(
-                                                313,
-                                            ),
-                                        ),
-                                    },
-                                    curry_token: Some(
-                                        CurryToken(
-                                            TokenIdx(
-                                                314,
-                                            ),
-                                        ),
-                                    ),
-                                    return_ty: Some(
-                                        ReturnTypeExpr {
-                                            expr: 1,
-                                        },
-                                    ),
-                                    eol_colon: EolToken::Semicolon(
-                                        EolSemicolonToken {
-                                            token_idx: TokenIdx(
-                                                316,
-                                            ),
-                                        },
-                                    ),
                                 },
                             ),
                         ),
@@ -8380,14 +8368,12 @@ Ok(
                         AssociatedItemDecl::TraitForTypeItem(
                             TraitForTypeItemDecl::MethodFn(
                                 TraitForTypeMethodFnDecl {
-                                    path: Some(
-                                        TraitForTypeItemPath {
-                                            parent_ty: TypePath(`core::num::u8`, `Extern`),
-                                            trai: TraitPath(`core::ops::Add`),
-                                            ident: `add`,
-                                            item_kind: MethodFn,
-                                        },
-                                    ),
+                                    path: TraitForTypeItemPath {
+                                        parent_ty: TypePath(`core::num::u8`, `Extern`),
+                                        trai: TraitPath(`core::ops::Add`),
+                                        ident: `add`,
+                                        item_kind: MethodFn,
+                                    },
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::TraitForType(
@@ -8449,6 +8435,55 @@ Ok(
                                         is_generic: false,
                                     },
                                     ast_idx: 13,
+                                    implicit_parameter_decl_list: None,
+                                    explicit_parameter_decl_list: ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
+                                            TokenIdx(
+                                                361,
+                                            ),
+                                        ),
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        regular_parameters: [
+                                            RegularParameterDeclPattern {
+                                                pattern: 0,
+                                                variables: ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                                colon: ColonToken(
+                                                    TokenIdx(
+                                                        363,
+                                                    ),
+                                                ),
+                                                ty: 0,
+                                            },
+                                        ],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                365,
+                                            ),
+                                        ),
+                                    },
+                                    curry_token: Some(
+                                        CurryToken(
+                                            TokenIdx(
+                                                366,
+                                            ),
+                                        ),
+                                    ),
+                                    return_ty: Some(
+                                        ReturnTypeExpr {
+                                            expr: 1,
+                                        },
+                                    ),
+                                    eol_colon: EolToken::Semicolon(
+                                        EolSemicolonToken {
+                                            token_idx: TokenIdx(
+                                                368,
+                                            ),
+                                        },
+                                    ),
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
@@ -8761,55 +8796,6 @@ Ok(
                                             ],
                                         },
                                     },
-                                    implicit_parameter_decl_list: None,
-                                    explicit_parameter_decl_list: ExplicitParameterDeclList {
-                                        lpar: LeftParenthesisToken(
-                                            TokenIdx(
-                                                361,
-                                            ),
-                                        ),
-                                        self_parameter: None,
-                                        comma_after_self_parameter: None,
-                                        regular_parameters: [
-                                            RegularParameterDeclPattern {
-                                                pattern: 0,
-                                                variables: ArenaIdxRange(
-                                                    0..1,
-                                                ),
-                                                colon: ColonToken(
-                                                    TokenIdx(
-                                                        363,
-                                                    ),
-                                                ),
-                                                ty: 0,
-                                            },
-                                        ],
-                                        commas: [],
-                                        rpar: RightParenthesisToken(
-                                            TokenIdx(
-                                                365,
-                                            ),
-                                        ),
-                                    },
-                                    curry_token: Some(
-                                        CurryToken(
-                                            TokenIdx(
-                                                366,
-                                            ),
-                                        ),
-                                    ),
-                                    return_ty: Some(
-                                        ReturnTypeExpr {
-                                            expr: 1,
-                                        },
-                                    ),
-                                    eol_colon: EolToken::Semicolon(
-                                        EolSemicolonToken {
-                                            token_idx: TokenIdx(
-                                                368,
-                                            ),
-                                        },
-                                    ),
                                 },
                             ),
                         ),
@@ -9497,14 +9483,12 @@ Ok(
                         AssociatedItemDecl::TraitForTypeItem(
                             TraitForTypeItemDecl::MethodFn(
                                 TraitForTypeMethodFnDecl {
-                                    path: Some(
-                                        TraitForTypeItemPath {
-                                            parent_ty: TypePath(`core::num::u16`, `Extern`),
-                                            trai: TraitPath(`core::ops::Add`),
-                                            ident: `add`,
-                                            item_kind: MethodFn,
-                                        },
-                                    ),
+                                    path: TraitForTypeItemPath {
+                                        parent_ty: TypePath(`core::num::u16`, `Extern`),
+                                        trai: TraitPath(`core::ops::Add`),
+                                        ident: `add`,
+                                        item_kind: MethodFn,
+                                    },
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::TraitForType(
@@ -9566,6 +9550,55 @@ Ok(
                                         is_generic: false,
                                     },
                                     ast_idx: 15,
+                                    implicit_parameter_decl_list: None,
+                                    explicit_parameter_decl_list: ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
+                                            TokenIdx(
+                                                413,
+                                            ),
+                                        ),
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        regular_parameters: [
+                                            RegularParameterDeclPattern {
+                                                pattern: 0,
+                                                variables: ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                                colon: ColonToken(
+                                                    TokenIdx(
+                                                        415,
+                                                    ),
+                                                ),
+                                                ty: 0,
+                                            },
+                                        ],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                417,
+                                            ),
+                                        ),
+                                    },
+                                    curry_token: Some(
+                                        CurryToken(
+                                            TokenIdx(
+                                                418,
+                                            ),
+                                        ),
+                                    ),
+                                    return_ty: Some(
+                                        ReturnTypeExpr {
+                                            expr: 1,
+                                        },
+                                    ),
+                                    eol_colon: EolToken::Semicolon(
+                                        EolSemicolonToken {
+                                            token_idx: TokenIdx(
+                                                420,
+                                            ),
+                                        },
+                                    ),
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
@@ -9878,55 +9911,6 @@ Ok(
                                             ],
                                         },
                                     },
-                                    implicit_parameter_decl_list: None,
-                                    explicit_parameter_decl_list: ExplicitParameterDeclList {
-                                        lpar: LeftParenthesisToken(
-                                            TokenIdx(
-                                                413,
-                                            ),
-                                        ),
-                                        self_parameter: None,
-                                        comma_after_self_parameter: None,
-                                        regular_parameters: [
-                                            RegularParameterDeclPattern {
-                                                pattern: 0,
-                                                variables: ArenaIdxRange(
-                                                    0..1,
-                                                ),
-                                                colon: ColonToken(
-                                                    TokenIdx(
-                                                        415,
-                                                    ),
-                                                ),
-                                                ty: 0,
-                                            },
-                                        ],
-                                        commas: [],
-                                        rpar: RightParenthesisToken(
-                                            TokenIdx(
-                                                417,
-                                            ),
-                                        ),
-                                    },
-                                    curry_token: Some(
-                                        CurryToken(
-                                            TokenIdx(
-                                                418,
-                                            ),
-                                        ),
-                                    ),
-                                    return_ty: Some(
-                                        ReturnTypeExpr {
-                                            expr: 1,
-                                        },
-                                    ),
-                                    eol_colon: EolToken::Semicolon(
-                                        EolSemicolonToken {
-                                            token_idx: TokenIdx(
-                                                420,
-                                            ),
-                                        },
-                                    ),
                                 },
                             ),
                         ),
@@ -10614,14 +10598,12 @@ Ok(
                         AssociatedItemDecl::TraitForTypeItem(
                             TraitForTypeItemDecl::MethodFn(
                                 TraitForTypeMethodFnDecl {
-                                    path: Some(
-                                        TraitForTypeItemPath {
-                                            parent_ty: TypePath(`core::num::u32`, `Extern`),
-                                            trai: TraitPath(`core::ops::Add`),
-                                            ident: `add`,
-                                            item_kind: MethodFn,
-                                        },
-                                    ),
+                                    path: TraitForTypeItemPath {
+                                        parent_ty: TypePath(`core::num::u32`, `Extern`),
+                                        trai: TraitPath(`core::ops::Add`),
+                                        ident: `add`,
+                                        item_kind: MethodFn,
+                                    },
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::TraitForType(
@@ -10683,6 +10665,55 @@ Ok(
                                         is_generic: false,
                                     },
                                     ast_idx: 17,
+                                    implicit_parameter_decl_list: None,
+                                    explicit_parameter_decl_list: ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
+                                            TokenIdx(
+                                                465,
+                                            ),
+                                        ),
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        regular_parameters: [
+                                            RegularParameterDeclPattern {
+                                                pattern: 0,
+                                                variables: ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                                colon: ColonToken(
+                                                    TokenIdx(
+                                                        467,
+                                                    ),
+                                                ),
+                                                ty: 0,
+                                            },
+                                        ],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                469,
+                                            ),
+                                        ),
+                                    },
+                                    curry_token: Some(
+                                        CurryToken(
+                                            TokenIdx(
+                                                470,
+                                            ),
+                                        ),
+                                    ),
+                                    return_ty: Some(
+                                        ReturnTypeExpr {
+                                            expr: 1,
+                                        },
+                                    ),
+                                    eol_colon: EolToken::Semicolon(
+                                        EolSemicolonToken {
+                                            token_idx: TokenIdx(
+                                                472,
+                                            ),
+                                        },
+                                    ),
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
@@ -10995,55 +11026,6 @@ Ok(
                                             ],
                                         },
                                     },
-                                    implicit_parameter_decl_list: None,
-                                    explicit_parameter_decl_list: ExplicitParameterDeclList {
-                                        lpar: LeftParenthesisToken(
-                                            TokenIdx(
-                                                465,
-                                            ),
-                                        ),
-                                        self_parameter: None,
-                                        comma_after_self_parameter: None,
-                                        regular_parameters: [
-                                            RegularParameterDeclPattern {
-                                                pattern: 0,
-                                                variables: ArenaIdxRange(
-                                                    0..1,
-                                                ),
-                                                colon: ColonToken(
-                                                    TokenIdx(
-                                                        467,
-                                                    ),
-                                                ),
-                                                ty: 0,
-                                            },
-                                        ],
-                                        commas: [],
-                                        rpar: RightParenthesisToken(
-                                            TokenIdx(
-                                                469,
-                                            ),
-                                        ),
-                                    },
-                                    curry_token: Some(
-                                        CurryToken(
-                                            TokenIdx(
-                                                470,
-                                            ),
-                                        ),
-                                    ),
-                                    return_ty: Some(
-                                        ReturnTypeExpr {
-                                            expr: 1,
-                                        },
-                                    ),
-                                    eol_colon: EolToken::Semicolon(
-                                        EolSemicolonToken {
-                                            token_idx: TokenIdx(
-                                                472,
-                                            ),
-                                        },
-                                    ),
                                 },
                             ),
                         ),
@@ -11731,14 +11713,12 @@ Ok(
                         AssociatedItemDecl::TraitForTypeItem(
                             TraitForTypeItemDecl::MethodFn(
                                 TraitForTypeMethodFnDecl {
-                                    path: Some(
-                                        TraitForTypeItemPath {
-                                            parent_ty: TypePath(`core::num::u64`, `Extern`),
-                                            trai: TraitPath(`core::ops::Add`),
-                                            ident: `add`,
-                                            item_kind: MethodFn,
-                                        },
-                                    ),
+                                    path: TraitForTypeItemPath {
+                                        parent_ty: TypePath(`core::num::u64`, `Extern`),
+                                        trai: TraitPath(`core::ops::Add`),
+                                        ident: `add`,
+                                        item_kind: MethodFn,
+                                    },
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::TraitForType(
@@ -11800,6 +11780,55 @@ Ok(
                                         is_generic: false,
                                     },
                                     ast_idx: 19,
+                                    implicit_parameter_decl_list: None,
+                                    explicit_parameter_decl_list: ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
+                                            TokenIdx(
+                                                517,
+                                            ),
+                                        ),
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        regular_parameters: [
+                                            RegularParameterDeclPattern {
+                                                pattern: 0,
+                                                variables: ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                                colon: ColonToken(
+                                                    TokenIdx(
+                                                        519,
+                                                    ),
+                                                ),
+                                                ty: 0,
+                                            },
+                                        ],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                521,
+                                            ),
+                                        ),
+                                    },
+                                    curry_token: Some(
+                                        CurryToken(
+                                            TokenIdx(
+                                                522,
+                                            ),
+                                        ),
+                                    ),
+                                    return_ty: Some(
+                                        ReturnTypeExpr {
+                                            expr: 1,
+                                        },
+                                    ),
+                                    eol_colon: EolToken::Semicolon(
+                                        EolSemicolonToken {
+                                            token_idx: TokenIdx(
+                                                524,
+                                            ),
+                                        },
+                                    ),
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
@@ -12112,55 +12141,6 @@ Ok(
                                             ],
                                         },
                                     },
-                                    implicit_parameter_decl_list: None,
-                                    explicit_parameter_decl_list: ExplicitParameterDeclList {
-                                        lpar: LeftParenthesisToken(
-                                            TokenIdx(
-                                                517,
-                                            ),
-                                        ),
-                                        self_parameter: None,
-                                        comma_after_self_parameter: None,
-                                        regular_parameters: [
-                                            RegularParameterDeclPattern {
-                                                pattern: 0,
-                                                variables: ArenaIdxRange(
-                                                    0..1,
-                                                ),
-                                                colon: ColonToken(
-                                                    TokenIdx(
-                                                        519,
-                                                    ),
-                                                ),
-                                                ty: 0,
-                                            },
-                                        ],
-                                        commas: [],
-                                        rpar: RightParenthesisToken(
-                                            TokenIdx(
-                                                521,
-                                            ),
-                                        ),
-                                    },
-                                    curry_token: Some(
-                                        CurryToken(
-                                            TokenIdx(
-                                                522,
-                                            ),
-                                        ),
-                                    ),
-                                    return_ty: Some(
-                                        ReturnTypeExpr {
-                                            expr: 1,
-                                        },
-                                    ),
-                                    eol_colon: EolToken::Semicolon(
-                                        EolSemicolonToken {
-                                            token_idx: TokenIdx(
-                                                524,
-                                            ),
-                                        },
-                                    ),
                                 },
                             ),
                         ),
@@ -12848,14 +12828,12 @@ Ok(
                         AssociatedItemDecl::TraitForTypeItem(
                             TraitForTypeItemDecl::MethodFn(
                                 TraitForTypeMethodFnDecl {
-                                    path: Some(
-                                        TraitForTypeItemPath {
-                                            parent_ty: TypePath(`core::num::u128`, `Extern`),
-                                            trai: TraitPath(`core::ops::Add`),
-                                            ident: `add`,
-                                            item_kind: MethodFn,
-                                        },
-                                    ),
+                                    path: TraitForTypeItemPath {
+                                        parent_ty: TypePath(`core::num::u128`, `Extern`),
+                                        trai: TraitPath(`core::ops::Add`),
+                                        ident: `add`,
+                                        item_kind: MethodFn,
+                                    },
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::TraitForType(
@@ -12917,6 +12895,55 @@ Ok(
                                         is_generic: false,
                                     },
                                     ast_idx: 21,
+                                    implicit_parameter_decl_list: None,
+                                    explicit_parameter_decl_list: ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
+                                            TokenIdx(
+                                                569,
+                                            ),
+                                        ),
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        regular_parameters: [
+                                            RegularParameterDeclPattern {
+                                                pattern: 0,
+                                                variables: ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                                colon: ColonToken(
+                                                    TokenIdx(
+                                                        571,
+                                                    ),
+                                                ),
+                                                ty: 0,
+                                            },
+                                        ],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                573,
+                                            ),
+                                        ),
+                                    },
+                                    curry_token: Some(
+                                        CurryToken(
+                                            TokenIdx(
+                                                574,
+                                            ),
+                                        ),
+                                    ),
+                                    return_ty: Some(
+                                        ReturnTypeExpr {
+                                            expr: 1,
+                                        },
+                                    ),
+                                    eol_colon: EolToken::Semicolon(
+                                        EolSemicolonToken {
+                                            token_idx: TokenIdx(
+                                                576,
+                                            ),
+                                        },
+                                    ),
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
@@ -13229,55 +13256,6 @@ Ok(
                                             ],
                                         },
                                     },
-                                    implicit_parameter_decl_list: None,
-                                    explicit_parameter_decl_list: ExplicitParameterDeclList {
-                                        lpar: LeftParenthesisToken(
-                                            TokenIdx(
-                                                569,
-                                            ),
-                                        ),
-                                        self_parameter: None,
-                                        comma_after_self_parameter: None,
-                                        regular_parameters: [
-                                            RegularParameterDeclPattern {
-                                                pattern: 0,
-                                                variables: ArenaIdxRange(
-                                                    0..1,
-                                                ),
-                                                colon: ColonToken(
-                                                    TokenIdx(
-                                                        571,
-                                                    ),
-                                                ),
-                                                ty: 0,
-                                            },
-                                        ],
-                                        commas: [],
-                                        rpar: RightParenthesisToken(
-                                            TokenIdx(
-                                                573,
-                                            ),
-                                        ),
-                                    },
-                                    curry_token: Some(
-                                        CurryToken(
-                                            TokenIdx(
-                                                574,
-                                            ),
-                                        ),
-                                    ),
-                                    return_ty: Some(
-                                        ReturnTypeExpr {
-                                            expr: 1,
-                                        },
-                                    ),
-                                    eol_colon: EolToken::Semicolon(
-                                        EolSemicolonToken {
-                                            token_idx: TokenIdx(
-                                                576,
-                                            ),
-                                        },
-                                    ),
                                 },
                             ),
                         ),
@@ -13965,14 +13943,12 @@ Ok(
                         AssociatedItemDecl::TraitForTypeItem(
                             TraitForTypeItemDecl::MethodFn(
                                 TraitForTypeMethodFnDecl {
-                                    path: Some(
-                                        TraitForTypeItemPath {
-                                            parent_ty: TypePath(`core::num::usize`, `Extern`),
-                                            trai: TraitPath(`core::ops::Add`),
-                                            ident: `add`,
-                                            item_kind: MethodFn,
-                                        },
-                                    ),
+                                    path: TraitForTypeItemPath {
+                                        parent_ty: TypePath(`core::num::usize`, `Extern`),
+                                        trai: TraitPath(`core::ops::Add`),
+                                        ident: `add`,
+                                        item_kind: MethodFn,
+                                    },
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::TraitForType(
@@ -14034,6 +14010,55 @@ Ok(
                                         is_generic: false,
                                     },
                                     ast_idx: 23,
+                                    implicit_parameter_decl_list: None,
+                                    explicit_parameter_decl_list: ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
+                                            TokenIdx(
+                                                621,
+                                            ),
+                                        ),
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        regular_parameters: [
+                                            RegularParameterDeclPattern {
+                                                pattern: 0,
+                                                variables: ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                                colon: ColonToken(
+                                                    TokenIdx(
+                                                        623,
+                                                    ),
+                                                ),
+                                                ty: 0,
+                                            },
+                                        ],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                625,
+                                            ),
+                                        ),
+                                    },
+                                    curry_token: Some(
+                                        CurryToken(
+                                            TokenIdx(
+                                                626,
+                                            ),
+                                        ),
+                                    ),
+                                    return_ty: Some(
+                                        ReturnTypeExpr {
+                                            expr: 1,
+                                        },
+                                    ),
+                                    eol_colon: EolToken::Semicolon(
+                                        EolSemicolonToken {
+                                            token_idx: TokenIdx(
+                                                628,
+                                            ),
+                                        },
+                                    ),
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
@@ -14346,55 +14371,6 @@ Ok(
                                             ],
                                         },
                                     },
-                                    implicit_parameter_decl_list: None,
-                                    explicit_parameter_decl_list: ExplicitParameterDeclList {
-                                        lpar: LeftParenthesisToken(
-                                            TokenIdx(
-                                                621,
-                                            ),
-                                        ),
-                                        self_parameter: None,
-                                        comma_after_self_parameter: None,
-                                        regular_parameters: [
-                                            RegularParameterDeclPattern {
-                                                pattern: 0,
-                                                variables: ArenaIdxRange(
-                                                    0..1,
-                                                ),
-                                                colon: ColonToken(
-                                                    TokenIdx(
-                                                        623,
-                                                    ),
-                                                ),
-                                                ty: 0,
-                                            },
-                                        ],
-                                        commas: [],
-                                        rpar: RightParenthesisToken(
-                                            TokenIdx(
-                                                625,
-                                            ),
-                                        ),
-                                    },
-                                    curry_token: Some(
-                                        CurryToken(
-                                            TokenIdx(
-                                                626,
-                                            ),
-                                        ),
-                                    ),
-                                    return_ty: Some(
-                                        ReturnTypeExpr {
-                                            expr: 1,
-                                        },
-                                    ),
-                                    eol_colon: EolToken::Semicolon(
-                                        EolSemicolonToken {
-                                            token_idx: TokenIdx(
-                                                628,
-                                            ),
-                                        },
-                                    ),
                                 },
                             ),
                         ),
@@ -15385,14 +15361,12 @@ Ok(
                         AssociatedItemDecl::TraitForTypeItem(
                             TraitForTypeItemDecl::MethodFn(
                                 TraitForTypeMethodFnDecl {
-                                    path: Some(
-                                        TraitForTypeItemPath {
-                                            parent_ty: TypePath(`core::num::f32`, `Extern`),
-                                            trai: TraitPath(`core::ops::Add`),
-                                            ident: `add`,
-                                            item_kind: MethodFn,
-                                        },
-                                    ),
+                                    path: TraitForTypeItemPath {
+                                        parent_ty: TypePath(`core::num::f32`, `Extern`),
+                                        trai: TraitPath(`core::ops::Add`),
+                                        ident: `add`,
+                                        item_kind: MethodFn,
+                                    },
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::TraitForType(
@@ -15456,6 +15430,55 @@ Ok(
                                         is_generic: false,
                                     },
                                     ast_idx: 26,
+                                    implicit_parameter_decl_list: None,
+                                    explicit_parameter_decl_list: ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
+                                            TokenIdx(
+                                                680,
+                                            ),
+                                        ),
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        regular_parameters: [
+                                            RegularParameterDeclPattern {
+                                                pattern: 0,
+                                                variables: ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                                colon: ColonToken(
+                                                    TokenIdx(
+                                                        682,
+                                                    ),
+                                                ),
+                                                ty: 0,
+                                            },
+                                        ],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                684,
+                                            ),
+                                        ),
+                                    },
+                                    curry_token: Some(
+                                        CurryToken(
+                                            TokenIdx(
+                                                685,
+                                            ),
+                                        ),
+                                    ),
+                                    return_ty: Some(
+                                        ReturnTypeExpr {
+                                            expr: 1,
+                                        },
+                                    ),
+                                    eol_colon: EolToken::Semicolon(
+                                        EolSemicolonToken {
+                                            token_idx: TokenIdx(
+                                                687,
+                                            ),
+                                        },
+                                    ),
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
@@ -15768,55 +15791,6 @@ Ok(
                                             ],
                                         },
                                     },
-                                    implicit_parameter_decl_list: None,
-                                    explicit_parameter_decl_list: ExplicitParameterDeclList {
-                                        lpar: LeftParenthesisToken(
-                                            TokenIdx(
-                                                680,
-                                            ),
-                                        ),
-                                        self_parameter: None,
-                                        comma_after_self_parameter: None,
-                                        regular_parameters: [
-                                            RegularParameterDeclPattern {
-                                                pattern: 0,
-                                                variables: ArenaIdxRange(
-                                                    0..1,
-                                                ),
-                                                colon: ColonToken(
-                                                    TokenIdx(
-                                                        682,
-                                                    ),
-                                                ),
-                                                ty: 0,
-                                            },
-                                        ],
-                                        commas: [],
-                                        rpar: RightParenthesisToken(
-                                            TokenIdx(
-                                                684,
-                                            ),
-                                        ),
-                                    },
-                                    curry_token: Some(
-                                        CurryToken(
-                                            TokenIdx(
-                                                685,
-                                            ),
-                                        ),
-                                    ),
-                                    return_ty: Some(
-                                        ReturnTypeExpr {
-                                            expr: 1,
-                                        },
-                                    ),
-                                    eol_colon: EolToken::Semicolon(
-                                        EolSemicolonToken {
-                                            token_idx: TokenIdx(
-                                                687,
-                                            ),
-                                        },
-                                    ),
                                 },
                             ),
                         ),
@@ -16504,14 +16478,12 @@ Ok(
                         AssociatedItemDecl::TraitForTypeItem(
                             TraitForTypeItemDecl::MethodFn(
                                 TraitForTypeMethodFnDecl {
-                                    path: Some(
-                                        TraitForTypeItemPath {
-                                            parent_ty: TypePath(`core::num::f64`, `Extern`),
-                                            trai: TraitPath(`core::ops::Add`),
-                                            ident: `add`,
-                                            item_kind: MethodFn,
-                                        },
-                                    ),
+                                    path: TraitForTypeItemPath {
+                                        parent_ty: TypePath(`core::num::f64`, `Extern`),
+                                        trai: TraitPath(`core::ops::Add`),
+                                        ident: `add`,
+                                        item_kind: MethodFn,
+                                    },
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::TraitForType(
@@ -16573,6 +16545,55 @@ Ok(
                                         is_generic: false,
                                     },
                                     ast_idx: 28,
+                                    implicit_parameter_decl_list: None,
+                                    explicit_parameter_decl_list: ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
+                                            TokenIdx(
+                                                732,
+                                            ),
+                                        ),
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        regular_parameters: [
+                                            RegularParameterDeclPattern {
+                                                pattern: 0,
+                                                variables: ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                                colon: ColonToken(
+                                                    TokenIdx(
+                                                        734,
+                                                    ),
+                                                ),
+                                                ty: 0,
+                                            },
+                                        ],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                736,
+                                            ),
+                                        ),
+                                    },
+                                    curry_token: Some(
+                                        CurryToken(
+                                            TokenIdx(
+                                                737,
+                                            ),
+                                        ),
+                                    ),
+                                    return_ty: Some(
+                                        ReturnTypeExpr {
+                                            expr: 1,
+                                        },
+                                    ),
+                                    eol_colon: EolToken::Semicolon(
+                                        EolSemicolonToken {
+                                            token_idx: TokenIdx(
+                                                739,
+                                            ),
+                                        },
+                                    ),
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
@@ -16885,55 +16906,6 @@ Ok(
                                             ],
                                         },
                                     },
-                                    implicit_parameter_decl_list: None,
-                                    explicit_parameter_decl_list: ExplicitParameterDeclList {
-                                        lpar: LeftParenthesisToken(
-                                            TokenIdx(
-                                                732,
-                                            ),
-                                        ),
-                                        self_parameter: None,
-                                        comma_after_self_parameter: None,
-                                        regular_parameters: [
-                                            RegularParameterDeclPattern {
-                                                pattern: 0,
-                                                variables: ArenaIdxRange(
-                                                    0..1,
-                                                ),
-                                                colon: ColonToken(
-                                                    TokenIdx(
-                                                        734,
-                                                    ),
-                                                ),
-                                                ty: 0,
-                                            },
-                                        ],
-                                        commas: [],
-                                        rpar: RightParenthesisToken(
-                                            TokenIdx(
-                                                736,
-                                            ),
-                                        ),
-                                    },
-                                    curry_token: Some(
-                                        CurryToken(
-                                            TokenIdx(
-                                                737,
-                                            ),
-                                        ),
-                                    ),
-                                    return_ty: Some(
-                                        ReturnTypeExpr {
-                                            expr: 1,
-                                        },
-                                    ),
-                                    eol_colon: EolToken::Semicolon(
-                                        EolSemicolonToken {
-                                            token_idx: TokenIdx(
-                                                739,
-                                            ),
-                                        },
-                                    ),
                                 },
                             ),
                         ),

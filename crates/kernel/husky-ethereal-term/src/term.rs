@@ -107,7 +107,7 @@ impl EtherealTerm {
                     }
                     TermTypeExpectation::FinalDestinationEqsNonSortTypePath(path_expected) => {
                         if path_expected == path {
-                            TermEntityPath::TypeConstructor(path).into()
+                            TermEntityPath::TypeInstance(path).into()
                         } else {
                             return Err(
                                 EtherealTermError::ExpectFinalDestinationEqsNonSortTypePath {
@@ -117,7 +117,7 @@ impl EtherealTerm {
                             );
                         }
                     }
-                    TermTypeExpectation::Any => TermEntityPath::TypeConstructor(path).into(),
+                    TermTypeExpectation::Any => TermEntityPath::TypeInstance(path).into(),
                 },
             },
             DeclarativeTerm::Category(declarative_term) => declarative_term.into(),
@@ -209,7 +209,7 @@ impl EtherealTerm {
             | EtherealTerm::EntityPath(
                 TermEntityPath::Trait(_)
                 | TermEntityPath::TypeOntology(_)
-                | TermEntityPath::TypeConstructor(_),
+                | TermEntityPath::TypeInstance(_),
             )
             | EtherealTerm::Category(_)
             | EtherealTerm::Universe(_) => self,

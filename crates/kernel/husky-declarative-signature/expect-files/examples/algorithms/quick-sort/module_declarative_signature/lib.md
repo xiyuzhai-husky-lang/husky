@@ -23,7 +23,7 @@
                                 ty: ExplicitApplication(
                                     DeclarativeTermExplicitApplication(
                                         Id {
-                                            value: 34,
+                                            value: 36,
                                         },
                                     ),
                                 ),
@@ -59,7 +59,7 @@
                                 ty: ExplicitApplication(
                                     DeclarativeTermExplicitApplication(
                                         Id {
-                                            value: 34,
+                                            value: 36,
                                         },
                                     ),
                                 ),
@@ -119,7 +119,7 @@
                                 ty: ExplicitApplication(
                                     DeclarativeTermExplicitApplication(
                                         Id {
-                                            value: 34,
+                                            value: 36,
                                         },
                                     ),
                                 ),

@@ -2,10 +2,8 @@ use crate::*;
 
 #[salsa::tracked(db = DefnDb, jar = DefnJar)]
 pub struct TraitForTypeAssociatedTypeDefn {
-    #[id]
-    pub path: Option<TraitForTypeItemPath>,
-    pub expr_region: ExprRegion,
     pub decl: TraitForTypeAssociatedTypeDecl,
+    pub expr_region: ExprRegion,
 }
 
 impl HasDefn for TraitForTypeAssociatedTypeDecl {
@@ -18,8 +16,16 @@ impl HasDefn for TraitForTypeAssociatedTypeDecl {
 
 #[salsa::tracked(jar = DefnJar)]
 pub(crate) fn trai_for_ty_associated_ty_defn(
-    _db: &dyn DefnDb,
-    _decl: TraitForTypeAssociatedTypeDecl,
+    db: &dyn DefnDb,
+    decl: TraitForTypeAssociatedTypeDecl,
 ) -> TraitForTypeAssociatedTypeDefn {
-    todo!()
+    let mut parser = expr_parser(
+        db,
+        DefnRegionPath::AssociatedItem(decl.associated_item(db).id(db)),
+        Some(decl.expr_region(db)),
+        AllowSelfType::True,
+        AllowSelfValue::True,
+    );
+    let expr_region = parser.finish();
+    TraitForTypeAssociatedTypeDefn::new(db, decl, expr_region)
 }

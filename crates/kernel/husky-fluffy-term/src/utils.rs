@@ -58,7 +58,7 @@ fn curry_destination(db: &dyn EtherealTermDb, term: EtherealTerm) -> EtherealTer
             TermEntityPath::Form(_) => todo!(),
             TermEntityPath::Trait(_)
             | TermEntityPath::TypeOntology(_)
-            | TermEntityPath::TypeConstructor(_) => term,
+            | TermEntityPath::TypeInstance(_) => term,
         },
         // EntityPath::Module(_) => todo!(),
         // EntityPath::ModuleItem(path) => match path {

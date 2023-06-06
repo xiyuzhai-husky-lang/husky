@@ -297,10 +297,14 @@ Ok(
                                         entity_path_expr_arena: Arena {
                                             data: [
                                                 EntityPathExpr::Root {
-                                                    token_idx: TokenIdx(
-                                                        10,
+                                                    path_name_token: PathNameToken::Ident(
+                                                        IdentToken {
+                                                            ident: `Nat`,
+                                                            token_idx: TokenIdx(
+                                                                10,
+                                                            ),
+                                                        },
                                                     ),
-                                                    ident: `Nat`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`natural_number_game::Nat`, `Inductive`),

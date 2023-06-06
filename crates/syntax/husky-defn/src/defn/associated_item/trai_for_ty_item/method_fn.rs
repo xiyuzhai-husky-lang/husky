@@ -31,5 +31,5 @@ pub(crate) fn trai_for_ty_method_defn(
         _ => unreachable!(),
     };
     let expr_region = parser.finish();
-    TraitForTypeMethodFnDefn::new(db, path, decl, expr_region, body)
+    TraitForTypeMethodFnDefn::new(db, Some(path), decl, expr_region, body)
 }

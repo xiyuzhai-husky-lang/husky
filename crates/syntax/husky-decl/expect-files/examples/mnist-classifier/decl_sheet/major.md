@@ -58,6 +58,13 @@ Ok(
                                                         10,
                                                     ),
                                                 },
+                                                Expr::Prefix {
+                                                    opr: Tilde,
+                                                    opr_token_idx: TokenIdx(
+                                                        8,
+                                                    ),
+                                                    opd: 0,
+                                                },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     path: Some(
@@ -69,25 +76,22 @@ Ok(
                                                     ),
                                                 },
                                                 Expr::ExplicitApplication {
-                                                    function: 0,
-                                                    argument: 1,
-                                                },
-                                                Expr::Prefix {
-                                                    opr: Tilde,
-                                                    opr_token_idx: TokenIdx(
-                                                        8,
-                                                    ),
-                                                    opd: 2,
+                                                    function: 1,
+                                                    argument: 2,
                                                 },
                                             ],
                                         },
                                         entity_path_expr_arena: Arena {
                                             data: [
                                                 EntityPathExpr::Root {
-                                                    token_idx: TokenIdx(
-                                                        11,
+                                                    path_name_token: PathNameToken::Ident(
+                                                        IdentToken {
+                                                            ident: `ConnectedComponent`,
+                                                            token_idx: TokenIdx(
+                                                                11,
+                                                            ),
+                                                        },
                                                     ),
-                                                    ident: `ConnectedComponent`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -207,10 +211,14 @@ Ok(
                                         entity_path_expr_arena: Arena {
                                             data: [
                                                 EntityPathExpr::Root {
-                                                    token_idx: TokenIdx(
-                                                        22,
+                                                    path_name_token: PathNameToken::Ident(
+                                                        IdentToken {
+                                                            ident: `ConnectedComponent`,
+                                                            token_idx: TokenIdx(
+                                                                22,
+                                                            ),
+                                                        },
                                                     ),
-                                                    ident: `ConnectedComponent`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -323,10 +331,14 @@ Ok(
                                         entity_path_expr_arena: Arena {
                                             data: [
                                                 EntityPathExpr::Root {
-                                                    token_idx: TokenIdx(
-                                                        72,
+                                                    path_name_token: PathNameToken::Ident(
+                                                        IdentToken {
+                                                            ident: `f32`,
+                                                            token_idx: TokenIdx(
+                                                                72,
+                                                            ),
+                                                        },
                                                     ),
-                                                    ident: `f32`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`core::num::f32`, `Extern`),
@@ -435,6 +447,13 @@ Ok(
                                                         108,
                                                     ),
                                                 },
+                                                Expr::Prefix {
+                                                    opr: Tilde,
+                                                    opr_token_idx: TokenIdx(
+                                                        106,
+                                                    ),
+                                                    opd: 0,
+                                                },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     path: Some(
@@ -446,25 +465,22 @@ Ok(
                                                     ),
                                                 },
                                                 Expr::ExplicitApplication {
-                                                    function: 0,
-                                                    argument: 1,
-                                                },
-                                                Expr::Prefix {
-                                                    opr: Tilde,
-                                                    opr_token_idx: TokenIdx(
-                                                        106,
-                                                    ),
-                                                    opd: 2,
+                                                    function: 1,
+                                                    argument: 2,
                                                 },
                                             ],
                                         },
                                         entity_path_expr_arena: Arena {
                                             data: [
                                                 EntityPathExpr::Root {
-                                                    token_idx: TokenIdx(
-                                                        109,
+                                                    path_name_token: PathNameToken::Ident(
+                                                        IdentToken {
+                                                            ident: `RawContour`,
+                                                            token_idx: TokenIdx(
+                                                                109,
+                                                            ),
+                                                        },
                                                     ),
-                                                    ident: `RawContour`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -584,10 +600,14 @@ Ok(
                                         entity_path_expr_arena: Arena {
                                             data: [
                                                 EntityPathExpr::Root {
-                                                    token_idx: TokenIdx(
-                                                        119,
+                                                    path_name_token: PathNameToken::Ident(
+                                                        IdentToken {
+                                                            ident: `RawContour`,
+                                                            token_idx: TokenIdx(
+                                                                119,
+                                                            ),
+                                                        },
                                                     ),
-                                                    ident: `RawContour`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -707,10 +727,14 @@ Ok(
                                         entity_path_expr_arena: Arena {
                                             data: [
                                                 EntityPathExpr::Root {
-                                                    token_idx: TokenIdx(
-                                                        132,
+                                                    path_name_token: PathNameToken::Ident(
+                                                        IdentToken {
+                                                            ident: `LineSegmentSketch`,
+                                                            token_idx: TokenIdx(
+                                                                132,
+                                                            ),
+                                                        },
                                                     ),
-                                                    ident: `LineSegmentSketch`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
@@ -819,6 +843,13 @@ Ok(
                                                         143,
                                                     ),
                                                 },
+                                                Expr::Prefix {
+                                                    opr: Tilde,
+                                                    opr_token_idx: TokenIdx(
+                                                        141,
+                                                    ),
+                                                    opd: 0,
+                                                },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     path: Some(
@@ -830,25 +861,22 @@ Ok(
                                                     ),
                                                 },
                                                 Expr::ExplicitApplication {
-                                                    function: 0,
-                                                    argument: 1,
-                                                },
-                                                Expr::Prefix {
-                                                    opr: Tilde,
-                                                    opr_token_idx: TokenIdx(
-                                                        141,
-                                                    ),
-                                                    opd: 2,
+                                                    function: 1,
+                                                    argument: 2,
                                                 },
                                             ],
                                         },
                                         entity_path_expr_arena: Arena {
                                             data: [
                                                 EntityPathExpr::Root {
-                                                    token_idx: TokenIdx(
-                                                        144,
+                                                    path_name_token: PathNameToken::Ident(
+                                                        IdentToken {
+                                                            ident: `ConcaveComponent`,
+                                                            token_idx: TokenIdx(
+                                                                144,
+                                                            ),
+                                                        },
                                                     ),
-                                                    ident: `ConcaveComponent`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
