@@ -78,12 +78,12 @@
                             Leash,
                         ),
                         Ok(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
+                            Curry(
+                                EtherealTermCurry(
+                                    Id {
+                                        value: 2,
+                                    },
+                                ),
                             ),
                         ),
                     ),
@@ -112,7 +112,7 @@
                         Trivial,
                         Err(
                             Derived(
-                                ExplicitApplicationFunctionTypeNotInferred,
+                                UnableToInferFunctionApplicationArgumentType,
                             ),
                         ),
                     ),
@@ -225,9 +225,9 @@
                                     },
                                 ),
                             ),
-                            data: EqsExactly(
-                                ExpectSubtype {
-                                    expected: Category(
+                            data: CurryDestination(
+                                ExpectCurryDestination {
+                                    curry_destination: Category(
                                         TermCategory {
                                             universe: TermUniverse(
                                                 1,
@@ -236,33 +236,19 @@
                                     ),
                                 },
                             ),
-                            resolve_progress: Resolved(
-                                Err(
-                                    Original(
-                                        ExpectedSubtype {
-                                            expectee: Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 2,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            ),
+                            resolve_progress: Unresolved,
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
                                 expr_idx: 5,
                                 kind: Expr,
                             },
-                            expectee: Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
+                            expectee: Curry(
+                                EtherealTermCurry(
+                                    Id {
+                                        value: 2,
+                                    },
+                                ),
                             ),
                             data: EqsFunctionType(
                                 ExpectEqsFunctionType {
@@ -270,9 +256,36 @@
                                 },
                             ),
                             resolve_progress: Resolved(
-                                Err(
-                                    Original(
-                                        ExpectedFunctionType,
+                                Ok(
+                                    EqsFunctionCallType(
+                                        ExpectEqsFunctionTypeOutcome {
+                                            implicit_parameter_substitutions: [],
+                                            return_ty: Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                            variant: Curry {
+                                                variance: Covariant,
+                                                parameter_symbol: None,
+                                                parameter_ty: Category(
+                                                    TermCategory {
+                                                        universe: TermUniverse(
+                                                            1,
+                                                        ),
+                                                    },
+                                                ),
+                                                return_ty: Category(
+                                                    TermCategory {
+                                                        universe: TermUniverse(
+                                                            1,
+                                                        ),
+                                                    },
+                                                ),
+                                            },
+                                        },
                                     ),
                                 ),
                             ),

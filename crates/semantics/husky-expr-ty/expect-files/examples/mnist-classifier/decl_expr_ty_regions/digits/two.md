@@ -133,20 +133,14 @@
                         Tilde(
                             Leash,
                         ),
-                        Ok(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
+                        Err(
+                            Derived(
+                                UnableToInferFunctionApplicationArgumentType,
                             ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: Some(
-                    0,
-                ),
+                expectation_rule_idx: None,
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
@@ -166,7 +160,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    1,
+                    0,
                 ),
             },
             ExprTypeInfo {
@@ -185,7 +179,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    2,
+                    1,
                 ),
             },
         ],
@@ -226,35 +220,6 @@
             expectations: Expectations {
                 arena: Arena {
                     data: [
-                        ExpectationEntry {
-                            src: ExpectationSource {
-                                expr_idx: 1,
-                                kind: Expr,
-                            },
-                            expectee: Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                            data: EqsSort(
-                                ExpectEqsCategory {
-                                    smallest_universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                            resolve_progress: Resolved(
-                                Ok(
-                                    EqsSort(
-                                        TermUniverse(
-                                            1,
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
                         ExpectationEntry {
                             src: ExpectationSource {
                                 expr_idx: 2,
@@ -354,20 +319,14 @@
                         Tilde(
                             Leash,
                         ),
-                        Ok(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
+                        Err(
+                            Derived(
+                                UnableToInferFunctionApplicationArgumentType,
                             ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: Some(
-                    0,
-                ),
+                expectation_rule_idx: None,
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
@@ -387,7 +346,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    1,
+                    0,
                 ),
             },
             ExprTypeInfo {
@@ -406,7 +365,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    2,
+                    1,
                 ),
             },
         ],
@@ -447,35 +406,6 @@
             expectations: Expectations {
                 arena: Arena {
                     data: [
-                        ExpectationEntry {
-                            src: ExpectationSource {
-                                expr_idx: 1,
-                                kind: Expr,
-                            },
-                            expectee: Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                            data: EqsSort(
-                                ExpectEqsCategory {
-                                    smallest_universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                            resolve_progress: Resolved(
-                                Ok(
-                                    EqsSort(
-                                        TermUniverse(
-                                            1,
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
                         ExpectationEntry {
                             src: ExpectationSource {
                                 expr_idx: 2,
@@ -575,20 +505,14 @@
                         Tilde(
                             Leash,
                         ),
-                        Ok(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
+                        Err(
+                            Derived(
+                                UnableToInferFunctionApplicationArgumentType,
                             ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: Some(
-                    0,
-                ),
+                expectation_rule_idx: None,
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
@@ -608,7 +532,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    1,
+                    0,
                 ),
             },
             ExprTypeInfo {
@@ -627,7 +551,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    2,
+                    1,
                 ),
             },
         ],
@@ -668,35 +592,6 @@
             expectations: Expectations {
                 arena: Arena {
                     data: [
-                        ExpectationEntry {
-                            src: ExpectationSource {
-                                expr_idx: 1,
-                                kind: Expr,
-                            },
-                            expectee: Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                            data: EqsSort(
-                                ExpectEqsCategory {
-                                    smallest_universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                            resolve_progress: Resolved(
-                                Ok(
-                                    EqsSort(
-                                        TermUniverse(
-                                            1,
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
                         ExpectationEntry {
                             src: ExpectationSource {
                                 expr_idx: 2,

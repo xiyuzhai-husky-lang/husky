@@ -15,5 +15,11 @@ impl From<EtherealSignatureError> for FluffyTermError {
     }
 }
 
+impl From<EtherealTermError> for FluffyTermError {
+    fn from(e: EtherealTermError) -> Self {
+        FluffyTermError::Todo
+    }
+}
+
 pub type FluffyTermResult<T> = Result<T, FluffyTermError>;
 pub type FluffyTermMaybeResult<T> = MaybeResult<T, FluffyTermError>;

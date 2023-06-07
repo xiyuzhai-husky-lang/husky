@@ -1,17 +1,17 @@
 use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct ExpectAnyTowardsFinalDestination {
-    final_destination: FinalDestination,
+pub struct ExpectCurryDestination {
+    curry_destination: FluffyTerm,
 }
 
-impl ExpectAnyTowardsFinalDestination {
-    pub fn new(final_destination: FinalDestination) -> Self {
-        Self { final_destination }
+impl ExpectCurryDestination {
+    pub fn new(curry_destination: FluffyTerm) -> Self {
+        Self { curry_destination }
     }
 }
 
-impl ExpectFluffyTerm for ExpectAnyTowardsFinalDestination {
+impl ExpectFluffyTerm for ExpectCurryDestination {
     type Outcome = ();
 
     #[inline(always)]
@@ -23,9 +23,10 @@ impl ExpectFluffyTerm for ExpectAnyTowardsFinalDestination {
     fn final_destination_inner(
         &self,
         db: &dyn FluffyTermDb,
-        terms: &FluffyTerms,
+        fluffy_terms: &FluffyTerms,
     ) -> FinalDestination {
-        self.final_destination
+        self.curry_destination
+            .final_destination_inner(db, fluffy_terms)
     }
 
     #[inline(always)]

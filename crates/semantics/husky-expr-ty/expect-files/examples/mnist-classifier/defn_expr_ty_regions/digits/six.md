@@ -3025,8 +3025,8 @@
                                     ),
                                 ),
                             ),
-                            data: AnyTowardsFinalDestination(
-                                ExpectAnyTowardsFinalDestination {
+                            data: FinalDestination(
+                                ExpectFinalDestination {
                                     final_destination: TypeOntology,
                                 },
                             ),
@@ -3409,8 +3409,8 @@
                                     ),
                                 ),
                             ),
-                            data: AnyTowardsFinalDestination(
-                                ExpectAnyTowardsFinalDestination {
+                            data: FinalDestination(
+                                ExpectFinalDestination {
                                     final_destination: TypeOntology,
                                 },
                             ),
@@ -3598,8 +3598,8 @@
                                     ),
                                 ),
                             ),
-                            data: AnyTowardsFinalDestination(
-                                ExpectAnyTowardsFinalDestination {
+                            data: FinalDestination(
+                                ExpectFinalDestination {
                                     final_destination: TypeOntology,
                                 },
                             ),
@@ -3766,8 +3766,8 @@
                                     ),
                                 ),
                             ),
-                            data: AnyTowardsFinalDestination(
-                                ExpectAnyTowardsFinalDestination {
+                            data: FinalDestination(
+                                ExpectFinalDestination {
                                     final_destination: TypeOntology,
                                 },
                             ),

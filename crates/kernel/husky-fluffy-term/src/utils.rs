@@ -77,7 +77,10 @@ impl FluffyTerm {
                 parameter_ty,
                 return_ty,
                 ty_ethereal_term,
-            } => todo!(),
+            } => match ty_ethereal_term {
+                Some(ty_ethereal_term) => ty_ethereal_term.curry_parameter_count(engine.db()),
+                None => todo!(),
+            },
             FluffyTermData::Hole(_, _) => todo!(),
             FluffyTermData::Category(_) => 0,
             FluffyTermData::Ritchie {

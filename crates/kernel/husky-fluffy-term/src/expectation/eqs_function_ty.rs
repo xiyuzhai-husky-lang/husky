@@ -64,6 +64,7 @@ pub enum ExpectEqsFunctionTypeOutcomeVariant {
         parameter_contracted_tys: Vec<FluffyTermRitchieParameterContractedType>,
     },
     Curry {
+        variance: Variance,
         parameter_symbol: Option<FluffyTerm>,
         parameter_ty: FluffyTerm,
         return_ty: FluffyTerm,
@@ -155,6 +156,7 @@ impl ExpectEqsFunctionType {
                     implicit_parameter_substitutions: smallvec![],
                     return_ty,
                     variant: ExpectEqsFunctionTypeOutcomeVariant::Curry {
+                        variance,
                         parameter_symbol,
                         parameter_ty,
                         return_ty,

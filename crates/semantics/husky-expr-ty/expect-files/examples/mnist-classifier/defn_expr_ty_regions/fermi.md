@@ -51,20 +51,14 @@
                         Tilde(
                             Leash,
                         ),
-                        Ok(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
+                        Err(
+                            Derived(
+                                UnableToInferFunctionApplicationArgumentType,
                             ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: Some(
-                    1,
-                ),
+                expectation_rule_idx: None,
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
@@ -103,7 +97,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    2,
+                    1,
                 ),
             },
             ExprTypeInfo {
@@ -122,7 +116,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    3,
+                    2,
                 ),
             },
             ExprTypeInfo {
@@ -141,7 +135,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    4,
+                    3,
                 ),
             },
             ExprTypeInfo {
@@ -320,7 +314,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    5,
+                    4,
                 ),
             },
         ],
@@ -462,6 +456,7 @@
                                                 },
                                             ),
                                             variant: Curry {
+                                                variance: Covariant,
                                                 parameter_symbol: None,
                                                 parameter_ty: Category(
                                                     TermCategory {
@@ -485,37 +480,6 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 3,
-                                kind: Expr,
-                            },
-                            expectee: Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                            data: EqsExactly(
-                                ExpectSubtype {
-                                    expected: Category(
-                                        TermCategory {
-                                            universe: TermUniverse(
-                                                1,
-                                            ),
-                                        },
-                                    ),
-                                },
-                            ),
-                            resolve_progress: Resolved(
-                                Ok(
-                                    EqsExactly(
-                                        ExpectSubtypeOutcome,
-                                    ),
-                                ),
-                            ),
-                        },
-                        ExpectationEntry {
-                            src: ExpectationSource {
                                 expr_idx: 5,
                                 kind: Expr,
                             },
@@ -526,9 +490,15 @@
                                     ),
                                 },
                             ),
-                            data: AnyTowardsFinalDestination(
-                                ExpectAnyTowardsFinalDestination {
-                                    final_destination: Sort,
+                            data: CurryDestination(
+                                ExpectCurryDestination {
+                                    curry_destination: Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
+                                            ),
+                                        },
+                                    ),
                                 },
                             ),
                             resolve_progress: Unresolved,

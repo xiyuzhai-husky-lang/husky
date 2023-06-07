@@ -37,6 +37,52 @@ impl EtherealTerm {
             _ => None,
         }
     }
+
+    pub fn synthesize_function_application_expr_ty(
+        db: &dyn EtherealTermDb,
+        variance: Variance,
+        parameter_symbol: Option<EtherealTerm>,
+        parameter_ty: EtherealTerm,
+        return_ty: EtherealTerm,
+        argument_ty: EtherealTerm,
+        shift: i8,
+    ) -> EtherealTermResult<EtherealTerm> {
+        if shift == 0 {
+            if parameter_symbol.is_some() {
+                todo!()
+            }
+            return Ok(return_ty);
+        }
+        if parameter_symbol.is_some() {
+            todo!()
+        }
+        match argument_ty {
+            EtherealTerm::Curry(argument_ty) => {
+                if argument_ty.parameter_variable(db).is_some() {
+                    todo!()
+                }
+                let expr_ty = Self::synthesize_function_application_expr_ty(
+                    db,
+                    variance,
+                    parameter_symbol,
+                    parameter_ty,
+                    return_ty,
+                    argument_ty.return_ty(db),
+                    shift - 1,
+                )?;
+                Ok(EtherealTermCurry::new(
+                    db,
+                    argument_ty.curry_kind(db),
+                    argument_ty.variance(db),
+                    None,
+                    argument_ty.parameter_ty(db),
+                    expr_ty,
+                )
+                .into())
+            }
+            _ => unreachable!(),
+        }
+    }
 }
 
 impl EtherealTermSymbol {

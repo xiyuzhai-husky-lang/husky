@@ -38,12 +38,12 @@
                             Leash,
                         ),
                         Ok(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
+                            Curry(
+                                EtherealTermCurry(
+                                    Id {
+                                        value: 2,
+                                    },
+                                ),
                             ),
                         ),
                     ),
@@ -56,15 +56,15 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         TypePath(
-                            Constructor,
+                            Ontology,
                         ),
                         Ok(
-                            Ritchie(
-                                EtherealTermRitchie(
-                                    Id {
-                                        value: 1,
-                                    },
-                                ),
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
                             ),
                         ),
                     ),
@@ -77,14 +77,20 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
-                        Err(
-                            Derived(
-                                ExplicitApplicationFunctionTypeNotInferred,
+                        Ok(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
                             ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    3,
+                ),
             },
         ],
         extra_expr_errors: [],
@@ -132,9 +138,9 @@
                                     },
                                 ),
                             ),
-                            data: EqsExactly(
-                                ExpectSubtype {
-                                    expected: Category(
+                            data: CurryDestination(
+                                ExpectCurryDestination {
+                                    curry_destination: Category(
                                         TermCategory {
                                             universe: TermUniverse(
                                                 1,
@@ -143,33 +149,19 @@
                                     ),
                                 },
                             ),
-                            resolve_progress: Resolved(
-                                Err(
-                                    Original(
-                                        ExpectedSubtype {
-                                            expectee: Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 2,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            ),
+                            resolve_progress: Unresolved,
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
                                 expr_idx: 1,
                                 kind: Expr,
                             },
-                            expectee: Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
+                            expectee: Curry(
+                                EtherealTermCurry(
+                                    Id {
+                                        value: 2,
+                                    },
+                                ),
                             ),
                             data: EqsFunctionType(
                                 ExpectEqsFunctionType {
@@ -177,9 +169,36 @@
                                 },
                             ),
                             resolve_progress: Resolved(
-                                Err(
-                                    Original(
-                                        ExpectedFunctionType,
+                                Ok(
+                                    EqsFunctionCallType(
+                                        ExpectEqsFunctionTypeOutcome {
+                                            implicit_parameter_substitutions: [],
+                                            return_ty: Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                            variant: Curry {
+                                                variance: Covariant,
+                                                parameter_symbol: None,
+                                                parameter_ty: Category(
+                                                    TermCategory {
+                                                        universe: TermUniverse(
+                                                            1,
+                                                        ),
+                                                    },
+                                                ),
+                                                return_ty: Category(
+                                                    TermCategory {
+                                                        universe: TermUniverse(
+                                                            1,
+                                                        ),
+                                                    },
+                                                ),
+                                            },
+                                        },
                                     ),
                                 ),
                             ),
@@ -189,17 +208,54 @@
                                 expr_idx: 2,
                                 kind: Expr,
                             },
-                            expectee: Ritchie(
-                                EtherealTermRitchie(
-                                    Id {
-                                        value: 1,
-                                    },
-                                ),
+                            expectee: Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
                             ),
-                            data: AnyDerived(
-                                ExpectAnyDerived,
+                            data: CurryDestination(
+                                ExpectCurryDestination {
+                                    curry_destination: Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                             resolve_progress: Unresolved,
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 3,
+                                kind: Expr,
+                            },
+                            expectee: Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                            data: EqsSort(
+                                ExpectEqsCategory {
+                                    smallest_universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    EqsSort(
+                                        TermUniverse(
+                                            1,
+                                        ),
+                                    ),
+                                ),
+                            ),
                         },
                     ],
                 },
@@ -308,9 +364,9 @@
                                     ),
                                 },
                             ),
-                            data: EqsExactly(
-                                ExpectSubtype {
-                                    expected: Category(
+                            data: CurryDestination(
+                                ExpectCurryDestination {
+                                    curry_destination: Category(
                                         TermCategory {
                                             universe: TermUniverse(
                                                 1,
@@ -319,13 +375,7 @@
                                     ),
                                 },
                             ),
-                            resolve_progress: Resolved(
-                                Ok(
-                                    EqsExactly(
-                                        ExpectSubtypeOutcome,
-                                    ),
-                                ),
-                            ),
+                            resolve_progress: Unresolved,
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
@@ -506,6 +556,27 @@
                             Leash,
                         ),
                         Ok(
+                            Curry(
+                                EtherealTermCurry(
+                                    Id {
+                                        value: 2,
+                                    },
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    1,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        TypePath(
+                            Ontology,
+                        ),
+                        Ok(
                             Category(
                                 TermCategory {
                                     universe: TermUniverse(
@@ -517,42 +588,27 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    1,
+                    2,
                 ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    Derived(
-                        TypeError(
-                            ExpectFinalDestinationEqsNonSortTypePath {
-                                path_expected: TypePath(
-                                    Id {
-                                        value: 74,
-                                    },
-                                ),
-                                path: TypePath(
-                                    Id {
-                                        value: 80,
-                                    },
-                                ),
-                            },
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
-                        Err(
-                            Derived(
-                                ExplicitApplicationFunctionTypeNotInferred,
+                        Ok(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
                             ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    3,
+                ),
             },
         ],
         extra_expr_errors: [],
@@ -600,9 +656,9 @@
                                     },
                                 ),
                             ),
-                            data: EqsExactly(
-                                ExpectSubtype {
-                                    expected: Category(
+                            data: CurryDestination(
+                                ExpectCurryDestination {
+                                    curry_destination: Category(
                                         TermCategory {
                                             universe: TermUniverse(
                                                 1,
@@ -611,17 +667,55 @@
                                     ),
                                 },
                             ),
+                            resolve_progress: Unresolved,
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 1,
+                                kind: Expr,
+                            },
+                            expectee: Curry(
+                                EtherealTermCurry(
+                                    Id {
+                                        value: 2,
+                                    },
+                                ),
+                            ),
+                            data: EqsFunctionType(
+                                ExpectEqsFunctionType {
+                                    final_destination: Sort,
+                                },
+                            ),
                             resolve_progress: Resolved(
-                                Err(
-                                    Original(
-                                        ExpectedSubtype {
-                                            expectee: Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 2,
+                                Ok(
+                                    EqsFunctionCallType(
+                                        ExpectEqsFunctionTypeOutcome {
+                                            implicit_parameter_substitutions: [],
+                                            return_ty: Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                            variant: Curry {
+                                                variance: Covariant,
+                                                parameter_symbol: None,
+                                                parameter_ty: Category(
+                                                    TermCategory {
+                                                        universe: TermUniverse(
+                                                            1,
+                                                        ),
                                                     },
                                                 ),
-                                            ),
+                                                return_ty: Category(
+                                                    TermCategory {
+                                                        universe: TermUniverse(
+                                                            1,
+                                                        ),
+                                                    },
+                                                ),
+                                            },
                                         },
                                     ),
                                 ),
@@ -629,7 +723,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 1,
+                                expr_idx: 2,
                                 kind: Expr,
                             },
                             expectee: Category(
@@ -639,15 +733,44 @@
                                     ),
                                 },
                             ),
-                            data: EqsFunctionType(
-                                ExpectEqsFunctionType {
-                                    final_destination: Sort,
+                            data: CurryDestination(
+                                ExpectCurryDestination {
+                                    curry_destination: Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
+                                            ),
+                                        },
+                                    ),
+                                },
+                            ),
+                            resolve_progress: Unresolved,
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 3,
+                                kind: Expr,
+                            },
+                            expectee: Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                            data: EqsSort(
+                                ExpectEqsCategory {
+                                    smallest_universe: TermUniverse(
+                                        1,
+                                    ),
                                 },
                             ),
                             resolve_progress: Resolved(
-                                Err(
-                                    Original(
-                                        ExpectedFunctionType,
+                                Ok(
+                                    EqsSort(
+                                        TermUniverse(
+                                            1,
+                                        ),
                                     ),
                                 ),
                             ),
@@ -759,9 +882,9 @@
                                     ),
                                 },
                             ),
-                            data: EqsExactly(
-                                ExpectSubtype {
-                                    expected: Category(
+                            data: CurryDestination(
+                                ExpectCurryDestination {
+                                    curry_destination: Category(
                                         TermCategory {
                                             universe: TermUniverse(
                                                 1,
@@ -770,13 +893,7 @@
                                     ),
                                 },
                             ),
-                            resolve_progress: Resolved(
-                                Ok(
-                                    EqsExactly(
-                                        ExpectSubtypeOutcome,
-                                    ),
-                                ),
-                            ),
+                            resolve_progress: Unresolved,
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
@@ -914,9 +1031,9 @@
                                     ),
                                 },
                             ),
-                            data: EqsExactly(
-                                ExpectSubtype {
-                                    expected: Category(
+                            data: CurryDestination(
+                                ExpectCurryDestination {
+                                    curry_destination: Category(
                                         TermCategory {
                                             universe: TermUniverse(
                                                 1,
@@ -925,13 +1042,7 @@
                                     ),
                                 },
                             ),
-                            resolve_progress: Resolved(
-                                Ok(
-                                    EqsExactly(
-                                        ExpectSubtypeOutcome,
-                                    ),
-                                ),
-                            ),
+                            resolve_progress: Unresolved,
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
@@ -1009,12 +1120,12 @@
                             Leash,
                         ),
                         Ok(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
+                            Curry(
+                                EtherealTermCurry(
+                                    Id {
+                                        value: 2,
+                                    },
+                                ),
                             ),
                         ),
                     ),
@@ -1043,7 +1154,7 @@
                         Trivial,
                         Err(
                             Derived(
-                                ExplicitApplicationFunctionTypeNotInferred,
+                                UnableToInferFunctionApplicationArgumentType,
                             ),
                         ),
                     ),
@@ -1096,9 +1207,9 @@
                                     },
                                 ),
                             ),
-                            data: EqsExactly(
-                                ExpectSubtype {
-                                    expected: Category(
+                            data: CurryDestination(
+                                ExpectCurryDestination {
+                                    curry_destination: Category(
                                         TermCategory {
                                             universe: TermUniverse(
                                                 1,
@@ -1107,33 +1218,19 @@
                                     ),
                                 },
                             ),
-                            resolve_progress: Resolved(
-                                Err(
-                                    Original(
-                                        ExpectedSubtype {
-                                            expectee: Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 2,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            ),
+                            resolve_progress: Unresolved,
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
                                 expr_idx: 1,
                                 kind: Expr,
                             },
-                            expectee: Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
+                            expectee: Curry(
+                                EtherealTermCurry(
+                                    Id {
+                                        value: 2,
+                                    },
+                                ),
                             ),
                             data: EqsFunctionType(
                                 ExpectEqsFunctionType {
@@ -1141,9 +1238,36 @@
                                 },
                             ),
                             resolve_progress: Resolved(
-                                Err(
-                                    Original(
-                                        ExpectedFunctionType,
+                                Ok(
+                                    EqsFunctionCallType(
+                                        ExpectEqsFunctionTypeOutcome {
+                                            implicit_parameter_substitutions: [],
+                                            return_ty: Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                            variant: Curry {
+                                                variance: Covariant,
+                                                parameter_symbol: None,
+                                                parameter_ty: Category(
+                                                    TermCategory {
+                                                        universe: TermUniverse(
+                                                            1,
+                                                        ),
+                                                    },
+                                                ),
+                                                return_ty: Category(
+                                                    TermCategory {
+                                                        universe: TermUniverse(
+                                                            1,
+                                                        ),
+                                                    },
+                                                ),
+                                            },
+                                        },
                                     ),
                                 ),
                             ),
