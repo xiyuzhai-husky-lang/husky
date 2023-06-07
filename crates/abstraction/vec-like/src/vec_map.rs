@@ -365,6 +365,7 @@ where
     }
 }
 
+// if there are repetitive keys, take the first value
 impl<K, Entry> FromIterator<Entry> for VecMap<Entry>
 where
     K: PartialEq + Eq + Copy + std::fmt::Debug,
@@ -373,7 +374,8 @@ where
     fn from_iter<T: IntoIterator<Item = Entry>>(iter: T) -> Self {
         let mut map = Self::default();
         for v in iter {
-            map.insert_new(v).unwrap();
+            // ignore errors
+            map.insert_new(v);
         }
         map
     }
