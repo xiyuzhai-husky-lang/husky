@@ -25,37 +25,6 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Term Error: expected subtype",
-                severity: Error,
-                range: [3:32, 3:34),
-            },
-            Diagnostic {
-                message: "Term Error: expected function type",
-                severity: Error,
-                range: [3:31, 3:34),
-            },
-            Diagnostic {
-                message: "Term Error: expected subtype",
-                severity: Error,
-                range: [22:30, 22:32),
-            },
-            Diagnostic {
-                message: "Term Error: expected function type",
-                severity: Error,
-                range: [22:29, 22:32),
-            },
-            Diagnostic {
-                message: "Term Error: expected subtype",
-                severity: Error,
-                range: [32:36, 32:38),
-            },
-            Diagnostic {
-                message: "Term Error: expected function type",
-                severity: Error,
-                range: [32:35, 32:38),
-            },
-        ],
+        diagnostics: [],
     },
 }

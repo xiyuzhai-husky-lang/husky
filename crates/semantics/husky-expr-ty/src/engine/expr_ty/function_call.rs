@@ -43,6 +43,7 @@ impl<'a> ExprTypeEngine<'a> {
                 ))
             }
             ExpectEqsFunctionTypeOutcomeVariant::Curry {
+                variance,
                 parameter_symbol,
                 parameter_ty,
                 return_ty,

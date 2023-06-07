@@ -89,22 +89,16 @@ impl<'a> ExprTypeEngine<'a> {
                 ))
             }
             PrefixOpr::Tilde => match final_destination {
-                FinalDestination::Sort => {
-                    let Some(argument_ty) = self.infer_new_expr_ty(
+                FinalDestination::Sort => Ok((
+                    ExprDisambiguation::Tilde(TildeDisambiguation::Leash),
+                    self.calc_function_application_expr_ty_aux(
+                        Variance::Covariant,
+                        None,
+                        self.term_menu.ty0().into(),
+                        self.term_menu.ty0().into(),
                         opd,
-                        ExpectAnyTowardsFinalDestination::new(FinalDestination::Sort),
-                    ) else {
-                        Err(DerivedExprTypeError::UnableToInferFunctionApplicationArgumentType)?
-                    };
-                    let shift = argument_ty.curry_parameter_count(self);
-                    match shift {
-                        0 => Ok((
-                            ExprDisambiguation::Tilde(TildeDisambiguation::Leash),
-                            Ok(self.term_menu.ty0().into()),
-                        )),
-                        _ => todo!(),
-                    }
-                }
+                    ),
+                )),
                 FinalDestination::TypeOntology
                 | FinalDestination::AnyOriginal
                 | FinalDestination::AnyDerived => Ok((

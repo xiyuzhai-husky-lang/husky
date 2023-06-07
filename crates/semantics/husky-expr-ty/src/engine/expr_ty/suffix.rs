@@ -135,10 +135,7 @@ impl<'a> ExprTypeEngine<'a> {
             fn(&mut Self, ExprIdx) -> ExprTypeResult<FluffyTerm>,
         ),
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
-        match self.infer_new_expr_ty(
-            opd,
-            ExpectAnyTowardsFinalDestination::new(final_destination),
-        ) {
+        match self.infer_new_expr_ty(opd, ExpectFinalDestination::new(final_destination)) {
             Some(opd_ty) => match opd_ty.data(self) {
                 FluffyTermData::Literal(_) => todo!(),
                 FluffyTermData::TypeOntology { .. } | FluffyTermData::PlaceTypeOntology { .. } => {

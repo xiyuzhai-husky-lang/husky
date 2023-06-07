@@ -1,23 +1,25 @@
 mod any_derived;
 mod any_original;
-mod any_towards_final_destination;
+mod curry_destination;
 mod eqs_category;
 mod eqs_exactly;
 mod eqs_function_ty;
 mod eqs_ritchie_ty;
 mod explicitly_convertible;
+mod final_destination;
 mod implicitly_convertible;
 mod ins_sort;
 mod num_ty;
 
 pub use self::any_derived::*;
 pub use self::any_original::*;
-pub use self::any_towards_final_destination::*;
+pub use self::curry_destination::*;
 pub use self::eqs_category::*;
 pub use self::eqs_exactly::*;
 pub use self::eqs_function_ty::*;
 pub use self::eqs_ritchie_ty::*;
 pub use self::explicitly_convertible::*;
+pub use self::final_destination::*;
 pub use self::implicitly_convertible::*;
 pub use self::ins_sort::*;
 pub use self::num_ty::*;
@@ -45,7 +47,8 @@ pub enum ExpectationData {
     AnyOriginal(ExpectAnyOriginal),
     AnyDerived(ExpectAnyDerived),
     NumType(ExpectNumType),
-    AnyTowardsFinalDestination(ExpectAnyTowardsFinalDestination),
+    FinalDestination(ExpectFinalDestination),
+    CurryDestination(ExpectCurryDestination),
 }
 
 pub trait ExpectFluffyTerm: Into<ExpectationData> + Clone {
@@ -103,22 +106,6 @@ pub trait ExpectFluffyTerm: Into<ExpectationData> + Clone {
         self.destination()
             .map(|destination| destination.data_inner(db, fluffy_terms))
     }
-}
-
-/// final destination of `A1 -> ... -> An` is equal to that of `An`
-///
-/// final destination of `A1 ... An` is equal to that of `A1`
-///
-/// final destination of `Sort` is `FinalDestination::Sort`
-///
-/// final destination of a type path `A` is `FinalDestination::TypePath(A)`
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = FluffyTermDb)]
-pub enum FinalDestination {
-    Sort,
-    TypeOntology,
-    AnyOriginal,
-    AnyDerived,
 }
 
 pub type FluffyTermExpectationIdx = ArenaIdx<ExpectationEntry>;
@@ -286,7 +273,11 @@ impl ExpectationEntry {
             ExpectationData::NumType(expectation) => {
                 expectation.resolve(db, terms, self.expectee())
             }
-            ExpectationData::AnyTowardsFinalDestination(_) => None,
+            ExpectationData::FinalDestination(_) => None,
+            ExpectationData::CurryDestination(_) => {
+                /* ad hoc */
+                None
+            }
         }
     }
 }

@@ -12873,7 +12873,7 @@
                         Trivial,
                         Err(
                             Derived(
-                                UnableToExplicitApplicationArgumentType,
+                                UnableToInferFunctionApplicationArgumentType,
                             ),
                         ),
                     ),
@@ -15753,6 +15753,7 @@
                                                 },
                                             ),
                                             variant: Curry {
+                                                variance: Covariant,
                                                 parameter_symbol: None,
                                                 parameter_ty: Category(
                                                     TermCategory {

@@ -4167,8 +4167,8 @@
                                     ),
                                 ),
                             ),
-                            data: AnyTowardsFinalDestination(
-                                ExpectAnyTowardsFinalDestination {
+                            data: FinalDestination(
+                                ExpectFinalDestination {
                                     final_destination: TypeOntology,
                                 },
                             ),

@@ -235,6 +235,7 @@
                                                 },
                                             ),
                                             variant: Curry {
+                                                variance: Covariant,
                                                 parameter_symbol: None,
                                                 parameter_ty: Category(
                                                     TermCategory {
@@ -268,9 +269,15 @@
                                     ),
                                 },
                             ),
-                            data: AnyTowardsFinalDestination(
-                                ExpectAnyTowardsFinalDestination {
-                                    final_destination: Sort,
+                            data: CurryDestination(
+                                ExpectCurryDestination {
+                                    curry_destination: Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
+                                            ),
+                                        },
+                                    ),
                                 },
                             ),
                             resolve_progress: Unresolved,
@@ -2760,6 +2767,7 @@
                                                 },
                                             ),
                                             variant: Curry {
+                                                variance: Covariant,
                                                 parameter_symbol: None,
                                                 parameter_ty: Category(
                                                     TermCategory {
@@ -2793,9 +2801,15 @@
                                     ),
                                 },
                             ),
-                            data: AnyTowardsFinalDestination(
-                                ExpectAnyTowardsFinalDestination {
-                                    final_destination: Sort,
+                            data: CurryDestination(
+                                ExpectCurryDestination {
+                                    curry_destination: Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
+                                            ),
+                                        },
+                                    ),
                                 },
                             ),
                             resolve_progress: Unresolved,
@@ -3106,6 +3120,7 @@
                                                 },
                                             ),
                                             variant: Curry {
+                                                variance: Covariant,
                                                 parameter_symbol: None,
                                                 parameter_ty: Category(
                                                     TermCategory {
@@ -3139,9 +3154,15 @@
                                     ),
                                 },
                             ),
-                            data: AnyTowardsFinalDestination(
-                                ExpectAnyTowardsFinalDestination {
-                                    final_destination: Sort,
+                            data: CurryDestination(
+                                ExpectCurryDestination {
+                                    curry_destination: Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
+                                            ),
+                                        },
+                                    ),
                                 },
                             ),
                             resolve_progress: Unresolved,
