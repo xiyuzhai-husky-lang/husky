@@ -4,3 +4,7 @@ impl<E> List E:
     pub fn ilen() -> i32;
 
     pub fn push(mut self, e: E);
+
+    pub fn first() -> E;
+
+    pub fn first() -> E;

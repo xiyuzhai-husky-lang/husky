@@ -652,7 +652,7 @@ Ok(
                                         TypePath(`core::list::List`, `Extern`),
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 2,
+                                    ast_idx: 4,
                                     ident_token: IdentToken {
                                         ident: `List`,
                                         token_idx: TokenIdx(
@@ -672,7 +672,7 @@ Ok(
                                 ty_path: TypePath(`core::list::List`, `Extern`),
                                 disambiguator: 0,
                             },
-                            ast_idx: 3,
+                            ast_idx: 5,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     8,
@@ -682,7 +682,7 @@ Ok(
                             body: Type(
                                 TypeItems {
                                     ast_idx_range: ArenaIdxRange(
-                                        0..2,
+                                        0..4,
                                     ),
                                 },
                             ),
