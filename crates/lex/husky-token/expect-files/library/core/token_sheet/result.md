@@ -92,7 +92,15 @@ Ok(
                 ),
             ),
             Token::Ident(
-                `T`,
+                `T1`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Comma,
+                ),
+            ),
+            Token::Ident(
+                `T2`,
             ),
             Token::Punctuation(
                 Punctuation(
@@ -140,28 +148,14 @@ Ok(
             Token::Ident(
                 `Unveil`,
             ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Bra(
-                        Par,
-                    ),
-                ),
-            ),
             Token::Ident(
                 `Result`,
             ),
             Token::Ident(
-                `T`,
+                `T2`,
             ),
             Token::Ident(
-                `E1`,
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Ket(
-                        Par,
-                    ),
-                ),
+                `E2`,
             ),
             Token::Keyword(
                 Keyword::Connection(
@@ -172,10 +166,10 @@ Ok(
                 `Result`,
             ),
             Token::Ident(
-                `T`,
+                `T1`,
             ),
             Token::Ident(
-                `E2`,
+                `E1`,
             ),
             Token::Punctuation(
                 Punctuation(
@@ -196,7 +190,7 @@ Ok(
                 ),
             ),
             Token::Ident(
-                `E1`,
+                `E2`,
             ),
             Token::Keyword(
                 Keyword::Fugitive(
@@ -225,10 +219,10 @@ Ok(
                 `Result`,
             ),
             Token::Ident(
-                `T`,
+                `T2`,
             ),
             Token::Ident(
-                `E1`,
+                `E2`,
             ),
             Token::Punctuation(
                 Punctuation(
@@ -248,10 +242,10 @@ Ok(
                 `Result`,
             ),
             Token::Ident(
-                `T`,
+                `T1`,
             ),
             Token::Ident(
-                `E2`,
+                `E1`,
             ),
             Token::Punctuation(
                 Punctuation(

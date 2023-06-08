@@ -994,7 +994,7 @@ fn parse_expr_works() {
                                     ident: Ident(
                                         Word(
                                             Id {
-                                                value: 155,
+                                                value: 157,
                                             },
                                         ),
                                     ),
@@ -1092,7 +1092,7 @@ fn parse_expr_works() {
                                     ident: Ident(
                                         Word(
                                             Id {
-                                                value: 155,
+                                                value: 157,
                                             },
                                         ),
                                     ),
@@ -1108,7 +1108,7 @@ fn parse_expr_works() {
                                 ident: Ident(
                                     Word(
                                         Id {
-                                            value: 156,
+                                            value: 158,
                                         },
                                     ),
                                 ),

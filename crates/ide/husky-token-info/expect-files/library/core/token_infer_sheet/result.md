@@ -68,7 +68,7 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
                     implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
                         ident_token: IdentToken {
-                            ident: `T`,
+                            ident: `T1`,
                             token_idx: TokenIdx(
                                 20,
                             ),
@@ -83,7 +83,7 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
                     implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
                         ident_token: IdentToken {
-                            ident: `E1`,
+                            ident: `T2`,
                             token_idx: TokenIdx(
                                 22,
                             ),
@@ -98,9 +98,24 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
                     implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
                         ident_token: IdentToken {
-                            ident: `E2`,
+                            ident: `E1`,
                             token_idx: TokenIdx(
                                 24,
+                            ),
+                        },
+                    },
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 3,
+                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                        ident_token: IdentToken {
+                            ident: `E2`,
+                            token_idx: TokenIdx(
+                                26,
                             ),
                         },
                     },
@@ -136,7 +151,6 @@ Ok(
                 ),
                 None,
             ),
-            TokenInfo::None,
             TokenInfo::Entity(
                 Some(
                     EntityPath::ModuleItem(
@@ -148,25 +162,11 @@ Ok(
                 None,
             ),
             TokenInfo::CurrentSymbol {
-                current_symbol_idx: 0,
-                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
-                        ident_token: IdentToken {
-                            ident: `T`,
-                            token_idx: TokenIdx(
-                                20,
-                            ),
-                        },
-                    },
-                },
-                expr_region: ExprRegionLeash(_),
-            },
-            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
                 current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
                     implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
                         ident_token: IdentToken {
-                            ident: `E1`,
+                            ident: `T2`,
                             token_idx: TokenIdx(
                                 22,
                             ),
@@ -175,7 +175,20 @@ Ok(
                 },
                 expr_region: ExprRegionLeash(_),
             },
-            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 3,
+                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                        ident_token: IdentToken {
+                            ident: `E2`,
+                            token_idx: TokenIdx(
+                                26,
+                            ),
+                        },
+                    },
+                },
+                expr_region: ExprRegionLeash(_),
+            },
             TokenInfo::None,
             TokenInfo::Entity(
                 Some(
@@ -192,7 +205,7 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
                     implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
                         ident_token: IdentToken {
-                            ident: `T`,
+                            ident: `T1`,
                             token_idx: TokenIdx(
                                 20,
                             ),
@@ -206,7 +219,7 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
                     implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
                         ident_token: IdentToken {
-                            ident: `E2`,
+                            ident: `E1`,
                             token_idx: TokenIdx(
                                 24,
                             ),
@@ -282,19 +295,19 @@ Ok(
                 None,
             ),
             TokenInfo::InheritedSymbol {
-                inherited_symbol_idx: 0,
+                inherited_symbol_idx: 1,
                 inherited_symbol_kind: InheritedSymbolKind::ImplicitParameter(
                     InheritedImplicitParameterSymbol::Type {
-                        ident: `T`,
+                        ident: `T2`,
                     },
                 ),
                 expr_region: ExprRegionLeash(_),
             },
             TokenInfo::InheritedSymbol {
-                inherited_symbol_idx: 1,
+                inherited_symbol_idx: 3,
                 inherited_symbol_kind: InheritedSymbolKind::ImplicitParameter(
                     InheritedImplicitParameterSymbol::Type {
-                        ident: `E1`,
+                        ident: `E2`,
                     },
                 ),
                 expr_region: ExprRegionLeash(_),
@@ -315,7 +328,7 @@ Ok(
                 inherited_symbol_idx: 0,
                 inherited_symbol_kind: InheritedSymbolKind::ImplicitParameter(
                     InheritedImplicitParameterSymbol::Type {
-                        ident: `T`,
+                        ident: `T1`,
                     },
                 ),
                 expr_region: ExprRegionLeash(_),
@@ -324,7 +337,7 @@ Ok(
                 inherited_symbol_idx: 2,
                 inherited_symbol_kind: InheritedSymbolKind::ImplicitParameter(
                     InheritedImplicitParameterSymbol::Type {
-                        ident: `E2`,
+                        ident: `E1`,
                     },
                 ),
                 expr_region: ExprRegionLeash(_),

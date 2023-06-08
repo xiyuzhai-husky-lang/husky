@@ -62,9 +62,18 @@
                                 ),
                                 traits: [],
                             },
+                            ImplicitParameterDeclarativeSignature {
+                                annotated_variance: None,
+                                symbol: DeclarativeTermSymbol(
+                                    Id {
+                                        value: 27,
+                                    },
+                                ),
+                                traits: [],
+                            },
                         ],
                     },
-                    trai: DeclarativeTerm(`core::ops::Unveil(core::result::Result t s, `),
+                    trai: DeclarativeTerm(`core::ops::Unveil core::result::Result t s`),
                     ty: DeclarativeTerm(`core::result::Result t s`),
                 },
             ),
@@ -92,7 +101,7 @@
                             ty: ExplicitApplication(
                                 DeclarativeTermExplicitApplication(
                                     Id {
-                                        value: 35,
+                                        value: 39,
                                     },
                                 ),
                             ),
@@ -104,7 +113,7 @@
                                     ty: ExplicitApplication(
                                         DeclarativeTermExplicitApplication(
                                             Id {
-                                                value: 33,
+                                                value: 41,
                                             },
                                         ),
                                     ),

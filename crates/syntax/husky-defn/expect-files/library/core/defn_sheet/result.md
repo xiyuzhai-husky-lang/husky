@@ -236,7 +236,7 @@ Ok(
                                                 symbol: 0,
                                                 variant: ImplicitParameterDeclPatternVariant::Type {
                                                     ident_token: IdentToken {
-                                                        ident: `T`,
+                                                        ident: `T1`,
                                                         token_idx: TokenIdx(
                                                             20,
                                                         ),
@@ -249,7 +249,7 @@ Ok(
                                                 symbol: 1,
                                                 variant: ImplicitParameterDeclPatternVariant::Type {
                                                     ident_token: IdentToken {
-                                                        ident: `E1`,
+                                                        ident: `T2`,
                                                         token_idx: TokenIdx(
                                                             22,
                                                         ),
@@ -262,9 +262,22 @@ Ok(
                                                 symbol: 2,
                                                 variant: ImplicitParameterDeclPatternVariant::Type {
                                                     ident_token: IdentToken {
-                                                        ident: `E2`,
+                                                        ident: `E1`,
                                                         token_idx: TokenIdx(
                                                             24,
+                                                        ),
+                                                    },
+                                                    traits: None,
+                                                },
+                                            },
+                                            ImplicitParameterDeclPattern {
+                                                annotated_variance_token: None,
+                                                symbol: 3,
+                                                variant: ImplicitParameterDeclPatternVariant::Type {
+                                                    ident_token: IdentToken {
+                                                        ident: `E2`,
+                                                        token_idx: TokenIdx(
+                                                            26,
                                                         ),
                                                     },
                                                     traits: None,
@@ -282,13 +295,18 @@ Ok(
                                                     23,
                                                 ),
                                             ),
+                                            CommaToken(
+                                                TokenIdx(
+                                                    25,
+                                                ),
+                                            ),
                                         ],
                                         decl_list_result: Ok(
                                             (),
                                         ),
                                         rangle: RightAngleBracketToken(
                                             TokenIdx(
-                                                25,
+                                                27,
                                             ),
                                         ),
                                     },
@@ -348,29 +366,12 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                Expr::CurrentSymbol {
-                                                    ident: `T`,
-                                                    token_idx: TokenIdx(
-                                                        33,
-                                                    ),
-                                                    current_symbol_idx: 0,
-                                                    current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                                                        implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
-                                                            ident_token: IdentToken {
-                                                                ident: `T`,
-                                                                token_idx: TokenIdx(
-                                                                    20,
-                                                                ),
-                                                            },
-                                                        },
-                                                    },
-                                                },
                                                 Expr::ExplicitApplication {
-                                                    function: 1,
-                                                    argument: 2,
+                                                    function: 0,
+                                                    argument: 1,
                                                 },
                                                 Expr::CurrentSymbol {
-                                                    ident: `E1`,
+                                                    ident: `T2`,
                                                     token_idx: TokenIdx(
                                                         34,
                                                     ),
@@ -378,7 +379,7 @@ Ok(
                                                     current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
                                                         implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
                                                             ident_token: IdentToken {
-                                                                ident: `E1`,
+                                                                ident: `T2`,
                                                                 token_idx: TokenIdx(
                                                                     22,
                                                                 ),
@@ -387,22 +388,29 @@ Ok(
                                                     },
                                                 },
                                                 Expr::ExplicitApplication {
-                                                    function: 3,
-                                                    argument: 4,
+                                                    function: 2,
+                                                    argument: 3,
                                                 },
-                                                Expr::FunctionApplicationOrCall {
-                                                    function: 0,
-                                                    implicit_arguments: None,
-                                                    lpar_token_idx: TokenIdx(
-                                                        31,
-                                                    ),
-                                                    items: ArenaIdxRange(
-                                                        5..6,
-                                                    ),
-                                                    commas: [],
-                                                    rpar_token_idx: TokenIdx(
+                                                Expr::CurrentSymbol {
+                                                    ident: `E2`,
+                                                    token_idx: TokenIdx(
                                                         35,
                                                     ),
+                                                    current_symbol_idx: 3,
+                                                    current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
+                                                        implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                                                            ident_token: IdentToken {
+                                                                ident: `E2`,
+                                                                token_idx: TokenIdx(
+                                                                    26,
+                                                                ),
+                                                            },
+                                                        },
+                                                    },
+                                                },
+                                                Expr::ExplicitApplication {
+                                                    function: 4,
+                                                    argument: 5,
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 4,
@@ -415,7 +423,7 @@ Ok(
                                                     ),
                                                 },
                                                 Expr::CurrentSymbol {
-                                                    ident: `T`,
+                                                    ident: `T1`,
                                                     token_idx: TokenIdx(
                                                         38,
                                                     ),
@@ -423,7 +431,7 @@ Ok(
                                                     current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
                                                         implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
                                                             ident_token: IdentToken {
-                                                                ident: `T`,
+                                                                ident: `T1`,
                                                                 token_idx: TokenIdx(
                                                                     20,
                                                                 ),
@@ -436,7 +444,7 @@ Ok(
                                                     argument: 8,
                                                 },
                                                 Expr::CurrentSymbol {
-                                                    ident: `E2`,
+                                                    ident: `E1`,
                                                     token_idx: TokenIdx(
                                                         39,
                                                     ),
@@ -444,7 +452,7 @@ Ok(
                                                     current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
                                                         implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
                                                             ident_token: IdentToken {
-                                                                ident: `E2`,
+                                                                ident: `E1`,
                                                                 token_idx: TokenIdx(
                                                                     24,
                                                                 ),
@@ -464,7 +472,7 @@ Ok(
                                                     path_name_token: PathNameToken::CrateRoot(
                                                         CrateToken {
                                                             token_idx: TokenIdx(
-                                                                26,
+                                                                28,
                                                             ),
                                                         },
                                                     ),
@@ -476,14 +484,14 @@ Ok(
                                                     parent: 0,
                                                     scope_resolution_token: ScopeResolutionToken(
                                                         TokenIdx(
-                                                            27,
+                                                            29,
                                                         ),
                                                     ),
                                                     ident_token: Ok(
                                                         IdentToken {
                                                             ident: `ops`,
                                                             token_idx: TokenIdx(
-                                                                28,
+                                                                30,
                                                             ),
                                                         },
                                                     ),
@@ -497,14 +505,14 @@ Ok(
                                                     parent: 1,
                                                     scope_resolution_token: ScopeResolutionToken(
                                                         TokenIdx(
-                                                            29,
+                                                            31,
                                                         ),
                                                     ),
                                                     ident_token: Ok(
                                                         IdentToken {
                                                             ident: `Unveil`,
                                                             token_idx: TokenIdx(
-                                                                30,
+                                                                32,
                                                             ),
                                                         },
                                                     ),
@@ -521,7 +529,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `Result`,
                                                             token_idx: TokenIdx(
-                                                                32,
+                                                                33,
                                                             ),
                                                         },
                                                     ),
@@ -582,7 +590,7 @@ Ok(
                                                         variant: CurrentSymbolVariant::ImplicitParameter {
                                                             implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                 ident_token: IdentToken {
-                                                                    ident: `T`,
+                                                                    ident: `T1`,
                                                                     token_idx: TokenIdx(
                                                                         20,
                                                                     ),
@@ -599,7 +607,7 @@ Ok(
                                                         variant: CurrentSymbolVariant::ImplicitParameter {
                                                             implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                 ident_token: IdentToken {
-                                                                    ident: `E1`,
+                                                                    ident: `T2`,
                                                                     token_idx: TokenIdx(
                                                                         22,
                                                                     ),
@@ -616,9 +624,26 @@ Ok(
                                                         variant: CurrentSymbolVariant::ImplicitParameter {
                                                             implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                 ident_token: IdentToken {
-                                                                    ident: `E2`,
+                                                                    ident: `E1`,
                                                                     token_idx: TokenIdx(
                                                                         24,
+                                                                    ),
+                                                                },
+                                                            },
+                                                        },
+                                                    },
+                                                    CurrentSymbol {
+                                                        modifier: Const,
+                                                        access_start: TokenIdx(
+                                                            27,
+                                                        ),
+                                                        access_end: None,
+                                                        variant: CurrentSymbolVariant::ImplicitParameter {
+                                                            implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                                ident_token: IdentToken {
+                                                                    ident: `E2`,
+                                                                    token_idx: TokenIdx(
+                                                                        26,
                                                                     ),
                                                                 },
                                                             },
@@ -645,6 +670,12 @@ Ok(
                                                     ImplicitTypeParameter,
                                                     ArenaIdxRange(
                                                         2..3,
+                                                    ),
+                                                ),
+                                                (
+                                                    ImplicitTypeParameter,
+                                                    ArenaIdxRange(
+                                                        3..4,
                                                     ),
                                                 ),
                                             ],
@@ -796,29 +827,12 @@ Ok(
                                                                             ),
                                                                         ),
                                                                     },
-                                                                    Expr::CurrentSymbol {
-                                                                        ident: `T`,
-                                                                        token_idx: TokenIdx(
-                                                                            33,
-                                                                        ),
-                                                                        current_symbol_idx: 0,
-                                                                        current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                                                                            implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
-                                                                                ident_token: IdentToken {
-                                                                                    ident: `T`,
-                                                                                    token_idx: TokenIdx(
-                                                                                        20,
-                                                                                    ),
-                                                                                },
-                                                                            },
-                                                                        },
-                                                                    },
                                                                     Expr::ExplicitApplication {
-                                                                        function: 1,
-                                                                        argument: 2,
+                                                                        function: 0,
+                                                                        argument: 1,
                                                                     },
                                                                     Expr::CurrentSymbol {
-                                                                        ident: `E1`,
+                                                                        ident: `T2`,
                                                                         token_idx: TokenIdx(
                                                                             34,
                                                                         ),
@@ -826,7 +840,7 @@ Ok(
                                                                         current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
                                                                             implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
                                                                                 ident_token: IdentToken {
-                                                                                    ident: `E1`,
+                                                                                    ident: `T2`,
                                                                                     token_idx: TokenIdx(
                                                                                         22,
                                                                                     ),
@@ -835,22 +849,29 @@ Ok(
                                                                         },
                                                                     },
                                                                     Expr::ExplicitApplication {
-                                                                        function: 3,
-                                                                        argument: 4,
+                                                                        function: 2,
+                                                                        argument: 3,
                                                                     },
-                                                                    Expr::FunctionApplicationOrCall {
-                                                                        function: 0,
-                                                                        implicit_arguments: None,
-                                                                        lpar_token_idx: TokenIdx(
-                                                                            31,
-                                                                        ),
-                                                                        items: ArenaIdxRange(
-                                                                            5..6,
-                                                                        ),
-                                                                        commas: [],
-                                                                        rpar_token_idx: TokenIdx(
+                                                                    Expr::CurrentSymbol {
+                                                                        ident: `E2`,
+                                                                        token_idx: TokenIdx(
                                                                             35,
                                                                         ),
+                                                                        current_symbol_idx: 3,
+                                                                        current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
+                                                                            implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                                                                                ident_token: IdentToken {
+                                                                                    ident: `E2`,
+                                                                                    token_idx: TokenIdx(
+                                                                                        26,
+                                                                                    ),
+                                                                                },
+                                                                            },
+                                                                        },
+                                                                    },
+                                                                    Expr::ExplicitApplication {
+                                                                        function: 4,
+                                                                        argument: 5,
                                                                     },
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 4,
@@ -863,7 +884,7 @@ Ok(
                                                                         ),
                                                                     },
                                                                     Expr::CurrentSymbol {
-                                                                        ident: `T`,
+                                                                        ident: `T1`,
                                                                         token_idx: TokenIdx(
                                                                             38,
                                                                         ),
@@ -871,7 +892,7 @@ Ok(
                                                                         current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
                                                                             implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
                                                                                 ident_token: IdentToken {
-                                                                                    ident: `T`,
+                                                                                    ident: `T1`,
                                                                                     token_idx: TokenIdx(
                                                                                         20,
                                                                                     ),
@@ -884,7 +905,7 @@ Ok(
                                                                         argument: 8,
                                                                     },
                                                                     Expr::CurrentSymbol {
-                                                                        ident: `E2`,
+                                                                        ident: `E1`,
                                                                         token_idx: TokenIdx(
                                                                             39,
                                                                         ),
@@ -892,7 +913,7 @@ Ok(
                                                                         current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
                                                                             implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
                                                                                 ident_token: IdentToken {
-                                                                                    ident: `E2`,
+                                                                                    ident: `E1`,
                                                                                     token_idx: TokenIdx(
                                                                                         24,
                                                                                     ),
@@ -912,7 +933,7 @@ Ok(
                                                                         path_name_token: PathNameToken::CrateRoot(
                                                                             CrateToken {
                                                                                 token_idx: TokenIdx(
-                                                                                    26,
+                                                                                    28,
                                                                                 ),
                                                                             },
                                                                         ),
@@ -924,14 +945,14 @@ Ok(
                                                                         parent: 0,
                                                                         scope_resolution_token: ScopeResolutionToken(
                                                                             TokenIdx(
-                                                                                27,
+                                                                                29,
                                                                             ),
                                                                         ),
                                                                         ident_token: Ok(
                                                                             IdentToken {
                                                                                 ident: `ops`,
                                                                                 token_idx: TokenIdx(
-                                                                                    28,
+                                                                                    30,
                                                                                 ),
                                                                             },
                                                                         ),
@@ -945,14 +966,14 @@ Ok(
                                                                         parent: 1,
                                                                         scope_resolution_token: ScopeResolutionToken(
                                                                             TokenIdx(
-                                                                                29,
+                                                                                31,
                                                                             ),
                                                                         ),
                                                                         ident_token: Ok(
                                                                             IdentToken {
                                                                                 ident: `Unveil`,
                                                                                 token_idx: TokenIdx(
-                                                                                    30,
+                                                                                    32,
                                                                                 ),
                                                                             },
                                                                         ),
@@ -969,7 +990,7 @@ Ok(
                                                                             IdentToken {
                                                                                 ident: `Result`,
                                                                                 token_idx: TokenIdx(
-                                                                                    32,
+                                                                                    33,
                                                                                 ),
                                                                             },
                                                                         ),
@@ -1030,7 +1051,7 @@ Ok(
                                                                             variant: CurrentSymbolVariant::ImplicitParameter {
                                                                                 implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                                     ident_token: IdentToken {
-                                                                                        ident: `T`,
+                                                                                        ident: `T1`,
                                                                                         token_idx: TokenIdx(
                                                                                             20,
                                                                                         ),
@@ -1047,7 +1068,7 @@ Ok(
                                                                             variant: CurrentSymbolVariant::ImplicitParameter {
                                                                                 implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                                     ident_token: IdentToken {
-                                                                                        ident: `E1`,
+                                                                                        ident: `T2`,
                                                                                         token_idx: TokenIdx(
                                                                                             22,
                                                                                         ),
@@ -1064,9 +1085,26 @@ Ok(
                                                                             variant: CurrentSymbolVariant::ImplicitParameter {
                                                                                 implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                                     ident_token: IdentToken {
-                                                                                        ident: `E2`,
+                                                                                        ident: `E1`,
                                                                                         token_idx: TokenIdx(
                                                                                             24,
+                                                                                        ),
+                                                                                    },
+                                                                                },
+                                                                            },
+                                                                        },
+                                                                        CurrentSymbol {
+                                                                            modifier: Const,
+                                                                            access_start: TokenIdx(
+                                                                                27,
+                                                                            ),
+                                                                            access_end: None,
+                                                                            variant: CurrentSymbolVariant::ImplicitParameter {
+                                                                                implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                                                    ident_token: IdentToken {
+                                                                                        ident: `E2`,
+                                                                                        token_idx: TokenIdx(
+                                                                                            26,
                                                                                         ),
                                                                                     },
                                                                                 },
@@ -1093,6 +1131,12 @@ Ok(
                                                                         ImplicitTypeParameter,
                                                                         ArenaIdxRange(
                                                                             2..3,
+                                                                        ),
+                                                                    ),
+                                                                    (
+                                                                        ImplicitTypeParameter,
+                                                                        ArenaIdxRange(
+                                                                            3..4,
                                                                         ),
                                                                     ),
                                                                 ],
@@ -1160,7 +1204,7 @@ Ok(
                                                                 modifier: Const,
                                                                 kind: InheritedSymbolKind::ImplicitParameter(
                                                                     InheritedImplicitParameterSymbol::Type {
-                                                                        ident: `T`,
+                                                                        ident: `T1`,
                                                                     },
                                                                 ),
                                                             },
@@ -1171,13 +1215,24 @@ Ok(
                                                                 modifier: Const,
                                                                 kind: InheritedSymbolKind::ImplicitParameter(
                                                                     InheritedImplicitParameterSymbol::Type {
-                                                                        ident: `E1`,
+                                                                        ident: `T2`,
                                                                     },
                                                                 ),
                                                             },
                                                             InheritedSymbol {
                                                                 parent_symbol_idx: Current(
                                                                     2,
+                                                                ),
+                                                                modifier: Const,
+                                                                kind: InheritedSymbolKind::ImplicitParameter(
+                                                                    InheritedImplicitParameterSymbol::Type {
+                                                                        ident: `E1`,
+                                                                    },
+                                                                ),
+                                                            },
+                                                            InheritedSymbol {
+                                                                parent_symbol_idx: Current(
+                                                                    3,
                                                                 ),
                                                                 modifier: Const,
                                                                 kind: InheritedSymbolKind::ImplicitParameter(
@@ -1242,29 +1297,12 @@ Ok(
                                                                                     ),
                                                                                 ),
                                                                             },
-                                                                            Expr::CurrentSymbol {
-                                                                                ident: `T`,
-                                                                                token_idx: TokenIdx(
-                                                                                    33,
-                                                                                ),
-                                                                                current_symbol_idx: 0,
-                                                                                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                                                                                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
-                                                                                        ident_token: IdentToken {
-                                                                                            ident: `T`,
-                                                                                            token_idx: TokenIdx(
-                                                                                                20,
-                                                                                            ),
-                                                                                        },
-                                                                                    },
-                                                                                },
-                                                                            },
                                                                             Expr::ExplicitApplication {
-                                                                                function: 1,
-                                                                                argument: 2,
+                                                                                function: 0,
+                                                                                argument: 1,
                                                                             },
                                                                             Expr::CurrentSymbol {
-                                                                                ident: `E1`,
+                                                                                ident: `T2`,
                                                                                 token_idx: TokenIdx(
                                                                                     34,
                                                                                 ),
@@ -1272,7 +1310,7 @@ Ok(
                                                                                 current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
                                                                                     implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
                                                                                         ident_token: IdentToken {
-                                                                                            ident: `E1`,
+                                                                                            ident: `T2`,
                                                                                             token_idx: TokenIdx(
                                                                                                 22,
                                                                                             ),
@@ -1281,22 +1319,29 @@ Ok(
                                                                                 },
                                                                             },
                                                                             Expr::ExplicitApplication {
-                                                                                function: 3,
-                                                                                argument: 4,
+                                                                                function: 2,
+                                                                                argument: 3,
                                                                             },
-                                                                            Expr::FunctionApplicationOrCall {
-                                                                                function: 0,
-                                                                                implicit_arguments: None,
-                                                                                lpar_token_idx: TokenIdx(
-                                                                                    31,
-                                                                                ),
-                                                                                items: ArenaIdxRange(
-                                                                                    5..6,
-                                                                                ),
-                                                                                commas: [],
-                                                                                rpar_token_idx: TokenIdx(
+                                                                            Expr::CurrentSymbol {
+                                                                                ident: `E2`,
+                                                                                token_idx: TokenIdx(
                                                                                     35,
                                                                                 ),
+                                                                                current_symbol_idx: 3,
+                                                                                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
+                                                                                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                                                                                        ident_token: IdentToken {
+                                                                                            ident: `E2`,
+                                                                                            token_idx: TokenIdx(
+                                                                                                26,
+                                                                                            ),
+                                                                                        },
+                                                                                    },
+                                                                                },
+                                                                            },
+                                                                            Expr::ExplicitApplication {
+                                                                                function: 4,
+                                                                                argument: 5,
                                                                             },
                                                                             Expr::EntityPath {
                                                                                 entity_path_expr: 4,
@@ -1309,7 +1354,7 @@ Ok(
                                                                                 ),
                                                                             },
                                                                             Expr::CurrentSymbol {
-                                                                                ident: `T`,
+                                                                                ident: `T1`,
                                                                                 token_idx: TokenIdx(
                                                                                     38,
                                                                                 ),
@@ -1317,7 +1362,7 @@ Ok(
                                                                                 current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
                                                                                     implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
                                                                                         ident_token: IdentToken {
-                                                                                            ident: `T`,
+                                                                                            ident: `T1`,
                                                                                             token_idx: TokenIdx(
                                                                                                 20,
                                                                                             ),
@@ -1330,7 +1375,7 @@ Ok(
                                                                                 argument: 8,
                                                                             },
                                                                             Expr::CurrentSymbol {
-                                                                                ident: `E2`,
+                                                                                ident: `E1`,
                                                                                 token_idx: TokenIdx(
                                                                                     39,
                                                                                 ),
@@ -1338,7 +1383,7 @@ Ok(
                                                                                 current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
                                                                                     implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
                                                                                         ident_token: IdentToken {
-                                                                                            ident: `E2`,
+                                                                                            ident: `E1`,
                                                                                             token_idx: TokenIdx(
                                                                                                 24,
                                                                                             ),
@@ -1358,7 +1403,7 @@ Ok(
                                                                                 path_name_token: PathNameToken::CrateRoot(
                                                                                     CrateToken {
                                                                                         token_idx: TokenIdx(
-                                                                                            26,
+                                                                                            28,
                                                                                         ),
                                                                                     },
                                                                                 ),
@@ -1370,14 +1415,14 @@ Ok(
                                                                                 parent: 0,
                                                                                 scope_resolution_token: ScopeResolutionToken(
                                                                                     TokenIdx(
-                                                                                        27,
+                                                                                        29,
                                                                                     ),
                                                                                 ),
                                                                                 ident_token: Ok(
                                                                                     IdentToken {
                                                                                         ident: `ops`,
                                                                                         token_idx: TokenIdx(
-                                                                                            28,
+                                                                                            30,
                                                                                         ),
                                                                                     },
                                                                                 ),
@@ -1391,14 +1436,14 @@ Ok(
                                                                                 parent: 1,
                                                                                 scope_resolution_token: ScopeResolutionToken(
                                                                                     TokenIdx(
-                                                                                        29,
+                                                                                        31,
                                                                                     ),
                                                                                 ),
                                                                                 ident_token: Ok(
                                                                                     IdentToken {
                                                                                         ident: `Unveil`,
                                                                                         token_idx: TokenIdx(
-                                                                                            30,
+                                                                                            32,
                                                                                         ),
                                                                                     },
                                                                                 ),
@@ -1415,7 +1460,7 @@ Ok(
                                                                                     IdentToken {
                                                                                         ident: `Result`,
                                                                                         token_idx: TokenIdx(
-                                                                                            32,
+                                                                                            33,
                                                                                         ),
                                                                                     },
                                                                                 ),
@@ -1476,7 +1521,7 @@ Ok(
                                                                                     variant: CurrentSymbolVariant::ImplicitParameter {
                                                                                         implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                                             ident_token: IdentToken {
-                                                                                                ident: `T`,
+                                                                                                ident: `T1`,
                                                                                                 token_idx: TokenIdx(
                                                                                                     20,
                                                                                                 ),
@@ -1493,7 +1538,7 @@ Ok(
                                                                                     variant: CurrentSymbolVariant::ImplicitParameter {
                                                                                         implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                                             ident_token: IdentToken {
-                                                                                                ident: `E1`,
+                                                                                                ident: `T2`,
                                                                                                 token_idx: TokenIdx(
                                                                                                     22,
                                                                                                 ),
@@ -1510,9 +1555,26 @@ Ok(
                                                                                     variant: CurrentSymbolVariant::ImplicitParameter {
                                                                                         implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                                             ident_token: IdentToken {
-                                                                                                ident: `E2`,
+                                                                                                ident: `E1`,
                                                                                                 token_idx: TokenIdx(
                                                                                                     24,
+                                                                                                ),
+                                                                                            },
+                                                                                        },
+                                                                                    },
+                                                                                },
+                                                                                CurrentSymbol {
+                                                                                    modifier: Const,
+                                                                                    access_start: TokenIdx(
+                                                                                        27,
+                                                                                    ),
+                                                                                    access_end: None,
+                                                                                    variant: CurrentSymbolVariant::ImplicitParameter {
+                                                                                        implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                                                            ident_token: IdentToken {
+                                                                                                ident: `E2`,
+                                                                                                token_idx: TokenIdx(
+                                                                                                    26,
                                                                                                 ),
                                                                                             },
                                                                                         },
@@ -1539,6 +1601,12 @@ Ok(
                                                                                 ImplicitTypeParameter,
                                                                                 ArenaIdxRange(
                                                                                     2..3,
+                                                                                ),
+                                                                            ),
+                                                                            (
+                                                                                ImplicitTypeParameter,
+                                                                                ArenaIdxRange(
+                                                                                    3..4,
                                                                                 ),
                                                                             ),
                                                                         ],
@@ -1606,7 +1674,7 @@ Ok(
                                                                         modifier: Const,
                                                                         kind: InheritedSymbolKind::ImplicitParameter(
                                                                             InheritedImplicitParameterSymbol::Type {
-                                                                                ident: `T`,
+                                                                                ident: `T1`,
                                                                             },
                                                                         ),
                                                                     },
@@ -1617,13 +1685,24 @@ Ok(
                                                                         modifier: Const,
                                                                         kind: InheritedSymbolKind::ImplicitParameter(
                                                                             InheritedImplicitParameterSymbol::Type {
-                                                                                ident: `E1`,
+                                                                                ident: `T2`,
                                                                             },
                                                                         ),
                                                                     },
                                                                     InheritedSymbol {
                                                                         parent_symbol_idx: Current(
                                                                             2,
+                                                                        ),
+                                                                        modifier: Const,
+                                                                        kind: InheritedSymbolKind::ImplicitParameter(
+                                                                            InheritedImplicitParameterSymbol::Type {
+                                                                                ident: `E1`,
+                                                                            },
+                                                                        ),
+                                                                    },
+                                                                    InheritedSymbol {
+                                                                        parent_symbol_idx: Current(
+                                                                            3,
                                                                         ),
                                                                         modifier: Const,
                                                                         kind: InheritedSymbolKind::ImplicitParameter(
@@ -1695,7 +1774,7 @@ Ok(
                                                             modifier: Const,
                                                             kind: InheritedSymbolKind::ImplicitParameter(
                                                                 InheritedImplicitParameterSymbol::Type {
-                                                                    ident: `T`,
+                                                                    ident: `T1`,
                                                                 },
                                                             ),
                                                         },
@@ -1706,13 +1785,24 @@ Ok(
                                                             modifier: Const,
                                                             kind: InheritedSymbolKind::ImplicitParameter(
                                                                 InheritedImplicitParameterSymbol::Type {
-                                                                    ident: `E1`,
+                                                                    ident: `T2`,
                                                                 },
                                                             ),
                                                         },
                                                         InheritedSymbol {
                                                             parent_symbol_idx: Current(
                                                                 2,
+                                                            ),
+                                                            modifier: Const,
+                                                            kind: InheritedSymbolKind::ImplicitParameter(
+                                                                InheritedImplicitParameterSymbol::Type {
+                                                                    ident: `E1`,
+                                                                },
+                                                            ),
+                                                        },
+                                                        InheritedSymbol {
+                                                            parent_symbol_idx: Current(
+                                                                3,
                                                             ),
                                                             modifier: Const,
                                                             kind: InheritedSymbolKind::ImplicitParameter(
@@ -1925,29 +2015,12 @@ Ok(
                                                                             ),
                                                                         ),
                                                                     },
-                                                                    Expr::CurrentSymbol {
-                                                                        ident: `T`,
-                                                                        token_idx: TokenIdx(
-                                                                            33,
-                                                                        ),
-                                                                        current_symbol_idx: 0,
-                                                                        current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                                                                            implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
-                                                                                ident_token: IdentToken {
-                                                                                    ident: `T`,
-                                                                                    token_idx: TokenIdx(
-                                                                                        20,
-                                                                                    ),
-                                                                                },
-                                                                            },
-                                                                        },
-                                                                    },
                                                                     Expr::ExplicitApplication {
-                                                                        function: 1,
-                                                                        argument: 2,
+                                                                        function: 0,
+                                                                        argument: 1,
                                                                     },
                                                                     Expr::CurrentSymbol {
-                                                                        ident: `E1`,
+                                                                        ident: `T2`,
                                                                         token_idx: TokenIdx(
                                                                             34,
                                                                         ),
@@ -1955,7 +2028,7 @@ Ok(
                                                                         current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
                                                                             implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
                                                                                 ident_token: IdentToken {
-                                                                                    ident: `E1`,
+                                                                                    ident: `T2`,
                                                                                     token_idx: TokenIdx(
                                                                                         22,
                                                                                     ),
@@ -1964,22 +2037,29 @@ Ok(
                                                                         },
                                                                     },
                                                                     Expr::ExplicitApplication {
-                                                                        function: 3,
-                                                                        argument: 4,
+                                                                        function: 2,
+                                                                        argument: 3,
                                                                     },
-                                                                    Expr::FunctionApplicationOrCall {
-                                                                        function: 0,
-                                                                        implicit_arguments: None,
-                                                                        lpar_token_idx: TokenIdx(
-                                                                            31,
-                                                                        ),
-                                                                        items: ArenaIdxRange(
-                                                                            5..6,
-                                                                        ),
-                                                                        commas: [],
-                                                                        rpar_token_idx: TokenIdx(
+                                                                    Expr::CurrentSymbol {
+                                                                        ident: `E2`,
+                                                                        token_idx: TokenIdx(
                                                                             35,
                                                                         ),
+                                                                        current_symbol_idx: 3,
+                                                                        current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
+                                                                            implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                                                                                ident_token: IdentToken {
+                                                                                    ident: `E2`,
+                                                                                    token_idx: TokenIdx(
+                                                                                        26,
+                                                                                    ),
+                                                                                },
+                                                                            },
+                                                                        },
+                                                                    },
+                                                                    Expr::ExplicitApplication {
+                                                                        function: 4,
+                                                                        argument: 5,
                                                                     },
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 4,
@@ -1992,7 +2072,7 @@ Ok(
                                                                         ),
                                                                     },
                                                                     Expr::CurrentSymbol {
-                                                                        ident: `T`,
+                                                                        ident: `T1`,
                                                                         token_idx: TokenIdx(
                                                                             38,
                                                                         ),
@@ -2000,7 +2080,7 @@ Ok(
                                                                         current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
                                                                             implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
                                                                                 ident_token: IdentToken {
-                                                                                    ident: `T`,
+                                                                                    ident: `T1`,
                                                                                     token_idx: TokenIdx(
                                                                                         20,
                                                                                     ),
@@ -2013,7 +2093,7 @@ Ok(
                                                                         argument: 8,
                                                                     },
                                                                     Expr::CurrentSymbol {
-                                                                        ident: `E2`,
+                                                                        ident: `E1`,
                                                                         token_idx: TokenIdx(
                                                                             39,
                                                                         ),
@@ -2021,7 +2101,7 @@ Ok(
                                                                         current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
                                                                             implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
                                                                                 ident_token: IdentToken {
-                                                                                    ident: `E2`,
+                                                                                    ident: `E1`,
                                                                                     token_idx: TokenIdx(
                                                                                         24,
                                                                                     ),
@@ -2041,7 +2121,7 @@ Ok(
                                                                         path_name_token: PathNameToken::CrateRoot(
                                                                             CrateToken {
                                                                                 token_idx: TokenIdx(
-                                                                                    26,
+                                                                                    28,
                                                                                 ),
                                                                             },
                                                                         ),
@@ -2053,14 +2133,14 @@ Ok(
                                                                         parent: 0,
                                                                         scope_resolution_token: ScopeResolutionToken(
                                                                             TokenIdx(
-                                                                                27,
+                                                                                29,
                                                                             ),
                                                                         ),
                                                                         ident_token: Ok(
                                                                             IdentToken {
                                                                                 ident: `ops`,
                                                                                 token_idx: TokenIdx(
-                                                                                    28,
+                                                                                    30,
                                                                                 ),
                                                                             },
                                                                         ),
@@ -2074,14 +2154,14 @@ Ok(
                                                                         parent: 1,
                                                                         scope_resolution_token: ScopeResolutionToken(
                                                                             TokenIdx(
-                                                                                29,
+                                                                                31,
                                                                             ),
                                                                         ),
                                                                         ident_token: Ok(
                                                                             IdentToken {
                                                                                 ident: `Unveil`,
                                                                                 token_idx: TokenIdx(
-                                                                                    30,
+                                                                                    32,
                                                                                 ),
                                                                             },
                                                                         ),
@@ -2098,7 +2178,7 @@ Ok(
                                                                             IdentToken {
                                                                                 ident: `Result`,
                                                                                 token_idx: TokenIdx(
-                                                                                    32,
+                                                                                    33,
                                                                                 ),
                                                                             },
                                                                         ),
@@ -2159,7 +2239,7 @@ Ok(
                                                                             variant: CurrentSymbolVariant::ImplicitParameter {
                                                                                 implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                                     ident_token: IdentToken {
-                                                                                        ident: `T`,
+                                                                                        ident: `T1`,
                                                                                         token_idx: TokenIdx(
                                                                                             20,
                                                                                         ),
@@ -2176,7 +2256,7 @@ Ok(
                                                                             variant: CurrentSymbolVariant::ImplicitParameter {
                                                                                 implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                                     ident_token: IdentToken {
-                                                                                        ident: `E1`,
+                                                                                        ident: `T2`,
                                                                                         token_idx: TokenIdx(
                                                                                             22,
                                                                                         ),
@@ -2193,9 +2273,26 @@ Ok(
                                                                             variant: CurrentSymbolVariant::ImplicitParameter {
                                                                                 implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                                     ident_token: IdentToken {
-                                                                                        ident: `E2`,
+                                                                                        ident: `E1`,
                                                                                         token_idx: TokenIdx(
                                                                                             24,
+                                                                                        ),
+                                                                                    },
+                                                                                },
+                                                                            },
+                                                                        },
+                                                                        CurrentSymbol {
+                                                                            modifier: Const,
+                                                                            access_start: TokenIdx(
+                                                                                27,
+                                                                            ),
+                                                                            access_end: None,
+                                                                            variant: CurrentSymbolVariant::ImplicitParameter {
+                                                                                implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                                                    ident_token: IdentToken {
+                                                                                        ident: `E2`,
+                                                                                        token_idx: TokenIdx(
+                                                                                            26,
                                                                                         ),
                                                                                     },
                                                                                 },
@@ -2222,6 +2319,12 @@ Ok(
                                                                         ImplicitTypeParameter,
                                                                         ArenaIdxRange(
                                                                             2..3,
+                                                                        ),
+                                                                    ),
+                                                                    (
+                                                                        ImplicitTypeParameter,
+                                                                        ArenaIdxRange(
+                                                                            3..4,
                                                                         ),
                                                                     ),
                                                                 ],
@@ -2267,14 +2370,14 @@ Ok(
                                                             ),
                                                         },
                                                         Expr::InheritedSymbol {
-                                                            ident: `T`,
+                                                            ident: `T2`,
                                                             token_idx: TokenIdx(
                                                                 51,
                                                             ),
-                                                            inherited_symbol_idx: 0,
+                                                            inherited_symbol_idx: 1,
                                                             inherited_symbol_kind: InheritedSymbolKind::ImplicitParameter(
                                                                 InheritedImplicitParameterSymbol::Type {
-                                                                    ident: `T`,
+                                                                    ident: `T2`,
                                                                 },
                                                             ),
                                                         },
@@ -2283,14 +2386,14 @@ Ok(
                                                             argument: 1,
                                                         },
                                                         Expr::InheritedSymbol {
-                                                            ident: `E1`,
+                                                            ident: `E2`,
                                                             token_idx: TokenIdx(
                                                                 52,
                                                             ),
-                                                            inherited_symbol_idx: 1,
+                                                            inherited_symbol_idx: 3,
                                                             inherited_symbol_kind: InheritedSymbolKind::ImplicitParameter(
                                                                 InheritedImplicitParameterSymbol::Type {
-                                                                    ident: `E1`,
+                                                                    ident: `E2`,
                                                                 },
                                                             ),
                                                         },
@@ -2309,14 +2412,14 @@ Ok(
                                                             ),
                                                         },
                                                         Expr::InheritedSymbol {
-                                                            ident: `T`,
+                                                            ident: `T1`,
                                                             token_idx: TokenIdx(
                                                                 56,
                                                             ),
                                                             inherited_symbol_idx: 0,
                                                             inherited_symbol_kind: InheritedSymbolKind::ImplicitParameter(
                                                                 InheritedImplicitParameterSymbol::Type {
-                                                                    ident: `T`,
+                                                                    ident: `T1`,
                                                                 },
                                                             ),
                                                         },
@@ -2325,14 +2428,14 @@ Ok(
                                                             argument: 6,
                                                         },
                                                         Expr::InheritedSymbol {
-                                                            ident: `E2`,
+                                                            ident: `E1`,
                                                             token_idx: TokenIdx(
                                                                 57,
                                                             ),
                                                             inherited_symbol_idx: 2,
                                                             inherited_symbol_kind: InheritedSymbolKind::ImplicitParameter(
                                                                 InheritedImplicitParameterSymbol::Type {
-                                                                    ident: `E2`,
+                                                                    ident: `E1`,
                                                                 },
                                                             ),
                                                         },
@@ -2432,7 +2535,7 @@ Ok(
                                                                 modifier: Const,
                                                                 kind: InheritedSymbolKind::ImplicitParameter(
                                                                     InheritedImplicitParameterSymbol::Type {
-                                                                        ident: `T`,
+                                                                        ident: `T1`,
                                                                     },
                                                                 ),
                                                             },
@@ -2443,13 +2546,24 @@ Ok(
                                                                 modifier: Const,
                                                                 kind: InheritedSymbolKind::ImplicitParameter(
                                                                     InheritedImplicitParameterSymbol::Type {
-                                                                        ident: `E1`,
+                                                                        ident: `T2`,
                                                                     },
                                                                 ),
                                                             },
                                                             InheritedSymbol {
                                                                 parent_symbol_idx: Current(
                                                                     2,
+                                                                ),
+                                                                modifier: Const,
+                                                                kind: InheritedSymbolKind::ImplicitParameter(
+                                                                    InheritedImplicitParameterSymbol::Type {
+                                                                        ident: `E1`,
+                                                                    },
+                                                                ),
+                                                            },
+                                                            InheritedSymbol {
+                                                                parent_symbol_idx: Current(
+                                                                    3,
                                                                 ),
                                                                 modifier: Const,
                                                                 kind: InheritedSymbolKind::ImplicitParameter(
@@ -2545,29 +2659,12 @@ Ok(
                                                                                     ),
                                                                                 ),
                                                                             },
-                                                                            Expr::CurrentSymbol {
-                                                                                ident: `T`,
-                                                                                token_idx: TokenIdx(
-                                                                                    33,
-                                                                                ),
-                                                                                current_symbol_idx: 0,
-                                                                                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                                                                                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
-                                                                                        ident_token: IdentToken {
-                                                                                            ident: `T`,
-                                                                                            token_idx: TokenIdx(
-                                                                                                20,
-                                                                                            ),
-                                                                                        },
-                                                                                    },
-                                                                                },
-                                                                            },
                                                                             Expr::ExplicitApplication {
-                                                                                function: 1,
-                                                                                argument: 2,
+                                                                                function: 0,
+                                                                                argument: 1,
                                                                             },
                                                                             Expr::CurrentSymbol {
-                                                                                ident: `E1`,
+                                                                                ident: `T2`,
                                                                                 token_idx: TokenIdx(
                                                                                     34,
                                                                                 ),
@@ -2575,7 +2672,7 @@ Ok(
                                                                                 current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
                                                                                     implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
                                                                                         ident_token: IdentToken {
-                                                                                            ident: `E1`,
+                                                                                            ident: `T2`,
                                                                                             token_idx: TokenIdx(
                                                                                                 22,
                                                                                             ),
@@ -2584,22 +2681,29 @@ Ok(
                                                                                 },
                                                                             },
                                                                             Expr::ExplicitApplication {
-                                                                                function: 3,
-                                                                                argument: 4,
+                                                                                function: 2,
+                                                                                argument: 3,
                                                                             },
-                                                                            Expr::FunctionApplicationOrCall {
-                                                                                function: 0,
-                                                                                implicit_arguments: None,
-                                                                                lpar_token_idx: TokenIdx(
-                                                                                    31,
-                                                                                ),
-                                                                                items: ArenaIdxRange(
-                                                                                    5..6,
-                                                                                ),
-                                                                                commas: [],
-                                                                                rpar_token_idx: TokenIdx(
+                                                                            Expr::CurrentSymbol {
+                                                                                ident: `E2`,
+                                                                                token_idx: TokenIdx(
                                                                                     35,
                                                                                 ),
+                                                                                current_symbol_idx: 3,
+                                                                                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
+                                                                                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                                                                                        ident_token: IdentToken {
+                                                                                            ident: `E2`,
+                                                                                            token_idx: TokenIdx(
+                                                                                                26,
+                                                                                            ),
+                                                                                        },
+                                                                                    },
+                                                                                },
+                                                                            },
+                                                                            Expr::ExplicitApplication {
+                                                                                function: 4,
+                                                                                argument: 5,
                                                                             },
                                                                             Expr::EntityPath {
                                                                                 entity_path_expr: 4,
@@ -2612,7 +2716,7 @@ Ok(
                                                                                 ),
                                                                             },
                                                                             Expr::CurrentSymbol {
-                                                                                ident: `T`,
+                                                                                ident: `T1`,
                                                                                 token_idx: TokenIdx(
                                                                                     38,
                                                                                 ),
@@ -2620,7 +2724,7 @@ Ok(
                                                                                 current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
                                                                                     implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
                                                                                         ident_token: IdentToken {
-                                                                                            ident: `T`,
+                                                                                            ident: `T1`,
                                                                                             token_idx: TokenIdx(
                                                                                                 20,
                                                                                             ),
@@ -2633,7 +2737,7 @@ Ok(
                                                                                 argument: 8,
                                                                             },
                                                                             Expr::CurrentSymbol {
-                                                                                ident: `E2`,
+                                                                                ident: `E1`,
                                                                                 token_idx: TokenIdx(
                                                                                     39,
                                                                                 ),
@@ -2641,7 +2745,7 @@ Ok(
                                                                                 current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
                                                                                     implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
                                                                                         ident_token: IdentToken {
-                                                                                            ident: `E2`,
+                                                                                            ident: `E1`,
                                                                                             token_idx: TokenIdx(
                                                                                                 24,
                                                                                             ),
@@ -2661,7 +2765,7 @@ Ok(
                                                                                 path_name_token: PathNameToken::CrateRoot(
                                                                                     CrateToken {
                                                                                         token_idx: TokenIdx(
-                                                                                            26,
+                                                                                            28,
                                                                                         ),
                                                                                     },
                                                                                 ),
@@ -2673,14 +2777,14 @@ Ok(
                                                                                 parent: 0,
                                                                                 scope_resolution_token: ScopeResolutionToken(
                                                                                     TokenIdx(
-                                                                                        27,
+                                                                                        29,
                                                                                     ),
                                                                                 ),
                                                                                 ident_token: Ok(
                                                                                     IdentToken {
                                                                                         ident: `ops`,
                                                                                         token_idx: TokenIdx(
-                                                                                            28,
+                                                                                            30,
                                                                                         ),
                                                                                     },
                                                                                 ),
@@ -2694,14 +2798,14 @@ Ok(
                                                                                 parent: 1,
                                                                                 scope_resolution_token: ScopeResolutionToken(
                                                                                     TokenIdx(
-                                                                                        29,
+                                                                                        31,
                                                                                     ),
                                                                                 ),
                                                                                 ident_token: Ok(
                                                                                     IdentToken {
                                                                                         ident: `Unveil`,
                                                                                         token_idx: TokenIdx(
-                                                                                            30,
+                                                                                            32,
                                                                                         ),
                                                                                     },
                                                                                 ),
@@ -2718,7 +2822,7 @@ Ok(
                                                                                     IdentToken {
                                                                                         ident: `Result`,
                                                                                         token_idx: TokenIdx(
-                                                                                            32,
+                                                                                            33,
                                                                                         ),
                                                                                     },
                                                                                 ),
@@ -2779,7 +2883,7 @@ Ok(
                                                                                     variant: CurrentSymbolVariant::ImplicitParameter {
                                                                                         implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                                             ident_token: IdentToken {
-                                                                                                ident: `T`,
+                                                                                                ident: `T1`,
                                                                                                 token_idx: TokenIdx(
                                                                                                     20,
                                                                                                 ),
@@ -2796,7 +2900,7 @@ Ok(
                                                                                     variant: CurrentSymbolVariant::ImplicitParameter {
                                                                                         implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                                             ident_token: IdentToken {
-                                                                                                ident: `E1`,
+                                                                                                ident: `T2`,
                                                                                                 token_idx: TokenIdx(
                                                                                                     22,
                                                                                                 ),
@@ -2813,9 +2917,26 @@ Ok(
                                                                                     variant: CurrentSymbolVariant::ImplicitParameter {
                                                                                         implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                                             ident_token: IdentToken {
-                                                                                                ident: `E2`,
+                                                                                                ident: `E1`,
                                                                                                 token_idx: TokenIdx(
                                                                                                     24,
+                                                                                                ),
+                                                                                            },
+                                                                                        },
+                                                                                    },
+                                                                                },
+                                                                                CurrentSymbol {
+                                                                                    modifier: Const,
+                                                                                    access_start: TokenIdx(
+                                                                                        27,
+                                                                                    ),
+                                                                                    access_end: None,
+                                                                                    variant: CurrentSymbolVariant::ImplicitParameter {
+                                                                                        implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                                                            ident_token: IdentToken {
+                                                                                                ident: `E2`,
+                                                                                                token_idx: TokenIdx(
+                                                                                                    26,
                                                                                                 ),
                                                                                             },
                                                                                         },
@@ -2842,6 +2963,12 @@ Ok(
                                                                                 ImplicitTypeParameter,
                                                                                 ArenaIdxRange(
                                                                                     2..3,
+                                                                                ),
+                                                                            ),
+                                                                            (
+                                                                                ImplicitTypeParameter,
+                                                                                ArenaIdxRange(
+                                                                                    3..4,
                                                                                 ),
                                                                             ),
                                                                         ],
@@ -2887,14 +3014,14 @@ Ok(
                                                                     ),
                                                                 },
                                                                 Expr::InheritedSymbol {
-                                                                    ident: `T`,
+                                                                    ident: `T2`,
                                                                     token_idx: TokenIdx(
                                                                         51,
                                                                     ),
-                                                                    inherited_symbol_idx: 0,
+                                                                    inherited_symbol_idx: 1,
                                                                     inherited_symbol_kind: InheritedSymbolKind::ImplicitParameter(
                                                                         InheritedImplicitParameterSymbol::Type {
-                                                                            ident: `T`,
+                                                                            ident: `T2`,
                                                                         },
                                                                     ),
                                                                 },
@@ -2903,14 +3030,14 @@ Ok(
                                                                     argument: 1,
                                                                 },
                                                                 Expr::InheritedSymbol {
-                                                                    ident: `E1`,
+                                                                    ident: `E2`,
                                                                     token_idx: TokenIdx(
                                                                         52,
                                                                     ),
-                                                                    inherited_symbol_idx: 1,
+                                                                    inherited_symbol_idx: 3,
                                                                     inherited_symbol_kind: InheritedSymbolKind::ImplicitParameter(
                                                                         InheritedImplicitParameterSymbol::Type {
-                                                                            ident: `E1`,
+                                                                            ident: `E2`,
                                                                         },
                                                                     ),
                                                                 },
@@ -2929,14 +3056,14 @@ Ok(
                                                                     ),
                                                                 },
                                                                 Expr::InheritedSymbol {
-                                                                    ident: `T`,
+                                                                    ident: `T1`,
                                                                     token_idx: TokenIdx(
                                                                         56,
                                                                     ),
                                                                     inherited_symbol_idx: 0,
                                                                     inherited_symbol_kind: InheritedSymbolKind::ImplicitParameter(
                                                                         InheritedImplicitParameterSymbol::Type {
-                                                                            ident: `T`,
+                                                                            ident: `T1`,
                                                                         },
                                                                     ),
                                                                 },
@@ -2945,14 +3072,14 @@ Ok(
                                                                     argument: 6,
                                                                 },
                                                                 Expr::InheritedSymbol {
-                                                                    ident: `E2`,
+                                                                    ident: `E1`,
                                                                     token_idx: TokenIdx(
                                                                         57,
                                                                     ),
                                                                     inherited_symbol_idx: 2,
                                                                     inherited_symbol_kind: InheritedSymbolKind::ImplicitParameter(
                                                                         InheritedImplicitParameterSymbol::Type {
-                                                                            ident: `E2`,
+                                                                            ident: `E1`,
                                                                         },
                                                                     ),
                                                                 },
@@ -3052,7 +3179,7 @@ Ok(
                                                                         modifier: Const,
                                                                         kind: InheritedSymbolKind::ImplicitParameter(
                                                                             InheritedImplicitParameterSymbol::Type {
-                                                                                ident: `T`,
+                                                                                ident: `T1`,
                                                                             },
                                                                         ),
                                                                     },
@@ -3063,13 +3190,24 @@ Ok(
                                                                         modifier: Const,
                                                                         kind: InheritedSymbolKind::ImplicitParameter(
                                                                             InheritedImplicitParameterSymbol::Type {
-                                                                                ident: `E1`,
+                                                                                ident: `T2`,
                                                                             },
                                                                         ),
                                                                     },
                                                                     InheritedSymbol {
                                                                         parent_symbol_idx: Current(
                                                                             2,
+                                                                        ),
+                                                                        modifier: Const,
+                                                                        kind: InheritedSymbolKind::ImplicitParameter(
+                                                                            InheritedImplicitParameterSymbol::Type {
+                                                                                ident: `E1`,
+                                                                            },
+                                                                        ),
+                                                                    },
+                                                                    InheritedSymbol {
+                                                                        parent_symbol_idx: Current(
+                                                                            3,
                                                                         ),
                                                                         modifier: Const,
                                                                         kind: InheritedSymbolKind::ImplicitParameter(
@@ -3148,7 +3286,7 @@ Ok(
                                                                 ident: Ident(
                                                                     Word(
                                                                         Id {
-                                                                            value: 124,
+                                                                            value: 126,
                                                                         },
                                                                     ),
                                                                 ),
@@ -3198,7 +3336,7 @@ Ok(
                                                             modifier: Const,
                                                             kind: InheritedSymbolKind::ImplicitParameter(
                                                                 InheritedImplicitParameterSymbol::Type {
-                                                                    ident: `T`,
+                                                                    ident: `T1`,
                                                                 },
                                                             ),
                                                         },
@@ -3209,13 +3347,24 @@ Ok(
                                                             modifier: Const,
                                                             kind: InheritedSymbolKind::ImplicitParameter(
                                                                 InheritedImplicitParameterSymbol::Type {
-                                                                    ident: `E1`,
+                                                                    ident: `T2`,
                                                                 },
                                                             ),
                                                         },
                                                         InheritedSymbol {
                                                             parent_symbol_idx: Current(
                                                                 2,
+                                                            ),
+                                                            modifier: Const,
+                                                            kind: InheritedSymbolKind::ImplicitParameter(
+                                                                InheritedImplicitParameterSymbol::Type {
+                                                                    ident: `E1`,
+                                                                },
+                                                            ),
+                                                        },
+                                                        InheritedSymbol {
+                                                            parent_symbol_idx: Current(
+                                                                3,
                                                             ),
                                                             modifier: Const,
                                                             kind: InheritedSymbolKind::ImplicitParameter(

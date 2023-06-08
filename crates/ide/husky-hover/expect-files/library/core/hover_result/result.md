@@ -227,11 +227,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 6,
-                                    character: 6,
+                                    character: 7,
                                 },
                                 end: Position {
                                     line: 6,
-                                    character: 7,
+                                    character: 8,
                                 },
                             },
                         ),
@@ -250,18 +250,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 24;\n\ntoken_line_group_idx = 3\n\ntoken = Token::Ident(\n    `E2`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 2,\n    current_symbol_kind: CurrentSymbolKind::ImplicitParameter {\n        implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {\n            ident_token: IdentToken {\n                ident: `E2`,\n                token_idx: TokenIdx(\n                    24,\n                ),\n            },\n        },\n    },\n    expr_region: ExprRegionLeash(_),\n};\n\nCurrentSymbol {\n    modifier: Const,\n    access_start: TokenIdx(\n        25,\n    ),\n    access_end: None,\n    variant: CurrentSymbolVariant::ImplicitParameter {\n        implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {\n            ident_token: IdentToken {\n                ident: `E2`,\n                token_idx: TokenIdx(\n                    24,\n                ),\n            },\n        },\n    },\n}\n",
+                                value: "\ntoken_idx = 24;\n\ntoken_line_group_idx = 3\n\ntoken = Token::Ident(\n    `E1`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 2,\n    current_symbol_kind: CurrentSymbolKind::ImplicitParameter {\n        implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {\n            ident_token: IdentToken {\n                ident: `E1`,\n                token_idx: TokenIdx(\n                    24,\n                ),\n            },\n        },\n    },\n    expr_region: ExprRegionLeash(_),\n};\n\nCurrentSymbol {\n    modifier: Const,\n    access_start: TokenIdx(\n        25,\n    ),\n    access_end: None,\n    variant: CurrentSymbolVariant::ImplicitParameter {\n        implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {\n            ident_token: IdentToken {\n                ident: `E1`,\n                token_idx: TokenIdx(\n                    24,\n                ),\n            },\n        },\n    },\n}\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 6,
-                                    character: 12,
+                                    character: 13,
                                 },
                                 end: Position {
                                     line: 6,
-                                    character: 14,
+                                    character: 15,
                                 },
                             },
                         ),
@@ -280,18 +280,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 27;\n\ntoken_line_group_idx = 3\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Binary(\n            ScopeResolution,\n        ),\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 27;\n\ntoken_line_group_idx = 3\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::RaOrGt,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 6,
-                                    character: 21,
+                                    character: 19,
                                 },
                                 end: Position {
                                     line: 6,
-                                    character: 23,
+                                    character: 20,
                                 },
                             },
                         ),
@@ -310,7 +310,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 30;\n\ntoken_line_group_idx = 3\n\ntoken = Token::Ident(\n    `Unveil`,\n);\n\ntoken_info = TokenInfo::Entity(\n    Some(\n        EntityPath::ModuleItem(\n            ModuleItemPath::Trait(\n                TraitPath(`core::ops::Unveil`),\n            ),\n        ),\n    ),\n    None,\n);\n\n\n",
+                                value: "\ntoken_idx = 30;\n\ntoken_line_group_idx = 3\n\ntoken = Token::Ident(\n    `ops`,\n);\n\ntoken_info = TokenInfo::Entity(\n    Some(\n        EntityPath::Module(\n            `core::ops`,\n        ),\n    ),\n    None,\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -321,7 +321,7 @@ Ok(
                                 },
                                 end: Position {
                                     line: 6,
-                                    character: 34,
+                                    character: 31,
                                 },
                             },
                         ),
@@ -340,18 +340,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 33;\n\ntoken_line_group_idx = 3\n\ntoken = Token::Ident(\n    `T`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 0,\n    current_symbol_kind: CurrentSymbolKind::ImplicitParameter {\n        implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {\n            ident_token: IdentToken {\n                ident: `T`,\n                token_idx: TokenIdx(\n                    20,\n                ),\n            },\n        },\n    },\n    expr_region: ExprRegionLeash(_),\n};\n\nCurrentSymbol {\n    modifier: Const,\n    access_start: TokenIdx(\n        21,\n    ),\n    access_end: None,\n    variant: CurrentSymbolVariant::ImplicitParameter {\n        implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {\n            ident_token: IdentToken {\n                ident: `T`,\n                token_idx: TokenIdx(\n                    20,\n                ),\n            },\n        },\n    },\n}\n",
+                                value: "\ntoken_idx = 33;\n\ntoken_line_group_idx = 3\n\ntoken = Token::Ident(\n    `Result`,\n);\n\ntoken_info = TokenInfo::Entity(\n    Some(\n        EntityPath::ModuleItem(\n            ModuleItemPath::Type(\n                TypePath(`core::result::Result`, `Enum`),\n            ),\n        ),\n    ),\n    None,\n);\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 6,
-                                    character: 43,
+                                    character: 40,
                                 },
                                 end: Position {
                                     line: 6,
-                                    character: 44,
+                                    character: 46,
                                 },
                             },
                         ),
@@ -377,11 +377,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 6,
-                                    character: 49,
+                                    character: 53,
                                 },
                                 end: Position {
                                     line: 6,
-                                    character: 52,
+                                    character: 56,
                                 },
                             },
                         ),
@@ -400,18 +400,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 39;\n\ntoken_line_group_idx = 3\n\ntoken = Token::Ident(\n    `E2`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 2,\n    current_symbol_kind: CurrentSymbolKind::ImplicitParameter {\n        implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {\n            ident_token: IdentToken {\n                ident: `E2`,\n                token_idx: TokenIdx(\n                    24,\n                ),\n            },\n        },\n    },\n    expr_region: ExprRegionLeash(_),\n};\n\nCurrentSymbol {\n    modifier: Const,\n    access_start: TokenIdx(\n        25,\n    ),\n    access_end: None,\n    variant: CurrentSymbolVariant::ImplicitParameter {\n        implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {\n            ident_token: IdentToken {\n                ident: `E2`,\n                token_idx: TokenIdx(\n                    24,\n                ),\n            },\n        },\n    },\n}\n",
+                                value: "\ntoken_idx = 39;\n\ntoken_line_group_idx = 3\n\ntoken = Token::Ident(\n    `E1`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 2,\n    current_symbol_kind: CurrentSymbolKind::ImplicitParameter {\n        implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {\n            ident_token: IdentToken {\n                ident: `E1`,\n                token_idx: TokenIdx(\n                    24,\n                ),\n            },\n        },\n    },\n    expr_region: ExprRegionLeash(_),\n};\n\nCurrentSymbol {\n    modifier: Const,\n    access_start: TokenIdx(\n        25,\n    ),\n    access_end: None,\n    variant: CurrentSymbolVariant::ImplicitParameter {\n        implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {\n            ident_token: IdentToken {\n                ident: `E1`,\n                token_idx: TokenIdx(\n                    24,\n                ),\n            },\n        },\n    },\n}\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 6,
-                                    character: 62,
+                                    character: 67,
                                 },
                                 end: Position {
                                     line: 6,
-                                    character: 64,
+                                    character: 69,
                                 },
                             },
                         ),
@@ -520,7 +520,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 51;\n\ntoken_line_group_idx = 5\n\ntoken = Token::Ident(\n    `T`,\n);\n\ntoken_info = TokenInfo::InheritedSymbol {\n    inherited_symbol_idx: 0,\n    inherited_symbol_kind: InheritedSymbolKind::ImplicitParameter(\n        InheritedImplicitParameterSymbol::Type {\n            ident: `T`,\n        },\n    ),\n    expr_region: ExprRegionLeash(_),\n};\n\nInheritedSymbol {\n    parent_symbol_idx: Current(\n        0,\n    ),\n    modifier: Const,\n    kind: InheritedSymbolKind::ImplicitParameter(\n        InheritedImplicitParameterSymbol::Type {\n            ident: `T`,\n        },\n    ),\n}\n",
+                                value: "\ntoken_idx = 51;\n\ntoken_line_group_idx = 5\n\ntoken = Token::Ident(\n    `T2`,\n);\n\ntoken_info = TokenInfo::InheritedSymbol {\n    inherited_symbol_idx: 1,\n    inherited_symbol_kind: InheritedSymbolKind::ImplicitParameter(\n        InheritedImplicitParameterSymbol::Type {\n            ident: `T2`,\n        },\n    ),\n    expr_region: ExprRegionLeash(_),\n};\n\nInheritedSymbol {\n    parent_symbol_idx: Current(\n        1,\n    ),\n    modifier: Const,\n    kind: InheritedSymbolKind::ImplicitParameter(\n        InheritedImplicitParameterSymbol::Type {\n            ident: `T2`,\n        },\n    ),\n}\n",
                             },
                         ),
                         range: Some(
@@ -531,7 +531,7 @@ Ok(
                                 },
                                 end: Position {
                                     line: 9,
-                                    character: 30,
+                                    character: 31,
                                 },
                             },
                         ),
@@ -557,11 +557,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 9,
-                                    character: 35,
+                                    character: 36,
                                 },
                                 end: Position {
                                     line: 9,
-                                    character: 37,
+                                    character: 38,
                                 },
                             },
                         ),
@@ -580,18 +580,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 57;\n\ntoken_line_group_idx = 5\n\ntoken = Token::Ident(\n    `E2`,\n);\n\ntoken_info = TokenInfo::InheritedSymbol {\n    inherited_symbol_idx: 2,\n    inherited_symbol_kind: InheritedSymbolKind::ImplicitParameter(\n        InheritedImplicitParameterSymbol::Type {\n            ident: `E2`,\n        },\n    ),\n    expr_region: ExprRegionLeash(_),\n};\n\nInheritedSymbol {\n    parent_symbol_idx: Current(\n        2,\n    ),\n    modifier: Const,\n    kind: InheritedSymbolKind::ImplicitParameter(\n        InheritedImplicitParameterSymbol::Type {\n            ident: `E2`,\n        },\n    ),\n}\n",
+                                value: "\ntoken_idx = 57;\n\ntoken_line_group_idx = 5\n\ntoken = Token::Ident(\n    `E1`,\n);\n\ntoken_info = TokenInfo::InheritedSymbol {\n    inherited_symbol_idx: 2,\n    inherited_symbol_kind: InheritedSymbolKind::ImplicitParameter(\n        InheritedImplicitParameterSymbol::Type {\n            ident: `E1`,\n        },\n    ),\n    expr_region: ExprRegionLeash(_),\n};\n\nInheritedSymbol {\n    parent_symbol_idx: Current(\n        2,\n    ),\n    modifier: Const,\n    kind: InheritedSymbolKind::ImplicitParameter(\n        InheritedImplicitParameterSymbol::Type {\n            ident: `E1`,\n        },\n    ),\n}\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 9,
-                                    character: 47,
+                                    character: 49,
                                 },
                                 end: Position {
                                     line: 9,
-                                    character: 49,
+                                    character: 51,
                                 },
                             },
                         ),

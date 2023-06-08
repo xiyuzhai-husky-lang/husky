@@ -54,6 +54,17 @@
                             ),
                         ),
                     ),
+                    Some(
+                        SymbolType(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
                 ],
             },
             current_symbol_map: ArenaMap {
@@ -86,6 +97,15 @@
                             EtherealTermSymbol(
                                 Id {
                                     value: 2,
+                                },
+                            ),
+                        ),
+                    ),
+                    Some(
+                        Symbol(
+                            EtherealTermSymbol(
+                                Id {
+                                    value: 4,
                                 },
                             ),
                         ),
@@ -197,6 +217,17 @@
                     ),
                     Some(
                         SymbolType(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                    Some(
+                        SymbolType(
                             Solid(
                                 SolidTerm(
                                     0,
@@ -240,6 +271,15 @@
                             ),
                         ),
                     ),
+                    Some(
+                        Symbol(
+                            EtherealTermSymbol(
+                                Id {
+                                    value: 4,
+                                },
+                            ),
+                        ),
+                    ),
                     None,
                 ],
             },
@@ -260,7 +300,7 @@
                                 place: StackPure {
                                     location: StackLocationIdx(
                                         LocalSymbolIdx(
-                                            3,
+                                            4,
                                         ),
                                     ),
                                 },
@@ -282,14 +322,14 @@
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 1,
+                                                value: 3,
                                             },
                                         ),
                                     ),
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 3,
+                                                value: 4,
                                             },
                                         ),
                                     ),
@@ -298,7 +338,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 7,
+                                                value: 8,
                                             },
                                         ),
                                     ),
