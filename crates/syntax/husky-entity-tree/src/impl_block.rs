@@ -272,7 +272,7 @@ impl HasItems for TypePath {
 pub(crate) fn ty_items(
     db: &dyn EntityTreeDb,
     path: TypePath,
-) -> EntityTreeBundleResult<IdentPairMap<AssociatedItem>> {
+) -> EntityTreeBundleResult<Vec<(Ident, AssociatedItem)>> {
     let crate_path = path.module_path(db).crate_path(db);
     let entity_tree_crate_bundle = db.entity_tree_bundle(crate_path)?;
     Ok(entity_tree_crate_bundle

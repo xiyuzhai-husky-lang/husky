@@ -25,22 +25,15 @@ impl<'a> EntityTreeCollector<'a> {
     ) -> EntityTreeBundleResult<Self> {
         let crate_root = ModulePath::new_root(db, crate_path);
         let all_modules = db.all_modules_within_crate(crate_path);
-        // uniqueness test
-        #[cfg(test)]
-        for i in 0..all_modules.len() {
-            for j in (i + 1)..all_modules.len() {
-                assert!(all_modules[i] != all_modules[j])
-            }
-        }
-        let presheets = all_modules
-            .into_iter()
-            .filter_map(|module_path| {
+        let presheets = VecMap::from_iter_assuming_no_repetitions(
+            all_modules.into_iter().filter_map(|module_path| {
                 entity_tree_presheet(db, *module_path)
                     .as_ref()
                     .ok()
                     .map(|presheet| presheet.presheet_mut(db))
-            })
-            .collect();
+            }),
+        )
+        .expect("no repetitions");
         let toolchain = crate_path.toolchain(db);
         let path_menu = db.vfs_path_menu(toolchain);
         let core_prelude_module = path_menu.core_prelude();
@@ -93,12 +86,14 @@ impl<'a> EntityTreeCollector<'a> {
             presheet.check_done(self.db)
         }
         let impl_blocks_for_each_module = self.collect_impl_blocks_for_each_module();
-        let sheets = std::iter::zip(
-            self.presheets.into_iter(),
-            impl_blocks_for_each_module.into_iter(),
+        let sheets = VecMap::from_iter_assuming_no_repetitions(
+            std::iter::zip(
+                self.presheets.into_iter(),
+                impl_blocks_for_each_module.into_iter(),
+            )
+            .map(|(presheet, impls)| presheet.into_sheet(impls)),
         )
-        .map(|(presheet, impls)| presheet.into_sheet(impls))
-        .collect();
+        .expect("no repetitions");
         EntityTreeCrateBundle::new(sheets, self.major_path_expr_arena)
     }
 

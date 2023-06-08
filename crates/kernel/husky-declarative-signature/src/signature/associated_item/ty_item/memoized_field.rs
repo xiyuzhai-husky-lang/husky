@@ -98,19 +98,23 @@ pub(crate) fn ty_memoized_field_declarative_signature_templates_map(
     >,
 > {
     let item_decls_map = ty_path.item_decls_map(db)?;
-    Ok(item_decls_map
-        .iter()
-        .filter_map(|(ident, decls)| match decls {
-            Ok(TypeItemDecls::MemoizedField(decls)) => Some((
-                *ident,
-                decls
-                    .iter()
-                    .copied()
-                    .map(|decl| decl.declarative_signature_template(db))
-                    .collect::<DeclarativeSignatureResult<SmallVecImpl<_>>>(),
-            )),
-            Ok(_) => None,
-            Err(_) => Some((*ident, Err(DeclarativeSignatureError::DeclError))),
-        })
-        .collect())
+    Ok(
+        IdentPairMap::from_iter_assuming_no_repetitions(item_decls_map.iter().filter_map(
+            |(ident, decls)| {
+                match decls {
+                    Ok(TypeItemDecls::MemoizedField(decls)) => Some((
+                        *ident,
+                        decls
+                            .iter()
+                            .copied()
+                            .map(|decl| decl.declarative_signature_template(db))
+                            .collect::<DeclarativeSignatureResult<SmallVecImpl<_>>>(),
+                    )),
+                    Ok(_) => None,
+                    Err(_) => Some((*ident, Err(DeclarativeSignatureError::DeclError))),
+                }
+            },
+        ))
+        .expect("no repetitions"),
+    )
 }

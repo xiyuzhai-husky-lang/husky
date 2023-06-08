@@ -40,11 +40,10 @@ impl PatternExprRegion {
                 PatternExpr::Ident {
                     ident_token,
                     modifier_keyword_group: contract,
-                } => [(
+                } => IdentPairMap::new_one_element_map((
                     ident_token.ident(),
                     self.alloc_new_symbol(PatternSymbol::Atom(pattern_expr_idx)),
-                )]
-                .into(),
+                )),
                 PatternExpr::Entity(_) => todo!(),
                 PatternExpr::Tuple { name, fields } => todo!(),
                 PatternExpr::Struct { name, fields } => todo!(),

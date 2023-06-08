@@ -112,21 +112,23 @@ pub(crate) fn ty_memoized_field_ethereal_signature_templates_map(
 ) -> EtherealSignatureResult<
     IdentPairMap<EtherealSignatureResult<SmallVecImpl<TypeMemoizedFieldEtherealSignatureTemplate>>>,
 > {
-    Ok(ty_path
-        .ty_memoized_field_declarative_signature_templates_map(db)?
-        .iter()
-        .map(|(ident, result)| {
-            let result = match result {
-                Ok(templates) => templates
-                    .iter()
-                    .copied()
-                    .map(|template| template.ethereal_signature_template(db))
-                    .collect::<EtherealSignatureResult<SmallVecImpl<_>>>(),
-                Err(e) => Err(todo!()),
-            };
-            (*ident, result)
-        })
-        .collect())
+    Ok(IdentPairMap::from_iter_assuming_no_repetitions(
+        ty_path
+            .ty_memoized_field_declarative_signature_templates_map(db)?
+            .iter()
+            .map(|(ident, result)| {
+                let result = match result {
+                    Ok(templates) => templates
+                        .iter()
+                        .copied()
+                        .map(|template| template.ethereal_signature_template(db))
+                        .collect::<EtherealSignatureResult<SmallVecImpl<_>>>(),
+                    Err(e) => Err(todo!()),
+                };
+                (*ident, result)
+            }),
+    )
+    .expect("no repetition"))
 }
 
 pub trait HasTypeMemoizedFieldEtherealSignature: Copy {

@@ -156,6 +156,12 @@ where
         &mut self.entries
     }
 
+    pub fn new_one_element_map(entry: Entry) -> Self {
+        Self {
+            entries: vec![entry],
+        }
+    }
+
     pub fn from_vec(data: Vec<Entry>) -> Result<Self, FromVecEntryRepeatError>
     where
         K: Copy,
@@ -354,24 +360,27 @@ impl<K, V> VecPairMap<K, V> {
         }
     }
 }
-impl<K, Entry, const N: usize> From<[Entry; N]> for VecMap<Entry>
-where
-    K: PartialEq + Eq + Copy + std::fmt::Debug,
-    Entry: AsVecMapEntry<K = K> + std::fmt::Debug,
-{
-    fn from(value: [Entry; N]) -> Self {
-        let iter: std::array::IntoIter<_, N> = value.into_iter();
-        Self::from_iter(iter)
-    }
-}
 
-// if there are repetitive keys, take the first value
-impl<K, Entry> FromIterator<Entry> for VecMap<Entry>
+impl<K, Entry> VecMap<Entry>
 where
     K: PartialEq + Eq + Copy + std::fmt::Debug,
     Entry: AsVecMapEntry<K = K> + std::fmt::Debug,
 {
-    fn from_iter<T: IntoIterator<Item = Entry>>(iter: T) -> Self {
+    pub fn from_iter_assuming_no_repetitions<T: IntoIterator<Item = Entry>>(
+        iter: T,
+    ) -> Result<Self, InsertEntryRepeatError<Entry>> {
+        let mut map = Self::default();
+        for v in iter {
+            // ignore errors
+            map.insert_new(v)?
+        }
+        Ok(map)
+    }
+
+    /// if there are repetitive keys, take the first value
+    pub fn from_iter_ignoring_following_repetitions<T: IntoIterator<Item = Entry>>(
+        iter: T,
+    ) -> Self {
         let mut map = Self::default();
         for v in iter {
             // ignore errors
