@@ -159,9 +159,8 @@ pub(crate) fn impl_block_associated_items_aux(
     body: ImplBlockItems,
 ) -> IdentPairMap<AssociatedItem> {
     let ast_sheet = db.ast_sheet(module_path).unwrap();
-    body.ast_idx_range()
-        .into_iter()
-        .filter_map(|ast_idx| {
+    IdentPairMap::from_iter_ignoring_following_repetitions(
+        body.ast_idx_range().into_iter().filter_map(|ast_idx| {
             let ast = &ast_sheet[ast_idx];
             match ast {
                 Ast::Defn {
@@ -206,6 +205,6 @@ pub(crate) fn impl_block_associated_items_aux(
                     todo!()
                 }
             }
-        })
-        .collect()
+        }),
+    )
 }

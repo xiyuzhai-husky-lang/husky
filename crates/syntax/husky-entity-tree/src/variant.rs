@@ -54,19 +54,20 @@ pub(crate) fn ty_path_variants(
             _ => None,
         })
         .ok_or(OriginalEntityTreeError::InvalidTypePath(path))?;
-    Ok(ast_sheet
-        .indexed_iter(variants.ast_idx_range())
-        .map(|(ast_idx, variant_ast)| match variant_ast {
-            Ast::TypeVariant {
-                token_group_idx,
-                path,
-                ident_token,
-                ..
-            } => {
-                let ident = ident_token.ident();
-                (ident, TypeVariant::new(db, *path, ast_idx, ident))
-            }
-            _ => unreachable!(),
-        })
-        .collect())
+    Ok(IdentPairMap::from_iter_ignoring_following_repetitions(
+        ast_sheet
+            .indexed_iter(variants.ast_idx_range())
+            .map(|(ast_idx, variant_ast)| match variant_ast {
+                Ast::TypeVariant {
+                    token_group_idx,
+                    path,
+                    ident_token,
+                    ..
+                } => {
+                    let ident = ident_token.ident();
+                    (ident, TypeVariant::new(db, *path, ast_idx, ident))
+                }
+                _ => unreachable!(),
+            }),
+    ))
 }
