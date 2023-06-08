@@ -34,7 +34,7 @@
                                 ty: ExplicitApplication(
                                     DeclarativeTermExplicitApplication(
                                         Id {
-                                            value: 49,
+                                            value: 55,
                                         },
                                     ),
                                 ),
@@ -44,7 +44,7 @@
                                 ty: ExplicitApplicationOrRitchieCall(
                                     DeclarativeTermExplicitApplicationOrRitchieCall(
                                         Id {
-                                            value: 2,
+                                            value: 1,
                                         },
                                     ),
                                 ),

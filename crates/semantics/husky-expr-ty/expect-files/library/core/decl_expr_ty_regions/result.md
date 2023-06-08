@@ -153,12 +153,12 @@
                     (
                         Trivial,
                         Ok(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
+                            Curry(
+                                EtherealTermCurry(
+                                    Id {
+                                        value: 11,
+                                    },
+                                ),
                             ),
                         ),
                     ),
@@ -172,12 +172,12 @@
                     (
                         Trivial,
                         Ok(
-                            Curry(
-                                EtherealTermCurry(
-                                    Id {
-                                        value: 8,
-                                    },
-                                ),
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
                             ),
                         ),
                     ),
@@ -191,12 +191,12 @@
                     (
                         Trivial,
                         Ok(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
+                            Curry(
+                                EtherealTermCurry(
+                                    Id {
+                                        value: 10,
+                                    },
+                                ),
                             ),
                         ),
                     ),
@@ -227,9 +227,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExplicitApplicationOrFunctionCall(
-                            Application,
-                        ),
+                        Trivial,
                         Ok(
                             EntityPath(
                                 TypeOntology(
@@ -386,6 +384,17 @@
                             ),
                         ),
                     ),
+                    Some(
+                        SymbolType(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
                 ],
             },
         },
@@ -418,6 +427,15 @@
                             EtherealTermSymbol(
                                 Id {
                                     value: 5,
+                                },
+                            ),
+                        ),
+                    ),
+                    Some(
+                        Symbol(
+                            EtherealTermSymbol(
+                                Id {
+                                    value: 6,
                                 },
                             ),
                         ),
@@ -508,9 +526,34 @@
                                     },
                                 ),
                             ),
+                            data: CurryDestination(
+                                ExpectCurryDestination {
+                                    curry_destination: Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
+                                            ),
+                                        },
+                                    ),
+                                },
+                            ),
+                            resolve_progress: Unresolved,
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 2,
+                                kind: Expr,
+                            },
+                            expectee: Curry(
+                                EtherealTermCurry(
+                                    Id {
+                                        value: 11,
+                                    },
+                                ),
+                            ),
                             data: EqsFunctionType(
                                 ExpectEqsFunctionType {
-                                    final_destination: Sort,
+                                    final_destination: AnyOriginal,
                                 },
                             ),
                             resolve_progress: Resolved(
@@ -521,7 +564,7 @@
                                             return_ty: Curry(
                                                 EtherealTermCurry(
                                                     Id {
-                                                        value: 8,
+                                                        value: 10,
                                                     },
                                                 ),
                                             ),
@@ -538,7 +581,7 @@
                                                 return_ty: Curry(
                                                     EtherealTermCurry(
                                                         Id {
-                                                            value: 8,
+                                                            value: 10,
                                                         },
                                                     ),
                                                 ),
@@ -550,7 +593,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 2,
+                                expr_idx: 3,
                                 kind: Expr,
                             },
                             expectee: Category(
@@ -575,19 +618,19 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 3,
+                                expr_idx: 4,
                                 kind: Expr,
                             },
                             expectee: Curry(
                                 EtherealTermCurry(
                                     Id {
-                                        value: 8,
+                                        value: 10,
                                     },
                                 ),
                             ),
                             data: EqsFunctionType(
                                 ExpectEqsFunctionType {
-                                    final_destination: Sort,
+                                    final_destination: AnyOriginal,
                                 },
                             ),
                             resolve_progress: Resolved(
@@ -595,12 +638,14 @@
                                     EqsFunctionCallType(
                                         ExpectEqsFunctionTypeOutcome {
                                             implicit_parameter_substitutions: [],
-                                            return_ty: Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
+                                            return_ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 76,
+                                                        },
                                                     ),
-                                                },
+                                                ),
                                             ),
                                             variant: Curry {
                                                 variance: Independent,
@@ -612,43 +657,20 @@
                                                         ),
                                                     },
                                                 ),
-                                                return_ty: Category(
-                                                    TermCategory {
-                                                        universe: TermUniverse(
-                                                            1,
+                                                return_ty: EntityPath(
+                                                    TypeOntology(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 76,
+                                                            },
                                                         ),
-                                                    },
+                                                    ),
                                                 ),
                                             },
                                         },
                                     ),
                                 ),
                             ),
-                        },
-                        ExpectationEntry {
-                            src: ExpectationSource {
-                                expr_idx: 4,
-                                kind: Expr,
-                            },
-                            expectee: Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                            data: CurryDestination(
-                                ExpectCurryDestination {
-                                    curry_destination: Category(
-                                        TermCategory {
-                                            universe: TermUniverse(
-                                                1,
-                                            ),
-                                        },
-                                    ),
-                                },
-                            ),
-                            resolve_progress: Unresolved,
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
@@ -662,28 +684,18 @@
                                     ),
                                 },
                             ),
-                            data: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
-                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
-                                        kind: Regular,
-                                        contract: Const,
-                                        ty: Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    },
+                            data: CurryDestination(
+                                ExpectCurryDestination {
+                                    curry_destination: Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
+                                            ),
+                                        },
+                                    ),
                                 },
                             ),
-                            resolve_progress: Resolved(
-                                Ok(
-                                    ImplicitlyConvertible(
-                                        Trivial,
-                                    ),
-                                ),
-                            ),
+                            resolve_progress: Unresolved,
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
@@ -950,6 +962,17 @@
                             ),
                         ),
                     ),
+                    Some(
+                        SymbolType(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
                 ],
             },
             current_symbol_map: ArenaMap {
@@ -982,6 +1005,15 @@
                             EtherealTermSymbol(
                                 Id {
                                     value: 5,
+                                },
+                            ),
+                        ),
+                    ),
+                    Some(
+                        Symbol(
+                            EtherealTermSymbol(
+                                Id {
+                                    value: 6,
                                 },
                             ),
                         ),
@@ -1266,6 +1298,17 @@
                             ),
                         ),
                     ),
+                    Some(
+                        SymbolType(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
                 ],
             },
             current_symbol_map: ArenaMap {
@@ -1312,6 +1355,15 @@
                             ),
                         ),
                     ),
+                    Some(
+                        Symbol(
+                            EtherealTermSymbol(
+                                Id {
+                                    value: 6,
+                                },
+                            ),
+                        ),
+                    ),
                 ],
             },
             current_symbol_map: ArenaMap {
@@ -1333,7 +1385,7 @@
                                 place: StackPure {
                                     location: StackLocationIdx(
                                         LocalSymbolIdx(
-                                            3,
+                                            4,
                                         ),
                                     ),
                                 },
@@ -1355,14 +1407,14 @@
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 2,
+                                                value: 3,
                                             },
                                         ),
                                     ),
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 3,
+                                                value: 6,
                                             },
                                         ),
                                     ),
@@ -1371,7 +1423,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 7,
+                                                value: 8,
                                             },
                                         ),
                                     ),

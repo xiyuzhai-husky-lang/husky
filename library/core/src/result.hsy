@@ -4,8 +4,8 @@ pub enum Result<T, E>
 | Ok(T)
 | Err(E)
 
-impl<T, E1, E2> crate::ops::Unveil (Result T E1) for Result T E2:
-    type Continue = E1
+impl<T1, T2, E1, E2> crate::ops::Unveil Result T2 E2 for Result T1 E1:
+    type Continue = E2
 
-    fn branch(result: Result T E1) -> Result T E2:
+    fn branch(result: Result T2 E2) -> Result T1 E1:
         todo
