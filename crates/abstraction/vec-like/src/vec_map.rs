@@ -378,6 +378,7 @@ where
     }
 
     /// if there are repetitive keys, take the first value
+    /// deprecated
     pub fn from_iter_ignoring_following_repetitions<T: IntoIterator<Item = Entry>>(
         iter: T,
     ) -> Self {

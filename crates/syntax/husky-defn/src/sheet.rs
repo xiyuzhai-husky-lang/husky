@@ -11,11 +11,11 @@ pub(crate) fn collect_defn_sheet(
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct DefnSheet<'a> {
-    defns: VecPairMap<DefnRegionPath, DeclResultRef<'a, Defn>>,
+    defns: Vec<(DefnRegionPath, DeclResultRef<'a, Defn>)>,
 }
 
 impl<'a> DefnSheet<'a> {
-    pub fn new(defns: VecPairMap<DefnRegionPath, DeclResultRef<'a, Defn>>) -> Self {
+    pub fn new(defns: Vec<(DefnRegionPath, DeclResultRef<'a, Defn>)>) -> Self {
         Self { defns }
     }
 

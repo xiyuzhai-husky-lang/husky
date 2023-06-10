@@ -148,6 +148,14 @@ impl ImplBlock {
         todo!()
         // self.id(db).module_path
     }
+
+    pub fn items(self, db: &dyn EntityTreeDb) -> &[(Ident, AssociatedItem)] {
+        match self {
+            ImplBlock::Type(impl_block) => ty_impl_block_items(db, impl_block),
+            ImplBlock::TraitForType(impl_block) => trai_for_ty_impl_block_items(db, impl_block),
+            ImplBlock::IllFormed(_) => &[],
+        }
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
