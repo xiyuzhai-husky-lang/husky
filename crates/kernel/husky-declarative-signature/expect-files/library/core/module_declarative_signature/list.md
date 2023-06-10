@@ -187,4 +187,48 @@
             ),
         ),
     ),
+    Ok(
+        SignatureTemplate::AssociatedItem(
+            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                TypeItemDeclarativeSignatureTemplate::MethodFn(
+                    TypeMethodFnDeclarativeSignatureTemplate {
+                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [
+                                    ImplicitParameterDeclarativeSignature {
+                                        annotated_variance: None,
+                                        symbol: DeclarativeTermSymbol(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
+                                        traits: [],
+                                    },
+                                ],
+                            },
+                            ty: DeclarativeTerm(`core::list::List t`),
+                        },
+                        self_ty: DeclarativeTerm(`core::list::List t`),
+                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                            data: [],
+                        },
+                        self_parameter: ExplicitParameterDeclarativeSignatureTemplate {
+                            contract: Pure,
+                            ty: ExplicitApplication(
+                                DeclarativeTermExplicitApplication(
+                                    Id {
+                                        value: 6,
+                                    },
+                                ),
+                            ),
+                        },
+                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            data: [],
+                        },
+                        return_ty: DeclarativeTerm(`t`),
+                    },
+                ),
+            ),
+        ),
+    ),
 ]

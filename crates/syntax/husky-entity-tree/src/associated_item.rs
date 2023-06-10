@@ -117,50 +117,27 @@ impl AsVecMapEntry for AssociatedItem {
     }
 }
 
-pub fn impl_block_associated_items(
-    db: &dyn EntityTreeDb,
-    impl_block: ImplBlock,
-) -> &[(Ident, AssociatedItem)] {
-    match impl_block {
-        ImplBlock::Type(impl_block) => ty_impl_block_items(db, impl_block),
-        ImplBlock::TraitForType(impl_block) => trai_for_ty_impl_block_items(db, impl_block),
-        ImplBlock::IllFormed(_) => &[],
-    }
-}
-
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
-pub(crate) fn ty_impl_block_items(
-    db: &dyn EntityTreeDb,
-    impl_block: TypeImplBlock,
-) -> IdentPairMap<AssociatedItem> {
-    impl_block_associated_items_aux(
-        db,
-        impl_block.into(),
-        impl_block.module_path(db),
-        impl_block.body(db),
-    )
-}
-
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub(crate) fn trai_for_ty_impl_block_items(
     db: &dyn EntityTreeDb,
     impl_block: TraitForTypeImplBlock,
-) -> IdentPairMap<AssociatedItem> {
+) -> Vec<(Ident, AssociatedItem)> {
     let Some(items) = impl_block.items(db) else {
         return Default::default()
     };
-    impl_block_associated_items_aux(db, impl_block.into(), impl_block.module_path(db), items)
+    calc_impl_block_items(db, impl_block.into(), impl_block.module_path(db), items)
 }
 
-pub(crate) fn impl_block_associated_items_aux(
+pub(crate) fn calc_impl_block_items(
     db: &dyn EntityTreeDb,
     impl_block: ImplBlock,
     module_path: ModulePath,
     body: ImplBlockItems,
-) -> IdentPairMap<AssociatedItem> {
+) -> Vec<(Ident, AssociatedItem)> {
     let ast_sheet = db.ast_sheet(module_path).unwrap();
-    IdentPairMap::from_iter_ignoring_following_repetitions(
-        body.ast_idx_range().into_iter().filter_map(|ast_idx| {
+    body.ast_idx_range()
+        .into_iter()
+        .filter_map(|ast_idx| {
             let ast = &ast_sheet[ast_idx];
             match ast {
                 Ast::Defn {
@@ -205,6 +182,6 @@ pub(crate) fn impl_block_associated_items_aux(
                     todo!()
                 }
             }
-        }),
-    )
+        })
+        .collect()
 }

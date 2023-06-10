@@ -43,6 +43,23 @@ impl TypeImplBlock {
     pub fn ty_path(self, db: &dyn EntityTreeDb) -> TypePath {
         self.id(db).ty_path
     }
+
+    pub fn items(self, db: &dyn EntityTreeDb) -> Vec<(Ident, AssociatedItem)> {
+        calc_impl_block_items(db, self.into(), self.module_path(db), self.body(db))
+    }
+}
+
+#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+pub(crate) fn ty_impl_block_items(
+    db: &dyn EntityTreeDb,
+    impl_block: TypeImplBlock,
+) -> Vec<(Ident, AssociatedItem)> {
+    calc_impl_block_items(
+        db,
+        impl_block.into(),
+        impl_block.module_path(db),
+        impl_block.body(db),
+    )
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

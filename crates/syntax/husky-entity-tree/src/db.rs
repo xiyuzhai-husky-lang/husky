@@ -32,7 +32,6 @@ pub trait EntityTreeDb: DbWithJar<EntityTreeJar> + AstDb + EntityPathDb + Manife
     ) -> EntityTreeResult<ModuleSymbolContext<'a>>;
     fn subentity_path(&self, parent: EntityPath, identifier: Ident)
         -> EntityTreeResult<EntityPath>;
-    fn impl_block_items(&self, impl_block: ImplBlock) -> &[(Ident, AssociatedItem)];
 }
 
 impl<T> EntityTreeDb for T
@@ -98,8 +97,4 @@ where
     //         Err(e) => Err(e),
     //     }
     // }
-
-    fn impl_block_items(&self, impl_block: ImplBlock) -> &[(Ident, AssociatedItem)] {
-        impl_block_associated_items(self, impl_block)
-    }
 }

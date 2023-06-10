@@ -26,13 +26,14 @@ impl<'a> DefnCollector<'a> {
     }
 
     pub(crate) fn collect_all(self) -> DefnSheet<'a> {
-        let mut defns: VecPairMap<DefnRegionPath, DeclResultRef<'a, Defn>> = Default::default();
-        for (path, decl) in self.decl_sheet.decls().iter().copied() {
-            defns
-                .insert_new((path.defn_region_path(), decl.map(|decl| decl.defn(self.db))))
-                .unwrap()
-        }
-        DefnSheet::new(defns)
+        DefnSheet::new(
+            self.decl_sheet
+                .decls()
+                .iter()
+                .copied()
+                .map(|(path, decl)| (path.defn_region_path(), decl.map(|decl| decl.defn(self.db))))
+                .collect(),
+        )
     }
 }
 
