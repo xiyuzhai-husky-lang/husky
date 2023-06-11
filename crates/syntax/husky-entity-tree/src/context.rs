@@ -72,6 +72,7 @@ where
                 EntityPath::ModuleItem(_) => todo!(),
                 EntityPath::AssociatedItem(_) => todo!(),
                 EntityPath::TypeVariant(_) => todo!(),
+                EntityPath::ImplBlock(_) => todo!(),
             }
         } else {
             self.db

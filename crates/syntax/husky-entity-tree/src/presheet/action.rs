@@ -186,6 +186,7 @@ impl<'a> EntityTreePresheetMut<'a> {
                             EntityPath::ModuleItem(_) => todo!(),
                             EntityPath::AssociatedItem(_) => todo!(),
                             EntityPath::TypeVariant(_) => todo!(),
+                            EntityPath::ImplBlock(_) => todo!(),
                         },
                         UseExpr::Leaf { ident_token } => {
                             let new_rule = rule.new_nonroot(

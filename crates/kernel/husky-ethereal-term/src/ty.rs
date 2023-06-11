@@ -32,6 +32,7 @@ impl HasTypeGivenDisambiguation for EntityPath {
             EntityPath::ModuleItem(path) => path.ty(db, disambiguation),
             EntityPath::AssociatedItem(path) => path.ty(db),
             EntityPath::TypeVariant(path) => path.ty(db),
+            EntityPath::ImplBlock(_) => todo!(),
         }
     }
 }

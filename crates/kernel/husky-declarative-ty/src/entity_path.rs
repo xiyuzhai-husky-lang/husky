@@ -48,6 +48,7 @@ pub fn entity_path_declarative_ty(
         },
         EntityPath::AssociatedItem(_) => todo!(),
         EntityPath::TypeVariant(_) => todo!(),
+        EntityPath::ImplBlock(_) => todo!(),
     }
 }
 

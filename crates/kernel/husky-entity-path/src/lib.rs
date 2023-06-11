@@ -1,23 +1,19 @@
 #![feature(trait_upcasting)]
 #![allow(incomplete_features)]
 mod ancestry;
-mod associated_item;
 mod db;
 mod error;
 mod menu;
-mod module_item;
+mod path;
 #[cfg(test)]
 mod tests;
 mod utils;
-mod variant;
 
-pub use ancestry::*;
-pub use associated_item::*;
-pub use db::*;
-pub use error::*;
-pub use menu::*;
-pub use module_item::*;
-pub use variant::*;
+pub use self::ancestry::*;
+pub use self::db::*;
+pub use self::error::*;
+pub use self::menu::*;
+pub use self::path::*;
 
 use either::*;
 use husky_entity_taxonomy::*;
@@ -40,27 +36,6 @@ pub struct EntityPathJar(
     entity_path_menu,
 );
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = EntityPathDb)]
-pub enum EntityPath {
-    Module(ModulePath),
-    ModuleItem(ModuleItemPath),
-    AssociatedItem(AssociatedItemPath),
-    TypeVariant(TypeVariantPath),
-}
-
-impl From<ModulePath> for EntityPath {
-    fn from(v: ModulePath) -> Self {
-        Self::Module(v)
-    }
-}
-
-impl From<ModuleItemPath> for EntityPath {
-    fn from(v: ModuleItemPath) -> Self {
-        Self::ModuleItem(v)
-    }
-}
-
 impl EntityPath {
     pub fn ident(self, db: &dyn EntityPathDb) -> Ident {
         match self {
@@ -68,6 +43,7 @@ impl EntityPath {
             EntityPath::ModuleItem(path) => path.ident(db),
             EntityPath::AssociatedItem(path) => path.ident(db),
             EntityPath::TypeVariant(path) => path.ident(db),
+            EntityPath::ImplBlock(_) => todo!(),
         }
     }
 
@@ -88,6 +64,7 @@ impl EntityPath {
             EntityPath::ModuleItem(path) => path.module_path(db),
             EntityPath::AssociatedItem(path) => path.module_path(db),
             EntityPath::TypeVariant(path) => path.module_path(db),
+            EntityPath::ImplBlock(_) => todo!(),
         }
     }
 
@@ -105,6 +82,7 @@ impl EntityPath {
             EntityPath::ModuleItem(path) => path.entity_kind(db),
             EntityPath::AssociatedItem(path) => path.entity_kind(db),
             EntityPath::TypeVariant(_) => EntityKind::TypeVariant,
+            EntityPath::ImplBlock(_) => todo!(),
         }
     }
 }
@@ -125,19 +103,8 @@ where
             EntityPath::ModuleItem(path) => path.display_with_db_fmt(f, db, level),
             EntityPath::AssociatedItem(path) => path.display_with_db_fmt(f, db, level),
             EntityPath::TypeVariant(path) => path.display_with_db_fmt(f, db, level),
+            EntityPath::ImplBlock(_) => todo!(),
         }
-    }
-}
-
-impl From<TypeVariantPath> for EntityPath {
-    fn from(v: TypeVariantPath) -> Self {
-        Self::TypeVariant(v)
-    }
-}
-
-impl From<AssociatedItemPath> for EntityPath {
-    fn from(v: AssociatedItemPath) -> Self {
-        Self::AssociatedItem(v)
     }
 }
 
