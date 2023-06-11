@@ -1,7 +1,21 @@
 use super::*;
-
 use husky_token::{CommaToken, LeftCurlyBraceToken, RightCurlyBraceToken};
 use parsec::parse_separated_list2;
+
+#[salsa::tracked(db = DeclDb, jar = DeclJar)]
+pub struct RegularStructTypeRawDecl {
+    #[id]
+    pub path: TypePath,
+    pub ast_idx: AstIdx,
+    pub expr_region: ExprRegion,
+    #[return_ref]
+    implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
+    pub lcurl: LeftCurlyBraceToken,
+    #[return_ref]
+    field_comma_list: (Vec<RegularStructFieldDeclPattern>, Vec<CommaToken>),
+    #[return_ref]
+    pub rcurl: RightCurlyBraceToken,
+}
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct RegularStructTypeDecl {

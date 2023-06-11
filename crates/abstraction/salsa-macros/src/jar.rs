@@ -103,30 +103,38 @@ pub(crate) fn jar_impl(
     jar_trait: &Path,
     input: &ItemStruct,
 ) -> proc_macro2::TokenStream {
-    let field_tys: Vec<_> = input.fields.iter().map(|f| &f.ty).collect();
-    let field_var_names: &Vec<_> = &input
+    let field_initializations: Vec<_> = input
         .fields
         .iter()
-        .zip(0..)
-        .map(|(f, i)| Ident::new(&format!("i{}", i), f.ty.span()))
+        .enumerate()
+        .map(|(i, f)| {
+            let index: syn::Index = i.into();
+            let field_ty = &f.ty;
+            quote! {
+                unsafe{
+                    std::mem::transmute::<_, &mut std::mem::MaybeUninit<
+                        <#field_ty as salsa::storage::IngredientsFor>::Ingredients
+                    >>(&mut self.#index)
+                    .write(
+                        <#field_ty as salsa::storage::IngredientsFor>::create_ingredients(routes)
+                    )
+                };
+            }
+        })
         .collect();
-    // ANCHOR: create_jar
     quote! {
         impl<'salsa_db> salsa::jar::Jar<'salsa_db> for #jar_struct {
             type DynDb = dyn #jar_trait + 'salsa_db;
 
-            fn create_jar<DB>(routes: &mut salsa::routes::Routes<DB>) -> Self
+            fn initialize<DB>(&mut self, routes: &mut salsa::routes::Routes<DB>)
             where
                 DB: salsa::storage::JarFromJars<Self> + salsa::storage::DbWithJar<Self>,
             {
-                #(
-                    let #field_var_names = <#field_tys as salsa::storage::IngredientsFor>::create_ingredients(routes);
-                )*
-                Self(#(#field_var_names),*)
+                #(#field_initializations)*
             }
         }
     }
-    // ANCHOR_END: create_jar
+    // ANCHOR_END: initialize
 }
 
 pub(crate) fn jar_struct(input: &ItemStruct) -> ItemStruct {

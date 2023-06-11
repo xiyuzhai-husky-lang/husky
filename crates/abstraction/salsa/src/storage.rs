@@ -57,14 +57,25 @@ where
 {
     fn default() -> Self {
         let mut routes = Routes::new();
-        let jars = DB::create_jars(&mut routes);
+        let shared = unsafe {
+            // manually allocate for Shared<DB>
+            let mut pshared_uninitialized: Box<Shared<DB>> = Box::from_raw(std::alloc::alloc(
+                std::alloc::Layout::new::<Shared<DB>>(),
+            )
+                as *mut Shared<DB>);
+            // initialize jars
+            DB::initialize_jars(&mut pshared_uninitialized.jars, &mut routes);
+            // initialize cvar
+            pshared_uninitialized.cvar = Default::default();
+            // convert into Arc through Box
+            pshared_uninitialized
+        }
+        .into();
+        let runtime = Runtime::default();
         Self {
-            shared: Arc::new(Shared {
-                jars,
-                cvar: Default::default(),
-            }),
+            shared,
             routes: Arc::new(routes),
-            runtime: Runtime::default(),
+            runtime,
         }
     }
 }
@@ -177,7 +188,8 @@ pub trait HasJars: HasJarsDyn + Sized {
     /// and it will also cancel any ongoing work in the current revision.
     fn jars_mut(&mut self) -> (&mut Self::Jars, &mut Runtime);
 
-    fn create_jars(routes: &mut Routes<Self>) -> Self::Jars;
+    /// jars are allocated directly on the heap in an unsafe way to avoid stack overflow
+    fn initialize_jars(jars: &mut Self::Jars, routes: &mut Routes<Self>);
 }
 
 pub trait DbWithJar<J>: HasJar<J> + Database {

@@ -2,6 +2,20 @@ use super::*;
 use husky_expr::ExprIdx;
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
+pub struct TupleStructTypeRawDecl {
+    #[id]
+    pub path: TypePath,
+    pub ast_idx: AstIdx,
+    pub expr_region: ExprRegion,
+    #[return_ref]
+    implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
+    pub lpar: LeftParenthesisToken,
+    #[return_ref]
+    field_comma_list: (Vec<TupleStructFieldDeclPattern>, Vec<CommaToken>),
+    pub rpar: RightParenthesisToken,
+}
+
+#[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TupleStructTypeDecl {
     #[id]
     pub path: TypePath,

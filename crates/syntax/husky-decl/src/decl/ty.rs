@@ -25,6 +25,21 @@ use parsec::parse_separated_list2;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
+pub enum TypeRawDecl {
+    Enum(EnumTypeRawDecl),
+    RegularStruct(RegularStructTypeRawDecl),
+    UnitStruct(UnitStructTypeRawDecl),
+    TupleStruct(TupleStructTypeRawDecl),
+    Record(RecordTypeRawDecl),
+    Inductive(InductiveTypeRawDecl),
+    Structure(StructureTypeRawDecl),
+    Extern(ExternTypeRawDecl),
+    Union(UnionTypeRawDecl),
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::derive_debug_with_db(db = DeclDb)]
+#[enum_class::from_variants]
 pub enum TypeDecl {
     Enum(EnumTypeDecl),
     RegularStruct(RegularStructTypeDecl),

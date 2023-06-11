@@ -1,6 +1,21 @@
+use super::*;
 use husky_entity_tree::AssociatedItem;
 
-use crate::*;
+#[salsa::tracked(db = DeclDb, jar = DeclJar)]
+pub struct TypeAssociatedFnRawDecl {
+    #[id]
+    pub id: AssociatedItemId,
+    pub path: Option<TypeItemPath>,
+    pub ast_idx: AstIdx,
+    pub expr_region: ExprRegion,
+    #[return_ref]
+    implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
+    #[return_ref]
+    pub parameter_decl_list: ExplicitParameterDeclList,
+    pub curry_token: Option<CurryToken>,
+    pub return_ty: Option<ReturnTypeExpr>,
+    pub eol_colon: EolToken,
+}
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TypeAssociatedFnDecl {

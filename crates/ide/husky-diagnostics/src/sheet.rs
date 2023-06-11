@@ -46,6 +46,7 @@ impl DiagnosticSheet {
         self,
         db: &'a dyn DiagnosticsDb,
     ) -> impl Iterator<Item = &'a Diagnostic> + 'a {
+        todo!();
         self.entity_tree_diagnostic_sheet(db)
             .diagnostics(db)
             .iter()

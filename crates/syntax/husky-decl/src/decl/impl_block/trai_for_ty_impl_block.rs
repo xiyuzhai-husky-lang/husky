@@ -4,6 +4,21 @@ use salsa::DebugWithDb;
 use super::*;
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
+pub struct TraitForTypeImplBlockRawDecl {
+    pub ast_idx: AstIdx,
+    pub impl_block: TraitForTypeImplBlock,
+    pub impl_token: ImplToken,
+    #[return_ref]
+    implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
+    pub trai_expr: TraitExpr,
+    #[return_ref]
+    pub for_token: ConnectionForToken,
+    pub ty_expr: TypeExpr,
+    pub eol_colon: EolToken,
+    pub expr_region: ExprRegion,
+}
+
+#[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TraitForTypeImplBlockDecl {
     pub ast_idx: AstIdx,
     pub impl_block: TraitForTypeImplBlock,

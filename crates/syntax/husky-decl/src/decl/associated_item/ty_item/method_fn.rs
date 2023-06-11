@@ -2,6 +2,23 @@ use crate::*;
 use husky_entity_tree::AssociatedItem;
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
+pub struct TypeMethodFnRawDecl {
+    #[id]
+    pub id: AssociatedItemId,
+    pub path: Option<TypeItemPath>,
+    pub associated_item: AssociatedItem,
+    pub ast_idx: AstIdx,
+    pub expr_region: ExprRegion,
+    #[return_ref]
+    implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
+    #[return_ref]
+    pub explicit_parameter_decl_list: ExplicitParameterDeclList,
+    pub curry_token: Option<CurryToken>,
+    pub return_ty: Option<ReturnTypeExpr>,
+    pub eol_colon: EolToken,
+}
+
+#[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TypeMethodFnDecl {
     #[id]
     pub id: AssociatedItemId,

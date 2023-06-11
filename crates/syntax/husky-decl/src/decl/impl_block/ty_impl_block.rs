@@ -2,6 +2,18 @@ use super::*;
 use husky_token::EolToken;
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
+pub struct TypeImplBlockRawDecl {
+    pub ast_idx: AstIdx,
+    pub impl_block: TypeImplBlock,
+    pub impl_token: ImplToken,
+    #[return_ref]
+    implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
+    pub ty_expr: TypeExpr,
+    pub eol_colon: EolToken,
+    pub expr_region: ExprRegion,
+}
+
+#[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TypeImplBlockDecl {
     pub ast_idx: AstIdx,
     pub impl_block: TypeImplBlock,
