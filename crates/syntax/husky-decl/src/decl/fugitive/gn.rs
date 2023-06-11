@@ -1,6 +1,21 @@
 use super::*;
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
+pub struct GnRawDecl {
+    #[id]
+    pub path: FugitivePath,
+    pub ast_idx: AstIdx,
+    pub expr_region: ExprRegion,
+    #[return_ref]
+    implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
+    #[return_ref]
+    parameter_decl_list: ExplicitParameterDeclList,
+    pub curry_token: Option<CurryToken>,
+    pub return_ty: Option<ReturnTypeExpr>,
+    pub eol_colon: EolToken,
+}
+
+#[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct GnDecl {
     #[id]
     pub path: FugitivePath,

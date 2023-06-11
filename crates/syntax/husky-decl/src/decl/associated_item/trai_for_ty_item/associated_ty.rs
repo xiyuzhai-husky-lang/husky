@@ -1,6 +1,16 @@
 use crate::*;
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
+pub struct TraitForTypeAssociatedTypeRawDecl {
+    pub path: TraitForTypeItemPath,
+    pub associated_item: AssociatedItem,
+    pub ast_idx: AstIdx,
+    #[return_ref]
+    pub implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
+    pub expr_region: ExprRegion,
+}
+
+#[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TraitForTypeAssociatedTypeDecl {
     pub path: TraitForTypeItemPath,
     pub associated_item: AssociatedItem,

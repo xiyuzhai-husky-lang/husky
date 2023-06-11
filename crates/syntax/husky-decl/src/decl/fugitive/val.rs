@@ -3,6 +3,18 @@ use husky_print_utils::p;
 use super::*;
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
+pub struct ValRawDecl {
+    #[id]
+    pub path: FugitivePath,
+    pub ast_idx: AstIdx,
+    pub colon_token: Option<ColonToken>,
+    pub var_ty: Option<FormTypeExpr>,
+    pub eq_token: EqToken,
+    pub expr: Option<ExprIdx>,
+    pub expr_region: ExprRegion,
+}
+
+#[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct ValDecl {
     #[id]
     pub path: FugitivePath,

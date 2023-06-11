@@ -3,6 +3,19 @@ use husky_entity_tree::AssociatedItem;
 use crate::*;
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
+pub struct TypeMemoizedFieldRawDecl {
+    #[id]
+    pub path: Option<TypeItemPath>,
+    pub associated_item: AssociatedItem,
+    pub ast_idx: AstIdx,
+    pub colon_token: Option<ColonToken>,
+    pub memo_ty: Option<FormTypeExpr>,
+    pub eq_token: EqToken,
+    pub expr: Option<ExprIdx>,
+    pub expr_region: ExprRegion,
+}
+
+#[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TypeMemoizedFieldDecl {
     #[id]
     pub path: Option<TypeItemPath>,

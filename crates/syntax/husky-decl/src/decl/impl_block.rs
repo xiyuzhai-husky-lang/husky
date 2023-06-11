@@ -11,6 +11,14 @@ use husky_token::ImplToken;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
+pub enum ImplBlockRawDecl {
+    Type(TypeImplBlockRawDecl),
+    TraitForType(TraitForTypeImplBlockRawDecl),
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::derive_debug_with_db(db = DeclDb)]
+#[enum_class::from_variants]
 pub enum ImplBlockDecl {
     Type(TypeImplBlockDecl),
     TraitForType(TraitForTypeImplBlockDecl),

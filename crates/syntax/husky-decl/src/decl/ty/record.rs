@@ -1,6 +1,16 @@
 use super::*;
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
+pub struct RecordTypeRawDecl {
+    #[id]
+    pub path: TypePath,
+    pub ast_idx: AstIdx,
+    pub expr_region: ExprRegion,
+    #[return_ref]
+    implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
+}
+
+#[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct RecordTypeDecl {
     #[id]
     pub path: TypePath,

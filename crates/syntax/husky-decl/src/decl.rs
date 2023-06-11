@@ -20,6 +20,18 @@ type SmallVecImpl<T> = smallvec::SmallVec<[T; 2]>;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
+pub enum RawDecl {
+    Type(TypeRawDecl),
+    Form(FugitiveRawDecl),
+    Trait(TraitRawDecl),
+    ImplBlock(ImplBlockRawDecl),
+    AssociatedItem(AssociatedItemRawDecl),
+    TypeVariant(TypeVariantRawDecl),
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::derive_debug_with_db(db = DeclDb)]
+#[enum_class::from_variants]
 pub enum Decl {
     Type(TypeDecl),
     Form(FugitiveDecl),
