@@ -289,6 +289,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                     },
                     EntityPath::AssociatedItem(_) => todo!(),
                     EntityPath::TypeVariant(_) => todo!(),
+                    EntityPath::ImplBlock(_) => todo!(),
                 })),
                 None => Err(DerivedDeclarativeTermError2::InvalidEntityPath.into()),
             },

@@ -102,6 +102,7 @@ impl HasDecl for EntityPath {
             EntityPath::ModuleItem(path) => path.decl(db), // change this to trait method
             EntityPath::AssociatedItem(_) => todo!(),
             EntityPath::TypeVariant(_) => todo!(),
+            EntityPath::ImplBlock(_) => todo!(),
         }
     }
 }

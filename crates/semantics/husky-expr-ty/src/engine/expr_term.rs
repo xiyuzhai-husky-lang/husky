@@ -141,6 +141,7 @@ impl<'a> ExprTypeEngine<'a> {
                 },
                 EntityPath::AssociatedItem(_) => todo!(),
                 EntityPath::TypeVariant(_) => todo!(),
+                EntityPath::ImplBlock(_) => todo!(),
             },
             //  Ok(EtherealTerm::new(db,entity_path.into()).into()),
             None => todo!(),

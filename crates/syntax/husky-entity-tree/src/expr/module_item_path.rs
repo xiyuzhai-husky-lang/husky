@@ -149,6 +149,7 @@ impl<'a, 'b> ModuleItemPathExprParser<'a, 'b> {
                 EntityPath::ModuleItem(_) => todo!(),
                 EntityPath::AssociatedItem(_) => todo!(),
                 EntityPath::TypeVariant(_) => todo!(),
+                EntityPath::ImplBlock(_) => todo!(),
             }
         } else {
             let EntityPath::ModuleItem(module_item_path) = entity_path else {

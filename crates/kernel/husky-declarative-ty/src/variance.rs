@@ -60,6 +60,7 @@ pub(crate) fn entity_variances(
         },
         EntityPath::AssociatedItem(_) => todo!(),
         EntityPath::TypeVariant(_) => todo!(),
+        EntityPath::ImplBlock(_) => todo!(),
     }
 }
 

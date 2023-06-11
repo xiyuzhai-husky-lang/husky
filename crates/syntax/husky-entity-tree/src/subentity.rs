@@ -54,5 +54,6 @@ pub(crate) fn subentity_path(
         }
         EntityPath::AssociatedItem(_) => todo!(),
         EntityPath::TypeVariant(_) => todo!(),
+        EntityPath::ImplBlock(_) => todo!(),
     }
 }

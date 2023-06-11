@@ -209,6 +209,7 @@ impl<'a> EntityTreePresheetBuilder<'a> {
                             )
                             .into(),
                             EntityPath::AssociatedItem(_) | EntityPath::TypeVariant(_) => return,
+                            EntityPath::ImplBlock(_) => todo!(),
                         },
                     );
                     self.native_symbol_entries
