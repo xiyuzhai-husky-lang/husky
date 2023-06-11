@@ -1,11 +1,10 @@
 mod trai_for_ty_impl_block;
 mod ty_impl_block;
 
-pub use trai_for_ty_impl_block::*;
-pub use ty_impl_block::*;
+pub use self::trai_for_ty_impl_block::*;
+pub use self::ty_impl_block::*;
 
 use super::*;
-
 use husky_token::ImplToken;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 use husky_entity_tree::AssociatedItem;
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]

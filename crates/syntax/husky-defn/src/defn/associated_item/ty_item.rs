@@ -10,7 +10,7 @@ pub use self::associated_val::*;
 pub use self::memoized_field::*;
 pub use self::method_fn::*;
 
-use crate::*;
+use super::*;
 use husky_entity_path::AssociatedItemPath;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

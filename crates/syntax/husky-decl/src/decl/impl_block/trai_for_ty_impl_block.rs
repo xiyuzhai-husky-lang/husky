@@ -1,7 +1,6 @@
+use super::*;
 use husky_print_utils::p;
 use salsa::DebugWithDb;
-
-use super::*;
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TraitForTypeImplBlockRawDecl {

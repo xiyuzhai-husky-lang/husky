@@ -2,9 +2,8 @@ mod explicit_application;
 mod list;
 mod prefix;
 
-use husky_ty_expectation::TypePathDisambiguation;
-
 use super::*;
+use husky_ty_expectation::TypePathDisambiguation;
 
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn infer_new_expr_term(&mut self, expr_idx: ExprIdx) -> Option<FluffyTerm> {

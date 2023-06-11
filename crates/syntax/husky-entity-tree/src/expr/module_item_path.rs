@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 use husky_token::*;
 use original_error::*;
 use parsec::*;

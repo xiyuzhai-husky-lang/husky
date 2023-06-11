@@ -6,11 +6,9 @@ pub use self::trai::*;
 pub use self::trai_for_ty::*;
 pub use self::ty::*;
 
-use husky_entity_taxonomy::AssociatedItemKind;
-use husky_print_utils::p;
-use husky_word::IdentPairMap;
-
 use crate::*;
+use husky_entity_taxonomy::AssociatedItemKind;
+use husky_word::IdentPairMap;
 
 #[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar)]
 pub struct AssociatedItem {
@@ -172,13 +170,13 @@ pub(crate) fn calc_impl_block_items(
                         db.ast_token_idx_range_sheet(module_path).unwrap();
                     let token_sheet_data = db.token_sheet_data(module_path).unwrap();
                     let ast_range = ast_token_idx_range_sheet[ast_idx];
-                    p!(ast_range);
+                    // p!(ast_range);
                     // assert!(token_sheet_data.len() >= ast_range.end().token_idx().raw());
                     // p!(token_sheet_data[ast_range.start().token_idx()].debug(db));
                     // p!(token_sheet_data[ast_range.start().token_idx() + 1].debug(db));
                     // p!(module_path.debug(db), impl_block.debug(db));
                     // p!(ast.debug(db));
-                    p!(token_sheet_data.debug(db));
+                    // p!(token_sheet_data.debug(db));
                     todo!()
                 }
             }

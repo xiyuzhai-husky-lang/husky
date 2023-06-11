@@ -6,18 +6,16 @@ mod symbol;
 #[macro_use]
 mod utils;
 mod pattern_ty;
-mod symbol_liason;
 
 pub(crate) use self::utils::*;
 
 use self::symbol::*;
+use crate::*;
 use husky_opn_syntax::PrefixOpr;
 use husky_print_utils::p;
 use husky_token::{IntegerLikeLiteral, Literal, Token, TokenIdx, TokenSheetData};
 use husky_ty_expectation::TermTypeExpectation;
 use husky_vfs::Toolchain;
-
-use crate::*;
 
 pub(crate) struct ExprTypeEngine<'a> {
     db: &'a dyn ExprTypeDb,

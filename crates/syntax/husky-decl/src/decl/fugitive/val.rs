@@ -1,6 +1,5 @@
-use husky_print_utils::p;
-
 use super::*;
+use husky_print_utils::p;
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct ValRawDecl {

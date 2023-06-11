@@ -1,7 +1,6 @@
+use crate::{ParentUseExpr, *};
 use husky_token::{IdentToken, PathNameToken};
 use husky_word::Ident;
-
-use crate::{ParentUseExpr, *};
 
 #[derive(Debug, Default, PartialEq, Eq, Clone)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]

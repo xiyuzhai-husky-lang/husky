@@ -8,7 +8,7 @@ pub use self::r#fn::*;
 pub use self::ti::*;
 pub use self::val::*;
 
-use crate::*;
+use super::*;
 use husky_entity_taxonomy::{EntityKind, FugitiveKind};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

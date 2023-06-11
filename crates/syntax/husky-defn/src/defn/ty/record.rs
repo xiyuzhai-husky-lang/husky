@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 
 #[salsa::tracked(db = DefnDb, jar = DefnJar)]
 pub struct RecordTypeDefn {
