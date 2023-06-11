@@ -1,6 +1,5 @@
+use super::*;
 use husky_entity_tree::AssociatedItem;
-
-use crate::*;
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TypeMemoizedFieldRawDecl {

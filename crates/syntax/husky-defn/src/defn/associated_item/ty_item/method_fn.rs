@@ -1,6 +1,5 @@
-use crate::*;
+use super::*;
 use husky_ast::Ast;
-use husky_print_utils::p;
 use salsa::DebugWithDb;
 
 #[salsa::tracked(db = DefnDb, jar = DefnJar)]

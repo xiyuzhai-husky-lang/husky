@@ -1,6 +1,5 @@
-use vec_like::VecMapGetEntry;
-
 use super::*;
+use vec_like::VecMapGetEntry;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]

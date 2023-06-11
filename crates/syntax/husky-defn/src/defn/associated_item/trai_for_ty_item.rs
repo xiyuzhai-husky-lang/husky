@@ -8,7 +8,7 @@ pub use self::associated_ty::*;
 pub use self::associated_val::*;
 pub use self::method_fn::*;
 
-use crate::*;
+use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DefnDb)]

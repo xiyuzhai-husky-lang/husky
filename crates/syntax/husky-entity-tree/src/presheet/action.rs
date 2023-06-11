@@ -1,7 +1,6 @@
+use super::*;
 use crate::ParentUseExpr;
 use husky_token::{PathNameToken, TokenIdx};
-
-use super::*;
 
 #[derive(Debug)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]

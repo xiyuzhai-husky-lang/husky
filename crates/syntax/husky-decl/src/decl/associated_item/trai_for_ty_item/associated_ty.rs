@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TraitForTypeAssociatedTypeRawDecl {

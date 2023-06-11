@@ -18,7 +18,7 @@ pub use self::tuple_struct::*;
 pub use self::union::*;
 pub use self::unit_struct::*;
 
-use crate::*;
+use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = DefnDb)]
