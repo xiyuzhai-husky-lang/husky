@@ -14,10 +14,10 @@ use husky_entity_taxonomy::{EntityKind, FugitiveKind};
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
-pub enum FugitiveRawDecl {
-    Fn(FnRawDecl),
-    Val(ValRawDecl),
-    Gn(GnRawDecl),
+pub enum FugitiveNodeDecl {
+    Fn(FnNodeDecl),
+    Val(ValNodeDecl),
+    Gn(GnNodeDecl),
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

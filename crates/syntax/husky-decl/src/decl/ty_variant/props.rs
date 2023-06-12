@@ -1,7 +1,7 @@
 use super::*;
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
-pub struct PropsVariantRawDecl {
+pub struct PropsVariantNodeDecl {
     #[id]
     pub node_path: TypeVariantNodePath,
     pub expr_region: ExprRegion,
@@ -15,7 +15,7 @@ pub struct PropsVariantDecl {
 }
 
 impl PropsVariantDecl {
-    fn from_raw(db: &dyn DeclDb, raw_decl: PropsVariantRawDecl) -> Self {
-        PropsVariantDecl::new(db, raw_decl.node_path(db), raw_decl.expr_region(db))
+    fn from_raw(db: &dyn DeclDb, node_decl: PropsVariantNodeDecl) -> Self {
+        PropsVariantDecl::new(db, node_decl.node_path(db), node_decl.expr_region(db))
     }
 }

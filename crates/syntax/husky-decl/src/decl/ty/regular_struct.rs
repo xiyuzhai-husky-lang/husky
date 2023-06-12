@@ -3,7 +3,7 @@ use husky_token::{CommaToken, LeftCurlyBraceToken, RightCurlyBraceToken};
 use parsec::parse_separated_list2;
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
-pub struct RegularStructTypeRawDecl {
+pub struct RegularStructTypeNodeDecl {
     #[id]
     pub node_path: TypeNodePath,
     pub ast_idx: AstIdx,

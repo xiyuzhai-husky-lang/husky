@@ -2,7 +2,7 @@ use super::*;
 use husky_print_utils::p;
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
-pub struct ValRawDecl {
+pub struct ValNodeDecl {
     #[id]
     pub node_path: FugitiveNodePath,
     pub ast_idx: AstIdx,

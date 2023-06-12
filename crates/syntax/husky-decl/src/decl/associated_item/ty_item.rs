@@ -19,12 +19,12 @@ use vec_like::VecMapGetEntry;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
-pub enum TypeItemRawDecl {
-    AssociatedFn(TypeAssociatedFnRawDecl),
-    MethodFn(TypeMethodFnRawDecl),
-    AssociatedType(TypeAssociatedTypeRawDecl),
-    AssociatedVal(TypeAssociatedValRawDecl),
-    MemoizedField(TypeMemoizedFieldRawDecl),
+pub enum TypeItemNodeDecl {
+    AssociatedFn(TypeAssociatedFnNodeDecl),
+    MethodFn(TypeMethodFnNodeDecl),
+    AssociatedType(TypeAssociatedTypeNodeDecl),
+    AssociatedVal(TypeAssociatedValNodeDecl),
+    MemoizedField(TypeMemoizedFieldNodeDecl),
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

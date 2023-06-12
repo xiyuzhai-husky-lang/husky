@@ -9,7 +9,7 @@ pub(crate) struct DefnCollector<'a> {
     token_sheet_data: &'a TokenSheetData,
     ast_sheet: &'a AstSheet,
     ast_range_sheet: &'a AstTokenIdxRangeSheet,
-    decl_sheet: DeclSheet<'a>,
+    decl_sheet: NodeDeclSheet,
 }
 
 impl<'a> DefnCollector<'a> {
@@ -21,19 +21,20 @@ impl<'a> DefnCollector<'a> {
             token_sheet_data: db.token_sheet_data(module_path)?,
             ast_sheet: db.ast_sheet(module_path)?,
             ast_range_sheet: db.ast_token_idx_range_sheet(module_path)?,
-            decl_sheet: db.decl_sheet(module_path)?,
+            decl_sheet: db.node_decl_sheet(module_path)?,
         })
     }
 
     pub(crate) fn collect_all(self) -> DefnSheet<'a> {
-        DefnSheet::new(
-            self.decl_sheet
-                .decls()
-                .iter()
-                .copied()
-                .map(|(node_path, decl)| (node_path, decl.map(|decl| decl.defn(self.db))))
-                .collect(),
-        )
+        todo!()
+        // DefnSheet::new(
+        //     self.decl_sheet
+        //         .decls(db)
+        //         .iter()
+        //         .copied()
+        //         .map(|(node_path, decl)| (node_path, decl.map(|decl| decl.defn(self.db))))
+        //         .collect(),
+        // )
     }
 }
 

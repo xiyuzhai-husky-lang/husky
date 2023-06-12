@@ -7,14 +7,20 @@ use salsa::DbWithJar;
 use vec_like::VecMapGetEntry;
 
 pub trait DeclDb: DbWithJar<DeclJar> + ExprDb {
-    fn decl_sheet<'a>(&'a self, module_path: ModulePath) -> EntityTreeResult<DeclSheet<'a>>;
+    fn node_decl_sheet(&self, module_path: ModulePath) -> EntityTreeResult<NodeDeclSheet>;
+
+    fn decl_sheet(&self, module_path: ModulePath) -> EntityTreeResult<DeclSheet>;
 }
 
 impl<Db> DeclDb for Db
 where
     Db: DbWithJar<DeclJar> + ExprDb,
 {
-    fn decl_sheet<'a>(&'a self, module_path: ModulePath) -> EntityTreeResult<DeclSheet<'a>> {
+    fn node_decl_sheet(&self, module_path: ModulePath) -> EntityTreeResult<NodeDeclSheet> {
+        node_decl_sheet(self, module_path)
+    }
+
+    fn decl_sheet(&self, module_path: ModulePath) -> EntityTreeResult<DeclSheet> {
         decl_sheet(self, module_path)
     }
 }

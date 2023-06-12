@@ -1,7 +1,7 @@
 use super::*;
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
-pub struct TraitAssociatedTypeRawDecl {
+pub struct TraitAssociatedTypeNodeDecl {
     #[id]
     pub path: TraitItemPath,
     pub ast_idx: AstIdx,

@@ -3,7 +3,7 @@ use husky_print_utils::p;
 use salsa::DebugWithDb;
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
-pub struct TraitForTypeImplBlockRawDecl {
+pub struct TraitForTypeImplBlockNodeDecl {
     #[id]
     pub node_path: TraitForTypeImplBlockNodePath,
     pub ast_idx: AstIdx,

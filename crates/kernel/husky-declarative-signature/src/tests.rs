@@ -46,20 +46,15 @@ impl salsa::Database for DB {}
 fn module_declarative_signature_templates(
     db: &DB,
     module_path: ModulePath,
-) -> Vec<DeclarativeSignatureResult<SignatureTemplate>> {
-    let Ok(decl_sheet) = db.decl_sheet(module_path) else {
+) -> Vec<(EntityPath, DeclarativeSignatureResult<SignatureTemplate>)> {
+    let Ok(decl_sheet) = module_path.decl_sheet(db) else {
         return vec![]
     };
     decl_sheet
-        .decls()
+        .decls(db)
         .iter()
-        .filter_map(|decl| {
-            decl.1
-                .as_ref()
-                .ok()
-                .copied()
-                .map(|decl| signature_template_from_decl(db, decl))
-        })
+        .copied()
+        .map(|(path, decl)| (path, signature_template_from_decl(db, decl)))
         .collect()
 }
 

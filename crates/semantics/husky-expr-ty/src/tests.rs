@@ -58,13 +58,13 @@ pub(crate) struct DB {
 impl salsa::Database for DB {}
 
 fn decl_expr_ty_regions(db: &DB, module_path: ModulePath) -> Vec<&ExprTypeRegion> {
-    let Ok(decl_sheet) = db.decl_sheet(module_path)
+    let Ok(decl_sheet) = db.node_decl_sheet(module_path)
         else { return vec![] };
     decl_sheet
-        .decls()
+        .decls(db)
         .iter()
-        .filter_map(|(_, decl)| decl.as_ref().ok().copied())
-        .map(|decl| db.expr_ty_region(decl.expr_region(db)))
+        .copied()
+        .map(|(_, decl)| db.expr_ty_region(decl.expr_region(db)))
         .collect()
 }
 

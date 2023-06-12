@@ -14,16 +14,17 @@ pub(crate) fn decl_diagnostic_sheet(
     module_path: ModulePath,
 ) -> DeclDiagnosticSheet {
     let mut sheet_collector = SheetDiagnosticsCollector::new(db, module_path);
-    if let (Ok(ranged_token_sheet), Ok(decl_sheet)) = (
+    if let (Ok(ranged_token_sheet), Ok(node_decl_sheet)) = (
         db.ranged_token_sheet(module_path),
-        db.decl_sheet(module_path),
+        db.node_decl_sheet(module_path),
     ) {
         let _token_sheet_data = ranged_token_sheet.token_sheet_data(db);
-        for (_path, decl) in decl_sheet.decls().iter().copied() {
-            match decl {
-                Err(DeclError::Original(error)) => sheet_collector.visit_atom(error),
-                _ => (),
-            }
+        for (node_path, node_decl) in node_decl_sheet.decls(db).iter().copied() {
+            todo!()
+            // match decl {
+            //     Err(DeclError::Original(error)) => sheet_collector.visit_atom(error),
+            //     _ => (),
+            // }
         }
     }
     // todo
