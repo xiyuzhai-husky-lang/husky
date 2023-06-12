@@ -1,7 +1,7 @@
 use super::*;
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
-pub struct TraitForTypeMethodFnRawDecl {
+pub struct TraitForTypeMethodFnNodeDecl {
     #[id]
     pub node_path: TraitForTypeItemNodePath,
     pub node: TraitForTypeItemNode,

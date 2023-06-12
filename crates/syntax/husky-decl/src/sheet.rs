@@ -1,13 +1,89 @@
 use crate::*;
 use vec_like::VecPairMap;
 
-#[derive(Debug, PartialEq, Eq)]
-pub struct DeclSheet<'a> {
-    decls: Vec<(EntityNodePath, DeclResultRef<'a, Decl>)>,
+#[salsa::tracked(db = DeclDb, jar = DeclJar, constructor = new)]
+pub struct NodeDeclSheet {
+    #[return_ref]
+    pub decls: Vec<(EntityNodePath, NodeDecl)>,
 }
 
-pub fn decl_sheet<'a>(db: &'a dyn DeclDb, path: ModulePath) -> EntityTreeResult<DeclSheet<'a>> {
-    DeclSheet::collect_from_module(db, path)
+pub trait HasNodeDeclSheet: Copy {
+    fn node_decl_sheet(self, db: &dyn DeclDb) -> EntityTreeResult<NodeDeclSheet>;
+}
+
+impl HasNodeDeclSheet for ModulePath {
+    fn node_decl_sheet(self, db: &dyn DeclDb) -> EntityTreeResult<NodeDeclSheet> {
+        node_decl_sheet(db, self)
+    }
+}
+
+#[salsa::tracked(jar = DeclJar)]
+pub fn node_decl_sheet(db: &dyn DeclDb, path: ModulePath) -> EntityTreeResult<NodeDeclSheet> {
+    let entity_tree_sheet = db.entity_tree_sheet(path)?;
+    let mut decls: Vec<(EntityNodePath, NodeDecl)> = Default::default();
+    todo!();
+    // for path in entity_tree_sheet.module_item_path_iter(db) {
+    //     decls.push((DeclRegionPath::Entity(path.into()), path.decl(db)))
+    // }
+    // for impl_block in entity_tree_sheet.impl_blocks().iter().copied() {
+    //     decls.push((
+    //         DeclRegionPath::ImplBlock(impl_block.path(db)),
+    //         impl_block.decl(db).map(|decl| decl.into()),
+    //     ));
+    //     for (_, associated_item) in impl_block.items(db).iter().copied() {
+    //         decls.push((
+    //             DeclRegionPath::AssociatedItem(associated_item.id(db)),
+    //             associated_item.decl(db).map(|decl| decl.into()),
+    //         ))
+    //     }
+    // }
+    Ok(NodeDeclSheet::new(db, decls))
+}
+
+#[test]
+fn node_decl_sheet_works() {
+    use tests::*;
+
+    DB::default().ast_expect_test_debug_with_db("node_decl_sheet", DeclDb::node_decl_sheet);
+}
+
+#[salsa::tracked(db = DeclDb, jar = DeclJar, constructor = new)]
+pub struct DeclSheet {
+    #[return_ref]
+    pub decls: Vec<(EntityPath, Decl)>,
+}
+
+pub trait HasDeclSheet: Copy {
+    fn decl_sheet(self, db: &dyn DeclDb) -> EntityTreeResult<DeclSheet>;
+}
+
+impl HasDeclSheet for ModulePath {
+    fn decl_sheet(self, db: &dyn DeclDb) -> EntityTreeResult<DeclSheet> {
+        decl_sheet(db, self)
+    }
+}
+
+#[salsa::tracked(jar = DeclJar)]
+pub fn decl_sheet(db: &dyn DeclDb, path: ModulePath) -> EntityTreeResult<DeclSheet> {
+    let entity_tree_sheet = db.entity_tree_sheet(path)?;
+    let mut decls: Vec<(EntityPath, Decl)> = Default::default();
+    todo!();
+    // for path in entity_tree_sheet.module_item_path_iter(db) {
+    //     decls.push((DeclRegionPath::Entity(path.into()), path.decl(db)))
+    // }
+    // for impl_block in entity_tree_sheet.impl_blocks().iter().copied() {
+    //     decls.push((
+    //         DeclRegionPath::ImplBlock(impl_block.path(db)),
+    //         impl_block.decl(db).map(|decl| decl.into()),
+    //     ));
+    //     for (_, associated_item) in impl_block.items(db).iter().copied() {
+    //         decls.push((
+    //             DeclRegionPath::AssociatedItem(associated_item.id(db)),
+    //             associated_item.decl(db).map(|decl| decl.into()),
+    //         ))
+    //     }
+    // }
+    Ok(DeclSheet::new(db, decls))
 }
 
 #[test]
@@ -15,50 +91,4 @@ fn decl_sheet_works() {
     use tests::*;
 
     DB::default().ast_expect_test_debug_with_db("decl_sheet", DeclDb::decl_sheet);
-}
-
-impl<'a> DeclSheet<'a> {
-    pub fn collect_from_module(db: &'a dyn DeclDb, path: ModulePath) -> EntityTreeResult<Self> {
-        let entity_tree_sheet = db.entity_tree_sheet(path)?;
-        let mut decls: Vec<(EntityNodePath, DeclResultRef<'a, Decl>)> = Default::default();
-        todo!()
-        // for path in entity_tree_sheet.module_item_path_iter(db) {
-        //     decls.push((DeclRegionPath::Entity(path.into()), path.decl(db)))
-        // }
-        // for impl_block in entity_tree_sheet.impl_blocks().iter().copied() {
-        //     decls.push((
-        //         DeclRegionPath::ImplBlock(impl_block.path(db)),
-        //         impl_block.decl(db).map(|decl| decl.into()),
-        //     ));
-        //     for (_, associated_item) in impl_block.items(db).iter().copied() {
-        //         decls.push((
-        //             DeclRegionPath::AssociatedItem(associated_item.id(db)),
-        //             associated_item.decl(db).map(|decl| decl.into()),
-        //         ))
-        //     }
-        // }
-        // Ok(DeclSheet::new(decls))
-    }
-
-    fn new(decls: Vec<(EntityNodePath, DeclResultRef<'a, Decl>)>) -> Self {
-        Self { decls }
-    }
-
-    pub fn decls(&self) -> &[(EntityNodePath, DeclResultRef<'a, Decl>)] {
-        &self.decls
-    }
-}
-
-impl<'a, Db: DeclDb + ?Sized> salsa::DebugWithDb<Db> for DeclSheet<'a> {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        _level: salsa::DebugFormatLevel,
-    ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<DeclJar>>::as_jar_db(db);
-        f.debug_struct("DeclSheet")
-            .field("decls", &self.decls.debug(db))
-            .finish()
-    }
 }

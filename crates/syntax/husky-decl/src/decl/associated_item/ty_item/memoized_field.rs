@@ -1,7 +1,7 @@
 use super::*;
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
-pub struct TypeMemoizedFieldRawDecl {
+pub struct TypeMemoizedFieldNodeDecl {
     #[id]
     pub path: TypeItemPath,
     pub associated_item_node: AssociatedItemNode,

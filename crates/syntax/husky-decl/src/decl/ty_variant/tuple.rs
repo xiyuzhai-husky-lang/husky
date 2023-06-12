@@ -1,7 +1,7 @@
 use super::*;
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
-pub struct TupleVariantRawDecl {
+pub struct TupleVariantNodeDecl {
     #[id]
     pub node_path: TypeVariantNodePath,
     pub expr_region: ExprRegion,

@@ -2,7 +2,7 @@ use super::*;
 use husky_token::EolToken;
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
-pub struct TypeImplBlockRawDecl {
+pub struct TypeImplBlockNodeDecl {
     #[id]
     pub node_path: TypeImplBlockNodePath,
     pub ast_idx: AstIdx,

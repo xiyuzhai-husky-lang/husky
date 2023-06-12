@@ -2,7 +2,7 @@ use super::*;
 use husky_token::{CurryToken, EolToken};
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
-pub struct FnRawDecl {
+pub struct FnNodeDecl {
     #[id]
     pub node_path: FugitiveNodePath,
     pub ast_idx: AstIdx,

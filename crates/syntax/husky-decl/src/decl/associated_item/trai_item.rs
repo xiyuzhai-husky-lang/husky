@@ -15,11 +15,11 @@ use husky_ast::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
-pub enum TraitItemRawDecl {
-    AssociatedFn(TraitAssociatedFnRawDecl),
-    MethodFn(TraitMethodFnRawDecl),
-    AssociatedType(TraitAssociatedTypeRawDecl),
-    AssociatedVal(TraitAssociatedValRawDecl),
+pub enum TraitItemNodeDecl {
+    AssociatedFn(TraitAssociatedFnNodeDecl),
+    MethodFn(TraitMethodFnNodeDecl),
+    AssociatedType(TraitAssociatedTypeNodeDecl),
+    AssociatedVal(TraitAssociatedValNodeDecl),
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

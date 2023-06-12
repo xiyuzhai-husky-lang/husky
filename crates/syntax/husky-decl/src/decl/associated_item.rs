@@ -13,10 +13,10 @@ use husky_word::Ident;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
-pub enum AssociatedItemRawDecl {
-    TypeItem(TypeItemRawDecl),
-    TraitItem(TraitItemRawDecl),
-    TraitForTypeItem(TraitForTypeItemRawDecl),
+pub enum AssociatedItemNodeDecl {
+    TypeItem(TypeItemNodeDecl),
+    TraitItem(TraitItemNodeDecl),
+    TraitForTypeItem(TraitForTypeItemNodeDecl),
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

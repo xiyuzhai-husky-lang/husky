@@ -20,13 +20,59 @@ type SmallVecImpl<T> = smallvec::SmallVec<[T; 2]>;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
-pub enum RawDecl {
-    Type(TypeRawDecl),
-    Form(FugitiveRawDecl),
-    Trait(TraitRawDecl),
-    ImplBlock(ImplBlockRawDecl),
-    AssociatedItem(AssociatedItemRawDecl),
-    TypeVariant(TypeVariantRawDecl),
+pub enum NodeDecl {
+    Type(TypeNodeDecl),
+    Fugitive(FugitiveNodeDecl),
+    Trait(TraitNodeDecl),
+    ImplBlock(ImplBlockNodeDecl),
+    AssociatedItem(AssociatedItemNodeDecl),
+    TypeVariant(TypeVariantNodeDecl),
+}
+
+impl NodeDecl {
+    pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
+        match self {
+            NodeDecl::Type(decl) => decl.ast_idx(db),
+            NodeDecl::Fugitive(decl) => decl.ast_idx(db),
+            NodeDecl::Trait(decl) => decl.ast_idx(db),
+            NodeDecl::ImplBlock(decl) => decl.ast_idx(db),
+            NodeDecl::AssociatedItem(decl) => decl.ast_idx(db),
+            NodeDecl::TypeVariant(decl) => decl.ast_idx(db),
+        }
+    }
+
+    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDeclPattern] {
+        match self {
+            NodeDecl::Type(decl) => decl.implicit_parameters(db),
+            NodeDecl::Fugitive(decl) => decl.implicit_parameters(db),
+            NodeDecl::Trait(decl) => decl.implicit_parameters(db),
+            NodeDecl::ImplBlock(decl) => decl.implicit_parameters(db),
+            NodeDecl::AssociatedItem(decl) => decl.implicit_parameters(db),
+            NodeDecl::TypeVariant(_decl) => &[],
+        }
+    }
+
+    pub fn expr_region(self, db: &dyn DeclDb) -> ExprRegion {
+        match self {
+            NodeDecl::Type(decl) => decl.expr_region(db).into(),
+            NodeDecl::Fugitive(decl) => decl.expr_region(db).into(),
+            NodeDecl::Trait(decl) => decl.expr_region(db).into(),
+            NodeDecl::ImplBlock(decl) => decl.expr_region(db).into(),
+            NodeDecl::AssociatedItem(decl) => decl.expr_region(db).into(),
+            NodeDecl::TypeVariant(_decl) => todo!(),
+        }
+    }
+
+    pub fn node_path(self, db: &dyn DeclDb) -> EntityNodePath {
+        match self {
+            NodeDecl::Type(decl) => decl.node_path(db).into(),
+            NodeDecl::Fugitive(decl) => decl.node_path(db).into(),
+            NodeDecl::Trait(decl) => decl.node_path(db).into(),
+            NodeDecl::ImplBlock(decl) => decl.node_path(db).into(),
+            NodeDecl::AssociatedItem(decl) => decl.node_path(db).into(),
+            NodeDecl::TypeVariant(decl) => decl.node_path(db).into(),
+        }
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

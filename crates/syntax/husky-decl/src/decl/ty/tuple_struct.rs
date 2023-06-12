@@ -2,7 +2,7 @@ use super::*;
 use husky_expr::ExprIdx;
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
-pub struct TupleStructTypeRawDecl {
+pub struct TupleStructTypeNodeDecl {
     #[id]
     pub node_path: TypeNodePath,
     pub ast_idx: AstIdx,

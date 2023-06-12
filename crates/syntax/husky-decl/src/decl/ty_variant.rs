@@ -11,10 +11,10 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
-pub enum TypeVariantRawDecl {
-    Props(PropsVariantRawDecl),
-    Unit(UnitVariantRawDecl),
-    Tuple(TupleVariantRawDecl),
+pub enum TypeVariantNodeDecl {
+    Props(PropsVariantNodeDecl),
+    Unit(UnitVariantNodeDecl),
+    Tuple(TupleVariantNodeDecl),
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
