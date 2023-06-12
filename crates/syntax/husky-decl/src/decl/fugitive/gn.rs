@@ -3,7 +3,7 @@ use super::*;
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct GnRawDecl {
     #[id]
-    pub path: FugitivePath,
+    pub node_path: FugitiveNodePath,
     pub ast_idx: AstIdx,
     pub expr_region: ExprRegion,
     #[return_ref]
@@ -18,7 +18,7 @@ pub struct GnRawDecl {
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct GnDecl {
     #[id]
-    pub path: FugitivePath,
+    pub node_path: FugitiveNodePath,
     pub ast_idx: AstIdx,
     pub expr_region: ExprRegion,
     #[return_ref]
@@ -49,14 +49,9 @@ impl<'a> DeclParseContext<'a> {
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
         saved_stream_state: TokenStreamState,
-        path: FugitivePath,
+        id: FugitiveNodePath,
     ) -> DeclResult<FugitiveDecl> {
-        let mut parser = self.expr_parser(
-            DeclRegionPath::Entity(path.into()),
-            None,
-            AllowSelfType::False,
-            AllowSelfValue::False,
-        );
+        let mut parser = self.expr_parser(id, None, AllowSelfType::False, AllowSelfValue::False);
         let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
         let implicit_parameter_decl_list = ctx.parse()?;
         let parameter_decl_list =
@@ -71,7 +66,7 @@ impl<'a> DeclParseContext<'a> {
         let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectedEolColon)?;
         Ok(GnDecl::new(
             self.db(),
-            path,
+            id,
             ast_idx,
             parser.finish(),
             implicit_parameter_decl_list,

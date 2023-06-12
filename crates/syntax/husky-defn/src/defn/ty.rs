@@ -51,17 +51,18 @@ impl TypeDefn {
     }
 
     pub fn path(self, db: &dyn DefnDb) -> TypePath {
-        match self {
-            TypeDefn::Enum(defn) => defn.path(db),
-            TypeDefn::Inductive(defn) => defn.path(db),
-            TypeDefn::Record(defn) => defn.path(db),
-            TypeDefn::UnitStruct(defn) => defn.path(db),
-            TypeDefn::TupleStruct(defn) => defn.path(db),
-            TypeDefn::RegularStruct(defn) => defn.path(db),
-            TypeDefn::Structure(defn) => defn.path(db),
-            TypeDefn::Extern(defn) => defn.path(db),
-            TypeDefn::Union(defn) => defn.path(db),
-        }
+        todo!()
+        // match self {
+        //     TypeDefn::Enum(defn) => defn.path(db),
+        //     TypeDefn::Inductive(defn) => defn.path(db),
+        //     TypeDefn::Record(defn) => defn.path(db),
+        //     TypeDefn::UnitStruct(defn) => defn.path(db),
+        //     TypeDefn::TupleStruct(defn) => defn.path(db),
+        //     TypeDefn::RegularStruct(defn) => defn.path(db),
+        //     TypeDefn::Structure(defn) => defn.path(db),
+        //     TypeDefn::Extern(defn) => defn.path(db),
+        //     TypeDefn::Union(defn) => defn.path(db),
+        // }
     }
 }
 

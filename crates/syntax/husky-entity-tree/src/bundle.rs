@@ -47,7 +47,7 @@ impl EntityTreeCrateBundle {
         &self.sheets
     }
 
-    pub fn all_ty_impl_blocks<'a>(&'a self) -> impl Iterator<Item = TypeImplBlock> + 'a {
+    pub fn all_ty_impl_blocks<'a>(&'a self) -> impl Iterator<Item = TypeImplBlockNode> + 'a {
         self.sheets
             .iter()
             .map(|sheet| sheet.all_ty_impl_blocks())
@@ -56,7 +56,7 @@ impl EntityTreeCrateBundle {
 
     pub fn all_ill_formed_impl_blocks<'a>(
         &'a self,
-    ) -> impl Iterator<Item = IllFormedImplBlock> + 'a {
+    ) -> impl Iterator<Item = IllFormedImplBlockNode> + 'a {
         self.sheets
             .iter()
             .map(|sheet| sheet.all_ill_formed_impl_blocks())
@@ -65,7 +65,7 @@ impl EntityTreeCrateBundle {
 
     pub fn all_trai_for_ty_impl_blocks<'a>(
         &'a self,
-    ) -> impl Iterator<Item = TraitForTypeImplBlock> + 'a {
+    ) -> impl Iterator<Item = TraitForTypeImplBlockNode> + 'a {
         self.sheets
             .iter()
             .map(|sheet| sheet.all_trai_for_ty_impl_blocks())
@@ -76,24 +76,24 @@ impl EntityTreeCrateBundle {
         &'a self,
         db: &'a dyn EntityTreeDb,
         trai_path: TraitPath,
-    ) -> impl Iterator<Item = TraitForTypeImplBlock> + 'a {
+    ) -> impl Iterator<Item = TraitForTypeImplBlockNode> + 'a {
         self.sheets
             .iter()
             .map(|sheet| sheet.all_trai_for_ty_impl_blocks())
             .flatten()
-            .filter(move |impl_block| impl_block.id(db).trai_path() == trai_path)
+            .filter(move |impl_block| impl_block.trai_path(db) == trai_path)
     }
 
     pub fn trai_for_ty_impl_blocks_filtered_by_ty_path<'a>(
         &'a self,
         db: &'a dyn EntityTreeDb,
         ty_path: TypePath,
-    ) -> impl Iterator<Item = TraitForTypeImplBlock> + 'a {
+    ) -> impl Iterator<Item = TraitForTypeImplBlockNode> + 'a {
         self.sheets
             .iter()
             .map(|sheet| sheet.all_trai_for_ty_impl_blocks())
             .flatten()
-            .filter(move |impl_block| impl_block.id(db).ty_path() == ty_path)
+            .filter(move |impl_block| impl_block.ty_path(db) == ty_path)
     }
 
     pub(crate) fn get_sheet(&self, module_path: ModulePath) -> Option<&EntityTreeSheet> {

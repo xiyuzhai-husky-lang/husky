@@ -1,13 +1,11 @@
 use super::*;
-use husky_entity_tree::AssociatedItem;
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TypeAssociatedFnRawDecl {
     #[id]
-    pub id: AssociatedItemId,
-    pub path: Option<TypeItemPath>,
+    pub node_path: TypeItemNodePath,
+    pub node: TypeItemNode,
     pub ast_idx: AstIdx,
-    pub expr_region: ExprRegion,
     #[return_ref]
     implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
     #[return_ref]
@@ -15,15 +13,15 @@ pub struct TypeAssociatedFnRawDecl {
     pub curry_token: Option<CurryToken>,
     pub return_ty: Option<ReturnTypeExpr>,
     pub eol_colon: EolToken,
+    pub expr_region: ExprRegion,
 }
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TypeAssociatedFnDecl {
     #[id]
-    pub id: AssociatedItemId,
-    pub path: Option<TypeItemPath>,
+    pub node_path: TypeItemNodePath,
+    pub node: TypeItemNode,
     pub ast_idx: AstIdx,
-    pub expr_region: ExprRegion,
     #[return_ref]
     implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
     #[return_ref]
@@ -31,6 +29,7 @@ pub struct TypeAssociatedFnDecl {
     pub curry_token: Option<CurryToken>,
     pub return_ty: Option<ReturnTypeExpr>,
     pub eol_colon: EolToken,
+    pub expr_region: ExprRegion,
 }
 
 impl TypeAssociatedFnDecl {
@@ -51,24 +50,22 @@ impl<'a> DeclParseContext<'a> {
         &self,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
-        associated_item: AssociatedItem,
+        node: TypeItemNode,
         saved_stream_state: TokenStreamState,
     ) -> DeclResult<TypeAssociatedFnDecl> {
-        let Ok(impl_decl) = associated_item.impl_block(self.db()).decl(self.db())
-        else { return Err(DerivedDeclError::UnableToParseImplDeclForTyMethodFnDecl.into()) };
+        let db = self.db();
+        let Ok(impl_decl) = node.impl_block(db).decl(db) else {
+            return Err(DerivedDeclError::UnableToParseImplDeclForTyMethodFnDecl.into())
+        };
+        let node_path = node.node_path(db);
         let mut parser = self.expr_parser(
-            DeclRegionPath::AssociatedItem(associated_item.id(self.db())),
-            Some(impl_decl.expr_region(self.db())),
+            node_path,
+            Some(impl_decl.expr_region(db)),
             AllowSelfType::True,
             AllowSelfValue::True,
         );
         let mut ctx = parser.ctx(None, token_group_idx, saved_stream_state);
         let implicit_parameter_decl_list = ctx.parse()?;
-        let path = match associated_item.path(self.db()) {
-            Some(AssociatedItemPath::TypeItem(path)) => Some(path),
-            None => None,
-            _ => unreachable!(),
-        };
         let parameter_decl_list =
             ctx.parse_expected(OriginalDeclExprError::ExpectedParameterDeclList)?;
         let curry_token = ctx.parse()?;
@@ -79,16 +76,16 @@ impl<'a> DeclParseContext<'a> {
         };
         let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectedEolColon)?;
         Ok(TypeAssociatedFnDecl::new(
-            self.db(),
-            associated_item.id(self.db()),
-            path,
+            db,
+            node_path,
+            node,
             ast_idx,
-            parser.finish(),
             implicit_parameter_decl_list,
             parameter_decl_list,
             curry_token,
             return_ty,
             eol_colon,
+            parser.finish(),
         ))
     }
 }

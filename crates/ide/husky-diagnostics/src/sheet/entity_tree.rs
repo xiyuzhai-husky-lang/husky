@@ -1,6 +1,6 @@
 use super::*;
 use husky_entity_tree::{
-    EntityTreeError, IllFormedImplBlock, ImplBlockIllForm, MajorPathExprError,
+    EntityTreeError, IllFormedImplBlockNode, ImplBlockIllForm, MajorPathExprError,
     OriginalEntityTreeError, OriginalMajorPathExprError, UseExprRuleState,
 };
 use salsa::DebugWithDb;
@@ -73,7 +73,7 @@ impl Diagnose for OriginalEntityTreeError {
     }
 }
 
-impl Diagnose for IllFormedImplBlock {
+impl Diagnose for IllFormedImplBlockNode {
     type Context<'a> = SheetDiagnosticsContext<'a>;
 
     fn message(&self, ctx: &Self::Context<'_>) -> String {

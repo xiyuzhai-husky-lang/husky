@@ -1,4 +1,4 @@
-use husky_entity_tree::TypeImplBlock;
+use husky_entity_tree::TypeImplBlockNode;
 
 use super::*;
 
@@ -9,7 +9,7 @@ pub struct TypeImplBlockDeclarativeSignatureTemplate {
     pub ty: DeclarativeTerm,
 }
 
-impl HasDeclarativeSignatureTemplate for TypeImplBlock {
+impl HasDeclarativeSignatureTemplate for TypeImplBlockNode {
     type DeclarativeSignatureTemplate = TypeImplBlockDeclarativeSignatureTemplate;
 
     fn declarative_signature_template(

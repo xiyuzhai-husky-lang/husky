@@ -2,18 +2,18 @@ use super::*;
 
 #[salsa::interned(db = EntityPathDb, jar = EntityPathJar)]
 pub struct TypeItemPath {
-    pub parent_ty: TypePath,
+    pub ty_path: TypePath,
     pub ident: Ident,
     pub item_kind: TypeItemKind,
 }
 
 impl TypeItemPath {
     pub fn toolchain(self, db: &dyn EntityPathDb) -> Toolchain {
-        self.parent_ty(db).toolchain(db)
+        self.ty_path(db).toolchain(db)
     }
 
     pub fn module_path(self, db: &dyn EntityPathDb) -> ModulePath {
-        self.parent_ty(db).module_path(db)
+        self.ty_path(db).module_path(db)
     }
 
     fn show_aux(

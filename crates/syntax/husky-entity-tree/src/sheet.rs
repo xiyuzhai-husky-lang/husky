@@ -5,7 +5,7 @@ use crate::*;
 pub struct EntityTreeSheet {
     module_path: ModulePath,
     symbols: EntitySymbolTable,
-    impl_blocks: Vec<ImplBlock>,
+    impl_blocks: Vec<ImplBlockNode>,
     use_expr_rules: UseExprRules,
     use_all_rules: UseAllRules,
     errors: Vec<EntityTreeError>,
@@ -33,7 +33,7 @@ impl EntityTreeSheet {
         use_expr_rules: UseExprRules,
         use_all_rules: UseAllRules,
         errors: Vec<EntityTreeError>,
-        impl_blocks: Vec<ImplBlock>,
+        impl_blocks: Vec<ImplBlockNode>,
     ) -> Self {
         Self {
             module_path,
@@ -76,44 +76,44 @@ impl EntityTreeSheet {
         self.module_path
     }
 
-    pub fn impl_blocks(&self) -> &Vec<ImplBlock> {
+    pub fn impl_blocks(&self) -> &Vec<ImplBlockNode> {
         &self.impl_blocks
     }
 
-    pub fn all_ty_impl_blocks<'a>(&'a self) -> impl Iterator<Item = TypeImplBlock> + 'a {
+    pub fn all_ty_impl_blocks<'a>(&'a self) -> impl Iterator<Item = TypeImplBlockNode> + 'a {
         self.impl_blocks
             .iter()
             .copied()
             .filter_map(|impl_block| match impl_block {
-                ImplBlock::Type(impl_block) => Some(impl_block),
-                ImplBlock::TraitForType(_) => None,
-                ImplBlock::IllFormed(_) => None,
+                ImplBlockNode::TypeImplBlock(impl_block) => Some(impl_block),
+                ImplBlockNode::TraitForTypeImplBlock(_) => None,
+                ImplBlockNode::IllFormedImplBlock(_) => None,
             })
     }
 
     pub fn all_trai_for_ty_impl_blocks<'a>(
         &'a self,
-    ) -> impl Iterator<Item = TraitForTypeImplBlock> + 'a {
+    ) -> impl Iterator<Item = TraitForTypeImplBlockNode> + 'a {
         self.impl_blocks
             .iter()
             .copied()
             .filter_map(|impl_block| match impl_block {
-                ImplBlock::Type(_) => None,
-                ImplBlock::TraitForType(impl_block) => Some(impl_block),
-                ImplBlock::IllFormed(_) => None,
+                ImplBlockNode::TypeImplBlock(_) => None,
+                ImplBlockNode::TraitForTypeImplBlock(impl_block) => Some(impl_block),
+                ImplBlockNode::IllFormedImplBlock(_) => None,
             })
     }
 
     pub fn all_ill_formed_impl_blocks<'a>(
         &'a self,
-    ) -> impl Iterator<Item = IllFormedImplBlock> + 'a {
+    ) -> impl Iterator<Item = IllFormedImplBlockNode> + 'a {
         self.impl_blocks
             .iter()
             .copied()
             .filter_map(|impl_block| match impl_block {
-                ImplBlock::Type(_) => None,
-                ImplBlock::TraitForType(_) => None,
-                ImplBlock::IllFormed(impl_block) => Some(impl_block),
+                ImplBlockNode::TypeImplBlock(_) => None,
+                ImplBlockNode::TraitForTypeImplBlock(_) => None,
+                ImplBlockNode::IllFormedImplBlock(impl_block) => Some(impl_block),
             })
     }
 }

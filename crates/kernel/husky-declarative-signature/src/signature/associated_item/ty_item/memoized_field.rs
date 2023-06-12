@@ -1,4 +1,4 @@
-use husky_entity_tree::ImplBlock;
+use husky_entity_tree::ImplBlockNode;
 
 use crate::*;
 
@@ -24,12 +24,7 @@ pub(crate) fn ty_memoized_field_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
     decl: TypeMemoizedFieldDecl,
 ) -> DeclarativeSignatureResult<TypeMemoizedFieldDeclarativeSignatureTemplate> {
-    let ImplBlock::Type(impl_block) = decl
-        .associated_item(db)
-        .impl_block(db) else {
-        unreachable!()
-    };
-    let impl_block = impl_block.declarative_signature_template(db)?;
+    let impl_block = decl.impl_block(db).declarative_signature_template(db)?;
     let expr_region = decl.expr_region(db);
     let declarative_term_region = declarative_term_region(db, expr_region);
     let declarative_term_menu = db.declarative_term_menu(expr_region.toolchain(db)).unwrap();

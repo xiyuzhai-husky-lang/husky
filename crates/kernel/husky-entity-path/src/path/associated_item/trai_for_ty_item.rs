@@ -2,8 +2,9 @@ use super::*;
 
 #[salsa::interned(db = EntityPathDb, jar = EntityPathJar)]
 pub struct TraitForTypeItemPath {
-    pub parent_ty: TypePath,
-    pub trai: TraitPath,
+    pub module_path: ModulePath,
+    pub ty_path: TypePath,
+    pub trai_path: TraitPath,
     pub ident: Ident,
     pub item_kind: TraitItemKind,
 }

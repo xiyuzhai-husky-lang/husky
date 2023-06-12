@@ -59,14 +59,15 @@ impl Defn {
 
 impl Defn {
     pub fn path(self, db: &dyn DefnDb) -> Option<EntityPath> {
-        match self {
-            Defn::Type(defn) => Some(defn.path(db).into()),
-            Defn::Trait(defn) => Some(defn.path(db).into()),
-            Defn::Fugitive(defn) => Some(defn.path(db).into()),
-            Defn::AssociatedItem(defn) => defn.path(db).map(|path| path.into()),
-            Defn::Variant(defn) => Some(defn.path(db).into()),
-            Defn::ImplBlock(_) => None,
-        }
+        todo!()
+        // match self {
+        //     Defn::Type(defn) => Some(defn.path(db).into()),
+        //     Defn::Trait(defn) => Some(defn.path(db).into()),
+        //     Defn::Fugitive(defn) => Some(defn.path(db).into()),
+        //     Defn::AssociatedItem(defn) => defn.path(db).map(|path| path.into()),
+        //     Defn::Variant(defn) => Some(defn.path(db).into()),
+        //     Defn::ImplBlock(_) => None,
+        // }
     }
 }
 
@@ -82,7 +83,7 @@ impl HasDefn for Decl {
     fn defn(self, db: &dyn DefnDb) -> Self::Defn {
         match self {
             Decl::Type(decl) => decl.defn(db).into(),
-            Decl::Form(decl) => decl.defn(db).into(),
+            Decl::Fugitive(decl) => decl.defn(db).into(),
             Decl::Trait(decl) => decl.defn(db).into(),
             Decl::ImplBlock(decl) => decl.defn(db).into(),
             Decl::AssociatedItem(decl) => decl.defn(db).into(),

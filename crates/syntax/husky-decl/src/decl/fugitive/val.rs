@@ -4,7 +4,7 @@ use husky_print_utils::p;
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct ValRawDecl {
     #[id]
-    pub path: FugitivePath,
+    pub node_path: FugitiveNodePath,
     pub ast_idx: AstIdx,
     pub colon_token: Option<ColonToken>,
     pub var_ty: Option<FormTypeExpr>,
@@ -16,7 +16,7 @@ pub struct ValRawDecl {
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct ValDecl {
     #[id]
-    pub path: FugitivePath,
+    pub node_path: FugitiveNodePath,
     pub ast_idx: AstIdx,
     pub colon_token: Option<ColonToken>,
     pub var_ty: Option<FormTypeExpr>,
@@ -31,14 +31,9 @@ impl<'a> DeclParseContext<'a> {
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
         saved_stream_state: TokenStreamState,
-        path: FugitivePath,
+        id: FugitiveNodePath,
     ) -> Result<FugitiveDecl, DeclError> {
-        let mut parser = self.expr_parser(
-            DeclRegionPath::Entity(path.into()),
-            None,
-            AllowSelfType::False,
-            AllowSelfValue::False,
-        );
+        let mut parser = self.expr_parser(id, None, AllowSelfType::False, AllowSelfValue::False);
         let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
         let colon_token = ctx.parse()?;
         let form_ty = if colon_token.is_some() {
@@ -50,7 +45,7 @@ impl<'a> DeclParseContext<'a> {
         let expr = ctx.parse_expr_root(None, ExprRootKind::ValExpr);
         Ok(ValDecl::new(
             self.db(),
-            path,
+            id,
             ast_idx,
             colon_token,
             form_ty,

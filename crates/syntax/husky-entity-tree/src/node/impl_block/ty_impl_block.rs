@@ -1,16 +1,38 @@
 use super::*;
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[salsa::derive_debug_with_db(db = EntityTreeDb)]
+pub struct TypeImplBlockNodePath {
+    path: TypeImplBlockPath,
+}
+
+impl TypeImplBlockNodePath {
+    pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
+        self.path.module_path(db)
+    }
+
+    pub fn ty_path(self, db: &dyn EntityTreeDb) -> TypePath {
+        self.path.ty_path(db)
+    }
+}
+
+impl From<TypeImplBlockNodePath> for EntityNodePath {
+    fn from(id: TypeImplBlockNodePath) -> Self {
+        EntityNodePath::ImplBlock(id.into())
+    }
+}
+
 #[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
-pub struct TypeImplBlock {
+pub struct TypeImplBlockNode {
     #[id]
-    pub id: TypeImplBlockId,
+    pub id: TypeImplBlockNodePath,
     pub ast_idx: AstIdx,
     pub impl_token: ImplToken,
     pub ty_expr: ModuleItemPathExprIdx,
     pub body: ImplBlockItems,
 }
 
-impl TypeImplBlock {
+impl TypeImplBlockNode {
     pub(super) fn new(
         db: &dyn EntityTreeDb,
         impl_token: ImplToken,
@@ -23,11 +45,8 @@ impl TypeImplBlock {
     ) -> Self {
         Self::new_inner(
             db,
-            TypeImplBlockId {
-                module_path,
-                ty_path,
-                disambiguator: registry
-                    .issue_disambiguitor(module_path, ImplBlockKind::Type { ty_path }),
+            TypeImplBlockNodePath {
+                path: TypeImplBlockPath::new(db, registry, module_path, ty_path),
             },
             ast_idx,
             impl_token,
@@ -37,14 +56,14 @@ impl TypeImplBlock {
     }
 
     pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
-        self.id(db).module_path
+        self.id(db).path.module_path(db)
     }
 
     pub fn ty_path(self, db: &dyn EntityTreeDb) -> TypePath {
-        self.id(db).ty_path
+        self.id(db).path.ty_path(db)
     }
 
-    pub fn items(self, db: &dyn EntityTreeDb) -> Vec<(Ident, AssociatedItem)> {
+    pub fn items(self, db: &dyn EntityTreeDb) -> Vec<(Ident, AssociatedItemNode)> {
         calc_impl_block_items(db, self.into(), self.module_path(db), self.body(db))
     }
 }
@@ -52,14 +71,15 @@ impl TypeImplBlock {
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub(crate) fn ty_impl_block_items(
     db: &dyn EntityTreeDb,
-    impl_block: TypeImplBlock,
-) -> Vec<(Ident, AssociatedItem)> {
-    calc_impl_block_items(
-        db,
-        impl_block.into(),
-        impl_block.module_path(db),
-        impl_block.body(db),
-    )
+    impl_block: TypeImplBlockNode,
+) -> Vec<(Ident, TypeItemNode)> {
+    todo!()
+    // calc_impl_block_items(
+    //     db,
+    //     impl_block.into(),
+    //     impl_block.module_path(db),
+    //     impl_block.body(db),
+    // )
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

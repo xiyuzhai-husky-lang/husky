@@ -3,10 +3,10 @@ use super::*;
 #[salsa::tracked(db = DefnDb, jar = DefnJar)]
 pub struct TraitForTypeMethodFnDefn {
     #[id]
-    pub path: Option<TraitForTypeItemPath>,
+    pub node_path: TraitForTypeItemNodePath,
     pub decl: TraitForTypeMethodFnDecl,
-    pub expr_region: ExprRegion,
     pub body: Option<ExprIdx>,
+    pub expr_region: ExprRegion,
 }
 
 #[salsa::tracked(jar = DefnJar)]
@@ -14,10 +14,10 @@ pub(crate) fn trai_for_ty_method_defn(
     db: &dyn DefnDb,
     decl: TraitForTypeMethodFnDecl,
 ) -> TraitForTypeMethodFnDefn {
-    let path = decl.path(db);
+    let node_path = decl.node_path(db);
     let mut parser = expr_parser(
         db,
-        DefnRegionPath::AssociatedItem(decl.associated_item(db).id(db)),
+        node_path,
         Some(decl.expr_region(db)),
         AllowSelfType::True,
         AllowSelfValue::True,
@@ -30,6 +30,5 @@ pub(crate) fn trai_for_ty_method_defn(
         } => body.map(|body| parser.parse_block_expr(body)),
         _ => unreachable!(),
     };
-    let expr_region = parser.finish();
-    TraitForTypeMethodFnDefn::new(db, Some(path), decl, expr_region, body)
+    TraitForTypeMethodFnDefn::new(db, node_path, decl, body, parser.finish())
 }

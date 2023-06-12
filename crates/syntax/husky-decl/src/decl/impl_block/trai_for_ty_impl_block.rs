@@ -4,8 +4,10 @@ use salsa::DebugWithDb;
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TraitForTypeImplBlockRawDecl {
+    #[id]
+    pub node_path: TraitForTypeImplBlockNodePath,
     pub ast_idx: AstIdx,
-    pub impl_block: TraitForTypeImplBlock,
+    pub impl_block: TraitForTypeImplBlockNode,
     pub impl_token: ImplToken,
     #[return_ref]
     implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
@@ -19,8 +21,10 @@ pub struct TraitForTypeImplBlockRawDecl {
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TraitForTypeImplBlockDecl {
+    #[id]
+    pub node_path: TraitForTypeImplBlockNodePath,
     pub ast_idx: AstIdx,
-    pub impl_block: TraitForTypeImplBlock,
+    pub impl_block: TraitForTypeImplBlockNode,
     pub impl_token: ImplToken,
     #[return_ref]
     implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
@@ -41,7 +45,7 @@ impl TraitForTypeImplBlockDecl {
     }
 }
 
-impl HasDecl for TraitForTypeImplBlock {
+impl HasDecl for TraitForTypeImplBlockNode {
     type Decl = TraitForTypeImplBlockDecl;
 
     fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
@@ -52,7 +56,7 @@ impl HasDecl for TraitForTypeImplBlock {
 #[salsa::tracked(jar = DeclJar, return_ref)]
 pub(crate) fn trai_for_ty_impl_block_decl_aux(
     db: &dyn DeclDb,
-    impl_block: TraitForTypeImplBlock,
+    impl_block: TraitForTypeImplBlockNode,
 ) -> DeclResult<TraitForTypeImplBlockDecl> {
     let parser = DeclParseContext::new(db, impl_block.module_path(db))?;
     Ok(parser.parse_trai_for_ty_impl_block_decl(impl_block)?.into())
@@ -61,7 +65,7 @@ pub(crate) fn trai_for_ty_impl_block_decl_aux(
 impl<'a> DeclParseContext<'a> {
     fn parse_trai_for_ty_impl_block_decl(
         &self,
-        impl_block: TraitForTypeImplBlock,
+        impl_block: TraitForTypeImplBlockNode,
     ) -> DeclResult<TraitForTypeImplBlockDecl> {
         let ast_idx = impl_block.ast_idx(self.db());
         match self.ast_sheet()[ast_idx] {
@@ -79,10 +83,11 @@ impl<'a> DeclParseContext<'a> {
         &self,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
-        impl_block: TraitForTypeImplBlock,
+        node: TraitForTypeImplBlockNode,
     ) -> DeclResult<TraitForTypeImplBlockDecl> {
+        let db = self.db();
         let mut parser = self.expr_parser(
-            DeclRegionPath::ImplBlock(impl_block.id(self.db()).into()),
+            node.id(db),
             None,
             AllowSelfType::True,
             AllowSelfValue::False,
@@ -96,9 +101,10 @@ impl<'a> DeclParseContext<'a> {
         let ty = ctx.parse().unwrap().unwrap();
         let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectedEolColon)?;
         Ok(TraitForTypeImplBlockDecl::new(
-            self.db(),
+            db,
+            todo!(),
             ast_idx,
-            impl_block,
+            node,
             impl_token,
             implicit_parameter_decl_list,
             trai,

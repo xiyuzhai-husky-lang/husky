@@ -3,13 +3,13 @@ use super::*;
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TupleVariantRawDecl {
     #[id]
-    pub path: TypeVariantPath,
+    pub node_path: TypeVariantNodePath,
     pub expr_region: ExprRegion,
 }
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TupleVariantDecl {
     #[id]
-    pub path: TypeVariantPath,
+    pub id: TypeVariantNodePath,
     pub expr_region: ExprRegion,
 }

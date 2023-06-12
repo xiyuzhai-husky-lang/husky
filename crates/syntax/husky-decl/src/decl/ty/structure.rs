@@ -3,21 +3,20 @@ use super::*;
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct StructureTypeRawDecl {
     #[id]
-    pub path: TypePath,
+    pub node_path: TypeNodePath,
     pub ast_idx: AstIdx,
-    pub expr_region: ExprRegion,
     #[return_ref]
     implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
+    pub expr_region: ExprRegion,
 }
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct StructureTypeDecl {
     #[id]
-    pub path: TypePath,
-    pub ast_idx: AstIdx,
-    pub expr_region: ExprRegion,
+    pub node_path: TypeNodePath,
     #[return_ref]
     implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
+    pub expr_region: ExprRegion,
 }
 
 impl StructureTypeDecl {
@@ -31,26 +30,18 @@ impl StructureTypeDecl {
 impl<'a> DeclParseContext<'a> {
     pub(super) fn parse_structure_ty_decl(
         &self,
+        node_path: TypeNodePath,
         ast_idx: AstIdx,
-        path: TypePath,
         token_group_idx: TokenGroupIdx,
         saved_stream_state: TokenStreamState,
     ) -> DeclResult<TypeDecl> {
-        let mut parser = self.expr_parser(
-            DeclRegionPath::Entity(path.into()),
-            None,
-            AllowSelfType::True,
-            AllowSelfValue::True,
-        );
+        let mut parser =
+            self.expr_parser(node_path, None, AllowSelfType::True, AllowSelfValue::True);
         let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
         let implicit_parameters = ctx.parse()?;
-        Ok(StructureTypeDecl::new(
-            self.db(),
-            path,
-            ast_idx,
-            parser.finish(),
-            implicit_parameters,
+        Ok(
+            StructureTypeDecl::new(self.db(), node_path, implicit_parameters, parser.finish())
+                .into(),
         )
-        .into())
     }
 }

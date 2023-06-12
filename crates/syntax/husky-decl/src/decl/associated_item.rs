@@ -29,6 +29,14 @@ pub enum AssociatedItemDecl {
 }
 
 impl AssociatedItemDecl {
+    pub fn node_path(self, db: &dyn DeclDb) -> AssociatedItemNodePath {
+        match self {
+            AssociatedItemDecl::TypeItem(decl) => decl.node_path(db).into(),
+            AssociatedItemDecl::TraitItem(decl) => decl.node_path(db).into(),
+            AssociatedItemDecl::TraitForTypeItem(decl) => decl.node_path(db).into(),
+        }
+    }
+
     pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
         match self {
             AssociatedItemDecl::TypeItem(decl) => decl.ast_idx(db),
@@ -52,64 +60,56 @@ impl AssociatedItemDecl {
             AssociatedItemDecl::TraitForTypeItem(decl) => decl.expr_region(db),
         }
     }
-
-    pub fn path(self, db: &dyn DeclDb) -> Option<AssociatedItemPath> {
-        match self {
-            AssociatedItemDecl::TypeItem(decl) => decl.path(db).map(|path| path.into()),
-            AssociatedItemDecl::TraitItem(decl) => Some(decl.path(db).into()),
-            AssociatedItemDecl::TraitForTypeItem(decl) => Some(decl.path(db).into()),
-        }
-    }
 }
 
-#[salsa::tracked(jar = DeclJar,return_ref)]
-pub(crate) fn associated_item_decl(
-    db: &dyn DeclDb,
-    associated_item: AssociatedItem,
-) -> DeclResult<AssociatedItemDecl> {
-    let parser = DeclParseContext::new(db, associated_item.module_path(db))?;
-    parser.parse_associated_item_decl(associated_item)
-}
+// #[salsa::tracked(jar = DeclJar, return_ref)]
+// pub(crate) fn associated_item_decl(
+//     db: &dyn DeclDb,
+//     node: AssociatedItemNode,
+// ) -> DeclResult<AssociatedItemDecl> {
+//     let parser = DeclParseContext::new(db, node.module_path(db))?;
+//     parser.parse_associated_item_decl(node)
+// }
 
 impl<'a> DeclParseContext<'a> {
-    fn parse_associated_item_decl(
-        &self,
-        associated_item: AssociatedItem,
-    ) -> DeclResult<AssociatedItemDecl> {
-        let ast_idx = associated_item.ast_idx(self.db());
-        Ok(match self.ast_sheet()[ast_idx] {
-            Ast::Defn {
-                token_group_idx,
-                entity_kind:
-                    EntityKind::AssociatedItem {
-                        associated_item_kind,
-                    },
-                saved_stream_state,
-                ..
-            } => match associated_item_kind {
-                AssociatedItemKind::TraitItem(_) => todo!(),
-                AssociatedItemKind::TypeItem(ty_item_kind) => self
-                    .parse_ty_item_decl(
-                        ty_item_kind,
-                        ast_idx,
-                        token_group_idx,
-                        associated_item,
-                        saved_stream_state,
-                    )?
-                    .into(),
-                AssociatedItemKind::TraitForTypeItem(trai_item_kind) => self
-                    .parse_trai_for_ty_item_decl(
-                        trai_item_kind,
-                        ast_idx,
-                        token_group_idx,
-                        associated_item,
-                        saved_stream_state,
-                    )?
-                    .into(),
-            },
-            _ => unreachable!(),
-        })
-    }
+    // fn parse_associated_item_decl(
+    //     &self,
+    //     node: AssociatedItemNode,
+    // ) -> DeclResult<AssociatedItemDecl> {
+    //     let ast_idx = node.ast_idx(self.db());
+    //     Ok(match self.ast_sheet()[ast_idx] {
+    //         Ast::Defn {
+    //             token_group_idx,
+    //             entity_kind:
+    //                 EntityKind::AssociatedItem {
+    //                     associated_item_kind,
+    //                 },
+    //             saved_stream_state,
+    //             ..
+    //         } => match associated_item_kind {
+    //             AssociatedItemKind::TraitItem(_) => todo!(),
+    //             AssociatedItemKind::TypeItem(ty_item_kind) => self
+    //                 .parse_ty_item_decl(
+    //                     ty_item_kind,
+    //                     ast_idx,
+    //                     token_group_idx,
+    //                     node,
+    //                     saved_stream_state,
+    //                 )?
+    //                 .into(),
+    //             AssociatedItemKind::TraitForTypeItem(trai_item_kind) => self
+    //                 .parse_trai_for_ty_item_decl(
+    //                     trai_item_kind,
+    //                     ast_idx,
+    //                     token_group_idx,
+    //                     node,
+    //                     saved_stream_state,
+    //                 )?
+    //                 .into(),
+    //         },
+    //         _ => unreachable!(),
+    //     })
+    // }
 }
 
 pub trait HasItemDeclsMap {
@@ -127,10 +127,11 @@ pub trait HasItemDecls {
     fn item_decls<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, &'a Self::ItemDecls>;
 }
 
-impl HasDecl for AssociatedItem {
+impl HasDecl for AssociatedItemNode {
     type Decl = AssociatedItemDecl;
 
     fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
-        associated_item_decl(db, self).as_ref().copied()
+        todo!()
+        // associated_item_decl(db, self).as_ref().copied()
     }
 }

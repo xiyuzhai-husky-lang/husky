@@ -18,11 +18,7 @@ use crate::*;
 use disambiguate::*;
 use expr_stack::*;
 use husky_ast::{Ast, AstIdxRange, AstSheet};
-use husky_entity_tree::{
-    AssociatedItem, CrateSymbolContext, EntityTreeDb, ImplBlock, ImplBlockId, ModuleSymbolContext,
-    PreludeResult,
-};
-use husky_print_utils::p;
+use husky_entity_tree::*;
 use husky_token::Token;
 use husky_token::TokenStream;
 use husky_vfs::{ModulePath, Toolchain};

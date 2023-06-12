@@ -34,6 +34,15 @@ pub enum TraitForTypeItemDecl {
 }
 
 impl TraitForTypeItemDecl {
+    pub fn node_path(self, db: &dyn DeclDb) -> TraitForTypeItemNodePath {
+        match self {
+            TraitForTypeItemDecl::AssociatedFn(_) => todo!(),
+            TraitForTypeItemDecl::MethodFn(decl) => decl.node_path(db),
+            TraitForTypeItemDecl::AssociatedType(decl) => decl.node_path(db),
+            TraitForTypeItemDecl::AssociatedVal(_) => todo!(),
+        }
+    }
+
     pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
         match self {
             TraitForTypeItemDecl::AssociatedFn(decl) => decl.ast_idx(db),
@@ -63,15 +72,6 @@ impl TraitForTypeItemDecl {
             TraitForTypeItemDecl::AssociatedVal(decl) => decl.expr_region(db),
         }
     }
-
-    pub fn path(self, db: &dyn DeclDb) -> TraitForTypeItemPath {
-        match self {
-            TraitForTypeItemDecl::AssociatedFn(_) => todo!(),
-            TraitForTypeItemDecl::MethodFn(decl) => decl.path(db),
-            TraitForTypeItemDecl::AssociatedType(decl) => decl.path(db),
-            TraitForTypeItemDecl::AssociatedVal(_) => todo!(),
-        }
-    }
 }
 
 impl<'a> DeclParseContext<'a> {
@@ -80,7 +80,7 @@ impl<'a> DeclParseContext<'a> {
         trai_item_kind: TraitItemKind,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
-        associated_item: AssociatedItem,
+        node: TraitForTypeItemNode,
         saved_stream_state: TokenStreamState,
     ) -> DeclResult<TraitForTypeItemDecl> {
         Ok(match trai_item_kind {
@@ -88,7 +88,7 @@ impl<'a> DeclParseContext<'a> {
                 .parse_trai_for_ty_method_fn_decl(
                     ast_idx,
                     token_group_idx,
-                    associated_item,
+                    node,
                     saved_stream_state,
                 )?
                 .into(),
@@ -96,7 +96,7 @@ impl<'a> DeclParseContext<'a> {
                 .parse_trai_for_ty_associated_ty_decl(
                     ast_idx,
                     token_group_idx,
-                    associated_item,
+                    node,
                     saved_stream_state,
                 )?
                 .into(),

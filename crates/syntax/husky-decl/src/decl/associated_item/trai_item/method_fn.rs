@@ -3,7 +3,7 @@ use super::*;
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TraitMethodFnRawDecl {
     #[id]
-    pub entity_path: EntityPath,
+    pub path: TraitItemPath,
     pub ast_idx: AstIdx,
     pub expr_region: ExprRegion,
     #[return_ref]
@@ -18,7 +18,7 @@ pub struct TraitMethodFnRawDecl {
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TraitMethodFnDecl {
     #[id]
-    pub entity_path: EntityPath,
+    pub path: TraitItemPath,
     pub ast_idx: AstIdx,
     pub expr_region: ExprRegion,
     #[return_ref]

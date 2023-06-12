@@ -5,18 +5,18 @@ use salsa::DebugWithDb;
 #[salsa::tracked(db = DefnDb, jar = DefnJar)]
 pub struct TypeMethodFnDefn {
     #[id]
-    pub id: AssociatedItemId,
+    pub node_path: TypeItemNodePath,
     pub decl: TypeMethodFnDecl,
-    pub expr_region: ExprRegion,
     pub body: Option<ExprIdx>,
+    pub expr_region: ExprRegion,
 }
 
 #[salsa::tracked(jar = DefnJar)]
 pub(crate) fn ty_method_fn_defn(db: &dyn DefnDb, decl: TypeMethodFnDecl) -> TypeMethodFnDefn {
-    let id = decl.id(db);
+    let node_path = decl.node_path(db);
     let mut parser = expr_parser(
         db,
-        DefnRegionPath::AssociatedItem(id),
+        node_path,
         Some(decl.expr_region(db)),
         AllowSelfType::True,
         AllowSelfValue::True,
@@ -29,6 +29,5 @@ pub(crate) fn ty_method_fn_defn(db: &dyn DefnDb, decl: TypeMethodFnDecl) -> Type
         } => body.map(|body| parser.parse_block_expr(body)),
         _ => unreachable!(),
     };
-    let expr_region = parser.finish();
-    TypeMethodFnDefn::new(db, id, decl, expr_region, body)
+    TypeMethodFnDefn::new(db, node_path, decl, body, parser.finish())
 }

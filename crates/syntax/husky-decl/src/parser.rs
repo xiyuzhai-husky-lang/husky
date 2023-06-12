@@ -32,8 +32,9 @@ impl<'a> DeclParseContext<'a> {
         })
     }
 
-    pub(crate) fn resolve_module_item_ast_idx(&self, path: impl Into<EntityPath>) -> AstIdx {
-        self.resolve_module_item_symbol(path).ast_idx(self.db)
+    #[inline(always)]
+    pub(crate) fn resolve_module_item_ast_idx(&self, id: impl Into<ModuleItemNodePath>) -> AstIdx {
+        self.resolve_module_item_symbol(id.into()).ast_idx(self.db)
     }
 
     #[inline(always)]
@@ -54,21 +55,23 @@ impl<'a> DeclParseContext<'a> {
     #[inline(always)]
     pub(crate) fn resolve_ty_variant_indexed_ast(
         &self,
-        target: TypeVariantPath,
+        node_path: TypeVariantNodePath,
     ) -> (AstIdx, &'a Ast) {
-        self.ast_sheet
-            .all_ast_indexed_iter()
-            .find(|(_, ast)| match ast {
-                Ast::TypeVariant { path, .. } => target == *path,
-                _ => false,
-            })
-            .expect("should be guaranteed to exists by the construction of path")
+        todo!()
+        // self.ast_sheet
+        //     .all_ast_indexed_iter()
+        //     .find(|(_, ast)| match ast {
+        //         Ast::TypeVariant { path, .. } => node_path == *path,
+        //         _ => false,
+        //     })
+        //     .expect("should be guaranteed to exists by the construction of path")
     }
 
     #[inline(always)]
-    fn resolve_module_item_symbol(&self, path: impl Into<EntityPath>) -> ModuleItemSymbol {
-        let path = path.into();
-        let ident = path.ident(self.db);
+    fn resolve_module_item_symbol(&self, id: ModuleItemNodePath) -> ModuleItemSymbol {
+        let db = self.db;
+        let path = id.path(db);
+        let ident = path.ident(db);
         let Some(entity_symbol) = self
             .entity_tree_sheet
             .module_symbols()
@@ -78,21 +81,22 @@ impl<'a> DeclParseContext<'a> {
                 panic!(r#"
     Path `{}` is invalid!
     This is very likely caused by expect item in standard library.
-"#, path.display(self.db()))
+"#, path.display(db))
             };
         entity_symbol.module_item_symbol().unwrap()
     }
 
+    #[inline(always)]
     pub(crate) fn expr_parser(
         &self,
-        expr_path: DeclRegionPath,
+        node_path: impl Into<EntityNodePath>,
         parent_expr_region: Option<ExprRegion>,
         allow_self_type: AllowSelfType,
         allow_self_value: AllowSelfValue,
     ) -> ExprParser<'a> {
         ExprParser::new(
             self.db,
-            expr_path.into(),
+            RegionPath::Decl(node_path.into()),
             self.token_sheet_data,
             self.module_symbol_context,
             parent_expr_region,

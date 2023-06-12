@@ -1,10 +1,8 @@
 mod ill_formed_impl_block;
-mod registry;
 mod trai_for_ty_impl_block;
 mod ty_impl_block;
 
 pub use self::ill_formed_impl_block::*;
-pub use self::registry::*;
 pub use self::trai_for_ty_impl_block::*;
 pub use self::ty_impl_block::*;
 
@@ -19,23 +17,42 @@ use vec_like::VecPairMap;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 #[enum_class::from_variants]
-pub enum ImplBlock {
-    Type(TypeImplBlock),
-    TraitForType(TraitForTypeImplBlock),
-    IllFormed(IllFormedImplBlock),
+pub enum ImplBlockNodePath {
+    TypeImplBlock(TypeImplBlockNodePath),
+    TraitForTypeImplBlock(TraitForTypeImplBlockNodePath),
+    IllFormedImplBlock(IllFormedImplBlockNodePath),
 }
 
-impl ImplBlock {
-    pub fn id(self, db: &dyn EntityTreeDb) -> ImplBlockId {
+impl ImplBlockNodePath {
+    pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
         match self {
-            ImplBlock::Type(impl_block) => impl_block.id(db).into(),
-            ImplBlock::TraitForType(impl_block) => impl_block.id(db).into(),
-            ImplBlock::IllFormed(impl_block) => impl_block.id(db).into(),
+            ImplBlockNodePath::TypeImplBlock(id) => id.module_path(db),
+            ImplBlockNodePath::TraitForTypeImplBlock(id) => id.module_path(db),
+            ImplBlockNodePath::IllFormedImplBlock(id) => id.module_path(db),
         }
     }
 }
 
-impl ImplBlock {
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[salsa::derive_debug_with_db(db = EntityTreeDb)]
+#[enum_class::from_variants]
+pub enum ImplBlockNode {
+    TypeImplBlock(TypeImplBlockNode),
+    TraitForTypeImplBlock(TraitForTypeImplBlockNode),
+    IllFormedImplBlock(IllFormedImplBlockNode),
+}
+
+impl ImplBlockNode {
+    pub fn id(self, db: &dyn EntityTreeDb) -> ImplBlockNodePath {
+        match self {
+            ImplBlockNode::TypeImplBlock(impl_block) => impl_block.id(db).into(),
+            ImplBlockNode::TraitForTypeImplBlock(impl_block) => impl_block.id(db).into(),
+            ImplBlockNode::IllFormedImplBlock(impl_block) => impl_block.id(db).into(),
+        }
+    }
+}
+
+impl ImplBlockNode {
     pub(crate) fn parse_from_token_group<'a, 'b>(
         db: &dyn EntityTreeDb,
         crate_root_path: ModulePath,
@@ -68,7 +85,7 @@ impl ImplBlock {
                 if module_path.ident(db).data(db) == "list" {
                     todo!()
                 }
-                return IllFormedImplBlock::new(
+                return IllFormedImplBlockNode::new(
                     db,
                     registry,
                     impl_token,
@@ -81,7 +98,7 @@ impl ImplBlock {
             }
         };
         match path {
-            ModuleItemPath::Type(ty) => TypeImplBlock::new(
+            ModuleItemPath::Type(ty) => TypeImplBlockNode::new(
                 db,
                 impl_token,
                 registry,
@@ -101,7 +118,7 @@ impl ImplBlock {
                 let (ty_expr, ty_path) = match parser.parse_major_path_expr() {
                     Ok((expr, ModuleItemPath::Type(path))) => (expr, path),
                     Ok((expr, path)) => {
-                        return IllFormedImplBlock::new(
+                        return IllFormedImplBlockNode::new(
                             db,
                             registry,
                             impl_token,
@@ -113,7 +130,7 @@ impl ImplBlock {
                         .into();
                     }
                     Err(e) => {
-                        return IllFormedImplBlock::new(
+                        return IllFormedImplBlockNode::new(
                             db,
                             registry,
                             impl_token,
@@ -125,7 +142,7 @@ impl ImplBlock {
                         .into();
                     }
                 };
-                TraitForTypeImplBlock::new(
+                TraitForTypeImplBlockNode::new(
                     db,
                     registry,
                     module_path,
@@ -149,55 +166,16 @@ impl ImplBlock {
         // self.id(db).module_path
     }
 
-    pub fn items(self, db: &dyn EntityTreeDb) -> &[(Ident, AssociatedItem)] {
-        match self {
-            ImplBlock::Type(impl_block) => ty_impl_block_items(db, impl_block),
-            ImplBlock::TraitForType(impl_block) => trai_for_ty_impl_block_items(db, impl_block),
-            ImplBlock::IllFormed(_) => &[],
-        }
+    pub fn items(self, db: &dyn EntityTreeDb) -> &[(Ident, AssociatedItemNode)] {
+        todo!()
+        // match self {
+        //     ImplBlockNode::TypeImplBlock(impl_block) => ty_impl_block_items(db, impl_block),
+        //     ImplBlockNode::TraitForTypeImplBlock(impl_block) => {
+        //         trai_for_ty_impl_block_items(db, impl_block)
+        //     }
+        //     ImplBlockNode::IllFormedImplBlock(_) => &[],
+        // }
     }
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = EntityTreeDb)]
-#[enum_class::from_variants]
-pub enum ImplBlockId {
-    Type(TypeImplBlockId),
-    TraitForType(TraitForTypeImplBlockId),
-    IllFormed(IllFormedImplBlockId),
-}
-
-impl ImplBlockId {
-    pub fn module(self) -> ModulePath {
-        match self {
-            ImplBlockId::Type(id) => id.module_path(),
-            ImplBlockId::TraitForType(id) => id.module(),
-            ImplBlockId::IllFormed(id) => id.module(),
-        }
-    }
-}
-
-fn new_impl(
-    _db: &dyn EntityTreeDb,
-    _registry: &mut ImplBlockRegistry,
-    _module_path: ModulePath,
-    _ast_idx: ArenaIdx<Ast>,
-    _body: ArenaIdxRange<Ast>,
-    _variant: (),
-) -> ImplBlock {
-    // let impl_kind = variant.kind();
-    todo!()
-    // ImplBlock::new(
-    //     db,
-    //     ImplId {
-    //         module_path,
-    //         impl_kind,
-    //         disambiguator: registry.issue_disambiguitor(module_path, impl_kind),
-    //     },
-    //     ast_idx,
-    //     body,
-    //     variant,
-    // )
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
@@ -251,7 +229,7 @@ fn ignore_util_for_is_eaten<'a>(token_stream: &mut TokenStream<'a>) -> ImplResul
 pub(crate) fn ty_impl_blocks(
     db: &dyn EntityTreeDb,
     ty: TypePath,
-) -> EntityTreeBundleResult<Vec<TypeImplBlock>> {
+) -> EntityTreeBundleResult<Vec<TypeImplBlockNode>> {
     let crate_path = ty.module_path(db).crate_path(db);
     let entity_tree_crate_bundle = db.entity_tree_bundle(crate_path)?;
     Ok(entity_tree_crate_bundle
@@ -260,18 +238,22 @@ pub(crate) fn ty_impl_blocks(
         .collect())
 }
 
-pub trait HasItems: Copy {
+pub trait HasItemNodes: Copy {
+    type ItemNode;
+
     fn items<'a>(
         self,
         db: &'a dyn EntityTreeDb,
-    ) -> EntityTreeBundleResultRef<'a, &'a [(Ident, AssociatedItem)]>;
+    ) -> EntityTreeBundleResultRef<'a, &'a [(Ident, Self::ItemNode)]>;
 }
 
-impl HasItems for TypePath {
+impl HasItemNodes for TypePath {
+    type ItemNode = TypeItemNode;
+
     fn items<'a>(
         self,
         db: &'a dyn EntityTreeDb,
-    ) -> EntityTreeBundleResultRef<'a, &'a [(Ident, AssociatedItem)]> {
+    ) -> EntityTreeBundleResultRef<'a, &'a [(Ident, TypeItemNode)]> {
         ty_items(db, self).as_ref().map(|v| v as &[_])
     }
 }
@@ -280,7 +262,7 @@ impl HasItems for TypePath {
 pub(crate) fn ty_items(
     db: &dyn EntityTreeDb,
     path: TypePath,
-) -> EntityTreeBundleResult<Vec<(Ident, AssociatedItem)>> {
+) -> EntityTreeBundleResult<Vec<(Ident, TypeItemNode)>> {
     let crate_path = path.module_path(db).crate_path(db);
     let entity_tree_crate_bundle = db.entity_tree_bundle(crate_path)?;
     Ok(entity_tree_crate_bundle

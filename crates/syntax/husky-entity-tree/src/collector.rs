@@ -97,7 +97,7 @@ impl<'a> EntityTreeCollector<'a> {
         EntityTreeCrateBundle::new(sheets, self.major_path_expr_arena)
     }
 
-    fn collect_impl_blocks_for_each_module(&mut self) -> Vec<Vec<ImplBlock>> {
+    fn collect_impl_blocks_for_each_module(&mut self) -> Vec<Vec<ImplBlockNode>> {
         let mut impl_blocks_for_each_module = vec![];
         for presheet in self.presheets.iter() {
             let module_path = presheet.module_path();
@@ -120,7 +120,7 @@ impl<'a> EntityTreeCollector<'a> {
                             presheet.module_specific_symbols(),
                         );
                         context!(self, presheet);
-                        Some(ImplBlock::parse_from_token_group(
+                        Some(ImplBlockNode::parse_from_token_group(
                             self.db,
                             self.crate_root_path,
                             &mut self.impl_registry,

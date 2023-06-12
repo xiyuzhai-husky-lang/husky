@@ -5,9 +5,8 @@ use parsec::parse_separated_list2;
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct RegularStructTypeRawDecl {
     #[id]
-    pub path: TypePath,
+    pub node_path: TypeNodePath,
     pub ast_idx: AstIdx,
-    pub expr_region: ExprRegion,
     #[return_ref]
     implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
     pub lcurl: LeftCurlyBraceToken,
@@ -15,14 +14,13 @@ pub struct RegularStructTypeRawDecl {
     field_comma_list: (Vec<RegularStructFieldDeclPattern>, Vec<CommaToken>),
     #[return_ref]
     pub rcurl: RightCurlyBraceToken,
+    pub expr_region: ExprRegion,
 }
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct RegularStructTypeDecl {
     #[id]
-    pub path: TypePath,
-    pub ast_idx: AstIdx,
-    pub expr_region: ExprRegion,
+    pub node_path: TypeNodePath,
     #[return_ref]
     implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
     pub lcurl: LeftCurlyBraceToken,
@@ -30,6 +28,7 @@ pub struct RegularStructTypeDecl {
     field_comma_list: (Vec<RegularStructFieldDeclPattern>, Vec<CommaToken>),
     #[return_ref]
     pub rcurl: RightCurlyBraceToken,
+    pub expr_region: ExprRegion,
 }
 
 impl RegularStructTypeDecl {

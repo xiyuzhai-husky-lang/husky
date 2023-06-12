@@ -15,6 +15,7 @@ either = "1.8.1"
 # abstraction
 salsa = { path = "../../abstraction/salsa" }
 enum-class = { path = "../../abstraction/enum-class" }
+vec-like = { path = "../../abstraction/vec-like" }
 # kernel
 husky-vfs = { path = "../../fs/husky-vfs" }
 husky-word = { path = "../../kernel/husky-word" }
