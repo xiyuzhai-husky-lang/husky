@@ -1,4 +1,4 @@
-use husky_entity_tree::{ImplBlock, ImplBlockId};
+use husky_entity_tree::ImplBlockNode;
 use husky_expr::SelfParameterDeclPattern;
 
 use crate::*;
@@ -40,10 +40,7 @@ pub fn ty_method_fn_declarative_signature_template(
     let expr_region = decl.expr_region(db);
     let expr_region_data = expr_region.data(db);
     let declarative_term_region = declarative_term_region(db, expr_region);
-    let ImplBlock::Type(impl_block) = decl.associated_item(db).impl_block(db) else {
-        unreachable!()
-    };
-    let impl_block = impl_block.declarative_signature_template(db)?;
+    let impl_block = decl.impl_block(db).declarative_signature_template(db)?;
     let self_ty = impl_block.ty(db);
     let contract = match decl.self_parameter(db) {
         Some(self_parameter) => match self_parameter {

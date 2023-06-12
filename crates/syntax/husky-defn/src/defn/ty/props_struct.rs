@@ -3,7 +3,7 @@ use super::*;
 #[salsa::tracked(db = DefnDb, jar = DefnJar)]
 pub struct RegularStructTypeDefn {
     #[id]
-    pub path: TypePath,
+    pub node_path: TypeNodePath,
     pub decl: RegularStructTypeDecl,
 }
 
@@ -12,6 +12,6 @@ pub(crate) fn regular_struct_ty_defn(
     db: &dyn DefnDb,
     decl: RegularStructTypeDecl,
 ) -> RegularStructTypeDefn {
-    let path = decl.path(db);
-    RegularStructTypeDefn::new(db, path, decl)
+    let node_path = decl.node_path(db);
+    RegularStructTypeDefn::new(db, node_path, decl)
 }

@@ -54,7 +54,42 @@ impl HasDecl for TypeItemPath {
     type Decl = TypeItemDecl;
 
     fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
-        Err(&DeclError::Original(OriginalDeclError::Deprecated))
+        todo!()
+        // Err(&DeclError::Original(OriginalDeclError::Deprecated))
+        // todo!("deprecated")
+        // self.parent_ty(db)
+        //     .item_decls(db)
+        //     .map_err(|_| todo!())?
+        //     .get_entry(self.ident(db))
+        //     .ok_or(&DeclError::Original(OriginalDeclError::NoSuchItem))?
+        //     .1
+        //     .map_err(|_| todo!())
+    }
+}
+
+impl HasDecl for TypeItemNodePath {
+    type Decl = TypeItemDecl;
+
+    fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
+        todo!()
+        // Err(&DeclError::Original(OriginalDeclError::Deprecated))
+        // todo!("deprecated")
+        // self.parent_ty(db)
+        //     .item_decls(db)
+        //     .map_err(|_| todo!())?
+        //     .get_entry(self.ident(db))
+        //     .ok_or(&DeclError::Original(OriginalDeclError::NoSuchItem))?
+        //     .1
+        //     .map_err(|_| todo!())
+    }
+}
+
+impl HasDecl for TypeItemNode {
+    type Decl = TypeItemDecl;
+
+    fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
+        todo!()
+        // Err(&DeclError::Original(OriginalDeclError::Deprecated))
         // todo!("deprecated")
         // self.parent_ty(db)
         //     .item_decls(db)
@@ -70,7 +105,7 @@ impl HasItemDecls for TypeItemPath {
     type ItemDecls = TypeItemDecls;
 
     fn item_decls<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, &'a Self::ItemDecls> {
-        self.parent_ty(db)
+        self.ty_path(db)
             .item_decls_map(db)
             .map_err(|_| todo!())?
             .get_entry(self.ident(db))
@@ -88,10 +123,7 @@ pub(crate) fn ty_item_decls_map<'a>(
 ) -> EntityTreeBundleResult<IdentPairMap<Result<TypeItemDecls, ()>>> {
     let mut map = IdentPairMap::default();
     for (ident, ty_item) in path.items(db)?.iter().copied() {
-        let ty_item_kind = match ty_item.associated_item_kind(db) {
-            AssociatedItemKind::TypeItem(ty_item_kind) => ty_item_kind,
-            _ => unreachable!(),
-        };
+        let ty_item_kind = ty_item.kind(db);
         let result = map.get_mut_or_insert_with(ident, || {
             Ok(match ty_item_kind {
                 TypeItemKind::MethodFn => TypeItemDecls::MethodFn(Default::default()),
@@ -104,9 +136,6 @@ pub(crate) fn ty_item_decls_map<'a>(
         let Ok(decl) = ty_item.decl(db) else {
             *result = Err(());
             continue
-        };
-        let AssociatedItemDecl::TypeItem(decl) = decl else {
-            unreachable!()
         };
         match result {
             Ok(decls) => match (decls, decl) {
@@ -132,6 +161,16 @@ pub(crate) fn ty_item_decls_map<'a>(
 }
 
 impl TypeItemDecl {
+    pub fn node_path(self, db: &dyn DeclDb) -> TypeItemNodePath {
+        match self {
+            TypeItemDecl::AssociatedFn(decl) => decl.node_path(db),
+            TypeItemDecl::MethodFn(decl) => decl.node_path(db),
+            TypeItemDecl::AssociatedType(_) => todo!(),
+            TypeItemDecl::AssociatedVal(_) => todo!(),
+            TypeItemDecl::MemoizedField(decl) => decl.node_path(db),
+        }
+    }
+
     pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
         match self {
             TypeItemDecl::AssociatedFn(decl) => decl.ast_idx(db),
@@ -164,17 +203,6 @@ impl TypeItemDecl {
             TypeItemDecl::MemoizedField(decl) => decl.expr_region(db),
         }
     }
-
-    pub fn path(self, db: &dyn DeclDb) -> Option<TypeItemPath> {
-        match self {
-            TypeItemDecl::AssociatedFn(decl) => decl.path(db),
-            TypeItemDecl::MethodFn(decl) => decl.path(db),
-            // decl.path(db),
-            TypeItemDecl::AssociatedType(_) => todo!(),
-            TypeItemDecl::AssociatedVal(_) => todo!(),
-            TypeItemDecl::MemoizedField(decl) => decl.path(db),
-        }
-    }
 }
 
 impl<'a> DeclParseContext<'a> {
@@ -183,33 +211,18 @@ impl<'a> DeclParseContext<'a> {
         ty_item_kind: TypeItemKind,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
-        associated_item: AssociatedItem,
+        node: TypeItemNode,
         saved_stream_state: TokenStreamState,
     ) -> Result<TypeItemDecl, DeclError> {
         Ok(match ty_item_kind {
             TypeItemKind::MethodFn => self
-                .parse_ty_method_decl(
-                    ast_idx,
-                    token_group_idx,
-                    associated_item,
-                    saved_stream_state,
-                )?
+                .parse_ty_method_decl(ast_idx, token_group_idx, node, saved_stream_state)?
                 .into(),
             TypeItemKind::AssociatedFn => self
-                .parse_ty_associated_fn_decl(
-                    ast_idx,
-                    token_group_idx,
-                    associated_item,
-                    saved_stream_state,
-                )?
+                .parse_ty_associated_fn_decl(ast_idx, token_group_idx, node, saved_stream_state)?
                 .into(),
             TypeItemKind::MemoizedField => self
-                .parse_ty_memo_decl(
-                    ast_idx,
-                    token_group_idx,
-                    associated_item,
-                    saved_stream_state,
-                )?
+                .parse_ty_memo_decl(ast_idx, token_group_idx, node, saved_stream_state)?
                 .into(),
             TypeItemKind::AssociatedVal => todo!(),
             TypeItemKind::AssociatedType => todo!(),

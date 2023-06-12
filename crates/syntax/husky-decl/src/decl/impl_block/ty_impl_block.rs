@@ -3,8 +3,10 @@ use husky_token::EolToken;
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TypeImplBlockRawDecl {
+    #[id]
+    pub node_path: TypeImplBlockNodePath,
     pub ast_idx: AstIdx,
-    pub impl_block: TypeImplBlock,
+    pub impl_block: TypeImplBlockNode,
     pub impl_token: ImplToken,
     #[return_ref]
     implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
@@ -15,8 +17,10 @@ pub struct TypeImplBlockRawDecl {
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TypeImplBlockDecl {
+    #[id]
+    pub node_path: TypeImplBlockNodePath,
     pub ast_idx: AstIdx,
-    pub impl_block: TypeImplBlock,
+    pub impl_block: TypeImplBlockNode,
     pub impl_token: ImplToken,
     #[return_ref]
     implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
@@ -34,7 +38,7 @@ impl TypeImplBlockDecl {
     }
 }
 
-impl HasDecl for TypeImplBlock {
+impl HasDecl for TypeImplBlockNode {
     type Decl = TypeImplBlockDecl;
 
     fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
@@ -45,14 +49,17 @@ impl HasDecl for TypeImplBlock {
 #[salsa::tracked(jar = DeclJar, return_ref)]
 pub(crate) fn ty_impl_block_decl_aux(
     db: &dyn DeclDb,
-    impl_block: TypeImplBlock,
+    impl_block: TypeImplBlockNode,
 ) -> DeclResult<TypeImplBlockDecl> {
     let parser = DeclParseContext::new(db, impl_block.module_path(db))?;
     Ok(parser.parse_ty_impl_block_decl(impl_block)?.into())
 }
 
 impl<'a> DeclParseContext<'a> {
-    fn parse_ty_impl_block_decl(&self, impl_block: TypeImplBlock) -> DeclResult<TypeImplBlockDecl> {
+    fn parse_ty_impl_block_decl(
+        &self,
+        impl_block: TypeImplBlockNode,
+    ) -> DeclResult<TypeImplBlockDecl> {
         let ast_idx = impl_block.ast_idx(self.db());
         match self.ast_sheet()[ast_idx] {
             Ast::ImplBlock {
@@ -69,10 +76,11 @@ impl<'a> DeclParseContext<'a> {
         &self,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
-        impl_block: TypeImplBlock,
+        impl_block: TypeImplBlockNode,
     ) -> DeclResult<TypeImplBlockDecl> {
+        let node_path = todo!();
         let mut parser = self.expr_parser(
-            DeclRegionPath::ImplBlock(impl_block.id(self.db()).into()),
+            impl_block.id(self.db()),
             None,
             AllowSelfType::True,
             AllowSelfValue::False,
@@ -84,6 +92,7 @@ impl<'a> DeclParseContext<'a> {
         let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectedEolColon)?;
         Ok(TypeImplBlockDecl::new(
             self.db(),
+            node_path,
             ast_idx,
             impl_block,
             impl_token,

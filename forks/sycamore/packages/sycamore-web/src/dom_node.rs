@@ -21,7 +21,7 @@ extern "C" {
     #[wasm_bindgen(extends = Node)]
     pub(super) type NodeWithId;
     #[wasm_bindgen(method, getter, js_name = "$$$nodeId")]
-    pub fn node_id(this: &NodeWithId) -> Option<usize>;
+    pub fn node_path(this: &NodeWithId) -> Option<usize>;
     #[wasm_bindgen(method, setter, js_name = "$$$nodeId")]
     pub fn set_node_id(this: &NodeWithId, id: usize);
 
@@ -38,9 +38,9 @@ extern "C" {
 
 /// An unique id for every node.
 #[derive(Default, Clone, Copy, PartialEq, Eq, Hash)]
-pub(super) struct NodeId(pub usize);
+pub(super) struct NodePath(pub usize);
 
-impl NodeId {
+impl NodePath {
     pub fn new_with_node(node: &Node) -> Self {
         thread_local!(static NODE_ID_COUNTER: Cell<usize> = Cell::new(1)); // 0 is reserved for default value.
 
@@ -59,7 +59,7 @@ impl NodeId {
 /// _This API requires the following crate features to be activated: `dom`_
 #[derive(Clone)]
 pub struct DomNode {
-    id: Cell<NodeId>,
+    id: Cell<NodePath>,
     node: Node,
 }
 
@@ -74,14 +74,14 @@ impl DomNode {
         self.node.unchecked_into()
     }
 
-    /// Get the [`NodeId`] for the node.
-    pub(super) fn get_node_id(&self) -> NodeId {
-        if self.id.get() == NodeId(0) {
+    /// Get the [`NodePath`] for the node.
+    pub(super) fn get_node_id(&self) -> NodePath {
+        if self.id.get() == NodePath(0) {
             // self.id not yet initialized.
-            if let Some(id) = self.node.unchecked_ref::<NodeWithId>().node_id() {
-                self.id.set(NodeId(id));
+            if let Some(id) = self.node.unchecked_ref::<NodeWithId>().node_path() {
+                self.id.set(NodePath(id));
             } else {
-                self.id.set(NodeId::new_with_node(&self.node));
+                self.id.set(NodePath::new_with_node(&self.node));
             }
         }
         self.id.get()

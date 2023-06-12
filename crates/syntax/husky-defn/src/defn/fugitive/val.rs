@@ -3,10 +3,10 @@ use super::*;
 #[salsa::tracked(db = DefnDb, jar = DefnJar)]
 pub struct ValDefn {
     #[id]
-    pub path: FugitivePath,
+    pub node_path: FugitiveNodePath,
     pub decl: ValDecl,
-    pub expr_region: ExprRegion,
     pub body: Option<ExprIdx>,
+    pub expr_region: ExprRegion,
 }
 
 impl HasDefn for ValDecl {
@@ -19,10 +19,10 @@ impl HasDefn for ValDecl {
 
 #[salsa::tracked(jar = DefnJar)]
 pub(crate) fn val_defn(db: &dyn DefnDb, decl: ValDecl) -> ValDefn {
-    let path = decl.path(db);
+    let node_path = decl.node_path(db);
     let mut parser = expr_parser(
         db,
-        DefnRegionPath::Entity(path.into()),
+        node_path,
         None,
         AllowSelfType::False,
         AllowSelfValue::False,
@@ -35,6 +35,5 @@ pub(crate) fn val_defn(db: &dyn DefnDb, decl: ValDecl) -> ValDefn {
         } => body.map(|body| parser.parse_block_expr(body)),
         _ => unreachable!(),
     };
-    let expr_region = parser.finish();
-    ValDefn::new(db, path, decl, expr_region, body)
+    ValDefn::new(db, node_path, decl, body, parser.finish())
 }

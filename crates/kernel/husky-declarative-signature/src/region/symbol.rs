@@ -1,4 +1,5 @@
-use husky_expr::{PatternSymbolIdx, PatternSymbolOrderedMap, SymbolOrderedMap};
+use husky_entity_tree::*;
+use husky_expr::*;
 
 use super::*;
 
@@ -114,20 +115,20 @@ impl SymbolDeclarativeTermRegion {
     ) {
         if symbol_region.allow_self_ty().to_bool() && self.self_ty_term.is_none() {
             self.self_ty_term = Some(match region_path {
-                RegionPath::Decl(DeclRegionPath::Entity(EntityPath::ModuleItem(
-                    ModuleItemPath::Trait(_),
-                ))) => self.trai_self_ty_term(db),
-                RegionPath::Decl(DeclRegionPath::Entity(EntityPath::ModuleItem(
-                    ModuleItemPath::Type(ty_path),
-                ))) => self.ty_self_ty_term(db, ty_path),
-                RegionPath::Decl(DeclRegionPath::ImplBlock(impl_block_id)) => match impl_block_id {
-                    ImplBlockId::Type(impl_block_id) => {
-                        self.ty_self_ty_term(db, impl_block_id.ty_path())
+                RegionPath::Decl(EntityNodePath::ModuleItem(ModuleItemNodePath::Trait(_))) => {
+                    self.trai_self_ty_term(db)
+                }
+                RegionPath::Decl(EntityNodePath::ModuleItem(ModuleItemNodePath::Type(
+                    ty_node_path,
+                ))) => self.ty_self_ty_term(db, ty_node_path.path(db)),
+                RegionPath::Decl(EntityNodePath::ImplBlock(node_path)) => match node_path {
+                    ImplBlockNodePath::TypeImplBlock(node_path) => {
+                        self.ty_self_ty_term(db, node_path.ty_path(db))
                     }
-                    ImplBlockId::TraitForType(impl_block_id) => {
-                        self.ty_self_ty_term(db, impl_block_id.ty_path())
+                    ImplBlockNodePath::TraitForTypeImplBlock(impl_block_path) => {
+                        self.ty_self_ty_term(db, impl_block_path.ty_path(db))
                     }
-                    ImplBlockId::IllFormed(_) => unreachable!(),
+                    ImplBlockNodePath::IllFormedImplBlock(_) => unreachable!(),
                 },
                 _ => unreachable!(),
             })

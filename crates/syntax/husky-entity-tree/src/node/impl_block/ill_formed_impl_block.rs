@@ -1,9 +1,27 @@
 use super::*;
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[salsa::derive_debug_with_db(db = EntityTreeDb)]
+pub struct IllFormedImplBlockNodePath {
+    path: IllFormedImplBlockPath,
+}
+
+impl IllFormedImplBlockNodePath {
+    pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
+        self.path.module_path(db)
+    }
+}
+
+impl From<IllFormedImplBlockNodePath> for EntityNodePath {
+    fn from(id: IllFormedImplBlockNodePath) -> Self {
+        EntityNodePath::ImplBlock(id.into())
+    }
+}
+
 #[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
-pub struct IllFormedImplBlock {
+pub struct IllFormedImplBlockNode {
     #[id]
-    pub id: IllFormedImplBlockId,
+    pub id: IllFormedImplBlockNodePath,
     pub impl_token: ImplToken,
     pub ast_idx: AstIdx,
     pub items: Option<ImplBlockItems>,
@@ -11,7 +29,7 @@ pub struct IllFormedImplBlock {
     pub ill_form: ImplBlockIllForm,
 }
 
-impl IllFormedImplBlock {
+impl IllFormedImplBlockNode {
     pub(super) fn new(
         db: &dyn EntityTreeDb,
         registry: &mut ImplBlockRegistry,
@@ -21,30 +39,16 @@ impl IllFormedImplBlock {
         items: Option<ImplBlockItems>,
         ill_form: ImplBlockIllForm,
     ) -> Self {
-        IllFormedImplBlock::new_inner(
+        IllFormedImplBlockNode::new_inner(
             db,
-            IllFormedImplBlockId {
-                module,
-                disambiguator: registry.issue_disambiguitor(module, ImplBlockKind::Err),
+            IllFormedImplBlockNodePath {
+                path: IllFormedImplBlockPath::new(db, registry, module),
             },
             impl_token,
             ast_idx,
             items,
             ill_form,
         )
-    }
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = EntityTreeDb)]
-pub struct IllFormedImplBlockId {
-    module: ModulePath,
-    disambiguator: u8,
-}
-
-impl IllFormedImplBlockId {
-    pub fn module(self) -> ModulePath {
-        self.module
     }
 }
 

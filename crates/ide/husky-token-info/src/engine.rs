@@ -114,7 +114,7 @@ impl<'a> InferEngine<'a> {
                 ..
             } => self.sheet.add(
                 ident_token.token_idx(),
-                TokenInfo::Entity(decl.path(self.db), Some(entity_kind)),
+                TokenInfo::EntityNode(decl.node_path(self.db), entity_kind),
             ),
             Ast::ImplBlock { .. } => (),
             _ => unreachable!(),
@@ -396,18 +396,16 @@ impl<'a> InferContext<'a> {
                 entity_path,
                 path_name_token,
                 ..
-            } => self.sheet.add(
-                path_name_token.token_idx(),
-                TokenInfo::Entity(Some(*entity_path), None),
-            ),
+            } => self
+                .sheet
+                .add(path_name_token.token_idx(), TokenInfo::Entity(*entity_path)),
             EntityPathExpr::Subentity {
                 path: Ok(entity_path),
                 ident_token: Ok(ident_token),
                 ..
-            } => self.sheet.add(
-                ident_token.token_idx(),
-                TokenInfo::Entity(Some(*entity_path), None),
-            ),
+            } => self
+                .sheet
+                .add(ident_token.token_idx(), TokenInfo::Entity(*entity_path)),
             EntityPathExpr::Subentity { .. } => (),
         }
     }

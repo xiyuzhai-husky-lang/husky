@@ -10,7 +10,8 @@ use husky_expr::{
 #[salsa::derive_debug_with_db(db = TokenInfoDb)]
 pub enum TokenInfo {
     None,
-    Entity(Option<EntityPath>, Option<EntityKind>),
+    Entity(EntityPath),
+    EntityNode(EntityNodePath, EntityKind),
     InheritedSymbol {
         inherited_symbol_idx: InheritedSymbolIdx,
         inherited_symbol_kind: InheritedSymbolKind,

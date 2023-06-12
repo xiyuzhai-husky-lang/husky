@@ -9,7 +9,7 @@ pub(crate) use engine::*;
 
 use crate::*;
 
-use husky_entity_tree::{DeclRegionPath, ImplBlockId, RegionPath};
+use husky_entity_tree::RegionPath;
 use husky_expr::{
     AllowSelfType, CurrentSymbolIdx, ExprIdx, ExprMap, ExprRegion, InheritedSymbolIdx,
     ParentSymbolIdx, PatternExprIdx, PatternExprMap, PatternSymbolMap, SymbolRegion,

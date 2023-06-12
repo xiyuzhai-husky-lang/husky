@@ -3,10 +3,10 @@ use super::*;
 #[salsa::tracked(db = DefnDb, jar = DefnJar)]
 pub struct TypeAssociatedFnDefn {
     #[id]
-    pub id: AssociatedItemId,
+    pub node_path: TypeItemNodePath,
     pub decl: TypeAssociatedFnDecl,
-    pub expr_region: ExprRegion,
     pub body: Option<ExprIdx>,
+    pub expr_region: ExprRegion,
 }
 
 #[salsa::tracked(jar = DefnJar)]
@@ -14,10 +14,10 @@ pub(crate) fn ty_associated_fn_defn(
     db: &dyn DefnDb,
     decl: TypeAssociatedFnDecl,
 ) -> TypeAssociatedFnDefn {
-    let id = decl.id(db);
+    let node_path = decl.node_path(db);
     let mut parser = expr_parser(
         db,
-        DefnRegionPath::AssociatedItem(id),
+        node_path,
         Some(decl.expr_region(db)),
         AllowSelfType::True,
         AllowSelfValue::True,
@@ -30,6 +30,5 @@ pub(crate) fn ty_associated_fn_defn(
         } => body.map(|body| parser.parse_block_expr(body)),
         _ => unreachable!(),
     };
-    let expr_region = parser.finish();
-    TypeAssociatedFnDefn::new(db, id, decl, expr_region, body)
+    TypeAssociatedFnDefn::new(db, node_path, decl, body, parser.finish())
 }

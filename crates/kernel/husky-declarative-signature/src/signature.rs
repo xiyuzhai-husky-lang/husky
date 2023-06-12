@@ -4,7 +4,7 @@ mod fugitive;
 mod impl_block;
 mod trai;
 mod ty;
-mod variant;
+mod ty_variant;
 
 pub use self::associated_item::*;
 pub use self::derive_decr::*;
@@ -12,7 +12,7 @@ pub use self::fugitive::*;
 pub use self::impl_block::*;
 pub use self::trai::*;
 pub use self::ty::*;
-pub use self::variant::*;
+pub use self::ty_variant::*;
 
 use crate::*;
 
@@ -22,7 +22,7 @@ pub(crate) fn signature_template_from_decl(
 ) -> DeclarativeSignatureResult<SignatureTemplate> {
     match decl {
         Decl::Type(decl) => ty_declarative_signature_template(db, decl).map(Into::into),
-        Decl::Form(decl) => decl.declarative_signature_template(db).map(Into::into),
+        Decl::Fugitive(decl) => decl.declarative_signature_template(db).map(Into::into),
         Decl::Trait(decl) => trai_declarative_signature_template(db, decl).map(Into::into),
         Decl::ImplBlock(decl) => decl.declarative_signature_template(db).map(Into::into),
         Decl::AssociatedItem(decl) => {

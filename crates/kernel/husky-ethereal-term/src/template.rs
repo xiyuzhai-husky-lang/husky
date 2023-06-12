@@ -12,7 +12,7 @@ use husky_declarative_signature::{
     TypeDeclarativeSignatureTemplate,
 };
 use husky_decr::Decr;
-use husky_entity_tree::TraitForTypeImplBlock;
+use husky_entity_tree::TraitForTypeImplBlockNode;
 
 pub(crate) trait HasTemplate: Copy {
     type Template;

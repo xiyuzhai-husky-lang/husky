@@ -3,9 +3,9 @@ use super::*;
 #[salsa::tracked(db = DefnDb, jar = DefnJar)]
 pub struct TraitAssociatedFnDefn {
     #[id]
-    pub entity_path: EntityPath,
-    pub expr_region: ExprRegion,
+    pub node_path: TraitItemNodePath,
     pub decl: TraitAssociatedFnDecl,
+    pub expr_region: ExprRegion,
 }
 
 #[salsa::tracked(jar = DefnJar)]

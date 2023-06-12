@@ -1,12 +1,10 @@
 use super::*;
-use husky_entity_tree::AssociatedItem;
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TypeMethodFnRawDecl {
     #[id]
-    pub id: AssociatedItemId,
-    pub path: Option<TypeItemPath>,
-    pub associated_item: AssociatedItem,
+    pub node_path: TypeItemNodePath,
+    pub node: TypeItemNode,
     pub ast_idx: AstIdx,
     pub expr_region: ExprRegion,
     #[return_ref]
@@ -21,9 +19,8 @@ pub struct TypeMethodFnRawDecl {
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TypeMethodFnDecl {
     #[id]
-    pub id: AssociatedItemId,
-    pub path: Option<TypeItemPath>,
-    pub associated_item: AssociatedItem,
+    pub node_path: TypeItemNodePath,
+    pub node: TypeItemNode,
     pub ast_idx: AstIdx,
     pub expr_region: ExprRegion,
     #[return_ref]
@@ -52,6 +49,10 @@ impl TypeMethodFnDecl {
             None => &[],
         }
     }
+
+    pub fn impl_block(self, db: &dyn DeclDb) -> TypeImplBlockNode {
+        self.node(db).impl_block(db)
+    }
 }
 
 impl<'a> DeclParseContext<'a> {
@@ -59,27 +60,22 @@ impl<'a> DeclParseContext<'a> {
         &self,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
-        associated_item: AssociatedItem,
+        node: TypeItemNode,
         saved_stream_state: TokenStreamState,
     ) -> DeclResult<TypeMethodFnDecl> {
-        let Ok(impl_block_decl) = associated_item.impl_block(self.db()).decl(
+        let Ok(impl_block_decl) = node.impl_block(self.db()).decl(
             self.db()
         ) else {
             return Err(DerivedDeclError::UnableToParseImplDeclForTyMethodFnDecl.into())
         };
         let mut parser = self.expr_parser(
-            DeclRegionPath::AssociatedItem(associated_item.id(self.db())),
+            node.node_path(self.db()),
             Some(impl_block_decl.expr_region(self.db())),
             AllowSelfType::True,
             AllowSelfValue::True,
         );
         let mut ctx = parser.ctx(None, token_group_idx, saved_stream_state);
         let implicit_parameter_decl_list = ctx.parse()?;
-        let path = match associated_item.path(self.db()) {
-            Some(AssociatedItemPath::TypeItem(path)) => Some(path),
-            None => None,
-            _ => unreachable!(),
-        };
         let parameter_decl_list =
             ctx.parse_expected(OriginalDeclExprError::ExpectedParameterDeclList)?;
 
@@ -92,9 +88,8 @@ impl<'a> DeclParseContext<'a> {
         let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectedEolColon)?;
         Ok(TypeMethodFnDecl::new(
             self.db(),
-            associated_item.id(self.db()),
-            path,
-            associated_item,
+            node.node_path(self.db()),
+            node,
             ast_idx,
             parser.finish(),
             implicit_parameter_decl_list,

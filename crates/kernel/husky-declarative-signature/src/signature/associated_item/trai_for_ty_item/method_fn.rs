@@ -1,4 +1,4 @@
-use husky_entity_tree::ImplBlock;
+use husky_entity_tree::ImplBlockNode;
 
 use crate::*;
 
@@ -7,22 +7,15 @@ pub(crate) fn trai_for_ty_method_fn_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
     decl: TraitForTypeMethodFnDecl,
 ) -> DeclarativeSignatureResult<TraitForTypeMethodFnDeclarativeSignatureTemplateTemplate> {
-    let self_parameter = {
-        let impl_block = decl.associated_item(db).impl_block(db);
-        let contract = match decl.self_parameter(db) {
+    let self_parameter = ExplicitParameterDeclarativeSignatureTemplate::new(
+        match decl.self_parameter(db) {
             Some(self_parameter) => todo!(),
             None => Contract::Pure,
-        };
-        match impl_block {
-            ImplBlock::TraitForType(impl_block) => {
-                ExplicitParameterDeclarativeSignatureTemplate::new(
-                    contract,
-                    impl_block.declarative_signature_template(db)?.ty(db),
-                )
-            }
-            ImplBlock::Type(_) | ImplBlock::IllFormed(_) => unreachable!(),
-        }
-    };
+        },
+        decl.impl_block(db)
+            .declarative_signature_template(db)?
+            .ty(db),
+    );
     let expr_region = decl.expr_region(db);
     let expr_region_data = expr_region.data(db);
     let declarative_term_region = declarative_term_region(db, expr_region);

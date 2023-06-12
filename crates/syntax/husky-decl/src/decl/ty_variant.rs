@@ -27,12 +27,20 @@ pub enum TypeVariantDecl {
 }
 
 impl TypeVariantDecl {
-    pub(crate) fn ast_idx(&self, _db: &dyn DeclDb) -> AstIdx {
+    pub fn node_path(self, db: &dyn DeclDb) -> TypeVariantNodePath {
+        match self {
+            TypeVariantDecl::Props(_) => todo!(),
+            TypeVariantDecl::Unit(_) => todo!(),
+            TypeVariantDecl::Tuple(_) => todo!(),
+        }
+    }
+
+    pub(crate) fn ast_idx(self, _db: &dyn DeclDb) -> AstIdx {
         todo!()
     }
 }
 
-impl HasDecl for TypeVariantPath {
+impl HasDecl for TypeVariantNodePath {
     type Decl = TypeVariantDecl;
 
     fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
@@ -43,13 +51,21 @@ impl HasDecl for TypeVariantPath {
 #[salsa::tracked(jar = DeclJar,return_ref)]
 pub(crate) fn ty_variant_decl(
     db: &dyn DeclDb,
-    path: TypeVariantPath,
+    node_path: TypeVariantNodePath,
 ) -> DeclResult<TypeVariantDecl> {
-    DeclParseContext::new(db, path.module_path(db))?.parse_ty_variant_decl(path)
+    DeclParseContext::new(db, node_path.module_path(db))?.parse_ty_variant_decl(node_path)
+}
+
+impl HasDecl for TypeVariantPath {
+    type Decl = TypeVariantDecl;
+
+    fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
+        self.node_path(db).decl(db)
+    }
 }
 
 impl<'a> DeclParseContext<'a> {
-    fn parse_ty_variant_decl(&self, path: TypeVariantPath) -> DeclResult<TypeVariantDecl> {
+    fn parse_ty_variant_decl(&self, id: TypeVariantNodePath) -> DeclResult<TypeVariantDecl> {
         let (
             ast_idx,
             Ast::TypeVariant {
@@ -59,20 +75,15 @@ impl<'a> DeclParseContext<'a> {
                 state_after,
                 ..
             }
-        ) = self.resolve_ty_variant_indexed_ast(path) else {
+        ) = self.resolve_ty_variant_indexed_ast(id) else {
             unreachable!()
         };
-        let mut parser = self.expr_parser(
-            DeclRegionPath::Entity(path.into()),
-            None,
-            AllowSelfType::True,
-            AllowSelfValue::False,
-        );
+        let mut parser = self.expr_parser(id, None, AllowSelfType::True, AllowSelfValue::False);
         let mut ctx = parser.ctx(None, *token_group_idx, Some(*state_after));
         Ok(match ctx.next() {
             Some(Token::Punctuation(Punctuation::LPAR)) => todo!(),
             Some(Token::Punctuation(Punctuation::LCURL)) => todo!(),
-            None => UnitVariantDecl::new(self.db(), path, parser.finish()).into(),
+            None => UnitVariantDecl::new(self.db(), id, parser.finish()).into(),
             _ => todo!(),
         })
     }

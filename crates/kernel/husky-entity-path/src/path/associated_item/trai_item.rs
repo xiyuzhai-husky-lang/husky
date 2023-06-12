@@ -2,8 +2,18 @@ use super::*;
 
 #[salsa::interned(db = EntityPathDb, jar = EntityPathJar)]
 pub struct TraitItemPath {
-    pub parent_trai: TraitPath,
+    pub trai_path: TraitPath,
     pub ident: Ident,
+}
+
+impl TraitItemPath {
+    pub fn toolchain(self, db: &dyn EntityPathDb) -> Toolchain {
+        self.trai_path(db).toolchain(db)
+    }
+
+    pub fn module_path(self, db: &dyn EntityPathDb) -> ModulePath {
+        self.trai_path(db).module_path(db)
+    }
 }
 
 impl<Db> salsa::DisplayWithDb<Db> for TraitItemPath

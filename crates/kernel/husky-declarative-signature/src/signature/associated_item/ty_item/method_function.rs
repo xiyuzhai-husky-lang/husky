@@ -1,5 +1,5 @@
 use crate::*;
-use husky_entity_tree::{ImplBlock, ImplBlockId};
+use husky_entity_tree::ImplBlockNode;
 
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 pub struct TypeMethodFunctionDeclarativeSignatureTemplate {
@@ -23,20 +23,15 @@ pub fn ty_method_function_declarative_signature_template(
     let expr_region = decl.expr_region(db);
     let expr_region_data = expr_region.data(db);
     let declarative_term_region = declarative_term_region(db, expr_region);
-    let self_parameter = {
-        let impl_block = decl.associated_item(db).impl_block(db);
-        let contract = match decl.self_parameter(db) {
+    let self_parameter = ExplicitParameterDeclarativeSignatureTemplate::new(
+        match decl.self_parameter(db) {
             Some(self_parameter) => todo!(),
             None => Contract::Pure,
-        };
-        match impl_block {
-            ImplBlock::Type(impl_block) => ExplicitParameterDeclarativeSignatureTemplate::new(
-                contract,
-                impl_block.declarative_signature_template(db)?.ty(db),
-            ),
-            _ => unreachable!(),
-        }
-    };
+        },
+        decl.impl_block(db)
+            .declarative_signature_template(db)?
+            .ty(db),
+    );
     let declarative_term_menu = db.declarative_term_menu(expr_region.toolchain(db)).unwrap();
     let implicit_parameters = ImplicitParameterDeclarativeSignatures::from_decl(
         decl.implicit_parameters(db),

@@ -31,11 +31,12 @@ impl FugitiveDefn {
     }
 
     pub fn path(self, db: &dyn DefnDb) -> FugitivePath {
-        match self {
-            FugitiveDefn::Fn(defn) => defn.path(db),
-            FugitiveDefn::Val(defn) => defn.path(db),
-            FugitiveDefn::Gn(defn) => defn.path(db),
-        }
+        todo!()
+        // match self {
+        //     FugitiveDefn::Fn(defn) => defn.path(db),
+        //     FugitiveDefn::Val(defn) => defn.path(db),
+        //     FugitiveDefn::Gn(defn) => defn.path(db),
+        // }
     }
     pub fn expr_region(self, db: &dyn DefnDb) -> ExprRegion {
         match self {

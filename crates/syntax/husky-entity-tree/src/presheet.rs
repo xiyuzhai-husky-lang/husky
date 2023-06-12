@@ -83,7 +83,7 @@ impl<'a> EntityTreePresheetMut<'a> {
         self.symbols.as_ref()
     }
 
-    pub(crate) fn into_sheet(self, impl_blocks: Vec<ImplBlock>) -> EntityTreeSheet {
+    pub(crate) fn into_sheet(self, impl_blocks: Vec<ImplBlockNode>) -> EntityTreeSheet {
         EntityTreeSheet::new(
             self.module_path,
             self.symbols,

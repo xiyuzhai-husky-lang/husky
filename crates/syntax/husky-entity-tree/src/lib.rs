@@ -1,13 +1,12 @@
 #![feature(stmt_expr_attributes)]
 #![feature(trait_upcasting)]
-mod associated_item;
 mod bundle;
 mod collector;
 mod context;
 mod db;
 mod error;
 mod expr;
-mod impl_block;
+mod node;
 mod prelude;
 mod presheet;
 mod region_path;
@@ -20,12 +19,11 @@ mod tests;
 mod utils;
 mod variant;
 
-pub use self::associated_item::*;
 pub use self::bundle::*;
 pub use self::db::*;
 pub use self::error::*;
 pub use self::expr::*;
-pub use self::impl_block::*;
+pub use self::node::*;
 pub use self::prelude::*;
 pub use self::presheet::*;
 pub use self::region_path::*;
@@ -55,11 +53,22 @@ pub struct EntityTreeJar(
     SubmoduleSymbol,
     ModuleItemSymbol,
     UseSymbol,
-    TypeImplBlock,
-    TraitForTypeImplBlock,
-    IllFormedImplBlock,
-    AssociatedItem,
-    TypeAssociatedItem,
+    TypeImplBlockNode,
+    TraitForTypeImplBlockNode,
+    IllFormedImplBlockNode,
+    // module items
+    TraitNodePath,
+    TypeNodePath,
+    FugitiveNodePath,
+    // ty variant
+    TypeVariantNodePath,
+    // associated items
+    TypeItemNodePath,
+    TypeItemNode,
+    TraitItemNodePath,
+    TraitItemNode,
+    TraitForTypeItemNodePath,
+    TraitForTypeItemNode,
     entity_tree_presheet,
     entity_tree_crate_bundle,
     submodules,

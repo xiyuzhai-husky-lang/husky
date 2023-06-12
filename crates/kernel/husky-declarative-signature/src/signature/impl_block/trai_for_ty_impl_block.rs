@@ -1,5 +1,5 @@
 use super::*;
-use husky_entity_tree::TraitForTypeImplBlock;
+use husky_entity_tree::TraitForTypeImplBlockNode;
 
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 pub struct TraitForTypeImplBlockDeclarativeSignatureTemplate {
@@ -9,7 +9,7 @@ pub struct TraitForTypeImplBlockDeclarativeSignatureTemplate {
     pub ty: DeclarativeTerm,
 }
 
-impl HasDeclarativeSignatureTemplate for TraitForTypeImplBlock {
+impl HasDeclarativeSignatureTemplate for TraitForTypeImplBlockNode {
     type DeclarativeSignatureTemplate = TraitForTypeImplBlockDeclarativeSignatureTemplate;
 
     fn declarative_signature_template(

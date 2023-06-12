@@ -53,18 +53,33 @@ pub enum TypeDecl {
 }
 
 impl TypeDecl {
-    pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
+    pub fn node_path(self, db: &dyn DeclDb) -> TypeNodePath {
         match self {
-            TypeDecl::Enum(decl) => decl.ast_idx(db),
-            TypeDecl::UnitStruct(decl) => decl.ast_idx(db),
-            TypeDecl::TupleStruct(decl) => decl.ast_idx(db),
-            TypeDecl::RegularStruct(decl) => decl.ast_idx(db),
-            TypeDecl::Record(decl) => decl.ast_idx(db),
-            TypeDecl::Inductive(decl) => decl.ast_idx(db),
-            TypeDecl::Structure(decl) => decl.ast_idx(db),
-            TypeDecl::Extern(decl) => decl.ast_idx(db),
-            TypeDecl::Union(decl) => decl.ast_idx(db),
+            TypeDecl::Enum(decl) => decl.node_path(db),
+            TypeDecl::Inductive(decl) => decl.node_path(db),
+            TypeDecl::Record(decl) => decl.node_path(db),
+            TypeDecl::UnitStruct(decl) => decl.node_path(db),
+            TypeDecl::RegularStruct(decl) => decl.node_path(db),
+            TypeDecl::TupleStruct(decl) => decl.node_path(db),
+            TypeDecl::Structure(decl) => decl.node_path(db),
+            TypeDecl::Extern(decl) => decl.node_path(db),
+            TypeDecl::Union(decl) => decl.node_path(db),
         }
+    }
+
+    pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
+        todo!()
+        // match self {
+        //     TypeDecl::Enum(decl) => decl.ast_idx(db),
+        //     TypeDecl::UnitStruct(decl) => decl.ast_idx(db),
+        //     TypeDecl::TupleStruct(decl) => decl.ast_idx(db),
+        //     TypeDecl::RegularStruct(decl) => decl.ast_idx(db),
+        //     TypeDecl::Record(decl) => decl.ast_idx(db),
+        //     TypeDecl::Inductive(decl) => decl.ast_idx(db),
+        //     TypeDecl::Structure(decl) => decl.ast_idx(db),
+        //     TypeDecl::Extern(decl) => decl.ast_idx(db),
+        //     TypeDecl::Union(decl) => decl.ast_idx(db),
+        // }
     }
 
     pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDeclPattern] {
@@ -94,27 +109,18 @@ impl TypeDecl {
             TypeDecl::Union(decl) => decl.expr_region(db),
         }
     }
-
-    pub fn path(self, db: &dyn DeclDb) -> TypePath {
-        match self {
-            TypeDecl::Enum(decl) => decl.path(db),
-            TypeDecl::Inductive(decl) => decl.path(db),
-            TypeDecl::Record(decl) => decl.path(db),
-            TypeDecl::UnitStruct(decl) => decl.path(db),
-            TypeDecl::RegularStruct(decl) => decl.path(db),
-            TypeDecl::TupleStruct(decl) => decl.path(db),
-            TypeDecl::Structure(decl) => decl.path(db),
-            TypeDecl::Extern(decl) => decl.path(db),
-            TypeDecl::Union(decl) => decl.path(db),
-        }
-    }
-
-    pub fn entity_path(self, db: &dyn DeclDb) -> EntityPath {
-        self.path(db).into()
-    }
 }
 
 impl HasDecl for TypePath {
+    type Decl = TypeDecl;
+
+    #[inline(always)]
+    fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
+        self.node_path(db).decl(db)
+    }
+}
+
+impl HasDecl for TypeNodePath {
     type Decl = TypeDecl;
 
     #[inline(always)]
@@ -124,13 +130,13 @@ impl HasDecl for TypePath {
 }
 
 #[salsa::tracked(jar = DeclJar, return_ref)]
-pub(crate) fn ty_decl_aux(db: &dyn DeclDb, path: TypePath) -> DeclResult<TypeDecl> {
-    DeclParseContext::new(db, path.module_path(db))?.parse_ty_decl(path)
+pub(crate) fn ty_decl_aux(db: &dyn DeclDb, id: TypeNodePath) -> DeclResult<TypeDecl> {
+    DeclParseContext::new(db, id.module_path(db))?.parse_ty_decl(id)
 }
 
 impl<'a> DeclParseContext<'a> {
-    fn parse_ty_decl(&self, path: TypePath) -> DeclResult<TypeDecl> {
-        let ast_idx: AstIdx = self.resolve_module_item_ast_idx(path);
+    fn parse_ty_decl(&self, node_path: TypeNodePath) -> DeclResult<TypeDecl> {
+        let ast_idx: AstIdx = self.resolve_module_item_ast_idx(node_path);
         match self.ast_sheet()[ast_idx] {
             Ast::Defn {
                 token_group_idx,
@@ -139,9 +145,9 @@ impl<'a> DeclParseContext<'a> {
                 saved_stream_state,
                 ..
             } => self.parse_ty_decl_aux(
+                node_path,
                 ast_idx,
                 path.ty_kind(self.db()),
-                path,
                 entity_kind,
                 token_group_idx,
                 variants,
@@ -153,9 +159,9 @@ impl<'a> DeclParseContext<'a> {
 
     fn parse_ty_decl_aux(
         &self,
+        node_path: TypeNodePath,
         ast_idx: AstIdx,
         type_kind: TypeKind,
-        path: TypePath,
         _entity_kind: EntityKind,
         token_group_idx: TokenGroupIdx,
         variants: Option<TypeVariants>,
@@ -163,15 +169,15 @@ impl<'a> DeclParseContext<'a> {
     ) -> DeclResult<TypeDecl> {
         match type_kind {
             TypeKind::Enum => self.parse_enum_ty_decl(
+                node_path,
                 ast_idx,
-                path,
                 token_group_idx,
                 variants.expect("guaranteed by `husky-ast`"),
                 saved_stream_state,
             ),
             TypeKind::Inductive => self.parse_inductive_ty_decl(
                 ast_idx,
-                path,
+                node_path,
                 token_group_idx,
                 variants.expect("guaranteed by `husky-ast`"),
                 saved_stream_state,
@@ -179,15 +185,20 @@ impl<'a> DeclParseContext<'a> {
             TypeKind::Record => todo!(),
             TypeKind::Struct => {
                 debug_assert!(variants.is_none());
-                self.parse_struct_ty_decl(ast_idx, path, token_group_idx, saved_stream_state)
+                self.parse_struct_ty_decl(node_path, ast_idx, token_group_idx, saved_stream_state)
             }
             TypeKind::Structure => {
                 debug_assert!(variants.is_none());
-                self.parse_structure_ty_decl(ast_idx, path, token_group_idx, saved_stream_state)
+                self.parse_structure_ty_decl(
+                    node_path,
+                    ast_idx,
+                    token_group_idx,
+                    saved_stream_state,
+                )
             }
             TypeKind::Extern => {
                 debug_assert!(variants.is_none());
-                self.parse_extern_ty_decl(ast_idx, path, token_group_idx, saved_stream_state)
+                self.parse_extern_ty_decl(node_path, ast_idx, token_group_idx, saved_stream_state)
             }
         }
     }
@@ -196,31 +207,27 @@ impl<'a> DeclParseContext<'a> {
 impl<'a> DeclParseContext<'a> {
     pub(super) fn parse_struct_ty_decl(
         &self,
+        node_path: TypeNodePath,
         ast_idx: AstIdx,
-        path: TypePath,
         token_group_idx: TokenGroupIdx,
         saved_stream_state: TokenStreamState,
     ) -> DeclResult<TypeDecl> {
-        let mut parser = self.expr_parser(
-            DeclRegionPath::Entity(path.into()),
-            None,
-            AllowSelfType::True,
-            AllowSelfValue::True,
-        );
+        let db = self.db();
+        let mut parser =
+            self.expr_parser(node_path, None, AllowSelfType::True, AllowSelfValue::True);
         let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
         let implicit_parameters = ctx.parse()?;
         if let Some(lcurl) = ctx.parse::<LeftCurlyBraceToken>()? {
             let (parameters, commas) = parse_separated_list2(&mut ctx, |e| e)?;
             let rcurl = ctx.parse_expected(OriginalDeclExprError::ExpectedRightCurlyBrace)?;
             Ok(RegularStructTypeDecl::new(
-                self.db(),
-                path,
-                ast_idx,
-                parser.finish(),
+                db,
+                node_path,
                 implicit_parameters,
                 lcurl,
                 (parameters, commas),
                 rcurl,
+                parser.finish(),
             )
             .into())
         } else if let Some(lpar) = ctx.parse::<LeftParenthesisToken>()? {
@@ -229,14 +236,13 @@ impl<'a> DeclParseContext<'a> {
                 OriginalDeclExprError::ExpectedRightParenthesisInTupleStructFieldTypeList,
             )?;
             Ok(TupleStructTypeDecl::new(
-                self.db(),
-                path,
-                ast_idx,
-                parser.finish(),
+                db,
+                node_path,
                 implicit_parameters,
                 lpar,
                 (parameters, commas),
                 rpar,
+                parser.finish(),
             )
             .into())
         } else {
