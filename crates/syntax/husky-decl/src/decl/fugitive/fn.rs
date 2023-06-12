@@ -16,6 +16,19 @@ pub struct FnNodeDecl {
     pub eol_colon: EolToken,
 }
 
+impl FnNodeDecl {
+    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDeclPattern] {
+        self.implicit_parameter_decl_list(db)
+            .as_ref()
+            .map(ImplicitParameterDeclList::implicit_parameters)
+            .unwrap_or(&[])
+    }
+
+    pub fn parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [RegularParameterDeclPattern] {
+        self.parameter_decl_list(db).regular_parameters()
+    }
+}
+
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct FnDecl {
     #[id]

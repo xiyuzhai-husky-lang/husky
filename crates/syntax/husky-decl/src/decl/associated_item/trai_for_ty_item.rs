@@ -23,6 +23,47 @@ pub enum TraitForTypeItemNodeDecl {
     AssociatedVal(TraitForTypeAssociatedValNodeDecl),
 }
 
+impl TraitForTypeItemNodeDecl {
+    pub fn node_path(self, db: &dyn DeclDb) -> TraitForTypeItemNodePath {
+        match self {
+            TraitForTypeItemNodeDecl::AssociatedFn(_) => todo!(),
+            TraitForTypeItemNodeDecl::MethodFn(decl) => decl.node_path(db),
+            TraitForTypeItemNodeDecl::AssociatedType(decl) => decl.node_path(db),
+            TraitForTypeItemNodeDecl::AssociatedVal(_) => todo!(),
+        }
+    }
+
+    pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
+        match self {
+            TraitForTypeItemNodeDecl::AssociatedFn(decl) => decl.ast_idx(db),
+            TraitForTypeItemNodeDecl::MethodFn(decl) => decl.ast_idx(db),
+            TraitForTypeItemNodeDecl::AssociatedType(decl) => decl.ast_idx(db),
+            TraitForTypeItemNodeDecl::AssociatedVal(decl) => decl.ast_idx(db),
+        }
+    }
+
+    pub fn implicit_parameters<'a>(
+        self,
+        _db: &'a dyn DeclDb,
+    ) -> &'a [ImplicitParameterDeclPattern] {
+        match self {
+            TraitForTypeItemNodeDecl::AssociatedFn(_) => todo!(),
+            TraitForTypeItemNodeDecl::MethodFn(_) => todo!(),
+            TraitForTypeItemNodeDecl::AssociatedType(_) => todo!(),
+            TraitForTypeItemNodeDecl::AssociatedVal(_) => todo!(),
+        }
+    }
+
+    pub fn expr_region(self, db: &dyn DeclDb) -> ExprRegion {
+        match self {
+            TraitForTypeItemNodeDecl::AssociatedFn(decl) => decl.expr_region(db),
+            TraitForTypeItemNodeDecl::MethodFn(decl) => decl.expr_region(db),
+            TraitForTypeItemNodeDecl::AssociatedType(decl) => decl.expr_region(db),
+            TraitForTypeItemNodeDecl::AssociatedVal(decl) => decl.expr_region(db),
+        }
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]

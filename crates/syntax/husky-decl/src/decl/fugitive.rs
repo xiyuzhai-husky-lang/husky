@@ -20,6 +20,40 @@ pub enum FugitiveNodeDecl {
     Gn(GnNodeDecl),
 }
 
+impl FugitiveNodeDecl {
+    pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
+        match self {
+            FugitiveNodeDecl::Fn(decl) => decl.ast_idx(db),
+            FugitiveNodeDecl::Val(decl) => decl.ast_idx(db),
+            FugitiveNodeDecl::Gn(decl) => decl.ast_idx(db),
+        }
+    }
+
+    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDeclPattern] {
+        match self {
+            FugitiveNodeDecl::Fn(decl) => decl.implicit_parameters(db),
+            FugitiveNodeDecl::Val(_decl) => &[],
+            FugitiveNodeDecl::Gn(decl) => decl.implicit_parameters(db),
+        }
+    }
+
+    pub fn expr_region(self, db: &dyn DeclDb) -> ExprRegion {
+        match self {
+            FugitiveNodeDecl::Fn(decl) => decl.expr_region(db),
+            FugitiveNodeDecl::Val(decl) => decl.expr_region(db),
+            FugitiveNodeDecl::Gn(decl) => decl.expr_region(db),
+        }
+    }
+
+    pub fn node_path(self, db: &dyn DeclDb) -> FugitiveNodePath {
+        match self {
+            FugitiveNodeDecl::Fn(decl) => decl.node_path(db),
+            FugitiveNodeDecl::Val(decl) => decl.node_path(db),
+            FugitiveNodeDecl::Gn(decl) => decl.node_path(db),
+        }
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]

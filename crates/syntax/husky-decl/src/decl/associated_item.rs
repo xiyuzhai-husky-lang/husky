@@ -19,6 +19,40 @@ pub enum AssociatedItemNodeDecl {
     TraitForTypeItem(TraitForTypeItemNodeDecl),
 }
 
+impl AssociatedItemNodeDecl {
+    pub fn node_path(self, db: &dyn DeclDb) -> AssociatedItemNodePath {
+        match self {
+            AssociatedItemNodeDecl::TypeItem(decl) => decl.node_path(db).into(),
+            AssociatedItemNodeDecl::TraitItem(decl) => decl.node_path(db).into(),
+            AssociatedItemNodeDecl::TraitForTypeItem(decl) => decl.node_path(db).into(),
+        }
+    }
+
+    pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
+        match self {
+            AssociatedItemNodeDecl::TypeItem(decl) => decl.ast_idx(db),
+            AssociatedItemNodeDecl::TraitItem(decl) => decl.ast_idx(db),
+            AssociatedItemNodeDecl::TraitForTypeItem(decl) => decl.ast_idx(db),
+        }
+    }
+
+    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDeclPattern] {
+        match self {
+            AssociatedItemNodeDecl::TypeItem(decl) => decl.implicit_parameters(db),
+            AssociatedItemNodeDecl::TraitItem(decl) => decl.implicit_parameters(db),
+            AssociatedItemNodeDecl::TraitForTypeItem(_) => todo!(),
+        }
+    }
+
+    pub fn expr_region(self, db: &dyn DeclDb) -> ExprRegion {
+        match self {
+            AssociatedItemNodeDecl::TypeItem(decl) => decl.expr_region(db),
+            AssociatedItemNodeDecl::TraitItem(decl) => decl.expr_region(db),
+            AssociatedItemNodeDecl::TraitForTypeItem(decl) => decl.expr_region(db),
+        }
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]

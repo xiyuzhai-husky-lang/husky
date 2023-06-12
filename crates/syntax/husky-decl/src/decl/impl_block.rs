@@ -15,20 +15,42 @@ pub enum ImplBlockNodeDecl {
     TraitForType(TraitForTypeImplBlockNodeDecl),
 }
 
+impl ImplBlockNodeDecl {
+    pub fn node_path(self, db: &dyn DeclDb) -> ImplBlockNodePath {
+        match self {
+            ImplBlockNodeDecl::Type(decl) => decl.node_path(db).into(),
+            ImplBlockNodeDecl::TraitForType(_) => todo!(),
+        }
+    }
+
+    pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
+        match self {
+            ImplBlockNodeDecl::Type(decl) => decl.ast_idx(db),
+            ImplBlockNodeDecl::TraitForType(decl) => decl.ast_idx(db),
+        }
+    }
+
+    pub fn implicit_parameters<'a>(
+        self,
+        _db: &'a dyn DeclDb,
+    ) -> &'a [ImplicitParameterDeclPattern] {
+        todo!()
+    }
+
+    pub fn expr_region(self, db: &dyn DeclDb) -> ExprRegion {
+        match self {
+            ImplBlockNodeDecl::Type(decl) => decl.expr_region(db),
+            ImplBlockNodeDecl::TraitForType(decl) => decl.expr_region(db),
+        }
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
 pub enum ImplBlockDecl {
     Type(TypeImplBlockDecl),
     TraitForType(TraitForTypeImplBlockDecl),
-}
-
-impl HasDecl for ImplBlockNode {
-    type Decl = ImplBlockDecl;
-
-    fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
-        impl_block_decl(db, self)
-    }
 }
 
 impl ImplBlockDecl {
@@ -58,6 +80,14 @@ impl ImplBlockDecl {
             ImplBlockDecl::Type(decl) => decl.expr_region(db),
             ImplBlockDecl::TraitForType(decl) => decl.expr_region(db),
         }
+    }
+}
+
+impl HasDecl for ImplBlockNode {
+    type Decl = ImplBlockDecl;
+
+    fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
+        impl_block_decl(db, self)
     }
 }
 

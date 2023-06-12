@@ -10,6 +10,15 @@ pub struct StructureTypeNodeDecl {
     pub expr_region: ExprRegion,
 }
 
+impl StructureTypeNodeDecl {
+    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDeclPattern] {
+        self.implicit_parameter_decl_list(db)
+            .as_ref()
+            .map(ImplicitParameterDeclList::implicit_parameters)
+            .unwrap_or(&[])
+    }
+}
+
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct StructureTypeDecl {
     #[id]
@@ -27,6 +36,7 @@ impl StructureTypeDecl {
             .unwrap_or(&[])
     }
 }
+
 impl<'a> DeclParseContext<'a> {
     pub(super) fn parse_structure_ty_decl(
         &self,

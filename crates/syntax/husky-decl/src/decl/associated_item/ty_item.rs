@@ -27,6 +27,51 @@ pub enum TypeItemNodeDecl {
     MemoizedField(TypeMemoizedFieldNodeDecl),
 }
 
+impl TypeItemNodeDecl {
+    pub fn node_path(self, db: &dyn DeclDb) -> TypeItemNodePath {
+        match self {
+            TypeItemNodeDecl::AssociatedFn(decl) => decl.node_path(db),
+            TypeItemNodeDecl::MethodFn(decl) => decl.node_path(db),
+            TypeItemNodeDecl::AssociatedType(_) => todo!(),
+            TypeItemNodeDecl::AssociatedVal(_) => todo!(),
+            TypeItemNodeDecl::MemoizedField(decl) => decl.node_path(db),
+        }
+    }
+
+    pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
+        match self {
+            TypeItemNodeDecl::AssociatedFn(decl) => decl.ast_idx(db),
+            TypeItemNodeDecl::MethodFn(decl) => decl.ast_idx(db),
+            TypeItemNodeDecl::AssociatedType(decl) => decl.ast_idx(db),
+            TypeItemNodeDecl::AssociatedVal(decl) => decl.ast_idx(db),
+            TypeItemNodeDecl::MemoizedField(decl) => decl.ast_idx(db),
+        }
+    }
+
+    pub fn implicit_parameters<'a>(
+        self,
+        _db: &'a dyn DeclDb,
+    ) -> &'a [ImplicitParameterDeclPattern] {
+        match self {
+            TypeItemNodeDecl::AssociatedFn(_) => todo!(),
+            TypeItemNodeDecl::MethodFn(_) => todo!(),
+            TypeItemNodeDecl::AssociatedType(_) => todo!(),
+            TypeItemNodeDecl::AssociatedVal(_) => todo!(),
+            TypeItemNodeDecl::MemoizedField(_) => todo!(),
+        }
+    }
+
+    pub fn expr_region(self, db: &dyn DeclDb) -> ExprRegion {
+        match self {
+            TypeItemNodeDecl::AssociatedFn(decl) => decl.expr_region(db),
+            TypeItemNodeDecl::MethodFn(decl) => decl.expr_region(db),
+            TypeItemNodeDecl::AssociatedType(decl) => decl.expr_region(db),
+            TypeItemNodeDecl::AssociatedVal(decl) => decl.expr_region(db),
+            TypeItemNodeDecl::MemoizedField(decl) => decl.expr_region(db),
+        }
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
@@ -36,6 +81,51 @@ pub enum TypeItemDecl {
     AssociatedType(TypeAssociatedTypeDecl),
     AssociatedVal(TypeAssociatedValDecl),
     MemoizedField(TypeMemoizedFieldDecl),
+}
+
+impl TypeItemDecl {
+    pub fn node_path(self, db: &dyn DeclDb) -> TypeItemNodePath {
+        match self {
+            TypeItemDecl::AssociatedFn(decl) => decl.node_path(db),
+            TypeItemDecl::MethodFn(decl) => decl.node_path(db),
+            TypeItemDecl::AssociatedType(_) => todo!(),
+            TypeItemDecl::AssociatedVal(_) => todo!(),
+            TypeItemDecl::MemoizedField(decl) => decl.node_path(db),
+        }
+    }
+
+    pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
+        match self {
+            TypeItemDecl::AssociatedFn(decl) => decl.ast_idx(db),
+            TypeItemDecl::MethodFn(decl) => decl.ast_idx(db),
+            TypeItemDecl::AssociatedType(decl) => decl.ast_idx(db),
+            TypeItemDecl::AssociatedVal(decl) => decl.ast_idx(db),
+            TypeItemDecl::MemoizedField(decl) => decl.ast_idx(db),
+        }
+    }
+
+    pub fn implicit_parameters<'a>(
+        self,
+        _db: &'a dyn DeclDb,
+    ) -> &'a [ImplicitParameterDeclPattern] {
+        match self {
+            TypeItemDecl::AssociatedFn(_) => todo!(),
+            TypeItemDecl::MethodFn(_) => todo!(),
+            TypeItemDecl::AssociatedType(_) => todo!(),
+            TypeItemDecl::AssociatedVal(_) => todo!(),
+            TypeItemDecl::MemoizedField(_) => todo!(),
+        }
+    }
+
+    pub fn expr_region(self, db: &dyn DeclDb) -> ExprRegion {
+        match self {
+            TypeItemDecl::AssociatedFn(decl) => decl.expr_region(db),
+            TypeItemDecl::MethodFn(decl) => decl.expr_region(db),
+            TypeItemDecl::AssociatedType(decl) => decl.expr_region(db),
+            TypeItemDecl::AssociatedVal(decl) => decl.expr_region(db),
+            TypeItemDecl::MemoizedField(decl) => decl.expr_region(db),
+        }
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Hash)]
@@ -158,51 +248,6 @@ pub(crate) fn ty_item_decls_map<'a>(
         }
     }
     Ok(map)
-}
-
-impl TypeItemDecl {
-    pub fn node_path(self, db: &dyn DeclDb) -> TypeItemNodePath {
-        match self {
-            TypeItemDecl::AssociatedFn(decl) => decl.node_path(db),
-            TypeItemDecl::MethodFn(decl) => decl.node_path(db),
-            TypeItemDecl::AssociatedType(_) => todo!(),
-            TypeItemDecl::AssociatedVal(_) => todo!(),
-            TypeItemDecl::MemoizedField(decl) => decl.node_path(db),
-        }
-    }
-
-    pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
-        match self {
-            TypeItemDecl::AssociatedFn(decl) => decl.ast_idx(db),
-            TypeItemDecl::MethodFn(decl) => decl.ast_idx(db),
-            TypeItemDecl::AssociatedType(decl) => decl.ast_idx(db),
-            TypeItemDecl::AssociatedVal(decl) => decl.ast_idx(db),
-            TypeItemDecl::MemoizedField(decl) => decl.ast_idx(db),
-        }
-    }
-
-    pub fn implicit_parameters<'a>(
-        self,
-        _db: &'a dyn DeclDb,
-    ) -> &'a [ImplicitParameterDeclPattern] {
-        match self {
-            TypeItemDecl::AssociatedFn(_) => todo!(),
-            TypeItemDecl::MethodFn(_) => todo!(),
-            TypeItemDecl::AssociatedType(_) => todo!(),
-            TypeItemDecl::AssociatedVal(_) => todo!(),
-            TypeItemDecl::MemoizedField(_) => todo!(),
-        }
-    }
-
-    pub fn expr_region(self, db: &dyn DeclDb) -> ExprRegion {
-        match self {
-            TypeItemDecl::AssociatedFn(decl) => decl.expr_region(db),
-            TypeItemDecl::MethodFn(decl) => decl.expr_region(db),
-            TypeItemDecl::AssociatedType(decl) => decl.expr_region(db),
-            TypeItemDecl::AssociatedVal(decl) => decl.expr_region(db),
-            TypeItemDecl::MemoizedField(decl) => decl.expr_region(db),
-        }
-    }
 }
 
 impl<'a> DeclParseContext<'a> {
