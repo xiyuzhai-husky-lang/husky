@@ -10,6 +10,15 @@ pub struct EnumTypeNodeDecl {
     pub expr_region: ExprRegion,
 }
 
+impl EnumTypeNodeDecl {
+    pub fn implicit_parameters(self, db: &dyn DeclDb) -> &[ImplicitParameterDeclPattern] {
+        self.implicit_parameter_decl_list(db)
+            .as_ref()
+            .map(ImplicitParameterDeclList::implicit_parameters)
+            .unwrap_or(&[])
+    }
+}
+
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct EnumTypeDecl {
     #[id]

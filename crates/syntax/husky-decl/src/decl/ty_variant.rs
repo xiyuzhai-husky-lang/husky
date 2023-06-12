@@ -17,6 +17,20 @@ pub enum TypeVariantNodeDecl {
     Tuple(TupleVariantNodeDecl),
 }
 
+impl TypeVariantNodeDecl {
+    pub fn node_path(self, db: &dyn DeclDb) -> TypeVariantNodePath {
+        match self {
+            TypeVariantNodeDecl::Props(_) => todo!(),
+            TypeVariantNodeDecl::Unit(_) => todo!(),
+            TypeVariantNodeDecl::Tuple(_) => todo!(),
+        }
+    }
+
+    pub(crate) fn ast_idx(self, _db: &dyn DeclDb) -> AstIdx {
+        todo!()
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]

@@ -10,6 +10,15 @@ pub struct TraitNodeDecl {
     implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
 }
 
+impl TraitNodeDecl {
+    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDeclPattern] {
+        match self.implicit_parameter_decl_list(db) {
+            Some(list) => list.implicit_parameters(),
+            None => &[],
+        }
+    }
+}
+
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TraitDecl {
     #[id]

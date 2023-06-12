@@ -10,6 +10,15 @@ pub struct ExternTypeNodeDecl {
     pub expr_region: ExprRegion,
 }
 
+impl ExternTypeNodeDecl {
+    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDeclPattern] {
+        self.implicit_parameter_decl_list(db)
+            .as_ref()
+            .map(ImplicitParameterDeclList::implicit_parameters)
+            .unwrap_or(&[])
+    }
+}
+
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct ExternTypeDecl {
     #[id]

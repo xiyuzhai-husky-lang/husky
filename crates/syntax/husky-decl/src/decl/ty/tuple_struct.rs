@@ -15,6 +15,19 @@ pub struct TupleStructTypeNodeDecl {
     pub expr_region: ExprRegion,
 }
 
+impl TupleStructTypeNodeDecl {
+    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDeclPattern] {
+        self.implicit_parameter_decl_list(db)
+            .as_ref()
+            .map(ImplicitParameterDeclList::implicit_parameters)
+            .unwrap_or(&[])
+    }
+
+    pub fn fields<'a>(self, db: &'a dyn DeclDb) -> &'a [TupleStructFieldDeclPattern] {
+        &self.field_comma_list(db).0
+    }
+}
+
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TupleStructTypeDecl {
     #[id]

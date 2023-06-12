@@ -37,6 +37,65 @@ pub enum TypeNodeDecl {
     Union(UnionTypeNodeDecl),
 }
 
+impl TypeNodeDecl {
+    pub fn node_path(self, db: &dyn DeclDb) -> TypeNodePath {
+        match self {
+            TypeNodeDecl::Enum(decl) => decl.node_path(db),
+            TypeNodeDecl::Inductive(decl) => decl.node_path(db),
+            TypeNodeDecl::Record(decl) => decl.node_path(db),
+            TypeNodeDecl::UnitStruct(decl) => decl.node_path(db),
+            TypeNodeDecl::RegularStruct(decl) => decl.node_path(db),
+            TypeNodeDecl::TupleStruct(decl) => decl.node_path(db),
+            TypeNodeDecl::Structure(decl) => decl.node_path(db),
+            TypeNodeDecl::Extern(decl) => decl.node_path(db),
+            TypeNodeDecl::Union(decl) => decl.node_path(db),
+        }
+    }
+
+    pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
+        todo!()
+        // match self {
+        //     TypeNodeDecl::Enum(decl) => decl.ast_idx(db),
+        //     TypeNodeDecl::UnitStruct(decl) => decl.ast_idx(db),
+        //     TypeNodeDecl::TupleStruct(decl) => decl.ast_idx(db),
+        //     TypeNodeDecl::RegularStruct(decl) => decl.ast_idx(db),
+        //     TypeNodeDecl::Record(decl) => decl.ast_idx(db),
+        //     TypeNodeDecl::Inductive(decl) => decl.ast_idx(db),
+        //     TypeNodeDecl::Structure(decl) => decl.ast_idx(db),
+        //     TypeNodeDecl::Extern(decl) => decl.ast_idx(db),
+        //     TypeNodeDecl::Union(decl) => decl.ast_idx(db),
+        // }
+    }
+
+    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDeclPattern] {
+        match self {
+            TypeNodeDecl::Enum(decl) => decl.implicit_parameters(db),
+            TypeNodeDecl::UnitStruct(decl) => decl.implicit_parameters(db),
+            TypeNodeDecl::TupleStruct(decl) => decl.implicit_parameters(db),
+            TypeNodeDecl::RegularStruct(decl) => decl.implicit_parameters(db),
+            TypeNodeDecl::Record(decl) => decl.implicit_parameters(db),
+            TypeNodeDecl::Inductive(decl) => decl.implicit_parameters(db),
+            TypeNodeDecl::Structure(decl) => decl.implicit_parameters(db),
+            TypeNodeDecl::Extern(decl) => decl.implicit_parameters(db),
+            TypeNodeDecl::Union(decl) => decl.implicit_parameters(db),
+        }
+    }
+
+    pub fn expr_region(self, db: &dyn DeclDb) -> ExprRegion {
+        match self {
+            TypeNodeDecl::Enum(decl) => decl.expr_region(db),
+            TypeNodeDecl::UnitStruct(decl) => decl.expr_region(db),
+            TypeNodeDecl::TupleStruct(decl) => decl.expr_region(db),
+            TypeNodeDecl::RegularStruct(decl) => decl.expr_region(db),
+            TypeNodeDecl::Record(decl) => decl.expr_region(db),
+            TypeNodeDecl::Inductive(decl) => decl.expr_region(db),
+            TypeNodeDecl::Structure(decl) => decl.expr_region(db),
+            TypeNodeDecl::Extern(decl) => decl.expr_region(db),
+            TypeNodeDecl::Union(decl) => decl.expr_region(db),
+        }
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
