@@ -52,7 +52,7 @@ pub async fn render_to_string_await_suspense(
         node.write_to_string(&mut ret);
     }
 
-    // SAFETY: we are done with the scope now.
+    // SAFETY: we are done with the visibility now.
     unsafe {
         disposer.dispose();
     }
@@ -67,7 +67,7 @@ pub struct NoHydrateProps<'a, G: GenericNode> {
     children: Children<'a, G>,
 }
 
-/// Render the children of this component in a scope that will not be hydrated.
+/// Render the children of this component in a visibility that will not be hydrated.
 ///
 /// When using `SsrNode`, this means that hydration markers won't be generated. When using
 /// `HydrateNode`, this means that the entire sub-tree will be ignored. When using `DomNode`,
@@ -94,7 +94,7 @@ where
     if G::CLIENT_SIDE_HYDRATION && !hydrate::hydration_completed() {
         // We don't want to hydrate the children, so we just do nothing.
     } else if G::USE_HYDRATION_CONTEXT {
-        // If we have a hydration context, remove it in this scope so that hydration markers are not
+        // If we have a hydration context, remove it in this visibility so that hydration markers are not
         // generated.
         let nodes = hydrate::with_no_hydration_context(|| props.children.call(cx));
         render::insert(cx, &node_ref.get_raw(), nodes, None, None, false);

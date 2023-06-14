@@ -7,6 +7,6 @@ pub struct Arrow2dProps<'a> {
 }
 
 #[component]
-pub fn Arrow2d<'a, G: Html>(scope: Scope<'a>, props: Arrow2dProps<'a>) -> View<G> {
+pub fn Arrow2d<'a, G: Html>(visibility: Scope<'a>, props: Arrow2dProps<'a>) -> View<G> {
     todo!()
 }

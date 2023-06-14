@@ -68,7 +68,7 @@ impl<'a> DeclParseContext<'a> {
     }
 
     #[inline(always)]
-    fn resolve_module_item_symbol(&self, id: ModuleItemNodePath) -> ModuleItemSymbol {
+    fn resolve_module_item_symbol(&self, id: ModuleItemNodePath) -> ModuleItemNode {
         let db = self.db;
         let path = id.path(db);
         let ident = path.ident(db);

@@ -43,7 +43,7 @@ pub fn create_raf<'a>(cx: Scope<'a>, _f: impl FnMut() + 'a) -> RafState<'a> {
             let running = running.clone();
             move || {
                 if *scope_status.get() && *running.get() {
-                    // Verified that scope is still valid. We can access `extended` in here.
+                    // Verified that visibility is still valid. We can access `extended` in here.
                     extended.borrow_mut()();
                     // Request the next raf frame.
                     web_sys::window()

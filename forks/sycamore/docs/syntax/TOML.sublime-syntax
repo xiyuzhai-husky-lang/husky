@@ -10,7 +10,7 @@ file_extensions:
   - Gopkg.lock
   - Pipfile
 
-scope: source.toml
+visibility: source.toml
 
 variables:
   ws: '[ \t]*'
@@ -106,7 +106,7 @@ contexts:
       # highlighting while typing.
       pop: true
     - match: '\w+|.'
-      scope: invalid.illegal.value.toml
+      visibility: invalid.illegal.value.toml
       pop: true
 
   boolean:
@@ -152,25 +152,25 @@ contexts:
 
   date-time:
     - match: '(?x) {{date_time}}'
-      scope: constant.other.datetime.toml
+      visibility: constant.other.datetime.toml
       pop: true
 
   string:
     - match: "'''"
       # multi-line literal string (no escape sequences)
-      scope: punctuation.definition.string.begin.toml
+      visibility: punctuation.definition.string.begin.toml
       set:
         - meta_scope: string.quoted.triple.literal.block.toml
         - match: "'''"
-          scope: punctuation.definition.string.end.toml
+          visibility: punctuation.definition.string.end.toml
           pop: true
     - match: '"""'
       # multi-line basic string
-      scope: punctuation.definition.string.begin.toml
+      visibility: punctuation.definition.string.begin.toml
       set:
         - meta_scope: string.quoted.triple.basic.block.toml
         - match: '"""'
-          scope: punctuation.definition.string.end.toml
+          visibility: punctuation.definition.string.end.toml
           pop: true
         - include: string-escape
     - include: basic-string
@@ -178,28 +178,28 @@ contexts:
 
   basic-string:
     - match: '"'
-      scope: punctuation.definition.string.begin.toml
+      visibility: punctuation.definition.string.begin.toml
       set:
         - meta_scope: string.quoted.double.basic.toml
         - include: string-escape
         - match: '"'
-          scope: punctuation.definition.string.end.toml
+          visibility: punctuation.definition.string.end.toml
           pop: true
         - match: '\n'
-          scope: invalid.illegal.string.non-terminated.toml
+          visibility: invalid.illegal.string.non-terminated.toml
           pop: true
 
   string-escape:
     - match: '\\(?:[btnfr"\\]|u\h{4}|U\h{8})'
-      scope: constant.character.escape.toml
+      visibility: constant.character.escape.toml
     - match: '\\.'
-      scope: invalid.illegal.string.escape.toml
+      visibility: invalid.illegal.string.escape.toml
 
   literal-string:
     - match: '('')[^'']*('')'
       # There is ambiguity in what is allowed in a literal string.
       # See: https://github.com/toml-lang/toml/issues/473
-      scope: string.quoted.single.literal.toml
+      visibility: string.quoted.single.literal.toml
       captures:
         1: punctuation.definition.string.begin.toml
         2: punctuation.definition.string.end.toml
@@ -207,12 +207,12 @@ contexts:
 
   array:
     - match: '\['
-      scope: punctuation.definition.array.begin.toml
+      visibility: punctuation.definition.array.begin.toml
       set: [maybe-empty-array, maybe-array-comments]
 
   maybe-empty-array:
     - match: ']'
-      scope: punctuation.definition.array.end.toml
+      visibility: punctuation.definition.array.end.toml
       pop: true
     - match: ''
       set: [array-sep, data-types]
@@ -221,20 +221,20 @@ contexts:
     - match: '{{wsnl}}'
     - include: comments
     - match: ']'
-      scope: punctuation.definition.array.end.toml
+      visibility: punctuation.definition.array.end.toml
       pop: true
     - match: ','
-      scope: punctuation.separator.array.toml
+      visibility: punctuation.separator.array.toml
       set:
         - match: '{{wsnl}}'
         - include: comments
         - match: ']'
-          scope: punctuation.definition.array.end.toml
+          visibility: punctuation.definition.array.end.toml
           pop: true
         - match: '(?=[^\n])'
           set: [array-sep, data-types]
     - match: '\w+|.'
-      scope: invalid.illegal.array.toml
+      visibility: invalid.illegal.array.toml
 
   maybe-array-comments:
     - match: '{{wsnl}}'
@@ -244,12 +244,12 @@ contexts:
 
   inline-table:
     - match: '\{'
-      scope: punctuation.definition.inline-table.begin.toml
+      visibility: punctuation.definition.inline-table.begin.toml
       set:
         - match: '{{ws}}'
         - match: '\}'
           # Empty table.
-          scope: punctuation.definition.inline-table.end.toml
+          visibility: punctuation.definition.inline-table.end.toml
           pop: true
         - match: ''
           set: [inline-keyval-sep, key]
@@ -260,22 +260,22 @@ contexts:
         1: punctuation.definition.key-value.toml
       set: [inline-table-keyvals, data-types]
     - match: '(?=\w+|.)'
-      scope: invalid.illegal.inline-sep.toml
+      visibility: invalid.illegal.inline-sep.toml
       pop: true
 
   inline-table-keyvals:
     - match: '{{ws}}'
     - match: '\}'
-      scope: punctuation.definition.inline-table.end.toml
+      visibility: punctuation.definition.inline-table.end.toml
       pop: true
     - match: ','
-      scope: punctuation.separator.inline-table.toml
+      visibility: punctuation.separator.inline-table.toml
       set:
         - match: '{{ws}}'
         - match: ''
           set: [inline-keyval-sep, key]
     - match: '(?=\w+|.)'
-      scope: invalid.illegal.inline-key.toml
+      visibility: invalid.illegal.inline-key.toml
       pop: true
 
   keyval:
@@ -294,7 +294,7 @@ contexts:
       # Don't show an incomplete line as invalid to avoid flickering.
       pop: true
     - match: '.+$'
-      scope: invalid.illegal.keyval.toml
+      visibility: invalid.illegal.keyval.toml
       pop: true
 
   key:
@@ -307,16 +307,16 @@ contexts:
       # Early exit to avoid errors while typing.
       pop: true
     - match: '.'
-      scope: invalid.illegal.key.toml
+      visibility: invalid.illegal.key.toml
       pop: true
 
   key-simple:
     - match: '[A-Za-z0-9_-]+'
-      scope: entity.name.tag.toml
+      visibility: entity.name.tag.toml
       pop: true
     - include: key-quoted
     - match: '\S+'
-      scope: invalid.illegal.key.toml
+      visibility: invalid.illegal.key.toml
       pop: true
 
   key-quoted:
@@ -331,7 +331,7 @@ contexts:
     - match: '(?={{ws}}(?:=|$))'
       pop: true
     - match: '.'
-      scope: invalid.illegal.key.toml
+      visibility: invalid.illegal.key.toml
       pop: true
 
   maybe-comment-eol:
@@ -342,12 +342,12 @@ contexts:
       # This also highlights trailing whitespece.  Although that is valid
       # TOML, it doesn't seem bad to me.  If that's annoying, change this
       # to '[^ \n]+'.
-      scope: invalid.illegal.trailing.toml
+      visibility: invalid.illegal.trailing.toml
       pop: true
 
   tables:
     - match: '\[?\[{{ws}}\]\]?'
-      scope: invalid.illegal.table.toml
+      visibility: invalid.illegal.table.toml
 
     - match: '(\[\[){{ws}}'
       # Array table.  Same as std-table with double-brackets.
@@ -381,16 +381,16 @@ contexts:
     - match: '{{peek_key_start}}'
       push: [maybe-dot-table-name, table-name-simple]
     - match: '[^\]]+\]?'
-      scope: invalid.illegal.table.toml
+      visibility: invalid.illegal.table.toml
       pop: true
 
   table-name-simple:
     - match: '[A-Za-z0-9_-]+'
-      scope: entity.name.table.toml
+      visibility: entity.name.table.toml
       pop: true
     - include: key-quoted
     - match: '.'
-      scope: invalid.illegal.table.toml
+      visibility: invalid.illegal.table.toml
       pop: true
 
   maybe-dot-table-name:
@@ -401,5 +401,5 @@ contexts:
     - match: '(?={{ws}}(?:\]|$))'
       pop: true
     - match: '.'
-      scope: invalid.illegal.table.toml
+      visibility: invalid.illegal.table.toml
       pop: true

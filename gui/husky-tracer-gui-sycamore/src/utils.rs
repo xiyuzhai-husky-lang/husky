@@ -72,24 +72,30 @@ pub(crate) use insert_new;
 
 use crate::context::DeveloperGuiContext;
 
-pub(crate) fn create_static_ref<'a, T>(scope: Scope<'a>, value: T) -> &'static T {
-    unsafe { as_static_ref(create_ref(scope, value)) }
+pub(crate) fn create_static_ref<'a, T>(visibility: Scope<'a>, value: T) -> &'static T {
+    unsafe { as_static_ref(create_ref(visibility, value)) }
 }
 
-pub(crate) fn create_static_signal<'a, T>(scope: Scope<'a>, value: T) -> &'static Signal<T>
+pub(crate) fn create_static_signal<'a, T>(visibility: Scope<'a>, value: T) -> &'static Signal<T>
 where
     T: Signalable,
 {
-    unsafe { as_static_ref(create_signal(scope, value)) }
+    unsafe { as_static_ref(create_signal(visibility, value)) }
 }
 pub(crate) fn create_static_memo<'a, T>(
-    scope: Scope<'a>,
+    visibility: Scope<'a>,
     f: impl FnMut() -> T + 'a,
 ) -> &'static ReadSignal<T>
 where
     T: Signalable + 'a,
 {
-    unsafe { as_static_ref(create_memo(scope, f, "create_static_memotodo".to_string())) }
+    unsafe {
+        as_static_ref(create_memo(
+            visibility,
+            f,
+            "create_static_memotodo".to_string(),
+        ))
+    }
 }
 
 pub(crate) unsafe fn as_static_ref<'a, T>(value: &T) -> &'static T {
@@ -97,6 +103,6 @@ pub(crate) unsafe fn as_static_ref<'a, T>(value: &T) -> &'static T {
     &*ptr
 }
 
-pub(crate) fn use_dev_context<'a>(scope: Scope<'a>) -> &'static DeveloperGuiContext {
-    unsafe { as_static_ref(use_context::<DeveloperGuiContext>(scope)) }
+pub(crate) fn use_dev_context<'a>(visibility: Scope<'a>) -> &'static DeveloperGuiContext {
+    unsafe { as_static_ref(use_context::<DeveloperGuiContext>(visibility)) }
 }

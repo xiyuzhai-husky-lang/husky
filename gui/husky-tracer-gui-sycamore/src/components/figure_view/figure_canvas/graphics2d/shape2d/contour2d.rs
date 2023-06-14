@@ -20,14 +20,14 @@ impl<'a> Contour2dProps<'a> {
 }
 
 #[component]
-pub fn Contour2d<'a, G: Html>(scope: Scope<'a>, props: Contour2dProps<'a>) -> View<G> {
+pub fn Contour2d<'a, G: Html>(visibility: Scope<'a>, props: Contour2dProps<'a>) -> View<G> {
     let edges = props.edges();
     view! {
-        scope,
+        visibility,
         (View::new_fragment(
             edges.iter().map(
                 |(from, to)| view!{
-                    scope,
+                    visibility,
                     LineSegment2d {
                         start: *from,
                         end: *to,
@@ -40,7 +40,7 @@ pub fn Contour2d<'a, G: Html>(scope: Scope<'a>, props: Contour2dProps<'a>) -> Vi
         (View::new_fragment(
             props.points.iter().map(
                 |point| view!{
-                    scope,
+                    visibility,
                     Point2d {
                         point
                     }

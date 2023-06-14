@@ -48,7 +48,7 @@ impl TraceTokenKind {
             TraceTokenKind::Ident => "ident",
             TraceTokenKind::Literal => "literal",
             TraceTokenKind::Special => "special",
-            TraceTokenKind::Scope => "scope",
+            TraceTokenKind::Scope => "visibility",
             TraceTokenKind::Fade => "fade",
             TraceTokenKind::Error => "error",
         }

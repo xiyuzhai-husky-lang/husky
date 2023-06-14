@@ -45,7 +45,7 @@ Set Contextual Implicit.
      - any global identifier that starts with the prefix "llvm." is
        considered to be an intrinsic function
 
-     - intrinsic functions must be delared in the global scope (to ascribe them types)
+     - intrinsic functions must be delared in the global visibility (to ascribe them types)
 
      - it is _illegal_ to take the address of an intrinsic function (they do not
        always map directly to external functions, e.g. arithmetic intrinsics may

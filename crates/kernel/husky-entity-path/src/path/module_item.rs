@@ -17,7 +17,7 @@ use utils::*;
 pub enum ModuleItemPath {
     Type(TypePath),
     Trait(TraitPath),
-    Form(FugitivePath),
+    Fugitive(FugitivePath),
 }
 
 impl ModuleItemPath {
@@ -25,14 +25,14 @@ impl ModuleItemPath {
         match self {
             ModuleItemPath::Type(path) => path.module_path(db),
             ModuleItemPath::Trait(path) => path.module_path(db),
-            ModuleItemPath::Form(path) => path.module_path(db),
+            ModuleItemPath::Fugitive(path) => path.module_path(db),
         }
     }
     pub fn ident(self, db: &dyn EntityPathDb) -> Ident {
         match self {
             ModuleItemPath::Type(path) => path.ident(db),
             ModuleItemPath::Trait(path) => path.ident(db),
-            ModuleItemPath::Form(path) => path.ident(db),
+            ModuleItemPath::Fugitive(path) => path.ident(db),
         }
     }
 
@@ -43,7 +43,7 @@ impl ModuleItemPath {
     pub fn ty_path(self) -> Option<TypePath> {
         match self {
             ModuleItemPath::Type(path) => Some(path),
-            ModuleItemPath::Trait(_) | ModuleItemPath::Form(_) => None,
+            ModuleItemPath::Trait(_) | ModuleItemPath::Fugitive(_) => None,
         }
     }
 
@@ -57,7 +57,7 @@ impl ModuleItemPath {
                 module_item_kind: ModuleItemKind::Trait,
                 connection: path.connection(db).kind(),
             },
-            ModuleItemPath::Form(path) => EntityKind::ModuleItem {
+            ModuleItemPath::Fugitive(path) => EntityKind::ModuleItem {
                 module_item_kind: ModuleItemKind::Fugitive(path.form_kind(db)),
                 connection: path.connection(db).kind(),
             },
@@ -67,7 +67,7 @@ impl ModuleItemPath {
 
 impl From<FugitivePath> for ModuleItemPath {
     fn from(v: FugitivePath) -> Self {
-        Self::Form(v)
+        Self::Fugitive(v)
     }
 }
 
@@ -96,7 +96,7 @@ where
         let db = <Db as salsa::DbWithJar<EntityPathJar>>::as_jar_db(db);
         if level.is_root() {
             match self {
-                ModuleItemPath::Form(path) => path.display_with_db_fmt(f, db, level.next()),
+                ModuleItemPath::Fugitive(path) => path.display_with_db_fmt(f, db, level.next()),
                 ModuleItemPath::Type(path) => path.display_with_db_fmt(f, db, level.next()),
                 ModuleItemPath::Trait(path) => path.display_with_db_fmt(f, db, level.next()),
             }

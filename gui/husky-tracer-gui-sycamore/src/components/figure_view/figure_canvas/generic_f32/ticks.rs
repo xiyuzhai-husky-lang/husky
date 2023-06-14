@@ -7,7 +7,7 @@ pub struct TicksProps {
 }
 
 #[component]
-pub fn Ticks<'a, G: Html>(scope: Scope<'a>, props: TicksProps) -> View<G> {
+pub fn Ticks<'a, G: Html>(visibility: Scope<'a>, props: TicksProps) -> View<G> {
     let ticks = interpolate(props.a, props.b);
     let ticks = View::new_fragment(
         ticks
@@ -15,7 +15,7 @@ pub fn Ticks<'a, G: Html>(scope: Scope<'a>, props: TicksProps) -> View<G> {
             .map(|tick| {
                 let y = 990.0 - 980.0 * (tick - props.a) / (props.b - props.a);
                 view! {
-                    scope,
+                    visibility,
                     path (
                         d = format!("M43 {} L 53 {}", y, y),
                         stroke="white",
@@ -34,7 +34,7 @@ pub fn Ticks<'a, G: Html>(scope: Scope<'a>, props: TicksProps) -> View<G> {
             .collect(),
     );
     view! {
-        scope,
+        visibility,
         path (
             d = "M43 10 L 43 990",
             stroke="white",

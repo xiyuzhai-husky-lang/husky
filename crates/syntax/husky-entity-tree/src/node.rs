@@ -1,14 +1,17 @@
 mod associated_item;
 mod impl_block;
 mod module_item;
+mod submodule;
 mod ty_variant;
 
 pub use self::associated_item::*;
 pub use self::impl_block::*;
 pub use self::module_item::*;
+pub use self::submodule::*;
 pub use self::ty_variant::*;
 
 use crate::*;
+use husky_token::IdentToken;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
@@ -51,6 +54,91 @@ impl HasNodePath for EntityPath {
             EntityPath::AssociatedItem(_) => todo!(),
             EntityPath::TypeVariant(_) => todo!(),
             EntityPath::ImplBlock(_) => todo!(),
+        }
+    }
+}
+
+#[derive(Default)]
+pub(crate) struct EntityNodeRegistry {
+    errors: Vec<EntityTreeError>,
+}
+
+impl EntityNodeRegistry {
+    pub(crate) fn finish_with_errors(self) -> Vec<EntityTreeError> {
+        self.errors
+    }
+
+    fn issue_maybe_ambiguous<P: Into<EntityPath>>(&self, path: P) -> MaybeAmbiguous<P> {
+        todo!()
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub struct MaybeAmbiguous<P> {
+    path: P,
+    disambiguator: u8,
+}
+
+impl<P> MaybeAmbiguous<P> {
+    fn from_path(path: P) -> Self {
+        Self {
+            path,
+            disambiguator: 0,
+        }
+    }
+
+    pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
+        todo!()
+    }
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[salsa::derive_debug_with_db(db = EntityTreeDb)]
+#[enum_class::from_variants]
+pub enum EntityNode {
+    Submodule(SubmoduleNode),
+    ModuleItem(ModuleItemNode),
+}
+
+impl EntityNode {
+    pub(crate) fn try_new(
+        db: &dyn EntityTreeDb,
+        registry: &mut EntityNodeRegistry,
+        visibility: Scope,
+        ast_idx: AstIdx,
+        ident_token: IdentToken,
+        entity_path: EntityPath,
+    ) -> Option<Self> {
+        match entity_path {
+            EntityPath::Module(module_path) => {
+                Some(SubmoduleNode::new(db, module_path, visibility, ast_idx, ident_token).into())
+            }
+            EntityPath::ModuleItem(module_item_path) => Some(
+                ModuleItemNode::new(
+                    db,
+                    ModuleItemNodePath::new(db, registry, module_item_path),
+                    visibility,
+                    ast_idx,
+                    ident_token,
+                )
+                .into(),
+            ),
+            EntityPath::AssociatedItem(_) | EntityPath::TypeVariant(_) => None,
+            EntityPath::ImplBlock(_) => todo!(),
+        }
+    }
+
+    pub fn ast_idx(self, db: &dyn EntityTreeDb) -> AstIdx {
+        match self {
+            EntityNode::Submodule(symbol) => symbol.ast_idx(db),
+            EntityNode::ModuleItem(symbol) => symbol.ast_idx(db),
+        }
+    }
+
+    pub fn ident_token(self, db: &dyn EntityTreeDb) -> IdentToken {
+        match self {
+            EntityNode::Submodule(symbol) => symbol.ident_token(db),
+            EntityNode::ModuleItem(symbol) => symbol.ident_token(db),
         }
     }
 }

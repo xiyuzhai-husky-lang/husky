@@ -3,14 +3,17 @@ use sycamore::render;
 use web_sys::{Event, HtmlDialogElement, HtmlFormElement, HtmlInputElement, KeyboardEvent};
 
 #[component]
-pub fn PresentationView<'a, G: Html>(scope: Scope<'a>) -> View<G> {
-    let ctx = use_dev_context(scope);
-    let generic = create_signal(scope, true);
+pub fn PresentationView<'a, G: Html>(visibility: Scope<'a>) -> View<G> {
+    let ctx = use_dev_context(visibility);
+    let generic = create_signal(visibility, true);
     let presentation_signal = ctx.presentation_signal();
-    let last_sample_id = create_signal(scope, presentation_signal.get_untracked().opt_sample_id());
+    let last_sample_id = create_signal(
+        visibility,
+        presentation_signal.get_untracked().opt_sample_id(),
+    );
     let toggle_presentation_kind_handler = ctx.toggle_presentation_kind_handler();
     let presentation_kind = memo!(
-        scope,
+        visibility,
         move || match presentation_signal.get().is_specific() {
             true => "SPECIFIC",
             false => "GENERIC",
@@ -19,7 +22,7 @@ pub fn PresentationView<'a, G: Html>(scope: Scope<'a>) -> View<G> {
         presentation_signal
     );
     view! {
-        scope,
+        visibility,
         div (class="PresentationView disable-select") {
             div (
                 class="PresentationKind",

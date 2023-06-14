@@ -9,13 +9,13 @@ pub struct TraceTokenProps<'a> {
 }
 
 #[component]
-pub fn TraceToken<'a, G: Html>(scope: Scope<'a>, props: TraceTokenProps<'a>) -> View<G> {
+pub fn TraceToken<'a, G: Html>(visibility: Scope<'a>, props: TraceTokenProps<'a>) -> View<G> {
     let text = &props.data.value;
     let spaces_before_style = spaces_style(count_spaces_before(text));
     let spaces_after_style = spaces_style(count_spaces_after(text));
     let token_kind = props.data.kind;
-    let context = use_dev_context(scope);
-    let shown = memo!(scope, move || {
+    let context = use_dev_context(visibility);
+    let shown = memo!(visibility, move || {
         if let Some(associated_trace_id) = props.data.opt_associated_trace_id {
             context.shown_read_signal(associated_trace_id).cget()
         } else {
@@ -23,7 +23,7 @@ pub fn TraceToken<'a, G: Html>(scope: Scope<'a>, props: TraceTokenProps<'a>) -> 
         }
     });
     view! {
-        scope,
+        visibility,
         span (style=spaces_before_style)
         code(
             class=format!("TraceToken {} {}", token_kind,
@@ -36,7 +36,7 @@ pub fn TraceToken<'a, G: Html>(scope: Scope<'a>, props: TraceTokenProps<'a>) -> 
             on:mousedown=move |_ev:Event|{
                 if props.is_trace_active.cget() {
                     if let Some(associated_trace_id) = props.data.opt_associated_trace_id {
-                        use_dev_context(scope).toggle_shown_handler(associated_trace_id)()
+                        use_dev_context(visibility).toggle_shown_handler(associated_trace_id)()
                     }
                 }
             }

@@ -29,13 +29,13 @@ impl<'a> Graphics2dCanvasProps<'a> {
 }
 #[component]
 pub fn Graphics2dCanvas<'a, G: Html>(
-    scope: Scope<'a>,
+    visibility: Scope<'a>,
     props: Graphics2dCanvasProps<'a>,
 ) -> View<G> {
     let transform = props.svg_transform();
     let view_box = props.svg_view_box();
     view! {
-        scope,
+        visibility,
         div (
             class="Graphics2dWrapper",
             style=props.dimension.get().to_style(),
@@ -58,7 +58,7 @@ pub fn Graphics2dCanvas<'a, G: Html>(
                     ) {
                         (View::new_fragment(props.shapes.iter().map(|data| {
                             view! {
-                                scope,
+                                visibility,
                                 Shape2d {
                                     data: data.clone()
                                 }

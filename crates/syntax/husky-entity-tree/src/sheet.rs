@@ -49,18 +49,19 @@ impl EntityTreeSheet {
         self.symbols.as_ref()
     }
 
-    pub fn module_item_path_iter<'a>(
-        &'a self,
-        db: &'a dyn EntityTreeDb,
-    ) -> impl Iterator<Item = ModuleItemPath> + 'a {
-        self.symbols
-            .data()
-            .iter()
-            .filter_map(|entry| match entry.symbol() {
-                EntitySymbol::ModuleItem(symbol) => Some(symbol.path(db)),
-                _ => None,
-            })
-    }
+    // pub fn module_item_path_iter<'a>(
+    //     &'a self,
+    //     db: &'a dyn EntityTreeDb,
+    // ) -> impl Iterator<Item = ModuleItemPath> + 'a {
+    //     todo!()
+    //     // self.symbols
+    //     //     .data()
+    //     //     .iter()
+    //     //     .filter_map(|entry| match entry.symbol() {
+    //     //         EntitySymbol::ModuleItem(symbol) => Some(symbol.path(db)),
+    //     //         _ => None,
+    //     //     })
+    // }
 
     pub fn errors(&self) -> &[EntityTreeError] {
         &self.errors

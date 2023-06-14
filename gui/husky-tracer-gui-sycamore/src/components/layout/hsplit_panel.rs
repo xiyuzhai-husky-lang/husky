@@ -23,12 +23,12 @@ impl<'a> HSplitPanelProps<'a> {
 }
 
 #[component]
-pub fn HSplitPanel<'a, G: Html>(scope: Scope<'a>, props: HSplitPanelProps<'a>) -> View<G> {
-    let ctx = use_context::<DeveloperGuiContext>(scope);
-    let left_panel_dimension = memo!(scope, move || props.left_panel_dimension(), props);
-    let right_panel_dimension = memo!(scope, move || props.right_panel_dimension(), props);
+pub fn HSplitPanel<'a, G: Html>(visibility: Scope<'a>, props: HSplitPanelProps<'a>) -> View<G> {
+    let ctx = use_context::<DeveloperGuiContext>(visibility);
+    let left_panel_dimension = memo!(visibility, move || props.left_panel_dimension(), props);
+    let right_panel_dimension = memo!(visibility, move || props.right_panel_dimension(), props);
     view! {
-        scope,
+        visibility,
         div(class="HuskyTracerHSplitPanel") {
             div(class="HuskyTracerHSplitPanelLeft", style=left_panel_dimension.cget().to_style()) {
                 TraceView {}

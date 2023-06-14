@@ -13,7 +13,7 @@ impl DeveloperGuiContext {
                 self.trace_nodes.borrow_mut(file!(), line!()).extend(
                     new_entries
                         .into_iter()
-                        .map(|trace_node| TraceNodeState::from_data(self.scope, trace_node)),
+                        .map(|trace_node| TraceNodeState::from_data(self.visibility, trace_node)),
                 );
                 modified_entries
             }

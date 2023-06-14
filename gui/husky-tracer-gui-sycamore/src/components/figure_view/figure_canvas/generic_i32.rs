@@ -7,7 +7,7 @@ pub struct GenericI32Props<'a> {
 }
 
 #[component]
-pub fn GenericI32<'a, G: Html>(scope: Scope<'a>, props: GenericI32Props<'a>) -> View<G> {
+pub fn GenericI32<'a, G: Html>(visibility: Scope<'a>, props: GenericI32Props<'a>) -> View<G> {
     let map = props
         .partitioned_samples
         .iter()
@@ -47,7 +47,7 @@ pub fn GenericI32<'a, G: Html>(scope: Scope<'a>, props: GenericI32Props<'a>) -> 
             .enumerate()
             .map(|(i, partitioned_samples)| {
                 view! {
-                    scope,
+                    visibility,
                     GenericI32Bin {
                         label: min + (i as i32),
                         partitioned_samples
@@ -57,7 +57,7 @@ pub fn GenericI32<'a, G: Html>(scope: Scope<'a>, props: GenericI32Props<'a>) -> 
             .collect(),
     );
     view! {
-        scope,
+        visibility,
         div (
             class="GenericI32",
             style=props.dimension.cget().to_style(),
@@ -74,7 +74,7 @@ pub struct GenericI32BinProps<'a> {
 }
 
 #[component]
-fn GenericI32Bin<'a, G: Html>(scope: Scope<'a>, props: GenericI32BinProps<'a>) -> View<G> {
+fn GenericI32Bin<'a, G: Html>(visibility: Scope<'a>, props: GenericI32BinProps<'a>) -> View<G> {
     let mut all_samples = vec![];
     props
         .partitioned_samples
@@ -82,7 +82,7 @@ fn GenericI32Bin<'a, G: Html>(scope: Scope<'a>, props: GenericI32BinProps<'a>) -
         .for_each(|(partition_defn, samples)| {
             all_samples.extend(samples.iter().map(move |sample_id| {
                 view! {
-                    scope,
+                    visibility,
                     GenericI32Sample {
                         partition_defn,
                         sample_id:*sample_id,
@@ -92,7 +92,7 @@ fn GenericI32Bin<'a, G: Html>(scope: Scope<'a>, props: GenericI32BinProps<'a>) -
         });
     let all_samples = View::new_fragment(all_samples);
     view! {
-        scope,
+        visibility,
         div (class="GenericI32Bin") {
             div (class="GenericI32BinPartitions") {
                 (all_samples)
@@ -111,9 +111,12 @@ pub struct GenericI32SampleProps<'a> {
 }
 
 #[component]
-fn GenericI32Sample<'a, G: Html>(scope: Scope<'a>, props: GenericI32SampleProps<'a>) -> View<G> {
+fn GenericI32Sample<'a, G: Html>(
+    visibility: Scope<'a>,
+    props: GenericI32SampleProps<'a>,
+) -> View<G> {
     view! {
-        scope,
+        visibility,
         div (class="GenericI32Sample")
     }
 }

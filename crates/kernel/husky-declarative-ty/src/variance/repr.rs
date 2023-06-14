@@ -34,7 +34,7 @@ pub(crate) fn entity_variance_reprs(
         EntityPath::ModuleItem(path) => match path {
             ModuleItemPath::Type(path) => ty_entity_variance_reprs(db, path),
             ModuleItemPath::Trait(path) => trai_entity_variance_reprs(db, path),
-            ModuleItemPath::Form(path) => form_entity_variance_reprs(db, path),
+            ModuleItemPath::Fugitive(path) => form_entity_variance_reprs(db, path),
         },
         EntityPath::AssociatedItem(path) => match path {
             AssociatedItemPath::TypeItem(path) => ty_item_entity_variance_reprs(db, path),

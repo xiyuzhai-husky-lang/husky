@@ -76,8 +76,12 @@ pub fn create_effect<'a>(cx: Scope<'a>, f: impl FnMut() + 'a, info: String) {
 
 #[macro_export]
 macro_rules! effect {
-    ($scope: ident, $f: expr) => {{
-        create_effect($scope, $f, format!("effect at {}:{}", file!(), line!()))
+    ($visibility: ident, $f: expr) => {{
+        create_effect(
+            $visibility,
+            $f,
+            format!("effect at {}:{}", file!(), line!()),
+        )
     }};
 }
 
@@ -156,10 +160,10 @@ where
             // This is to make sure that if the effect subscribes to its own signal, there is no
             // use-after-free during the clear dependencies phase.
             if let Some(disposer) = disposer.take() {
-                // SAFETY: we are not accessing the scope after the effect has been dropped.
+                // SAFETY: we are not accessing the visibility after the effect has been dropped.
                 unsafe { disposer.dispose() };
             }
-            // Create a new nested scope and save the disposer.
+            // Create a new nested visibility and save the disposer.
             let new_disposer: Option<ScopeDisposer<'a>> = Some(create_child_scope(cx, |cx| {
                 // SAFETY: f takes the same parameter as the argument to
                 // self.create_child_scope(_).
@@ -372,7 +376,7 @@ mod tests {
             assert_eq!(
                 parent.get().unwrap(),
                 cx.raw as *const _ as *const c_void,
-                "the parent scope of the effect should be `cx`"
+                "the parent visibility of the effect should be `cx`"
             );
             trigger.set(());
             assert_eq!(

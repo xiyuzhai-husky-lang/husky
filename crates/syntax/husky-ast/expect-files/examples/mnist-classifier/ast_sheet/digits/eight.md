@@ -212,7 +212,7 @@ Ok(
                                     18,
                                 ),
                             ),
-                            scope: Super(
+                            visibility: Super(
                                 SuperToken {
                                     token_idx: TokenIdx(
                                         19,

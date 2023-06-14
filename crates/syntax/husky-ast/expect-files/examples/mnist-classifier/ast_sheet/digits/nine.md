@@ -354,7 +354,7 @@ Ok(
                                     31,
                                 ),
                             ),
-                            scope: Super(
+                            visibility: Super(
                                 SuperToken {
                                     token_idx: TokenIdx(
                                         32,

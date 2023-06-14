@@ -9,11 +9,11 @@ pub struct TraceStatsProps<'a> {
     indent: Indent,
 }
 
-pub fn TraceStatsView<'a, G: Html>(scope: Scope<'a>, props: TraceStatsProps<'a>) -> View<G> {
-    let ctx = use_dev_context(scope);
+pub fn TraceStatsView<'a, G: Html>(visibility: Scope<'a>, props: TraceStatsProps<'a>) -> View<G> {
+    let ctx = use_dev_context(visibility);
     let presentation_signal = ctx.presentation_signal();
     let trace_id = props.trace_id;
-    let restrict_to_arrival = memo!(scope, move || {
+    let restrict_to_arrival = memo!(visibility, move || {
         let presentation = presentation_signal.get();
         if presentation.opt_active_trace_id() != Some(trace_id) {
             return false;
@@ -26,7 +26,7 @@ pub fn TraceStatsView<'a, G: Html>(scope: Scope<'a>, props: TraceStatsProps<'a>)
             None => true,
         }
     });
-    let restrict_to_return = memo!(scope, move || {
+    let restrict_to_return = memo!(visibility, move || {
         let presentation = presentation_signal.get();
         if presentation.opt_active_trace_id() != Some(trace_id) {
             return false;
@@ -49,7 +49,7 @@ pub fn TraceStatsView<'a, G: Html>(scope: Scope<'a>, props: TraceStatsProps<'a>)
             dev_falses,
             dev_partition_noness,
         } => view! {
-            scope,
+            visibility,
             div (
                 class="TraceStatsView",
                 style=format!("padding-left: {}ch", 3 + props.indent),
@@ -96,7 +96,7 @@ pub fn TraceStatsView<'a, G: Html>(scope: Scope<'a>, props: TraceStatsProps<'a>)
                         |(idx, (partition, dev_partition_nones))| {
                             let partition_name = partition.name();
                             view!{
-                                scope,
+                                visibility,
                                 div (class = "DevPartitionNoneStats") {
                                     "N["
                                     (partition_name)

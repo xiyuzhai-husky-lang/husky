@@ -55,7 +55,7 @@ impl<G: GenericNode> View<G> {
         }
     }
 
-    /// Create a new [`View`] from a [`FnMut`] while creating a new child reactive scope.
+    /// Create a new [`View`] from a [`FnMut`] while creating a new child reactive visibility.
     pub fn new_dyn_scoped<'a>(
         cx: Scope<'a>,
         mut f: impl FnMut(BoundedScope<'_, 'a>) -> View<G> + 'a,

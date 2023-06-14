@@ -44,7 +44,7 @@ pub fn entity_path_declarative_ty(
                 TypePathDisambiguation::Constructor => ty_constructor_path_declarative_ty(db, path),
             },
             ModuleItemPath::Trait(path) => trai_path_declarative_ty(db, path),
-            ModuleItemPath::Form(path) => form_path_declarative_ty(db, path),
+            ModuleItemPath::Fugitive(path) => form_path_declarative_ty(db, path),
         },
         EntityPath::AssociatedItem(_) => todo!(),
         EntityPath::TypeVariant(_) => todo!(),

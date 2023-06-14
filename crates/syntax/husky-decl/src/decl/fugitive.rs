@@ -140,19 +140,20 @@ impl<'a> DeclParseContext<'a> {
         saved_stream_state: TokenStreamState,
     ) -> Result<FugitiveDecl, DeclError> {
         let db = self.db();
-        match id.path(db).form_kind(db) {
-            FugitiveKind::Val => {
-                self.parse_feature_decl(ast_idx, token_group_idx, saved_stream_state, id)
-            }
-            FugitiveKind::Fn => {
-                self.parse_fn_decl(ast_idx, token_group_idx, saved_stream_state, id)
-            }
-            FugitiveKind::Type => {
-                todo!()
-            }
-            FugitiveKind::Gn => {
-                self.parse_gn_decl(ast_idx, token_group_idx, saved_stream_state, id)
-            }
-        }
+        todo!()
+        // match id.path(db).form_kind(db) {
+        //     FugitiveKind::Val => {
+        //         self.parse_feature_decl(ast_idx, token_group_idx, saved_stream_state, id)
+        //     }
+        //     FugitiveKind::Fn => {
+        //         self.parse_fn_decl(ast_idx, token_group_idx, saved_stream_state, id)
+        //     }
+        //     FugitiveKind::Type => {
+        //         todo!()
+        //     }
+        //     FugitiveKind::Gn => {
+        //         self.parse_gn_decl(ast_idx, token_group_idx, saved_stream_state, id)
+        //     }
+        // }
     }
 }

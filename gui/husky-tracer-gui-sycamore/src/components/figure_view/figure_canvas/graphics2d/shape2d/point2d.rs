@@ -6,9 +6,9 @@ pub struct Point2dProps<'a> {
 }
 
 #[component]
-pub fn Point2d<'a, G: Html>(scope: Scope<'a>, props: Point2dProps<'a>) -> View<G> {
+pub fn Point2d<'a, G: Html>(visibility: Scope<'a>, props: Point2dProps<'a>) -> View<G> {
     view! {
-        scope,
+        visibility,
         circle (
             cx={props.point.x},
             cy={props.point.y},

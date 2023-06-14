@@ -41,9 +41,11 @@ pub(crate) fn entity_variance_crate_dependencies(
                     .as_ref()
                     .map(|t| t.as_ref())
             }
-            ModuleItemPath::Form(path) => form_entity_variance_crate_dependencies(db, path, id.idx)
-                .as_ref()
-                .map(|t| t.as_ref()),
+            ModuleItemPath::Fugitive(path) => {
+                form_entity_variance_crate_dependencies(db, path, id.idx)
+                    .as_ref()
+                    .map(|t| t.as_ref())
+            }
         },
         EntityPath::AssociatedItem(_) => todo!(),
         EntityPath::TypeVariant(_) => todo!(),

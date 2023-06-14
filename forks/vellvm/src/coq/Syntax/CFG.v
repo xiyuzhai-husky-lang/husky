@@ -54,7 +54,7 @@ Section CFG.
       Each function definition corresponds to a control-flow graph
    - init is the entry block
    - blks is a list of labeled blocks
-   - args is the list of identifiers brought into scope by this function
+   - args is the list of identifiers brought into visibility by this function
    *)
   Record cfg := mkCFG
                   {

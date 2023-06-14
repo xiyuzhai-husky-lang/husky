@@ -20,14 +20,14 @@ pub struct TraceLineProps<'a> {
 }
 
 #[component]
-pub fn TraceLine<'a, G: Html>(scope: Scope<'a>, props: TraceLineProps<'a>) -> View<G> {
+pub fn TraceLine<'a, G: Html>(visibility: Scope<'a>, props: TraceLineProps<'a>) -> View<G> {
     let trace_tokens = View::new_fragment(
         props
             .data
             .tokens
             .iter()
             .map(|token_data| {
-                view! { scope,
+                view! { visibility,
                     TraceToken {
                         is_trace_active: props.is_trace_active,
                         data: token_data,
@@ -36,12 +36,12 @@ pub fn TraceLine<'a, G: Html>(scope: Scope<'a>, props: TraceLineProps<'a>) -> Vi
             })
             .collect(),
     );
-    let extra_tokens = memo!(scope, move || View::new_fragment(
+    let extra_tokens = memo!(visibility, move || View::new_fragment(
         if let Some(extra_tokens) = props.opt_extra_tokens.cget() {
             extra_tokens
                 .iter()
                 .map(|token_data| {
-                    view! { scope,
+                    view! { visibility,
                         TraceToken {
                             is_trace_active: props.is_trace_active,
                             data: token_data,
@@ -57,7 +57,7 @@ pub fn TraceLine<'a, G: Html>(scope: Scope<'a>, props: TraceLineProps<'a>) -> Vi
     let line_idx = props.data.idx;
     let trace_id = props.trace_id;
     view! {
-        scope,
+        visibility,
         div(class="TraceLine"){
             p (class="TraceLineLeft") {
                 span (class="indent", style=format!("padding-left: {}ch", indent))

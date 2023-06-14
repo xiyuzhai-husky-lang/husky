@@ -15,29 +15,29 @@ pub struct Shape2dProps<'a> {
 }
 
 #[component]
-pub fn Shape2d<'a, G: Html>(scope: Scope<'a>, props: Shape2dProps<'a>) -> View<G> {
+pub fn Shape2d<'a, G: Html>(visibility: Scope<'a>, props: Shape2dProps<'a>) -> View<G> {
     match props.data {
         Shape2dData::Arrow2d { from, to } => view! {
-            scope,
+            visibility,
             Arrow2d {
                 from,
                 to
             }
         },
         Shape2dData::Point2d { point } => view! {
-            scope,
+            visibility,
             Point2d {
                 point
             }
         },
         Shape2dData::Contour { points } => view! {
-            scope,
+            visibility,
             Contour2d {
                 points
             }
         },
         Shape2dData::LineSegment { start, end } => view! {
-            scope,
+            visibility,
             LineSegment2d {
                 start: *start,
                 end: *end,
@@ -46,11 +46,11 @@ pub fn Shape2d<'a, G: Html>(scope: Scope<'a>, props: Shape2dProps<'a>) -> View<G
             }
         },
         Shape2dData::Group { shapes } => view! {
-            scope,
+            visibility,
             g {
                 (View::new_fragment(shapes.iter().map(|data|{
                     view! {
-                        scope,
+                        visibility,
                         Shape2d {
                             data
                         }

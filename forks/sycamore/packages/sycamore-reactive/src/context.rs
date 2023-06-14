@@ -3,15 +3,15 @@
 use crate::*;
 
 /// Provides a context in the current [`Scope`]. The context can later be accessed by using
-/// [`use_context`] lower in the scope hierarchy.
+/// [`use_context`] lower in the visibility hierarchy.
 ///
-/// The context can also be accessed in the same scope in which it is provided.
+/// The context can also be accessed in the same visibility in which it is provided.
 ///
 /// This method is simply a wrapper around [`create_ref`] and [`provide_context_ref`].
 ///
 /// # Panics
-/// This method panics if a context with the same type exists already in this scope.
-/// Note that if a context with the same type exists in a parent scope, the new context will
+/// This method panics if a context with the same type exists already in this visibility.
+/// Note that if a context with the same type exists in a parent visibility, the new context will
 /// shadow the old context.
 #[track_caller]
 pub fn provide_context<T: 'static>(cx: Scope, value: T) -> &T {
@@ -20,16 +20,16 @@ pub fn provide_context<T: 'static>(cx: Scope, value: T) -> &T {
 }
 
 /// Provides a context in the current [`Scope`]. The context can later be accessed by using
-/// [`use_context`] lower in the scope hierarchy.
+/// [`use_context`] lower in the visibility hierarchy.
 ///
-/// The context can also be accessed in the same scope in which it is provided.
+/// The context can also be accessed in the same visibility in which it is provided.
 ///
 /// Unlike [`provide_context`], this method accepts a reference that
-/// lives at least as long as the scope.
+/// lives at least as long as the visibility.
 ///
 /// # Panics
-/// This method panics if a context with the same type exists already in this scope.
-/// Note that if a context with the same type exists in a parent scope, the new context will
+/// This method panics if a context with the same type exists already in this visibility.
+/// Note that if a context with the same type exists in a parent visibility, the new context will
 /// shadow the old context.
 #[track_caller]
 pub fn provide_context_ref<'a, T: 'static>(cx: Scope<'a>, value: &'a T) -> &'a T {
@@ -74,7 +74,7 @@ pub fn try_use_context<T: 'static>(cx: Scope) -> Option<&T> {
 /// Gets a context value of the given type.
 ///
 /// # Panics
-/// This method panics if the context cannot be found in the current scope hierarchy.
+/// This method panics if the context cannot be found in the current visibility hierarchy.
 /// For a non-panicking version, see [`try_use_context`].
 #[track_caller]
 pub fn use_context<T: 'static>(cx: Scope) -> &T {
@@ -83,8 +83,8 @@ pub fn use_context<T: 'static>(cx: Scope) -> &T {
 
 /// Gets a context value of the given type or computes it from a closure.
 ///
-/// Note that if no context exists, the new context will be created in the _current_ scope. This
-/// means that the new value will still be inaccessible in an outer scope.
+/// Note that if no context exists, the new context will be created in the _current_ visibility.
+/// This means that the new value will still be inaccessible in an outer visibility.
 pub fn use_context_or_else<T, F>(cx: Scope, f: F) -> &T
 where
     T: 'static,
@@ -96,10 +96,10 @@ where
 /// Gets a context value of the given type or computes it from a closure.
 ///
 /// Unlike [`provide_context`], this closure should return a reference that lives at least as long
-/// as the scope.
+/// as the visibility.
 ///
-/// Note that if no context exists, the new context will be created in the _current_ scope. This
-/// means that the new value will still be inaccessible in an outer scope.
+/// Note that if no context exists, the new context will be created in the _current_ visibility.
+/// This means that the new value will still be inaccessible in an outer visibility.
 pub fn use_context_or_else_ref<'a, T, F>(cx: Scope<'a>, f: F) -> &'a T
 where
     T: 'static,
@@ -108,7 +108,8 @@ where
     try_use_context(cx).unwrap_or_else(|| provide_context_ref(cx, f()))
 }
 
-/// Returns the current depth of the scope. If the scope is the root scope, returns `0`.
+/// Returns the current depth of the visibility. If the visibility is the root visibility, returns
+/// `0`.
 pub fn scope_depth(cx: Scope) -> u32 {
     let mut depth = 0;
     let mut current = cx.raw;
@@ -196,11 +197,11 @@ mod tests {
     fn depth_of_scope_inc_with_child_scopes() {
         create_scope_immediate(|cx| {
             let _ = create_child_scope(cx, |cx| {
-                // first non root scope should be 1
+                // first non root visibility should be 1
                 assert_eq!(scope_depth(cx), 1);
 
                 let _ = create_child_scope(cx, |cx| {
-                    // next scope should thus be 2
+                    // next visibility should thus be 2
                     assert_eq!(scope_depth(cx), 2);
                 });
 

@@ -50,7 +50,7 @@ pub(crate) fn subentity_path(
                     }
                 }
                 ModuleItemPath::Trait(_) => todo!(),
-                ModuleItemPath::Form(_) => todo!(),
+                ModuleItemPath::Fugitive(_) => todo!(),
             }
         }
         EntityPath::AssociatedItem(_) => todo!(),

@@ -10,16 +10,16 @@ pub struct FigureControlProps<'a> {
     opt_control_data: &'a ReadSignal<Option<&'a ReadSignal<FigureControlData>>>,
 }
 
-pub fn FigureControl<'a, G: Html>(scope: Scope<'a>, props: FigureControlProps<'a>) -> View<G> {
-    let ctx = use_dev_context(scope);
+pub fn FigureControl<'a, G: Html>(visibility: Scope<'a>, props: FigureControlProps<'a>) -> View<G> {
+    let ctx = use_dev_context(visibility);
     let presentation_signal = ctx.presentation_signal();
     view! {
-        scope,
+        visibility,
         (if let Some(figure_control_data) = props.opt_control_data.cget() {
             match *figure_control_data.get() {
-                FigureControlData::Unit => view! {scope, },
+                FigureControlData::Unit => view! {visibility, },
                 FigureControlData::Mutations { opt_mutation_selection } =>
-                view! {scope,
+                view! {visibility,
                 MutationsControl {
                     mutations: todo!(),
                     figure_control_data: todo!(),
@@ -27,7 +27,7 @@ pub fn FigureControl<'a, G: Html>(scope: Scope<'a>, props: FigureControlProps<'a
                 }}
             }
         } else {
-            view! {scope, "no active trace"}
+            view! {visibility, "no active trace"}
         })
     }
 }

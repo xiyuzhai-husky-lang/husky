@@ -218,7 +218,7 @@ pub fn Header<G: Html>(cx: Scope) -> View<G> {
 #[component]
 pub fn Item<G: Html>(cx: Scope, todo: RcSignal<Todo>) -> View<G> {
     let app_state = use_context::<AppState>(cx);
-    // Make `todo` live as long as the scope.
+    // Make `todo` live as long as the visibility.
     let todo = create_ref(cx, todo);
 
     let title = || todo.get().title.clone();

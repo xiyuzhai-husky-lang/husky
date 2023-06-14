@@ -133,7 +133,7 @@ pub struct HydrationRegistry {
     /// to hydration so that one component that doesn't hydrate correctly will not prevent other
     /// components from hydrating.
     pub current_component_id: usize,
-    /// The next component id. We need to save this because exiting the component scope decrements
+    /// The next component id. We need to save this because exiting the component visibility decrements
     /// the current component id. This is to ensure that component ids are unique for each
     /// instance of a component.
     pub next_component_id: usize,

@@ -46,7 +46,7 @@ impl HasTypeGivenDisambiguation for ModuleItemPath {
         match self {
             ModuleItemPath::Type(path) => path.ty(db, disambiguation),
             ModuleItemPath::Trait(path) => path.ty(db),
-            ModuleItemPath::Form(path) => path.ty(db),
+            ModuleItemPath::Fugitive(path) => path.ty(db),
         }
     }
 }

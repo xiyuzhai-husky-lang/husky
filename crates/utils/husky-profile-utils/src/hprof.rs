@@ -37,7 +37,7 @@ pub fn init_from(spec: &str) {
 
 type Label = &'static str;
 
-/// This function starts a profiling scope in the current execution stack with a given description.
+/// This function starts a profiling visibility in the current execution stack with a given description.
 /// It returns a `Profile` struct that measures elapsed time between this method invocation and `Profile` struct drop.
 /// It supports nested profiling scopes in case when this function is invoked multiple times at the execution stack.
 /// In this case the profiling information will be nested at the output.

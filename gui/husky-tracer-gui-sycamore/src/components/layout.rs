@@ -11,14 +11,14 @@ pub struct LayoutProps<'a> {
 }
 
 #[component]
-pub fn Layout<'a, G: Html>(scope: Scope<'a>, props: LayoutProps<'a>) -> View<G> {
-    let ctx = use_dev_context(scope);
-    let dimension = memo!(scope, || PixelDimension {
+pub fn Layout<'a, G: Html>(visibility: Scope<'a>, props: LayoutProps<'a>) -> View<G> {
+    let ctx = use_dev_context(visibility);
+    let dimension = memo!(visibility, || PixelDimension {
         width: props.width.cget(),
         height: props.height.cget()
     });
     view! {
-        scope,
+        visibility,
         VSplitPanel {
             dimension
         }

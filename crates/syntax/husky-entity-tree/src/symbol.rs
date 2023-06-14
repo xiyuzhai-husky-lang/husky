@@ -1,29 +1,5 @@
-mod native;
-mod table;
-
-pub use native::*;
-pub use table::*;
-
 use crate::*;
 use husky_token::{IdentToken, TokenIdx};
-
-#[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar)]
-pub struct ModuleItemSymbol {
-    #[id]
-    pub path: ModuleItemPath,
-    pub visibility: Scope,
-    pub ast_idx: AstIdx,
-    pub ident_token: IdentToken,
-}
-
-#[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar)]
-pub struct SubmoduleSymbol {
-    #[id]
-    pub path: ModulePath,
-    pub visibility: Scope,
-    pub ast_idx: AstIdx,
-    pub ident_token: IdentToken,
-}
 
 #[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar)]
 pub struct UseSymbol {
@@ -35,9 +11,9 @@ pub struct UseSymbol {
     pub use_expr_idx: UseExprIdx,
 }
 
-impl ModuleItemSymbol {
+impl ModuleItemNode {
     pub fn ident(&self, db: &dyn EntityTreeDb) -> Ident {
-        self.path(db).ident(db)
+        self.node_path(db).ident(db)
     }
 }
 
@@ -58,9 +34,18 @@ pub enum EntitySymbol {
     PackageDependency {
         entity_path: EntityPath,
     },
-    Submodule(SubmoduleSymbol),
-    ModuleItem(ModuleItemSymbol),
+    Submodule(SubmoduleNode),
+    ModuleItem(ModuleItemNode),
     Use(UseSymbol),
+}
+
+impl From<EntityNode> for EntitySymbol {
+    fn from(val: EntityNode) -> Self {
+        match val {
+            EntityNode::Submodule(symbol) => EntitySymbol::Submodule(symbol),
+            EntityNode::ModuleItem(symbol) => EntitySymbol::ModuleItem(symbol),
+        }
+    }
 }
 
 impl EntitySymbol {
@@ -92,12 +77,13 @@ impl EntitySymbol {
             } => super_module_path.into(),
             EntitySymbol::PackageDependency { entity_path } => entity_path.into(),
             EntitySymbol::Submodule(symbol) => symbol.path(db).into(),
-            EntitySymbol::ModuleItem(symbol) => symbol.path(db).into(),
+            EntitySymbol::ModuleItem(symbol) => todo!(),
+            // symbol.path(db).into(),
             EntitySymbol::Use(symbol) => symbol.path(db).into(),
         }
     }
 
-    pub fn module_item_symbol(self) -> Option<ModuleItemSymbol> {
+    pub fn module_item_symbol(self) -> Option<ModuleItemNode> {
         match self {
             EntitySymbol::ModuleItem(symbol) => Some(symbol),
             _ => None,

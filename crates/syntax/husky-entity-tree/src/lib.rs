@@ -14,10 +14,10 @@ mod sheet;
 mod subentity;
 mod submodule;
 mod symbol;
+mod table;
 #[cfg(test)]
 mod tests;
 mod utils;
-mod variant;
 
 pub use self::bundle::*;
 pub use self::db::*;
@@ -29,7 +29,7 @@ pub use self::presheet::*;
 pub use self::region_path::*;
 pub use self::sheet::*;
 pub use self::symbol::*;
-pub use self::variant::*;
+pub use self::table::*;
 
 use self::collector::*;
 use self::context::*;
@@ -50,8 +50,8 @@ use vec_like::AsVecMapEntry;
 
 #[salsa::jar(db = EntityTreeDb)]
 pub struct EntityTreeJar(
-    SubmoduleSymbol,
-    ModuleItemSymbol,
+    SubmoduleNode,
+    ModuleItemNode,
     UseSymbol,
     TypeImplBlockNode,
     TraitForTypeImplBlockNode,
@@ -69,6 +69,7 @@ pub struct EntityTreeJar(
     TraitItemNode,
     TraitForTypeItemNodePath,
     TraitForTypeItemNode,
+    TypeVariantNode,
     entity_tree_presheet,
     entity_tree_crate_bundle,
     submodules,
