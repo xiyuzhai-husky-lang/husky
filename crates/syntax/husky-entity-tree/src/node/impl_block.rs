@@ -23,6 +23,8 @@ pub enum ImplBlockNodePath {
     IllFormedImplBlock(IllFormedImplBlockNodePath),
 }
 
+pub(crate) struct ImplBlockNodePathRegistry {}
+
 impl ImplBlockNodePath {
     pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
         match self {
@@ -157,7 +159,7 @@ impl ImplBlockNode {
                 )
                 .into()
             }
-            ModuleItemPath::Form(_) => todo!(),
+            ModuleItemPath::Fugitive(_) => todo!(),
         }
     }
 

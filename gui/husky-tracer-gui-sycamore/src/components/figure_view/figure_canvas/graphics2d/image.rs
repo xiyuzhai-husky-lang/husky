@@ -32,11 +32,11 @@ fn render(
 }
 
 #[component]
-pub fn Image<'a, G: Html>(scope: Scope<'a>, props: ImageProps<'a>) -> View<G> {
-    let canvas_ref = create_node_ref_signal(scope);
+pub fn Image<'a, G: Html>(visibility: Scope<'a>, props: ImageProps<'a>) -> View<G> {
+    let canvas_ref = create_node_ref_signal(visibility);
     let dimension = props.dimension;
     let composed_image_data = OriginalImageData::new_composed(&props.image_layers);
-    effect!(scope, {
+    effect!(visibility, {
         dimension.track();
         move || {
             let dimension = dimension.cget();
@@ -51,7 +51,7 @@ pub fn Image<'a, G: Html>(scope: Scope<'a>, props: ImageProps<'a>) -> View<G> {
         }
     });
     view! {
-        scope,
+        visibility,
         canvas (
             ref=canvas_ref,
             style=dimension.get().to_style()

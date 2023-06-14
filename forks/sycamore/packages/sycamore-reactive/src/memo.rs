@@ -19,23 +19,27 @@ where
 
 #[macro_export]
 macro_rules! memo {
-    ($scope: ident, $lambda: expr) => {{
-        create_memo($scope, $lambda, format!("memo at {}:{}", file!(), line!()))
+    ($visibility: ident, $lambda: expr) => {{
+        create_memo($visibility, $lambda, format!("memo at {}:{}", file!(), line!()))
     }};
-    ($scope: ident, $lambda: expr, $first_dependency: ident) => {{
+    ($visibility: ident, $lambda: expr, $first_dependency: ident) => {{
         let $first_dependency = $first_dependency.clone();
-        memo!($scope, $lambda)
+        memo!($visibility, $lambda)
     }};
-    ($scope: ident, $lambda: expr, $first_dependency: ident, $($other_dependencies: ident),*) => {{
+    ($visibility: ident, $lambda: expr, $first_dependency: ident, $($other_dependencies: ident),*) => {{
         let $first_dependency = $first_dependency.clone();
-        memo!($scope, $lambda, $($other_dependencies),*)
+        memo!($visibility, $lambda, $($other_dependencies),*)
     }};
 }
 
 #[macro_export]
 macro_rules! selector {
-    ($scope: ident, $lambda: expr) => {{
-        create_selector($scope, $lambda, format!("memo at {}:{}", file!(), line!()))
+    ($visibility: ident, $lambda: expr) => {{
+        create_selector(
+            $visibility,
+            $lambda,
+            format!("memo at {}:{}", file!(), line!()),
+        )
     }};
 }
 

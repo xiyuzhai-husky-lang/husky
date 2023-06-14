@@ -6,8 +6,8 @@ pub struct TraceTreeProps {
 }
 
 #[component]
-pub fn TraceTree<'a, G: Html>(scope: Scope<'a>, props: TraceTreeProps) -> View<G> {
-    let ctx = use_dev_context(scope);
+pub fn TraceTree<'a, G: Html>(visibility: Scope<'a>, props: TraceTreeProps) -> View<G> {
+    let ctx = use_dev_context(visibility);
     let shown = ctx.shown_read_signal(props.trace_id);
     let trace = ctx.trace_data(props.trace_id);
     let associated_trace_trees = View::new_fragment(
@@ -15,17 +15,17 @@ pub fn TraceTree<'a, G: Html>(scope: Scope<'a>, props: TraceTreeProps) -> View<G
             .associated_trace_ids()
             .into_iter()
             .map(|trace_id| {
-                view! { scope, TraceTree {
+                view! { visibility, TraceTree {
                     trace_id
                 } }
             })
             .collect(),
     );
     let presentation_signal = ctx.presentation_signal();
-    let has_subtraces = memo!(scope, {
+    let has_subtraces = memo!(visibility, {
         move || trace.has_subtraces(presentation_signal.get().opt_sample_id().is_some())
     });
-    let subtrace_ids = memo!(scope, {
+    let subtrace_ids = memo!(visibility, {
         let expansion = ctx.expansion_read_signal(props.trace_id);
         move || {
             if expansion.cget() {
@@ -37,10 +37,10 @@ pub fn TraceTree<'a, G: Html>(scope: Scope<'a>, props: TraceTreeProps) -> View<G
         }
     });
     view! {
-        scope,
+        visibility,
         (if shown.cget() {
             view! {
-                scope,
+                visibility,
                 div(class=format!("TraceTree {}", trace.kind.as_str())) {
                     TraceNode {
                         trace_id: props.trace_id,
@@ -50,8 +50,8 @@ pub fn TraceTree<'a, G: Html>(scope: Scope<'a>, props: TraceTreeProps) -> View<G
                     div {
                         Indexed {
                             iterable: subtrace_ids,
-                            view: |scope, trace_id| view! {
-                                scope,
+                            view: |visibility, trace_id| view! {
+                                visibility,
                                 TraceTree {
                                     trace_id,
                                 }
@@ -61,7 +61,7 @@ pub fn TraceTree<'a, G: Html>(scope: Scope<'a>, props: TraceTreeProps) -> View<G
                 }
             }
         } else {
-            view! {scope, }
+            view! {visibility, }
         })
     }
 }

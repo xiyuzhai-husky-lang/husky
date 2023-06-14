@@ -272,7 +272,7 @@ pub fn hydrate(view: impl FnOnce(Scope<'_>) -> View<HydrateNode>) {
 ///
 /// _This API requires the following crate features to be activated: `hydrate`, `dom`_
 pub fn hydrate_to(view: impl FnOnce(Scope<'_>) -> View<HydrateNode>, parent: &Node) {
-    // Do not call the destructor function, effectively leaking the scope.
+    // Do not call the destructor function, effectively leaking the visibility.
     let _ = hydrate_get_scope(view, parent);
 }
 

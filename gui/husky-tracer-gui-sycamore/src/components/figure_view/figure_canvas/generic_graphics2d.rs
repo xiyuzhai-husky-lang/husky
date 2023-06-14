@@ -15,7 +15,7 @@ pub struct GenericGraphics2dProps<'a> {
 
 #[component]
 pub fn GenericGraphics2d<'a, G: Html>(
-    scope: Scope<'a>,
+    visibility: Scope<'a>,
     props: GenericGraphics2dProps<'a>,
 ) -> View<G> {
     let nline: u32 = props
@@ -28,7 +28,7 @@ pub fn GenericGraphics2d<'a, G: Html>(
         .iter()
         .map(|(partition, _)| partition.ncol)
         .sum();
-    let column_dimension = memo!(scope, move || {
+    let column_dimension = memo!(visibility, move || {
         (props.dimension.cget()
             - (
                 nline * GENERIC_SEPARATOR_LINE_WIDTH,
@@ -36,16 +36,16 @@ pub fn GenericGraphics2d<'a, G: Html>(
             ))
             / (ncol, 1)
     });
-    let actual_dimension = memo!(scope, move || {
+    let actual_dimension = memo!(visibility, move || {
         PixelDimension {
             width: column_dimension.cget().width * ncol + nline * GENERIC_SEPARATOR_LINE_WIDTH,
             height: props.dimension.cget().height - GENERIC_BOTTOM_SPACE,
         }
     });
-    let ctx = use_dev_context(scope);
+    let ctx = use_dev_context(visibility);
     let presentation_signal = ctx.presentation_signal();
     view! {
-        scope,
+        visibility,
         div (
             class="GenericGraphics2dCanvas",
             style=actual_dimension.cget().to_style()
@@ -53,7 +53,7 @@ pub fn GenericGraphics2d<'a, G: Html>(
             (View::new_fragment(props.partitioned_samples.clone().into_iter().enumerate().map(
                 |(idx, (partition, samples))| {
                     view!{
-                        scope,
+                        visibility,
                         PartitionContent {
                             idx,
                             column_dimension,

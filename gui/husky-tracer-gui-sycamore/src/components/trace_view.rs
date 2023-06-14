@@ -10,16 +10,16 @@ use trace_stats::*;
 use trace_tree::*;
 
 #[component]
-pub fn TraceView<'a, G: Html>(scope: Scope<'a>) -> View<G> {
-    let context = use_dev_context(scope);
+pub fn TraceView<'a, G: Html>(visibility: Scope<'a>) -> View<G> {
+    let context = use_dev_context(visibility);
     let root_trace_ids_signal = &context.root_trace_ids_signal();
     view! {
-        scope,
+        visibility,
         div(class="TraceView disable-select") {
             Indexed {
                 iterable: root_trace_ids_signal,
-                view: |scope, trace_id| view! {
-                    scope,
+                view: |visibility, trace_id| view! {
+                    visibility,
                     TraceTree {
                         trace_id
                     }

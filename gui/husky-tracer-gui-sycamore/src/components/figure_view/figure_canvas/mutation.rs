@@ -8,10 +8,13 @@ pub struct MutationCanvasProps<'a> {
 }
 
 #[component]
-pub fn MutationCanvas<'a, G: Html>(scope: Scope<'a>, props: MutationCanvasProps<'a>) -> View<G> {
+pub fn MutationCanvas<'a, G: Html>(
+    visibility: Scope<'a>,
+    props: MutationCanvasProps<'a>,
+) -> View<G> {
     todo!()
     // view! {
-    //     scope,
+    //     visibility,
     //     FigureCanvasSwitch {
     //         canvas_value: &props.mutation.after,
     //         control_data: props.control_data,

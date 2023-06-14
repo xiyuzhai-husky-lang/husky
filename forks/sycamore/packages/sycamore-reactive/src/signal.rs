@@ -47,7 +47,7 @@ impl SignalEmitter {
         self.0.borrow_mut().remove(&cb);
     }
 
-    /// Track the current signal in the effect scope.
+    /// Track the current signal in the effect visibility.
     pub fn track(&self) {
         EFFECTS.with(|effects| {
             if let Some(last) = effects.borrow().last() {
@@ -71,7 +71,7 @@ impl SignalEmitter {
         // each callback is called.
         let subscribers = self.0.take().into_values();
         // Subscriber order is reversed because effects attach subscribers at the end of the
-        // effect scope. This will ensure that outer effects re-execute before inner effects,
+        // effect visibility. This will ensure that outer effects re-execute before inner effects,
         // preventing inner effects from running twice.
         for subscriber in subscribers.rev() {
             // subscriber might have already been destroyed in the case of nested effects.
@@ -267,15 +267,15 @@ impl<'a, T> AnyReadSignal<'a> for ReadSignal<T> {
         self.track();
     }
 }
-pub fn create_signal<T>(scope: Scope, value: T) -> &Signal<T>
+pub fn create_signal<T>(visibility: Scope, value: T) -> &Signal<T>
 where
     T: Signalable,
 {
     let signal = Signal::new(value);
-    create_ref(scope, signal)
+    create_ref(visibility, signal)
 }
 
-pub fn create_signal_from_rc<T>(scope: Scope, value: Rc<T>) -> &Signal<T>
+pub fn create_signal_from_rc<T>(visibility: Scope, value: Rc<T>) -> &Signal<T>
 where
     T: Signalable,
 {
@@ -283,7 +283,7 @@ where
         value: RefCell::new(value),
         emitter: Default::default(),
     });
-    create_ref(scope, signal)
+    create_ref(visibility, signal)
 }
 
 pub struct RcSignal<T>(Rc<Signal<T>>)

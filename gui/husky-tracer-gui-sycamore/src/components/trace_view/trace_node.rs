@@ -9,21 +9,21 @@ pub struct TraceNodeProps<'a> {
 }
 
 #[component]
-pub fn TraceNode<'a, G: Html>(scope: Scope<'a>, props: TraceNodeProps<'a>) -> View<G> {
-    let ctx = use_dev_context(scope);
+pub fn TraceNode<'a, G: Html>(visibility: Scope<'a>, props: TraceNodeProps<'a>) -> View<G> {
+    let ctx = use_dev_context(visibility);
     let shown = ctx.shown_read_signal(props.trace_id);
     let expanded = ctx.expansion_read_signal(props.trace_id);
     let trace = ctx.trace_data(props.trace_id);
     let trace_kind = trace.kind;
     let presentation_signal = ctx.presentation_signal();
-    let has_stalk = memo!(scope, move || {
+    let has_stalk = memo!(visibility, move || {
         trace_kind.can_have_stalk() && presentation_signal.get().opt_sample_id().is_some()
     });
     let has_subtraces = props.has_subtraces;
     let toggle_expansion_handler = ctx.toggle_expansion_handler(props.trace_id);
     let activate_handler = ctx.activate_handler(props.trace_id);
     let trace_id = trace.id;
-    let is_trace_active = memo!(scope, move || {
+    let is_trace_active = memo!(visibility, move || {
         presentation_signal.get().opt_active_trace_id() == Some(trace_id)
     });
     let trace_lines_len = trace.lines.len();
@@ -35,7 +35,7 @@ pub fn TraceNode<'a, G: Html>(scope: Scope<'a>, props: TraceNodeProps<'a>) -> Vi
                 let toggle_expansion_handler = toggle_expansion_handler.clone();
                 let line_idx = line_data.idx;
                 let opt_extra_tokens =
-                    memo!(scope, move || -> Option<&'static [TraceTokenData]> {
+                    memo!(visibility, move || -> Option<&'static [TraceTokenData]> {
                         if let Some(sample_id) = presentation_signal.get().opt_sample_id() {
                             if line_idx == trace_lines_len - 1 {
                                 let trace_stalk = ctx.trace_stalk(sample_id, trace_id);
@@ -48,7 +48,7 @@ pub fn TraceNode<'a, G: Html>(scope: Scope<'a>, props: TraceNodeProps<'a>) -> Vi
                         }
                     });
                 view! {
-                    scope,
+                    visibility,
                     TraceLine {
                         data: line_data,
                         is_trace_active,
@@ -63,11 +63,11 @@ pub fn TraceNode<'a, G: Html>(scope: Scope<'a>, props: TraceNodeProps<'a>) -> Vi
             })
             .collect(),
     );
-    let reachable = memo!(scope, move || trace.reachable);
-    let opt_stats = memo!(scope, move || ctx
+    let reachable = memo!(visibility, move || trace.reachable);
+    let opt_stats = memo!(visibility, move || ctx
         .opt_trace_stats(trace_id, &presentation_signal.get()));
     view! {
-        scope,
+        visibility,
         div(
             class=format!("TraceNode {}", class!(*reachable)),
             on:mousedown=activate_handler
@@ -84,7 +84,7 @@ pub fn TraceNode<'a, G: Html>(scope: Scope<'a>, props: TraceNodeProps<'a>) -> Vi
                 (trace_lines)
                 (if let Some(ref stats) = *opt_stats.get() {
                     view!{
-                        scope,
+                        visibility,
                         TraceStatsView {
                             trace_id,
                             stats,
@@ -92,7 +92,7 @@ pub fn TraceNode<'a, G: Html>(scope: Scope<'a>, props: TraceNodeProps<'a>) -> Vi
                         }
                     }
                 } else {
-                    view!{ scope, }
+                    view!{ visibility, }
                 })
             }
         }

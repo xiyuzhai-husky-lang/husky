@@ -54,25 +54,25 @@ struct ScopeRaw<'a> {
     inner: RefCell<ScopeInner<'a>>,
     /// An arena allocator for allocating refs and signals.
     arena: ScopeArena<'a>,
-    /// A pointer to the parent scope.
+    /// A pointer to the parent visibility.
     /// # Safety
-    /// The parent scope does not actually have the right lifetime.
+    /// The parent visibility does not actually have the right lifetime.
     parent: Option<*const ScopeRaw<'a>>,
 }
 
-/// A reference to a reactive scope. This reference is `Copy`, allowing it to be copied into
+/// A reference to a reactive visibility. This reference is `Copy`, allowing it to be copied into
 /// closures without any clones.
 ///
 /// The intended way to access a [`Scope`] is with the [`create_scope`] function.
 ///
 /// # Lifetime
 ///
-/// * `'a` - The lifetime of the scope and all data allocated on it. This allows passing in data
-///   from an outer scope into an inner scope. This lifetime is invariant because it is used within
-///   an cell.
-/// * `'b` - The bounded lifetime of the scope. This ensures that the scope cannot live longer than
-///   this lifetime. This lifetime is covariant because if the scope can outlive `'b1`, it can also
-///   outlive `'b2` if `'b1: 'b2`.
+/// * `'a` - The lifetime of the visibility and all data allocated on it. This allows passing in
+///   data from an outer visibility into an inner visibility. This lifetime is invariant because it
+///   is used within an cell.
+/// * `'b` - The bounded lifetime of the visibility. This ensures that the visibility cannot live
+///   longer than this lifetime. This lifetime is covariant because if the visibility can outlive
+///   `'b1`, it can also outlive `'b2` if `'b1: 'b2`.
 ///
 /// As a convenience, the [`Scope`] type alias is provided that uses the same lifetime for both `'a`
 /// and `'b`. Any [`BoundedScope`] can be casted to a [`Scope`] because the second lifetime
@@ -120,7 +120,7 @@ impl<'a> ScopeRaw<'a> {
     /// possible to access a [`ScopeRaw`] directly on the stack.
     pub(crate) fn new() -> Self {
         // Even though the initialization code below is same as deriving Default::default(), we
-        // can't do that because accessing a raw Scope outside of a scope closure breaks
+        // can't do that because accessing a raw Scope outside of a visibility closure breaks
         // safety contracts.
         //
         // Self::new() is intentionally pub(crate) only to prevent end-users from creating a Scope.
@@ -174,7 +174,7 @@ impl<'a> ScopeDisposer<'a> {
     /// # Drop order
     ///
     /// Fields are dropped in the following order:
-    /// * `child_scopes` - Run child scope drop first.
+    /// * `child_scopes` - Run child visibility drop first.
     /// * `effects`
     /// * `cleanups`
     /// * `contexts` - Contexts can be refereed to inside a cleanup callback so they are dropped
@@ -189,18 +189,18 @@ impl<'a> ScopeDisposer<'a> {
     }
 }
 
-/// Creates a reactive scope.
+/// Creates a reactive visibility.
 ///
 /// Returns a disposer function which will release the memory owned by the [`Scope`].
 /// Err to call the disposer function will result in a memory leak.
 ///
-/// The callback closure is called in an [untracked](untrack) scope.
+/// The callback closure is called in an [untracked](untrack) visibility.
 ///
 /// # Scope lifetime
 ///
-/// The lifetime of the child scope is arbitrary. As such, it is impossible for anything allocated
-/// in the scope to escape out of the scope because it is possible for the scope lifetime to be
-/// longer than outside.
+/// The lifetime of the child visibility is arbitrary. As such, it is impossible for anything
+/// allocated in the visibility to escape out of the visibility because it is possible for the
+/// visibility lifetime to be longer than outside.
 ///
 /// ```compile_fail
 /// # use sycamore_reactive::*;
@@ -262,24 +262,24 @@ pub fn create_scope_static(f: impl FnOnce(Scope<'static>)) -> ScopeDisposer<'sta
     })
 }
 
-/// Create a child scope.
+/// Create a child visibility.
 ///
 /// Returns a disposer function which will release the memory owned by the [`Scope`]. If the
-/// disposer function is never called, the child scope will be disposed automatically when the
-/// parent scope is disposed.
+/// disposer function is never called, the child visibility will be disposed automatically when the
+/// parent visibility is disposed.
 ///
-/// # Child scope lifetime
+/// # Child visibility lifetime
 ///
-/// The lifetime of the child scope is strictly a subset of the lifetime of the parent scope.
-/// ```txt
+/// The lifetime of the child visibility is strictly a subset of the lifetime of the parent
+/// visibility. ```txt
 /// [------------'a-------------]
 ///      [---------'b--------]
 /// 'a: lifetime of parent
 /// 'b: lifetime of child
 /// ```
 /// If the disposer is never called, the lifetime `'b` lasts as long as `'a`.
-/// As such, it is impossible for anything allocated in the child scope to escape into the
-/// parent scope.
+/// As such, it is impossible for anything allocated in the child visibility to escape into the
+/// parent visibility.
 /// ```compile_fail
 /// # use sycamore_reactive::*;
 /// # create_scope_immediate(|cx| {
@@ -343,7 +343,7 @@ where
     })
 }
 
-/// Creates a reactive scope, runs the callback, and disposes the scope immediately.
+/// Creates a reactive visibility, runs the callback, and disposes the visibility immediately.
 ///
 /// Calling this is equivalent to writing:
 /// ```
@@ -356,14 +356,15 @@ where
 /// ```
 pub fn create_scope_immediate(f: impl for<'a> FnOnce(Scope<'a>)) {
     let disposer = create_scope(f);
-    // SAFETY: We are not accessing the scope after calling the disposer function.
+    // SAFETY: We are not accessing the visibility after calling the disposer function.
     unsafe {
         disposer.dispose();
     }
 }
 
 /// Allocate a new arbitrary value under the current [`Scope`].
-/// The allocated value lasts as long as the scope and cannot be used outside of the scope.
+/// The allocated value lasts as long as the visibility and cannot be used outside of the
+/// visibility.
 ///
 /// # Ref lifetime
 ///
@@ -383,16 +384,16 @@ pub fn create_scope_immediate(f: impl for<'a> FnOnce(Scope<'a>)) {
 /// let _ = outer.unwrap();
 /// # });
 /// ```
-pub fn create_ref<T>(scope: Scope, value: T) -> &T {
-    scope.raw.arena.alloc(value)
+pub fn create_ref<T>(visibility: Scope, value: T) -> &T {
+    visibility.raw.arena.alloc(value)
 }
 
-/// Adds a callback that is called when the scope is destroyed.
+/// Adds a callback that is called when the visibility is destroyed.
 pub fn on_cleanup<'a>(cx: Scope<'a>, f: impl FnOnce() + 'a) {
     cx.raw.inner.borrow_mut().cleanups.push(Box::new(f));
 }
 
-/// Returns a [`RcSignal`] that is `true` when the scope is still valid and `false` once it is
+/// Returns a [`RcSignal`] that is `true` when the visibility is still valid and `false` once it is
 /// disposed.
 pub fn use_scope_status(cx: Scope) -> RcSignal<bool> {
     let status = create_rc_signal(true);
@@ -419,7 +420,7 @@ impl<'a> ScopeRaw<'a> {
             // Dispose of cx if it has not already been disposed.
             cx.dispose();
         }
-        // Call cleanup functions in an untracked scope.
+        // Call cleanup functions in an untracked visibility.
         untrack(|| {
             for cb in mem::take(&mut inner.cleanups) {
                 cb();
@@ -432,7 +433,7 @@ impl<'a> ScopeRaw<'a> {
 
 impl Drop for ScopeRaw<'_> {
     fn drop(&mut self) {
-        // SAFETY: scope cannot be dropped while it is borrowed inside closure.
+        // SAFETY: visibility cannot be dropped while it is borrowed inside closure.
         unsafe { self.dispose() };
     }
 }
@@ -479,7 +480,7 @@ mod tests {
         let disposer = create_scope(|cx| {
             let r = create_ref(cx, 0);
             on_cleanup(cx, move || {
-                let _ = r; // r can be accessed inside scope here.
+                let _ = r; // r can be accessed inside visibility here.
                 dbg!(r);
             })
         });

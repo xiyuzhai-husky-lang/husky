@@ -8,8 +8,8 @@ pub struct ReadSignal<T> {
 }
 
 impl<T> ReadSignal<T> {
-    /// Get the current value of the state. When called inside a reactive scope, calling this will
-    /// add itself to the scope's dependencies.
+    /// Get the current value of the state. When called inside a reactive visibility, calling this
+    /// will add itself to the visibility's dependencies.
     ///
     /// # Example
     /// ```rust
@@ -69,7 +69,7 @@ impl<T> ReadSignal<T> {
         )
     }
 
-    /// When called inside a reactive scope, calling this will add itself to the scope's
+    /// When called inside a reactive visibility, calling this will add itself to the visibility's
     /// dependencies.
     ///
     /// To both track and get the value of the signal, use [`ReadSignal::get`] instead.

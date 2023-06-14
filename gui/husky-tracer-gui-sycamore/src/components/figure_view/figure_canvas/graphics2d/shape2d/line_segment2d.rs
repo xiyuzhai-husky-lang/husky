@@ -42,11 +42,11 @@ impl LineSegment2dProps {
 }
 
 #[component]
-pub fn LineSegment2d<'a, G: Html>(scope: Scope<'a>, props: LineSegment2dProps) -> View<G> {
+pub fn LineSegment2d<'a, G: Html>(visibility: Scope<'a>, props: LineSegment2dProps) -> View<G> {
     let transform = props.transform();
     let points = props.points();
     view! {
-        scope,
+        visibility,
         g (transform=transform) {
             polygon (
                 points=points,

@@ -9,15 +9,15 @@ pub struct MutationsControlProps<'a> {
 
 #[component]
 pub fn MutationsControl<'a, G: Html>(
-    scope: Scope<'a>,
+    visibility: Scope<'a>,
     props: MutationsControlProps<'a>,
 ) -> View<G> {
     view! {
-        scope,
+        visibility,
         div (class="MutationsControl") {
             (View::new_fragment(props.mutations.iter().map(|mutation|{
                 view! {
-                    scope,
+                    visibility,
                     MutationControl {
                         mutation,
                         figure_control_data: props.figure_control_data
@@ -35,9 +35,12 @@ pub struct MutationControlProps<'a> {
 }
 
 #[component]
-pub fn MutationControl<'a, G: Html>(scope: Scope<'a>, props: MutationControlProps<'a>) -> View<G> {
+pub fn MutationControl<'a, G: Html>(
+    visibility: Scope<'a>,
+    props: MutationControlProps<'a>,
+) -> View<G> {
     view! {
-        scope,
+        visibility,
         div (class="MutationsControl") {
             div (class="MutationControlInner") {
                 div (class="Name") {

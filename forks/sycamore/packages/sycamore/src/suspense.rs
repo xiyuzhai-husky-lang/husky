@@ -69,11 +69,11 @@ pub fn Suspense<'a, G: GenericNode>(cx: Scope<'a>, props: SuspenseProps<'a, G>) 
     }
 }
 
-/// Creates a new "suspense scope". This scope is used to signal to a [`Suspense`] component higher
+/// Creates a new "suspense visibility". This visibility is used to signal to a [`Suspense`] component higher
 /// up in the component hierarchy that there is some async task that should be awaited before
 /// rendering the UI.
 ///
-/// The scope ends when the future is resolved.
+/// The visibility ends when the future is resolved.
 pub fn suspense_scope<'a>(cx: Scope<'a>, f: impl Future<Output = ()> + 'a) {
     if let Some(state) = try_use_context::<SuspenseState>(cx) {
         if let Some(count) = state.async_counts.borrow().last().cloned() {
@@ -88,8 +88,8 @@ pub fn suspense_scope<'a>(cx: Scope<'a>, f: impl Future<Output = ()> + 'a) {
     spawn_local_scoped(cx, f);
 }
 
-/// Waits until all suspense tasks created within the scope are finished.
-/// If called inside an outer suspense scope, this will also make the outer suspense scope suspend
+/// Waits until all suspense tasks created within the visibility are finished.
+/// If called inside an outer suspense visibility, this will also make the outer suspense visibility suspend
 /// until this resolves.
 pub async fn await_suspense<U>(cx: Scope<'_>, f: impl Future<Output = U>) -> U {
     let state = use_context_or_else(cx, SuspenseState::default);
@@ -141,7 +141,7 @@ pub struct TransitionHandle<'a> {
 
 impl<'a> TransitionHandle<'a> {
     /// Returns whether the transition is currently in progress or not. This value can be tracked
-    /// from a listener scope.
+    /// from a listener visibility.
     pub fn is_pending(&self) -> bool {
         *self.is_pending.get()
     }

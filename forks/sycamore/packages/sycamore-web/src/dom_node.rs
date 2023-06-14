@@ -374,7 +374,7 @@ pub fn render(view: impl FnOnce(Scope<'_>) -> View<DomNode>) {
 ///
 /// _This API requires the following crate features to be activated: `dom`_
 pub fn render_to(view: impl FnOnce(Scope<'_>) -> View<DomNode>, parent: &Node) {
-    // Do not call the destructor function, effectively leaking the scope.
+    // Do not call the destructor function, effectively leaking the visibility.
     let _ = render_get_scope(view, parent);
 }
 
@@ -406,7 +406,7 @@ pub fn render_get_scope<'a>(
 }
 
 pub fn render_to_static(view: impl FnOnce(Scope<'static>) -> View<DomNode>, parent: &'static Node) {
-    // Do not call the destructor function, effectively leaking the scope.
+    // Do not call the destructor function, effectively leaking the visibility.
     let _ = render_get_scope_static(view, parent);
 }
 

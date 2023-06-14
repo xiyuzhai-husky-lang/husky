@@ -2872,13 +2872,13 @@ DISubroutineTypeField
 // ref: ParseDIDerivedType
 //
 //   ::= !DIDerivedType(tag: DW_TAG_pointer_type, name: "int", file: !0,
-//                      line: 7, scope: !1, baseType: !2, size: 32,
+//                      line: 7, visibility: !1, baseType: !2, size: 32,
 //                      align: 32, offset: 0, flags: 0, extraData: !3,
 //                      dwarfAddressSpace: 3)
 //
 //  REQUIRED(tag, DwarfTagField, );
 //  OPTIONAL(name, MDStringField, );
-//  OPTIONAL(scope, MDField, );
+//  OPTIONAL(visibility, MDField, );
 //  OPTIONAL(file, MDField, );
 //  OPTIONAL(line, LineField, );
 //  REQUIRED(baseType, MDField, );
@@ -2926,7 +2926,7 @@ DIDerivedTypeField
 //
 //  REQUIRED(tag, DwarfTagField, );
 //  OPTIONAL(name, MDStringField, );
-//  OPTIONAL(scope, MDField, );
+//  OPTIONAL(visibility, MDField, );
 //  OPTIONAL(file, MDField, );
 //  OPTIONAL(line, LineField, );
 //  OPTIONAL(baseType, MDField, );
@@ -3106,10 +3106,10 @@ DITemplateValueParameterField
 
 // ref: ParseDIModule
 //
-//   ::= !DIModule(scope: !0, name: "SomeModule", configMacros: "-DNDEBUG",
+//   ::= !DIModule(visibility: !0, name: "SomeModule", configMacros: "-DNDEBUG",
 //                 includePath: "/usr/include", isysroot: "/")
 //
-//  REQUIRED(scope, MDField, );
+//  REQUIRED(visibility, MDField, );
 //  REQUIRED(name, MDStringField, );
 //  OPTIONAL(configMacros, MDStringField, );
 //  OPTIONAL(includePath, MDStringField, );
@@ -3143,9 +3143,9 @@ DIModuleField
 
 // ref: ParseDINamespace
 //
-//   ::= !DINamespace(scope: !0, file: !2, name: "SomeNamespace", line: 9)
+//   ::= !DINamespace(visibility: !0, file: !2, name: "SomeNamespace", line: 9)
 //
-//  REQUIRED(scope, MDField, );
+//  REQUIRED(visibility, MDField, );
 //  OPTIONAL(name, MDStringField, );
 //  OPTIONAL(exportSymbols, MDBoolField, );
 
@@ -3175,12 +3175,12 @@ DINamespaceField
 
 // ref: ParseDIGlobalVariable
 //
-//   ::= !DIGlobalVariable(scope: !0, name: "foo", linkageName: "foo",
+//   ::= !DIGlobalVariable(visibility: !0, name: "foo", linkageName: "foo",
 //                         file: !1, line: 7, type: !2, isLocal: false,
 //                         isDefinition: true, declaration: !3, align: 8)
 //
 //  REQUIRED(name, MDStringField, (AllowEmpty false));
-//  OPTIONAL(scope, MDField, );
+//  OPTIONAL(visibility, MDField, );
 //  OPTIONAL(linkageName, MDStringField, );
 //  OPTIONAL(file, MDField, );
 //  OPTIONAL(line, LineField, );
@@ -3223,7 +3223,7 @@ DIGlobalVariableField
 
 // ref: ParseDISubprogram
 //
-//   ::= !DISubprogram(scope: !0, name: "foo", linkageName: "_Zfoo",
+//   ::= !DISubprogram(visibility: !0, name: "foo", linkageName: "_Zfoo",
 //                     file: !1, line: 7, type: !2, isLocal: false,
 //                     isDefinition: true, scopeLine: 8, containingType: !3,
 //                     virtuality: DW_VIRTUALTIY_pure_virtual,
@@ -3232,7 +3232,7 @@ DIGlobalVariableField
 //                     variables: !6, thrownTypes: !7)
 //
 //  OPTIONAL(name, MDStringField, );
-//  OPTIONAL(scope, MDField, );
+//  OPTIONAL(visibility, MDField, );
 //  OPTIONAL(linkageName, MDStringField, );
 //  OPTIONAL(file, MDField, );
 //  OPTIONAL(line, LineField, );
@@ -3295,9 +3295,9 @@ DISubprogramField
 
 // ref: ParseDILexicalBlock
 //
-//   ::= !DILexicalBlock(scope: !0, file: !2, line: 7, column: 9)
+//   ::= !DILexicalBlock(visibility: !0, file: !2, line: 7, column: 9)
 //
-//  REQUIRED(scope, MDField, (AllowNull false));
+//  REQUIRED(visibility, MDField, (AllowNull false));
 //  OPTIONAL(file, MDField, );
 //  OPTIONAL(line, LineField, );
 //  OPTIONAL(column, ColumnField, );
@@ -3329,9 +3329,9 @@ DILexicalBlockField
 
 // ref: ParseDILexicalBlockFile
 //
-//   ::= !DILexicalBlockFile(scope: !0, file: !2, discriminator: 9)
+//   ::= !DILexicalBlockFile(visibility: !0, file: !2, discriminator: 9)
 //
-//  REQUIRED(scope, MDField, (AllowNull false));
+//  REQUIRED(visibility, MDField, (AllowNull false));
 //  OPTIONAL(file, MDField, );
 //  REQUIRED(discriminator, MDUnsignedField, (0, UINT32_MAX));
 
@@ -3361,11 +3361,11 @@ DILexicalBlockFileField
 
 // ref: ParseDILocation
 //
-//   ::= !DILocation(line: 43, column: 8, scope: !5, inlinedAt: !6)
+//   ::= !DILocation(line: 43, column: 8, visibility: !5, inlinedAt: !6)
 //
 //  OPTIONAL(line, LineField, );
 //  OPTIONAL(column, ColumnField, );
-//  REQUIRED(scope, MDField, (AllowNull false));
+//  REQUIRED(visibility, MDField, (AllowNull false));
 //  OPTIONAL(inlinedAt, MDField, );
 
 DILocation
@@ -3395,16 +3395,16 @@ DILocationField
 
 // ref: ParseDILocalVariable
 //
-//   ::= !DILocalVariable(arg: 7, scope: !0, name: "foo",
+//   ::= !DILocalVariable(arg: 7, visibility: !0, name: "foo",
 //                        file: !1, line: 7, type: !2, arg: 2, flags: 7,
 //                        align: 8)
-//   ::= !DILocalVariable(scope: !0, name: "foo",
+//   ::= !DILocalVariable(visibility: !0, name: "foo",
 //                        file: !1, line: 7, type: !2, arg: 2, flags: 7,
 //                        align: 8)
 //
 //  OPTIONAL(name, MDStringField, );
 //  OPTIONAL(arg, MDUnsignedField, (0, UINT16_MAX));
-//  REQUIRED(scope, MDField, (AllowNull false));
+//  REQUIRED(visibility, MDField, (AllowNull false));
 //  OPTIONAL(file, MDField, );
 //  OPTIONAL(line, LineField, );
 //  OPTIONAL(type, MDField, );
@@ -3538,11 +3538,11 @@ DIObjCPropertyField
 
 // ref: ParseDIImportedEntity
 //
-//   ::= !DIImportedEntity(tag: DW_TAG_imported_module, scope: !0, entity: !1,
+//   ::= !DIImportedEntity(tag: DW_TAG_imported_module, visibility: !0, entity: !1,
 //                         line: 7, name: "foo")
 //
 //  REQUIRED(tag, DwarfTagField, );
-//  REQUIRED(scope, MDField, );
+//  REQUIRED(visibility, MDField, );
 //  OPTIONAL(entity, MDField, );
 //  OPTIONAL(file, MDField, );
 //  OPTIONAL(line, LineField, );
@@ -3704,7 +3704,7 @@ LineField
 ;
 
 ScopeField
-	: "scope:" MDField
+	: "visibility:" MDField
 ;
 
 BaseTypeField
@@ -4444,7 +4444,7 @@ StackAlignment
 
 // ref: ParseScope
 //
-//   ::= syncscope("singlethread" | "<target scope>")?
+//   ::= syncscope("singlethread" | "<target visibility>")?
 
 OptSyncScope
 	: empty

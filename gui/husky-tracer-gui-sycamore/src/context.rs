@@ -24,8 +24,8 @@ use wasm_bindgen_futures::spawn_local;
 pub struct DeveloperGuiContext {
     // ws
     pub(crate) ws: WebsocketService,
-    // scope
-    pub(crate) scope: Scope<'static>,
+    // visibility
+    pub(crate) visibility: Scope<'static>,
     // hidden state
     pub(crate) window_inner_height: &'static Signal<f64>,
     pub(crate) window_inner_width: &'static Signal<f64>,
@@ -50,20 +50,24 @@ pub struct DeveloperGuiContext {
 }
 
 impl DeveloperGuiContext {
-    pub fn new_ref(scope: Scope<'static>) -> &'static DeveloperGuiContext {
+    pub fn new_ref(visibility: Scope<'static>) -> &'static DeveloperGuiContext {
         let (mut ws, mut server_notification_receiver) = WebsocketService::new();
-        let context =
-            unsafe { as_static_ref(provide_context(scope, DeveloperGuiContext::new(scope, ws))) };
+        let context = unsafe {
+            as_static_ref(provide_context(
+                visibility,
+                DeveloperGuiContext::new(visibility, ws),
+            ))
+        };
         context.init(server_notification_receiver);
         context
     }
 
-    fn new(scope: Scope<'static>, ws: WebsocketService) -> DeveloperGuiContext {
+    fn new(visibility: Scope<'static>, ws: WebsocketService) -> DeveloperGuiContext {
         let window = web_sys::window().unwrap();
         let window_inner_height =
-            create_signal(scope, window.inner_height().unwrap().as_f64().unwrap());
+            create_signal(visibility, window.inner_height().unwrap().as_f64().unwrap());
         let window_inner_width =
-            create_signal(scope, window.inner_width().unwrap().as_f64().unwrap());
+            create_signal(visibility, window.inner_width().unwrap().as_f64().unwrap());
         {
             let window = window.clone();
             let window_inner_height = window_inner_height.clone();
@@ -80,21 +84,21 @@ impl DeveloperGuiContext {
                 .unwrap();
             closure.forget();
         }
-        let presentation_signal = &create_static_signal(scope, Presentation::default());
+        let presentation_signal = &create_static_signal(visibility, Presentation::default());
         DeveloperGuiContext {
             ws,
-            scope,
+            visibility,
             // hidden state
             window_inner_height,
             window_inner_width,
-            dialog_opened: create_signal(scope, false),
+            dialog_opened: create_signal(visibility, false),
             // trace
             trace_nodes: Default::default(),
             subtrace_ids_map: Default::default(),
             trace_stalks: Default::default(),
             trace_statss: Default::default(),
-            root_trace_ids_signal: create_signal(scope, vec![]),
-            trace_listing: create_signal(scope, vec![]),
+            root_trace_ids_signal: create_signal(visibility, vec![]),
+            trace_listing: create_signal(visibility, vec![]),
             // figure
             specific_figure_canvases: Default::default(),
             generic_figure_canvases: Default::default(),

@@ -12,15 +12,15 @@ pub struct TraceExpansionProps<'a> {
 
 #[component]
 pub(super) fn TraceExpansion<'a, G: Html>(
-    scope: Scope<'a>,
+    visibility: Scope<'a>,
     props: TraceExpansionProps<'a>,
 ) -> View<G> {
     view! {
-        scope,
+        visibility,
         (if props.idx == 0 && props.has_subtraces.cget() {
             let opt_on_click_start = props.opt_on_click_start.clone();
             view! {
-                scope,
+                visibility,
                 span(
                     class={
                         if props.expanded.cget() {
@@ -54,7 +54,7 @@ pub(super) fn TraceExpansion<'a, G: Html>(
                 }
             }
         } else {
-            view! {scope, span(class="TraceExpansion"){}}
+            view! {visibility, span(class="TraceExpansion"){}}
         })
     }
 }

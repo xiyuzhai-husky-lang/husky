@@ -14,7 +14,7 @@ From ExtLib Require Import List.
 (* end hide *)
 
 (** * Scoping
-    We define through this file several functions and predicates having to do with the scope
+    We define through this file several functions and predicates having to do with the visibility
     of VIR programs, w.r.t. both block identifiers and local variables.
     We unfortunately inherit from LLVM IR a fully named representation of variables, forcing
     on us fairly heavy sanity checks.

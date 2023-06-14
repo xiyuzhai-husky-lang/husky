@@ -32,7 +32,7 @@ fn entity_tree_presheet_works() {
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub struct EntityTreePresheet {
     module_path: ModulePath,
-    native_symbol_entries: NativeEntitySymbolTable,
+    native_symbol_table: EntityNodeTable,
     use_one_trackers: UseExprRules,
     use_all_trackers: UseAllRules,
     use_expr_arena: UseExprArena,
@@ -54,7 +54,7 @@ impl EntityTreePresheet {
     ) -> EntityTreePresheetMut<'a> {
         EntityTreePresheetMut {
             module_path: self.module_path,
-            symbols: self.native_symbol_entries.entity_symbol_table(),
+            symbols: self.native_symbol_table.entity_symbol_table(),
             use_expr_rules: self.use_one_trackers.clone(),
             use_all_rules: self.use_all_trackers.clone(),
             errors: self.errors.clone(),
@@ -118,26 +118,26 @@ impl<'a> AsVecMapEntry for EntityTreePresheetMut<'a> {
 
 struct EntityTreePresheetBuilder<'a> {
     db: &'a dyn EntityTreeDb,
-    ast_sheet: &'a AstSheet,
     module_path: ModulePath,
-    native_symbol_entries: NativeEntitySymbolTable,
+    ast_sheet: &'a AstSheet,
+    token_sheet_data: &'a TokenSheetData,
+    entity_node_table: EntityNodeTable,
     use_expr_arena: UseExprArena,
     entity_use_trackers: UseExprRules,
-    token_sheet_data: &'a TokenSheetData,
-    errors: Vec<EntityTreeError>,
+    registry: EntityNodeRegistry,
 }
 
 impl<'a> EntityTreePresheetBuilder<'a> {
     fn new(db: &'a dyn EntityTreeDb, module_path: ModulePath) -> VfsResult<Self> {
         Ok(Self {
             db,
-            ast_sheet: db.ast_sheet(module_path)?,
             module_path,
-            use_expr_arena: Default::default(),
-            native_symbol_entries: Default::default(),
-            entity_use_trackers: Default::default(),
+            ast_sheet: db.ast_sheet(module_path)?,
             token_sheet_data: db.token_sheet_data(module_path).unwrap(),
-            errors: vec![],
+            use_expr_arena: Default::default(),
+            entity_node_table: Default::default(),
+            entity_use_trackers: Default::default(),
+            registry: Default::default(),
         })
     }
 
@@ -147,11 +147,11 @@ impl<'a> EntityTreePresheetBuilder<'a> {
         }
         EntityTreePresheet {
             module_path: self.module_path,
-            native_symbol_entries: self.native_symbol_entries,
+            native_symbol_table: self.entity_node_table,
             use_one_trackers: self.entity_use_trackers,
             use_all_trackers: Default::default(),
-            errors: self.errors,
             use_expr_arena: self.use_expr_arena,
+            errors: self.registry.finish_with_errors(),
         }
     }
 
@@ -188,33 +188,14 @@ impl<'a> EntityTreePresheetBuilder<'a> {
                 let visibility = visibility_expr.visibility();
                 let ident = ident_token.ident();
                 if let Some(entity_path) = block.entity_path() {
-                    let new_entry = NativeEntitySymbolEntry::new(
-                        ident,
+                    self.entity_node_table.try_add_new_node(
+                        self.db,
+                        &mut self.registry,
                         visibility,
-                        match entity_path {
-                            EntityPath::Module(module_path) => SubmoduleSymbol::new(
-                                self.db,
-                                module_path,
-                                visibility,
-                                ast_idx,
-                                *ident_token,
-                            )
-                            .into(),
-                            EntityPath::ModuleItem(module_item_path) => ModuleItemSymbol::new(
-                                self.db,
-                                module_item_path,
-                                visibility,
-                                ast_idx,
-                                *ident_token,
-                            )
-                            .into(),
-                            EntityPath::AssociatedItem(_) | EntityPath::TypeVariant(_) => return,
-                            EntityPath::ImplBlock(_) => todo!(),
-                        },
-                    );
-                    self.native_symbol_entries
-                        .insert(self.db, new_entry)
-                        .map_err(|e| self.errors.push(e));
+                        ast_idx,
+                        *ident_token,
+                        entity_path,
+                    )
                 }
             }
             Ast::Err { .. }

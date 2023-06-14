@@ -40,8 +40,8 @@ From Coq Require Import ListSet.
 Import SetNotations.
 Import AlistNotations.
 
-Definition local_agrees (l1 l2 : local_env) (scope : set raw_id) : Prop :=
-  forall id, In id scope -> l1 @ id = l2 @ id.
+Definition local_agrees (l1 l2 : local_env) (visibility : set raw_id) : Prop :=
+  forall id, In id visibility -> l1 @ id = l2 @ id.
 
 Section UpwardExposed.
 
@@ -69,8 +69,8 @@ Section Block_Substitution.
      context will be constrained as well.
      We state that if:
      - the upward exposed local variables are the same set
-     [scope] in both blocks.
-     - the initial local states extensionally agree on [scope]
+     [visibility] in both blocks.
+     - the initial local states extensionally agree on [visibility]
      then:
      - the blocks are bisimilar
      - they return local states that extensionally agree on

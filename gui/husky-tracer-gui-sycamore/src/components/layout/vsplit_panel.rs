@@ -27,13 +27,13 @@ impl<'a> VSplitPanelProps<'a> {
 }
 
 #[component]
-pub fn VSplitPanel<'a, G: Html>(scope: Scope<'a>, props: VSplitPanelProps<'a>) -> View<G> {
-    let ctx = use_dev_context(scope);
+pub fn VSplitPanel<'a, G: Html>(visibility: Scope<'a>, props: VSplitPanelProps<'a>) -> View<G> {
+    let ctx = use_dev_context(visibility);
     let root_trace_ids = &ctx.root_trace_ids_signal();
-    let upper_panel_dimension = memo!(scope, move || props.upper_panel_dimension(), props);
-    let lower_panel_dimension = memo!(scope, move || props.lower_panel_dimension(), props);
+    let upper_panel_dimension = memo!(visibility, move || props.upper_panel_dimension(), props);
+    let lower_panel_dimension = memo!(visibility, move || props.lower_panel_dimension(), props);
     view! {
-        scope,
+        visibility,
         div(class="HuskyTracerVSplitPanel") {
             div(class="HuskyTracerVSplitPanelUpper", style=upper_panel_dimension.cget().to_style()) {
                 HSplitPanel {

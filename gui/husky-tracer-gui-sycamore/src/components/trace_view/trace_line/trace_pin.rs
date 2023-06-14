@@ -8,14 +8,16 @@ pub struct TracePinProps {
 }
 
 #[component]
-pub(super) fn TracePin<'a, G: Html>(scope: Scope<'a>, props: TracePinProps) -> View<G> {
-    let ctx = use_dev_context(scope);
+pub(super) fn TracePin<'a, G: Html>(visibility: Scope<'a>, props: TracePinProps) -> View<G> {
+    let ctx = use_dev_context(visibility);
     let trace_id = props.trace_id;
     let presentation_signal = ctx.presentation_signal();
-    let pinned = memo!(scope, move || presentation_signal.get().is_pinned(trace_id));
+    let pinned = memo!(visibility, move || presentation_signal
+        .get()
+        .is_pinned(trace_id));
     if props.line_idx == 0 {
         view! {
-            scope,
+            visibility,
             span(
                 class={
                     if pinned.cget() {
@@ -45,6 +47,6 @@ pub(super) fn TracePin<'a, G: Html>(scope: Scope<'a>, props: TracePinProps) -> V
             }
         }
     } else {
-        view! {scope, span(class="TraceExpansion"){}}
+        view! {visibility, span(class="TraceExpansion"){}}
     }
 }

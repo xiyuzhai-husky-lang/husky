@@ -1004,7 +1004,7 @@ Module Make(LLVMEvents: LLVM_INTERACTIONS(Addr)).
       let '(m,sf) := m in
       match sf with
       | Snoc sf f => inr (free_frame_memory f m,sf)
-      | _ => failwith "Ill-form frame-stack: attempting to free when only one frame is in scope"
+      | _ => failwith "Ill-form frame-stack: attempting to free when only one frame is in visibility"
       end.
 
     Definition push_fresh_frame (m : memory_stack) : memory_stack :=

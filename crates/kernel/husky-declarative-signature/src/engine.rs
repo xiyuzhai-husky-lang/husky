@@ -285,7 +285,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                             DeclarativeTermEntityPath::Type(path)
                         }
                         ModuleItemPath::Trait(path) => path.into(),
-                        ModuleItemPath::Form(path) => path.into(),
+                        ModuleItemPath::Fugitive(path) => path.into(),
                     },
                     EntityPath::AssociatedItem(_) => todo!(),
                     EntityPath::TypeVariant(_) => todo!(),

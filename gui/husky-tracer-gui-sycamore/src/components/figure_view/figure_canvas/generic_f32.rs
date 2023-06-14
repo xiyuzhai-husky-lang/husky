@@ -14,7 +14,7 @@ pub struct GenericF32Props<'a> {
 }
 
 #[component]
-pub fn GenericF32<'a, G: Html>(scope: Scope<'a>, props: GenericF32Props<'a>) -> View<G> {
+pub fn GenericF32<'a, G: Html>(visibility: Scope<'a>, props: GenericF32Props<'a>) -> View<G> {
     let scale = GenericF32Scale::new(props.partitioned_samples);
     let a = scale.value_min;
     let b = scale.value_max;
@@ -22,7 +22,7 @@ pub fn GenericF32<'a, G: Html>(scope: Scope<'a>, props: GenericF32Props<'a>) -> 
     for (i, (_partition, samples)) in props.partitioned_samples.iter().enumerate() {
         for (sample_id, value) in samples.iter() {
             let circle = scale.circle(i, *value);
-            points.push(view! {scope, GenericF32Point {
+            points.push(view! {visibility, GenericF32Point {
                 sample_id: *sample_id,
                 circle
             }})
@@ -31,10 +31,10 @@ pub fn GenericF32<'a, G: Html>(scope: Scope<'a>, props: GenericF32Props<'a>) -> 
     let points = View::new_fragment(points);
     let dimension = props.dimension;
     let generic_f32_visual_region_dimension =
-        memo!(scope, move || dimension.cget() * (7, 1) / (10, 1));
-    let ctx = use_dev_context(scope);
+        memo!(visibility, move || dimension.cget() * (7, 1) / (10, 1));
+    let ctx = use_dev_context(visibility);
     view! {
-        scope,
+        visibility,
         div (
             class="GenericF32",
             style=props.dimension.cget().to_style(),
@@ -71,11 +71,11 @@ pub struct GenericF32PointProps {
 }
 
 #[component]
-fn GenericF32Point<'a, G: Html>(scope: Scope<'a>, props: GenericF32PointProps) -> View<G> {
-    let ctx = use_dev_context(scope);
+fn GenericF32Point<'a, G: Html>(visibility: Scope<'a>, props: GenericF32PointProps) -> View<G> {
+    let ctx = use_dev_context(visibility);
     let presentation_signal = ctx.presentation_signal();
     view! {
-        scope,
+        visibility,
         circle (
             class=format!(
                 "ClassIndex{} {}",

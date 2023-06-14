@@ -54,15 +54,16 @@ fn entity_declarative_tys(
     let Ok(entity_tree_sheet) = db.entity_tree_sheet(module_path) else {
         return vec![]
     };
-    entity_tree_sheet
-        .module_item_path_iter(db)
-        .map(|path| {
-            (
-                path.into(),
-                entity_path_declarative_ty(db, TypePathDisambiguation::Ontology, path.into()),
-            )
-        })
-        .collect()
+    todo!()
+    // entity_tree_sheet
+    //     .module_item_path_iter(db)
+    //     .map(|path| {
+    //         (
+    //             path.into(),
+    //             entity_path_declarative_ty(db, TypePathDisambiguation::Ontology, path.into()),
+    //         )
+    //     })
+    //     .collect()
 }
 
 #[test]

@@ -5,7 +5,7 @@ use super::*;
 impl DeveloperGuiContext {
     // pub(super) fn receive_figure_canvases(
     //     &self,
-    //     scope: Scope<'static>,
+    //     visibility: Scope<'static>,
     //     new_figure_canvases: impl Iterator<Item = (FigureCanvasKey, &'static FigureCanvasData)>,
     // ) {
     //     let mut figure_canvases = self.figure_canvases.borrow_mut(file!(), line!());
@@ -15,13 +15,13 @@ impl DeveloperGuiContext {
     // }
     // pub(super) fn receive_figure_controls(
     //     &self,
-    //     scope: Scope<'static>,
+    //     visibility: Scope<'static>,
     //     new_figure_controls: impl Iterator<Item = (FigureControlKey, FigureControlData)>,
     // ) {
     //     let mut figure_controls = self.figure_controls.borrow_mut(file!(), line!());
     //     for (key, data) in new_figure_controls {
     //         assert!(figure_controls
-    //             .insert(key, create_signal(scope, data))
+    //             .insert(key, create_signal(visibility, data))
     //             .is_none());
     //     }
     // }
@@ -44,7 +44,7 @@ impl DeveloperGuiContext {
 
     fn set_figure_control_data(
         &self,
-        scope: Scope<'static>,
+        visibility: Scope<'static>,
         key: FigureControlKey,
         figure_control_data: FigureControlData,
     ) {
@@ -55,7 +55,7 @@ impl DeveloperGuiContext {
             } else {
                 figure_controls.insert(
                     key,
-                    create_static_signal(scope, figure_control_data.clone()),
+                    create_static_signal(visibility, figure_control_data.clone()),
                 );
                 None
             }

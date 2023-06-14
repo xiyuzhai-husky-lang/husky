@@ -10,7 +10,7 @@
 //! - `hydrate` - Enables client-side hydration support.
 //!
 //! - `suspense` - Enables wrappers around `wasm-bindgen-futures` to make it easier to extend a
-//!   reactive scope into an `async` function.
+//!   reactive visibility into an `async` function.
 //!
 //! - `ssr` - Enables rendering templates to static strings (useful for Server Side Rendering /
 //!   Pre-rendering).

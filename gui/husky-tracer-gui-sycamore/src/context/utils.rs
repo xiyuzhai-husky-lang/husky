@@ -2,13 +2,13 @@ use super::*;
 
 impl DeveloperGuiContext {
     pub fn alloc_value<T>(&self, value: T) -> &'static T {
-        create_static_ref(self.scope, value)
+        create_static_ref(self.visibility, value)
     }
     pub fn alloc_signal<T>(&self, value: T) -> &'static Signal<T>
     where
         T: Signalable,
     {
-        create_static_signal(self.scope, value)
+        create_static_signal(self.visibility, value)
     }
 
     pub(super) fn alloc_key_value_pairs<K, V>(

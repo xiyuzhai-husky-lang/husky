@@ -5,9 +5,10 @@ use sycamore_reactive::*;
 use crate::generic_node::GenericNode;
 use crate::view::View;
 
-/// Runs the given closure inside a new component scope. In other words, this does the following:
+/// Runs the given closure inside a new component visibility. In other words, this does the
+/// following:
 /// * If hydration is enabled, create a new hydration context.
-/// * Create a new untracked scope (see [`untrack`]).
+/// * Create a new untracked visibility (see [`untrack`]).
 /// * Call the closure `f` passed to this function.
 #[doc(hidden)]
 pub fn component_scope<G: GenericNode>(f: impl FnOnce() -> View<G>) -> View<G> {

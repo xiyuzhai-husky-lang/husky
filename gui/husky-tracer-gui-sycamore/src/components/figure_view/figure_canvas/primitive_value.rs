@@ -8,8 +8,8 @@ pub struct PrimitiveValueCanvasProps {
 
 #[component]
 pub fn PrimitiveValueCanvas<'a, G: Html>(
-    scope: Scope<'a>,
+    visibility: Scope<'a>,
     props: PrimitiveValueCanvasProps,
 ) -> View<G> {
-    view! {scope, }
+    view! {visibility, }
 }

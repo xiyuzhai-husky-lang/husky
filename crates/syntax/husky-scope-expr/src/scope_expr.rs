@@ -11,7 +11,7 @@ pub enum VisibilityExpr {
     PublicUnder {
         pub_token: PubToken,
         lpar: LeftParenthesisToken,
-        scope: ModulePathExprIdx,
+        visibility: ModulePathExprIdx,
         rpar: RightParenthesisToken,
     },
 }

@@ -1,6 +1,6 @@
+use crate::*;
 use husky_manifest::PackageDependency;
-
-use super::*;
+use husky_token::IdentToken;
 
 #[derive(Debug, Default, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
@@ -163,57 +163,71 @@ impl EntitySymbolEntry {
 
 #[derive(Debug, Default, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
-pub struct NativeEntitySymbolTable(Vec<NativeEntitySymbolEntry>);
+pub struct EntityNodeTable {
+    entries: Vec<EntityNodeEntry>,
+}
 
-impl NativeEntitySymbolTable {
+impl EntityNodeTable {
     pub(crate) fn entity_symbol_table(&self) -> EntitySymbolTable {
-        EntitySymbolTable(self.0.iter().map(|entry| entry.into()).collect())
+        EntitySymbolTable(self.entries.iter().map(|entry| entry.into()).collect())
     }
 
-    pub(crate) fn insert(
+    pub(crate) fn try_add_new_node(
         &mut self,
         db: &dyn EntityTreeDb,
-        new_entry: NativeEntitySymbolEntry,
-    ) -> EntityTreeResult<()> {
-        if let Some(old_entry) = self.0.iter().find(|entry| entry.ident == new_entry.ident) {
-            Err(OriginalEntityTreeError::EntitySymbolAlreadyDefined {
-                old: old_entry.symbol,
-                new: new_entry.symbol,
-            })?
+        registry: &mut EntityNodeRegistry,
+        visibility: Scope,
+        ast_idx: AstIdx,
+        ident_token: IdentToken,
+        entity_path: EntityPath,
+    ) {
+        if let Some(entry) =
+            EntityNodeEntry::new(db, registry, visibility, ast_idx, ident_token, entity_path)
+        {
+            self.entries.push(entry)
         }
-        self.0.push(new_entry);
-        Ok(())
     }
 }
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
-pub struct NativeEntitySymbolEntry {
+pub struct EntityNodeEntry {
+    node: EntityNode,
+    /// cached for performance, always equal to symbol.ident(db)
     ident: Ident,
+    /// cached for performance, always equal to symbol.visibility(db)
     visibility: Scope,
-    symbol: NativeEntitySymbol,
 }
 
-impl From<&NativeEntitySymbolEntry> for EntitySymbolEntry {
-    fn from(val: &NativeEntitySymbolEntry) -> Self {
+impl From<&EntityNodeEntry> for EntitySymbolEntry {
+    fn from(val: &EntityNodeEntry) -> Self {
         EntitySymbolEntry {
             ident: val.ident,
             visibility: val.visibility,
-            symbol: val.symbol.into(),
+            symbol: val.node.into(),
         }
     }
 }
 
-impl NativeEntitySymbolEntry {
-    pub fn new(ident: Ident, visibility: Scope, symbol: NativeEntitySymbol) -> Self {
-        Self {
-            ident,
+impl EntityNodeEntry {
+    fn new(
+        db: &dyn EntityTreeDb,
+        registry: &mut EntityNodeRegistry,
+        visibility: Scope,
+        ast_idx: AstIdx,
+        ident_token: IdentToken,
+        entity_path: EntityPath,
+    ) -> Option<Self> {
+        let node =
+            EntityNode::try_new(db, registry, visibility, ast_idx, ident_token, entity_path)?;
+        Some(Self {
+            ident: ident_token.ident(),
             visibility,
-            symbol,
-        }
+            node,
+        })
     }
 
-    pub fn symbol(&self) -> NativeEntitySymbol {
-        self.symbol
+    pub fn node(&self) -> EntityNode {
+        self.node
     }
 }

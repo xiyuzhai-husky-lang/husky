@@ -47,7 +47,7 @@ impl VisibilityExpr {
                         variant: VisibilityExprVariant::PubUnder {
                             pub_token,
                             lpar,
-                            scope: VisibilityScopeExpr::Super(super_token),
+                            visibility: VisibilityScopeExpr::Super(super_token),
                             rpar: token_stream.parse_expected(
                                 OriginalVisibilityExprError::ExpectedRightParenthesis,
                             )?,
@@ -76,12 +76,12 @@ pub enum VisibilityExprVariant {
     PubUnder {
         pub_token: PubToken,
         lpar: LeftParenthesisToken,
-        scope: VisibilityScopeExpr,
+        visibility: VisibilityScopeExpr,
         rpar: RightParenthesisToken,
     },
 }
 
-/// it's guaranteed that the scope is appropriate
+/// it's guaranteed that the visibility is appropriate
 #[derive(Debug, PartialEq, Eq)]
 pub enum VisibilityScopeExpr {
     Crate(CrateToken),

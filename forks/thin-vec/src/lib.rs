@@ -1310,7 +1310,7 @@ mod std_tests {
             // doing anything significant when dropped multiple times.
             drop(tv.x);
 
-            // Here tv goes out of scope, tv.y should be dropped, but not tv.x.
+            // Here tv goes out of visibility, tv.y should be dropped, but not tv.x.
         }
 
         assert_eq!(count_x, 1);

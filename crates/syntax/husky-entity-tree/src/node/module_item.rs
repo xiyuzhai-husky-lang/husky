@@ -1,3 +1,11 @@
+mod fugitive;
+mod trai;
+mod ty;
+
+pub use self::fugitive::*;
+pub use self::trai::*;
+pub use self::ty::*;
+
 use super::*;
 use husky_entity_path::ModuleItemPath;
 
@@ -11,12 +19,29 @@ pub enum ModuleItemNodePath {
 }
 
 impl ModuleItemNodePath {
-    pub fn path(self, db: &dyn EntityTreeDb) -> ModuleItemPath {
-        match self {
-            ModuleItemNodePath::Trait(id) => id.path(db).into(),
-            ModuleItemNodePath::Type(id) => id.path(db).into(),
-            ModuleItemNodePath::Fugitive(id) => id.path(db).into(),
+    pub(super) fn new(
+        db: &dyn EntityTreeDb,
+        registry: &mut EntityNodeRegistry,
+        path: ModuleItemPath,
+    ) -> Self {
+        match path {
+            ModuleItemPath::Type(path) => TypeNodePath::new(db, registry, path).into(),
+            ModuleItemPath::Trait(path) => TraitNodePath::new(db, registry, path).into(),
+            ModuleItemPath::Fugitive(path) => FugitiveNodePath::new(db, registry, path).into(),
         }
+    }
+
+    pub fn path(self, db: &dyn EntityTreeDb) -> ModuleItemPath {
+        todo!()
+        // match self {
+        //     ModuleItemNodePath::Trait(id) => id.path(db).into(),
+        //     ModuleItemNodePath::Type(id) => id.path(db).into(),
+        //     ModuleItemNodePath::Fugitive(id) => id.path(db).into(),
+        // }
+    }
+
+    pub fn ident(self, db: &dyn EntityTreeDb) -> Ident {
+        self.path(db).ident(db)
     }
 
     pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
@@ -31,82 +56,16 @@ impl HasNodePath for ModuleItemPath {
         match self {
             ModuleItemPath::Type(path) => path.node_path(db).into(),
             ModuleItemPath::Trait(path) => path.node_path(db).into(),
-            ModuleItemPath::Form(path) => path.node_path(db).into(),
+            ModuleItemPath::Fugitive(path) => path.node_path(db).into(),
         }
     }
 }
 
-#[salsa::interned(db = EntityTreeDb, jar = EntityTreeJar)]
-pub struct TraitNodePath {
-    pub path: TraitPath,
-}
-
-impl TraitNodePath {
-    pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
-        self.path(db).module_path(db)
-    }
-}
-
-impl HasNodePath for TraitPath {
-    type NodePath = TraitNodePath;
-
-    fn node_path(self, db: &dyn EntityTreeDb) -> Self::NodePath {
-        TraitNodePath::new(db, self)
-    }
-}
-
-impl From<TraitNodePath> for EntityNodePath {
-    fn from(id: TraitNodePath) -> Self {
-        EntityNodePath::ModuleItem(id.into())
-    }
-}
-
-#[salsa::interned(db = EntityTreeDb, jar = EntityTreeJar)]
-pub struct TypeNodePath {
-    pub path: TypePath,
-}
-
-impl TypeNodePath {
-    pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
-        self.path(db).module_path(db)
-    }
-}
-
-impl HasNodePath for TypePath {
-    type NodePath = TypeNodePath;
-
-    fn node_path(self, db: &dyn EntityTreeDb) -> Self::NodePath {
-        TypeNodePath::new(db, self)
-    }
-}
-
-impl From<TypeNodePath> for EntityNodePath {
-    fn from(id: TypeNodePath) -> Self {
-        EntityNodePath::ModuleItem(id.into())
-    }
-}
-
-#[salsa::interned(db = EntityTreeDb, jar = EntityTreeJar)]
-pub struct FugitiveNodePath {
-    pub path: FugitivePath,
-}
-
-impl FugitiveNodePath {
-    pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
-        self.path(db).module_path(db)
-    }
-}
-
-impl HasNodePath for FugitivePath {
-    type NodePath = FugitiveNodePath;
-
-    fn node_path(self, db: &dyn EntityTreeDb) -> Self::NodePath {
-        FugitiveNodePath::new(db, self)
-    }
-}
-
-impl From<FugitiveNodePath> for EntityNodePath {
-    fn from(id: FugitiveNodePath) -> Self {
-        EntityNodePath::ModuleItem(id.into())
-    }
+#[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar)]
+pub struct ModuleItemNode {
+    #[id]
+    pub node_path: ModuleItemNodePath,
+    pub visibility: Scope,
+    pub ast_idx: AstIdx,
+    pub ident_token: IdentToken,
 }

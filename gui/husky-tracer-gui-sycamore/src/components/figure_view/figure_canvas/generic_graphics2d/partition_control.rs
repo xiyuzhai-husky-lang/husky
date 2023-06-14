@@ -8,12 +8,12 @@ pub struct PartitionControlProps<'a> {
 
 #[component]
 pub fn PartitionControl<'a, G: Html>(
-    scope: Scope<'a>,
+    visibility: Scope<'a>,
     props: PartitionControlProps<'a>,
 ) -> View<G> {
-    let ctx = use_dev_context(scope);
+    let ctx = use_dev_context(visibility);
     view! {
-        scope,
+        visibility,
         div (
             class="PartitionControl",
             style=props.dimension.cget().to_style(),

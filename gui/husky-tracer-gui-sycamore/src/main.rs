@@ -23,21 +23,24 @@ fn main() {
     init();
     let gui: Element = get_gui();
     sycamore::render_to_static(
-        |scope| {
+        |visibility| {
             let context = unsafe {
-                as_static_ref(provide_context(scope, DeveloperGuiContext::new_ref(scope)))
+                as_static_ref(provide_context(
+                    visibility,
+                    DeveloperGuiContext::new_ref(visibility),
+                ))
             };
-            let layout_width = memo!(scope, || math::round::floor(
+            let layout_width = memo!(visibility, || math::round::floor(
                 context.window_inner_width.cget(),
                 0
             ) as u32);
-            let layout_height = memo!(scope, || math::round::floor(
+            let layout_height = memo!(visibility, || math::round::floor(
                 context.window_inner_height.cget(),
                 0
             ) as u32);
             let keydown_handler = context.keydown_handler();
             view! {
-                scope,
+                visibility,
                 div (
                     class="Main",
                     tabindex=1,

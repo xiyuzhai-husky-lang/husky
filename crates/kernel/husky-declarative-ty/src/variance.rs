@@ -56,7 +56,9 @@ pub(crate) fn entity_variances(
             ModuleItemPath::Trait(path) => {
                 trai_entity_variances(db, path).as_ref().map(Vec::as_ref)
             }
-            ModuleItemPath::Form(path) => form_entity_variances(db, path).as_ref().map(Vec::as_ref),
+            ModuleItemPath::Fugitive(path) => {
+                form_entity_variances(db, path).as_ref().map(Vec::as_ref)
+            }
         },
         EntityPath::AssociatedItem(_) => todo!(),
         EntityPath::TypeVariant(_) => todo!(),

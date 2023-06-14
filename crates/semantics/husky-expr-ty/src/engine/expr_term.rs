@@ -136,7 +136,7 @@ impl<'a> ExprTypeEngine<'a> {
                         _ => unreachable!(),
                     },
                     ModuleItemPath::Trait(_) => todo!(),
-                    ModuleItemPath::Form(_) => todo!(),
+                    ModuleItemPath::Fugitive(_) => todo!(),
                 },
                 EntityPath::AssociatedItem(_) => todo!(),
                 EntityPath::TypeVariant(_) => todo!(),

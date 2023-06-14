@@ -1,5 +1,5 @@
 (* Re-export of the main utilities used accross the development.
-   Use `From Vellvm Require Import Utils.` to get most utilities in scope.
+   Use `From Vellvm Require Import Utils.` to get most utilities in visibility.
 
    Note: We avoid as much as possible to import notations. You can therefore import 
    additionally the following modules:

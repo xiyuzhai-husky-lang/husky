@@ -23,19 +23,19 @@ pub struct FigureCanvasProps<'a> {
 }
 
 #[component]
-pub fn FigureCanvas<'a, G: Html>(scope: Scope<'a>, props: FigureCanvasProps<'a>) -> View<G> {
+pub fn FigureCanvas<'a, G: Html>(visibility: Scope<'a>, props: FigureCanvasProps<'a>) -> View<G> {
     view! {
-        scope,
+        visibility,
         (match *props.value.get() {
             FigureCanvasValue::Unit
             | FigureCanvasValue::NonUnitPrimitive { .. } => {
                 view! {
-                    scope,
+                    visibility,
                 }
             }
             FigureCanvasValue::Graphics2d { ref value } => {
                 view! {
-                    scope,
+                    visibility,
                     Graphics2dCanvas {
                         dimension: props.dimension,
                         image_layers: value.image_layers(),
@@ -52,7 +52,7 @@ pub fn FigureCanvas<'a, G: Html>(scope: Scope<'a>, props: FigureCanvasProps<'a>)
             //     yrange,
             // } => {
             //     view! {
-            //         scope,
+            //         visibility,
             //         Plot2dCanvas {
             //             dimension: props.dimension,
             //             plot_kind: *plot_kind,
@@ -69,7 +69,7 @@ pub fn FigureCanvas<'a, G: Html>(scope: Scope<'a>, props: FigureCanvasProps<'a>)
                 match props.presentation_kind.cget() {
                     PresentationKind::Generic => {
                         view! {
-                            scope,
+                            visibility,
                             GenericGraphics2d {
                                 dimension: props.dimension,
                                 partitioned_samples: partitioned_samples.clone(),
@@ -78,7 +78,7 @@ pub fn FigureCanvas<'a, G: Html>(scope: Scope<'a>, props: FigureCanvasProps<'a>)
                     }
                     PresentationKind::Specific => {
                         view! {
-                            scope,
+                            visibility,
                             GenericGraphics2d {
                                 dimension: props.dimension,
                                 partitioned_samples: partitioned_samples.clone(),
@@ -90,7 +90,7 @@ pub fn FigureCanvas<'a, G: Html>(scope: Scope<'a>, props: FigureCanvasProps<'a>)
                     }
                 }
                 // view! {
-                //     scope,
+                //     visibility,
                 //     Graphics2dCanvas {
                 //         dimension: props.dimension,
                 //         image_layers: graphics2d_data.image_layers(),
@@ -103,7 +103,7 @@ pub fn FigureCanvas<'a, G: Html>(scope: Scope<'a>, props: FigureCanvasProps<'a>)
             // FigureCanvasValue::Mutations { ref mutations } => {
             //     if let Some(mutation_selection) = props.control_data.get().opt_mutation_selection {
             //         view! {
-            //             scope,
+            //             visibility,
             //             MutationCanvas {
             //                 dimension: props.dimension,
             //                 control_data: props.control_data,
@@ -111,7 +111,7 @@ pub fn FigureCanvas<'a, G: Html>(scope: Scope<'a>, props: FigureCanvasProps<'a>)
             //             }
             //         }
             //     } else {
-            //         view! {scope, }
+            //         view! {visibility, }
             //     }
             // }
             FigureCanvasValue::GenericGraphics2d {
@@ -119,7 +119,7 @@ pub fn FigureCanvas<'a, G: Html>(scope: Scope<'a>, props: FigureCanvasProps<'a>)
                 ..
             } => {
                 view! {
-                    scope,
+                    visibility,
                     GenericGraphics2d {
                         dimension: props.dimension,
                         partitioned_samples: partitioned_samples.clone(),
@@ -131,7 +131,7 @@ pub fn FigureCanvas<'a, G: Html>(scope: Scope<'a>, props: FigureCanvasProps<'a>)
                 ..
             } => {
                 view! {
-                    scope,
+                    visibility,
                     GenericI32 {
                         dimension: props.dimension,
                         partitioned_samples,
@@ -144,7 +144,7 @@ pub fn FigureCanvas<'a, G: Html>(scope: Scope<'a>, props: FigureCanvasProps<'a>)
                 ref shapes,
             } => {
                 view! {
-                    scope,
+                    visibility,
                     GenericF32 {
                         dimension: props.dimension,
                         partitioned_samples,
@@ -155,7 +155,7 @@ pub fn FigureCanvas<'a, G: Html>(scope: Scope<'a>, props: FigureCanvasProps<'a>)
             }
             // FigureCanvasValue::EvalError { ref message } => {
             //     view! {
-            //         scope,
+            //         visibility,
             //         div (class="EvalErrorCanvas") {
             //             (message.clone())
             //         }

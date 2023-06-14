@@ -552,7 +552,7 @@ impl<'a, G: GenericNode, F: FnOnce(Scope<'a>) -> G + 'a> ElementBuilder<'a, G, F
         })
     }
 
-    /// Adds a dynamic child that is created in a new reactive scope.
+    /// Adds a dynamic child that is created in a new reactive visibility.
     ///
     /// [`dyn_c`](Self::dyn_c) uses [`create_effect`] whereas this method uses
     /// [`create_effect_scoped`].

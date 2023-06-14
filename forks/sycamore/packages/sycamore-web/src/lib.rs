@@ -54,8 +54,8 @@ pub fn on_mount<'a>(cx: Scope<'a>, f: impl Fn() + 'a) {
         }
 
         let f: Box<dyn Fn()> = Box::new(f);
-        // SAFETY: We do not access `f_extended` until we verify that the scope is still valid using
-        // `use_scope_status`.
+        // SAFETY: We do not access `f_extended` until we verify that the visibility is still valid
+        // using `use_scope_status`.
         let f_extended: Box<dyn Fn() + 'static> = unsafe { std::mem::transmute(f) };
 
         let cb = move || {
