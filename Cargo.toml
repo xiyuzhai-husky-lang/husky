@@ -6,6 +6,7 @@ members = [
     "crates/comptime/*",
     "crates/devtools/*",
     "crates/debugtime/*",
+    "crates/experiments/*",
     "crates/fs/*",
     "crates/gui/*",
     "crates/ide/*",
