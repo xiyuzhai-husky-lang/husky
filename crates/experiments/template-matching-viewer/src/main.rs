@@ -1,3 +1,13 @@
+mod control;
+mod explorer;
+mod figure;
+mod menu;
+
+use self::control::*;
+use self::explorer::*;
+use self::figure::*;
+use self::menu::*;
+
 fn main() -> Result<(), eframe::Error> {
     tracing_subscriber::fmt::init();
 
@@ -13,20 +23,26 @@ fn main() -> Result<(), eframe::Error> {
 }
 
 struct TemplateMatchingViewerApp {
-    t: usize,
+    explorer: Explorer,
+    figure: Figure,
+    control: Control,
 }
 
 impl Default for TemplateMatchingViewerApp {
     fn default() -> Self {
         Self {
-            t: Default::default(),
+            explorer: Default::default(),
+            figure: Default::default(),
+            control: Default::default(),
         }
     }
 }
 
 impl eframe::App for TemplateMatchingViewerApp {
     fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
-        // self.render_panels(ctx)
-        // egui::CentralPanel::default().show(ctx, |ui|);
+        self.render_menu_panel(ctx);
+        self.render_explorer_panel(ctx);
+        self.render_control_panel(ctx);
+        self.render_figure_panel(ctx);
     }
 }
