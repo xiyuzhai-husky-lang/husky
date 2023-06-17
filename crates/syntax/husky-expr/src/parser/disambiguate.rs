@@ -22,9 +22,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 },
                 Keyword::Pronoun(pronoun) => match pronoun {
                     PronounKeyword::Crate => {
-                        let Some(crate_root_path) = self.parser.crate_root_path else {
-                            todo!("return Expr::Err")
-                        };
+                        let crate_root_path = self.parser.crate_root_path;
                         let (entity_path_expr, path) = self.parse_entity_path_expr(
                             CrateToken::new(token_idx).into(),
                             crate_root_path.into(),
@@ -326,11 +324,12 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             }
         }
         DisambiguatedToken::AtomicExpr(
-            match self
-                .parser
-                .symbol_context
-                .resolve_ident(self.db(), token_idx, ident)
-            {
+            match self.parser.symbol_context.resolve_ident(
+                self.db(),
+                self.parser.module_path,
+                token_idx,
+                ident,
+            ) {
                 Some(symbol) => match symbol {
                     // Symbol::Variable(variable_idx) => Expr::Variable {
                     //     token_idx,

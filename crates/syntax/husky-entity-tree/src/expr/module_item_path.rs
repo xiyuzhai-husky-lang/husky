@@ -97,7 +97,7 @@ impl<'a, 'b> ModuleItemPathExprParser<'a, 'b> {
         let entity_path = match name_token {
             PathNameToken::Ident(ident_token) => self
                 .entity_tree_symbol_context
-                .resolve_ident(ident_token)
+                .resolve_root_ident(ident_token)
                 .ok_or(OriginalMajorPathExprError::UnrecognizedIdent(ident_token))?
                 .path(self.db),
             PathNameToken::CrateRoot(_) => self.crate_root_path.into(),

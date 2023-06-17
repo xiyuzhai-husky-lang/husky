@@ -48,12 +48,10 @@ impl From<&EntityTreeError> for EntityTreeError {
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub enum OriginalEntityTreeError {
-    #[error("unresolved identifier")]
-    UnresolvedIdent(IdentToken),
-    #[error("symbol exists but not accessible")]
-    SymbolExistsButNotAccessible(IdentToken),
-    #[error("no subentity")]
-    NoSubentity,
+    #[error("unresolved root identifier")]
+    UnresolvedRootIdent(IdentToken),
+    #[error("no visible subentity")]
+    NoVisibleSubentity,
     #[error("entity symbol already defined")]
     EntitySymbolAlreadyDefined { old: EntityNode, new: EntityNode },
     #[error("expect identifier after keyword")]

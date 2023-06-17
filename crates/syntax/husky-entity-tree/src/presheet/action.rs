@@ -35,7 +35,7 @@ impl PresheetAction {
 impl<'a> EntityTreePresheetMut<'a> {
     pub(crate) fn collect_possible_actions(
         &self,
-        ctx: EntityTreeSymbolContext,
+        ctx: EntityTreeSymbolContext<'a, '_>,
         actions: &mut Vec<PresheetAction>,
     ) {
         for (rule_idx, rule) in self.use_expr_rules.indexed_iter() {
@@ -80,7 +80,7 @@ impl<'a> EntityTreePresheetMut<'a> {
                             let ident_token = *ident_token;
                             (
                                 ident_token.into(),
-                                ctx.resolve_ident(ident_token).ok_or(ident_token),
+                                ctx.resolve_root_ident(ident_token).ok_or(ident_token),
                             )
                         }
                         UseExprRuleVariant::Parent {
@@ -126,7 +126,7 @@ impl<'a> EntityTreePresheetMut<'a> {
                     Err(ident_token) => PresheetAction::Err {
                         module_path: self.module_path,
                         rule_idx,
-                        error: OriginalEntityTreeError::UnresolvedIdent(ident_token).into(),
+                        error: OriginalEntityTreeError::UnresolvedRootIdent(ident_token).into(),
                     },
                 })
             }
@@ -152,14 +152,14 @@ impl<'a> EntityTreePresheetMut<'a> {
         #[cfg(test)]
         assert!(rule.is_unresolved());
         rule.mark_as_resolved(original_symbol);
-        if !original_symbol.is_visible_from(db, self.module_path) {
-            self.errors.push(
-                OriginalEntityTreeError::SymbolExistsButNotAccessible(
-                    name_token.ident_token().unwrap(),
-                )
-                .into(),
-            );
-        }
+        // if !original_symbol.is_visible_from(db, self.module_path) {
+        //     self.errors.push(
+        //         OriginalEntityTreeError::SymbolExistsButNotAccessible(
+        //             name_token.ident_token().unwrap(),
+        //         )
+        //         .into(),
+        //     );
+        // }
         let path = original_symbol.path(db);
         match rule.variant() {
             UseExprRuleVariant::Parent {

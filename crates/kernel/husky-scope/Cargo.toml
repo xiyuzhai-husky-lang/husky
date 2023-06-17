@@ -5,9 +5,10 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
-salsa = { path = "../../abstraction/salsa" }
 # abstraction
+salsa = { path = "../../abstraction/salsa" }
 with-db = { path = "../../abstraction/with-db" }
+enum-class = { path = "../../abstraction/enum-class" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # lex

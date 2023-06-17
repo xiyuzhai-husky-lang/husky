@@ -117,7 +117,7 @@ impl ImplBlockRegistry {
     ) -> u8 {
         let next_disambiguitor = self
             .next_disambiguitors
-            .get_mut_or_insert_default((module_path, impl_block_kind));
+            .get_value_mut_or_insert_default((module_path, impl_block_kind));
         let new_disambiguitor = *next_disambiguitor;
         *next_disambiguitor += 1;
         new_disambiguitor

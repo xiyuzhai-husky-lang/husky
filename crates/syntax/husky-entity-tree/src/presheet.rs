@@ -50,11 +50,11 @@ impl std::ops::Index<UseExprIdx> for EntityTreePresheet {
 impl EntityTreePresheet {
     pub(crate) fn presheet_mut<'a>(
         &'a self,
-        _db: &'a dyn EntityTreeDb,
+        db: &'a dyn EntityTreeDb,
     ) -> EntityTreePresheetMut<'a> {
         EntityTreePresheetMut {
             module_path: self.module_path,
-            symbols: self.native_symbol_table.entity_symbol_table(),
+            symbols: self.native_symbol_table.entity_symbol_table(db),
             use_expr_rules: self.use_one_trackers.clone(),
             use_all_rules: self.use_all_trackers.clone(),
             errors: self.errors.clone(),

@@ -63,13 +63,29 @@ impl<Db: VfsDb + ?Sized> PartialOrdWithDb<Db> for Scope {
     }
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[enum_class::from_variants]
+pub enum ReferenceModulePath {
+    Specific(ModulePath),
+    Generic,
+}
+
 impl Scope {
-    pub fn is_visible_from(self, db: &dyn VfsDb, target_module_path: ModulePath) -> bool {
-        match self {
-            Scope::Pub => true,
-            Scope::PubUnder(parent_module) => target_module_path.starts_with(db, parent_module),
-            Scope::Private(module_path) => module_path == target_module_path,
-            Scope::Disconnected { .. } => todo!(),
+    pub fn is_visible_from(
+        self,
+        db: &dyn VfsDb,
+        reference_module_path: ReferenceModulePath,
+    ) -> bool {
+        match reference_module_path {
+            ReferenceModulePath::Specific(reference_module_path) => match self {
+                Scope::Pub => true,
+                Scope::PubUnder(parent_module) => {
+                    reference_module_path.starts_with(db, parent_module)
+                }
+                Scope::Private(module_path) => module_path == reference_module_path,
+                Scope::Disconnected { .. } => todo!(),
+            },
+            ReferenceModulePath::Generic => todo!(),
         }
     }
 }

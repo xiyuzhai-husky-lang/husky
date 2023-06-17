@@ -27,12 +27,13 @@ impl<'a> SymbolContextMut<'a> {
     pub(crate) fn resolve_ident(
         &self,
         db: &dyn ExprDb,
+        reference_module_path: ModulePath,
         token_idx: TokenIdx,
         ident: Ident,
     ) -> Option<Symbol> {
         self.symbol_region.resolve_ident(token_idx, ident).or(self
             .module_symbol_context
-            .resolve_ident(token_idx, ident)
+            .resolve_ident(db, reference_module_path, token_idx, ident)
             .map(|e| Symbol::Entity(e.path(db))))
     }
 
