@@ -1,10 +1,12 @@
 mod derive;
 
-use crate::*;
 pub use derive::*;
+
+use crate::*;
 use husky_ast::{AstIdx, DecrId};
 use husky_entity_tree::EntityTreeResult;
 use husky_print_utils::p;
+use husky_scope::ReferenceModulePath;
 use salsa::DebugWithDb;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -49,13 +51,14 @@ impl HasDecrs for TypePath {
 
 #[salsa::tracked(jar = DecrJar, return_ref)]
 pub(crate) fn ty_path_decrs(db: &dyn DecrDb, path: TypePath) -> DecrResult<Vec<Decr>> {
+    todo!("use TypeNodePath instead");
     let ident = path.ident(db);
     let module_path = path.module_path(db);
     let module_entity_tree = db.entity_tree_sheet(module_path)?;
     let ast_sheet = db.ast_sheet(module_path)?;
     let Some(entity_symbol) = module_entity_tree
         .module_symbols()
-        .resolve_ident(ident)
+        .resolve_ident(db, todo!(), ident)
         else {
             use salsa::DisplayWithDb;
             panic!(r#"
@@ -63,7 +66,7 @@ Path `{}` is invalid!
 This is very likely caused by expect item in standard library.
 "#, path.display(db))
         };
-    let module_item_symbol = entity_symbol.module_item_symbol().unwrap();
+    let module_item_symbol = entity_symbol.module_item_node().unwrap();
     let ast_idx: AstIdx = module_item_symbol.ast_idx(db);
     ast_sheet.decrs(
         ast_idx,

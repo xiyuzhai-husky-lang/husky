@@ -120,7 +120,12 @@ impl SymbolDeclarativeTermRegion {
                 }
                 RegionPath::Decl(EntityNodePath::ModuleItem(ModuleItemNodePath::Type(
                     ty_node_path,
-                ))) => self.ty_self_ty_term(db, ty_node_path.path(db)),
+                ))) => self.ty_self_ty_term(
+                    db,
+                    ty_node_path
+                        .path(db)
+                        .expect("should have valid entity path"),
+                ),
                 RegionPath::Decl(EntityNodePath::ImplBlock(node_path)) => match node_path {
                     ImplBlockNodePath::TypeImplBlock(node_path) => {
                         self.ty_self_ty_term(db, node_path.ty_path(db))

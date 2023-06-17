@@ -333,7 +333,7 @@ where
 }
 
 impl<K, V> VecPairMap<K, V> {
-    pub fn get_mut_or_insert_default(&mut self, key: K) -> &mut V
+    pub fn get_value_mut_or_insert_default(&mut self, key: K) -> &mut V
     where
         K: Copy + PartialEq,
         V: Default,

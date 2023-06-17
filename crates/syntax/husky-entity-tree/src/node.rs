@@ -12,6 +12,7 @@ pub use self::ty_variant::*;
 
 use crate::*;
 use husky_token::IdentToken;
+use vec_like::VecPairMap;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
@@ -60,6 +61,7 @@ impl HasNodePath for EntityPath {
 
 #[derive(Default)]
 pub(crate) struct EntityNodeRegistry {
+    next_disambiguators: VecPairMap<EntityPath, u8>,
     errors: Vec<EntityTreeError>,
 }
 
@@ -68,18 +70,29 @@ impl EntityNodeRegistry {
         self.errors
     }
 
-    fn issue_maybe_ambiguous<P: Into<EntityPath>>(&self, path: P) -> MaybeAmbiguous<P> {
-        todo!()
+    fn issue_maybe_ambiguous<P: Copy + Into<EntityPath>>(
+        &mut self,
+        path: P,
+    ) -> MaybeAmbiguousPath<P> {
+        let next_disambiguator = self
+            .next_disambiguators
+            .get_value_mut_or_insert_default(path.into());
+        let disambiguator = *next_disambiguator;
+        *next_disambiguator += 1;
+        MaybeAmbiguousPath {
+            path,
+            disambiguator,
+        }
     }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub struct MaybeAmbiguous<P> {
+pub struct MaybeAmbiguousPath<P> {
     path: P,
     disambiguator: u8,
 }
 
-impl<P> MaybeAmbiguous<P> {
+impl<P> MaybeAmbiguousPath<P> {
     fn from_path(path: P) -> Self {
         Self {
             path,
@@ -87,8 +100,8 @@ impl<P> MaybeAmbiguous<P> {
         }
     }
 
-    pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
-        todo!()
+    fn unambiguous_path(self) -> Option<P> {
+        (self.disambiguator == 0).then_some(self.path)
     }
 }
 

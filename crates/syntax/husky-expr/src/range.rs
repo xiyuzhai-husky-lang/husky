@@ -115,11 +115,8 @@ impl<'a> std::ops::Index<&StmtIdx> for ExprRangeCalculator<'a> {
 impl<'a> ExprRangeCalculator<'a> {
     fn new(db: &'a dyn ExprDb, expr_region: ExprRegion) -> Self {
         let expr_region_data = expr_region.data(db);
-        let path = expr_region_data.path();
-        let token_sheet_data = match path.module_path(db) {
-            Some(module_path) => db.token_sheet_data(module_path).unwrap(),
-            None => todo!(),
-        };
+        let region_path = expr_region_data.region_path();
+        let token_sheet_data = region_path.token_sheet_data(db).expect("todo");
         ExprRangeCalculator {
             token_sheet_data,
             expr_region_data,

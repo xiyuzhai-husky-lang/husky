@@ -39,12 +39,14 @@ where
         }
     }
 
-    pub(crate) fn resolve_ident(&self, ident_token: IdentToken) -> Option<EntitySymbol> {
+    pub(crate) fn resolve_root_ident(&self, ident_token: IdentToken) -> Option<EntitySymbol> {
         let ident = ident_token.ident();
+        let db = self.db;
+        let module_path = self.current_sheet.module_path();
         self.current_sheet
             .module_specific_symbols()
-            .resolve_ident(ident)
-            .or_else(|| self.crate_prelude.resolve_ident(ident))
+            .resolve_ident(db, module_path.into(), ident)
+            .or_else(|| self.crate_prelude.resolve_ident(db, module_path, ident))
     }
 
     pub(crate) fn db(&self) -> &'a dyn EntityTreeDb {
@@ -67,7 +69,11 @@ where
                     // 如果出现 unwrap None的错误，就是因为module_path对应的文件不存在
                     // 后面应该通过某些东西保证每个module_path对应的文件都存在
                     let module_sheet = &self.presheets[module_path];
-                    module_sheet.module_specific_symbols().resolve_ident(ident)
+                    module_sheet.module_specific_symbols().resolve_ident(
+                        self.db(),
+                        self.current_sheet.module_path().into(),
+                        ident,
+                    )
                 }
                 EntityPath::ModuleItem(_) => todo!(),
                 EntityPath::AssociatedItem(_) => todo!(),

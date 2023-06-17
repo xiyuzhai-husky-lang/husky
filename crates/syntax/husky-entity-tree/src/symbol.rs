@@ -34,21 +34,42 @@ pub enum EntitySymbol {
     PackageDependency {
         entity_path: EntityPath,
     },
-    Submodule(SubmoduleNode),
-    ModuleItem(ModuleItemNode),
+    Submodule {
+        submodule_path: ModulePath,
+        node: SubmoduleNode,
+    },
+    ModuleItem {
+        module_item_path: ModuleItemPath,
+        node: ModuleItemNode,
+    },
     Use(UseSymbol),
 }
 
-impl From<EntityNode> for EntitySymbol {
-    fn from(val: EntityNode) -> Self {
-        match val {
-            EntityNode::Submodule(symbol) => EntitySymbol::Submodule(symbol),
-            EntityNode::ModuleItem(symbol) => EntitySymbol::ModuleItem(symbol),
+impl EntitySymbol {
+    pub(crate) fn from_node(db: &dyn EntityTreeDb, node: EntityNode) -> Option<Self> {
+        match node {
+            EntityNode::Submodule(node) => Some(EntitySymbol::Submodule {
+                submodule_path: node.path(db),
+                node,
+            }),
+            EntityNode::ModuleItem(node) => Some(EntitySymbol::ModuleItem {
+                module_item_path: node.path(db)?,
+                node,
+            }),
         }
     }
 }
 
 impl EntitySymbol {
+    pub(crate) fn is_visible_from(
+        self,
+        db: &dyn EntityTreeDb,
+        reference_module_path: ReferenceModulePath,
+    ) -> bool {
+        self.visibility(db)
+            .is_visible_from(db, reference_module_path)
+    }
+
     fn visibility(self, db: &dyn EntityTreeDb) -> Scope {
         match self {
             EntitySymbol::CrateRoot { root_module_path } => Scope::PubUnder(root_module_path),
@@ -58,14 +79,10 @@ impl EntitySymbol {
                 ..
             } => Scope::Private(current_module_path),
             EntitySymbol::PackageDependency { .. } => Scope::Pub,
-            EntitySymbol::Submodule(symbol) => symbol.visibility(db),
-            EntitySymbol::ModuleItem(symbol) => symbol.visibility(db),
+            EntitySymbol::Submodule { node, .. } => node.visibility(db),
+            EntitySymbol::ModuleItem { node, .. } => node.visibility(db),
             EntitySymbol::Use(symbol) => symbol.visibility(db),
         }
-    }
-
-    pub(crate) fn is_visible_from(self, db: &dyn EntityTreeDb, module_path: ModulePath) -> bool {
-        self.visibility(db).is_visible_from(db, module_path)
     }
 
     pub fn path(self, db: &dyn EntityTreeDb) -> EntityPath {
@@ -76,16 +93,18 @@ impl EntitySymbol {
                 super_module_path, ..
             } => super_module_path.into(),
             EntitySymbol::PackageDependency { entity_path } => entity_path.into(),
-            EntitySymbol::Submodule(symbol) => symbol.path(db).into(),
-            EntitySymbol::ModuleItem(symbol) => todo!(),
+            EntitySymbol::Submodule { submodule_path, .. } => submodule_path.into(),
+            EntitySymbol::ModuleItem {
+                module_item_path, ..
+            } => module_item_path.into(),
             // symbol.path(db).into(),
             EntitySymbol::Use(symbol) => symbol.path(db).into(),
         }
     }
 
-    pub fn module_item_symbol(self) -> Option<ModuleItemNode> {
+    pub fn module_item_node(self) -> Option<ModuleItemNode> {
         match self {
-            EntitySymbol::ModuleItem(symbol) => Some(symbol),
+            EntitySymbol::ModuleItem { node, .. } => Some(node),
             _ => None,
         }
     }
@@ -116,10 +135,19 @@ impl<'a> ModuleSymbolContext<'a> {
         })
     }
 
-    pub fn resolve_ident(&self, _token_idx: TokenIdx, ident: Ident) -> Option<EntitySymbol> {
+    pub fn resolve_ident(
+        &self,
+        db: &'a dyn EntityTreeDb,
+        reference_module_path: ModulePath,
+        _token_idx: TokenIdx,
+        ident: Ident,
+    ) -> Option<EntitySymbol> {
         self.module_symbols
-            .resolve_ident(ident)
-            .or_else(|| self.crate_prelude.resolve_ident(ident))
+            .resolve_ident(db, reference_module_path.into(), ident)
+            .or_else(|| {
+                self.crate_prelude
+                    .resolve_ident(db, reference_module_path, ident)
+            })
     }
 }
 

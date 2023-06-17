@@ -60,17 +60,19 @@ pub(crate) fn crate_symbol_context<'a>(
 fn crate_symbol_context_works() {
     DB::default().ast_plain_test("crate-symbol-context", |db, crate_path| {
         let crate_symbol_context = crate_symbol_context(db, crate_path).unwrap();
+        let root_module_path = crate_path.root_module_path(db);
         let t = |path: EntityPath| {
-            let symbol = match crate_symbol_context.resolve_ident(path.ident(db)) {
-                Some(symbol) => symbol,
-                None => panic!(
-                    r#"crate symbol context should contain {:?}
+            let symbol =
+                match crate_symbol_context.resolve_ident(db, root_module_path, path.ident(db)) {
+                    Some(symbol) => symbol,
+                    None => panic!(
+                        r#"crate symbol context should contain {:?}
     crate symbol context is
     {:?}"#,
-                    &path.debug(db),
-                    crate_symbol_context.debug(db)
-                ),
-            };
+                        &path.debug(db),
+                        crate_symbol_context.debug(db)
+                    ),
+                };
             if symbol.path(db) != path {
                 panic!(
                     "symbol.path(db)({:?}) should be equal to path({:?})",
@@ -114,10 +116,18 @@ impl<'a> CrateSymbolContext<'a> {
         // Self {}
     }
 
-    pub(crate) fn resolve_ident(&self, ident: Ident) -> Option<EntitySymbol> {
+    pub(crate) fn resolve_ident(
+        &self,
+        db: &dyn EntityTreeDb,
+        reference_module_path: ModulePath,
+        ident: Ident,
+    ) -> Option<EntitySymbol> {
         self.crate_specific_symbol_context
-            .resolve_ident(ident)
-            .or_else(|| self.universal_prelude.resolve_ident(ident))
+            .resolve_ident(db, reference_module_path.into(), ident)
+            .or_else(|| {
+                self.universal_prelude
+                    .resolve_ident(db, reference_module_path.into(), ident)
+            })
     }
 }
 

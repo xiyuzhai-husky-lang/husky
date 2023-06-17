@@ -2,7 +2,7 @@ use super::*;
 
 #[salsa::interned(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
 pub struct FugitiveNodePath {
-    pub path: MaybeAmbiguous<FugitivePath>,
+    pub maybe_ambiguous_path: MaybeAmbiguousPath<FugitivePath>,
 }
 
 impl FugitiveNodePath {
@@ -15,7 +15,7 @@ impl FugitiveNodePath {
     }
 
     pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
-        self.path(db).module_path(db)
+        self.maybe_ambiguous_path(db).path.module_path(db)
     }
 }
 
@@ -23,7 +23,7 @@ impl HasNodePath for FugitivePath {
     type NodePath = FugitiveNodePath;
 
     fn node_path(self, db: &dyn EntityTreeDb) -> Self::NodePath {
-        FugitiveNodePath::new_inner(db, MaybeAmbiguous::from_path(self))
+        FugitiveNodePath::new_inner(db, MaybeAmbiguousPath::from_path(self))
     }
 }
 

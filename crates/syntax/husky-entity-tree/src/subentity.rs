@@ -22,10 +22,10 @@ pub(crate) fn subentity_path(
             match db
                 .entity_tree_sheet(module_path)?
                 .module_symbols()
-                .resolve_ident(ident)
+                .resolve_ident(db, todo!(), ident)
             {
                 Some(entity_symbol) => Ok(entity_symbol.path(db)),
-                None => Err(OriginalEntityTreeError::NoSubentity)?,
+                None => Err(OriginalEntityTreeError::NoVisibleSubentity)?,
             }
         }
         EntityPath::ModuleItem(module_item_path) => {
@@ -46,7 +46,7 @@ pub(crate) fn subentity_path(
                         // })
                     } else {
                         // todo: check trait impls
-                        Err(OriginalEntityTreeError::NoSubentity)?
+                        Err(OriginalEntityTreeError::NoVisibleSubentity)?
                     }
                 }
                 ModuleItemPath::Trait(_) => todo!(),

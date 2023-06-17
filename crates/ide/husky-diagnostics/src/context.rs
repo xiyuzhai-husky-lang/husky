@@ -77,7 +77,7 @@ pub(crate) struct RegionDiagnosticsContext<'a> {
 impl<'a> RegionDiagnosticsContext<'a> {
     pub(crate) fn new(db: &'a dyn DiagnosticsDb, expr_region: ExprRegion) -> Self {
         let expr_region_data = &expr_region.data(db);
-        let module_path = expr_region_data.path().module_path(db).unwrap();
+        let module_path = expr_region_data.region_path().module_path(db);
         let ranged_token_sheet = db.ranged_token_sheet(module_path).unwrap();
         let token_sheet_data = ranged_token_sheet.token_sheet_data(db);
         Self {

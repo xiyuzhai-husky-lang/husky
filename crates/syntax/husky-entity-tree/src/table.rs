@@ -41,12 +41,19 @@ impl EntitySymbolTable {
 pub struct EntitySymbolTableRef<'a>(&'a [EntitySymbolEntry]);
 
 impl<'a> EntitySymbolTableRef<'a> {
-    pub fn resolve_ident(&self, ident: Ident) -> Option<EntitySymbol> {
+    // todo: add token_idx: TokenIdx
+    pub fn resolve_ident(
+        &self,
+        db: &dyn EntityTreeDb,
+        reference_module_path: ReferenceModulePath,
+        ident: Ident,
+    ) -> Option<EntitySymbol> {
         // ad hoc
         // todo: override
-        self.0
-            .iter()
-            .find_map(|entry| (entry.ident == ident).then_some(entry.symbol))
+        self.0.iter().find_map(|entry| {
+            ((entry.ident == ident) && entry.is_visible_from(db, reference_module_path))
+                .then_some(entry.symbol)
+        })
     }
 
     pub(crate) fn data(&self) -> &'a [EntitySymbolEntry] {
@@ -112,7 +119,7 @@ impl EntitySymbolEntry {
         let visibility = rule.visibility();
         Self {
             ident: rule.ident().unwrap(),
-            visibility: visibility,
+            visibility,
             symbol: UseSymbol::new(
                 db,
                 original_symbol,
@@ -128,11 +135,10 @@ impl EntitySymbolEntry {
     pub(crate) fn export_via_use_all(
         &self,
         db: &dyn EntityTreeDb,
-        target_module_path: ModulePath,
+        reference_module_path: ModulePath,
         rule: &UseAllRule,
     ) -> Option<Self> {
-        self.symbol
-            .is_visible_from(db, target_module_path)
+        self.is_visible_from(db, reference_module_path.into())
             .then_some(EntitySymbolEntry {
                 ident: self.ident,
                 visibility: rule.visibility(),
@@ -146,6 +152,14 @@ impl EntitySymbolEntry {
                 )
                 .into(),
             })
+    }
+
+    pub(crate) fn is_visible_from(
+        &self,
+        db: &dyn EntityTreeDb,
+        module_path: ReferenceModulePath,
+    ) -> bool {
+        self.visibility.is_visible_from(db, module_path)
     }
 
     pub fn symbol(&self) -> EntitySymbol {
@@ -168,8 +182,13 @@ pub struct EntityNodeTable {
 }
 
 impl EntityNodeTable {
-    pub(crate) fn entity_symbol_table(&self) -> EntitySymbolTable {
-        EntitySymbolTable(self.entries.iter().map(|entry| entry.into()).collect())
+    pub(crate) fn entity_symbol_table(&self, db: &dyn EntityTreeDb) -> EntitySymbolTable {
+        EntitySymbolTable(
+            self.entries
+                .iter()
+                .filter_map(|entry| EntitySymbolEntry::from_node(db, entry))
+                .collect(),
+        )
     }
 
     pub(crate) fn try_add_new_node(
@@ -199,13 +218,13 @@ pub struct EntityNodeEntry {
     visibility: Scope,
 }
 
-impl From<&EntityNodeEntry> for EntitySymbolEntry {
-    fn from(val: &EntityNodeEntry) -> Self {
-        EntitySymbolEntry {
-            ident: val.ident,
-            visibility: val.visibility,
-            symbol: val.node.into(),
-        }
+impl EntitySymbolEntry {
+    fn from_node(db: &dyn EntityTreeDb, node_entry: &EntityNodeEntry) -> Option<Self> {
+        Some(EntitySymbolEntry {
+            ident: node_entry.ident,
+            visibility: node_entry.visibility,
+            symbol: EntitySymbol::from_node(db, node_entry.node)?,
+        })
     }
 }
 

@@ -54,7 +54,7 @@ impl DecrRegistry {
     fn issue(&mut self, ident: Ident) -> DecrId {
         let next_disambiguator = self
             .next_decr_disambiguators
-            .get_mut_or_insert_default(ident);
+            .get_value_mut_or_insert_default(ident);
         let disambiguator = *next_disambiguator;
         *next_disambiguator += 1;
         DecrId {

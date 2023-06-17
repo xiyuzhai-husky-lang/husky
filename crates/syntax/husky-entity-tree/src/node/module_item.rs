@@ -31,21 +31,31 @@ impl ModuleItemNodePath {
         }
     }
 
-    pub fn path(self, db: &dyn EntityTreeDb) -> ModuleItemPath {
-        todo!()
-        // match self {
-        //     ModuleItemNodePath::Trait(id) => id.path(db).into(),
-        //     ModuleItemNodePath::Type(id) => id.path(db).into(),
-        //     ModuleItemNodePath::Fugitive(id) => id.path(db).into(),
-        // }
+    pub fn path(self, db: &dyn EntityTreeDb) -> Option<ModuleItemPath> {
+        match self {
+            ModuleItemNodePath::Trait(id) => id
+                .maybe_ambiguous_path(db)
+                .unambiguous_path()
+                .map(Into::into),
+            ModuleItemNodePath::Type(id) => id
+                .maybe_ambiguous_path(db)
+                .unambiguous_path()
+                .map(Into::into),
+            ModuleItemNodePath::Fugitive(id) => id
+                .maybe_ambiguous_path(db)
+                .unambiguous_path()
+                .map(Into::into),
+        }
     }
 
     pub fn ident(self, db: &dyn EntityTreeDb) -> Ident {
-        self.path(db).ident(db)
+        todo!("deprecated")
+        // self.path(db).ident(db)
     }
 
     pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
-        self.path(db).module_path(db)
+        todo!("deprecated")
+        // self.path(db).module_path(db)
     }
 }
 
@@ -68,4 +78,11 @@ pub struct ModuleItemNode {
     pub visibility: Scope,
     pub ast_idx: AstIdx,
     pub ident_token: IdentToken,
+}
+
+impl ModuleItemNode {
+    /// only gives a path when valid
+    pub fn path(self, db: &dyn EntityTreeDb) -> Option<ModuleItemPath> {
+        self.node_path(db).path(db)
+    }
 }

@@ -69,21 +69,22 @@ impl<'a> DeclParseContext<'a> {
 
     #[inline(always)]
     fn resolve_module_item_symbol(&self, id: ModuleItemNodePath) -> ModuleItemNode {
-        let db = self.db;
-        let path = id.path(db);
-        let ident = path.ident(db);
-        let Some(entity_symbol) = self
-            .entity_tree_sheet
-            .module_symbols()
-            .resolve_ident(ident)
-            else {
-                use salsa::DisplayWithDb;
-                panic!(r#"
-    Path `{}` is invalid!
-    This is very likely caused by expect item in standard library.
-"#, path.display(db))
-            };
-        entity_symbol.module_item_symbol().unwrap()
+        todo!()
+        //         let db = self.db;
+        //         let path = id.path(db);
+        //         let ident = path.ident(db);
+        //         let Some(entity_symbol) = self
+        //             .entity_tree_sheet
+        //             .module_symbols()
+        //             .resolve_ident(ident)
+        //             else {
+        //                 use salsa::DisplayWithDb;
+        //                 panic!(r#"
+        //     Path `{}` is invalid!
+        //     This is very likely caused by expect item in standard library.
+        // "#, path.display(db))
+        //             };
+        //         entity_symbol.module_item_node().unwrap()
     }
 
     #[inline(always)]
