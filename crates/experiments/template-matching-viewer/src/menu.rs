@@ -1,6 +1,6 @@
 use crate::*;
 
-impl TemplateMatchingViewerApp {
+impl App {
     pub(super) fn render_menu_panel(&mut self, ctx: &egui::Context) {
         egui::TopBottomPanel::top("menu_bar_panel")
             .frame(self.menu_bar_frame())

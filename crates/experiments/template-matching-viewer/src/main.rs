@@ -18,17 +18,17 @@ fn main() -> Result<(), eframe::Error> {
     eframe::run_native(
         "Template Matching Viewer",
         options,
-        Box::new(|_cc| Box::new(TemplateMatchingViewerApp::default())),
+        Box::new(|_cc| Box::new(App::default())),
     )
 }
 
-struct TemplateMatchingViewerApp {
+struct App {
     explorer: Explorer,
     figure: Figure,
     control: Control,
 }
 
-impl Default for TemplateMatchingViewerApp {
+impl Default for App {
     fn default() -> Self {
         Self {
             explorer: Default::default(),
@@ -38,7 +38,7 @@ impl Default for TemplateMatchingViewerApp {
     }
 }
 
-impl eframe::App for TemplateMatchingViewerApp {
+impl eframe::App for App {
     fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
         self.render_menu_panel(ctx);
         self.render_explorer_panel(ctx);
