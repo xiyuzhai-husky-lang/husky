@@ -59,6 +59,7 @@ pub struct EntityTreeJar(
     // module items
     TraitNodePath,
     TypeNodePath,
+    ty_node,
     FugitiveNodePath,
     // ty variant
     TypeVariantNodePath,

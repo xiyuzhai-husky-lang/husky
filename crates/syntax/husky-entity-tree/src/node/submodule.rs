@@ -8,3 +8,12 @@ pub struct SubmoduleNode {
     pub ast_idx: AstIdx,
     pub ident_token: IdentToken,
 }
+
+// todo: finish this
+struct SubmoduleNodePath;
+
+impl SubmoduleNodePath {
+    fn node(self, db: &dyn EntityTreeDb) -> SubmoduleNode {
+        todo!()
+    }
+}

@@ -53,14 +53,16 @@ pub(crate) fn trai_decl(db: &dyn DeclDb, id: TraitNodePath) -> DeclResult<TraitD
 }
 
 impl<'a> DeclParseContext<'a> {
-    fn parse_trai_decl(&self, id: TraitNodePath) -> DeclResult<TraitDecl> {
-        let ast_idx = self.resolve_module_item_ast_idx(id);
+    fn parse_trai_decl(&self, node_path: TraitNodePath) -> DeclResult<TraitDecl> {
+        let db = self.db();
+        let node = node_path.node(db);
+        let ast_idx: AstIdx = node.ast_idx(db);
         match self.ast_sheet()[ast_idx] {
             Ast::Defn {
                 token_group_idx,
                 saved_stream_state,
                 ..
-            } => self.parse_trai_decl_aux(ast_idx, id, token_group_idx, saved_stream_state),
+            } => self.parse_trai_decl_aux(ast_idx, node_path, token_group_idx, saved_stream_state),
             _ => unreachable!(),
         }
     }

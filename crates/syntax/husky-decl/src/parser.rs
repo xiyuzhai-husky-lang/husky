@@ -33,11 +33,6 @@ impl<'a> DeclParseContext<'a> {
     }
 
     #[inline(always)]
-    pub(crate) fn resolve_module_item_ast_idx(&self, id: impl Into<ModuleItemNodePath>) -> AstIdx {
-        self.resolve_module_item_symbol(id.into()).ast_idx(self.db)
-    }
-
-    #[inline(always)]
     pub(crate) fn resolve_module_item_indexed_ast(
         &self,
         path: ModuleItemPath,
@@ -68,26 +63,6 @@ impl<'a> DeclParseContext<'a> {
     }
 
     #[inline(always)]
-    fn resolve_module_item_symbol(&self, id: ModuleItemNodePath) -> ModuleItemNode {
-        todo!()
-        //         let db = self.db;
-        //         let path = id.path(db);
-        //         let ident = path.ident(db);
-        //         let Some(entity_symbol) = self
-        //             .entity_tree_sheet
-        //             .module_symbols()
-        //             .resolve_ident(ident)
-        //             else {
-        //                 use salsa::DisplayWithDb;
-        //                 panic!(r#"
-        //     Path `{}` is invalid!
-        //     This is very likely caused by expect item in standard library.
-        // "#, path.display(db))
-        //             };
-        //         entity_symbol.module_item_node().unwrap()
-    }
-
-    #[inline(always)]
     pub(crate) fn expr_parser(
         &self,
         node_path: impl Into<EntityNodePath>,
@@ -106,10 +81,12 @@ impl<'a> DeclParseContext<'a> {
         )
     }
 
+    #[inline(always)]
     pub(crate) fn db(&self) -> &'a dyn DeclDb {
         self.db
     }
 
+    #[inline(always)]
     pub(crate) fn ast_sheet(&self) -> &'a AstSheet {
         self.ast_sheet
     }

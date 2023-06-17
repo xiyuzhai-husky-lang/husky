@@ -57,6 +57,10 @@ impl ModuleItemNodePath {
         todo!("deprecated")
         // self.path(db).module_path(db)
     }
+
+    pub fn node(self, db: &dyn EntityTreeDb) -> ModuleItemNode {
+        todo!()
+    }
 }
 
 impl HasNodePath for ModuleItemPath {
@@ -71,6 +75,7 @@ impl HasNodePath for ModuleItemPath {
     }
 }
 
+// todo: change this to enum and create FugitiveNode etc.
 #[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar)]
 pub struct ModuleItemNode {
     #[id]

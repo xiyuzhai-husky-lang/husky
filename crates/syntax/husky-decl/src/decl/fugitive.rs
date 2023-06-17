@@ -120,14 +120,16 @@ pub(crate) fn fugitive_decl(db: &dyn DeclDb, id: FugitiveNodePath) -> DeclResult
 }
 
 impl<'a> DeclParseContext<'a> {
-    fn parse_fugitive_decl(&self, id: FugitiveNodePath) -> DeclResult<FugitiveDecl> {
-        let ast_idx: AstIdx = self.resolve_module_item_ast_idx(id);
+    fn parse_fugitive_decl(&self, path: FugitiveNodePath) -> DeclResult<FugitiveDecl> {
+        let db = self.db();
+        let node = path.node(db);
+        let ast_idx: AstIdx = node.ast_idx(db);
         match self.ast_sheet()[ast_idx] {
             Ast::Defn {
                 token_group_idx,
                 saved_stream_state,
                 ..
-            } => self.parse_fugitive_decl_aux(ast_idx, id, token_group_idx, saved_stream_state),
+            } => self.parse_fugitive_decl_aux(ast_idx, path, token_group_idx, saved_stream_state),
             _ => unreachable!(),
         }
     }

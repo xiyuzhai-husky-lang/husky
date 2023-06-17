@@ -21,6 +21,10 @@ impl TypeNodePath {
     pub fn path(self, db: &dyn EntityTreeDb) -> Option<TypePath> {
         self.maybe_ambiguous_path(db).unambiguous_path()
     }
+
+    pub fn node<'a>(self, db: &'a dyn EntityTreeDb) -> EntityTreeResultRef<'a, ModuleItemNode> {
+        ty_node(db, self).as_ref().copied()
+    }
 }
 
 impl HasNodePath for TypePath {
@@ -35,4 +39,14 @@ impl From<TypeNodePath> for EntityNodePath {
     fn from(id: TypeNodePath) -> Self {
         EntityNodePath::ModuleItem(id.into())
     }
+}
+
+#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+pub(crate) fn ty_node(
+    db: &dyn EntityTreeDb,
+    node_path: TypeNodePath,
+) -> EntityTreeResult<ModuleItemNode> {
+    let module_path = node_path.module_path(db);
+    let entity_sheet = module_path.entity_tree_sheet(db)?;
+    todo!()
 }

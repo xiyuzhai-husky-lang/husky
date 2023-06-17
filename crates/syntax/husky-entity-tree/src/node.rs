@@ -18,6 +18,7 @@ use vec_like::VecPairMap;
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 #[enum_class::from_variants]
 pub enum EntityNodePath {
+    // Submodule(ModulePath),
     ModuleItem(ModuleItemNodePath),
     TypeVariant(TypeVariantNodePath),
     ImplBlock(ImplBlockNodePath),
@@ -111,6 +112,9 @@ impl<P> MaybeAmbiguousPath<P> {
 pub enum EntityNode {
     Submodule(SubmoduleNode),
     ModuleItem(ModuleItemNode),
+    AssociatedItem(AssociatedItemNode),
+    TypeVariant(TypeVariantNode),
+    ImplBlock(ImplBlockNode),
 }
 
 impl EntityNode {
@@ -145,6 +149,9 @@ impl EntityNode {
         match self {
             EntityNode::Submodule(symbol) => symbol.ast_idx(db),
             EntityNode::ModuleItem(symbol) => symbol.ast_idx(db),
+            EntityNode::AssociatedItem(_) => todo!(),
+            EntityNode::TypeVariant(_) => todo!(),
+            EntityNode::ImplBlock(_) => todo!(),
         }
     }
 
@@ -152,6 +159,40 @@ impl EntityNode {
         match self {
             EntityNode::Submodule(symbol) => symbol.ident_token(db),
             EntityNode::ModuleItem(symbol) => symbol.ident_token(db),
+            EntityNode::AssociatedItem(_) => todo!(),
+            EntityNode::TypeVariant(_) => todo!(),
+            EntityNode::ImplBlock(_) => todo!(),
+        }
+    }
+}
+
+// #[inline(always)]
+// fn resolve_module_item_symbol(&self, id: ModuleItemNodePath) -> ModuleItemNode {
+//     todo!()
+//     //         let db = self.db;
+//     //         let path = id.path(db);
+//     //         let ident = path.ident(db);
+//     //         let Some(entity_symbol) = self
+//     //             .entity_tree_sheet
+//     //             .module_symbols()
+//     //             .resolve_ident(ident)
+//     //             else {
+//     //                 use salsa::DisplayWithDb;
+//     //                 panic!(r#"
+//     //     Path `{}` is invalid!
+//     //     This is very likely caused by expect item in standard library.
+//     // "#, path.display(db))
+//     //             };
+//     //         entity_symbol.module_item_node().unwrap()
+// }
+
+impl EntityNodePath {
+    pub fn node(self, db: &dyn EntityTreeDb) -> EntityNode {
+        match self {
+            EntityNodePath::ModuleItem(path) => path.node(db).into(),
+            EntityNodePath::AssociatedItem(path) => path.node(db).into(),
+            EntityNodePath::TypeVariant(path) => path.node(db).into(),
+            EntityNodePath::ImplBlock(path) => path.node(db).into(),
         }
     }
 }

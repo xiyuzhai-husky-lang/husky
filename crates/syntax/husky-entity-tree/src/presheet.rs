@@ -32,7 +32,7 @@ fn entity_tree_presheet_works() {
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub struct EntityTreePresheet {
     module_path: ModulePath,
-    native_symbol_table: EntityNodeTable,
+    node_table: MajorEntityNodeTable,
     use_one_trackers: UseExprRules,
     use_all_trackers: UseAllRules,
     use_expr_arena: UseExprArena,
@@ -54,7 +54,8 @@ impl EntityTreePresheet {
     ) -> EntityTreePresheetMut<'a> {
         EntityTreePresheetMut {
             module_path: self.module_path,
-            symbols: self.native_symbol_table.entity_symbol_table(db),
+            node_table: self.node_table.clone(),
+            symbol_table: self.node_table.entity_symbol_table(db),
             use_expr_rules: self.use_one_trackers.clone(),
             use_all_rules: self.use_all_trackers.clone(),
             errors: self.errors.clone(),
@@ -66,7 +67,8 @@ impl EntityTreePresheet {
 #[derive(Debug, PartialEq, Eq)]
 pub(crate) struct EntityTreePresheetMut<'a> {
     module_path: ModulePath,
-    symbols: EntitySymbolTable,
+    node_table: MajorEntityNodeTable,
+    symbol_table: EntitySymbolTable,
     use_expr_rules: UseExprRules,
     use_all_rules: UseAllRules,
     errors: Vec<EntityTreeError>,
@@ -80,13 +82,14 @@ impl<'a> EntityTreePresheetMut<'a> {
 
     /// symbols in module except those from prelude
     pub(crate) fn module_specific_symbols(&'a self) -> EntitySymbolTableRef<'a> {
-        self.symbols.as_ref()
+        self.symbol_table.as_ref()
     }
 
     pub(crate) fn into_sheet(self, impl_blocks: Vec<ImplBlockNode>) -> EntityTreeSheet {
         EntityTreeSheet::new(
             self.module_path,
-            self.symbols,
+            self.node_table,
+            self.symbol_table,
             self.use_expr_rules,
             self.use_all_rules,
             self.errors,
@@ -121,7 +124,7 @@ struct EntityTreePresheetBuilder<'a> {
     module_path: ModulePath,
     ast_sheet: &'a AstSheet,
     token_sheet_data: &'a TokenSheetData,
-    entity_node_table: EntityNodeTable,
+    entity_node_table: MajorEntityNodeTable,
     use_expr_arena: UseExprArena,
     entity_use_trackers: UseExprRules,
     registry: EntityNodeRegistry,
@@ -147,7 +150,7 @@ impl<'a> EntityTreePresheetBuilder<'a> {
         }
         EntityTreePresheet {
             module_path: self.module_path,
-            native_symbol_table: self.entity_node_table,
+            node_table: self.entity_node_table,
             use_one_trackers: self.entity_use_trackers,
             use_all_trackers: Default::default(),
             use_expr_arena: self.use_expr_arena,
