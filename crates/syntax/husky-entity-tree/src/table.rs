@@ -175,13 +175,14 @@ impl EntitySymbolEntry {
     }
 }
 
-#[derive(Debug, Default, PartialEq, Eq)]
+// module items and submodules
+#[derive(Debug, Default, PartialEq, Eq, Clone)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
-pub struct EntityNodeTable {
+pub struct MajorEntityNodeTable {
     entries: Vec<EntityNodeEntry>,
 }
 
-impl EntityNodeTable {
+impl MajorEntityNodeTable {
     pub(crate) fn entity_symbol_table(&self, db: &dyn EntityTreeDb) -> EntitySymbolTable {
         EntitySymbolTable(
             self.entries
@@ -208,7 +209,7 @@ impl EntityNodeTable {
     }
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub struct EntityNodeEntry {
     node: EntityNode,

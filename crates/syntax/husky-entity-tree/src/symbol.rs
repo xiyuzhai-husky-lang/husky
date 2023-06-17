@@ -56,6 +56,9 @@ impl EntitySymbol {
                 module_item_path: node.path(db)?,
                 node,
             }),
+            EntityNode::AssociatedItem(_)
+            | EntityNode::TypeVariant(_)
+            | EntityNode::ImplBlock(_) => unreachable!(),
         }
     }
 }

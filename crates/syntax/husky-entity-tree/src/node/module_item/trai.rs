@@ -17,6 +17,10 @@ impl TraitNodePath {
     pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
         self.maybe_ambiguous_path(db).path.module_path(db)
     }
+
+    pub fn node(self, db: &dyn EntityTreeDb) -> ModuleItemNode {
+        todo!()
+    }
 }
 
 impl HasNodePath for TraitPath {

@@ -195,7 +195,9 @@ pub(crate) fn ty_decl_aux(db: &dyn DeclDb, id: TypeNodePath) -> DeclResult<TypeD
 
 impl<'a> DeclParseContext<'a> {
     fn parse_ty_decl(&self, node_path: TypeNodePath) -> DeclResult<TypeDecl> {
-        let ast_idx: AstIdx = self.resolve_module_item_ast_idx(node_path);
+        let db = self.db();
+        let node = node_path.node(db).expect("should correspond to valid node");
+        let ast_idx: AstIdx = node.ast_idx(db);
         match self.ast_sheet()[ast_idx] {
             Ast::Defn {
                 token_group_idx,

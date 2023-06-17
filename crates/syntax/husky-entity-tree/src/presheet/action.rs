@@ -220,12 +220,18 @@ impl<'a> EntityTreePresheetMut<'a> {
                     }
                 }
             }
-            UseExprRuleVariant::Leaf { ident_token: _ } => match self.symbols.insert(
-                EntitySymbolEntry::new_use_symbol_entry(db, original_symbol, rule),
-            ) {
-                Ok(_) => (),
-                Err(_) => todo!(),
-            },
+            UseExprRuleVariant::Leaf { ident_token: _ } => {
+                match self
+                    .symbol_table
+                    .insert(EntitySymbolEntry::new_use_symbol_entry(
+                        db,
+                        original_symbol,
+                        rule,
+                    )) {
+                    Ok(_) => (),
+                    Err(_) => todo!(),
+                }
+            }
         }
     }
 
@@ -237,7 +243,7 @@ impl<'a> EntityTreePresheetMut<'a> {
     ) {
         let rule = &mut self.use_all_rules[rule_idx];
         rule.set_progress(progress);
-        match self.symbols.extend(new_uses) {
+        match self.symbol_table.extend(new_uses) {
             Ok(_) => (),
             Err(_) => todo!(),
         }

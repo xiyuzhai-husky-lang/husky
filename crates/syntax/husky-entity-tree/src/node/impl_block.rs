@@ -33,6 +33,10 @@ impl ImplBlockNodePath {
             ImplBlockNodePath::IllFormedImplBlock(id) => id.module_path(db),
         }
     }
+
+    pub fn node(self, db: &dyn EntityTreeDb) -> ImplBlockNode {
+        todo!()
+    }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]

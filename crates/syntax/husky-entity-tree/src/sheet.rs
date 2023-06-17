@@ -4,7 +4,8 @@ use crate::*;
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub struct EntityTreeSheet {
     module_path: ModulePath,
-    symbols: EntitySymbolTable,
+    major_entity_node_table: MajorEntityNodeTable,
+    entity_symbol_table: EntitySymbolTable,
     impl_blocks: Vec<ImplBlockNode>,
     use_expr_rules: UseExprRules,
     use_all_rules: UseAllRules,
@@ -29,7 +30,8 @@ impl vec_like::AsVecMapEntry for EntityTreeSheet {
 impl EntityTreeSheet {
     pub(crate) fn new(
         module_path: ModulePath,
-        symbols: EntitySymbolTable,
+        node_table: MajorEntityNodeTable,
+        symbol_table: EntitySymbolTable,
         use_expr_rules: UseExprRules,
         use_all_rules: UseAllRules,
         errors: Vec<EntityTreeError>,
@@ -37,7 +39,8 @@ impl EntityTreeSheet {
     ) -> Self {
         Self {
             module_path,
-            symbols,
+            major_entity_node_table: node_table,
+            entity_symbol_table: symbol_table,
             impl_blocks,
             use_expr_rules,
             use_all_rules,
@@ -46,7 +49,7 @@ impl EntityTreeSheet {
     }
 
     pub fn module_symbols<'a>(&'a self) -> EntitySymbolTableRef<'a> {
-        self.symbols.as_ref()
+        self.entity_symbol_table.as_ref()
     }
 
     // pub fn module_item_path_iter<'a>(
@@ -116,6 +119,22 @@ impl EntityTreeSheet {
                 ImplBlockNode::TraitForTypeImplBlock(_) => None,
                 ImplBlockNode::IllFormedImplBlock(impl_block) => Some(impl_block),
             })
+    }
+}
+
+pub trait HasEntityTreeSheet: Copy {
+    fn entity_tree_sheet<'a>(
+        self,
+        db: &'a dyn EntityTreeDb,
+    ) -> EntityTreeResult<&'a EntityTreeSheet>;
+}
+
+impl HasEntityTreeSheet for ModulePath {
+    fn entity_tree_sheet<'a>(
+        self,
+        db: &'a dyn EntityTreeDb,
+    ) -> EntityTreeResult<&'a EntityTreeSheet> {
+        entity_tree_sheet(db, self)
     }
 }
 
