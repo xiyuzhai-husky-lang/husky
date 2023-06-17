@@ -9,6 +9,7 @@ tracing-subscriber = "0.3.16"
 eframe = "0.22.0"
 egui = "0.22.0"
 egui_dock = "0.6.1"
+egui_extras = { version = "0.22.0", features = ["image"] }
 # gui
 husky-code-edit = { path = "../../gui/husky-code-edit" }
 # utils

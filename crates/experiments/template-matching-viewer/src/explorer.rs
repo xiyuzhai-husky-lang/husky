@@ -3,7 +3,7 @@ use crate::*;
 #[derive(Default)]
 pub struct Explorer {}
 
-impl TemplateMatchingViewerApp {
+impl App {
     pub(crate) fn render_explorer_panel(&mut self, ctx: &egui::Context) {
         egui::SidePanel::left("explorer_panel")
             .frame(self.explorer_frame())
