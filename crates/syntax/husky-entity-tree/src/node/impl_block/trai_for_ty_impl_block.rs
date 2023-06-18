@@ -22,6 +22,10 @@ impl TraitForTypeImplBlockNodePath {
     pub fn ty_path(self, db: &dyn EntityTreeDb) -> TypePath {
         self.path.ty_path(db)
     }
+
+    pub fn item_node_paths(self, db: &dyn EntityTreeDb) -> &[TraitForTypeItemNodePath] {
+        todo!()
+    }
 }
 
 impl From<TraitForTypeImplBlockNodePath> for EntityNodePath {

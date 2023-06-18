@@ -21,22 +21,47 @@ impl HasNodeDeclSheet for ModulePath {
 pub fn node_decl_sheet(db: &dyn DeclDb, path: ModulePath) -> EntityTreeResult<NodeDeclSheet> {
     let entity_tree_sheet = db.entity_tree_sheet(path)?;
     let mut decls: Vec<(EntityNodePath, NodeDecl)> = Default::default();
-    todo!();
-    // for path in entity_tree_sheet.module_item_path_iter(db) {
-    //     decls.push((DeclRegionPath::Entity(path.into()), path.decl(db)))
-    // }
-    // for impl_block in entity_tree_sheet.impl_blocks().iter().copied() {
-    //     decls.push((
-    //         DeclRegionPath::ImplBlock(impl_block.path(db)),
-    //         impl_block.decl(db).map(|decl| decl.into()),
-    //     ));
-    //     for (_, associated_item) in impl_block.items(db).iter().copied() {
-    //         decls.push((
-    //             DeclRegionPath::AssociatedItem(associated_item.id(db)),
-    //             associated_item.decl(db).map(|decl| decl.into()),
-    //         ))
-    //     }
-    // }
+    for node_path in entity_tree_sheet.major_entity_node_paths() {
+        decls.push((node_path, node_path.node_decl(db)))
+    }
+    // todo: handle trait items
+    for impl_block_node_path in entity_tree_sheet.impl_block_node_paths() {
+        decls.push((
+            impl_block_node_path.into(),
+            impl_block_node_path.node_decl(db).into(),
+        ));
+        match impl_block_node_path {
+            ImplBlockNodePath::TypeImplBlock(impl_block_node_path) => {
+                for ty_item_node_path in impl_block_node_path.item_node_paths(db).iter().copied() {
+                    decls.push((
+                        ty_item_node_path.into(),
+                        ty_item_node_path.node_decl(db).into(),
+                    ))
+                }
+            }
+            ImplBlockNodePath::TraitForTypeImplBlock(impl_block_node_path) => {
+                for trai_for_ty_item_node_path in
+                    impl_block_node_path.item_node_paths(db).iter().copied()
+                {
+                    decls.push((
+                        trai_for_ty_item_node_path.into(),
+                        trai_for_ty_item_node_path.node_decl(db).into(),
+                    ))
+                }
+            }
+            ImplBlockNodePath::IllFormedImplBlock(impl_block_node_path) => {
+                todo!()
+                // for ill_formed_item_node_path in
+                //     impl_block_node_path.item_node_paths(db).iter().copied()
+                // {
+                //     decls.push((
+                //         ill_formed_item_node_path.into(),
+                //         ill_formed_item_node_path.node_decl(db).into(),
+                //     ))
+                // }
+            }
+        }
+    }
     Ok(NodeDeclSheet::new(db, decls))
 }
 
@@ -67,23 +92,25 @@ impl HasDeclSheet for ModulePath {
 pub fn decl_sheet(db: &dyn DeclDb, path: ModulePath) -> EntityTreeResult<DeclSheet> {
     let entity_tree_sheet = db.entity_tree_sheet(path)?;
     let mut decls: Vec<(EntityPath, Decl)> = Default::default();
-    todo!();
-    // for path in entity_tree_sheet.module_item_path_iter(db) {
-    //     decls.push((DeclRegionPath::Entity(path.into()), path.decl(db)))
-    // }
-    // for impl_block in entity_tree_sheet.impl_blocks().iter().copied() {
+    for node_path in entity_tree_sheet.major_entity_node_paths() {
+        if let Some(path) = node_path.path(db) && let Ok(decl) = path.decl(db) {
+            decls.push((path, decl))
+        }
+    }
+    todo!()
+    // for impl_block_node in entity_tree_sheet.impl_block_nodes().iter().copied() {
     //     decls.push((
-    //         DeclRegionPath::ImplBlock(impl_block.path(db)),
-    //         impl_block.decl(db).map(|decl| decl.into()),
+    //         DeclRegionPath::ImplBlock(impl_block_node.path(db)),
+    //         impl_block_node.decl(db).map(|decl| decl.into()),
     //     ));
-    //     for (_, associated_item) in impl_block.items(db).iter().copied() {
+    //     for (_, associated_item) in impl_block_node.items(db).iter().copied() {
     //         decls.push((
     //             DeclRegionPath::AssociatedItem(associated_item.id(db)),
     //             associated_item.decl(db).map(|decl| decl.into()),
     //         ))
     //     }
     // }
-    Ok(DeclSheet::new(db, decls))
+    // Ok(DeclSheet::new(db, decls))
 }
 
 #[test]

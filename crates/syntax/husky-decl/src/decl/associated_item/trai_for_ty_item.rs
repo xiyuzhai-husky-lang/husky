@@ -23,6 +23,12 @@ pub enum TraitForTypeItemNodeDecl {
     AssociatedVal(TraitForTypeAssociatedValNodeDecl),
 }
 
+impl From<TraitForTypeItemNodeDecl> for NodeDecl {
+    fn from(decl: TraitForTypeItemNodeDecl) -> Self {
+        NodeDecl::AssociatedItem(decl.into())
+    }
+}
+
 impl TraitForTypeItemNodeDecl {
     pub fn node_path(self, db: &dyn DeclDb) -> TraitForTypeItemNodePath {
         match self {
@@ -61,6 +67,14 @@ impl TraitForTypeItemNodeDecl {
             TraitForTypeItemNodeDecl::AssociatedType(decl) => decl.expr_region(db),
             TraitForTypeItemNodeDecl::AssociatedVal(decl) => decl.expr_region(db),
         }
+    }
+}
+
+impl HasNodeDecl for TraitForTypeItemNodePath {
+    type NodeDecl = TraitForTypeItemNodeDecl;
+
+    fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
+        todo!()
     }
 }
 

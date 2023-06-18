@@ -10,6 +10,10 @@ impl IllFormedImplBlockNodePath {
     pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
         self.path.module_path(db)
     }
+
+    // pub fn item_node_paths(self, db: &dyn EntityTreeDb) -> &[TraitForTypeItemNodePath] {
+    //     todo!()
+    // }
 }
 
 impl From<IllFormedImplBlockNodePath> for EntityNodePath {

@@ -120,11 +120,9 @@ impl<'a> InferEngine<'a> {
             _ => unreachable!(),
         }
         match defn {
-            Defn::Type(defn) => self.visit_ty(defn),
-            Defn::Trait(defn) => self.visit_trai(defn),
-            Defn::Fugitive(defn) => self.visit_form(defn),
+            Defn::ModuleItem(defn) => self.visit_module_item(defn),
             Defn::AssociatedItem(defn) => self.visit_associated_item(defn),
-            Defn::Variant(_) => todo!(),
+            Defn::TypeVariant(_) => todo!(),
             Defn::ImplBlock(_) => (),
         }
     }
@@ -140,6 +138,14 @@ impl<'a> InferEngine<'a> {
             expr_region: expr_region.into(),
         }
         .visit_all()
+    }
+
+    fn visit_module_item(&mut self, defn: ModuleItemDefn) {
+        match defn {
+            ModuleItemDefn::Type(defn) => self.visit_ty(defn),
+            ModuleItemDefn::Trait(defn) => self.visit_trai(defn),
+            ModuleItemDefn::Fugitive(defn) => self.visit_form(defn),
+        }
     }
 
     fn visit_ty(&mut self, defn: TypeDefn) {

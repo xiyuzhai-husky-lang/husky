@@ -14,6 +14,10 @@ impl TypeImplBlockNodePath {
     pub fn ty_path(self, db: &dyn EntityTreeDb) -> TypePath {
         self.path.ty_path(db)
     }
+
+    pub fn item_node_paths(self, db: &dyn EntityTreeDb) -> &[TypeItemNodePath] {
+        todo!()
+    }
 }
 
 impl From<TypeImplBlockNodePath> for EntityNodePath {
