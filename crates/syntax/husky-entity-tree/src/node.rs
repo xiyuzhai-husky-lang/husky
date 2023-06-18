@@ -18,7 +18,7 @@ use vec_like::VecPairMap;
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 #[enum_class::from_variants]
 pub enum EntityNodePath {
-    // Submodule(ModulePath),
+    Submodule(SubmoduleNodePath),
     ModuleItem(ModuleItemNodePath),
     TypeVariant(TypeVariantNodePath),
     ImplBlock(ImplBlockNodePath),
@@ -28,6 +28,7 @@ pub enum EntityNodePath {
 impl EntityNodePath {
     pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
         match self {
+            EntityNodePath::Submodule(node_path) => node_path.module_path(db),
             EntityNodePath::ModuleItem(node_path) => node_path.module_path(db),
             EntityNodePath::TypeVariant(node_path) => node_path.module_path(db),
             EntityNodePath::ImplBlock(node_path) => node_path.module_path(db),
@@ -127,13 +128,22 @@ impl EntityNode {
         entity_path: EntityPath,
     ) -> Option<Self> {
         match entity_path {
-            EntityPath::Module(module_path) => {
-                Some(SubmoduleNode::new(db, module_path, visibility, ast_idx, ident_token).into())
-            }
+            EntityPath::Module(submodule_path) => Some(
+                SubmoduleNode::new(
+                    db,
+                    registry,
+                    submodule_path,
+                    visibility,
+                    ast_idx,
+                    ident_token,
+                )
+                .into(),
+            ),
             EntityPath::ModuleItem(module_item_path) => Some(
                 ModuleItemNode::new(
                     db,
-                    ModuleItemNodePath::new(db, registry, module_item_path),
+                    registry,
+                    module_item_path,
                     visibility,
                     ast_idx,
                     ident_token,
@@ -145,10 +155,20 @@ impl EntityNode {
         }
     }
 
+    pub fn node_path(self, db: &dyn EntityTreeDb) -> EntityNodePath {
+        match self {
+            EntityNode::Submodule(node) => node.node_path(db).into(),
+            EntityNode::ModuleItem(node) => node.node_path(db).into(),
+            EntityNode::AssociatedItem(node) => node.node_path(db).into(),
+            EntityNode::TypeVariant(node) => node.node_path(db).into(),
+            EntityNode::ImplBlock(node) => node.node_path(db).into(),
+        }
+    }
+
     pub fn ast_idx(self, db: &dyn EntityTreeDb) -> AstIdx {
         match self {
-            EntityNode::Submodule(symbol) => symbol.ast_idx(db),
-            EntityNode::ModuleItem(symbol) => symbol.ast_idx(db),
+            EntityNode::Submodule(node) => node.ast_idx(db),
+            EntityNode::ModuleItem(node) => node.ast_idx(db),
             EntityNode::AssociatedItem(_) => todo!(),
             EntityNode::TypeVariant(_) => todo!(),
             EntityNode::ImplBlock(_) => todo!(),
@@ -189,6 +209,7 @@ impl EntityNode {
 impl EntityNodePath {
     pub fn node(self, db: &dyn EntityTreeDb) -> EntityNode {
         match self {
+            EntityNodePath::Submodule(path) => path.node(db).into(),
             EntityNodePath::ModuleItem(path) => path.node(db).into(),
             EntityNodePath::AssociatedItem(path) => path.node(db).into(),
             EntityNodePath::TypeVariant(path) => path.node(db).into(),

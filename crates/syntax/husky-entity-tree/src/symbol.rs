@@ -49,11 +49,11 @@ impl EntitySymbol {
     pub(crate) fn from_node(db: &dyn EntityTreeDb, node: EntityNode) -> Option<Self> {
         match node {
             EntityNode::Submodule(node) => Some(EntitySymbol::Submodule {
-                submodule_path: node.path(db),
+                submodule_path: node.unambiguous_path(db)?,
                 node,
             }),
             EntityNode::ModuleItem(node) => Some(EntitySymbol::ModuleItem {
-                module_item_path: node.path(db)?,
+                module_item_path: node.unambiguous_path(db)?,
                 node,
             }),
             EntityNode::AssociatedItem(_)

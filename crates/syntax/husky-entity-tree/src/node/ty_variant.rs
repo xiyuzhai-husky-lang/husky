@@ -28,7 +28,7 @@ impl HasNodePath for TypeVariantPath {
 #[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar)]
 pub struct TypeVariantNode {
     #[id]
-    pub path: ModulePath,
+    pub node_path: TypeVariantNodePath,
     pub visibility: Scope,
     pub ast_idx: AstIdx,
     pub ident_token: IdentToken,

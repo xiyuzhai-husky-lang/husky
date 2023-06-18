@@ -49,7 +49,7 @@ pub enum ImplBlockNode {
 }
 
 impl ImplBlockNode {
-    pub fn id(self, db: &dyn EntityTreeDb) -> ImplBlockNodePath {
+    pub fn node_path(self, db: &dyn EntityTreeDb) -> ImplBlockNodePath {
         match self {
             ImplBlockNode::TypeImplBlock(impl_block) => impl_block.id(db).into(),
             ImplBlockNode::TraitForTypeImplBlock(impl_block) => impl_block.id(db).into(),

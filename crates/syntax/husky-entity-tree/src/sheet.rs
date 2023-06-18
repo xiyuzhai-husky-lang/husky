@@ -1,4 +1,5 @@
 use crate::*;
+use vec_like::VecPairMap;
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
@@ -6,7 +7,7 @@ pub struct EntityTreeSheet {
     module_path: ModulePath,
     major_entity_node_table: MajorEntityNodeTable,
     entity_symbol_table: EntitySymbolTable,
-    impl_blocks: Vec<ImplBlockNode>,
+    impl_block_node_table: VecPairMap<ImplBlockNodePath, ImplBlockNode>,
     use_expr_rules: UseExprRules,
     use_all_rules: UseAllRules,
     errors: Vec<EntityTreeError>,
@@ -30,18 +31,18 @@ impl vec_like::AsVecMapEntry for EntityTreeSheet {
 impl EntityTreeSheet {
     pub(crate) fn new(
         module_path: ModulePath,
-        node_table: MajorEntityNodeTable,
-        symbol_table: EntitySymbolTable,
+        major_entity_node_table: MajorEntityNodeTable,
+        entity_symbol_table: EntitySymbolTable,
         use_expr_rules: UseExprRules,
         use_all_rules: UseAllRules,
         errors: Vec<EntityTreeError>,
-        impl_blocks: Vec<ImplBlockNode>,
+        impl_block_node_table: VecPairMap<ImplBlockNodePath, ImplBlockNode>,
     ) -> Self {
         Self {
             module_path,
-            major_entity_node_table: node_table,
-            entity_symbol_table: symbol_table,
-            impl_blocks,
+            major_entity_node_table,
+            entity_symbol_table,
+            impl_block_node_table,
             use_expr_rules,
             use_all_rules,
             errors,
@@ -80,41 +81,45 @@ impl EntityTreeSheet {
         self.module_path
     }
 
-    pub fn impl_blocks(&self) -> &Vec<ImplBlockNode> {
-        &self.impl_blocks
+    pub fn major_entity_node(&self, node_path: EntityNodePath) -> Option<EntityNode> {
+        self.major_entity_node_table.node(node_path)
     }
 
-    pub fn all_ty_impl_blocks<'a>(&'a self) -> impl Iterator<Item = TypeImplBlockNode> + 'a {
-        self.impl_blocks
+    pub fn impl_block_nodes(&self) -> &[(ImplBlockNodePath, ImplBlockNode)] {
+        &self.impl_block_node_table
+    }
+
+    pub fn all_ty_impl_block_nodes<'a>(&'a self) -> impl Iterator<Item = TypeImplBlockNode> + 'a {
+        self.impl_block_node_table
             .iter()
             .copied()
-            .filter_map(|impl_block| match impl_block {
+            .filter_map(|(_, impl_block)| match impl_block {
                 ImplBlockNode::TypeImplBlock(impl_block) => Some(impl_block),
                 ImplBlockNode::TraitForTypeImplBlock(_) => None,
                 ImplBlockNode::IllFormedImplBlock(_) => None,
             })
     }
 
-    pub fn all_trai_for_ty_impl_blocks<'a>(
+    pub fn all_trai_for_ty_impl_block_nodes<'a>(
         &'a self,
     ) -> impl Iterator<Item = TraitForTypeImplBlockNode> + 'a {
-        self.impl_blocks
+        self.impl_block_node_table
             .iter()
             .copied()
-            .filter_map(|impl_block| match impl_block {
+            .filter_map(|(_, impl_block)| match impl_block {
                 ImplBlockNode::TypeImplBlock(_) => None,
                 ImplBlockNode::TraitForTypeImplBlock(impl_block) => Some(impl_block),
                 ImplBlockNode::IllFormedImplBlock(_) => None,
             })
     }
 
-    pub fn all_ill_formed_impl_blocks<'a>(
+    pub fn all_ill_formed_impl_block_nodes<'a>(
         &'a self,
     ) -> impl Iterator<Item = IllFormedImplBlockNode> + 'a {
-        self.impl_blocks
+        self.impl_block_node_table
             .iter()
             .copied()
-            .filter_map(|impl_block| match impl_block {
+            .filter_map(|(_, impl_block)| match impl_block {
                 ImplBlockNode::TypeImplBlock(_) => None,
                 ImplBlockNode::TraitForTypeImplBlock(_) => None,
                 ImplBlockNode::IllFormedImplBlock(impl_block) => Some(impl_block),

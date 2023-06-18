@@ -50,7 +50,7 @@ impl EntityTreeCrateBundle {
     pub fn all_ty_impl_blocks<'a>(&'a self) -> impl Iterator<Item = TypeImplBlockNode> + 'a {
         self.sheets
             .iter()
-            .map(|sheet| sheet.all_ty_impl_blocks())
+            .map(|sheet| sheet.all_ty_impl_block_nodes())
             .flatten()
     }
 
@@ -59,7 +59,7 @@ impl EntityTreeCrateBundle {
     ) -> impl Iterator<Item = IllFormedImplBlockNode> + 'a {
         self.sheets
             .iter()
-            .map(|sheet| sheet.all_ill_formed_impl_blocks())
+            .map(|sheet| sheet.all_ill_formed_impl_block_nodes())
             .flatten()
     }
 
@@ -68,7 +68,7 @@ impl EntityTreeCrateBundle {
     ) -> impl Iterator<Item = TraitForTypeImplBlockNode> + 'a {
         self.sheets
             .iter()
-            .map(|sheet| sheet.all_trai_for_ty_impl_blocks())
+            .map(|sheet| sheet.all_trai_for_ty_impl_block_nodes())
             .flatten()
     }
 
@@ -79,7 +79,7 @@ impl EntityTreeCrateBundle {
     ) -> impl Iterator<Item = TraitForTypeImplBlockNode> + 'a {
         self.sheets
             .iter()
-            .map(|sheet| sheet.all_trai_for_ty_impl_blocks())
+            .map(|sheet| sheet.all_trai_for_ty_impl_block_nodes())
             .flatten()
             .filter(move |impl_block| impl_block.trai_path(db) == trai_path)
     }
@@ -91,7 +91,7 @@ impl EntityTreeCrateBundle {
     ) -> impl Iterator<Item = TraitForTypeImplBlockNode> + 'a {
         self.sheets
             .iter()
-            .map(|sheet| sheet.all_trai_for_ty_impl_blocks())
+            .map(|sheet| sheet.all_trai_for_ty_impl_block_nodes())
             .flatten()
             .filter(move |impl_block| impl_block.ty_path(db) == ty_path)
     }
