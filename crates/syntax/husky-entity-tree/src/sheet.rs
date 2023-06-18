@@ -81,15 +81,23 @@ impl EntityTreeSheet {
         self.module_path
     }
 
+    pub fn major_entity_node_paths<'a>(&'a self) -> impl Iterator<Item = EntityNodePath> + 'a {
+        self.major_entity_node_table.node_paths()
+    }
+
     pub fn major_entity_node(&self, node_path: EntityNodePath) -> Option<EntityNode> {
         self.major_entity_node_table.node(node_path)
     }
 
-    pub fn impl_block_nodes(&self) -> &[(ImplBlockNodePath, ImplBlockNode)] {
-        &self.impl_block_node_table
+    pub fn impl_block_node_paths<'a>(&'a self) -> impl Iterator<Item = ImplBlockNodePath> + 'a {
+        self.impl_block_node_table
+            .iter()
+            .map(|(node_path, _)| *node_path)
     }
 
-    pub fn all_ty_impl_block_nodes<'a>(&'a self) -> impl Iterator<Item = TypeImplBlockNode> + 'a {
+    pub fn all_ty_impl_block_node_iter<'a>(
+        &'a self,
+    ) -> impl Iterator<Item = TypeImplBlockNode> + 'a {
         self.impl_block_node_table
             .iter()
             .copied()

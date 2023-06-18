@@ -26,6 +26,10 @@ pub enum EntityNodePath {
 }
 
 impl EntityNodePath {
+    pub fn path(self, db: &dyn EntityTreeDb) -> Option<EntityPath> {
+        todo!()
+    }
+
     pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
         match self {
             EntityNodePath::Submodule(node_path) => node_path.module_path(db),

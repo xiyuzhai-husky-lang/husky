@@ -21,9 +21,10 @@ pub(crate) fn signature_template_from_decl(
     decl: Decl,
 ) -> DeclarativeSignatureResult<SignatureTemplate> {
     match decl {
-        Decl::Type(decl) => ty_declarative_signature_template(db, decl).map(Into::into),
-        Decl::Fugitive(decl) => decl.declarative_signature_template(db).map(Into::into),
-        Decl::Trait(decl) => trai_declarative_signature_template(db, decl).map(Into::into),
+        Decl::ModuleItem(_) => todo!(),
+        // Decl::Type(decl) => ty_declarative_signature_template(db, decl).map(Into::into),
+        // Decl::Fugitive(decl) => decl.declarative_signature_template(db).map(Into::into),
+        // Decl::Trait(decl) => trai_declarative_signature_template(db, decl).map(Into::into),
         Decl::ImplBlock(decl) => decl.declarative_signature_template(db).map(Into::into),
         Decl::AssociatedItem(decl) => {
             associated_item_declarative_signature_from_decl(db, decl).map(Into::into)

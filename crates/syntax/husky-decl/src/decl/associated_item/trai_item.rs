@@ -63,6 +63,14 @@ impl TraitItemNodeDecl {
     }
 }
 
+impl HasNodeDecl for TraitItemNodePath {
+    type NodeDecl = TraitItemNodeDecl;
+
+    fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
+        todo!()
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]

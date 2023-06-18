@@ -1,15 +1,12 @@
 mod associated_item;
-mod fugitive;
 mod impl_block;
-mod trai;
-mod ty;
-mod variant;
+mod module_item;
+mod ty_variant;
 
 pub use self::associated_item::*;
-pub use self::fugitive::*;
-pub use self::trai::*;
-pub use self::ty::*;
-pub use self::variant::*;
+pub use self::impl_block::*;
+pub use self::module_item::*;
+pub use self::ty_variant::*;
 
 use crate::*;
 use husky_ast::AstIdx;
@@ -18,10 +15,8 @@ use husky_ast::AstIdx;
 #[salsa::derive_debug_with_db(db = DefnDb)]
 #[enum_class::from_variants]
 pub enum Defn {
-    Type(TypeDefn),
-    Trait(TraitDefn),
-    Fugitive(FugitiveDefn),
-    Variant(VariantDefn),
+    ModuleItem(ModuleItemDefn),
+    TypeVariant(VariantDefn),
     ImplBlock(ImplBlockDecl),
     AssociatedItem(AssociatedItemDefn),
 }
@@ -29,10 +24,11 @@ pub enum Defn {
 impl Defn {
     pub fn decl(self, db: &dyn DefnDb) -> Decl {
         match self {
-            Defn::Type(defn) => defn.decl(db).into(),
-            Defn::Trait(defn) => defn.decl(db).into(),
-            Defn::Fugitive(defn) => defn.decl(db).into(),
-            Defn::Variant(defn) => defn.decl(db).into(),
+            Defn::ModuleItem(defn) => todo!(),
+            // Defn::Type(defn) => defn.decl(db).into(),
+            // Defn::Trait(defn) => defn.decl(db).into(),
+            // Defn::Fugitive(defn) => defn.decl(db).into(),
+            Defn::TypeVariant(defn) => defn.decl(db).into(),
             Defn::ImplBlock(decl) => decl.into(),
             Defn::AssociatedItem(defn) => defn.decl(db).into(),
         }
@@ -48,10 +44,9 @@ impl Defn {
 
     pub fn expr_region(self, db: &dyn DefnDb) -> Option<ExprRegion> {
         match self {
-            Defn::Type(_) | Defn::Trait(_) => None,
-            Defn::Fugitive(defn) => Some(defn.expr_region(db)),
+            Defn::ModuleItem(defn) => defn.expr_region(db),
             Defn::AssociatedItem(defn) => defn.expr_region(db),
-            Defn::Variant(_defn) => None,
+            Defn::TypeVariant(_defn) => None,
             Defn::ImplBlock(_) => None,
         }
     }
@@ -82,9 +77,7 @@ impl HasDefn for Decl {
 
     fn defn(self, db: &dyn DefnDb) -> Self::Defn {
         match self {
-            Decl::Type(decl) => decl.defn(db).into(),
-            Decl::Fugitive(decl) => decl.defn(db).into(),
-            Decl::Trait(decl) => decl.defn(db).into(),
+            Decl::ModuleItem(decl) => decl.defn(db).into(),
             Decl::ImplBlock(decl) => decl.defn(db).into(),
             Decl::AssociatedItem(decl) => decl.defn(db).into(),
             Decl::TypeVariant(_) => todo!(),

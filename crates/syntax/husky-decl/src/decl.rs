@@ -1,15 +1,11 @@
 mod associated_item;
-mod fugitive;
 mod impl_block;
-mod trai;
-mod ty;
+mod module_item;
 mod ty_variant;
 
 pub use self::associated_item::*;
-pub use self::fugitive::*;
 pub use self::impl_block::*;
-pub use self::trai::*;
-pub use self::ty::*;
+pub use self::module_item::*;
 pub use self::ty_variant::*;
 
 use crate::*;
@@ -21,9 +17,7 @@ type SmallVecImpl<T> = smallvec::SmallVec<[T; 2]>;
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
 pub enum NodeDecl {
-    Type(TypeNodeDecl),
-    Fugitive(FugitiveNodeDecl),
-    Trait(TraitNodeDecl),
+    ModuleItem(ModuleItemNodeDecl),
     ImplBlock(ImplBlockNodeDecl),
     AssociatedItem(AssociatedItemNodeDecl),
     TypeVariant(TypeVariantNodeDecl),
@@ -32,9 +26,7 @@ pub enum NodeDecl {
 impl NodeDecl {
     pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
         match self {
-            NodeDecl::Type(decl) => decl.ast_idx(db),
-            NodeDecl::Fugitive(decl) => decl.ast_idx(db),
-            NodeDecl::Trait(decl) => decl.ast_idx(db),
+            NodeDecl::ModuleItem(decl) => decl.ast_idx(db),
             NodeDecl::ImplBlock(decl) => decl.ast_idx(db),
             NodeDecl::AssociatedItem(decl) => decl.ast_idx(db),
             NodeDecl::TypeVariant(decl) => decl.ast_idx(db),
@@ -43,9 +35,7 @@ impl NodeDecl {
 
     pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDeclPattern] {
         match self {
-            NodeDecl::Type(decl) => decl.implicit_parameters(db),
-            NodeDecl::Fugitive(decl) => decl.implicit_parameters(db),
-            NodeDecl::Trait(decl) => decl.implicit_parameters(db),
+            NodeDecl::ModuleItem(decl) => decl.implicit_parameters(db),
             NodeDecl::ImplBlock(decl) => decl.implicit_parameters(db),
             NodeDecl::AssociatedItem(decl) => decl.implicit_parameters(db),
             NodeDecl::TypeVariant(_decl) => &[],
@@ -54,9 +44,7 @@ impl NodeDecl {
 
     pub fn expr_region(self, db: &dyn DeclDb) -> ExprRegion {
         match self {
-            NodeDecl::Type(decl) => decl.expr_region(db).into(),
-            NodeDecl::Fugitive(decl) => decl.expr_region(db).into(),
-            NodeDecl::Trait(decl) => decl.expr_region(db).into(),
+            NodeDecl::ModuleItem(decl) => decl.expr_region(db).into(),
             NodeDecl::ImplBlock(decl) => decl.expr_region(db).into(),
             NodeDecl::AssociatedItem(decl) => decl.expr_region(db).into(),
             NodeDecl::TypeVariant(_decl) => todo!(),
@@ -65,9 +53,7 @@ impl NodeDecl {
 
     pub fn node_path(self, db: &dyn DeclDb) -> EntityNodePath {
         match self {
-            NodeDecl::Type(decl) => decl.node_path(db).into(),
-            NodeDecl::Fugitive(decl) => decl.node_path(db).into(),
-            NodeDecl::Trait(decl) => decl.node_path(db).into(),
+            NodeDecl::ModuleItem(decl) => decl.node_path(db).into(),
             NodeDecl::ImplBlock(decl) => decl.node_path(db).into(),
             NodeDecl::AssociatedItem(decl) => decl.node_path(db).into(),
             NodeDecl::TypeVariant(decl) => decl.node_path(db).into(),
@@ -79,9 +65,7 @@ impl NodeDecl {
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
 pub enum Decl {
-    Type(TypeDecl),
-    Fugitive(FugitiveDecl),
-    Trait(TraitDecl),
+    ModuleItem(ModuleItemDecl),
     ImplBlock(ImplBlockDecl),
     AssociatedItem(AssociatedItemDecl),
     TypeVariant(TypeVariantDecl),
@@ -90,9 +74,7 @@ pub enum Decl {
 impl Decl {
     pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
         match self {
-            Decl::Type(decl) => decl.ast_idx(db),
-            Decl::Fugitive(decl) => decl.ast_idx(db),
-            Decl::Trait(decl) => decl.ast_idx(db),
+            Decl::ModuleItem(decl) => decl.ast_idx(db),
             Decl::ImplBlock(decl) => decl.ast_idx(db),
             Decl::AssociatedItem(decl) => decl.ast_idx(db),
             Decl::TypeVariant(decl) => decl.ast_idx(db),
@@ -101,9 +83,7 @@ impl Decl {
 
     pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDeclPattern] {
         match self {
-            Decl::Type(decl) => decl.implicit_parameters(db),
-            Decl::Fugitive(decl) => decl.implicit_parameters(db),
-            Decl::Trait(decl) => decl.implicit_parameters(db),
+            Decl::ModuleItem(decl) => decl.implicit_parameters(db),
             Decl::ImplBlock(decl) => decl.implicit_parameters(db),
             Decl::AssociatedItem(decl) => decl.implicit_parameters(db),
             Decl::TypeVariant(_decl) => &[],
@@ -112,9 +92,7 @@ impl Decl {
 
     pub fn expr_region(self, db: &dyn DeclDb) -> ExprRegion {
         match self {
-            Decl::Type(decl) => decl.expr_region(db).into(),
-            Decl::Fugitive(decl) => decl.expr_region(db).into(),
-            Decl::Trait(decl) => decl.expr_region(db).into(),
+            Decl::ModuleItem(decl) => decl.expr_region(db).into(),
             Decl::ImplBlock(decl) => decl.expr_region(db).into(),
             Decl::AssociatedItem(decl) => decl.expr_region(db).into(),
             Decl::TypeVariant(_decl) => todo!(),
@@ -123,12 +101,30 @@ impl Decl {
 
     pub fn node_path(self, db: &dyn DeclDb) -> EntityNodePath {
         match self {
-            Decl::Type(decl) => decl.node_path(db).into(),
-            Decl::Fugitive(decl) => decl.node_path(db).into(),
-            Decl::Trait(decl) => decl.node_path(db).into(),
+            Decl::ModuleItem(decl) => decl.node_path(db).into(),
             Decl::ImplBlock(decl) => decl.node_path(db).into(),
             Decl::AssociatedItem(decl) => decl.node_path(db).into(),
             Decl::TypeVariant(decl) => decl.node_path(db).into(),
+        }
+    }
+}
+
+pub trait HasNodeDecl: Copy {
+    type NodeDecl;
+
+    fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl;
+}
+
+impl HasNodeDecl for EntityNodePath {
+    type NodeDecl = NodeDecl;
+
+    fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
+        match self {
+            EntityNodePath::ModuleItem(node_path) => node_path.node_decl(db).into(),
+            EntityNodePath::TypeVariant(_) => todo!(),
+            EntityNodePath::ImplBlock(_) => todo!(),
+            EntityNodePath::AssociatedItem(_) => todo!(),
+            EntityNodePath::Submodule(_) => todo!(),
         }
     }
 }
@@ -143,32 +139,12 @@ impl HasDecl for EntityPath {
     type Decl = Decl;
 
     fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
-        self.node_path(db).decl(db)
-    }
-}
-
-impl HasDecl for EntityNodePath {
-    type Decl = Decl;
-
-    fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
         match self {
-            EntityNodePath::ModuleItem(node_path) => node_path.decl(db),
-            EntityNodePath::TypeVariant(_) => todo!(),
-            EntityNodePath::ImplBlock(_) => todo!(),
-            EntityNodePath::AssociatedItem(_) => todo!(),
-            EntityNodePath::Submodule(_) => todo!(),
-        }
-    }
-}
-
-impl HasDecl for ModuleItemNodePath {
-    type Decl = Decl;
-
-    fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
-        match self {
-            ModuleItemNodePath::Type(id) => id.decl(db).map(Into::into),
-            ModuleItemNodePath::Trait(id) => id.decl(db).map(Into::into),
-            ModuleItemNodePath::Fugitive(id) => id.decl(db).map(Into::into),
+            EntityPath::Module(_) => todo!(),
+            EntityPath::ModuleItem(_) => todo!(),
+            EntityPath::AssociatedItem(_) => todo!(),
+            EntityPath::TypeVariant(_) => todo!(),
+            EntityPath::ImplBlock(_) => todo!(),
         }
     }
 }

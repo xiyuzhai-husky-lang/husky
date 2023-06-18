@@ -213,6 +213,10 @@ impl MajorEntityNodeTable {
             .iter()
             .find_map(|entry| (entry.node_path == node_path).then_some(entry.node))
     }
+
+    pub(crate) fn node_paths<'a>(&'a self) -> impl Iterator<Item = EntityNodePath> + 'a {
+        self.entries.iter().map(|entry| entry.node_path)
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]

@@ -37,6 +37,10 @@ impl ImplBlockNodePath {
     pub fn node(self, db: &dyn EntityTreeDb) -> ImplBlockNode {
         todo!()
     }
+
+    pub fn item_node_paths(self, db: &dyn EntityTreeDb) -> &[AssociatedItemPath] {
+        todo!()
+    }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -55,6 +59,14 @@ impl ImplBlockNode {
             ImplBlockNode::TraitForTypeImplBlock(impl_block) => impl_block.id(db).into(),
             ImplBlockNode::IllFormedImplBlock(impl_block) => impl_block.id(db).into(),
         }
+    }
+
+    pub fn for_each_item(
+        self,
+        db: &dyn EntityTreeDb,
+        f: impl FnMut(),
+    ) -> &[AssociatedItemNodePath] {
+        todo!()
     }
 }
 

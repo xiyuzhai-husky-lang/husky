@@ -27,6 +27,12 @@ pub enum TypeItemNodeDecl {
     MemoizedField(TypeMemoizedFieldNodeDecl),
 }
 
+impl From<TypeItemNodeDecl> for NodeDecl {
+    fn from(decl: TypeItemNodeDecl) -> Self {
+        NodeDecl::AssociatedItem(decl.into())
+    }
+}
+
 impl TypeItemNodeDecl {
     pub fn node_path(self, db: &dyn DeclDb) -> TypeItemNodePath {
         match self {
@@ -69,6 +75,14 @@ impl TypeItemNodeDecl {
             TypeItemNodeDecl::AssociatedVal(decl) => decl.expr_region(db),
             TypeItemNodeDecl::MemoizedField(decl) => decl.expr_region(db),
         }
+    }
+}
+
+impl HasNodeDecl for TypeItemNodePath {
+    type NodeDecl = TypeItemNodeDecl;
+
+    fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
+        todo!()
     }
 }
 

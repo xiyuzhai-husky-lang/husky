@@ -34,23 +34,25 @@ pub(crate) fn defn_diagnostic_sheet(
 
 impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
     fn visit_defn(&mut self, defn: Defn) {
+        // todo
         match defn {
-            Defn::Type(Defn) => match Defn {
-                TypeDefn::Enum(_Defn) => (),
-                TypeDefn::RegularStruct(_Defn) => (),
-                TypeDefn::UnitStruct(_Defn) => (),
-                TypeDefn::TupleStruct(_Defn) => (),
-                TypeDefn::Record(_Defn) => (),
-                TypeDefn::Inductive(_Defn) => (),
-                TypeDefn::Structure(_Defn) => (),
-                TypeDefn::Extern(_Defn) => (),
-                TypeDefn::Union(_Defn) => (),
-            },
-            Defn::Fugitive(_Defn) => (),
-            Defn::Trait(_Defn) => (),
+            Defn::ModuleItem(_) => (),
+            // Defn::Type(Defn) => match Defn {
+            //     TypeDefn::Enum(_Defn) => (),
+            //     TypeDefn::RegularStruct(_Defn) => (),
+            //     TypeDefn::UnitStruct(_Defn) => (),
+            //     TypeDefn::TupleStruct(_Defn) => (),
+            //     TypeDefn::Record(_Defn) => (),
+            //     TypeDefn::Inductive(_Defn) => (),
+            //     TypeDefn::Structure(_Defn) => (),
+            //     TypeDefn::Extern(_Defn) => (),
+            //     TypeDefn::Union(_Defn) => (),
+            // },
+            // Defn::Fugitive(_Defn) => (),
+            // Defn::Trait(_Defn) => (),
             Defn::ImplBlock(_Defn) => (),
             Defn::AssociatedItem(_Defn) => (),
-            Defn::Variant(_Defn) => (),
+            Defn::TypeVariant(_Defn) => (),
         }
     }
 }
