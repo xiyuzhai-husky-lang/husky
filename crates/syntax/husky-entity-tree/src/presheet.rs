@@ -7,11 +7,9 @@ pub use use_expr_rule::*;
 
 pub(crate) use action::*;
 
-use husky_token::TokenSheetData;
-
 use crate::*;
-
-use vec_like::AsVecMapEntry;
+use husky_token::TokenSheetData;
+use vec_like::{AsVecMapEntry, VecPairMap};
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub(crate) fn entity_tree_presheet(
@@ -85,7 +83,10 @@ impl<'a> EntityTreePresheetMut<'a> {
         self.symbol_table.as_ref()
     }
 
-    pub(crate) fn into_sheet(self, impl_blocks: Vec<ImplBlockNode>) -> EntityTreeSheet {
+    pub(crate) fn into_sheet(
+        self,
+        impl_block_node_table: VecPairMap<ImplBlockNodePath, ImplBlockNode>,
+    ) -> EntityTreeSheet {
         EntityTreeSheet::new(
             self.module_path,
             self.node_table,
@@ -93,7 +94,7 @@ impl<'a> EntityTreePresheetMut<'a> {
             self.use_expr_rules,
             self.use_all_rules,
             self.errors,
-            impl_blocks,
+            impl_block_node_table,
         )
     }
 

@@ -3,7 +3,7 @@ mod action;
 
 use crate::*;
 use husky_print_utils::p;
-use vec_like::VecMap;
+use vec_like::{VecMap, VecPairMap};
 
 pub(crate) struct EntityTreeCollector<'a> {
     db: &'a dyn EntityTreeDb,
@@ -85,60 +85,65 @@ impl<'a> EntityTreeCollector<'a> {
         for presheet in self.presheets.iter() {
             presheet.check_done(self.db)
         }
-        let impl_blocks_for_each_module = self.collect_impl_blocks_for_each_module();
+        let impl_blocks_for_each_module = self.collect_impl_node_block_tables();
         let sheets = VecMap::from_iter_assuming_no_repetitions(
             std::iter::zip(
                 self.presheets.into_iter(),
                 impl_blocks_for_each_module.into_iter(),
             )
-            .map(|(presheet, impls)| presheet.into_sheet(impls)),
+            .map(|(presheet, impl_block_node_table)| presheet.into_sheet(impl_block_node_table)),
         )
         .expect("no repetitions");
         EntityTreeCrateBundle::new(sheets, self.major_path_expr_arena)
     }
 
-    fn collect_impl_blocks_for_each_module(&mut self) -> Vec<Vec<ImplBlockNode>> {
+    fn collect_impl_node_block_tables(
+        &mut self,
+    ) -> Vec<VecPairMap<ImplBlockNodePath, ImplBlockNode>> {
         let mut impl_blocks_for_each_module = vec![];
         for presheet in self.presheets.iter() {
             let module_path = presheet.module_path();
             let ast_sheet = self.db.ast_sheet(module_path).unwrap();
-            let impl_blocks = ast_sheet
-                .all_ast_indexed_iter()
-                .filter_map(|(ast_idx, ast)| match ast {
-                    Ast::ImplBlock {
-                        token_group_idx,
-                        items,
-                    } => {
-                        let crate_prelude = crate_prelude(
-                            self.opt_universal_prelude,
-                            self.core_prelude_module,
-                            &self.presheets,
-                            self.crate_specific_prelude,
-                        );
-                        let module_symbol_context = ModuleSymbolContext::new(
-                            crate_prelude,
-                            presheet.module_specific_symbols(),
-                        );
-                        context!(self, presheet);
-                        Some(ImplBlockNode::parse_from_token_group(
-                            self.db,
-                            self.crate_root_path,
-                            &mut self.impl_registry,
-                            module_symbol_context,
-                            context!(self, presheet),
-                            module_path,
-                            ast_idx,
-                            *items,
-                            self.db
-                                .token_sheet_data(module_path)
-                                .unwrap()
-                                .token_group_token_stream(*token_group_idx, None),
-                            &mut self.major_path_expr_arena,
-                        ))
-                    }
-                    _ => None,
-                })
-                .collect::<Vec<_>>();
+            let impl_blocks = VecPairMap::from_iter_assuming_no_repetitions(
+                ast_sheet
+                    .all_ast_indexed_iter()
+                    .filter_map(|(ast_idx, ast)| match ast {
+                        Ast::ImplBlock {
+                            token_group_idx,
+                            items,
+                        } => {
+                            let crate_prelude = crate_prelude(
+                                self.opt_universal_prelude,
+                                self.core_prelude_module,
+                                &self.presheets,
+                                self.crate_specific_prelude,
+                            );
+                            let module_symbol_context = ModuleSymbolContext::new(
+                                crate_prelude,
+                                presheet.module_specific_symbols(),
+                            );
+                            context!(self, presheet);
+                            Some(ImplBlockNode::parse_from_token_group(
+                                self.db,
+                                self.crate_root_path,
+                                &mut self.impl_registry,
+                                module_symbol_context,
+                                context!(self, presheet),
+                                module_path,
+                                ast_idx,
+                                *items,
+                                self.db
+                                    .token_sheet_data(module_path)
+                                    .unwrap()
+                                    .token_group_token_stream(*token_group_idx, None),
+                                &mut self.major_path_expr_arena,
+                            ))
+                        }
+                        _ => None,
+                    })
+                    .map(|impl_block_node| (impl_block_node.node_path(self.db), impl_block_node)),
+            )
+            .expect("no repetitions");
             impl_blocks_for_each_module.push(impl_blocks);
         }
         impl_blocks_for_each_module

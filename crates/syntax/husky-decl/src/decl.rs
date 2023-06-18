@@ -152,10 +152,11 @@ impl HasDecl for EntityNodePath {
 
     fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
         match self {
-            EntityNodePath::ModuleItem(id) => id.decl(db), // change this to trait method
+            EntityNodePath::ModuleItem(node_path) => node_path.decl(db),
             EntityNodePath::TypeVariant(_) => todo!(),
             EntityNodePath::ImplBlock(_) => todo!(),
             EntityNodePath::AssociatedItem(_) => todo!(),
+            EntityNodePath::Submodule(_) => todo!(),
         }
     }
 }

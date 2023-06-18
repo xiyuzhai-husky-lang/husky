@@ -25,7 +25,7 @@ pub(crate) fn entity_tree_diagnostic_sheet(
                 EntityTreeError::Derived(_) => (),
             }
         }
-        for ill_formed_impl_block in entity_tree_sheet.all_ill_formed_impl_blocks() {
+        for ill_formed_impl_block in entity_tree_sheet.all_ill_formed_impl_block_nodes() {
             diagnostics.push(ill_formed_impl_block.to_diagnostic(&ctx))
         }
     }

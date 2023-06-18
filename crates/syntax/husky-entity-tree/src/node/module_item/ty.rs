@@ -48,5 +48,13 @@ pub(crate) fn ty_node(
 ) -> EntityTreeResult<ModuleItemNode> {
     let module_path = node_path.module_path(db);
     let entity_sheet = module_path.entity_tree_sheet(db)?;
-    todo!()
+    Ok(
+        match entity_sheet
+            .major_entity_node(node_path.into())
+            .expect("should be some")
+        {
+            EntityNode::ModuleItem(node) => node,
+            _ => unreachable!(),
+        },
+    )
 }

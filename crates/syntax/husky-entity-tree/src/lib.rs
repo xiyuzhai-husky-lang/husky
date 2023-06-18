@@ -56,6 +56,7 @@ pub struct EntityTreeJar(
     TypeImplBlockNode,
     TraitForTypeImplBlockNode,
     IllFormedImplBlockNode,
+    SubmoduleNodePath,
     // module items
     TraitNodePath,
     TypeNodePath,

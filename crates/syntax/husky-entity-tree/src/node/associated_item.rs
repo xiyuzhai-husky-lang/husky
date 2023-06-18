@@ -91,6 +91,12 @@ impl AssociatedItemNode {
         // )
     }
 
+    pub fn node_path(self, db: &dyn EntityTreeDb) -> AssociatedItemNodePath {
+        match self {
+            AssociatedItemNode::TypeItem(node) => node.node_path(db).into(),
+        }
+    }
+
     pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
         match self {
             AssociatedItemNode::TypeItem(node) => node.module_path(db),
