@@ -6,16 +6,40 @@ pub struct ExternTypeNodeDecl {
     pub node_path: TypeNodePath,
     pub ast_idx: AstIdx,
     #[return_ref]
-    implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
+    implicit_parameter_decl_list: DeclExprResult<Option<ImplicitParameterDeclList>>,
     pub expr_region: ExprRegion,
 }
 
 impl ExternTypeNodeDecl {
     pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDeclPattern] {
-        self.implicit_parameter_decl_list(db)
-            .as_ref()
-            .map(ImplicitParameterDeclList::implicit_parameters)
-            .unwrap_or(&[])
+        todo!()
+        // self.implicit_parameter_decl_list(db)
+        //     .as_ref()
+        //     .map(ImplicitParameterDeclList::implicit_parameters)
+        //     .unwrap_or(&[])
+    }
+}
+
+impl<'a> DeclParseContext<'a> {
+    // get declaration from tokens
+    pub(super) fn parse_extern_ty_node_decl(
+        &self,
+        node_path: TypeNodePath,
+        ast_idx: AstIdx,
+        token_group_idx: TokenGroupIdx,
+        saved_stream_state: TokenStreamState,
+    ) -> ExternTypeNodeDecl {
+        let mut parser =
+            self.expr_parser(node_path, None, AllowSelfType::True, AllowSelfValue::False);
+        let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
+        let implicit_parameters = ctx.parse();
+        ExternTypeNodeDecl::new(
+            self.db(),
+            node_path,
+            ast_idx,
+            implicit_parameters,
+            parser.finish(),
+        )
     }
 }
 
@@ -34,30 +58,6 @@ impl ExternTypeDecl {
             .as_ref()
             .map(ImplicitParameterDeclList::implicit_parameters)
             .unwrap_or(&[])
-    }
-}
-
-impl<'a> DeclParseContext<'a> {
-    // get declaration from tokens
-    pub(super) fn parse_extern_ty_decl(
-        &self,
-        node_path: TypeNodePath,
-        ast_idx: AstIdx,
-        token_group_idx: TokenGroupIdx,
-        saved_stream_state: TokenStreamState,
-    ) -> DeclResult<TypeDecl> {
-        let mut parser =
-            self.expr_parser(node_path, None, AllowSelfType::True, AllowSelfValue::False);
-        let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
-        let implicit_parameters = ctx.parse()?;
-        Ok(ExternTypeDecl::new(
-            self.db(),
-            node_path,
-            // ast_idx,
-            implicit_parameters,
-            parser.finish(),
-        )
-        .into())
     }
 }
 
