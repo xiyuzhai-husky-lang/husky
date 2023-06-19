@@ -5,7 +5,7 @@ use salsa::DebugWithDb;
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TraitForTypeImplBlockNodeDecl {
     #[id]
-    pub node_id: TraitForTypeImplBlockNodeId,
+    pub node_path: TraitForTypeImplBlockNodePath,
     pub ast_idx: AstIdx,
     pub impl_block: TraitForTypeImplBlockNode,
     pub impl_token: ImplToken,
@@ -22,7 +22,7 @@ pub struct TraitForTypeImplBlockNodeDecl {
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TraitForTypeImplBlockDecl {
     #[id]
-    pub node_id: TraitForTypeImplBlockNodeId,
+    pub node_path: TraitForTypeImplBlockNodePath,
     pub ast_idx: AstIdx,
     pub impl_block: TraitForTypeImplBlockNode,
     pub impl_token: ImplToken,
@@ -42,6 +42,14 @@ impl TraitForTypeImplBlockDecl {
             .as_ref()
             .map(ImplicitParameterDeclList::implicit_parameters)
             .unwrap_or(&[])
+    }
+}
+
+impl HasDecl for TraitForTypeImplBlockPath {
+    type Decl = TraitForTypeImplBlockDecl;
+
+    fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
+        todo!()
     }
 }
 
@@ -87,7 +95,7 @@ impl<'a> DeclParseContext<'a> {
     ) -> DeclResult<TraitForTypeImplBlockDecl> {
         let db = self.db();
         let mut parser = self.expr_parser(
-            node.node_id(db),
+            node.node_path(db),
             None,
             AllowSelfType::True,
             AllowSelfValue::False,

@@ -11,7 +11,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Trait(
                         TraitDecl {
-                            node_id: TraitNodeId {
+                            node_path: TraitNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitPath(
                                         Id {
@@ -26,9 +26,9 @@ Ok(
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodeId::ModuleItem(
-                                            ModuleItemNodeId::Trait(
-                                                TraitNodeId {
+                                        EntityNodePath::ModuleItem(
+                                            ModuleItemNodePath::Trait(
+                                                TraitNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitPath(
                                                             Id {
@@ -94,7 +94,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Trait(
                         TraitDecl {
-                            node_id: TraitNodeId {
+                            node_path: TraitNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitPath(
                                         Id {
@@ -109,9 +109,9 @@ Ok(
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodeId::ModuleItem(
-                                            ModuleItemNodeId::Trait(
-                                                TraitNodeId {
+                                        EntityNodePath::ModuleItem(
+                                            ModuleItemNodePath::Trait(
+                                                TraitNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitPath(
                                                             Id {
@@ -177,7 +177,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Trait(
                         TraitDecl {
-                            node_id: TraitNodeId {
+                            node_path: TraitNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitPath(
                                         Id {
@@ -192,9 +192,9 @@ Ok(
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodeId::ModuleItem(
-                                            ModuleItemNodeId::Trait(
-                                                TraitNodeId {
+                                        EntityNodePath::ModuleItem(
+                                            ModuleItemNodePath::Trait(
+                                                TraitNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitPath(
                                                             Id {
@@ -260,7 +260,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Trait(
                         TraitDecl {
-                            node_id: TraitNodeId {
+                            node_path: TraitNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitPath(
                                         Id {
@@ -275,9 +275,9 @@ Ok(
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodeId::ModuleItem(
-                                            ModuleItemNodeId::Trait(
-                                                TraitNodeId {
+                                        EntityNodePath::ModuleItem(
+                                            ModuleItemNodePath::Trait(
+                                                TraitNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitPath(
                                                             Id {

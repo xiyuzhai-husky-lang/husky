@@ -13,7 +13,7 @@ use wasm_bindgen::prelude::*;
 use wasm_bindgen::JsCast;
 use web_sys::Node;
 
-use crate::dom_node::{DomNode, NodeId};
+use crate::dom_node::{DomNode, NodePath};
 use crate::hydrate::get_next_element;
 use crate::Html;
 
@@ -36,9 +36,9 @@ impl HydrateNode {
         self.node.unchecked_into()
     }
 
-    /// Get the [`NodeId`] for the node.
-    pub(super) fn get_node_id(&self) -> NodeId {
-        self.node.get_node_id()
+    /// Get the [`NodePath`] for the node.
+    pub(super) fn get_node_path(&self) -> NodePath {
+        self.node.get_node_path()
     }
 
     /// Create a new [`DomNode`] from a raw [`web_sys::Node`].
@@ -59,7 +59,7 @@ impl Eq for HydrateNode {}
 
 impl Hash for HydrateNode {
     fn hash<H: Hasher>(&self, state: &mut H) {
-        self.get_node_id().hash(state);
+        self.get_node_path().hash(state);
     }
 }
 

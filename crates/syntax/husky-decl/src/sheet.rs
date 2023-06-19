@@ -4,7 +4,7 @@ use vec_like::VecPairMap;
 #[salsa::tracked(db = DeclDb, jar = DeclJar, constructor = new)]
 pub struct NodeDeclSheet {
     #[return_ref]
-    pub decls: Vec<(EntityNodeId, NodeDecl)>,
+    pub decls: Vec<(EntityNodePath, NodeDecl)>,
 }
 
 pub trait HasNodeDeclSheet: Copy {
@@ -21,32 +21,32 @@ impl HasNodeDeclSheet for ModulePath {
 #[salsa::tracked(jar = DeclJar)]
 pub fn node_decl_sheet(db: &dyn DeclDb, path: ModulePath) -> EntityTreeResult<NodeDeclSheet> {
     let entity_tree_sheet = db.entity_tree_sheet(path)?;
-    let mut decls: Vec<(EntityNodeId, NodeDecl)> = Default::default();
-    for node_id in entity_tree_sheet.major_entity_node_ids() {
-        decls.push((node_id, node_id.node_decl(db)))
+    let mut decls: Vec<(EntityNodePath, NodeDecl)> = Default::default();
+    for node_path in entity_tree_sheet.major_entity_node_paths() {
+        decls.push((node_path, node_path.node_decl(db)))
     }
     // todo: handle trait items
-    for node_id in entity_tree_sheet.impl_block_node_ids() {
-        decls.push((node_id.into(), node_id.node_decl(db).into()));
-        match node_id {
-            ImplBlockNodeId::TypeImplBlock(node_id) => {
-                for node_id in node_id.item_node_ids(db).iter().copied() {
-                    decls.push((node_id.into(), node_id.node_decl(db).into()))
+    for node_path in entity_tree_sheet.impl_block_node_paths() {
+        decls.push((node_path.into(), node_path.node_decl(db).into()));
+        match node_path {
+            ImplBlockNodePath::TypeImplBlock(node_path) => {
+                for node_path in node_path.item_node_paths(db).iter().copied() {
+                    decls.push((node_path.into(), node_path.node_decl(db).into()))
                 }
             }
-            ImplBlockNodeId::TraitForTypeImplBlock(node_id) => {
-                for node_id in node_id.item_node_ids(db).iter().copied() {
-                    decls.push((node_id.into(), node_id.node_decl(db).into()))
+            ImplBlockNodePath::TraitForTypeImplBlock(node_path) => {
+                for node_path in node_path.item_node_paths(db).iter().copied() {
+                    decls.push((node_path.into(), node_path.node_decl(db).into()))
                 }
             }
-            ImplBlockNodeId::IllFormedImplBlock(node_id) => {
+            ImplBlockNodePath::IllFormedImplBlock(node_path) => {
                 todo!()
-                // for ill_formed_item_node_id in
-                //     impl_block_node_id.item_node_ids(db).iter().copied()
+                // for ill_formed_item_node_path in
+                //     impl_block_node_path.item_node_paths(db).iter().copied()
                 // {
                 //     decls.push((
-                //         ill_formed_item_node_id.into(),
-                //         ill_formed_item_node_id.node_decl(db).into(),
+                //         ill_formed_item_node_path.into(),
+                //         ill_formed_item_node_path.node_decl(db).into(),
                 //     ))
                 // }
             }
@@ -74,27 +74,27 @@ pub fn decl_sheet(db: &dyn DeclDb, path: ModulePath) -> EntityTreeResult<DeclShe
     // get decls through entity paths
     let entity_tree_sheet = db.entity_tree_sheet(path)?;
     let mut decls: Vec<(EntityPath, Decl)> = Default::default();
-    for node_id in entity_tree_sheet.major_entity_node_ids() {
-        if let Some(path) = node_id.path(db) && let Ok(decl) = path.decl(db) {
+    for node_path in entity_tree_sheet.major_entity_node_paths() {
+        if let Some(path) = node_path.path(db) && let Ok(decl) = path.decl(db) {
             decls.push((path, decl))
         }
     }
     // todo: trait item
-    for node_id in entity_tree_sheet.impl_block_node_ids() {
-        if let Some(path) = node_id.path(db) && let Ok(decl) = path.decl(db) {
+    for node_path in entity_tree_sheet.impl_block_node_paths() {
+        if let Some(path) = node_path.path(db) && let Ok(decl) = path.decl(db) {
             decls.push(( path.into(), decl.into()));
             match path {
                 ImplBlockPath::TypeImplBlock(path) => {
-                    for node_id in path.node_id(db).item_node_ids(db).iter().copied() {
-                        let path = node_id.path(db);
+                    for node_path in path.node_path(db).item_node_paths(db).iter().copied() {
+                        let path = node_path.path(db);
                         if let Ok(decl) = path.decl(db) {
                             decls.push(( path.into(), decl.into()))
                         }
                     }
                 }
                 ImplBlockPath::TraitForTypeImplBlock(path) => {
-                    for node_id in path.node_id(db).item_node_ids(db).iter().copied() { 
-                        if let Some(path) = node_id.path(db) &&let Ok(decl) = path.decl(db) {
+                    for node_path in path.node_path(db).item_node_paths(db).iter().copied() { 
+                        if let Some(path) = node_path.path(db) &&let Ok(decl) = path.decl(db) {
                             decls.push((path.into(), decl.into()))
                         }
                     }

@@ -28,7 +28,7 @@ pub fn ty_method_function_declarative_signature_template(
             Some(self_parameter) => todo!(),
             None => Contract::Pure,
         },
-        decl.impl_block_node_id(db)
+        decl.impl_block_node_path(db)
             .declarative_signature_template(db)?
             .ty(db),
     );

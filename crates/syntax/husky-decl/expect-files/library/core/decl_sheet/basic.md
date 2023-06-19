@@ -12,7 +12,7 @@ Ok(
                     ModuleItemDecl::Type(
                         TypeDecl::Extern(
                             ExternTypeDecl {
-                                node_id: TypeNodeId {
+                                node_path: TypeNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(
                                             Id {
@@ -27,9 +27,9 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntityNodeId::ModuleItem(
-                                                ModuleItemNodeId::Type(
-                                                    TypeNodeId {
+                                            EntityNodePath::ModuleItem(
+                                                ModuleItemNodePath::Type(
+                                                    TypeNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(
                                                                 Id {
@@ -96,7 +96,7 @@ Ok(
                     ModuleItemDecl::Type(
                         TypeDecl::Extern(
                             ExternTypeDecl {
-                                node_id: TypeNodeId {
+                                node_path: TypeNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(
                                             Id {
@@ -111,9 +111,9 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntityNodeId::ModuleItem(
-                                                ModuleItemNodeId::Type(
-                                                    TypeNodeId {
+                                            EntityNodePath::ModuleItem(
+                                                ModuleItemNodePath::Type(
+                                                    TypeNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(
                                                                 Id {
@@ -180,7 +180,7 @@ Ok(
                     ModuleItemDecl::Type(
                         TypeDecl::Extern(
                             ExternTypeDecl {
-                                node_id: TypeNodeId {
+                                node_path: TypeNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(
                                             Id {
@@ -195,9 +195,9 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntityNodeId::ModuleItem(
-                                                ModuleItemNodeId::Type(
-                                                    TypeNodeId {
+                                            EntityNodePath::ModuleItem(
+                                                ModuleItemNodePath::Type(
+                                                    TypeNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(
                                                                 Id {
@@ -264,7 +264,7 @@ Ok(
                     ModuleItemDecl::Type(
                         TypeDecl::Structure(
                             StructureTypeDecl {
-                                node_id: TypeNodeId {
+                                node_path: TypeNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(
                                             Id {
@@ -279,9 +279,9 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntityNodeId::ModuleItem(
-                                                ModuleItemNodeId::Type(
-                                                    TypeNodeId {
+                                            EntityNodePath::ModuleItem(
+                                                ModuleItemNodePath::Type(
+                                                    TypeNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(
                                                                 Id {
@@ -348,7 +348,7 @@ Ok(
                     ModuleItemDecl::Type(
                         TypeDecl::Structure(
                             StructureTypeDecl {
-                                node_id: TypeNodeId {
+                                node_path: TypeNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(
                                             Id {
@@ -363,9 +363,9 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntityNodeId::ModuleItem(
-                                                ModuleItemNodeId::Type(
-                                                    TypeNodeId {
+                                            EntityNodePath::ModuleItem(
+                                                ModuleItemNodePath::Type(
+                                                    TypeNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(
                                                                 Id {

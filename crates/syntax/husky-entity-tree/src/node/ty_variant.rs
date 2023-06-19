@@ -3,11 +3,11 @@ use husky_entity_taxonomy::TypeKind;
 use husky_word::IdentPairMap;
 
 #[salsa::interned(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
-pub struct TypeVariantNodeId {
+pub struct TypeVariantNodePath {
     pub maybe_ambiguous_path: MaybeAmbiguousPath<TypeVariantPath>,
 }
 
-impl TypeVariantNodeId {
+impl TypeVariantNodePath {
     fn new(
         db: &dyn EntityTreeDb,
         registry: &mut EntityNodeRegistry,
@@ -29,18 +29,18 @@ impl TypeVariantNodeId {
     }
 }
 
-impl HasNodeId for TypeVariantPath {
-    type NodeId = TypeVariantNodeId;
+impl HasNodePath for TypeVariantPath {
+    type NodePath = TypeVariantNodePath;
 
-    fn node_id(self, db: &dyn EntityTreeDb) -> Self::NodeId {
-        TypeVariantNodeId::new_inner(db, MaybeAmbiguousPath::from_path(self))
+    fn node_path(self, db: &dyn EntityTreeDb) -> Self::NodePath {
+        TypeVariantNodePath::new_inner(db, MaybeAmbiguousPath::from_path(self))
     }
 }
 
 #[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar)]
 pub struct TypeVariantNode {
     #[id]
-    pub node_id: TypeVariantNodeId,
+    pub node_path: TypeVariantNodePath,
     pub visibility: Scope,
     pub ast_idx: AstIdx,
     pub ident_token: IdentToken,

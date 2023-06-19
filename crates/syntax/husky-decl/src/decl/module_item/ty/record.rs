@@ -3,7 +3,7 @@ use super::*;
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct RecordTypeNodeDecl {
     #[id]
-    pub node_id: TypeNodeId,
+    pub node_path: TypeNodePath,
     pub ast_idx: AstIdx,
     #[return_ref]
     implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
@@ -22,7 +22,7 @@ impl RecordTypeNodeDecl {
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct RecordTypeDecl {
     #[id]
-    pub node_id: TypeNodeId,
+    pub node_path: TypeNodePath,
     #[return_ref]
     implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
     pub expr_region: ExprRegion,

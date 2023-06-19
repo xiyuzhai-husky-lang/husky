@@ -12,36 +12,36 @@ use husky_entity_path::ModuleItemPath;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 #[enum_class::from_variants]
-pub enum ModuleItemNodeId {
-    Trait(TraitNodeId),
-    Type(TypeNodeId),
-    Fugitive(FugitiveNodeId),
+pub enum ModuleItemNodePath {
+    Trait(TraitNodePath),
+    Type(TypeNodePath),
+    Fugitive(FugitiveNodePath),
 }
 
-impl ModuleItemNodeId {
+impl ModuleItemNodePath {
     pub(super) fn new(
         db: &dyn EntityTreeDb,
         registry: &mut EntityNodeRegistry,
         path: ModuleItemPath,
     ) -> Self {
         match path {
-            ModuleItemPath::Type(path) => TypeNodeId::new(db, registry, path).into(),
-            ModuleItemPath::Trait(path) => TraitNodeId::new(db, registry, path).into(),
-            ModuleItemPath::Fugitive(path) => FugitiveNodeId::new(db, registry, path).into(),
+            ModuleItemPath::Type(path) => TypeNodePath::new(db, registry, path).into(),
+            ModuleItemPath::Trait(path) => TraitNodePath::new(db, registry, path).into(),
+            ModuleItemPath::Fugitive(path) => FugitiveNodePath::new(db, registry, path).into(),
         }
     }
 
     pub fn path(self, db: &dyn EntityTreeDb) -> Option<ModuleItemPath> {
         match self {
-            ModuleItemNodeId::Trait(node_id) => node_id
+            ModuleItemNodePath::Trait(node_path) => node_path
                 .maybe_ambiguous_path(db)
                 .unambiguous_path()
                 .map(Into::into),
-            ModuleItemNodeId::Type(node_id) => node_id
+            ModuleItemNodePath::Type(node_path) => node_path
                 .maybe_ambiguous_path(db)
                 .unambiguous_path()
                 .map(Into::into),
-            ModuleItemNodeId::Fugitive(node_id) => node_id
+            ModuleItemNodePath::Fugitive(node_path) => node_path
                 .maybe_ambiguous_path(db)
                 .unambiguous_path()
                 .map(Into::into),
@@ -55,9 +55,9 @@ impl ModuleItemNodeId {
 
     pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
         match self {
-            ModuleItemNodeId::Trait(node) => node.module_path(db),
-            ModuleItemNodeId::Type(node) => node.module_path(db),
-            ModuleItemNodeId::Fugitive(node) => node.module_path(db),
+            ModuleItemNodePath::Trait(node) => node.module_path(db),
+            ModuleItemNodePath::Type(node) => node.module_path(db),
+            ModuleItemNodePath::Fugitive(node) => node.module_path(db),
         }
     }
 
@@ -66,14 +66,14 @@ impl ModuleItemNodeId {
     }
 }
 
-impl HasNodeId for ModuleItemPath {
-    type NodeId = ModuleItemNodeId;
+impl HasNodePath for ModuleItemPath {
+    type NodePath = ModuleItemNodePath;
 
-    fn node_id(self, db: &dyn EntityTreeDb) -> Self::NodeId {
+    fn node_path(self, db: &dyn EntityTreeDb) -> Self::NodePath {
         match self {
-            ModuleItemPath::Type(path) => path.node_id(db).into(),
-            ModuleItemPath::Trait(path) => path.node_id(db).into(),
-            ModuleItemPath::Fugitive(path) => path.node_id(db).into(),
+            ModuleItemPath::Type(path) => path.node_path(db).into(),
+            ModuleItemPath::Trait(path) => path.node_path(db).into(),
+            ModuleItemPath::Fugitive(path) => path.node_path(db).into(),
         }
     }
 }
@@ -82,7 +82,7 @@ impl HasNodeId for ModuleItemPath {
 #[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
 pub struct ModuleItemNode {
     #[id]
-    pub node_id: ModuleItemNodeId,
+    pub node_path: ModuleItemNodePath,
     pub visibility: Scope,
     pub ast_idx: AstIdx,
     pub ident_token: IdentToken,
@@ -99,7 +99,7 @@ impl ModuleItemNode {
     ) -> Self {
         ModuleItemNode::new_inner(
             db,
-            ModuleItemNodeId::new(db, registry, module_item_path),
+            ModuleItemNodePath::new(db, registry, module_item_path),
             visibility,
             ast_idx,
             ident_token,
@@ -108,6 +108,6 @@ impl ModuleItemNode {
 
     /// only gives a path when valid
     pub fn unambiguous_path(self, db: &dyn EntityTreeDb) -> Option<ModuleItemPath> {
-        self.node_id(db).path(db)
+        self.node_path(db).path(db)
     }
 }

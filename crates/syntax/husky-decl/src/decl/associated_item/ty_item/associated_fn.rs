@@ -3,7 +3,7 @@ use super::*;
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TypeAssociatedFnNodeDecl {
     #[id]
-    pub node_id: TypeItemNodeId,
+    pub node_path: TypeItemNodePath,
     pub node: TypeItemNode,
     pub ast_idx: AstIdx,
     #[return_ref]
@@ -19,7 +19,7 @@ pub struct TypeAssociatedFnNodeDecl {
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TypeAssociatedFnDecl {
     #[id]
-    pub node_id: TypeItemNodeId,
+    pub node_path: TypeItemNodePath,
     pub node: TypeItemNode,
     pub ast_idx: AstIdx,
     #[return_ref]
@@ -55,9 +55,9 @@ impl<'a> DeclParseContext<'a> {
     ) -> DeclResult<TypeAssociatedFnDecl> {
         let db = self.db();
         let impl_block_node_decl = node.impl_block(db).node_decl(db);
-        let node_id = node.node_id(db);
+        let node_path = node.node_path(db);
         let mut parser = self.expr_parser(
-            node_id,
+            node_path,
             Some(impl_block_node_decl.expr_region(db)),
             AllowSelfType::True,
             AllowSelfValue::True,
@@ -75,7 +75,7 @@ impl<'a> DeclParseContext<'a> {
         let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectedEolColon)?;
         Ok(TypeAssociatedFnDecl::new(
             db,
-            node_id,
+            node_path,
             node,
             ast_idx,
             implicit_parameter_decl_list,

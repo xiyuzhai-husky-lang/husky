@@ -17,28 +17,28 @@ use vec_like::VecPairMap;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 #[enum_class::from_variants]
-pub enum ImplBlockNodeId {
-    TypeImplBlock(TypeImplBlockNodeId),
-    TraitForTypeImplBlock(TraitForTypeImplBlockNodeId),
-    IllFormedImplBlock(IllFormedImplBlockNodeId),
+pub enum ImplBlockNodePath {
+    TypeImplBlock(TypeImplBlockNodePath),
+    TraitForTypeImplBlock(TraitForTypeImplBlockNodePath),
+    IllFormedImplBlock(IllFormedImplBlockNodePath),
 }
 
-pub(crate) struct ImplBlockNodeIdRegistry {}
+pub(crate) struct ImplBlockNodePathRegistry {}
 
-impl ImplBlockNodeId {
+impl ImplBlockNodePath {
     pub fn path(self, db: &dyn EntityTreeDb) -> Option<ImplBlockPath> {
         match self {
-            ImplBlockNodeId::TypeImplBlock(node_id) => Some(node_id.path().into()),
-            ImplBlockNodeId::TraitForTypeImplBlock(node_id) => Some(node_id.path().into()),
-            ImplBlockNodeId::IllFormedImplBlock(_) => None,
+            ImplBlockNodePath::TypeImplBlock(node_path) => Some(node_path.path().into()),
+            ImplBlockNodePath::TraitForTypeImplBlock(node_path) => Some(node_path.path().into()),
+            ImplBlockNodePath::IllFormedImplBlock(_) => None,
         }
     }
 
     pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
         match self {
-            ImplBlockNodeId::TypeImplBlock(node_id) => node_id.module_path(db),
-            ImplBlockNodeId::TraitForTypeImplBlock(node_id) => node_id.module_path(db),
-            ImplBlockNodeId::IllFormedImplBlock(node_id) => node_id.module_path(db),
+            ImplBlockNodePath::TypeImplBlock(node_path) => node_path.module_path(db),
+            ImplBlockNodePath::TraitForTypeImplBlock(node_path) => node_path.module_path(db),
+            ImplBlockNodePath::IllFormedImplBlock(node_path) => node_path.module_path(db),
         }
     }
 
@@ -46,7 +46,7 @@ impl ImplBlockNodeId {
         todo!()
     }
 
-    pub fn item_node_ids(self, db: &dyn EntityTreeDb) -> &[AssociatedItemPath] {
+    pub fn item_node_paths(self, db: &dyn EntityTreeDb) -> &[AssociatedItemPath] {
         todo!()
     }
 }
@@ -61,15 +61,19 @@ pub enum ImplBlockNode {
 }
 
 impl ImplBlockNode {
-    pub fn node_id(self, db: &dyn EntityTreeDb) -> ImplBlockNodeId {
+    pub fn node_path(self, db: &dyn EntityTreeDb) -> ImplBlockNodePath {
         match self {
-            ImplBlockNode::TypeImplBlock(impl_block) => impl_block.node_id(db).into(),
-            ImplBlockNode::TraitForTypeImplBlock(impl_block) => impl_block.node_id(db).into(),
-            ImplBlockNode::IllFormedImplBlock(impl_block) => impl_block.node_id(db).into(),
+            ImplBlockNode::TypeImplBlock(impl_block) => impl_block.node_path(db).into(),
+            ImplBlockNode::TraitForTypeImplBlock(impl_block) => impl_block.node_path(db).into(),
+            ImplBlockNode::IllFormedImplBlock(impl_block) => impl_block.node_path(db).into(),
         }
     }
 
-    pub fn for_each_item(self, db: &dyn EntityTreeDb, f: impl FnMut()) -> &[AssociatedItemNodeId] {
+    pub fn for_each_item(
+        self,
+        db: &dyn EntityTreeDb,
+        f: impl FnMut(),
+    ) -> &[AssociatedItemNodePath] {
         todo!()
     }
 }

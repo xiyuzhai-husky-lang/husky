@@ -3,7 +3,7 @@ use super::*;
 #[salsa::tracked(db = DefnDb, jar = DefnJar)]
 pub struct TraitForTypeAssociatedValDefn {
     #[id]
-    pub node_id: TraitForTypeItemNodeId,
+    pub node_path: TraitForTypeItemNodePath,
     pub decl: TraitForTypeAssociatedValDecl,
     pub expr_region: ExprRegion,
 }

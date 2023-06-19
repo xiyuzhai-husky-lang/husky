@@ -1,11 +1,11 @@
 use super::*;
 
 #[salsa::interned(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
-pub struct TraitForTypeItemNodeId {
+pub struct TraitForTypeItemNodePath {
     maybe_ambiguous_path: MaybeAmbiguousPath<TraitForTypeItemPath>,
 }
 
-impl TraitForTypeItemNodeId {
+impl TraitForTypeItemNodePath {
     pub fn path(self, db: &dyn EntityTreeDb) -> Option<TraitForTypeItemPath> {
         self.maybe_ambiguous_path(db).unambiguous_path()
     }
@@ -15,16 +15,16 @@ impl TraitForTypeItemNodeId {
     }
 }
 
-impl From<TraitForTypeItemNodeId> for EntityNodeId {
-    fn from(id: TraitForTypeItemNodeId) -> Self {
-        EntityNodeId::AssociatedItem(id.into())
+impl From<TraitForTypeItemNodePath> for EntityNodePath {
+    fn from(id: TraitForTypeItemNodePath) -> Self {
+        EntityNodePath::AssociatedItem(id.into())
     }
 }
 
 #[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
 pub struct TraitForTypeItemNode {
     #[id]
-    pub node_id: TraitForTypeItemNodeId,
+    pub node_path: TraitForTypeItemNodePath,
     pub impl_block: TraitForTypeImplBlockNode,
     pub ast_idx: AstIdx,
     pub ident: Ident,
@@ -44,7 +44,7 @@ impl TraitForTypeItemNode {
         is_generic: bool,
     ) -> Self {
         todo!();
-        // let id = TraitForTypeItemNodeId::new(db, todo!());
+        // let id = TraitForTypeItemNodePath::new(db, todo!());
         // let path: Option<AssociatedItemPath> = match associated_item_kind {
         //     AssociatedItemKind::TraitItem(_) => todo!(),
         //     AssociatedItemKind::TypeItem(ty_item_kind) => match impl_block {

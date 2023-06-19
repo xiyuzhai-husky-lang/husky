@@ -51,7 +51,7 @@ impl HasDecrs for TypePath {
 
 #[salsa::tracked(jar = DecrJar, return_ref)]
 pub(crate) fn ty_path_decrs(db: &dyn DecrDb, path: TypePath) -> DecrResult<Vec<Decr>> {
-    todo!("use TypeNodeId instead");
+    todo!("use TypeNodePath instead");
     let ident = path.ident(db);
     let module_path = path.module_path(db);
     let module_entity_tree = db.entity_tree_sheet(module_path)?;

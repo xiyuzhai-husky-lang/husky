@@ -50,26 +50,26 @@ use vec_like::AsVecMapEntry;
 
 #[salsa::jar(db = EntityTreeDb)]
 pub struct EntityTreeJar(
-    SubmoduleNodeId,
+    SubmoduleNodePath,
     SubmoduleNode,
     submodule_node,
     ModuleItemNode,
     UseSymbol,
     // module items
-    TraitNodeId,
+    TraitNodePath,
     trai_node,
-    TypeNodeId,
+    TypeNodePath,
     ty_node,
-    FugitiveNodeId,
+    FugitiveNodePath,
     fugitive_node,
     // ty variant
-    TypeVariantNodeId,
+    TypeVariantNodePath,
     // associated items
-    TypeItemNodeId,
+    TypeItemNodePath,
     TypeItemNode,
-    TraitItemNodeId,
+    TraitItemNodePath,
     TraitItemNode,
-    TraitForTypeItemNodeId,
+    TraitForTypeItemNodePath,
     TraitForTypeItemNode,
     TypeVariantNode,
     entity_tree_presheet,

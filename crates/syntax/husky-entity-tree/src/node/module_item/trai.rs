@@ -1,25 +1,25 @@
 use super::*;
 
 #[salsa::interned(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
-pub struct TraitNodeId {
+pub struct TraitNodePath {
     pub maybe_ambiguous_path: MaybeAmbiguousPath<TraitPath>,
 }
 
-impl From<TraitNodeId> for EntityNodeId {
-    fn from(id: TraitNodeId) -> Self {
-        EntityNodeId::ModuleItem(id.into())
+impl From<TraitNodePath> for EntityNodePath {
+    fn from(id: TraitNodePath) -> Self {
+        EntityNodePath::ModuleItem(id.into())
     }
 }
 
-impl HasNodeId for TraitPath {
-    type NodeId = TraitNodeId;
+impl HasNodePath for TraitPath {
+    type NodePath = TraitNodePath;
 
-    fn node_id(self, db: &dyn EntityTreeDb) -> Self::NodeId {
-        TraitNodeId::new_inner(db, MaybeAmbiguousPath::from_path(self))
+    fn node_path(self, db: &dyn EntityTreeDb) -> Self::NodePath {
+        TraitNodePath::new_inner(db, MaybeAmbiguousPath::from_path(self))
     }
 }
 
-impl TraitNodeId {
+impl TraitNodePath {
     pub(super) fn new(
         db: &dyn EntityTreeDb,
         registry: &mut EntityNodeRegistry,
@@ -38,11 +38,11 @@ impl TraitNodeId {
 }
 
 #[salsa::tracked(jar = EntityTreeJar)]
-pub(crate) fn trai_node(db: &dyn EntityTreeDb, node_id: TraitNodeId) -> ModuleItemNode {
-    let module_path = node_id.module_path(db);
+pub(crate) fn trai_node(db: &dyn EntityTreeDb, node_path: TraitNodePath) -> ModuleItemNode {
+    let module_path = node_path.module_path(db);
     let entity_sheet = module_path.entity_tree_sheet(db).expect("valid file");
     match entity_sheet
-        .major_entity_node(node_id.into())
+        .major_entity_node(node_path.into())
         .expect("should be some")
     {
         EntityNode::ModuleItem(node) => node,

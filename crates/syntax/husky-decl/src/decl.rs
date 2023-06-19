@@ -15,6 +15,7 @@ use parsec::{parse_separated_list, HasStreamState};
 
 type SmallVecImpl<T> = smallvec::SmallVec<[T; 2]>;
 
+/// A `NodeDecl` is a tolerant information-preserving declaration
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
@@ -57,17 +58,18 @@ impl NodeDecl {
         }
     }
 
-    pub fn node_id(self, db: &dyn DeclDb) -> EntityNodeId {
+    pub fn node_path(self, db: &dyn DeclDb) -> EntityNodePath {
         match self {
             NodeDecl::Submodule(_) => todo!(),
-            NodeDecl::ModuleItem(decl) => decl.node_id(db).into(),
-            NodeDecl::ImplBlock(decl) => decl.node_id(db).into(),
-            NodeDecl::AssociatedItem(decl) => decl.node_id(db).into(),
-            NodeDecl::TypeVariant(decl) => decl.node_id(db).into(),
+            NodeDecl::ModuleItem(decl) => decl.node_path(db).into(),
+            NodeDecl::ImplBlock(decl) => decl.node_path(db).into(),
+            NodeDecl::AssociatedItem(decl) => decl.node_path(db).into(),
+            NodeDecl::TypeVariant(decl) => decl.node_path(db).into(),
         }
     }
 }
 
+/// A `Decl` is a strict version, handy for subsequent processing
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
@@ -110,13 +112,13 @@ impl Decl {
         }
     }
 
-    pub fn node_id(self, db: &dyn DeclDb) -> EntityNodeId {
+    pub fn node_path(self, db: &dyn DeclDb) -> EntityNodePath {
         match self {
             Decl::Submodule(_) => todo!(),
-            Decl::ModuleItem(decl) => decl.node_id(db).into(),
-            Decl::ImplBlock(decl) => decl.node_id(db).into(),
-            Decl::AssociatedItem(decl) => decl.node_id(db).into(),
-            Decl::TypeVariant(decl) => decl.node_id(db).into(),
+            Decl::ModuleItem(decl) => decl.node_path(db).into(),
+            Decl::ImplBlock(decl) => decl.node_path(db).into(),
+            Decl::AssociatedItem(decl) => decl.node_path(db).into(),
+            Decl::TypeVariant(decl) => decl.node_path(db).into(),
         }
     }
 }
@@ -127,16 +129,16 @@ pub trait HasNodeDecl: Copy {
     fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl;
 }
 
-impl HasNodeDecl for EntityNodeId {
+impl HasNodeDecl for EntityNodePath {
     type NodeDecl = NodeDecl;
 
     fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
         match self {
-            EntityNodeId::ModuleItem(node_id) => node_id.node_decl(db).into(),
-            EntityNodeId::TypeVariant(_) => todo!(),
-            EntityNodeId::ImplBlock(_) => todo!(),
-            EntityNodeId::AssociatedItem(_) => todo!(),
-            EntityNodeId::Submodule(node_id) => node_id.node_decl(db).into(),
+            EntityNodePath::ModuleItem(node_path) => node_path.node_decl(db).into(),
+            EntityNodePath::TypeVariant(_) => todo!(),
+            EntityNodePath::ImplBlock(_) => todo!(),
+            EntityNodePath::AssociatedItem(_) => todo!(),
+            EntityNodePath::Submodule(node_path) => node_path.node_decl(db).into(),
         }
     }
 }

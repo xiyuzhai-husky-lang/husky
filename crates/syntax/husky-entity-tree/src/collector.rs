@@ -99,7 +99,7 @@ impl<'a> EntityTreeCollector<'a> {
 
     fn collect_impl_node_block_tables(
         &mut self,
-    ) -> Vec<VecPairMap<ImplBlockNodeId, ImplBlockNode>> {
+    ) -> Vec<VecPairMap<ImplBlockNodePath, ImplBlockNode>> {
         let mut impl_blocks_for_each_module = vec![];
         for presheet in self.presheets.iter() {
             let module_path = presheet.module_path();
@@ -141,7 +141,7 @@ impl<'a> EntityTreeCollector<'a> {
                         }
                         _ => None,
                     })
-                    .map(|impl_block_node| (impl_block_node.node_id(self.db), impl_block_node)),
+                    .map(|impl_block_node| (impl_block_node.node_path(self.db), impl_block_node)),
             )
             .expect("no repetitions");
             impl_blocks_for_each_module.push(impl_blocks);

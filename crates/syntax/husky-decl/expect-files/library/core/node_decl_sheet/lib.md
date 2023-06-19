@@ -3,8 +3,8 @@ Ok(
         [salsa id]: 0,
         decls: [
             (
-                EntityNodeId::Submodule(
-                    SubmoduleNodeId {
+                EntityNodePath::Submodule(
+                    SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: ModulePath(
                                 Id {
@@ -17,7 +17,7 @@ Ok(
                 ),
                 NodeDecl::Submodule(
                     SubmoduleNodeDecl {
-                        node_id: SubmoduleNodeId {
+                        node_path: SubmoduleNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: ModulePath(
                                     Id {
@@ -32,8 +32,8 @@ Ok(
                 ),
             ),
             (
-                EntityNodeId::Submodule(
-                    SubmoduleNodeId {
+                EntityNodePath::Submodule(
+                    SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: ModulePath(
                                 Id {
@@ -46,7 +46,7 @@ Ok(
                 ),
                 NodeDecl::Submodule(
                     SubmoduleNodeDecl {
-                        node_id: SubmoduleNodeId {
+                        node_path: SubmoduleNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: ModulePath(
                                     Id {
@@ -61,8 +61,8 @@ Ok(
                 ),
             ),
             (
-                EntityNodeId::Submodule(
-                    SubmoduleNodeId {
+                EntityNodePath::Submodule(
+                    SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: ModulePath(
                                 Id {
@@ -75,7 +75,7 @@ Ok(
                 ),
                 NodeDecl::Submodule(
                     SubmoduleNodeDecl {
-                        node_id: SubmoduleNodeId {
+                        node_path: SubmoduleNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: ModulePath(
                                     Id {
@@ -90,8 +90,8 @@ Ok(
                 ),
             ),
             (
-                EntityNodeId::Submodule(
-                    SubmoduleNodeId {
+                EntityNodePath::Submodule(
+                    SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: ModulePath(
                                 Id {
@@ -104,7 +104,7 @@ Ok(
                 ),
                 NodeDecl::Submodule(
                     SubmoduleNodeDecl {
-                        node_id: SubmoduleNodeId {
+                        node_path: SubmoduleNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: ModulePath(
                                     Id {
@@ -119,8 +119,8 @@ Ok(
                 ),
             ),
             (
-                EntityNodeId::Submodule(
-                    SubmoduleNodeId {
+                EntityNodePath::Submodule(
+                    SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: ModulePath(
                                 Id {
@@ -133,7 +133,7 @@ Ok(
                 ),
                 NodeDecl::Submodule(
                     SubmoduleNodeDecl {
-                        node_id: SubmoduleNodeId {
+                        node_path: SubmoduleNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: ModulePath(
                                     Id {
@@ -148,8 +148,8 @@ Ok(
                 ),
             ),
             (
-                EntityNodeId::Submodule(
-                    SubmoduleNodeId {
+                EntityNodePath::Submodule(
+                    SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: ModulePath(
                                 Id {
@@ -162,7 +162,7 @@ Ok(
                 ),
                 NodeDecl::Submodule(
                     SubmoduleNodeDecl {
-                        node_id: SubmoduleNodeId {
+                        node_path: SubmoduleNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: ModulePath(
                                     Id {
@@ -177,8 +177,8 @@ Ok(
                 ),
             ),
             (
-                EntityNodeId::Submodule(
-                    SubmoduleNodeId {
+                EntityNodePath::Submodule(
+                    SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: ModulePath(
                                 Id {
@@ -191,7 +191,7 @@ Ok(
                 ),
                 NodeDecl::Submodule(
                     SubmoduleNodeDecl {
-                        node_id: SubmoduleNodeId {
+                        node_path: SubmoduleNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: ModulePath(
                                     Id {
@@ -206,8 +206,8 @@ Ok(
                 ),
             ),
             (
-                EntityNodeId::Submodule(
-                    SubmoduleNodeId {
+                EntityNodePath::Submodule(
+                    SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: ModulePath(
                                 Id {
@@ -220,7 +220,7 @@ Ok(
                 ),
                 NodeDecl::Submodule(
                     SubmoduleNodeDecl {
-                        node_id: SubmoduleNodeId {
+                        node_path: SubmoduleNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: ModulePath(
                                     Id {
@@ -235,8 +235,8 @@ Ok(
                 ),
             ),
             (
-                EntityNodeId::Submodule(
-                    SubmoduleNodeId {
+                EntityNodePath::Submodule(
+                    SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: ModulePath(
                                 Id {
@@ -249,7 +249,7 @@ Ok(
                 ),
                 NodeDecl::Submodule(
                     SubmoduleNodeDecl {
-                        node_id: SubmoduleNodeId {
+                        node_path: SubmoduleNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: ModulePath(
                                     Id {
@@ -264,8 +264,8 @@ Ok(
                 ),
             ),
             (
-                EntityNodeId::Submodule(
-                    SubmoduleNodeId {
+                EntityNodePath::Submodule(
+                    SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: ModulePath(
                                 Id {
@@ -278,7 +278,7 @@ Ok(
                 ),
                 NodeDecl::Submodule(
                     SubmoduleNodeDecl {
-                        node_id: SubmoduleNodeId {
+                        node_path: SubmoduleNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: ModulePath(
                                     Id {
@@ -293,8 +293,8 @@ Ok(
                 ),
             ),
             (
-                EntityNodeId::Submodule(
-                    SubmoduleNodeId {
+                EntityNodePath::Submodule(
+                    SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: ModulePath(
                                 Id {
@@ -307,7 +307,7 @@ Ok(
                 ),
                 NodeDecl::Submodule(
                     SubmoduleNodeDecl {
-                        node_id: SubmoduleNodeId {
+                        node_path: SubmoduleNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: ModulePath(
                                     Id {
@@ -322,8 +322,8 @@ Ok(
                 ),
             ),
             (
-                EntityNodeId::Submodule(
-                    SubmoduleNodeId {
+                EntityNodePath::Submodule(
+                    SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: ModulePath(
                                 Id {
@@ -336,7 +336,7 @@ Ok(
                 ),
                 NodeDecl::Submodule(
                     SubmoduleNodeDecl {
-                        node_id: SubmoduleNodeId {
+                        node_path: SubmoduleNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: ModulePath(
                                     Id {
@@ -351,8 +351,8 @@ Ok(
                 ),
             ),
             (
-                EntityNodeId::Submodule(
-                    SubmoduleNodeId {
+                EntityNodePath::Submodule(
+                    SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: ModulePath(
                                 Id {
@@ -365,7 +365,7 @@ Ok(
                 ),
                 NodeDecl::Submodule(
                     SubmoduleNodeDecl {
-                        node_id: SubmoduleNodeId {
+                        node_path: SubmoduleNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: ModulePath(
                                     Id {
@@ -380,8 +380,8 @@ Ok(
                 ),
             ),
             (
-                EntityNodeId::Submodule(
-                    SubmoduleNodeId {
+                EntityNodePath::Submodule(
+                    SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: ModulePath(
                                 Id {
@@ -394,7 +394,7 @@ Ok(
                 ),
                 NodeDecl::Submodule(
                     SubmoduleNodeDecl {
-                        node_id: SubmoduleNodeId {
+                        node_path: SubmoduleNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: ModulePath(
                                     Id {
@@ -409,8 +409,8 @@ Ok(
                 ),
             ),
             (
-                EntityNodeId::Submodule(
-                    SubmoduleNodeId {
+                EntityNodePath::Submodule(
+                    SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: ModulePath(
                                 Id {
@@ -423,7 +423,7 @@ Ok(
                 ),
                 NodeDecl::Submodule(
                     SubmoduleNodeDecl {
-                        node_id: SubmoduleNodeId {
+                        node_path: SubmoduleNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: ModulePath(
                                     Id {
@@ -438,8 +438,8 @@ Ok(
                 ),
             ),
             (
-                EntityNodeId::Submodule(
-                    SubmoduleNodeId {
+                EntityNodePath::Submodule(
+                    SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: ModulePath(
                                 Id {
@@ -452,7 +452,7 @@ Ok(
                 ),
                 NodeDecl::Submodule(
                     SubmoduleNodeDecl {
-                        node_id: SubmoduleNodeId {
+                        node_path: SubmoduleNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: ModulePath(
                                     Id {
@@ -467,8 +467,8 @@ Ok(
                 ),
             ),
             (
-                EntityNodeId::Submodule(
-                    SubmoduleNodeId {
+                EntityNodePath::Submodule(
+                    SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: ModulePath(
                                 Id {
@@ -481,7 +481,7 @@ Ok(
                 ),
                 NodeDecl::Submodule(
                     SubmoduleNodeDecl {
-                        node_id: SubmoduleNodeId {
+                        node_path: SubmoduleNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: ModulePath(
                                     Id {
@@ -496,8 +496,8 @@ Ok(
                 ),
             ),
             (
-                EntityNodeId::Submodule(
-                    SubmoduleNodeId {
+                EntityNodePath::Submodule(
+                    SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: ModulePath(
                                 Id {
@@ -510,7 +510,7 @@ Ok(
                 ),
                 NodeDecl::Submodule(
                     SubmoduleNodeDecl {
-                        node_id: SubmoduleNodeId {
+                        node_path: SubmoduleNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: ModulePath(
                                     Id {

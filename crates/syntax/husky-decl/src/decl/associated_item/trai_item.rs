@@ -23,7 +23,7 @@ pub enum TraitItemNodeDecl {
 }
 
 impl TraitItemNodeDecl {
-    pub fn node_id(self, _db: &dyn DeclDb) -> TraitItemNodeId {
+    pub fn node_path(self, _db: &dyn DeclDb) -> TraitItemNodePath {
         match self {
             TraitItemNodeDecl::AssociatedFn(_) => todo!(),
             TraitItemNodeDecl::MethodFn(_) => todo!(),
@@ -63,7 +63,7 @@ impl TraitItemNodeDecl {
     }
 }
 
-impl HasNodeDecl for TraitItemNodeId {
+impl HasNodeDecl for TraitItemNodePath {
     type NodeDecl = TraitItemNodeDecl;
 
     fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
@@ -82,7 +82,7 @@ pub enum TraitItemDecl {
 }
 
 impl TraitItemDecl {
-    pub fn node_id(self, _db: &dyn DeclDb) -> TraitItemNodeId {
+    pub fn node_path(self, _db: &dyn DeclDb) -> TraitItemNodePath {
         match self {
             TraitItemDecl::AssociatedFn(_) => todo!(),
             TraitItemDecl::MethodFn(_) => todo!(),

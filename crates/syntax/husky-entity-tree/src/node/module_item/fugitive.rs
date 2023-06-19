@@ -1,25 +1,25 @@
 use super::*;
 
 #[salsa::interned(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
-pub struct FugitiveNodeId {
+pub struct FugitiveNodePath {
     pub maybe_ambiguous_path: MaybeAmbiguousPath<FugitivePath>,
 }
 
-impl From<FugitiveNodeId> for EntityNodeId {
-    fn from(id: FugitiveNodeId) -> Self {
-        EntityNodeId::ModuleItem(id.into())
+impl From<FugitiveNodePath> for EntityNodePath {
+    fn from(id: FugitiveNodePath) -> Self {
+        EntityNodePath::ModuleItem(id.into())
     }
 }
 
-impl HasNodeId for FugitivePath {
-    type NodeId = FugitiveNodeId;
+impl HasNodePath for FugitivePath {
+    type NodePath = FugitiveNodePath;
 
-    fn node_id(self, db: &dyn EntityTreeDb) -> Self::NodeId {
-        FugitiveNodeId::new_inner(db, MaybeAmbiguousPath::from_path(self))
+    fn node_path(self, db: &dyn EntityTreeDb) -> Self::NodePath {
+        FugitiveNodePath::new_inner(db, MaybeAmbiguousPath::from_path(self))
     }
 }
 
-impl FugitiveNodeId {
+impl FugitiveNodePath {
     pub(super) fn new(
         db: &dyn EntityTreeDb,
         registry: &mut EntityNodeRegistry,
@@ -38,11 +38,11 @@ impl FugitiveNodeId {
 }
 
 #[salsa::tracked(jar = EntityTreeJar)]
-pub(crate) fn fugitive_node(db: &dyn EntityTreeDb, node_id: FugitiveNodeId) -> ModuleItemNode {
-    let module_path = node_id.module_path(db);
+pub(crate) fn fugitive_node(db: &dyn EntityTreeDb, node_path: FugitiveNodePath) -> ModuleItemNode {
+    let module_path = node_path.module_path(db);
     let entity_sheet = module_path.entity_tree_sheet(db).expect("valid file");
     match entity_sheet
-        .major_entity_node(node_id.into())
+        .major_entity_node(node_path.into())
         .expect("should be some")
     {
         EntityNode::ModuleItem(node) => node,

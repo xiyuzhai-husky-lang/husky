@@ -7,7 +7,7 @@ pub struct EntityTreeSheet {
     module_path: ModulePath,
     major_entity_node_table: MajorEntityNodeTable,
     entity_symbol_table: EntitySymbolTable,
-    impl_block_node_table: VecPairMap<ImplBlockNodeId, ImplBlockNode>,
+    impl_block_node_table: VecPairMap<ImplBlockNodePath, ImplBlockNode>,
     use_expr_rules: UseExprRules,
     use_all_rules: UseAllRules,
     errors: Vec<EntityTreeError>,
@@ -36,7 +36,7 @@ impl EntityTreeSheet {
         use_expr_rules: UseExprRules,
         use_all_rules: UseAllRules,
         errors: Vec<EntityTreeError>,
-        impl_block_node_table: VecPairMap<ImplBlockNodeId, ImplBlockNode>,
+        impl_block_node_table: VecPairMap<ImplBlockNodePath, ImplBlockNode>,
     ) -> Self {
         Self {
             module_path,
@@ -81,18 +81,18 @@ impl EntityTreeSheet {
         self.module_path
     }
 
-    pub fn major_entity_node_ids<'a>(&'a self) -> impl Iterator<Item = EntityNodeId> + 'a {
-        self.major_entity_node_table.node_ids()
+    pub fn major_entity_node_paths<'a>(&'a self) -> impl Iterator<Item = EntityNodePath> + 'a {
+        self.major_entity_node_table.node_paths()
     }
 
-    pub fn major_entity_node(&self, node_id: EntityNodeId) -> Option<EntityNode> {
-        self.major_entity_node_table.node(node_id)
+    pub fn major_entity_node(&self, node_path: EntityNodePath) -> Option<EntityNode> {
+        self.major_entity_node_table.node(node_path)
     }
 
-    pub fn impl_block_node_ids<'a>(&'a self) -> impl Iterator<Item = ImplBlockNodeId> + 'a {
+    pub fn impl_block_node_paths<'a>(&'a self) -> impl Iterator<Item = ImplBlockNodePath> + 'a {
         self.impl_block_node_table
             .iter()
-            .map(|(node_id, _)| *node_id)
+            .map(|(node_path, _)| *node_path)
     }
 
     pub fn all_ty_impl_block_node_iter<'a>(

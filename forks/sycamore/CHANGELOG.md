@@ -385,7 +385,7 @@ Release post:
         [#126](https://github.com/sycamore-rs/sycamore/pull/126)]
     -   Google search console verification file [[@lukechu10],
         [#135](https://github.com/sycamore-rs/sycamore/pull/135)]
-    -   Get `NodeId` for `DomNode` lazily to improve performance when `Hash` is not used [[@lukechu10],
+    -   Get `NodePath` for `DomNode` lazily to improve performance when `Hash` is not used [[@lukechu10],
         [#136](https://github.com/sycamore-rs/sycamore/pull/136)]
     -   Do not insert unnecessary marker nodes [[@lukechu10],
         [#137](https://github.com/sycamore-rs/sycamore/pull/137)]

@@ -42,23 +42,23 @@ impl ModuleItemNodeDecl {
         }
     }
 
-    pub fn node_id(self, db: &dyn DeclDb) -> EntityNodeId {
+    pub fn node_path(self, db: &dyn DeclDb) -> EntityNodePath {
         match self {
-            ModuleItemNodeDecl::Type(decl) => decl.node_id(db).into(),
-            ModuleItemNodeDecl::Fugitive(decl) => decl.node_id(db).into(),
-            ModuleItemNodeDecl::Trait(decl) => decl.node_id(db).into(),
+            ModuleItemNodeDecl::Type(decl) => decl.node_path(db).into(),
+            ModuleItemNodeDecl::Fugitive(decl) => decl.node_path(db).into(),
+            ModuleItemNodeDecl::Trait(decl) => decl.node_path(db).into(),
         }
     }
 }
 
-impl HasNodeDecl for ModuleItemNodeId {
+impl HasNodeDecl for ModuleItemNodePath {
     type NodeDecl = ModuleItemNodeDecl;
 
     fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
         match self {
-            ModuleItemNodeId::Trait(node_id) => node_id.node_decl(db).into(),
-            ModuleItemNodeId::Type(node_id) => node_id.node_decl(db).into(),
-            ModuleItemNodeId::Fugitive(node_id) => node_id.node_decl(db).into(),
+            ModuleItemNodePath::Trait(node_path) => node_path.node_decl(db).into(),
+            ModuleItemNodePath::Type(node_path) => node_path.node_decl(db).into(),
+            ModuleItemNodePath::Fugitive(node_path) => node_path.node_decl(db).into(),
         }
     }
 }
@@ -97,11 +97,11 @@ impl ModuleItemDecl {
         }
     }
 
-    pub fn node_id(self, db: &dyn DeclDb) -> EntityNodeId {
+    pub fn node_path(self, db: &dyn DeclDb) -> EntityNodePath {
         match self {
-            ModuleItemDecl::Type(decl) => decl.node_id(db).into(),
-            ModuleItemDecl::Fugitive(decl) => decl.node_id(db).into(),
-            ModuleItemDecl::Trait(decl) => decl.node_id(db).into(),
+            ModuleItemDecl::Type(decl) => decl.node_path(db).into(),
+            ModuleItemDecl::Fugitive(decl) => decl.node_path(db).into(),
+            ModuleItemDecl::Trait(decl) => decl.node_path(db).into(),
         }
     }
 }
