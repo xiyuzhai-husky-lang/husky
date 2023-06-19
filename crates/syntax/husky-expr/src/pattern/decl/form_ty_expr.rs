@@ -12,10 +12,10 @@ impl FormTypeExpr {
     }
 }
 
-impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for FormTypeExpr {
+impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for FormTypeExpr {
     type Error = ExprError;
 
-    fn parse_from_without_guaranteed_rollback(
+    fn try_parse_optional_from_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> ExprResult<Option<Self>> {
         if let Some(expr) =

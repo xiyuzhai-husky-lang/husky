@@ -43,7 +43,7 @@ impl<'a> DeclParseContext<'a> {
             AllowSelfValue::False,
         );
         let mut ctx = parser.ctx(None, token_group_idx, saved_stream_state);
-        let implicit_parameter_decl_list = ctx.parse()?;
+        let implicit_parameter_decl_list = ctx.try_parse_optional()?;
         // let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectedEolColon)?;
         Ok(TraitForTypeAssociatedTypeDecl::new(
             db,

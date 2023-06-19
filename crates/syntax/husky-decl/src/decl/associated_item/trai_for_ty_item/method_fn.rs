@@ -76,11 +76,11 @@ impl<'a> DeclParseContext<'a> {
             AllowSelfValue::True,
         );
         let mut ctx = parser.ctx(None, token_group_idx, saved_stream_state);
-        let implicit_parameter_decl_list = ctx.parse()?;
+        let implicit_parameter_decl_list = ctx.try_parse_optional()?;
         let parameter_decl_list =
             ctx.parse_expected(OriginalDeclExprError::ExpectedParameterDeclList)?;
 
-        let curry_token = ctx.parse()?;
+        let curry_token = ctx.try_parse_optional()?;
         let return_ty = if curry_token.is_some() {
             Some(ctx.parse_expected(OriginalDeclExprError::ExpectedOutputType)?)
         } else {

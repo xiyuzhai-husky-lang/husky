@@ -1,6 +1,6 @@
 use super::*;
 use husky_token::{CommaToken, LeftCurlyBraceToken, RightCurlyBraceToken};
-use parsec::parse_separated_list2;
+use parsec::{parse_separated_list2, SeparatedListWithKet};
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct RegularStructTypeNodeDecl {
@@ -9,11 +9,15 @@ pub struct RegularStructTypeNodeDecl {
     pub ast_idx: AstIdx,
     #[return_ref]
     implicit_parameter_decl_list: DeclExprResult<Option<ImplicitParameterDeclList>>,
-    pub lcurl: LeftCurlyBraceToken,
     #[return_ref]
-    field_comma_list: DeclExprResult<(Vec<RegularStructFieldDeclPattern>, Vec<CommaToken>)>,
-    #[return_ref]
-    pub rcurl: DeclExprResult<RightCurlyBraceToken>,
+    struct_fields: DeclExprResult<
+        SeparatedListWithKet<
+            RegularStructFieldDeclPattern,
+            CommaToken,
+            RightCurlyBraceToken,
+            DeclExprError,
+        >,
+    >,
     pub expr_region: ExprRegion,
 }
 
@@ -27,7 +31,8 @@ impl RegularStructTypeNodeDecl {
     }
 
     pub fn fields<'a>(self, db: &'a dyn DeclDb) -> &'a [RegularStructFieldDeclPattern] {
-        &self.field_comma_list(db).0
+        todo!()
+        // &self.field_comma_list(db).0
     }
 }
 

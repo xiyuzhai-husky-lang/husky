@@ -10,13 +10,15 @@ pub struct PunctuationToken {
     token_idx: TokenIdx,
 }
 
-impl<'a, Context> parsec::ParseFromStream<Context> for PunctuationToken
+impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for PunctuationToken
 where
     Context: TokenParseContext<'a>,
 {
     type Error = TokenError;
 
-    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
+    fn try_parse_optional_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
                 Token::Punctuation(punc) => Ok(Some(PunctuationToken { punc, token_idx })),
@@ -65,13 +67,15 @@ where
 #[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct ColonToken(TokenIdx);
 
-impl<'a, Context> parsec::ParseFromStream<Context> for ColonToken
+impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for ColonToken
 where
     Context: TokenParseContext<'a>,
 {
     type Error = TokenError;
 
-    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
+    fn try_parse_optional_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> TokenResult<Option<Self>> {
         parse_specific_punctuation_from(ctx, Punctuation::COLON, ColonToken)
     }
 }
@@ -95,13 +99,15 @@ fn colon_token_works() {
 #[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct CommaToken(TokenIdx);
 
-impl<'a, Context> parsec::ParseFromStream<Context> for CommaToken
+impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for CommaToken
 where
     Context: TokenParseContext<'a>,
 {
     type Error = TokenError;
 
-    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
+    fn try_parse_optional_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> TokenResult<Option<Self>> {
         parse_specific_punctuation_from(ctx, Punctuation::COMMA, CommaToken)
     }
 }
@@ -131,13 +137,15 @@ impl EqToken {
     }
 }
 
-impl<'a, Context> parsec::ParseFromStream<Context> for EqToken
+impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for EqToken
 where
     Context: TokenParseContext<'a>,
 {
     type Error = TokenError;
 
-    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
+    fn try_parse_optional_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> TokenResult<Option<Self>> {
         parse_specific_punctuation_from(ctx, Punctuation::EQ, EqToken)
     }
 }
@@ -168,13 +176,15 @@ impl LeftParenthesisToken {
     }
 }
 
-impl<'a, Context> parsec::ParseFromStream<Context> for LeftParenthesisToken
+impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for LeftParenthesisToken
 where
     Context: TokenParseContext<'a>,
 {
     type Error = TokenError;
 
-    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
+    fn try_parse_optional_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> TokenResult<Option<Self>> {
         parse_specific_punctuation_from(ctx, Punctuation::LPAR, LeftParenthesisToken)
     }
 }
@@ -198,13 +208,15 @@ fn left_parenthesis_token_works() {
 #[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct RightParenthesisToken(TokenIdx);
 
-impl<'a, Context> parsec::ParseFromStream<Context> for RightParenthesisToken
+impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for RightParenthesisToken
 where
     Context: TokenParseContext<'a>,
 {
     type Error = TokenError;
 
-    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
+    fn try_parse_optional_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> TokenResult<Option<Self>> {
         parse_specific_punctuation_from(ctx, Punctuation::RPAR, RightParenthesisToken)
     }
 }
@@ -228,13 +240,15 @@ fn right_parenthesis_token_works() {
 #[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct LeftBoxBracketToken(TokenIdx);
 
-impl<'a, Context> parsec::ParseFromStream<Context> for LeftBoxBracketToken
+impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for LeftBoxBracketToken
 where
     Context: TokenParseContext<'a>,
 {
     type Error = TokenError;
 
-    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
+    fn try_parse_optional_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> TokenResult<Option<Self>> {
         parse_specific_punctuation_from(ctx, Punctuation::LBOX, LeftBoxBracketToken)
     }
 }
@@ -264,13 +278,15 @@ impl RightBoxBracketToken {
     }
 }
 
-impl<'a, Context> parsec::ParseFromStream<Context> for RightBoxBracketToken
+impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for RightBoxBracketToken
 where
     Context: TokenParseContext<'a>,
 {
     type Error = TokenError;
 
-    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
+    fn try_parse_optional_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> TokenResult<Option<Self>> {
         parse_specific_punctuation_from(ctx, Punctuation::RBOX, RightBoxBracketToken)
     }
 }
@@ -294,13 +310,15 @@ fn right_box_bracket_token_works() {
 #[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct LeftCurlyBraceToken(TokenIdx);
 
-impl<'a, Context> parsec::ParseFromStream<Context> for LeftCurlyBraceToken
+impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for LeftCurlyBraceToken
 where
     Context: TokenParseContext<'a>,
 {
     type Error = TokenError;
 
-    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
+    fn try_parse_optional_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> TokenResult<Option<Self>> {
         parse_specific_punctuation_from(ctx, Punctuation::LCURL, LeftCurlyBraceToken)
     }
 }
@@ -324,13 +342,15 @@ fn left_curly_brace_token_works() {
 #[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct RightCurlyBraceToken(TokenIdx);
 
-impl<'a, Context> parsec::ParseFromStream<Context> for RightCurlyBraceToken
+impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for RightCurlyBraceToken
 where
     Context: TokenParseContext<'a>,
 {
     type Error = TokenError;
 
-    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
+    fn try_parse_optional_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> TokenResult<Option<Self>> {
         parse_specific_punctuation_from(ctx, Punctuation::RCURL, RightCurlyBraceToken)
     }
 }
@@ -360,13 +380,15 @@ impl LeftAngleBracketOrLessThanToken {
     }
 }
 
-impl<'a, Context> parsec::ParseFromStream<Context> for LeftAngleBracketOrLessThanToken
+impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for LeftAngleBracketOrLessThanToken
 where
     Context: TokenParseContext<'a>,
 {
     type Error = TokenError;
 
-    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
+    fn try_parse_optional_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> TokenResult<Option<Self>> {
         parse_specific_punctuation_from(ctx, Punctuation::LA_OR_LT, LeftAngleBracketOrLessThanToken)
     }
 }
@@ -397,13 +419,15 @@ impl ColonColonLeftAngleBracketToken {
     }
 }
 
-impl<'a, Context> parsec::ParseFromStream<Context> for ColonColonLeftAngleBracketToken
+impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for ColonColonLeftAngleBracketToken
 where
     Context: TokenParseContext<'a>,
 {
     type Error = TokenError;
 
-    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
+    fn try_parse_optional_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> TokenResult<Option<Self>> {
         parse_specific_punctuation_from(
             ctx,
             Punctuation::COLON_COLON_LA,
@@ -432,13 +456,15 @@ fn colon_colon_left_angle_bracket_token_works() {
 #[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct RightAngleBracketToken(TokenIdx);
 
-impl<'a, Context> parsec::ParseFromStream<Context> for RightAngleBracketToken
+impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for RightAngleBracketToken
 where
     Context: TokenParseContext<'a>,
 {
     type Error = TokenError;
 
-    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
+    fn try_parse_optional_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> TokenResult<Option<Self>> {
         parse_specific_punctuation_from(ctx, Punctuation::RA_OR_GT, RightAngleBracketToken)
     }
 }
@@ -468,13 +494,15 @@ impl EmptyHtmlKetToken {
     }
 }
 
-impl<'a, Context> parsec::ParseFromStream<Context> for EmptyHtmlKetToken
+impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for EmptyHtmlKetToken
 where
     Context: TokenParseContext<'a>,
 {
     type Error = TokenError;
 
-    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
+    fn try_parse_optional_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> TokenResult<Option<Self>> {
         parse_specific_punctuation_from(ctx, Punctuation::EMPTY_HTML_KET, EmptyHtmlKetToken)
     }
 }
@@ -498,13 +526,15 @@ fn empty_html_ket_token_works() {
 #[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct VerticalToken(TokenIdx);
 
-impl<'a, Context> parsec::ParseFromStream<Context> for VerticalToken
+impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for VerticalToken
 where
     Context: TokenParseContext<'a>,
 {
     type Error = TokenError;
 
-    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
+    fn try_parse_optional_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> TokenResult<Option<Self>> {
         parse_specific_punctuation_from(ctx, Punctuation::VERTICAL, VerticalToken)
     }
 }
@@ -528,13 +558,15 @@ fn vertical_token_works() {
 #[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct AtToken(TokenIdx);
 
-impl<'a, Context> parsec::ParseFromStream<Context> for AtToken
+impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for AtToken
 where
     Context: TokenParseContext<'a>,
 {
     type Error = TokenError;
 
-    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
+    fn try_parse_optional_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> TokenResult<Option<Self>> {
         parse_specific_punctuation_from(ctx, Punctuation::AT, AtToken)
     }
 }
@@ -559,13 +591,15 @@ fn at_token_works() {
 #[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct DotDotToken(TokenIdx);
 
-impl<'a, Context> parsec::ParseFromStream<Context> for DotDotToken
+impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for DotDotToken
 where
     Context: TokenParseContext<'a>,
 {
     type Error = TokenError;
 
-    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
+    fn try_parse_optional_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> TokenResult<Option<Self>> {
         parse_specific_punctuation_from(ctx, Punctuation::DOT_DOT, DotDotToken)
     }
 }
@@ -614,13 +648,15 @@ impl EolToken {
     }
 }
 
-impl<'a, Context> parsec::ParseFromStream<Context> for EolToken
+impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for EolToken
 where
     Context: TokenParseContext<'a>,
 {
     type Error = TokenError;
 
-    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
+    fn try_parse_optional_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> TokenResult<Option<Self>> {
         let token_stream = ctx.token_stream_mut();
         if let Some((token_idx, token)) = token_stream.next_indexed() {
             match token {
@@ -672,13 +708,15 @@ impl ScopeResolutionToken {
     }
 }
 
-impl<'a, Context> parsec::ParseFromStream<Context> for ScopeResolutionToken
+impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for ScopeResolutionToken
 where
     Context: TokenParseContext<'a>,
 {
     type Error = TokenError;
 
-    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
+    fn try_parse_optional_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> TokenResult<Option<Self>> {
         let token_stream = ctx.token_stream_mut();
         if let Some((token_idx, token)) = token_stream.next_indexed() {
             match token {
@@ -726,13 +764,15 @@ impl StarToken {
     }
 }
 
-impl<'a, Context> parsec::ParseFromStream<Context> for StarToken
+impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for StarToken
 where
     Context: TokenParseContext<'a>,
 {
     type Error = TokenError;
 
-    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
+    fn try_parse_optional_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> TokenResult<Option<Self>> {
         let token_stream = ctx.token_stream_mut();
         if let Some((token_idx, token)) = token_stream.next_indexed() {
             match token {
@@ -772,13 +812,15 @@ fn star_token_works() {
 #[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct CurryToken(TokenIdx);
 
-impl<'a, Context> parsec::ParseFromStream<Context> for CurryToken
+impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for CurryToken
 where
     Context: TokenParseContext<'a>,
 {
     type Error = TokenError;
 
-    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
+    fn try_parse_optional_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> TokenResult<Option<Self>> {
         let token_stream = ctx.token_stream_mut();
         if let Some((token_idx, token)) = token_stream.next_indexed() {
             match token {
@@ -818,13 +860,15 @@ fn curry_token_works() {
 #[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct OwnedToken(TokenIdx);
 
-impl<'a, Context> parsec::ParseFromStream<Context> for OwnedToken
+impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for OwnedToken
 where
     Context: TokenParseContext<'a>,
 {
     type Error = TokenError;
 
-    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
+    fn try_parse_optional_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> TokenResult<Option<Self>> {
         let token_stream = ctx.token_stream_mut();
         if let Some((token_idx, token)) = token_stream.next_indexed() {
             match token {
@@ -866,13 +910,15 @@ fn double_exclamation_token_works() {
 #[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct ColonEqToken(TokenIdx);
 
-impl<'a, Context> parsec::ParseFromStream<Context> for ColonEqToken
+impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for ColonEqToken
 where
     Context: TokenParseContext<'a>,
 {
     type Error = TokenError;
 
-    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
+    fn try_parse_optional_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> TokenResult<Option<Self>> {
         parse_specific_punctuation_from(ctx, Punctuation::COLON_EQ, ColonEqToken)
     }
 }
@@ -898,13 +944,15 @@ fn colon_eq_token_works() {
 #[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct LightArrowToken(TokenIdx);
 
-impl<'a, Context> parsec::ParseFromStream<Context> for LightArrowToken
+impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for LightArrowToken
 where
     Context: TokenParseContext<'a>,
 {
     type Error = TokenError;
 
-    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
+    fn try_parse_optional_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> TokenResult<Option<Self>> {
         parse_specific_punctuation_from(ctx, Punctuation::LIGHT_ARROW, LightArrowToken)
     }
 }
@@ -930,13 +978,15 @@ fn light_arrow_token_works() {
 #[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct HeavyArrowToken(TokenIdx);
 
-impl<'a, Context> parsec::ParseFromStream<Context> for HeavyArrowToken
+impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for HeavyArrowToken
 where
     Context: TokenParseContext<'a>,
 {
     type Error = TokenError;
 
-    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
+    fn try_parse_optional_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> TokenResult<Option<Self>> {
         parse_specific_punctuation_from(ctx, Punctuation::HEAVY_ARROW, HeavyArrowToken)
     }
 }

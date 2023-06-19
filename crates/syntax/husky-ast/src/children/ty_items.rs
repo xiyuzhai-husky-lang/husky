@@ -40,10 +40,10 @@ impl NormalAstChildren for TypeItems {
     }
 }
 
-impl<'a> ParseFromStream<AstParser<'a>> for TypeItems {
+impl<'a> TryParseOptionalFromStream<AstParser<'a>> for TypeItems {
     type Error = AstError;
 
-    fn parse_from_without_guaranteed_rollback(
+    fn try_parse_optional_from_without_guaranteed_rollback(
         parser: &mut AstParser<'a>,
     ) -> Result<Option<Self>, Self::Error> {
         Ok(parser

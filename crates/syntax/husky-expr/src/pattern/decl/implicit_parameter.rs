@@ -45,14 +45,14 @@ pub enum ImplicitParameterDeclPatternVariant {
     },
 }
 
-impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for ImplicitParameterDeclPattern {
+impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for ImplicitParameterDeclPattern {
     type Error = ExprError;
 
-    fn parse_from_without_guaranteed_rollback(
+    fn try_parse_optional_from_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> ExprResult<Option<Self>> {
         let annotated_variance_token = ctx.parse_err_as_none();
-        if let Some(ident_token) = ctx.parse::<IdentToken>()? {
+        if let Some(ident_token) = ctx.try_parse_optional::<IdentToken>()? {
             let access_start = ctx.save_state().next_token_idx();
             let parameter_symbol = CurrentSymbol::new(
                 ctx.pattern_expr_region(),
@@ -73,7 +73,7 @@ impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for ImplicitParameterDecl
                 symbol: symbols.start(),
                 variant: ImplicitParameterDeclPatternVariant::Type {
                     ident_token,
-                    traits: if let Some(colon) = ctx.parse::<ColonToken>()? {
+                    traits: if let Some(colon) = ctx.try_parse_optional::<ColonToken>()? {
                         Some((
                             colon,
                             ctx.parse_expr_expected2(
@@ -87,7 +87,7 @@ impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for ImplicitParameterDecl
                     },
                 },
             }))
-        } else if let Some(label_token) = ctx.parse::<LifetimeLabelToken>()? {
+        } else if let Some(label_token) = ctx.try_parse_optional::<LifetimeLabelToken>()? {
             let access_start = ctx.save_state().next_token_idx();
             let symbols = ctx.define_symbols(
                 [CurrentSymbol::new(
@@ -107,14 +107,14 @@ impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for ImplicitParameterDecl
                 symbol: symbols.start(),
                 variant: ImplicitParameterDeclPatternVariant::Lifetime { label_token },
             }))
-        } else if let Some(label_token) = ctx.parse::<BindingLabelToken>()? {
+        } else if let Some(label_token) = ctx.try_parse_optional::<BindingLabelToken>()? {
             let symbol = todo!();
             Ok(Some(ImplicitParameterDeclPattern {
                 annotated_variance_token,
                 symbol,
                 variant: ImplicitParameterDeclPatternVariant::Binding { label_token },
             }))
-        } else if let Some(const_token) = ctx.parse::<ConstToken>()? {
+        } else if let Some(const_token) = ctx.try_parse_optional::<ConstToken>()? {
             let ident_token = ctx.parse_expected(OriginalExprError::ExpectedIdent)?;
             let colon_token = ctx.parse_expected(OriginalExprError::ExpectedColon)?;
             let ty_expr = ctx.parse_expr_expected2(

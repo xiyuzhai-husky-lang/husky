@@ -19,13 +19,15 @@ impl LifetimeLabelToken {
     }
 }
 
-impl<'a, Context> parsec::ParseFromStream<Context> for LifetimeLabelToken
+impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for LifetimeLabelToken
 where
     Context: TokenParseContext<'a>,
 {
     type Error = TokenError;
 
-    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
+    fn try_parse_optional_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {
             match token {
                 Token::Label(label) if label.is_valid_lifetime_label() => {
@@ -67,13 +69,15 @@ impl BindingLabelToken {
     }
 }
 
-impl<'a, Context> parsec::ParseFromStream<Context> for BindingLabelToken
+impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for BindingLabelToken
 where
     Context: TokenParseContext<'a>,
 {
     type Error = TokenError;
 
-    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
+    fn try_parse_optional_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {
             match token {
                 Token::Label(label) if label.is_valid_binding_label() => {
@@ -115,13 +119,15 @@ impl BlockLabelToken {
     }
 }
 
-impl<'a, Context> parsec::ParseFromStream<Context> for BlockLabelToken
+impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for BlockLabelToken
 where
     Context: TokenParseContext<'a>,
 {
     type Error = TokenError;
 
-    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
+    fn try_parse_optional_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {
             match token {
                 Token::Label(label) => Ok(Some(BlockLabelToken { label, token_idx })),

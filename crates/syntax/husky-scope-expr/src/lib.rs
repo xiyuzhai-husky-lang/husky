@@ -32,38 +32,42 @@ impl VisibilityExpr {
         module_path: ModulePath,
         token_stream: &mut TokenStream<'_>,
     ) -> VisibilityExprResult<Self> {
-        Ok(if let Some(pub_token) = token_stream.parse::<PubToken>()? {
-            if let Some(lpar) = token_stream.parse::<LeftParenthesisToken>()? {
-                let path_name_token: PathNameToken = token_stream
-                    .parse_expected(OriginalVisibilityExprError::ExpectedCrateOrSuper)?;
-                match path_name_token {
-                    PathNameToken::Ident(_) => todo!(),
-                    PathNameToken::CrateRoot(_) => todo!(),
-                    PathNameToken::SelfMod(_) => todo!(),
-                    PathNameToken::Super(super_token) => VisibilityExpr {
-                        visibility: Scope::PubUnder(module_path.parent(db).ok_or(
-                            OriginalVisibilityExprError::NoSuperForRoot(super_token.token_idx()),
-                        )?),
-                        variant: VisibilityExprVariant::PubUnder {
-                            pub_token,
-                            lpar,
-                            visibility: VisibilityScopeExpr::Super(super_token),
-                            rpar: token_stream.parse_expected(
-                                OriginalVisibilityExprError::ExpectedRightParenthesis,
-                            )?,
+        Ok(
+            if let Some(pub_token) = token_stream.try_parse_optional::<PubToken>()? {
+                if let Some(lpar) = token_stream.try_parse_optional::<LeftParenthesisToken>()? {
+                    let path_name_token: PathNameToken = token_stream
+                        .parse_expected(OriginalVisibilityExprError::ExpectedCrateOrSuper)?;
+                    match path_name_token {
+                        PathNameToken::Ident(_) => todo!(),
+                        PathNameToken::CrateRoot(_) => todo!(),
+                        PathNameToken::SelfMod(_) => todo!(),
+                        PathNameToken::Super(super_token) => VisibilityExpr {
+                            visibility: Scope::PubUnder(module_path.parent(db).ok_or(
+                                OriginalVisibilityExprError::NoSuperForRoot(
+                                    super_token.token_idx(),
+                                ),
+                            )?),
+                            variant: VisibilityExprVariant::PubUnder {
+                                pub_token,
+                                lpar,
+                                visibility: VisibilityScopeExpr::Super(super_token),
+                                rpar: token_stream.parse_expected(
+                                    OriginalVisibilityExprError::ExpectedRightParenthesis,
+                                )?,
+                            },
                         },
-                    },
+                    }
+                    // Err(OriginalVisibilityExprError::ExpectedCrateOrSuper(state))?
+                } else {
+                    VisibilityExpr {
+                        visibility: Scope::Pub,
+                        variant: VisibilityExprVariant::Pub { pub_token },
+                    }
                 }
-                // Err(OriginalVisibilityExprError::ExpectedCrateOrSuper(state))?
             } else {
-                VisibilityExpr {
-                    visibility: Scope::Pub,
-                    variant: VisibilityExprVariant::Pub { pub_token },
-                }
-            }
-        } else {
-            Self::new_protected(module_path)
-        })
+                Self::new_protected(module_path)
+            },
+        )
     }
 }
 

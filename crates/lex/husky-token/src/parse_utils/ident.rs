@@ -25,13 +25,15 @@ impl IdentToken {
     }
 }
 
-impl<'a, Context> parsec::ParseFromStream<Context> for IdentToken
+impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for IdentToken
 where
     Context: TokenParseContext<'a>,
 {
     type Error = TokenError;
 
-    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
+    fn try_parse_optional_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {
             match token {
                 Token::Ident(ident) => Ok(Some(IdentToken { ident, token_idx })),

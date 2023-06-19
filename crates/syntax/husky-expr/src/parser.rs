@@ -279,10 +279,10 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         &mut self,
         env: PatternExprInfo,
     ) -> ExprResult<Option<PatternExprIdx>> {
-        let modifier_keyword_group = self.parse()?;
+        let modifier_keyword_group = self.try_parse_optional()?;
         let ident_token = match modifier_keyword_group {
             Some(_) => self.parse_expected(OriginalExprError::ExpectedIdentAfterModifier)?,
-            None => match self.parse::<IdentToken>()? {
+            None => match self.try_parse_optional::<IdentToken>()? {
                 Some(ident_token) => ident_token,
                 None => return Ok(None),
             },

@@ -1,4 +1,4 @@
-use parsec::ParseFromStream;
+use parsec::TryParseOptionalFromStream;
 
 use super::*;
 
@@ -41,10 +41,10 @@ impl NormalAstChildren for TraitItems {
     }
 }
 
-impl<'a> ParseFromStream<AstParser<'a>> for TraitItems {
+impl<'a> TryParseOptionalFromStream<AstParser<'a>> for TraitItems {
     type Error = AstError;
 
-    fn parse_from_without_guaranteed_rollback(
+    fn try_parse_optional_from_without_guaranteed_rollback(
         parser: &mut AstParser<'a>,
     ) -> Result<Option<Self>, Self::Error> {
         Ok(parser

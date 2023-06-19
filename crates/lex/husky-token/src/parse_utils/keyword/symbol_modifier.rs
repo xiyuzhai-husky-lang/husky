@@ -6,13 +6,15 @@ pub enum PatternSymbolModifierKeywordGroup {
     RefMut(RefToken, MutToken),
 }
 
-impl<'a, Context> parsec::ParseFromStream<Context> for PatternSymbolModifierKeywordGroup
+impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for PatternSymbolModifierKeywordGroup
 where
     Context: TokenParseContext<'a>,
 {
     type Error = TokenError;
 
-    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
+    fn try_parse_optional_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> TokenResult<Option<Self>> {
         let token_stream: &mut TokenStream<'a> = &mut ctx.borrow_mut();
         let Some((token_idx, token)) = token_stream.next_indexed() else {
             return Ok(None)
@@ -45,13 +47,15 @@ impl MutToken {
     }
 }
 
-impl<'a, Context> parsec::ParseFromStream<Context> for MutToken
+impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for MutToken
 where
     Context: TokenParseContext<'a>,
 {
     type Error = TokenError;
 
-    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
+    fn try_parse_optional_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
                 Token::Keyword(Keyword::Modifier(ModifierKeyword::Mut)) => {
