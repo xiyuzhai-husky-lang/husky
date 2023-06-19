@@ -1,11 +1,11 @@
 use super::*;
 
 #[salsa::interned(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
-pub struct TypeNodePath {
+pub struct TypeNodeId {
     pub maybe_ambiguous_path: MaybeAmbiguousPath<TypePath>,
 }
 
-impl TypeNodePath {
+impl TypeNodeId {
     pub(super) fn new(
         db: &dyn EntityTreeDb,
         registry: &mut EntityNodeRegistry,
@@ -27,30 +27,30 @@ impl TypeNodePath {
     }
 }
 
-impl HasNodePath for TypePath {
-    type NodePath = TypeNodePath;
+impl HasNodeId for TypePath {
+    type NodeId = TypeNodeId;
 
-    fn node_path(self, db: &dyn EntityTreeDb) -> Self::NodePath {
-        TypeNodePath::new_inner(db, MaybeAmbiguousPath::from_path(self))
+    fn node_id(self, db: &dyn EntityTreeDb) -> Self::NodeId {
+        TypeNodeId::new_inner(db, MaybeAmbiguousPath::from_path(self))
     }
 }
 
-impl From<TypeNodePath> for EntityNodePath {
-    fn from(id: TypeNodePath) -> Self {
-        EntityNodePath::ModuleItem(id.into())
+impl From<TypeNodeId> for EntityNodeId {
+    fn from(id: TypeNodeId) -> Self {
+        EntityNodeId::ModuleItem(id.into())
     }
 }
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub(crate) fn ty_node(
     db: &dyn EntityTreeDb,
-    node_path: TypeNodePath,
+    node_id: TypeNodeId,
 ) -> EntityTreeResult<ModuleItemNode> {
-    let module_path = node_path.module_path(db);
+    let module_path = node_id.module_path(db);
     let entity_sheet = module_path.entity_tree_sheet(db)?;
     Ok(
         match entity_sheet
-            .major_entity_node(node_path.into())
+            .major_entity_node(node_id.into())
             .expect("should be some")
         {
             EntityNode::ModuleItem(node) => node,

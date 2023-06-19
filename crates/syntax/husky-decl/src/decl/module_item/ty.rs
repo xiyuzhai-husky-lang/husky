@@ -38,17 +38,17 @@ pub enum TypeNodeDecl {
 }
 
 impl TypeNodeDecl {
-    pub fn node_path(self, db: &dyn DeclDb) -> TypeNodePath {
+    pub fn node_id(self, db: &dyn DeclDb) -> TypeNodeId {
         match self {
-            TypeNodeDecl::Enum(decl) => decl.node_path(db),
-            TypeNodeDecl::Inductive(decl) => decl.node_path(db),
-            TypeNodeDecl::Record(decl) => decl.node_path(db),
-            TypeNodeDecl::UnitStruct(decl) => decl.node_path(db),
-            TypeNodeDecl::RegularStruct(decl) => decl.node_path(db),
-            TypeNodeDecl::TupleStruct(decl) => decl.node_path(db),
-            TypeNodeDecl::Structure(decl) => decl.node_path(db),
-            TypeNodeDecl::Extern(decl) => decl.node_path(db),
-            TypeNodeDecl::Union(decl) => decl.node_path(db),
+            TypeNodeDecl::Enum(decl) => decl.node_id(db),
+            TypeNodeDecl::Inductive(decl) => decl.node_id(db),
+            TypeNodeDecl::Record(decl) => decl.node_id(db),
+            TypeNodeDecl::UnitStruct(decl) => decl.node_id(db),
+            TypeNodeDecl::RegularStruct(decl) => decl.node_id(db),
+            TypeNodeDecl::TupleStruct(decl) => decl.node_id(db),
+            TypeNodeDecl::Structure(decl) => decl.node_id(db),
+            TypeNodeDecl::Extern(decl) => decl.node_id(db),
+            TypeNodeDecl::Union(decl) => decl.node_id(db),
         }
     }
 
@@ -96,6 +96,19 @@ impl TypeNodeDecl {
     }
 }
 
+impl HasNodeDecl for TypeNodeId {
+    type NodeDecl = TypeNodeDecl;
+
+    fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
+        ty_node_decl(db, self)
+    }
+}
+
+#[salsa::tracked(jar = DeclJar)]
+pub(crate) fn ty_node_decl(db: &dyn DeclDb, node_id: TypeNodeId) -> TypeNodeDecl {
+    todo!()
+}
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
@@ -112,17 +125,17 @@ pub enum TypeDecl {
 }
 
 impl TypeDecl {
-    pub fn node_path(self, db: &dyn DeclDb) -> TypeNodePath {
+    pub fn node_id(self, db: &dyn DeclDb) -> TypeNodeId {
         match self {
-            TypeDecl::Enum(decl) => decl.node_path(db),
-            TypeDecl::Inductive(decl) => decl.node_path(db),
-            TypeDecl::Record(decl) => decl.node_path(db),
-            TypeDecl::UnitStruct(decl) => decl.node_path(db),
-            TypeDecl::RegularStruct(decl) => decl.node_path(db),
-            TypeDecl::TupleStruct(decl) => decl.node_path(db),
-            TypeDecl::Structure(decl) => decl.node_path(db),
-            TypeDecl::Extern(decl) => decl.node_path(db),
-            TypeDecl::Union(decl) => decl.node_path(db),
+            TypeDecl::Enum(decl) => decl.node_id(db),
+            TypeDecl::Inductive(decl) => decl.node_id(db),
+            TypeDecl::Record(decl) => decl.node_id(db),
+            TypeDecl::UnitStruct(decl) => decl.node_id(db),
+            TypeDecl::RegularStruct(decl) => decl.node_id(db),
+            TypeDecl::TupleStruct(decl) => decl.node_id(db),
+            TypeDecl::Structure(decl) => decl.node_id(db),
+            TypeDecl::Extern(decl) => decl.node_id(db),
+            TypeDecl::Union(decl) => decl.node_id(db),
         }
     }
 
@@ -175,11 +188,11 @@ impl HasDecl for TypePath {
 
     #[inline(always)]
     fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
-        self.node_path(db).decl(db)
+        self.node_id(db).decl(db)
     }
 }
 
-impl HasDecl for TypeNodePath {
+impl HasDecl for TypeNodeId {
     type Decl = TypeDecl;
 
     #[inline(always)]
@@ -189,14 +202,14 @@ impl HasDecl for TypeNodePath {
 }
 
 #[salsa::tracked(jar = DeclJar, return_ref)]
-pub(crate) fn ty_decl_aux(db: &dyn DeclDb, id: TypeNodePath) -> DeclResult<TypeDecl> {
+pub(crate) fn ty_decl_aux(db: &dyn DeclDb, id: TypeNodeId) -> DeclResult<TypeDecl> {
     DeclParseContext::new(db, id.module_path(db))?.parse_ty_decl(id)
 }
 
 impl<'a> DeclParseContext<'a> {
-    fn parse_ty_decl(&self, node_path: TypeNodePath) -> DeclResult<TypeDecl> {
+    fn parse_ty_decl(&self, node_id: TypeNodeId) -> DeclResult<TypeDecl> {
         let db = self.db();
-        let node = node_path.node(db).expect("should correspond to valid node");
+        let node = node_id.node(db).expect("should correspond to valid node");
         let ast_idx: AstIdx = node.ast_idx(db);
         match self.ast_sheet()[ast_idx] {
             Ast::Defn {
@@ -206,7 +219,7 @@ impl<'a> DeclParseContext<'a> {
                 saved_stream_state,
                 ..
             } => self.parse_ty_decl_aux(
-                node_path,
+                node_id,
                 ast_idx,
                 path.ty_kind(self.db()),
                 entity_kind,
@@ -220,7 +233,7 @@ impl<'a> DeclParseContext<'a> {
 
     fn parse_ty_decl_aux(
         &self,
-        node_path: TypeNodePath,
+        node_id: TypeNodeId,
         ast_idx: AstIdx,
         type_kind: TypeKind,
         _entity_kind: EntityKind,
@@ -230,7 +243,7 @@ impl<'a> DeclParseContext<'a> {
     ) -> DeclResult<TypeDecl> {
         match type_kind {
             TypeKind::Enum => self.parse_enum_ty_decl(
-                node_path,
+                node_id,
                 ast_idx,
                 token_group_idx,
                 variants.expect("guaranteed by `husky-ast`"),
@@ -238,7 +251,7 @@ impl<'a> DeclParseContext<'a> {
             ),
             TypeKind::Inductive => self.parse_inductive_ty_decl(
                 ast_idx,
-                node_path,
+                node_id,
                 token_group_idx,
                 variants.expect("guaranteed by `husky-ast`"),
                 saved_stream_state,
@@ -246,20 +259,15 @@ impl<'a> DeclParseContext<'a> {
             TypeKind::Record => todo!(),
             TypeKind::Struct => {
                 debug_assert!(variants.is_none());
-                self.parse_struct_ty_decl(node_path, ast_idx, token_group_idx, saved_stream_state)
+                self.parse_struct_ty_decl(node_id, ast_idx, token_group_idx, saved_stream_state)
             }
             TypeKind::Structure => {
                 debug_assert!(variants.is_none());
-                self.parse_structure_ty_decl(
-                    node_path,
-                    ast_idx,
-                    token_group_idx,
-                    saved_stream_state,
-                )
+                self.parse_structure_ty_decl(node_id, ast_idx, token_group_idx, saved_stream_state)
             }
             TypeKind::Extern => {
                 debug_assert!(variants.is_none());
-                self.parse_extern_ty_decl(node_path, ast_idx, token_group_idx, saved_stream_state)
+                self.parse_extern_ty_decl(node_id, ast_idx, token_group_idx, saved_stream_state)
             }
         }
     }
@@ -268,14 +276,13 @@ impl<'a> DeclParseContext<'a> {
 impl<'a> DeclParseContext<'a> {
     pub(super) fn parse_struct_ty_decl(
         &self,
-        node_path: TypeNodePath,
+        node_id: TypeNodeId,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
         saved_stream_state: TokenStreamState,
     ) -> DeclResult<TypeDecl> {
         let db = self.db();
-        let mut parser =
-            self.expr_parser(node_path, None, AllowSelfType::True, AllowSelfValue::True);
+        let mut parser = self.expr_parser(node_id, None, AllowSelfType::True, AllowSelfValue::True);
         let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
         let implicit_parameters = ctx.parse()?;
         if let Some(lcurl) = ctx.parse::<LeftCurlyBraceToken>()? {
@@ -283,7 +290,7 @@ impl<'a> DeclParseContext<'a> {
             let rcurl = ctx.parse_expected(OriginalDeclExprError::ExpectedRightCurlyBrace)?;
             Ok(RegularStructTypeDecl::new(
                 db,
-                node_path,
+                node_id,
                 implicit_parameters,
                 lcurl,
                 (parameters, commas),
@@ -298,7 +305,7 @@ impl<'a> DeclParseContext<'a> {
             )?;
             Ok(TupleStructTypeDecl::new(
                 db,
-                node_path,
+                node_id,
                 implicit_parameters,
                 lpar,
                 (parameters, commas),

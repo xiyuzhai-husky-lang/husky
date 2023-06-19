@@ -5,7 +5,7 @@ use parsec::parse_separated_list2;
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct RegularStructTypeNodeDecl {
     #[id]
-    pub node_path: TypeNodePath,
+    pub node_id: TypeNodeId,
     pub ast_idx: AstIdx,
     #[return_ref]
     implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
@@ -33,7 +33,7 @@ impl RegularStructTypeNodeDecl {
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct RegularStructTypeDecl {
     #[id]
-    pub node_path: TypeNodePath,
+    pub node_id: TypeNodeId,
     #[return_ref]
     implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
     pub lcurl: LeftCurlyBraceToken,

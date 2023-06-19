@@ -4,7 +4,7 @@ use husky_token::{CurryToken, EolToken};
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct FnNodeDecl {
     #[id]
-    pub node_path: FugitiveNodePath,
+    pub node_id: FugitiveNodeId,
     pub ast_idx: AstIdx,
     pub expr_region: ExprRegion,
     #[return_ref]
@@ -32,7 +32,7 @@ impl FnNodeDecl {
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct FnDecl {
     #[id]
-    pub node_path: FugitiveNodePath,
+    pub node_id: FugitiveNodeId,
     pub ast_idx: AstIdx,
     pub expr_region: ExprRegion,
     #[return_ref]
@@ -64,7 +64,7 @@ impl<'a> DeclParseContext<'a> {
         token_group_idx: TokenGroupIdx,
         saved_stream_state: TokenStreamState,
 
-        id: FugitiveNodePath,
+        id: FugitiveNodeId,
     ) -> Result<FugitiveDecl, DeclError> {
         let mut parser = self.expr_parser(id, None, AllowSelfType::False, AllowSelfValue::False);
         let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));

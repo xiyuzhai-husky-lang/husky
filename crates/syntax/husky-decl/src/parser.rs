@@ -50,13 +50,13 @@ impl<'a> DeclParseContext<'a> {
     #[inline(always)]
     pub(crate) fn resolve_ty_variant_indexed_ast(
         &self,
-        node_path: TypeVariantNodePath,
+        node_id: TypeVariantNodeId,
     ) -> (AstIdx, &'a Ast) {
         todo!()
         // self.ast_sheet
         //     .all_ast_indexed_iter()
         //     .find(|(_, ast)| match ast {
-        //         Ast::TypeVariant { path, .. } => node_path == *path,
+        //         Ast::TypeVariant { path, .. } => node_id == *path,
         //         _ => false,
         //     })
         //     .expect("should be guaranteed to exists by the construction of path")
@@ -65,14 +65,14 @@ impl<'a> DeclParseContext<'a> {
     #[inline(always)]
     pub(crate) fn expr_parser(
         &self,
-        node_path: impl Into<EntityNodePath>,
+        node_id: impl Into<EntityNodeId>,
         parent_expr_region: Option<ExprRegion>,
         allow_self_type: AllowSelfType,
         allow_self_value: AllowSelfValue,
     ) -> ExprParser<'a> {
         ExprParser::new(
             self.db,
-            RegionPath::Decl(node_path.into()),
+            RegionPath::Decl(node_id.into()),
             self.token_sheet_data,
             self.module_symbol_context,
             parent_expr_region,

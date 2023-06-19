@@ -34,13 +34,13 @@ impl From<TypeItemNodeDecl> for NodeDecl {
 }
 
 impl TypeItemNodeDecl {
-    pub fn node_path(self, db: &dyn DeclDb) -> TypeItemNodePath {
+    pub fn node_id(self, db: &dyn DeclDb) -> TypeItemNodeId {
         match self {
-            TypeItemNodeDecl::AssociatedFn(decl) => decl.node_path(db),
-            TypeItemNodeDecl::MethodFn(decl) => decl.node_path(db),
+            TypeItemNodeDecl::AssociatedFn(decl) => decl.node_id(db),
+            TypeItemNodeDecl::MethodFn(decl) => decl.node_id(db),
             TypeItemNodeDecl::AssociatedType(_) => todo!(),
             TypeItemNodeDecl::AssociatedVal(_) => todo!(),
-            TypeItemNodeDecl::MemoizedField(decl) => decl.node_path(db),
+            TypeItemNodeDecl::MemoizedField(decl) => decl.node_id(db),
         }
     }
 
@@ -78,7 +78,15 @@ impl TypeItemNodeDecl {
     }
 }
 
-impl HasNodeDecl for TypeItemNodePath {
+impl HasNodeDecl for TypeItemNodeId {
+    type NodeDecl = TypeItemNodeDecl;
+
+    fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
+        todo!()
+    }
+}
+
+impl HasNodeDecl for TypeItemNode {
     type NodeDecl = TypeItemNodeDecl;
 
     fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
@@ -97,14 +105,20 @@ pub enum TypeItemDecl {
     MemoizedField(TypeMemoizedFieldDecl),
 }
 
+impl From<TypeItemDecl> for Decl {
+    fn from(decl: TypeItemDecl) -> Self {
+        Decl::AssociatedItem(decl.into())
+    }
+}
+
 impl TypeItemDecl {
-    pub fn node_path(self, db: &dyn DeclDb) -> TypeItemNodePath {
+    pub fn node_id(self, db: &dyn DeclDb) -> TypeItemNodeId {
         match self {
-            TypeItemDecl::AssociatedFn(decl) => decl.node_path(db),
-            TypeItemDecl::MethodFn(decl) => decl.node_path(db),
+            TypeItemDecl::AssociatedFn(decl) => decl.node_id(db),
+            TypeItemDecl::MethodFn(decl) => decl.node_id(db),
             TypeItemDecl::AssociatedType(_) => todo!(),
             TypeItemDecl::AssociatedVal(_) => todo!(),
-            TypeItemDecl::MemoizedField(decl) => decl.node_path(db),
+            TypeItemDecl::MemoizedField(decl) => decl.node_id(db),
         }
     }
 
@@ -171,7 +185,7 @@ impl HasDecl for TypeItemPath {
     }
 }
 
-impl HasDecl for TypeItemNodePath {
+impl HasDecl for TypeItemNodeId {
     type Decl = TypeItemDecl;
 
     fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
@@ -209,14 +223,15 @@ impl HasItemDecls for TypeItemPath {
     type ItemDecls = TypeItemDecls;
 
     fn item_decls<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, &'a Self::ItemDecls> {
-        self.ty_path(db)
-            .item_decls_map(db)
-            .map_err(|_| todo!())?
-            .get_entry(self.ident(db))
-            .ok_or(&DeclError::Original(OriginalDeclError::NoSuchItem))?
-            .1
-            .as_ref()
-            .map_err(|_| todo!())
+        todo!()
+        // self.ty_path(db)
+        //     .item_decls_map(db)
+        //     .map_err(|_| todo!())?
+        //     .get_entry(self.ident(db))
+        //     .ok_or(&DeclError::Original(OriginalDeclError::NoSuchItem))?
+        //     .1
+        //     .as_ref()
+        //     .map_err(|_| todo!())
     }
 }
 

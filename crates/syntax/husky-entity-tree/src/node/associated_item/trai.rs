@@ -1,11 +1,11 @@
 use super::*;
 
 #[salsa::interned(db = EntityTreeDb, jar = EntityTreeJar)]
-pub struct TraitItemNodePath {
+pub struct TraitItemNodeId {
     pub path: TraitItemPath,
 }
 
-impl TraitItemNodePath {
+impl TraitItemNodeId {
     pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
         self.path(db).module_path(db)
     }

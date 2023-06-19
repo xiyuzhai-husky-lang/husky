@@ -2,30 +2,30 @@ use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
-pub struct IllFormedImplBlockNodePath {
+pub struct IllFormedImplBlockNodeId {
     path: IllFormedImplBlockPath,
 }
 
-impl IllFormedImplBlockNodePath {
+impl IllFormedImplBlockNodeId {
     pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
         self.path.module_path(db)
     }
 
-    // pub fn item_node_paths(self, db: &dyn EntityTreeDb) -> &[TraitForTypeItemNodePath] {
+    // pub fn item_node_ids(self, db: &dyn EntityTreeDb) -> &[TraitForTypeItemNodeId] {
     //     todo!()
     // }
 }
 
-impl From<IllFormedImplBlockNodePath> for EntityNodePath {
-    fn from(id: IllFormedImplBlockNodePath) -> Self {
-        EntityNodePath::ImplBlock(id.into())
+impl From<IllFormedImplBlockNodeId> for EntityNodeId {
+    fn from(id: IllFormedImplBlockNodeId) -> Self {
+        EntityNodeId::ImplBlock(id.into())
     }
 }
 
 #[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
 pub struct IllFormedImplBlockNode {
     #[id]
-    pub id: IllFormedImplBlockNodePath,
+    pub node_id: IllFormedImplBlockNodeId,
     pub impl_token: ImplToken,
     pub ast_idx: AstIdx,
     pub items: Option<ImplBlockItems>,
@@ -45,7 +45,7 @@ impl IllFormedImplBlockNode {
     ) -> Self {
         IllFormedImplBlockNode::new_inner(
             db,
-            IllFormedImplBlockNodePath {
+            IllFormedImplBlockNodeId {
                 path: IllFormedImplBlockPath::new(db, registry, module),
             },
             impl_token,

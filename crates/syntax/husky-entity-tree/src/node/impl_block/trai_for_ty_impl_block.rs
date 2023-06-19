@@ -2,11 +2,11 @@ use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
-pub struct TraitForTypeImplBlockNodePath {
+pub struct TraitForTypeImplBlockNodeId {
     path: TraitForTypeImplBlockPath,
 }
 
-impl TraitForTypeImplBlockNodePath {
+impl TraitForTypeImplBlockNodeId {
     pub fn path(self, db: &dyn EntityTreeDb) -> TraitForTypeImplBlockPath {
         self.path
     }
@@ -23,21 +23,29 @@ impl TraitForTypeImplBlockNodePath {
         self.path.ty_path(db)
     }
 
-    pub fn item_node_paths(self, db: &dyn EntityTreeDb) -> &[TraitForTypeItemNodePath] {
+    pub fn item_node_ids(self, db: &dyn EntityTreeDb) -> &[TraitForTypeItemNodeId] {
         todo!()
     }
 }
 
-impl From<TraitForTypeImplBlockNodePath> for EntityNodePath {
-    fn from(id: TraitForTypeImplBlockNodePath) -> Self {
-        EntityNodePath::ImplBlock(id.into())
+impl From<TraitForTypeImplBlockNodeId> for EntityNodeId {
+    fn from(id: TraitForTypeImplBlockNodeId) -> Self {
+        EntityNodeId::ImplBlock(id.into())
+    }
+}
+
+impl HasNodeId for TraitForTypeImplBlockPath {
+    type NodeId = TraitForTypeImplBlockNodeId;
+
+    fn node_id(self, db: &dyn EntityTreeDb) -> Self::NodeId {
+        todo!()
     }
 }
 
 #[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
 pub struct TraitForTypeImplBlockNode {
     #[id]
-    pub id: TraitForTypeImplBlockNodePath,
+    pub node_id: TraitForTypeImplBlockNodeId,
     pub ast_idx: AstIdx,
     pub impl_token: ImplToken,
     pub trai_expr: ModuleItemPathExprIdx,
@@ -62,7 +70,7 @@ impl TraitForTypeImplBlockNode {
     ) -> Self {
         TraitForTypeImplBlockNode::new_inner(
             db,
-            TraitForTypeImplBlockNodePath {
+            TraitForTypeImplBlockNodeId {
                 path: TraitForTypeImplBlockPath::new(db, registry, module_path, trai_path, ty_path),
             },
             ast_idx,
@@ -75,14 +83,14 @@ impl TraitForTypeImplBlockNode {
     }
 
     pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
-        self.id(db).path.module_path(db)
+        self.node_id(db).path.module_path(db)
     }
 
     pub fn ty_path(self, db: &dyn EntityTreeDb) -> TypePath {
-        self.id(db).path.ty_path(db)
+        self.node_id(db).path.ty_path(db)
     }
 
     pub fn trai_path(self, db: &dyn EntityTreeDb) -> TraitPath {
-        self.id(db).path.trai_path(db)
+        self.node_id(db).path.trai_path(db)
     }
 }

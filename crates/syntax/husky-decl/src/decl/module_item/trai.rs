@@ -3,7 +3,7 @@ use super::*;
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TraitNodeDecl {
     #[id]
-    pub node_path: TraitNodePath,
+    pub node_id: TraitNodeId,
     pub ast_idx: AstIdx,
     pub expr_region: ExprRegion,
     #[return_ref]
@@ -19,10 +19,18 @@ impl TraitNodeDecl {
     }
 }
 
+impl HasNodeDecl for TraitNodeId {
+    type NodeDecl = TraitNodeDecl;
+
+    fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
+        todo!()
+    }
+}
+
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TraitDecl {
     #[id]
-    pub node_path: TraitNodePath,
+    pub node_id: TraitNodeId,
     pub ast_idx: AstIdx,
     pub expr_region: ExprRegion,
     #[return_ref]
@@ -38,7 +46,7 @@ impl TraitDecl {
     }
 }
 
-impl HasDecl for TraitNodePath {
+impl HasDecl for TraitNodeId {
     type Decl = TraitDecl;
 
     fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
@@ -47,22 +55,22 @@ impl HasDecl for TraitNodePath {
 }
 
 #[salsa::tracked(jar = DeclJar,return_ref)]
-pub(crate) fn trai_decl(db: &dyn DeclDb, id: TraitNodePath) -> DeclResult<TraitDecl> {
+pub(crate) fn trai_decl(db: &dyn DeclDb, id: TraitNodeId) -> DeclResult<TraitDecl> {
     let parser = DeclParseContext::new(db, id.module_path(db))?;
     parser.parse_trai_decl(id)
 }
 
 impl<'a> DeclParseContext<'a> {
-    fn parse_trai_decl(&self, node_path: TraitNodePath) -> DeclResult<TraitDecl> {
+    fn parse_trai_decl(&self, node_id: TraitNodeId) -> DeclResult<TraitDecl> {
         let db = self.db();
-        let node = node_path.node(db);
+        let node = node_id.node(db);
         let ast_idx: AstIdx = node.ast_idx(db);
         match self.ast_sheet()[ast_idx] {
             Ast::Defn {
                 token_group_idx,
                 saved_stream_state,
                 ..
-            } => self.parse_trai_decl_aux(ast_idx, node_path, token_group_idx, saved_stream_state),
+            } => self.parse_trai_decl_aux(ast_idx, node_id, token_group_idx, saved_stream_state),
             _ => unreachable!(),
         }
     }
@@ -70,7 +78,7 @@ impl<'a> DeclParseContext<'a> {
     fn parse_trai_decl_aux(
         &self,
         ast_idx: AstIdx,
-        id: TraitNodePath,
+        id: TraitNodeId,
         token_group_idx: TokenGroupIdx,
         saved_stream_state: TokenStreamState,
     ) -> DeclResult<TraitDecl> {
@@ -91,6 +99,6 @@ impl HasDecl for TraitPath {
     type Decl = TraitDecl;
 
     fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
-        self.node_path(db).decl(db)
+        self.node_id(db).decl(db)
     }
 }

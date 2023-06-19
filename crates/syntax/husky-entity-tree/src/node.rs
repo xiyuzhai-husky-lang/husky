@@ -17,26 +17,32 @@ use vec_like::VecPairMap;
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 #[enum_class::from_variants]
-pub enum EntityNodePath {
-    Submodule(SubmoduleNodePath),
-    ModuleItem(ModuleItemNodePath),
-    TypeVariant(TypeVariantNodePath),
-    ImplBlock(ImplBlockNodePath),
-    AssociatedItem(AssociatedItemNodePath),
+pub enum EntityNodeId {
+    Submodule(SubmoduleNodeId),
+    ModuleItem(ModuleItemNodeId),
+    TypeVariant(TypeVariantNodeId),
+    ImplBlock(ImplBlockNodeId),
+    AssociatedItem(AssociatedItemNodeId),
 }
 
-impl EntityNodePath {
+impl EntityNodeId {
     pub fn path(self, db: &dyn EntityTreeDb) -> Option<EntityPath> {
-        todo!()
+        match self {
+            EntityNodeId::Submodule(node_id) => node_id.path(db).map(Into::into),
+            EntityNodeId::ModuleItem(node_id) => node_id.path(db).map(Into::into),
+            EntityNodeId::TypeVariant(node_id) => node_id.path(db).map(Into::into),
+            EntityNodeId::ImplBlock(node_id) => node_id.path(db).map(Into::into),
+            EntityNodeId::AssociatedItem(node_id) => node_id.path(db).map(Into::into),
+        }
     }
 
     pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
         match self {
-            EntityNodePath::Submodule(node_path) => node_path.module_path(db),
-            EntityNodePath::ModuleItem(node_path) => node_path.module_path(db),
-            EntityNodePath::TypeVariant(node_path) => node_path.module_path(db),
-            EntityNodePath::ImplBlock(node_path) => node_path.module_path(db),
-            EntityNodePath::AssociatedItem(node_path) => node_path.module_path(db),
+            EntityNodeId::Submodule(node_id) => node_id.module_path(db),
+            EntityNodeId::ModuleItem(node_id) => node_id.module_path(db),
+            EntityNodeId::TypeVariant(node_id) => node_id.module_path(db),
+            EntityNodeId::ImplBlock(node_id) => node_id.module_path(db),
+            EntityNodeId::AssociatedItem(node_id) => node_id.module_path(db),
         }
     }
 
@@ -45,16 +51,16 @@ impl EntityNodePath {
     }
 }
 
-pub trait HasNodePath: Copy {
-    type NodePath;
+pub trait HasNodeId: Copy {
+    type NodeId;
 
-    fn node_path(self, db: &dyn EntityTreeDb) -> Self::NodePath;
+    fn node_id(self, db: &dyn EntityTreeDb) -> Self::NodeId;
 }
 
-impl HasNodePath for EntityPath {
-    type NodePath = EntityNodePath;
+impl HasNodeId for EntityPath {
+    type NodeId = EntityNodeId;
 
-    fn node_path(self, db: &dyn EntityTreeDb) -> Self::NodePath {
+    fn node_id(self, db: &dyn EntityTreeDb) -> Self::NodeId {
         match self {
             EntityPath::Module(path) => todo!(),
             EntityPath::ModuleItem(_) => todo!(),
@@ -159,13 +165,13 @@ impl EntityNode {
         }
     }
 
-    pub fn node_path(self, db: &dyn EntityTreeDb) -> EntityNodePath {
+    pub fn node_id(self, db: &dyn EntityTreeDb) -> EntityNodeId {
         match self {
-            EntityNode::Submodule(node) => node.node_path(db).into(),
-            EntityNode::ModuleItem(node) => node.node_path(db).into(),
-            EntityNode::AssociatedItem(node) => node.node_path(db).into(),
-            EntityNode::TypeVariant(node) => node.node_path(db).into(),
-            EntityNode::ImplBlock(node) => node.node_path(db).into(),
+            EntityNode::Submodule(node) => node.node_id(db).into(),
+            EntityNode::ModuleItem(node) => node.node_id(db).into(),
+            EntityNode::AssociatedItem(node) => node.node_id(db).into(),
+            EntityNode::TypeVariant(node) => node.node_id(db).into(),
+            EntityNode::ImplBlock(node) => node.node_id(db).into(),
         }
     }
 
@@ -191,7 +197,7 @@ impl EntityNode {
 }
 
 // #[inline(always)]
-// fn resolve_module_item_symbol(&self, id: ModuleItemNodePath) -> ModuleItemNode {
+// fn resolve_module_item_symbol(&self, id: ModuleItemNodeId) -> ModuleItemNode {
 //     todo!()
 //     //         let db = self.db;
 //     //         let path = id.path(db);
@@ -210,14 +216,14 @@ impl EntityNode {
 //     //         entity_symbol.module_item_node().unwrap()
 // }
 
-impl EntityNodePath {
+impl EntityNodeId {
     pub fn node(self, db: &dyn EntityTreeDb) -> EntityNode {
         match self {
-            EntityNodePath::Submodule(path) => path.node(db).into(),
-            EntityNodePath::ModuleItem(path) => path.node(db).into(),
-            EntityNodePath::AssociatedItem(path) => path.node(db).into(),
-            EntityNodePath::TypeVariant(path) => path.node(db).into(),
-            EntityNodePath::ImplBlock(path) => path.node(db).into(),
+            EntityNodeId::Submodule(path) => path.node(db).into(),
+            EntityNodeId::ModuleItem(path) => path.node(db).into(),
+            EntityNodeId::AssociatedItem(path) => path.node(db).into(),
+            EntityNodeId::TypeVariant(path) => path.node(db).into(),
+            EntityNodeId::ImplBlock(path) => path.node(db).into(),
         }
     }
 }

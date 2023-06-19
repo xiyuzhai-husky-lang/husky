@@ -21,6 +21,7 @@ pub(crate) fn signature_template_from_decl(
     decl: Decl,
 ) -> DeclarativeSignatureResult<SignatureTemplate> {
     match decl {
+        Decl::Submodule(_) => todo!(),
         Decl::ModuleItem(_) => todo!(),
         // Decl::Type(decl) => ty_declarative_signature_template(db, decl).map(Into::into),
         // Decl::Fugitive(decl) => decl.declarative_signature_template(db).map(Into::into),

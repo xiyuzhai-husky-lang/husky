@@ -1,11 +1,11 @@
 use super::*;
 
 #[salsa::interned(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
-pub struct TraitNodePath {
+pub struct TraitNodeId {
     pub maybe_ambiguous_path: MaybeAmbiguousPath<TraitPath>,
 }
 
-impl TraitNodePath {
+impl TraitNodeId {
     pub(super) fn new(
         db: &dyn EntityTreeDb,
         registry: &mut EntityNodeRegistry,
@@ -23,16 +23,16 @@ impl TraitNodePath {
     }
 }
 
-impl HasNodePath for TraitPath {
-    type NodePath = TraitNodePath;
+impl HasNodeId for TraitPath {
+    type NodeId = TraitNodeId;
 
-    fn node_path(self, db: &dyn EntityTreeDb) -> Self::NodePath {
-        TraitNodePath::new_inner(db, MaybeAmbiguousPath::from_path(self))
+    fn node_id(self, db: &dyn EntityTreeDb) -> Self::NodeId {
+        TraitNodeId::new_inner(db, MaybeAmbiguousPath::from_path(self))
     }
 }
 
-impl From<TraitNodePath> for EntityNodePath {
-    fn from(id: TraitNodePath) -> Self {
-        EntityNodePath::ModuleItem(id.into())
+impl From<TraitNodeId> for EntityNodeId {
+    fn from(id: TraitNodeId) -> Self {
+        EntityNodeId::ModuleItem(id.into())
     }
 }

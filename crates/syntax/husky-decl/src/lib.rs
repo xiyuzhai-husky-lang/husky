@@ -30,7 +30,14 @@ use tests::*;
 
 #[salsa::jar(db = DeclDb)]
 pub struct DeclJar(
-    // type
+    // decl
+    // - submodule
+    SubmoduleNodeDecl,
+    submodule_node_decl,
+    SubmoduleDecl,
+    submodule_decl,
+    // - type
+    ty_node_decl,
     ty_decl_aux,
     EnumTypeNodeDecl,
     EnumTypeDecl,
@@ -50,11 +57,12 @@ pub struct DeclJar(
     ExternTypeDecl,
     UnionTypeNodeDecl,
     UnionTypeDecl,
-    // trait
+    // - trait
     trai_decl,
     TraitNodeDecl,
     TraitDecl,
-    // form
+    // - form
+    fugitive_node_decl,
     fugitive_decl,
     ValNodeDecl,
     ValDecl,
@@ -64,14 +72,14 @@ pub struct DeclJar(
     GnDecl,
     TypeAliasNodeDecl,
     TypeAliasDecl,
-    // impl block
+    // - impl block
     ty_impl_block_decl_aux,
     TypeImplBlockNodeDecl,
     TypeImplBlockDecl,
     trai_for_ty_impl_block_decl_aux,
     TraitForTypeImplBlockNodeDecl,
     TraitForTypeImplBlockDecl,
-    // variant
+    // - variant
     ty_variant_decl,
     UnitVariantNodeDecl,
     UnitVariantDecl,
@@ -79,8 +87,8 @@ pub struct DeclJar(
     PropsVariantDecl,
     TupleVariantNodeDecl,
     TupleVariantDecl,
-    // associated items
-    // type item
+    // - associated items
+    // - - type item
     ty_item_decls_map,
     TypeAssociatedFnNodeDecl,
     TypeAssociatedFnDecl,
@@ -92,7 +100,7 @@ pub struct DeclJar(
     TypeAssociatedValDecl,
     TypeMemoizedFieldNodeDecl,
     TypeMemoizedFieldDecl,
-    // trait item
+    // - - trait item
     TraitAssociatedFnNodeDecl,
     TraitAssociatedFnDecl,
     TraitMethodFnNodeDecl,
@@ -101,7 +109,7 @@ pub struct DeclJar(
     TraitAssociatedTypeDecl,
     TraitAssociatedValNodeDecl,
     TraitAssociatedValDecl,
-    // type as trait item
+    // - - type as trait item
     TraitForTypeAssociatedFnNodeDecl,
     TraitForTypeAssociatedFnDecl,
     TraitForTypeMethodFnNodeDecl,

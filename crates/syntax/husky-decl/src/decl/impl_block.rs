@@ -16,9 +16,9 @@ pub enum ImplBlockNodeDecl {
 }
 
 impl ImplBlockNodeDecl {
-    pub fn node_path(self, db: &dyn DeclDb) -> ImplBlockNodePath {
+    pub fn node_id(self, db: &dyn DeclDb) -> ImplBlockNodeId {
         match self {
-            ImplBlockNodeDecl::Type(decl) => decl.node_path(db).into(),
+            ImplBlockNodeDecl::Type(decl) => decl.node_id(db).into(),
             ImplBlockNodeDecl::TraitForType(_) => todo!(),
         }
     }
@@ -45,14 +45,14 @@ impl ImplBlockNodeDecl {
     }
 }
 
-impl HasNodeDecl for ImplBlockNodePath {
+impl HasNodeDecl for ImplBlockNodeId {
     type NodeDecl = ImplBlockNodeDecl;
 
     fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
         match self {
-            ImplBlockNodePath::TypeImplBlock(_) => todo!(),
-            ImplBlockNodePath::TraitForTypeImplBlock(_) => todo!(),
-            ImplBlockNodePath::IllFormedImplBlock(_) => todo!(),
+            ImplBlockNodeId::TypeImplBlock(_) => todo!(),
+            ImplBlockNodeId::TraitForTypeImplBlock(_) => todo!(),
+            ImplBlockNodeId::IllFormedImplBlock(_) => todo!(),
         }
     }
 }
@@ -66,9 +66,9 @@ pub enum ImplBlockDecl {
 }
 
 impl ImplBlockDecl {
-    pub fn node_path(self, db: &dyn DeclDb) -> ImplBlockNodePath {
+    pub fn node_id(self, db: &dyn DeclDb) -> ImplBlockNodeId {
         match self {
-            ImplBlockDecl::Type(decl) => decl.node_path(db).into(),
+            ImplBlockDecl::Type(decl) => decl.node_id(db).into(),
             ImplBlockDecl::TraitForType(_) => todo!(),
         }
     }
@@ -95,21 +95,25 @@ impl ImplBlockDecl {
     }
 }
 
-impl HasDecl for ImplBlockNode {
+impl HasDecl for ImplBlockPath {
     type Decl = ImplBlockDecl;
 
     fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
-        impl_block_decl(db, self)
+        match self {
+            ImplBlockPath::TypeImplBlock(path) => todo!(),
+            ImplBlockPath::TraitForTypeImplBlock(_) => todo!(),
+        }
     }
 }
 
 pub(crate) fn impl_block_decl(
     db: &dyn DeclDb,
-    impl_block: ImplBlockNode,
+    impl_block: ImplBlockPath,
 ) -> DeclResultRef<ImplBlockDecl> {
-    match impl_block {
-        ImplBlockNode::TypeImplBlock(impl_block) => impl_block.decl(db).map(Into::into),
-        ImplBlockNode::TraitForTypeImplBlock(impl_block) => impl_block.decl(db).map(Into::into),
-        ImplBlockNode::IllFormedImplBlock(_) => Err(&DeclError::Derived(DerivedDeclError::ImplErr)),
-    }
+    todo!()
+    // match impl_block {
+    //     ImplBlockNode::TypeImplBlock(impl_block) => impl_block.decl(db).map(Into::into),
+    //     ImplBlockNode::TraitForTypeImplBlock(impl_block) => impl_block.decl(db).map(Into::into),
+    //     ImplBlockNode::IllFormedImplBlock(_) => Err(&DeclError::Derived(DerivedDeclError::ImplErr)),
+    // }
 }

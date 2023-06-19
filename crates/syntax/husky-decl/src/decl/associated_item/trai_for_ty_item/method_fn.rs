@@ -3,7 +3,7 @@ use super::*;
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TraitForTypeMethodFnNodeDecl {
     #[id]
-    pub node_path: TraitForTypeItemNodePath,
+    pub node_id: TraitForTypeItemNodeId,
     pub node: TraitForTypeItemNode,
     pub ast_idx: AstIdx,
     #[return_ref]
@@ -19,7 +19,7 @@ pub struct TraitForTypeMethodFnNodeDecl {
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TraitForTypeMethodFnDecl {
     #[id]
-    pub node_path: TraitForTypeItemNodePath,
+    pub node_id: TraitForTypeItemNodeId,
     pub node: TraitForTypeItemNode,
     pub ast_idx: AstIdx,
     #[return_ref]
@@ -70,7 +70,7 @@ impl<'a> DeclParseContext<'a> {
             )
         };
         let mut parser = self.expr_parser(
-            node.node_path(db),
+            node.node_id(db),
             Some(impl_decl.expr_region(db)),
             AllowSelfType::True,
             AllowSelfValue::True,
@@ -89,7 +89,7 @@ impl<'a> DeclParseContext<'a> {
         let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectedEolColon)?;
         Ok(TraitForTypeMethodFnDecl::new(
             db,
-            node.node_path(db),
+            node.node_id(db),
             node,
             ast_idx,
             implicit_parameter_decl_list,

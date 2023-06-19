@@ -2,33 +2,45 @@ use super::*;
 use husky_entity_taxonomy::TypeKind;
 use husky_word::IdentPairMap;
 
-#[salsa::interned(db = EntityTreeDb, jar = EntityTreeJar)]
-pub struct TypeVariantNodePath {
-    path: TypeVariantPath,
+#[salsa::interned(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
+pub struct TypeVariantNodeId {
+    pub maybe_ambiguous_path: MaybeAmbiguousPath<TypeVariantPath>,
 }
 
-impl TypeVariantNodePath {
+impl TypeVariantNodeId {
+    fn new(
+        db: &dyn EntityTreeDb,
+        registry: &mut EntityNodeRegistry,
+        path: TypeVariantPath,
+    ) -> Self {
+        todo!()
+    }
+
     pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
-        self.path(db).module_path(db)
+        self.maybe_ambiguous_path(db).path.module_path(db)
     }
 
     pub fn node(self, db: &dyn EntityTreeDb) -> TypeVariantNode {
         todo!()
     }
+
+    pub fn path(self, db: &dyn EntityTreeDb) -> Option<TypeVariantPath> {
+        self.maybe_ambiguous_path(db).unambiguous_path()
+    }
 }
 
-impl HasNodePath for TypeVariantPath {
-    type NodePath = TypeVariantNodePath;
+impl HasNodeId for TypeVariantPath {
+    type NodeId = TypeVariantNodeId;
 
-    fn node_path(self, db: &dyn EntityTreeDb) -> Self::NodePath {
-        TypeVariantNodePath::new(db, self)
+    fn node_id(self, db: &dyn EntityTreeDb) -> Self::NodeId {
+        TypeVariantNodeId::new_inner(db, MaybeAmbiguousPath::from_path(self))
     }
 }
 
 #[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar)]
 pub struct TypeVariantNode {
     #[id]
-    pub node_path: TypeVariantNodePath,
+    pub node_id: TypeVariantNodeId,
     pub visibility: Scope,
     pub ast_idx: AstIdx,
     pub ident_token: IdentToken,

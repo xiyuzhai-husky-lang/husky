@@ -4,7 +4,7 @@ use husky_token::EolToken;
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TypeImplBlockNodeDecl {
     #[id]
-    pub node_path: TypeImplBlockNodePath,
+    pub node_id: TypeImplBlockNodeId,
     pub ast_idx: AstIdx,
     pub impl_block: TypeImplBlockNode,
     pub impl_token: ImplToken,
@@ -15,10 +15,26 @@ pub struct TypeImplBlockNodeDecl {
     pub expr_region: ExprRegion,
 }
 
+impl HasNodeDecl for TypeImplBlockNodeId {
+    type NodeDecl = TypeImplBlockNodeDecl;
+
+    fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
+        todo!()
+    }
+}
+
+impl HasNodeDecl for TypeImplBlockNode {
+    type NodeDecl = TypeImplBlockNodeDecl;
+
+    fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
+        self.node_id(db).node_decl(db)
+    }
+}
+
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TypeImplBlockDecl {
     #[id]
-    pub node_path: TypeImplBlockNodePath,
+    pub node_id: TypeImplBlockNodeId,
     pub ast_idx: AstIdx,
     pub impl_block: TypeImplBlockNode,
     pub impl_token: ImplToken,
@@ -38,11 +54,18 @@ impl TypeImplBlockDecl {
     }
 }
 
-impl HasDecl for TypeImplBlockNode {
+impl From<TypeImplBlockDecl> for Decl {
+    fn from(decl: TypeImplBlockDecl) -> Self {
+        Decl::ImplBlock(decl.into())
+    }
+}
+
+impl HasDecl for TypeImplBlockPath {
     type Decl = TypeImplBlockDecl;
 
     fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
-        ty_impl_block_decl_aux(db, self).as_ref().copied()
+        todo!()
+        // ty_impl_block_decl_aux(db, self).as_ref().copied()
     }
 }
 
@@ -78,9 +101,10 @@ impl<'a> DeclParseContext<'a> {
         token_group_idx: TokenGroupIdx,
         impl_block: TypeImplBlockNode,
     ) -> DeclResult<TypeImplBlockDecl> {
-        let node_path = todo!();
+        let db = self.db();
+        let node_id = todo!();
         let mut parser = self.expr_parser(
-            impl_block.id(self.db()),
+            impl_block.node_id(db),
             None,
             AllowSelfType::True,
             AllowSelfValue::False,
@@ -91,8 +115,8 @@ impl<'a> DeclParseContext<'a> {
         let ty = ctx.parse().unwrap().unwrap();
         let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectedEolColon)?;
         Ok(TypeImplBlockDecl::new(
-            self.db(),
-            node_path,
+            db,
+            node_id,
             ast_idx,
             impl_block,
             impl_token,

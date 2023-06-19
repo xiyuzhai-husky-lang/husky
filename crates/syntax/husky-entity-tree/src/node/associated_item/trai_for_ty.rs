@@ -1,26 +1,30 @@
 use super::*;
 
-#[salsa::interned(db = EntityTreeDb, jar = EntityTreeJar)]
-pub struct TraitForTypeItemNodePath {
-    pub path: TraitForTypeItemPath,
+#[salsa::interned(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
+pub struct TraitForTypeItemNodeId {
+    maybe_ambiguous_path: MaybeAmbiguousPath<TraitForTypeItemPath>,
 }
 
-impl TraitForTypeItemNodePath {
+impl TraitForTypeItemNodeId {
+    pub fn path(self, db: &dyn EntityTreeDb) -> Option<TraitForTypeItemPath> {
+        self.maybe_ambiguous_path(db).unambiguous_path()
+    }
+
     pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
-        self.path(db).module_path(db)
+        self.maybe_ambiguous_path(db).path.module_path(db)
     }
 }
 
-impl From<TraitForTypeItemNodePath> for EntityNodePath {
-    fn from(id: TraitForTypeItemNodePath) -> Self {
-        EntityNodePath::AssociatedItem(id.into())
+impl From<TraitForTypeItemNodeId> for EntityNodeId {
+    fn from(id: TraitForTypeItemNodeId) -> Self {
+        EntityNodeId::AssociatedItem(id.into())
     }
 }
 
 #[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
 pub struct TraitForTypeItemNode {
     #[id]
-    pub node_path: TraitForTypeItemNodePath,
+    pub node_id: TraitForTypeItemNodeId,
     pub impl_block: TraitForTypeImplBlockNode,
     pub ast_idx: AstIdx,
     pub ident: Ident,
@@ -39,7 +43,8 @@ impl TraitForTypeItemNode {
         visibility: Scope,
         is_generic: bool,
     ) -> Self {
-        let id = TraitForTypeItemNodePath::new(db, todo!());
+        todo!();
+        // let id = TraitForTypeItemNodeId::new(db, todo!());
         // let path: Option<AssociatedItemPath> = match associated_item_kind {
         //     AssociatedItemKind::TraitItem(_) => todo!(),
         //     AssociatedItemKind::TypeItem(ty_item_kind) => match impl_block {
@@ -65,7 +70,14 @@ impl TraitForTypeItemNode {
         //     },
         // };
         Self::new_inner(
-            db, id, impl_block, ast_idx, ident, kind, visibility, is_generic,
+            db,
+            todo!(),
+            impl_block,
+            ast_idx,
+            ident,
+            kind,
+            visibility,
+            is_generic,
         )
     }
 }

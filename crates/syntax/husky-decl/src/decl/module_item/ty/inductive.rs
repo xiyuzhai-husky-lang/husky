@@ -3,7 +3,7 @@ use super::*;
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct InductiveTypeNodeDecl {
     #[id]
-    pub node_path: TypeNodePath,
+    pub node_id: TypeNodeId,
     pub ast_idx: AstIdx,
     #[return_ref]
     implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
@@ -22,7 +22,7 @@ impl InductiveTypeNodeDecl {
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct InductiveTypeDecl {
     #[id]
-    pub node_path: TypeNodePath,
+    pub node_id: TypeNodeId,
     #[return_ref]
     implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
     pub expr_region: ExprRegion,
@@ -41,18 +41,15 @@ impl<'a> DeclParseContext<'a> {
     pub(super) fn parse_inductive_ty_decl(
         &self,
         ast_idx: AstIdx,
-        node_path: TypeNodePath,
+        node_id: TypeNodeId,
         token_group_idx: TokenGroupIdx,
         variants: TypeVariants,
         saved_stream_state: TokenStreamState,
     ) -> DeclResult<TypeDecl> {
         let mut parser =
-            self.expr_parser(node_path, None, AllowSelfType::True, AllowSelfValue::False);
+            self.expr_parser(node_id, None, AllowSelfType::True, AllowSelfValue::False);
         let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
         let implicit_parameters = ctx.parse()?;
-        Ok(
-            InductiveTypeDecl::new(self.db(), node_path, implicit_parameters, parser.finish())
-                .into(),
-        )
+        Ok(InductiveTypeDecl::new(self.db(), node_id, implicit_parameters, parser.finish()).into())
     }
 }
