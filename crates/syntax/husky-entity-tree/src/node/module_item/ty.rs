@@ -22,8 +22,8 @@ impl TypeNodeId {
         self.maybe_ambiguous_path(db).unambiguous_path()
     }
 
-    pub fn node<'a>(self, db: &'a dyn EntityTreeDb) -> EntityTreeResultRef<'a, ModuleItemNode> {
-        ty_node(db, self).as_ref().copied()
+    pub fn node<'a>(self, db: &'a dyn EntityTreeDb) -> ModuleItemNode {
+        ty_node(db, self)
     }
 }
 
@@ -41,20 +41,18 @@ impl From<TypeNodeId> for EntityNodeId {
     }
 }
 
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
-pub(crate) fn ty_node(
-    db: &dyn EntityTreeDb,
-    node_id: TypeNodeId,
-) -> EntityTreeResult<ModuleItemNode> {
+#[salsa::tracked(jar = EntityTreeJar)]
+pub(crate) fn ty_node(db: &dyn EntityTreeDb, node_id: TypeNodeId) -> ModuleItemNode {
     let module_path = node_id.module_path(db);
-    let entity_sheet = module_path.entity_tree_sheet(db)?;
-    Ok(
-        match entity_sheet
-            .major_entity_node(node_id.into())
-            .expect("should be some")
-        {
-            EntityNode::ModuleItem(node) => node,
-            _ => unreachable!(),
-        },
-    )
+    let entity_sheet = module_path
+        .entity_tree_sheet(db)
+        .expect("should correspond to valid node");
+
+    match entity_sheet
+        .major_entity_node(node_id.into())
+        .expect("should be some")
+    {
+        EntityNode::ModuleItem(node) => node,
+        _ => unreachable!(),
+    }
 }

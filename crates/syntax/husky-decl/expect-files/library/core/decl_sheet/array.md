@@ -1,29 +1,113 @@
 Ok(
     DeclSheet {
+        [salsa id]: 1,
         decls: [
             (
-                DeclRegionPath::Entity(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::array::Array`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::array::Array`, `Extern`),
                     ),
                 ),
-                Ok(
-                    Decl::Type(
+                Decl::ModuleItem(
+                    ModuleItemDecl::Type(
                         TypeDecl::Extern(
                             ExternTypeDecl {
-                                path: TypePath(`core::array::Array`, `Extern`),
-                                ast_idx: 0,
+                                node_id: TypeNodeId {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(
+                                            Id {
+                                                value: 1,
+                                            },
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                implicit_parameter_decl_list: Some(
+                                    ImplicitParameterDeclList {
+                                        langle: LeftAngleBracketOrLessThanToken(
+                                            TokenIdx(
+                                                3,
+                                            ),
+                                        ),
+                                        implicit_parameters: [
+                                            ImplicitParameterDeclPattern {
+                                                annotated_variance_token: None,
+                                                symbol: 0,
+                                                variant: ImplicitParameterDeclPatternVariant::Constant {
+                                                    const_token: ConstToken {
+                                                        token_idx: TokenIdx(
+                                                            4,
+                                                        ),
+                                                    },
+                                                    ident_token: IdentToken {
+                                                        ident: `L`,
+                                                        token_idx: TokenIdx(
+                                                            5,
+                                                        ),
+                                                    },
+                                                    colon_token: ColonToken(
+                                                        TokenIdx(
+                                                            6,
+                                                        ),
+                                                    ),
+                                                    ty_expr: 0,
+                                                },
+                                            },
+                                            ImplicitParameterDeclPattern {
+                                                annotated_variance_token: Some(
+                                                    VarianceToken::Covariant(
+                                                        CovariantToken {
+                                                            token_idx: TokenIdx(
+                                                                9,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                                symbol: 1,
+                                                variant: ImplicitParameterDeclPatternVariant::Type {
+                                                    ident_token: IdentToken {
+                                                        ident: `E`,
+                                                        token_idx: TokenIdx(
+                                                            10,
+                                                        ),
+                                                    },
+                                                    traits: None,
+                                                },
+                                            },
+                                        ],
+                                        commas: [
+                                            CommaToken(
+                                                TokenIdx(
+                                                    8,
+                                                ),
+                                            ),
+                                        ],
+                                        decl_list_result: Ok(
+                                            (),
+                                        ),
+                                        rangle: RightAngleBracketToken(
+                                            TokenIdx(
+                                                11,
+                                            ),
+                                        ),
+                                    },
+                                ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Entity(
-                                                EntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
-                                                        TypePath(`core::array::Array`, `Extern`),
-                                                    ),
+                                            EntityNodeId::ModuleItem(
+                                                ModuleItemNodeId::Type(
+                                                    TypeNodeId {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(
+                                                                Id {
+                                                                    value: 1,
+                                                                },
+                                                            ),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -147,76 +231,6 @@ Ok(
                                         ],
                                     },
                                 },
-                                implicit_parameter_decl_list: Some(
-                                    ImplicitParameterDeclList {
-                                        langle: LeftAngleBracketOrLessThanToken(
-                                            TokenIdx(
-                                                3,
-                                            ),
-                                        ),
-                                        implicit_parameters: [
-                                            ImplicitParameterDeclPattern {
-                                                annotated_variance_token: None,
-                                                symbol: 0,
-                                                variant: ImplicitParameterDeclPatternVariant::Constant {
-                                                    const_token: ConstToken {
-                                                        token_idx: TokenIdx(
-                                                            4,
-                                                        ),
-                                                    },
-                                                    ident_token: IdentToken {
-                                                        ident: `L`,
-                                                        token_idx: TokenIdx(
-                                                            5,
-                                                        ),
-                                                    },
-                                                    colon_token: ColonToken(
-                                                        TokenIdx(
-                                                            6,
-                                                        ),
-                                                    ),
-                                                    ty_expr: 0,
-                                                },
-                                            },
-                                            ImplicitParameterDeclPattern {
-                                                annotated_variance_token: Some(
-                                                    VarianceToken::Covariant(
-                                                        CovariantToken {
-                                                            token_idx: TokenIdx(
-                                                                9,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
-                                                symbol: 1,
-                                                variant: ImplicitParameterDeclPatternVariant::Type {
-                                                    ident_token: IdentToken {
-                                                        ident: `E`,
-                                                        token_idx: TokenIdx(
-                                                            10,
-                                                        ),
-                                                    },
-                                                    traits: None,
-                                                },
-                                            },
-                                        ],
-                                        commas: [
-                                            CommaToken(
-                                                TokenIdx(
-                                                    8,
-                                                ),
-                                            ),
-                                        ],
-                                        decl_list_result: Ok(
-                                            (),
-                                        ),
-                                        rangle: RightAngleBracketToken(
-                                            TokenIdx(
-                                                11,
-                                            ),
-                                        ),
-                                    },
-                                ),
                             },
                         ),
                     ),

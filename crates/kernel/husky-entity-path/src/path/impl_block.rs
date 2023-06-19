@@ -73,6 +73,7 @@ impl TraitForTypeImplBlockPath {
     }
 }
 
+// deprecated
 #[salsa::interned(db = EntityPathDb, jar = EntityPathJar, constructor = new_inner)]
 pub struct IllFormedImplBlockPath {
     pub module_path: ModulePath,

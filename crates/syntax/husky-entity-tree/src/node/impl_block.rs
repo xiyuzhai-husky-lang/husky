@@ -27,14 +27,18 @@ pub(crate) struct ImplBlockNodeIdRegistry {}
 
 impl ImplBlockNodeId {
     pub fn path(self, db: &dyn EntityTreeDb) -> Option<ImplBlockPath> {
-        todo!()
+        match self {
+            ImplBlockNodeId::TypeImplBlock(node_id) => Some(node_id.path().into()),
+            ImplBlockNodeId::TraitForTypeImplBlock(node_id) => Some(node_id.path().into()),
+            ImplBlockNodeId::IllFormedImplBlock(_) => None,
+        }
     }
 
     pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
         match self {
-            ImplBlockNodeId::TypeImplBlock(id) => id.module_path(db),
-            ImplBlockNodeId::TraitForTypeImplBlock(id) => id.module_path(db),
-            ImplBlockNodeId::IllFormedImplBlock(id) => id.module_path(db),
+            ImplBlockNodeId::TypeImplBlock(node_id) => node_id.module_path(db),
+            ImplBlockNodeId::TraitForTypeImplBlock(node_id) => node_id.module_path(db),
+            ImplBlockNodeId::IllFormedImplBlock(node_id) => node_id.module_path(db),
         }
     }
 

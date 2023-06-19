@@ -24,7 +24,9 @@ pub(crate) fn ty_memoized_field_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
     decl: TypeMemoizedFieldDecl,
 ) -> DeclarativeSignatureResult<TypeMemoizedFieldDeclarativeSignatureTemplate> {
-    let impl_block = decl.impl_block(db).declarative_signature_template(db)?;
+    let impl_block_declarative_signature_template = decl
+        .impl_block_node_id(db)
+        .declarative_signature_template(db)?;
     let expr_region = decl.expr_region(db);
     let declarative_term_region = declarative_term_region(db, expr_region);
     let declarative_term_menu = db.declarative_term_menu(expr_region.toolchain(db)).unwrap();
@@ -33,7 +35,9 @@ pub(crate) fn ty_memoized_field_declarative_signature_template(
         None => declarative_term_menu.unit(),
     };
     Ok(TypeMemoizedFieldDeclarativeSignatureTemplate::new(
-        db, impl_block, memo_ty,
+        db,
+        impl_block_declarative_signature_template,
+        memo_ty,
     ))
 }
 
