@@ -3,7 +3,7 @@ use super::*;
 #[salsa::tracked(db = DefnDb, jar = DefnJar)]
 pub struct TraitDefn {
     #[id]
-    pub node_id: TraitNodeId,
+    pub node_path: TraitNodePath,
     pub decl: TraitDecl,
 }
 
@@ -17,6 +17,6 @@ impl HasDefn for TraitDecl {
 
 #[salsa::tracked(jar = DefnJar)]
 pub(crate) fn trai_defn(db: &dyn DefnDb, decl: TraitDecl) -> TraitDefn {
-    let node_id = decl.node_id(db);
-    TraitDefn::new(db, node_id, decl)
+    let node_path = decl.node_path(db);
+    TraitDefn::new(db, node_path, decl)
 }

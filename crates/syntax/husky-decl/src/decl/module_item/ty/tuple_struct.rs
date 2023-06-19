@@ -4,7 +4,7 @@ use husky_expr::ExprIdx;
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TupleStructTypeNodeDecl {
     #[id]
-    pub node_id: TypeNodeId,
+    pub node_path: TypeNodePath,
     pub ast_idx: AstIdx,
     #[return_ref]
     implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
@@ -31,7 +31,7 @@ impl TupleStructTypeNodeDecl {
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TupleStructTypeDecl {
     #[id]
-    pub node_id: TypeNodeId,
+    pub node_path: TypeNodePath,
     #[return_ref]
     implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
     pub lpar: LeftParenthesisToken,

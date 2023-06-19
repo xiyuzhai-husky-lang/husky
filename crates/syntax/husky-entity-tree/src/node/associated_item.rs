@@ -13,22 +13,22 @@ use husky_word::IdentPairMap;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 #[enum_class::from_variants]
-pub enum AssociatedItemNodeId {
-    TypeItem(TypeItemNodeId),
-    TraitItem(TraitItemNodeId),
-    TraitForTypeItem(TraitForTypeItemNodeId),
+pub enum AssociatedItemNodePath {
+    TypeItem(TypeItemNodePath),
+    TraitItem(TraitItemNodePath),
+    TraitForTypeItem(TraitForTypeItemNodePath),
 }
 
-impl AssociatedItemNodeId {
+impl AssociatedItemNodePath {
     pub fn path(self, db: &dyn EntityTreeDb) -> Option<AssociatedItemPath> {
         todo!()
     }
 
     pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
         match self {
-            AssociatedItemNodeId::TypeItem(id) => id.module_path(db),
-            AssociatedItemNodeId::TraitItem(id) => id.module_path(db),
-            AssociatedItemNodeId::TraitForTypeItem(id) => id.module_path(db),
+            AssociatedItemNodePath::TypeItem(id) => id.module_path(db),
+            AssociatedItemNodePath::TraitItem(id) => id.module_path(db),
+            AssociatedItemNodePath::TraitForTypeItem(id) => id.module_path(db),
         }
     }
 
@@ -95,9 +95,9 @@ impl AssociatedItemNode {
         // )
     }
 
-    pub fn node_id(self, db: &dyn EntityTreeDb) -> AssociatedItemNodeId {
+    pub fn node_path(self, db: &dyn EntityTreeDb) -> AssociatedItemNodePath {
         match self {
-            AssociatedItemNode::TypeItem(node) => node.node_id(db).into(),
+            AssociatedItemNode::TypeItem(node) => node.node_path(db).into(),
         }
     }
 

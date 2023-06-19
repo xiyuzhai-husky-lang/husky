@@ -22,11 +22,11 @@ pub enum AssociatedItemNodeDecl {
 }
 
 impl AssociatedItemNodeDecl {
-    pub fn node_id(self, db: &dyn DeclDb) -> AssociatedItemNodeId {
+    pub fn node_path(self, db: &dyn DeclDb) -> AssociatedItemNodePath {
         match self {
-            AssociatedItemNodeDecl::TypeItem(decl) => decl.node_id(db).into(),
-            AssociatedItemNodeDecl::TraitItem(decl) => decl.node_id(db).into(),
-            AssociatedItemNodeDecl::TraitForTypeItem(decl) => decl.node_id(db).into(),
+            AssociatedItemNodeDecl::TypeItem(decl) => decl.node_path(db).into(),
+            AssociatedItemNodeDecl::TraitItem(decl) => decl.node_path(db).into(),
+            AssociatedItemNodeDecl::TraitForTypeItem(decl) => decl.node_path(db).into(),
         }
     }
 
@@ -65,11 +65,11 @@ pub enum AssociatedItemDecl {
 }
 
 impl AssociatedItemDecl {
-    pub fn node_id(self, db: &dyn DeclDb) -> AssociatedItemNodeId {
+    pub fn node_path(self, db: &dyn DeclDb) -> AssociatedItemNodePath {
         match self {
-            AssociatedItemDecl::TypeItem(decl) => decl.node_id(db).into(),
-            AssociatedItemDecl::TraitItem(decl) => decl.node_id(db).into(),
-            AssociatedItemDecl::TraitForTypeItem(decl) => decl.node_id(db).into(),
+            AssociatedItemDecl::TypeItem(decl) => decl.node_path(db).into(),
+            AssociatedItemDecl::TraitItem(decl) => decl.node_path(db).into(),
+            AssociatedItemDecl::TraitForTypeItem(decl) => decl.node_path(db).into(),
         }
     }
 

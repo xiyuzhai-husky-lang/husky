@@ -3,7 +3,7 @@ use super::*;
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TypeMemoizedFieldNodeDecl {
     #[id]
-    pub node_id: TypeItemNodeId,
+    pub node_path: TypeItemNodePath,
     pub associated_item_node: AssociatedItemNode,
     pub ast_idx: AstIdx,
     pub colon_token: Option<ColonToken>,
@@ -16,7 +16,7 @@ pub struct TypeMemoizedFieldNodeDecl {
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TypeMemoizedFieldDecl {
     #[id]
-    pub node_id: TypeItemNodeId,
+    pub node_path: TypeItemNodePath,
     pub ast_idx: AstIdx,
     pub colon_token: Option<ColonToken>,
     pub memo_ty: Option<FormTypeExpr>,
@@ -26,8 +26,8 @@ pub struct TypeMemoizedFieldDecl {
 }
 
 impl TypeMemoizedFieldDecl {
-    pub fn impl_block_node_id(self, db: &dyn DeclDb) -> TypeImplBlockNodeId {
-        self.node_id(db).impl_block(db)
+    pub fn impl_block_node_path(self, db: &dyn DeclDb) -> TypeImplBlockNodePath {
+        self.node_path(db).impl_block(db)
     }
 }
 
@@ -40,10 +40,10 @@ impl<'a> DeclParseContext<'a> {
         saved_stream_state: TokenStreamState,
     ) -> DeclResult<TypeMemoizedFieldDecl> {
         let db = self.db();
-        let node_id = node.node_id(db);
-        let impl_block_node_decl = node_id.impl_block(db).node_decl(db);
+        let node_path = node.node_path(db);
+        let impl_block_node_decl = node_path.impl_block(db).node_decl(db);
         let mut parser = self.expr_parser(
-            node_id,
+            node_path,
             Some(impl_block_node_decl.expr_region(db)),
             AllowSelfType::True,
             AllowSelfValue::True,
@@ -59,7 +59,7 @@ impl<'a> DeclParseContext<'a> {
         let expr = ctx.parse_expr_root(None, ExprRootKind::ValExpr);
         Ok(TypeMemoizedFieldDecl::new(
             db,
-            node_id,
+            node_path,
             ast_idx,
             colon_token,
             form_ty,

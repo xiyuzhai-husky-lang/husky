@@ -4,7 +4,7 @@ use husky_token::EolToken;
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TypeImplBlockNodeDecl {
     #[id]
-    pub node_id: TypeImplBlockNodeId,
+    pub node_path: TypeImplBlockNodePath,
     pub ast_idx: AstIdx,
     pub impl_block: TypeImplBlockNode,
     pub impl_token: ImplToken,
@@ -15,7 +15,7 @@ pub struct TypeImplBlockNodeDecl {
     pub expr_region: ExprRegion,
 }
 
-impl HasNodeDecl for TypeImplBlockNodeId {
+impl HasNodeDecl for TypeImplBlockNodePath {
     type NodeDecl = TypeImplBlockNodeDecl;
 
     fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
@@ -27,14 +27,14 @@ impl HasNodeDecl for TypeImplBlockNode {
     type NodeDecl = TypeImplBlockNodeDecl;
 
     fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
-        self.node_id(db).node_decl(db)
+        self.node_path(db).node_decl(db)
     }
 }
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TypeImplBlockDecl {
     #[id]
-    pub node_id: TypeImplBlockNodeId,
+    pub node_path: TypeImplBlockNodePath,
     pub ast_idx: AstIdx,
     pub impl_block: TypeImplBlockNode,
     pub impl_token: ImplToken,
@@ -102,9 +102,9 @@ impl<'a> DeclParseContext<'a> {
         impl_block: TypeImplBlockNode,
     ) -> DeclResult<TypeImplBlockDecl> {
         let db = self.db();
-        let node_id = todo!();
+        let node_path = todo!();
         let mut parser = self.expr_parser(
-            impl_block.node_id(db),
+            impl_block.node_path(db),
             None,
             AllowSelfType::True,
             AllowSelfValue::False,
@@ -116,7 +116,7 @@ impl<'a> DeclParseContext<'a> {
         let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectedEolColon)?;
         Ok(TypeImplBlockDecl::new(
             db,
-            node_id,
+            node_path,
             ast_idx,
             impl_block,
             impl_token,

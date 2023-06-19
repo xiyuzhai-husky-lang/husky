@@ -19,7 +19,7 @@ pub(crate) fn decl_diagnostic_sheet(
         db.node_decl_sheet(module_path),
     ) {
         let _token_sheet_data = ranged_token_sheet.token_sheet_data(db);
-        for (node_id, node_decl) in node_decl_sheet.decls(db).iter().copied() {
+        for (node_path, node_decl) in node_decl_sheet.decls(db).iter().copied() {
             todo!()
             // match decl {
             //     Err(DeclError::Original(error)) => sheet_collector.visit_atom(error),

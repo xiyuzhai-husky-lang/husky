@@ -34,13 +34,13 @@ impl From<TypeItemNodeDecl> for NodeDecl {
 }
 
 impl TypeItemNodeDecl {
-    pub fn node_id(self, db: &dyn DeclDb) -> TypeItemNodeId {
+    pub fn node_path(self, db: &dyn DeclDb) -> TypeItemNodePath {
         match self {
-            TypeItemNodeDecl::AssociatedFn(decl) => decl.node_id(db),
-            TypeItemNodeDecl::MethodFn(decl) => decl.node_id(db),
+            TypeItemNodeDecl::AssociatedFn(decl) => decl.node_path(db),
+            TypeItemNodeDecl::MethodFn(decl) => decl.node_path(db),
             TypeItemNodeDecl::AssociatedType(_) => todo!(),
             TypeItemNodeDecl::AssociatedVal(_) => todo!(),
-            TypeItemNodeDecl::MemoizedField(decl) => decl.node_id(db),
+            TypeItemNodeDecl::MemoizedField(decl) => decl.node_path(db),
         }
     }
 
@@ -78,7 +78,7 @@ impl TypeItemNodeDecl {
     }
 }
 
-impl HasNodeDecl for TypeItemNodeId {
+impl HasNodeDecl for TypeItemNodePath {
     type NodeDecl = TypeItemNodeDecl;
 
     fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
@@ -112,13 +112,13 @@ impl From<TypeItemDecl> for Decl {
 }
 
 impl TypeItemDecl {
-    pub fn node_id(self, db: &dyn DeclDb) -> TypeItemNodeId {
+    pub fn node_path(self, db: &dyn DeclDb) -> TypeItemNodePath {
         match self {
-            TypeItemDecl::AssociatedFn(decl) => decl.node_id(db),
-            TypeItemDecl::MethodFn(decl) => decl.node_id(db),
+            TypeItemDecl::AssociatedFn(decl) => decl.node_path(db),
+            TypeItemDecl::MethodFn(decl) => decl.node_path(db),
             TypeItemDecl::AssociatedType(_) => todo!(),
             TypeItemDecl::AssociatedVal(_) => todo!(),
-            TypeItemDecl::MemoizedField(decl) => decl.node_id(db),
+            TypeItemDecl::MemoizedField(decl) => decl.node_path(db),
         }
     }
 
@@ -185,7 +185,7 @@ impl HasDecl for TypeItemPath {
     }
 }
 
-impl HasDecl for TypeItemNodeId {
+impl HasDecl for TypeItemNodePath {
     type Decl = TypeItemDecl;
 
     fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {

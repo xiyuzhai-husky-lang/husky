@@ -3,7 +3,7 @@ use super::*;
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TypeMethodFnNodeDecl {
     #[id]
-    pub node_id: TypeItemNodeId,
+    pub node_path: TypeItemNodePath,
     pub node: TypeItemNode,
     pub ast_idx: AstIdx,
     pub expr_region: ExprRegion,
@@ -19,7 +19,7 @@ pub struct TypeMethodFnNodeDecl {
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TypeMethodFnDecl {
     #[id]
-    pub node_id: TypeItemNodeId,
+    pub node_path: TypeItemNodePath,
     pub node: TypeItemNode,
     pub ast_idx: AstIdx,
     pub expr_region: ExprRegion,
@@ -50,8 +50,8 @@ impl TypeMethodFnDecl {
         }
     }
 
-    pub fn impl_block_node_id(self, db: &dyn DeclDb) -> TypeImplBlockNodeId {
-        self.node_id(db).impl_block(db)
+    pub fn impl_block_node_path(self, db: &dyn DeclDb) -> TypeImplBlockNodePath {
+        self.node_path(db).impl_block(db)
     }
 }
 
@@ -66,7 +66,7 @@ impl<'a> DeclParseContext<'a> {
         let db = self.db();
         let impl_block_node_decl = node.impl_block(db).node_decl(db);
         let mut parser = self.expr_parser(
-            node.node_id(db),
+            node.node_path(db),
             Some(impl_block_node_decl.expr_region(db)),
             AllowSelfType::True,
             AllowSelfValue::True,
@@ -85,7 +85,7 @@ impl<'a> DeclParseContext<'a> {
         let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectedEolColon)?;
         Ok(TypeMethodFnDecl::new(
             self.db(),
-            node.node_id(self.db()),
+            node.node_path(self.db()),
             node,
             ast_idx,
             parser.finish(),

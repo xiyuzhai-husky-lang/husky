@@ -4,7 +4,7 @@ use husky_print_utils::p;
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct ValNodeDecl {
     #[id]
-    pub node_id: FugitiveNodeId,
+    pub node_path: FugitiveNodePath,
     pub ast_idx: AstIdx,
     pub colon_token: Option<ColonToken>,
     pub var_ty: Option<FormTypeExpr>,
@@ -16,7 +16,7 @@ pub struct ValNodeDecl {
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct ValDecl {
     #[id]
-    pub node_id: FugitiveNodeId,
+    pub node_path: FugitiveNodePath,
     pub ast_idx: AstIdx,
     pub colon_token: Option<ColonToken>,
     pub var_ty: Option<FormTypeExpr>,
@@ -31,7 +31,7 @@ impl<'a> DeclParseContext<'a> {
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
         saved_stream_state: TokenStreamState,
-        id: FugitiveNodeId,
+        id: FugitiveNodePath,
     ) -> Result<FugitiveDecl, DeclError> {
         let mut parser = self.expr_parser(id, None, AllowSelfType::False, AllowSelfValue::False);
         let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));

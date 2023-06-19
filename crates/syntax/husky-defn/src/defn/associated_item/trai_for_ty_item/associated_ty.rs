@@ -3,7 +3,7 @@ use super::*;
 #[salsa::tracked(db = DefnDb, jar = DefnJar)]
 pub struct TraitForTypeAssociatedTypeDefn {
     #[id]
-    pub node_id: TraitForTypeItemNodeId,
+    pub node_path: TraitForTypeItemNodePath,
     pub decl: TraitForTypeAssociatedTypeDecl,
     pub expr_region: ExprRegion,
 }
@@ -21,13 +21,13 @@ pub(crate) fn trai_for_ty_associated_ty_defn(
     db: &dyn DefnDb,
     decl: TraitForTypeAssociatedTypeDecl,
 ) -> TraitForTypeAssociatedTypeDefn {
-    let node_id = decl.node_id(db);
+    let node_path = decl.node_path(db);
     let mut parser = expr_parser(
         db,
-        decl.node_id(db),
+        decl.node_path(db),
         Some(decl.expr_region(db)),
         AllowSelfType::True,
         AllowSelfValue::True,
     );
-    TraitForTypeAssociatedTypeDefn::new(db, node_id, decl, parser.finish())
+    TraitForTypeAssociatedTypeDefn::new(db, node_path, decl, parser.finish())
 }

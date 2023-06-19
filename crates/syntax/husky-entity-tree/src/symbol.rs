@@ -13,7 +13,7 @@ pub struct UseSymbol {
 
 impl ModuleItemNode {
     pub fn ident(&self, db: &dyn EntityTreeDb) -> Ident {
-        self.node_id(db).ident(db)
+        self.node_path(db).ident(db)
     }
 }
 

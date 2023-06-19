@@ -3,7 +3,7 @@ use super::*;
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct GnNodeDecl {
     #[id]
-    pub node_id: FugitiveNodeId,
+    pub node_path: FugitiveNodePath,
     pub ast_idx: AstIdx,
     pub expr_region: ExprRegion,
     #[return_ref]
@@ -31,7 +31,7 @@ impl GnNodeDecl {
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct GnDecl {
     #[id]
-    pub node_id: FugitiveNodeId,
+    pub node_path: FugitiveNodePath,
     pub ast_idx: AstIdx,
     pub expr_region: ExprRegion,
     #[return_ref]
@@ -62,7 +62,7 @@ impl<'a> DeclParseContext<'a> {
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
         saved_stream_state: TokenStreamState,
-        id: FugitiveNodeId,
+        id: FugitiveNodePath,
     ) -> DeclResult<FugitiveDecl> {
         let mut parser = self.expr_parser(id, None, AllowSelfType::False, AllowSelfValue::False);
         let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));

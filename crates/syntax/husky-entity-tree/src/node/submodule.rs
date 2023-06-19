@@ -1,11 +1,11 @@
 use super::*;
 
 #[salsa::interned(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
-pub struct SubmoduleNodeId {
+pub struct SubmoduleNodePath {
     pub maybe_ambiguous_path: MaybeAmbiguousPath<ModulePath>,
 }
 
-impl SubmoduleNodeId {
+impl SubmoduleNodePath {
     pub(super) fn new(
         db: &dyn EntityTreeDb,
         registry: &mut EntityNodeRegistry,
@@ -31,18 +31,18 @@ impl SubmoduleNodeId {
     }
 }
 
-impl HasNodeId for ModulePath {
-    type NodeId = SubmoduleNodeId;
+impl HasNodePath for ModulePath {
+    type NodePath = SubmoduleNodePath;
 
-    fn node_id(self, db: &dyn EntityTreeDb) -> Self::NodeId {
-        SubmoduleNodeId::new_inner(db, MaybeAmbiguousPath::from_path(self))
+    fn node_path(self, db: &dyn EntityTreeDb) -> Self::NodePath {
+        SubmoduleNodePath::new_inner(db, MaybeAmbiguousPath::from_path(self))
     }
 }
 
 #[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
 pub struct SubmoduleNode {
     #[id]
-    pub node_id: SubmoduleNodeId,
+    pub node_path: SubmoduleNodePath,
     pub visibility: Scope,
     pub ast_idx: AstIdx,
     pub ident_token: IdentToken,
@@ -59,7 +59,7 @@ impl SubmoduleNode {
     ) -> Self {
         Self::new_inner(
             db,
-            SubmoduleNodeId::new(db, registry, submodule_path),
+            SubmoduleNodePath::new(db, registry, submodule_path),
             visibility,
             ast_idx,
             ident_token,
@@ -67,15 +67,15 @@ impl SubmoduleNode {
     }
 
     pub fn unambiguous_path(self, db: &dyn EntityTreeDb) -> Option<ModulePath> {
-        self.node_id(db).path(db)
+        self.node_path(db).path(db)
     }
 }
 
 #[salsa::tracked(jar = EntityTreeJar)]
-pub(crate) fn submodule_node(db: &dyn EntityTreeDb, node_id: SubmoduleNodeId) -> SubmoduleNode {
-    let module_path = node_id.module_path(db);
+pub(crate) fn submodule_node(db: &dyn EntityTreeDb, node_path: SubmoduleNodePath) -> SubmoduleNode {
+    let module_path = node_path.module_path(db);
     let entity_tree_sheet = db.entity_tree_sheet(module_path).expect("should be valid");
-    match entity_tree_sheet.major_entity_node(node_id.into()) {
+    match entity_tree_sheet.major_entity_node(node_path.into()) {
         Some(EntityNode::Submodule(node)) => node,
         _ => unreachable!(),
     }

@@ -25,7 +25,7 @@ pub(crate) fn ty_memoized_field_declarative_signature_template(
     decl: TypeMemoizedFieldDecl,
 ) -> DeclarativeSignatureResult<TypeMemoizedFieldDeclarativeSignatureTemplate> {
     let impl_block_declarative_signature_template = decl
-        .impl_block_node_id(db)
+        .impl_block_node_path(db)
         .declarative_signature_template(db)?;
     let expr_region = decl.expr_region(db);
     let declarative_term_region = declarative_term_region(db, expr_region);

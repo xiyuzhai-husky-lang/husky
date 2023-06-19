@@ -208,14 +208,14 @@ impl MajorEntityNodeTable {
         }
     }
 
-    pub(crate) fn node(&self, node_id: EntityNodeId) -> Option<EntityNode> {
+    pub(crate) fn node(&self, node_path: EntityNodePath) -> Option<EntityNode> {
         self.entries
             .iter()
-            .find_map(|entry| (entry.node_id == node_id).then_some(entry.node))
+            .find_map(|entry| (entry.node_path == node_path).then_some(entry.node))
     }
 
-    pub(crate) fn node_ids<'a>(&'a self) -> impl Iterator<Item = EntityNodeId> + 'a {
-        self.entries.iter().map(|entry| entry.node_id)
+    pub(crate) fn node_paths<'a>(&'a self) -> impl Iterator<Item = EntityNodePath> + 'a {
+        self.entries.iter().map(|entry| entry.node_path)
     }
 }
 
@@ -223,8 +223,8 @@ impl MajorEntityNodeTable {
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub struct EntityNodeEntry {
     node: EntityNode,
-    /// cached for performance, always equal to node.node_id(db)
-    node_id: EntityNodeId,
+    /// cached for performance, always equal to node.node_path(db)
+    node_path: EntityNodePath,
     /// cached for performance, always equal to node.ident(db)
     ident: Ident,
     /// cached for performance, always equal to node.visibility(db)
@@ -253,7 +253,7 @@ impl EntityNodeEntry {
         let node =
             EntityNode::try_new(db, registry, visibility, ast_idx, ident_token, entity_path)?;
         Some(Self {
-            node_id: node.node_id(db),
+            node_path: node.node_path(db),
             ident: ident_token.ident(),
             visibility,
             node,

@@ -32,7 +32,7 @@ impl<'a> DefnCollector<'a> {
         //         .decls(db)
         //         .iter()
         //         .copied()
-        //         .map(|(node_id, decl)| (node_id, decl.map(|decl| decl.defn(self.db))))
+        //         .map(|(node_path, decl)| (node_path, decl.map(|decl| decl.defn(self.db))))
         //         .collect(),
         // )
     }
@@ -41,16 +41,16 @@ impl<'a> DefnCollector<'a> {
 #[inline(always)]
 pub(crate) fn expr_parser<'a>(
     db: &'a dyn DefnDb,
-    node_id: impl Into<EntityNodeId>,
+    node_path: impl Into<EntityNodePath>,
     decl_expr_region: Option<ExprRegion>,
     allow_self_type: AllowSelfType,
     allow_self_value: AllowSelfValue,
 ) -> BlockExprParser<'a> {
-    let node_id = node_id.into();
-    let module_path = node_id.module_path(db);
+    let node_path = node_path.into();
+    let module_path = node_path.module_path(db);
     let parser = ExprParser::new(
         db,
-        RegionPath::Defn(node_id.into()),
+        RegionPath::Defn(node_path.into()),
         db.token_sheet_data(module_path).unwrap(),
         db.module_symbol_context(module_path).unwrap(),
         decl_expr_region,

@@ -3,7 +3,7 @@ use super::*;
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TypeAssociatedValNodeDecl {
     #[id]
-    pub id: TypeItemNodeId,
+    pub id: TypeItemNodePath,
     pub node: TypeItemNode,
     pub ast_idx: AstIdx,
     pub expr_region: ExprRegion,
@@ -12,7 +12,7 @@ pub struct TypeAssociatedValNodeDecl {
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TypeAssociatedValDecl {
     #[id]
-    pub id: TypeItemNodeId,
+    pub id: TypeItemNodePath,
     pub node: TypeItemNode,
     pub ast_idx: AstIdx,
     pub expr_region: ExprRegion,
