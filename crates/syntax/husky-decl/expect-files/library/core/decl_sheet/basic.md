@@ -1,29 +1,44 @@
 Ok(
     DeclSheet {
+        [salsa id]: 2,
         decls: [
             (
-                DeclRegionPath::Entity(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::basic::bool`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::basic::bool`, `Extern`),
                     ),
                 ),
-                Ok(
-                    Decl::Type(
+                Decl::ModuleItem(
+                    ModuleItemDecl::Type(
                         TypeDecl::Extern(
                             ExternTypeDecl {
-                                path: TypePath(`core::basic::bool`, `Extern`),
-                                ast_idx: 0,
+                                node_id: TypeNodeId {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                implicit_parameter_decl_list: None,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Entity(
-                                                EntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
-                                                        TypePath(`core::basic::bool`, `Extern`),
-                                                    ),
+                                            EntityNodeId::ModuleItem(
+                                                ModuleItemNodeId::Type(
+                                                    TypeNodeId {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(
+                                                                Id {
+                                                                    value: 2,
+                                                                },
+                                                            ),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -66,35 +81,48 @@ Ok(
                                         roots: [],
                                     },
                                 },
-                                implicit_parameter_decl_list: None,
                             },
                         ),
                     ),
                 ),
             ),
             (
-                DeclRegionPath::Entity(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::basic::never`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::basic::never`, `Extern`),
                     ),
                 ),
-                Ok(
-                    Decl::Type(
+                Decl::ModuleItem(
+                    ModuleItemDecl::Type(
                         TypeDecl::Extern(
                             ExternTypeDecl {
-                                path: TypePath(`core::basic::never`, `Extern`),
-                                ast_idx: 1,
+                                node_id: TypeNodeId {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(
+                                            Id {
+                                                value: 3,
+                                            },
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                implicit_parameter_decl_list: None,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Entity(
-                                                EntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
-                                                        TypePath(`core::basic::never`, `Extern`),
-                                                    ),
+                                            EntityNodeId::ModuleItem(
+                                                ModuleItemNodeId::Type(
+                                                    TypeNodeId {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(
+                                                                Id {
+                                                                    value: 3,
+                                                                },
+                                                            ),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -137,35 +165,48 @@ Ok(
                                         roots: [],
                                     },
                                 },
-                                implicit_parameter_decl_list: None,
                             },
                         ),
                     ),
                 ),
             ),
             (
-                DeclRegionPath::Entity(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::basic::unit`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::basic::unit`, `Extern`),
                     ),
                 ),
-                Ok(
-                    Decl::Type(
+                Decl::ModuleItem(
+                    ModuleItemDecl::Type(
                         TypeDecl::Extern(
                             ExternTypeDecl {
-                                path: TypePath(`core::basic::unit`, `Extern`),
-                                ast_idx: 2,
+                                node_id: TypeNodeId {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(
+                                            Id {
+                                                value: 4,
+                                            },
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                implicit_parameter_decl_list: None,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Entity(
-                                                EntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
-                                                        TypePath(`core::basic::unit`, `Extern`),
-                                                    ),
+                                            EntityNodeId::ModuleItem(
+                                                ModuleItemNodeId::Type(
+                                                    TypeNodeId {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(
+                                                                Id {
+                                                                    value: 4,
+                                                                },
+                                                            ),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -208,35 +249,48 @@ Ok(
                                         roots: [],
                                     },
                                 },
-                                implicit_parameter_decl_list: None,
                             },
                         ),
                     ),
                 ),
             ),
             (
-                DeclRegionPath::Entity(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::basic::Trait`, `Structure`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::basic::Trait`, `Structure`),
                     ),
                 ),
-                Ok(
-                    Decl::Type(
+                Decl::ModuleItem(
+                    ModuleItemDecl::Type(
                         TypeDecl::Structure(
                             StructureTypeDecl {
-                                path: TypePath(`core::basic::Trait`, `Structure`),
-                                ast_idx: 3,
+                                node_id: TypeNodeId {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(
+                                            Id {
+                                                value: 5,
+                                            },
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                implicit_parameter_decl_list: None,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Entity(
-                                                EntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
-                                                        TypePath(`core::basic::Trait`, `Structure`),
-                                                    ),
+                                            EntityNodeId::ModuleItem(
+                                                ModuleItemNodeId::Type(
+                                                    TypeNodeId {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(
+                                                                Id {
+                                                                    value: 5,
+                                                                },
+                                                            ),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -279,35 +333,48 @@ Ok(
                                         roots: [],
                                     },
                                 },
-                                implicit_parameter_decl_list: None,
                             },
                         ),
                     ),
                 ),
             ),
             (
-                DeclRegionPath::Entity(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::basic::Module`, `Structure`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::basic::Module`, `Structure`),
                     ),
                 ),
-                Ok(
-                    Decl::Type(
+                Decl::ModuleItem(
+                    ModuleItemDecl::Type(
                         TypeDecl::Structure(
                             StructureTypeDecl {
-                                path: TypePath(`core::basic::Module`, `Structure`),
-                                ast_idx: 4,
+                                node_id: TypeNodeId {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(
+                                            Id {
+                                                value: 6,
+                                            },
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                implicit_parameter_decl_list: None,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Entity(
-                                                EntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
-                                                        TypePath(`core::basic::Module`, `Structure`),
-                                                    ),
+                                            EntityNodeId::ModuleItem(
+                                                ModuleItemNodeId::Type(
+                                                    TypeNodeId {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(
+                                                                Id {
+                                                                    value: 6,
+                                                                },
+                                                            ),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -350,7 +417,6 @@ Ok(
                                         roots: [],
                                     },
                                 },
-                                implicit_parameter_decl_list: None,
                             },
                         ),
                     ),

@@ -26,8 +26,8 @@ pub struct TypeMemoizedFieldDecl {
 }
 
 impl TypeMemoizedFieldDecl {
-    pub fn impl_block(self, db: &dyn DeclDb) -> TypeImplBlockNode {
-        self.node(db).impl_block(db)
+    pub fn impl_block_node_id(self, db: &dyn DeclDb) -> TypeImplBlockNodeId {
+        self.node_id(db).impl_block(db)
     }
 }
 

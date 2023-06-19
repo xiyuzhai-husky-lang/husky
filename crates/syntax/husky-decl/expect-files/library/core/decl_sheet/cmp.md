@@ -1,28 +1,43 @@
 Ok(
     DeclSheet {
+        [salsa id]: 4,
         decls: [
             (
-                DeclRegionPath::Entity(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Trait(
-                            TraitPath(`core::cmp::PartialEq`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Trait(
+                        TraitPath(`core::cmp::PartialEq`),
                     ),
                 ),
-                Ok(
-                    Decl::Trait(
+                Decl::ModuleItem(
+                    ModuleItemDecl::Trait(
                         TraitDecl {
-                            path: TraitPath(`core::cmp::PartialEq`),
+                            node_id: TraitNodeId {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TraitPath(
+                                        Id {
+                                            value: 2,
+                                        },
+                                    ),
+                                    disambiguator: 0,
+                                },
+                            },
                             ast_idx: 0,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        DeclRegionPath::Entity(
-                                            EntityPath::ModuleItem(
-                                                ModuleItemPath::Trait(
-                                                    TraitPath(`core::cmp::PartialEq`),
-                                                ),
+                                        EntityNodeId::ModuleItem(
+                                            ModuleItemNodeId::Trait(
+                                                TraitNodeId {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(
+                                                            Id {
+                                                                value: 2,
+                                                            },
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
                                         ),
                                     ),
@@ -71,27 +86,41 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Entity(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Trait(
-                            TraitPath(`core::cmp::Eq`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Trait(
+                        TraitPath(`core::cmp::Eq`),
                     ),
                 ),
-                Ok(
-                    Decl::Trait(
+                Decl::ModuleItem(
+                    ModuleItemDecl::Trait(
                         TraitDecl {
-                            path: TraitPath(`core::cmp::Eq`),
+                            node_id: TraitNodeId {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TraitPath(
+                                        Id {
+                                            value: 3,
+                                        },
+                                    ),
+                                    disambiguator: 0,
+                                },
+                            },
                             ast_idx: 1,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        DeclRegionPath::Entity(
-                                            EntityPath::ModuleItem(
-                                                ModuleItemPath::Trait(
-                                                    TraitPath(`core::cmp::Eq`),
-                                                ),
+                                        EntityNodeId::ModuleItem(
+                                            ModuleItemNodeId::Trait(
+                                                TraitNodeId {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(
+                                                            Id {
+                                                                value: 3,
+                                                            },
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
                                         ),
                                     ),
@@ -140,27 +169,41 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Entity(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Trait(
-                            TraitPath(`core::cmp::PartialOrd`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Trait(
+                        TraitPath(`core::cmp::PartialOrd`),
                     ),
                 ),
-                Ok(
-                    Decl::Trait(
+                Decl::ModuleItem(
+                    ModuleItemDecl::Trait(
                         TraitDecl {
-                            path: TraitPath(`core::cmp::PartialOrd`),
+                            node_id: TraitNodeId {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TraitPath(
+                                        Id {
+                                            value: 4,
+                                        },
+                                    ),
+                                    disambiguator: 0,
+                                },
+                            },
                             ast_idx: 2,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        DeclRegionPath::Entity(
-                                            EntityPath::ModuleItem(
-                                                ModuleItemPath::Trait(
-                                                    TraitPath(`core::cmp::PartialOrd`),
-                                                ),
+                                        EntityNodeId::ModuleItem(
+                                            ModuleItemNodeId::Trait(
+                                                TraitNodeId {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(
+                                                            Id {
+                                                                value: 4,
+                                                            },
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
                                         ),
                                     ),
@@ -209,27 +252,41 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Entity(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Trait(
-                            TraitPath(`core::cmp::Ord`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Trait(
+                        TraitPath(`core::cmp::Ord`),
                     ),
                 ),
-                Ok(
-                    Decl::Trait(
+                Decl::ModuleItem(
+                    ModuleItemDecl::Trait(
                         TraitDecl {
-                            path: TraitPath(`core::cmp::Ord`),
+                            node_id: TraitNodeId {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TraitPath(
+                                        Id {
+                                            value: 5,
+                                        },
+                                    ),
+                                    disambiguator: 0,
+                                },
+                            },
                             ast_idx: 3,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        DeclRegionPath::Entity(
-                                            EntityPath::ModuleItem(
-                                                ModuleItemPath::Trait(
-                                                    TraitPath(`core::cmp::Ord`),
-                                                ),
+                                        EntityNodeId::ModuleItem(
+                                            ModuleItemNodeId::Trait(
+                                                TraitNodeId {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(
+                                                            Id {
+                                                                value: 5,
+                                                            },
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
                                         ),
                                     ),

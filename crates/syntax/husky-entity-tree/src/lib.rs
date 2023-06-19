@@ -57,9 +57,11 @@ pub struct EntityTreeJar(
     UseSymbol,
     // module items
     TraitNodeId,
+    trai_node,
     TypeNodeId,
     ty_node,
     FugitiveNodeId,
+    fugitive_node,
     // ty variant
     TypeVariantNodeId,
     // associated items

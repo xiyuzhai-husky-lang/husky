@@ -7,6 +7,10 @@ pub struct TypeImplBlockNodeId {
 }
 
 impl TypeImplBlockNodeId {
+    pub fn path(self) -> TypeImplBlockPath {
+        self.path
+    }
+
     pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
         self.path.module_path(db)
     }

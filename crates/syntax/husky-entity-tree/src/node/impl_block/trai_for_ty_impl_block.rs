@@ -7,7 +7,7 @@ pub struct TraitForTypeImplBlockNodeId {
 }
 
 impl TraitForTypeImplBlockNodeId {
-    pub fn path(self, db: &dyn EntityTreeDb) -> TraitForTypeImplBlockPath {
+    pub fn path(self) -> TraitForTypeImplBlockPath {
         self.path
     }
 

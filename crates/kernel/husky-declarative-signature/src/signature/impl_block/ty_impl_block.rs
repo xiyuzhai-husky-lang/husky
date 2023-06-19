@@ -1,4 +1,4 @@
-use husky_entity_tree::TypeImplBlockNode;
+use husky_entity_tree::{TypeImplBlockNode, TypeImplBlockNodeId};
 
 use super::*;
 
@@ -7,6 +7,17 @@ pub struct TypeImplBlockDeclarativeSignatureTemplate {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterDeclarativeSignatures,
     pub ty: DeclarativeTerm,
+}
+
+impl HasDeclarativeSignatureTemplate for TypeImplBlockNodeId {
+    type DeclarativeSignatureTemplate = TypeImplBlockDeclarativeSignatureTemplate;
+
+    fn declarative_signature_template(
+        self,
+        db: &dyn DeclarativeSignatureDb,
+    ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
+        self.path().declarative_signature_template(db)
+    }
 }
 
 impl HasDeclarativeSignatureTemplate for TypeImplBlockPath {

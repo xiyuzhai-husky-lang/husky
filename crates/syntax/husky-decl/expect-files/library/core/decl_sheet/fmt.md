@@ -1,28 +1,43 @@
 Ok(
     DeclSheet {
+        [salsa id]: 6,
         decls: [
             (
-                DeclRegionPath::Entity(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Trait(
-                            TraitPath(`core::fmt::Debug`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Trait(
+                        TraitPath(`core::fmt::Debug`),
                     ),
                 ),
-                Ok(
-                    Decl::Trait(
+                Decl::ModuleItem(
+                    ModuleItemDecl::Trait(
                         TraitDecl {
-                            path: TraitPath(`core::fmt::Debug`),
+                            node_id: TraitNodeId {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TraitPath(
+                                        Id {
+                                            value: 6,
+                                        },
+                                    ),
+                                    disambiguator: 0,
+                                },
+                            },
                             ast_idx: 0,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        DeclRegionPath::Entity(
-                                            EntityPath::ModuleItem(
-                                                ModuleItemPath::Trait(
-                                                    TraitPath(`core::fmt::Debug`),
-                                                ),
+                                        EntityNodeId::ModuleItem(
+                                            ModuleItemNodeId::Trait(
+                                                TraitNodeId {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(
+                                                            Id {
+                                                                value: 6,
+                                                            },
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
                                         ),
                                     ),
