@@ -88,6 +88,7 @@ pub struct EntityTreeJar(
     // impl blocks
     // - type impl block
     TypeImplBlockNode,
+    ty_impl_block_node,
     // - trait for type impl block
     TraitForTypeImplBlockNode,
     // - ill formed impl block

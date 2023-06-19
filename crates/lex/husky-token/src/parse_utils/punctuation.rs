@@ -16,7 +16,7 @@ where
 {
     type Error = TokenError;
 
-    fn try_parse_optional_from_without_guaranteed_rollback(
+    fn try_parse_stream_optional_from_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
@@ -73,7 +73,7 @@ where
 {
     type Error = TokenError;
 
-    fn try_parse_optional_from_without_guaranteed_rollback(
+    fn try_parse_stream_optional_from_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenResult<Option<Self>> {
         parse_specific_punctuation_from(ctx, Punctuation::COLON, ColonToken)
@@ -105,7 +105,7 @@ where
 {
     type Error = TokenError;
 
-    fn try_parse_optional_from_without_guaranteed_rollback(
+    fn try_parse_stream_optional_from_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenResult<Option<Self>> {
         parse_specific_punctuation_from(ctx, Punctuation::COMMA, CommaToken)
@@ -143,7 +143,7 @@ where
 {
     type Error = TokenError;
 
-    fn try_parse_optional_from_without_guaranteed_rollback(
+    fn try_parse_stream_optional_from_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenResult<Option<Self>> {
         parse_specific_punctuation_from(ctx, Punctuation::EQ, EqToken)
@@ -182,7 +182,7 @@ where
 {
     type Error = TokenError;
 
-    fn try_parse_optional_from_without_guaranteed_rollback(
+    fn try_parse_stream_optional_from_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenResult<Option<Self>> {
         parse_specific_punctuation_from(ctx, Punctuation::LPAR, LeftParenthesisToken)
@@ -214,7 +214,7 @@ where
 {
     type Error = TokenError;
 
-    fn try_parse_optional_from_without_guaranteed_rollback(
+    fn try_parse_stream_optional_from_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenResult<Option<Self>> {
         parse_specific_punctuation_from(ctx, Punctuation::RPAR, RightParenthesisToken)
@@ -246,7 +246,7 @@ where
 {
     type Error = TokenError;
 
-    fn try_parse_optional_from_without_guaranteed_rollback(
+    fn try_parse_stream_optional_from_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenResult<Option<Self>> {
         parse_specific_punctuation_from(ctx, Punctuation::LBOX, LeftBoxBracketToken)
@@ -284,7 +284,7 @@ where
 {
     type Error = TokenError;
 
-    fn try_parse_optional_from_without_guaranteed_rollback(
+    fn try_parse_stream_optional_from_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenResult<Option<Self>> {
         parse_specific_punctuation_from(ctx, Punctuation::RBOX, RightBoxBracketToken)
@@ -316,7 +316,7 @@ where
 {
     type Error = TokenError;
 
-    fn try_parse_optional_from_without_guaranteed_rollback(
+    fn try_parse_stream_optional_from_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenResult<Option<Self>> {
         parse_specific_punctuation_from(ctx, Punctuation::LCURL, LeftCurlyBraceToken)
@@ -348,7 +348,7 @@ where
 {
     type Error = TokenError;
 
-    fn try_parse_optional_from_without_guaranteed_rollback(
+    fn try_parse_stream_optional_from_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenResult<Option<Self>> {
         parse_specific_punctuation_from(ctx, Punctuation::RCURL, RightCurlyBraceToken)
@@ -386,7 +386,7 @@ where
 {
     type Error = TokenError;
 
-    fn try_parse_optional_from_without_guaranteed_rollback(
+    fn try_parse_stream_optional_from_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenResult<Option<Self>> {
         parse_specific_punctuation_from(ctx, Punctuation::LA_OR_LT, LeftAngleBracketOrLessThanToken)
@@ -425,7 +425,7 @@ where
 {
     type Error = TokenError;
 
-    fn try_parse_optional_from_without_guaranteed_rollback(
+    fn try_parse_stream_optional_from_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenResult<Option<Self>> {
         parse_specific_punctuation_from(
@@ -462,7 +462,7 @@ where
 {
     type Error = TokenError;
 
-    fn try_parse_optional_from_without_guaranteed_rollback(
+    fn try_parse_stream_optional_from_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenResult<Option<Self>> {
         parse_specific_punctuation_from(ctx, Punctuation::RA_OR_GT, RightAngleBracketToken)
@@ -500,7 +500,7 @@ where
 {
     type Error = TokenError;
 
-    fn try_parse_optional_from_without_guaranteed_rollback(
+    fn try_parse_stream_optional_from_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenResult<Option<Self>> {
         parse_specific_punctuation_from(ctx, Punctuation::EMPTY_HTML_KET, EmptyHtmlKetToken)
@@ -532,7 +532,7 @@ where
 {
     type Error = TokenError;
 
-    fn try_parse_optional_from_without_guaranteed_rollback(
+    fn try_parse_stream_optional_from_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenResult<Option<Self>> {
         parse_specific_punctuation_from(ctx, Punctuation::VERTICAL, VerticalToken)
@@ -564,7 +564,7 @@ where
 {
     type Error = TokenError;
 
-    fn try_parse_optional_from_without_guaranteed_rollback(
+    fn try_parse_stream_optional_from_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenResult<Option<Self>> {
         parse_specific_punctuation_from(ctx, Punctuation::AT, AtToken)
@@ -597,7 +597,7 @@ where
 {
     type Error = TokenError;
 
-    fn try_parse_optional_from_without_guaranteed_rollback(
+    fn try_parse_stream_optional_from_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenResult<Option<Self>> {
         parse_specific_punctuation_from(ctx, Punctuation::DOT_DOT, DotDotToken)
@@ -654,7 +654,7 @@ where
 {
     type Error = TokenError;
 
-    fn try_parse_optional_from_without_guaranteed_rollback(
+    fn try_parse_stream_optional_from_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenResult<Option<Self>> {
         let token_stream = ctx.token_stream_mut();
@@ -714,7 +714,7 @@ where
 {
     type Error = TokenError;
 
-    fn try_parse_optional_from_without_guaranteed_rollback(
+    fn try_parse_stream_optional_from_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenResult<Option<Self>> {
         let token_stream = ctx.token_stream_mut();
@@ -770,7 +770,7 @@ where
 {
     type Error = TokenError;
 
-    fn try_parse_optional_from_without_guaranteed_rollback(
+    fn try_parse_stream_optional_from_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenResult<Option<Self>> {
         let token_stream = ctx.token_stream_mut();
@@ -818,7 +818,7 @@ where
 {
     type Error = TokenError;
 
-    fn try_parse_optional_from_without_guaranteed_rollback(
+    fn try_parse_stream_optional_from_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenResult<Option<Self>> {
         let token_stream = ctx.token_stream_mut();
@@ -866,7 +866,7 @@ where
 {
     type Error = TokenError;
 
-    fn try_parse_optional_from_without_guaranteed_rollback(
+    fn try_parse_stream_optional_from_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenResult<Option<Self>> {
         let token_stream = ctx.token_stream_mut();
@@ -916,7 +916,7 @@ where
 {
     type Error = TokenError;
 
-    fn try_parse_optional_from_without_guaranteed_rollback(
+    fn try_parse_stream_optional_from_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenResult<Option<Self>> {
         parse_specific_punctuation_from(ctx, Punctuation::COLON_EQ, ColonEqToken)
@@ -950,7 +950,7 @@ where
 {
     type Error = TokenError;
 
-    fn try_parse_optional_from_without_guaranteed_rollback(
+    fn try_parse_stream_optional_from_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenResult<Option<Self>> {
         parse_specific_punctuation_from(ctx, Punctuation::LIGHT_ARROW, LightArrowToken)
@@ -984,7 +984,7 @@ where
 {
     type Error = TokenError;
 
-    fn try_parse_optional_from_without_guaranteed_rollback(
+    fn try_parse_stream_optional_from_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenResult<Option<Self>> {
         parse_specific_punctuation_from(ctx, Punctuation::HEAVY_ARROW, HeavyArrowToken)

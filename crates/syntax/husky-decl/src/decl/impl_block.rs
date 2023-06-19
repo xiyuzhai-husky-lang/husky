@@ -73,13 +73,6 @@ impl ImplBlockDecl {
         }
     }
 
-    pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
-        match self {
-            ImplBlockDecl::Type(decl) => decl.ast_idx(db),
-            ImplBlockDecl::TraitForType(decl) => decl.ast_idx(db),
-        }
-    }
-
     pub fn implicit_parameters<'a>(
         self,
         _db: &'a dyn DeclDb,

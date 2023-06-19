@@ -69,7 +69,7 @@ pub(super) enum IncompleteExpr {
 impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for HtmlArgumentExpr {
     type Error = ExprError;
 
-    fn try_parse_optional_from_without_guaranteed_rollback(
+    fn try_parse_stream_optional_from_without_guaranteed_rollback(
         sp: &mut ExprParseContext<'a, 'b>,
     ) -> Result<Option<Self>, Self::Error> {
         if let Some(lcurl) = sp.try_parse_optional::<LeftCurlyBraceToken>()? {

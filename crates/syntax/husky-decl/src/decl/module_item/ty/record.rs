@@ -29,6 +29,13 @@ pub struct RecordTypeDecl {
 }
 
 impl RecordTypeDecl {
+    pub(super) fn from_node_decl(
+        db: &dyn DeclDb,
+        node_decl: RecordTypeNodeDecl,
+    ) -> DeclResult<Self> {
+        todo!()
+    }
+
     pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDeclPattern] {
         self.implicit_parameter_decl_list(db)
             .as_ref()

@@ -31,7 +31,7 @@ where
 {
     type Error = TokenError;
 
-    fn try_parse_optional_from_without_guaranteed_rollback(
+    fn try_parse_stream_optional_from_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {

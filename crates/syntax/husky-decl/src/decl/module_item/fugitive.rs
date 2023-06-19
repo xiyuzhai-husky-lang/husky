@@ -128,7 +128,7 @@ impl HasDecl for FugitiveNodePath {
 
 #[salsa::tracked(jar = DeclJar, return_ref)]
 pub(crate) fn fugitive_decl(db: &dyn DeclDb, id: FugitiveNodePath) -> DeclResult<FugitiveDecl> {
-    let parser = DeclParseContext::new(db, id.module_path(db))?;
+    let parser = DeclParseContext::new(db, id.module_path(db));
     parser.parse_fugitive_decl(id)
 }
 

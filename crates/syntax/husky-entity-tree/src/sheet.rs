@@ -89,6 +89,33 @@ impl EntityTreeSheet {
         self.major_entity_node_table.node(node_path)
     }
 
+    pub(crate) fn ty_impl_block_node(&self, node_path: TypeImplBlockNodePath) -> TypeImplBlockNode {
+        self.impl_block_node_table
+            .iter()
+            .find_map(|(node_path1, node)| {
+                (*node_path1 == node_path.into()).then_some(match node {
+                    ImplBlockNode::TypeImplBlock(node) => *node,
+                    _ => unreachable!(),
+                })
+            })
+            .expect("valid node path")
+    }
+
+    pub(crate) fn trai_for_ty_impl_block_node(
+        &self,
+        node_path: TraitForTypeImplBlockNodePath,
+    ) -> TraitForTypeImplBlockNode {
+        self.impl_block_node_table
+            .iter()
+            .find_map(|(node_path1, node)| {
+                (*node_path1 == node_path.into()).then_some(match node {
+                    ImplBlockNode::TraitForTypeImplBlock(node) => *node,
+                    _ => unreachable!(),
+                })
+            })
+            .expect("valid node path")
+    }
+
     pub fn impl_block_node_paths<'a>(&'a self) -> impl Iterator<Item = ImplBlockNodePath> + 'a {
         self.impl_block_node_table
             .iter()

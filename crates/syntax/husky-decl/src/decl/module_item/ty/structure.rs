@@ -12,10 +12,11 @@ pub struct StructureTypeNodeDecl {
 
 impl StructureTypeNodeDecl {
     pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDeclPattern] {
-        self.implicit_parameter_decl_list(db)
-            .as_ref()
-            .map(ImplicitParameterDeclList::implicit_parameters)
-            .unwrap_or(&[])
+        todo!()
+        // self.implicit_parameter_decl_list(db)
+        //     .as_ref()
+        //     .map(ImplicitParameterDeclList::implicit_parameters)
+        //     .unwrap_or(&[])
     }
 }
 
@@ -47,15 +48,28 @@ pub struct StructureTypeDecl {
     #[id]
     pub node_path: TypeNodePath,
     #[return_ref]
-    implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
+    pub implicit_parameters: ImplicitParameterDeclPatterns,
     pub expr_region: ExprRegion,
 }
 
 impl StructureTypeDecl {
-    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDeclPattern] {
-        self.implicit_parameter_decl_list(db)
+    pub(super) fn from_node_decl(
+        db: &dyn DeclDb,
+        node_decl: StructureTypeNodeDecl,
+    ) -> DeclResult<Self> {
+        let node_path = node_decl.node_path(db);
+        let implicit_parameters = node_decl
+            .implicit_parameter_decl_list(db)
+            .as_ref()?
             .as_ref()
-            .map(ImplicitParameterDeclList::implicit_parameters)
-            .unwrap_or(&[])
+            .map(|list| list.implicit_parameters().to_smallvec())
+            .unwrap_or_default();
+        let expr_region = node_decl.expr_region(db);
+        Ok(StructureTypeDecl::new(
+            db,
+            node_path,
+            implicit_parameters,
+            expr_region,
+        ))
     }
 }

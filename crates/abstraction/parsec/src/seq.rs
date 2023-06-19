@@ -6,11 +6,11 @@ where
     A: TryParseOptionalFromStream<Context, Error = Error>,
     B: TryParseOptionalFromStream<Context, Error = Error>,
 {
-    let a = match A::try_parse_optional_from_without_guaranteed_rollback(stream)? {
+    let a = match A::try_parse_stream_optional_from_without_guaranteed_rollback(stream)? {
         Some(a) => a,
         None => return Ok(None),
     };
-    let b = match B::try_parse_optional_from_without_guaranteed_rollback(stream)? {
+    let b = match B::try_parse_stream_optional_from_without_guaranteed_rollback(stream)? {
         Some(b) => b,
         None => return Ok(None),
     };
@@ -35,15 +35,15 @@ where
     B: TryParseOptionalFromStream<Context, Error = Error>,
     C: TryParseOptionalFromStream<Context, Error = Error>,
 {
-    let a = match A::try_parse_optional_from_without_guaranteed_rollback(stream)? {
+    let a = match A::try_parse_stream_optional_from_without_guaranteed_rollback(stream)? {
         Some(a) => a,
         None => return Ok(None),
     };
-    let b = match B::try_parse_optional_from_without_guaranteed_rollback(stream)? {
+    let b = match B::try_parse_stream_optional_from_without_guaranteed_rollback(stream)? {
         Some(b) => b,
         None => return Ok(None),
     };
-    let c = match C::try_parse_optional_from_without_guaranteed_rollback(stream)? {
+    let c = match C::try_parse_stream_optional_from_without_guaranteed_rollback(stream)? {
         Some(c) => c,
         None => return Ok(None),
     };

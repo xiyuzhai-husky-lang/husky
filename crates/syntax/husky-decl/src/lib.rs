@@ -25,6 +25,7 @@ use husky_token::*;
 use husky_vfs::ModulePath;
 use parsec::StreamParser;
 use parser::*;
+use smallvec::{SmallVec, ToSmallVec};
 #[cfg(test)]
 use tests::*;
 
@@ -38,7 +39,7 @@ pub struct DeclJar(
     submodule_decl,
     // - type
     ty_node_decl,
-    ty_decl_aux,
+    ty_decl,
     EnumTypeNodeDecl,
     EnumTypeDecl,
     UnitStructTypeNodeDecl,
@@ -73,10 +74,11 @@ pub struct DeclJar(
     TypeAliasNodeDecl,
     TypeAliasDecl,
     // - impl block
-    ty_impl_block_decl_aux,
+    ty_impl_block_decl,
     TypeImplBlockNodeDecl,
+    ty_impl_block_node_decl,
     TypeImplBlockDecl,
-    trai_for_ty_impl_block_decl_aux,
+    trai_for_ty_impl_block_decl,
     TraitForTypeImplBlockNodeDecl,
     TraitForTypeImplBlockDecl,
     // - variant

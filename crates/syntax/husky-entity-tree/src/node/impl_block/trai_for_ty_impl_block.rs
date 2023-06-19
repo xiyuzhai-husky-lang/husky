@@ -6,6 +6,25 @@ pub struct TraitForTypeImplBlockNodePath {
     path: TraitForTypeImplBlockPath,
 }
 
+impl salsa::AsId for TraitForTypeImplBlockNodePath {
+    fn as_id(self) -> salsa::Id {
+        self.path.as_id()
+    }
+
+    fn from_id(id: salsa::Id) -> Self {
+        TraitForTypeImplBlockNodePath {
+            path: TraitForTypeImplBlockPath::from_id(id),
+        }
+    }
+}
+
+impl<DB> salsa::salsa_struct::SalsaStructInDb<DB> for TraitForTypeImplBlockNodePath
+where
+    DB: ?Sized + salsa::DbWithJar<EntityPathJar>,
+{
+    fn register_dependent_fn(_db: &DB, _index: salsa::routes::IngredientIndex) {}
+}
+
 impl TraitForTypeImplBlockNodePath {
     pub fn path(self) -> TraitForTypeImplBlockPath {
         self.path
@@ -38,7 +57,7 @@ impl HasNodePath for TraitForTypeImplBlockPath {
     type NodePath = TraitForTypeImplBlockNodePath;
 
     fn node_path(self, db: &dyn EntityTreeDb) -> Self::NodePath {
-        todo!()
+        TraitForTypeImplBlockNodePath { path: self }
     }
 }
 

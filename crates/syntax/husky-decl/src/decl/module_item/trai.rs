@@ -56,7 +56,7 @@ impl HasDecl for TraitNodePath {
 
 #[salsa::tracked(jar = DeclJar,return_ref)]
 pub(crate) fn trai_decl(db: &dyn DeclDb, id: TraitNodePath) -> DeclResult<TraitDecl> {
-    let parser = DeclParseContext::new(db, id.module_path(db))?;
+    let parser = DeclParseContext::new(db, id.module_path(db));
     parser.parse_trai_decl(id)
 }
 

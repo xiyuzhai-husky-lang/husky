@@ -53,6 +53,13 @@ pub struct InductiveTypeDecl {
 }
 
 impl InductiveTypeDecl {
+    pub(super) fn from_node_decl(
+        db: &dyn DeclDb,
+        node_decl: InductiveTypeNodeDecl,
+    ) -> DeclResult<Self> {
+        todo!()
+    }
+
     pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDeclPattern] {
         self.implicit_parameter_decl_list(db)
             .as_ref()
