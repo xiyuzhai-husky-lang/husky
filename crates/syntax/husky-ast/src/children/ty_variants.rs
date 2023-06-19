@@ -11,13 +11,13 @@ impl TypeVariants {
     }
 }
 
-impl<'a> ParseFromStreamWithContext<AstParser<'a>> for TypeVariants {
+impl<'a> TryParseOptionFromStreamWithContext<AstParser<'a>> for TypeVariants {
     type Error = std::convert::Infallible;
 
     type Context = TypePath;
 
     #[inline(always)]
-    fn parse_from_without_guaranteed_rollback(
+    fn try_parse_option_from_without_guaranteed_rollback(
         sp: &mut AstParser<'a>,
         ctx: Self::Context,
     ) -> Result<Option<Self>, std::convert::Infallible> {

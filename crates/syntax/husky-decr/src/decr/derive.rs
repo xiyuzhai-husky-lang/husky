@@ -29,11 +29,11 @@ impl DeriveDecr {
             parser_factory.expr_parser(decr_id, AllowSelfType::True, AllowSelfValue::False);
         let mut ctx = expr_parser.ctx(None, token_group_idx, None);
         let at_token = ctx
-            .parse()
+            .try_parse_optional()
             .expect("should be guaranteed")
             .expect("should be guaranteed");
         let derive_token = ctx
-            .parse()
+            .try_parse_optional()
             .expect("should be guaranteed")
             .expect("should be guaranteed");
         let lpar_token = ctx.parse_expected(OriginalDecrError::ExpectLeftBracketInDerive)?;

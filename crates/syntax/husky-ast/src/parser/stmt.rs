@@ -86,7 +86,7 @@ impl<'a> AstParser<'a> {
     }
 
     fn parse_stmt(&mut self, token_group_idx: TokenGroupIdx) -> Ast {
-        let body = match self.parse() {
+        let body = match self.try_parse_optional() {
             Ok(body) => body,
             Err(_) => todo!(),
         };

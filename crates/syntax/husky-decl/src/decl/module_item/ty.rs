@@ -306,18 +306,16 @@ impl<'a> DeclParseContext<'a> {
         let mut parser =
             self.expr_parser(node_path, None, AllowSelfType::True, AllowSelfValue::True);
         let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
-        let implicit_parameters = ctx.parse();
+        let implicit_parameters = ctx.try_parse_optional();
         if let Some(lcurl) = ctx.parse_err_as_none::<LeftCurlyBraceToken>() {
-            let field_comma_list = parse_separated_list2(&mut ctx, |e| e.into());
+            let field_comma_list = ctx.try_parse();
             let rcurl = ctx.parse_expected(OriginalDeclExprError::ExpectedRightCurlyBrace);
             RegularStructTypeNodeDecl::new(
                 db,
                 node_path,
                 ast_idx,
                 implicit_parameters,
-                lcurl,
                 field_comma_list,
-                rcurl,
                 parser.finish(),
             )
             .into()

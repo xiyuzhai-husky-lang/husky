@@ -38,7 +38,9 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 )
             })
             .collect::<Vec<_>>();
-        let colon_token = self.parse::<ColonToken>().map_err(|e| e.into());
+        let colon_token = self
+            .try_parse_optional::<ColonToken>()
+            .map_err(|e| e.into());
         let ty = match colon_token {
             Ok(Some(_)) => Some(self.parse_expr_expected2(
                 Some(ExprEnvironment::TypeBeforeEq),

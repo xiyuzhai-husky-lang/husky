@@ -110,9 +110,9 @@ impl<'a> DeclParseContext<'a> {
             AllowSelfValue::False,
         );
         let mut ctx = parser.ctx(None, token_group_idx, None);
-        let impl_token = ctx.parse().unwrap().unwrap();
-        let implicit_parameter_decl_list = ctx.parse()?;
-        let ty = ctx.parse().unwrap().unwrap();
+        let impl_token = ctx.try_parse_optional().unwrap().unwrap();
+        let implicit_parameter_decl_list = ctx.try_parse_optional()?;
+        let ty = ctx.try_parse_optional().unwrap().unwrap();
         let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectedEolColon)?;
         Ok(TypeImplBlockDecl::new(
             db,

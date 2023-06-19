@@ -21,16 +21,16 @@ pub enum SelfParameterDeclPattern {
     },
 }
 
-impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for SelfParameterDeclPattern {
+impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for SelfParameterDeclPattern {
     type Error = ExprError;
 
     // needs more testing
-    fn parse_from_without_guaranteed_rollback(
+    fn try_parse_optional_from_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> Result<Option<Self>, Self::Error> {
-        if let Some(mut_token) = ctx.parse::<MutToken>()? {
-            if let Some(owned_token) = ctx.parse::<OwnedToken>()? {
-                if let Some(self_value_token) = ctx.parse::<SelfValueToken>()? {
+        if let Some(mut_token) = ctx.try_parse_optional::<MutToken>()? {
+            if let Some(owned_token) = ctx.try_parse_optional::<OwnedToken>()? {
+                if let Some(self_value_token) = ctx.try_parse_optional::<SelfValueToken>()? {
                     Ok(Some(Self::MutOwned {
                         mut_token,
                         owned_token,
@@ -39,7 +39,7 @@ impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for SelfParameterDeclPatt
                 } else {
                     Ok(None)
                 }
-            } else if let Some(self_value_token) = ctx.parse::<SelfValueToken>()? {
+            } else if let Some(self_value_token) = ctx.try_parse_optional::<SelfValueToken>()? {
                 Ok(Some(Self::Mut {
                     mut_token,
                     self_value_token,
@@ -47,8 +47,8 @@ impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for SelfParameterDeclPatt
             } else {
                 Ok(None)
             }
-        } else if let Some(owned_token) = ctx.parse::<OwnedToken>()? {
-            if let Some(self_value_token) = ctx.parse::<SelfValueToken>()? {
+        } else if let Some(owned_token) = ctx.try_parse_optional::<OwnedToken>()? {
+            if let Some(self_value_token) = ctx.try_parse_optional::<SelfValueToken>()? {
                 Ok(Some(Self::Owned {
                     owned_token,
                     self_value_token,
@@ -56,7 +56,7 @@ impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for SelfParameterDeclPatt
             } else {
                 Ok(None)
             }
-        } else if let Some(self_value_token) = ctx.parse::<SelfValueToken>()? {
+        } else if let Some(self_value_token) = ctx.try_parse_optional::<SelfValueToken>()? {
             Ok(Some(Self::Pure { self_value_token }))
         } else {
             Ok(None)

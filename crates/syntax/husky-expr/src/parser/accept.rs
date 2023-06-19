@@ -139,7 +139,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             ritchie_kind_token_idx,
                             ritchie_kind,
                             lpar_token,
-                        } => match this.parse::<LightArrowToken>() {
+                        } => match this.try_parse_optional::<LightArrowToken>() {
                             Ok(Some(light_arrow_token)) => IncompleteExpr::Ritchie {
                                 ritchie_kind_token_idx,
                                 ritchie_kind,
@@ -245,47 +245,51 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         self.take_complete_and_push_to_top(|this, finished_expr| match finished_expr {
             Some(self_expr) => {
                 let self_expr = this.alloc_expr(self_expr);
-                match this.parse::<IdentToken>() {
-                    Ok(Some(ident_token)) => match this.parse::<LeftParenthesisToken>() {
-                        Ok(Some(lpar)) => IncompleteExpr::CommaList {
-                            opr: IncompleteCommaListOpr::MethodApplicationOrCall {
-                                self_expr,
-                                dot_token_idx,
-                                ident_token,
-                                implicit_arguments: None,
-                            },
-                            bra: Bracket::Par,
-                            bra_token_idx: lpar.token_idx(),
-                            items: vec![],
-                            commas: smallvec![],
-                        }
-                        .into(),
-                        Ok(None) => match this.parse::<ColonColonLeftAngleBracketToken>() {
-                            Ok(Some(langle)) => IncompleteExpr::CommaList {
-                                opr: IncompleteCommaListOpr::MethodInstantiation {
+                match this.try_parse_optional::<IdentToken>() {
+                    Ok(Some(ident_token)) => {
+                        match this.try_parse_optional::<LeftParenthesisToken>() {
+                            Ok(Some(lpar)) => IncompleteExpr::CommaList {
+                                opr: IncompleteCommaListOpr::MethodApplicationOrCall {
                                     self_expr,
                                     dot_token_idx,
                                     ident_token,
+                                    implicit_arguments: None,
                                 },
-                                bra: Bracket::TemplateAngle,
-                                bra_token_idx: langle.token_idx(),
+                                bra: Bracket::Par,
+                                bra_token_idx: lpar.token_idx(),
                                 items: vec![],
                                 commas: smallvec![],
                             }
                             .into(),
-                            Ok(None) => Expr::Field {
-                                owner: self_expr,
-                                dot_token_idx,
-                                ident_token,
+                            Ok(None) => {
+                                match this.try_parse_optional::<ColonColonLeftAngleBracketToken>() {
+                                    Ok(Some(langle)) => IncompleteExpr::CommaList {
+                                        opr: IncompleteCommaListOpr::MethodInstantiation {
+                                            self_expr,
+                                            dot_token_idx,
+                                            ident_token,
+                                        },
+                                        bra: Bracket::TemplateAngle,
+                                        bra_token_idx: langle.token_idx(),
+                                        items: vec![],
+                                        commas: smallvec![],
+                                    }
+                                    .into(),
+                                    Ok(None) => Expr::Field {
+                                        owner: self_expr,
+                                        dot_token_idx,
+                                        ident_token,
+                                    }
+                                    .into(),
+                                    Err(_) => todo!(),
+                                }
                             }
-                            .into(),
-                            Err(_) => todo!(),
-                        },
-                        Err(e) => {
-                            p!(e);
-                            todo!()
+                            Err(e) => {
+                                p!(e);
+                                todo!()
+                            }
                         }
-                    },
+                    }
                     _ => {
                         Expr::Err(OriginalExprError::ExpectedIdentAfterDot { dot_token_idx }.into())
                             .into()
@@ -446,7 +450,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         Ok(arguments) => arguments,
                         Err(e) => return Expr::Err(e).into(),
                     };
-                    match parser.parse::<EmptyHtmlKetToken>() {
+                    match parser.try_parse_optional::<EmptyHtmlKetToken>() {
                         Ok(Some(empty_html_ket)) => Expr::EmptyHtmlTag {
                             empty_html_bra_idx: bra_token_idx,
                             function_ident,
@@ -463,7 +467,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
     }
 
     fn accept_ritchie(&mut self, ritchie_kind_token_idx: TokenIdx, ritchie_kind: RitchieKind) {
-        match self.parse::<LeftParenthesisToken>() {
+        match self.try_parse_optional::<LeftParenthesisToken>() {
             Ok(Some(lpar_token)) => self.push_top_expr(
                 IncompleteExpr::CommaList {
                     opr: IncompleteCommaListOpr::RitchieArguments {

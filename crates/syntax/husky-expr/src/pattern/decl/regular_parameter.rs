@@ -11,10 +11,10 @@ pub struct RegularParameterDeclPattern {
     ty: ExprIdx,
 }
 
-impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for RegularParameterDeclPattern {
+impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for RegularParameterDeclPattern {
     type Error = ExprError;
 
-    fn parse_from_without_guaranteed_rollback(
+    fn try_parse_optional_from_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> ExprResult<Option<Self>> {
         if let Some(pattern) = ctx.parse_pattern_expr(PatternExprInfo::Parameter)? {

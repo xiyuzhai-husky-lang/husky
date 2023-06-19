@@ -84,7 +84,7 @@ impl<'a> DeclParseContext<'a> {
     ) -> DeclResult<TraitDecl> {
         let mut parser = self.expr_parser(id, None, AllowSelfType::True, AllowSelfValue::False);
         let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
-        let implicit_parameters = ctx.parse()?;
+        let implicit_parameters = ctx.try_parse_optional()?;
         Ok(TraitDecl::new(
             self.db(),
             id,

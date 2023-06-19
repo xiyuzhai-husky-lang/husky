@@ -35,7 +35,7 @@ impl<'a> DeclParseContext<'a> {
     ) -> Result<FugitiveDecl, DeclError> {
         let mut parser = self.expr_parser(id, None, AllowSelfType::False, AllowSelfValue::False);
         let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
-        let colon_token = ctx.parse()?;
+        let colon_token = ctx.try_parse_optional()?;
         let form_ty = if colon_token.is_some() {
             Some(ctx.parse_expected(OriginalDeclExprError::ExpectedVariableType)?)
         } else {

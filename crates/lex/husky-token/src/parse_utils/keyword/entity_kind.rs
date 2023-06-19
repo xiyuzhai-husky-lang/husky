@@ -35,13 +35,15 @@ pub struct ConstToken {
     token_idx: TokenIdx,
 }
 
-impl<'a, Context> parsec::ParseFromStream<Context> for ConstToken
+impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for ConstToken
 where
     Context: TokenParseContext<'a>,
 {
     type Error = TokenError;
 
-    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
+    fn try_parse_optional_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> TokenResult<Option<Self>> {
         let token_stream: &mut TokenStream<'a> = &mut ctx.borrow_mut();
         let Some((token_idx, token)) = token_stream.next_indexed() else {
             return Ok(None)
@@ -147,13 +149,15 @@ pub struct GnToken {
     token_idx: TokenIdx,
 }
 
-impl<'a, Context> parsec::ParseFromStream<Context> for EntityKindKeywordGroup
+impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for EntityKindKeywordGroup
 where
     Context: TokenParseContext<'a>,
 {
     type Error = TokenError;
 
-    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
+    fn try_parse_optional_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> TokenResult<Option<Self>> {
         let token_stream: &mut TokenStream<'a> = &mut ctx.borrow_mut();
         let Some((token_idx, token)) = token_stream.next_indexed() else {
             return Ok(None)

@@ -14,16 +14,16 @@ pub struct ExplicitParameterDeclList {
     rpar: RightParenthesisToken,
 }
 
-impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for ExplicitParameterDeclList {
+impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for ExplicitParameterDeclList {
     type Error = DeclExprError;
 
-    fn parse_from_without_guaranteed_rollback(
+    fn try_parse_optional_from_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> Result<Option<Self>, DeclExprError> {
-        let Some(lpar) = ctx.parse::<LeftParenthesisToken>()? else {
+        let Some(lpar) = ctx.try_parse_optional::<LeftParenthesisToken>()? else {
             return Ok(None)
         };
-        let self_parameter: Option<SelfParameterDeclPattern> = ctx.parse()?;
+        let self_parameter: Option<SelfParameterDeclPattern> = ctx.try_parse_optional()?;
         let comma_after_self_parameter = if self_parameter.is_some() {
             ctx.parse_err_as_none::<CommaToken>()
         } else {
