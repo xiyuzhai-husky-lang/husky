@@ -6,7 +6,7 @@ pub struct StructureTypeNodeDecl {
     pub node_path: TypeNodePath,
     pub ast_idx: AstIdx,
     #[return_ref]
-    implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
+    implicit_parameter_decl_list: DeclExprResult<Option<ImplicitParameterDeclList>>,
     pub expr_region: ExprRegion,
 }
 
@@ -16,6 +16,29 @@ impl StructureTypeNodeDecl {
             .as_ref()
             .map(ImplicitParameterDeclList::implicit_parameters)
             .unwrap_or(&[])
+    }
+}
+
+impl<'a> DeclParseContext<'a> {
+    pub(super) fn parse_structure_ty_node_decl(
+        &self,
+        node_path: TypeNodePath,
+        ast_idx: AstIdx,
+        token_group_idx: TokenGroupIdx,
+        saved_stream_state: TokenStreamState,
+    ) -> TypeNodeDecl {
+        let mut parser =
+            self.expr_parser(node_path, None, AllowSelfType::True, AllowSelfValue::True);
+        let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
+        let implicit_parameters = ctx.parse();
+        StructureTypeNodeDecl::new(
+            self.db(),
+            node_path,
+            ast_idx,
+            implicit_parameters,
+            parser.finish(),
+        )
+        .into()
     }
 }
 
@@ -34,24 +57,5 @@ impl StructureTypeDecl {
             .as_ref()
             .map(ImplicitParameterDeclList::implicit_parameters)
             .unwrap_or(&[])
-    }
-}
-
-impl<'a> DeclParseContext<'a> {
-    pub(super) fn parse_structure_ty_decl(
-        &self,
-        node_path: TypeNodePath,
-        ast_idx: AstIdx,
-        token_group_idx: TokenGroupIdx,
-        saved_stream_state: TokenStreamState,
-    ) -> DeclResult<TypeDecl> {
-        let mut parser =
-            self.expr_parser(node_path, None, AllowSelfType::True, AllowSelfValue::True);
-        let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
-        let implicit_parameters = ctx.parse()?;
-        Ok(
-            StructureTypeDecl::new(self.db(), node_path, implicit_parameters, parser.finish())
-                .into(),
-        )
     }
 }

@@ -8,21 +8,22 @@ pub struct RegularStructTypeNodeDecl {
     pub node_path: TypeNodePath,
     pub ast_idx: AstIdx,
     #[return_ref]
-    implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
+    implicit_parameter_decl_list: DeclExprResult<Option<ImplicitParameterDeclList>>,
     pub lcurl: LeftCurlyBraceToken,
     #[return_ref]
-    field_comma_list: (Vec<RegularStructFieldDeclPattern>, Vec<CommaToken>),
+    field_comma_list: DeclExprResult<(Vec<RegularStructFieldDeclPattern>, Vec<CommaToken>)>,
     #[return_ref]
-    pub rcurl: RightCurlyBraceToken,
+    pub rcurl: DeclExprResult<RightCurlyBraceToken>,
     pub expr_region: ExprRegion,
 }
 
 impl RegularStructTypeNodeDecl {
     pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDeclPattern] {
-        self.implicit_parameter_decl_list(db)
-            .as_ref()
-            .map(ImplicitParameterDeclList::implicit_parameters)
-            .unwrap_or(&[])
+        todo!()
+        // self.implicit_parameter_decl_list(db)
+        //     .as_ref()
+        //     .map(ImplicitParameterDeclList::implicit_parameters)
+        //     .unwrap_or(&[])
     }
 
     pub fn fields<'a>(self, db: &'a dyn DeclDb) -> &'a [RegularStructFieldDeclPattern] {

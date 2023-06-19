@@ -203,11 +203,12 @@ impl HasDecl for TypeNodePath {
 
 #[salsa::tracked(jar = DeclJar, return_ref)]
 pub(crate) fn ty_decl_aux(db: &dyn DeclDb, id: TypeNodePath) -> DeclResult<TypeDecl> {
-    DeclParseContext::new(db, id.module_path(db))?.parse_ty_decl(id)
+    todo!()
+    // DeclParseContext::new(db, id.module_path(db))?.parse_ty_decl(id)
 }
 
 impl<'a> DeclParseContext<'a> {
-    fn parse_ty_decl(&self, node_path: TypeNodePath) -> DeclResult<TypeDecl> {
+    fn parse_ty_node_decl(&self, node_path: TypeNodePath) -> TypeNodeDecl {
         let db = self.db();
         let node = node_path.node(db);
         let ast_idx: AstIdx = node.ast_idx(db);
@@ -218,7 +219,7 @@ impl<'a> DeclParseContext<'a> {
                 entity_kind,
                 saved_stream_state,
                 ..
-            } => self.parse_ty_decl_aux(
+            } => self.parse_ty_node_decl_aux(
                 node_path,
                 ast_idx,
                 path.ty_kind(self.db()),
@@ -231,7 +232,7 @@ impl<'a> DeclParseContext<'a> {
         }
     }
 
-    fn parse_ty_decl_aux(
+    fn parse_ty_node_decl_aux(
         &self,
         node_path: TypeNodePath,
         ast_idx: AstIdx,
@@ -240,30 +241,39 @@ impl<'a> DeclParseContext<'a> {
         token_group_idx: TokenGroupIdx,
         variants: Option<TypeVariants>,
         saved_stream_state: TokenStreamState,
-    ) -> DeclResult<TypeDecl> {
+    ) -> TypeNodeDecl {
         match type_kind {
-            TypeKind::Enum => self.parse_enum_ty_decl(
-                node_path,
-                ast_idx,
-                token_group_idx,
-                variants.expect("guaranteed by `husky-ast`"),
-                saved_stream_state,
-            ),
-            TypeKind::Inductive => self.parse_inductive_ty_decl(
-                ast_idx,
-                node_path,
-                token_group_idx,
-                variants.expect("guaranteed by `husky-ast`"),
-                saved_stream_state,
-            ),
+            TypeKind::Enum => self
+                .parse_enum_ty_node_decl(
+                    node_path,
+                    ast_idx,
+                    token_group_idx,
+                    variants.expect("guaranteed by `husky-ast`"),
+                    saved_stream_state,
+                )
+                .into(),
+            TypeKind::Inductive => self
+                .parse_inductive_ty_node_decl(
+                    ast_idx,
+                    node_path,
+                    token_group_idx,
+                    variants.expect("guaranteed by `husky-ast`"),
+                    saved_stream_state,
+                )
+                .into(),
             TypeKind::Record => todo!(),
             TypeKind::Struct => {
                 debug_assert!(variants.is_none());
-                self.parse_struct_ty_decl(node_path, ast_idx, token_group_idx, saved_stream_state)
+                self.parse_struct_ty_node_decl(
+                    node_path,
+                    ast_idx,
+                    token_group_idx,
+                    saved_stream_state,
+                )
             }
             TypeKind::Structure => {
                 debug_assert!(variants.is_none());
-                self.parse_structure_ty_decl(
+                self.parse_structure_ty_node_decl(
                     node_path,
                     ast_idx,
                     token_group_idx,
@@ -272,55 +282,64 @@ impl<'a> DeclParseContext<'a> {
             }
             TypeKind::Extern => {
                 debug_assert!(variants.is_none());
-                self.parse_extern_ty_decl(node_path, ast_idx, token_group_idx, saved_stream_state)
+                self.parse_extern_ty_node_decl(
+                    node_path,
+                    ast_idx,
+                    token_group_idx,
+                    saved_stream_state,
+                )
+                .into()
             }
         }
     }
 }
 
 impl<'a> DeclParseContext<'a> {
-    pub(super) fn parse_struct_ty_decl(
+    pub(super) fn parse_struct_ty_node_decl(
         &self,
         node_path: TypeNodePath,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
         saved_stream_state: TokenStreamState,
-    ) -> DeclResult<TypeDecl> {
+    ) -> TypeNodeDecl {
         let db = self.db();
         let mut parser =
             self.expr_parser(node_path, None, AllowSelfType::True, AllowSelfValue::True);
         let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
-        let implicit_parameters = ctx.parse()?;
-        if let Some(lcurl) = ctx.parse::<LeftCurlyBraceToken>()? {
-            let (parameters, commas) = parse_separated_list2(&mut ctx, |e| e)?;
-            let rcurl = ctx.parse_expected(OriginalDeclExprError::ExpectedRightCurlyBrace)?;
-            Ok(RegularStructTypeDecl::new(
+        let implicit_parameters = ctx.parse();
+        if let Some(lcurl) = ctx.parse_err_as_none::<LeftCurlyBraceToken>() {
+            let field_comma_list = parse_separated_list2(&mut ctx, |e| e.into());
+            let rcurl = ctx.parse_expected(OriginalDeclExprError::ExpectedRightCurlyBrace);
+            RegularStructTypeNodeDecl::new(
                 db,
                 node_path,
+                ast_idx,
                 implicit_parameters,
                 lcurl,
-                (parameters, commas),
+                field_comma_list,
                 rcurl,
                 parser.finish(),
             )
-            .into())
-        } else if let Some(lpar) = ctx.parse::<LeftParenthesisToken>()? {
-            let (parameters, commas) = parse_separated_list2(&mut ctx, |e| e)?;
+            .into()
+        } else if let Some(lpar) = ctx.parse_err_as_none::<LeftParenthesisToken>() {
+            let field_comma_list = parse_separated_list2(&mut ctx, |e| e);
             let rpar = ctx.parse_expected(
                 OriginalDeclExprError::ExpectedRightParenthesisInTupleStructFieldTypeList,
-            )?;
-            Ok(TupleStructTypeDecl::new(
+            );
+            TupleStructTypeNodeDecl::new(
                 db,
                 node_path,
+                ast_idx,
                 implicit_parameters,
                 lpar,
-                (parameters, commas),
+                field_comma_list,
                 rpar,
                 parser.finish(),
             )
-            .into())
+            .into()
         } else {
-            Err(OriginalDeclError::ExpectedLCurlOrLParOrSemicolon(ctx.save_state()).into())
+            todo!()
+            // Err(OriginalDeclError::ExpectedLCurlOrLParOrSemicolon(ctx.save_state()).into())
         }
     }
 }
