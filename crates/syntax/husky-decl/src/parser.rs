@@ -20,16 +20,18 @@ pub(crate) struct DeclParseContext<'a> {
 }
 
 impl<'a> DeclParseContext<'a> {
-    pub(crate) fn new(db: &'a dyn DeclDb, path: ModulePath) -> EntityTreeResult<Self> {
-        let module_symbol_context = db.module_symbol_context(path)?;
-        Ok(Self {
+    pub(crate) fn new(db: &'a dyn DeclDb, path: ModulePath) -> Self {
+        let module_symbol_context = db.module_symbol_context(path).expect("valid module");
+        Self {
             db,
             module_symbol_context,
-            token_sheet_data: db.token_sheet_data(path)?,
-            ast_sheet: db.ast_sheet(path)?,
-            entity_tree_sheet: db.entity_tree_sheet(path)?,
-            entity_tree_crate_bundle: db.entity_tree_bundle(path.crate_path(db))?,
-        })
+            token_sheet_data: db.token_sheet_data(path).expect("valid module"),
+            ast_sheet: db.ast_sheet(path).expect("valid module"),
+            entity_tree_sheet: db.entity_tree_sheet(path).expect("valid module"),
+            entity_tree_crate_bundle: db
+                .entity_tree_bundle(path.crate_path(db))
+                .expect("valid module"),
+        }
     }
 
     #[inline(always)]

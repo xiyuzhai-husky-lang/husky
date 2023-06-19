@@ -82,16 +82,6 @@ pub enum Decl {
 }
 
 impl Decl {
-    pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
-        match self {
-            Decl::Submodule(_) => todo!(),
-            Decl::ModuleItem(decl) => decl.ast_idx(db),
-            Decl::ImplBlock(decl) => decl.ast_idx(db),
-            Decl::AssociatedItem(decl) => decl.ast_idx(db),
-            Decl::TypeVariant(decl) => decl.ast_idx(db),
-        }
-    }
-
     pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDeclPattern] {
         match self {
             Decl::Submodule(_) => todo!(),

@@ -43,15 +43,12 @@ pub struct EnumTypeDecl {
     #[id]
     pub node_path: TypeNodePath,
     #[return_ref]
-    implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
+    pub implicit_parameters: ImplicitParameterDeclPatterns,
     pub expr_region: ExprRegion,
 }
 
 impl EnumTypeDecl {
-    pub fn implicit_parameters(self, db: &dyn DeclDb) -> &[ImplicitParameterDeclPattern] {
-        self.implicit_parameter_decl_list(db)
-            .as_ref()
-            .map(ImplicitParameterDeclList::implicit_parameters)
-            .unwrap_or(&[])
+    pub(super) fn from_node_decl(db: &dyn DeclDb, node_decl: EnumTypeNodeDecl) -> DeclResult<Self> {
+        todo!()
     }
 }

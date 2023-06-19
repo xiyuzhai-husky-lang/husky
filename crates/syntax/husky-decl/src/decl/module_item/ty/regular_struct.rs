@@ -10,13 +10,11 @@ pub struct RegularStructTypeNodeDecl {
     #[return_ref]
     implicit_parameter_decl_list: DeclExprResult<Option<ImplicitParameterDeclList>>,
     #[return_ref]
-    struct_fields: DeclExprResult<
-        SeparatedListWithKet<
-            RegularStructFieldDeclPattern,
-            CommaToken,
-            RightCurlyBraceToken,
-            DeclExprError,
-        >,
+    struct_fields: SeparatedListWithKet<
+        RegularStructFieldDeclPattern,
+        CommaToken,
+        RightCurlyBraceToken,
+        DeclExprError,
     >,
     pub expr_region: ExprRegion,
 }
@@ -51,6 +49,13 @@ pub struct RegularStructTypeDecl {
 }
 
 impl RegularStructTypeDecl {
+    pub(super) fn from_node_decl(
+        db: &dyn DeclDb,
+        node_decl: RegularStructTypeNodeDecl,
+    ) -> DeclResult<Self> {
+        todo!()
+    }
+
     pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDeclPattern] {
         self.implicit_parameter_decl_list(db)
             .as_ref()

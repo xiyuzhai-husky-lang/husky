@@ -284,7 +284,7 @@ impl<'a, 'b> UseExprParser<'a, 'b> {
 
 impl<'a, 'b> TryParseOptionalFromStream<UseExprParser<'a, 'b>> for UseExpr {
     type Error = UseExprError;
-    fn try_parse_optional_from_without_guaranteed_rollback(
+    fn try_parse_stream_optional_from_without_guaranteed_rollback(
         ctx: &mut UseExprParser<'a, 'b>,
     ) -> UseExprResult<Option<Self>> {
         if let Some(star_token) = ctx.try_parse_optional::<StarToken>()? {

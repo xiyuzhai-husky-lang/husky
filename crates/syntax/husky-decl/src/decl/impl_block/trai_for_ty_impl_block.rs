@@ -57,16 +57,16 @@ impl HasDecl for TraitForTypeImplBlockNode {
     type Decl = TraitForTypeImplBlockDecl;
 
     fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
-        trai_for_ty_impl_block_decl_aux(db, self).as_ref().copied()
+        trai_for_ty_impl_block_decl(db, self).as_ref().copied()
     }
 }
 
 #[salsa::tracked(jar = DeclJar, return_ref)]
-pub(crate) fn trai_for_ty_impl_block_decl_aux(
+pub(crate) fn trai_for_ty_impl_block_decl(
     db: &dyn DeclDb,
     impl_block: TraitForTypeImplBlockNode,
 ) -> DeclResult<TraitForTypeImplBlockDecl> {
-    let parser = DeclParseContext::new(db, impl_block.module_path(db))?;
+    let parser = DeclParseContext::new(db, impl_block.module_path(db));
     Ok(parser.parse_trai_for_ty_impl_block_decl(impl_block)?.into())
 }
 

@@ -17,7 +17,7 @@ pub struct ExplicitParameterDeclList {
 impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for ExplicitParameterDeclList {
     type Error = DeclExprError;
 
-    fn try_parse_optional_from_without_guaranteed_rollback(
+    fn try_parse_stream_optional_from_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> Result<Option<Self>, DeclExprError> {
         let Some(lpar) = ctx.try_parse_optional::<LeftParenthesisToken>()? else {

@@ -23,7 +23,7 @@ where
         stream: &mut Context,
     ) -> Result<Option<Self>, <P as TryParseOptionalFromStream<Context>>::Error> {
         let state = stream.save_state();
-        let result = Self::try_parse_optional_from_without_guaranteed_rollback(stream);
+        let result = Self::try_parse_stream_optional_from_without_guaranteed_rollback(stream);
         match result {
             // rollback for no pattern
             Ok(None) => stream.rollback(state),
@@ -34,7 +34,7 @@ where
 
     fn parse_option_from_with_rollback_ignoring_error<'a>(stream: &mut Context) -> Option<Self> {
         let state = stream.save_state();
-        let result = Self::try_parse_optional_from_without_guaranteed_rollback(stream);
+        let result = Self::try_parse_stream_optional_from_without_guaranteed_rollback(stream);
         match result {
             Ok(Some(patt)) => Some(patt),
             Ok(None) | Err(_) => {

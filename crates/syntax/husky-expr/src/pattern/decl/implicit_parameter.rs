@@ -2,7 +2,7 @@ use parsec::HasStreamState;
 
 use super::*;
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub struct ImplicitParameterDeclPattern {
     annotated_variance_token: Option<VarianceToken>,
@@ -24,7 +24,7 @@ impl ImplicitParameterDeclPattern {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub enum ImplicitParameterDeclPatternVariant {
     Type {
@@ -48,7 +48,7 @@ pub enum ImplicitParameterDeclPatternVariant {
 impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for ImplicitParameterDeclPattern {
     type Error = ExprError;
 
-    fn try_parse_optional_from_without_guaranteed_rollback(
+    fn try_parse_stream_optional_from_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> ExprResult<Option<Self>> {
         let annotated_variance_token = ctx.parse_err_as_none();

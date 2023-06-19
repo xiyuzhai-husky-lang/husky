@@ -9,9 +9,10 @@ pub struct TypeImplBlockNodeDecl {
     pub impl_block: TypeImplBlockNode,
     pub impl_token: ImplToken,
     #[return_ref]
-    implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
+    implicit_parameter_decl_list: DeclExprResult<Option<ImplicitParameterDeclList>>,
     pub ty_expr: TypeExpr,
-    pub eol_colon: EolToken,
+    #[return_ref]
+    pub eol_colon: DeclExprResult<EolToken>,
     pub expr_region: ExprRegion,
 }
 
@@ -19,7 +20,7 @@ impl HasNodeDecl for TypeImplBlockNodePath {
     type NodeDecl = TypeImplBlockNodeDecl;
 
     fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
-        todo!()
+        ty_impl_block_node_decl(db, self)
     }
 }
 
@@ -31,27 +32,69 @@ impl HasNodeDecl for TypeImplBlockNode {
     }
 }
 
-#[salsa::tracked(db = DeclDb, jar = DeclJar)]
+#[salsa::tracked(jar = DeclJar)]
+pub(crate) fn ty_impl_block_node_decl(
+    db: &dyn DeclDb,
+    node_path: TypeImplBlockNodePath,
+) -> TypeImplBlockNodeDecl {
+    let parser = DeclParseContext::new(db, node_path.module_path(db));
+    parser.parse_ty_impl_block_node_decl(node_path)
+}
+
+impl<'a> DeclParseContext<'a> {
+    fn parse_ty_impl_block_node_decl(
+        &self,
+        node_path: TypeImplBlockNodePath,
+    ) -> TypeImplBlockNodeDecl {
+        let db = self.db();
+        let node = node_path.node(db);
+        let ast_idx = node.ast_idx(db);
+        match self.ast_sheet()[ast_idx] {
+            Ast::ImplBlock {
+                token_group_idx,
+                items: _,
+            } => self.parse_ty_impl_block_decl_aux(node_path, node, ast_idx, token_group_idx),
+            _ => unreachable!(),
+        }
+    }
+
+    fn parse_ty_impl_block_decl_aux(
+        &self,
+        node_path: TypeImplBlockNodePath,
+        node: TypeImplBlockNode,
+        ast_idx: AstIdx,
+        token_group_idx: TokenGroupIdx,
+    ) -> TypeImplBlockNodeDecl {
+        let db = self.db();
+        let mut parser =
+            self.expr_parser(node_path, None, AllowSelfType::True, AllowSelfValue::False);
+        let mut ctx = parser.ctx(None, token_group_idx, None);
+        let impl_token = ctx.try_parse_optional().unwrap().unwrap();
+        let implicit_parameter_decl_list = ctx.try_parse_optional();
+        let ty = ctx.try_parse_optional().unwrap().unwrap();
+        let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectedEolColon);
+        TypeImplBlockNodeDecl::new(
+            db,
+            node_path,
+            ast_idx,
+            node,
+            impl_token,
+            implicit_parameter_decl_list,
+            ty,
+            eol_colon,
+            parser.finish(),
+        )
+    }
+}
+
+#[salsa::tracked(db = DeclDb, jar = DeclJar, constructor = new)]
 pub struct TypeImplBlockDecl {
     #[id]
     pub node_path: TypeImplBlockNodePath,
-    pub ast_idx: AstIdx,
-    pub impl_block: TypeImplBlockNode,
-    pub impl_token: ImplToken,
     #[return_ref]
-    implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
+    pub implicit_parameters: ImplicitParameterDeclPatterns,
     pub ty_expr: TypeExpr,
-    pub eol_colon: EolToken,
     pub expr_region: ExprRegion,
-}
-
-impl TypeImplBlockDecl {
-    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDeclPattern] {
-        self.implicit_parameter_decl_list(db)
-            .as_ref()
-            .map(ImplicitParameterDeclList::implicit_parameters)
-            .unwrap_or(&[])
-    }
 }
 
 impl From<TypeImplBlockDecl> for Decl {
@@ -64,66 +107,43 @@ impl HasDecl for TypeImplBlockPath {
     type Decl = TypeImplBlockDecl;
 
     fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
-        todo!()
-        // ty_impl_block_decl_aux(db, self).as_ref().copied()
+        ty_impl_block_decl(db, self).as_ref().copied()
     }
 }
 
 #[salsa::tracked(jar = DeclJar, return_ref)]
-pub(crate) fn ty_impl_block_decl_aux(
+pub(crate) fn ty_impl_block_decl(
     db: &dyn DeclDb,
-    impl_block: TypeImplBlockNode,
+    // here use path instead of node_path because salsa doesn't support use wrapper type by default
+    // maybe add AsId carefully
+    path: TypeImplBlockPath,
 ) -> DeclResult<TypeImplBlockDecl> {
-    let parser = DeclParseContext::new(db, impl_block.module_path(db))?;
-    Ok(parser.parse_ty_impl_block_decl(impl_block)?.into())
+    let node_path = path.node_path(db);
+    let node_decl = node_path.node_decl(db);
+    TypeImplBlockDecl::from_node_decl(db, node_path, node_decl)
 }
 
-impl<'a> DeclParseContext<'a> {
-    fn parse_ty_impl_block_decl(
-        &self,
-        impl_block: TypeImplBlockNode,
-    ) -> DeclResult<TypeImplBlockDecl> {
-        let ast_idx = impl_block.ast_idx(self.db());
-        match self.ast_sheet()[ast_idx] {
-            Ast::ImplBlock {
-                token_group_idx,
-                items: _,
-            } => Ok(self
-                .parse_ty_impl_block_decl_aux(ast_idx, token_group_idx, impl_block)?
-                .into()),
-            _ => unreachable!(),
-        }
-    }
-
-    fn parse_ty_impl_block_decl_aux(
-        &self,
-        ast_idx: AstIdx,
-        token_group_idx: TokenGroupIdx,
-        impl_block: TypeImplBlockNode,
-    ) -> DeclResult<TypeImplBlockDecl> {
-        let db = self.db();
-        let node_path = todo!();
-        let mut parser = self.expr_parser(
-            impl_block.node_path(db),
-            None,
-            AllowSelfType::True,
-            AllowSelfValue::False,
-        );
-        let mut ctx = parser.ctx(None, token_group_idx, None);
-        let impl_token = ctx.try_parse_optional().unwrap().unwrap();
-        let implicit_parameter_decl_list = ctx.try_parse_optional()?;
-        let ty = ctx.try_parse_optional().unwrap().unwrap();
-        let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectedEolColon)?;
-        Ok(TypeImplBlockDecl::new(
+impl TypeImplBlockDecl {
+    fn from_node_decl(
+        db: &dyn DeclDb,
+        node_path: TypeImplBlockNodePath,
+        node_decl: TypeImplBlockNodeDecl,
+    ) -> DeclResult<Self> {
+        let implicit_parameters = node_decl
+            .implicit_parameter_decl_list(db)
+            .as_ref()?
+            .as_ref()
+            .map(|list| list.implicit_parameters().to_smallvec())
+            .unwrap_or_default();
+        let ty_expr = node_decl.ty_expr(db);
+        let expr_region = node_decl.expr_region(db);
+        node_decl.eol_colon(db).as_ref()?;
+        Ok(Self::new(
             db,
             node_path,
-            ast_idx,
-            impl_block,
-            impl_token,
-            implicit_parameter_decl_list,
-            ty,
-            eol_colon,
-            parser.finish(),
+            implicit_parameters,
+            ty_expr,
+            expr_region,
         ))
     }
 }

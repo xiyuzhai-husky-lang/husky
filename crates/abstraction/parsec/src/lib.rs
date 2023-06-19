@@ -50,6 +50,9 @@ pub trait StreamParser: HasStreamState {
         &mut self,
     ) -> Result<P, <P as TryParseFromStream<Self>>::Error>;
 
+    #[inline(always)]
+    fn parse<P: ParseFromStream<Self>>(&mut self) -> P;
+
     fn parse_err_as_none<P: TryParseOptionalFromStream<Self>>(&mut self) -> Option<P>;
 
     fn parse_expected<T: TryParseOptionalFromStream<Self>, E: OriginalError>(
@@ -94,6 +97,11 @@ where
     ) -> Result<P, <P as TryParseFromStream<Self>>::Error> {
         todo!()
         // P::parse_from_with_rollback_when_no_error(self)
+    }
+
+    #[inline(always)]
+    fn parse<P: ParseFromStream<Self>>(&mut self) -> P {
+        todo!()
     }
 
     #[inline(always)]
@@ -148,7 +156,7 @@ where
     type Error;
 
     /// no guarantee on stream state other than Ok(Some(_))
-    fn try_parse_optional_from_without_guaranteed_rollback(
+    fn try_parse_stream_optional_from_without_guaranteed_rollback(
         sp: &mut SP,
     ) -> Result<Option<Self>, Self::Error>;
 }
@@ -160,7 +168,14 @@ where
     type Error;
 
     /// no guarantee on stream state other than Ok(Some(_))
-    fn try_parse_from_without_guaranteed_rollback(sp: &mut SP) -> Result<Self, Self::Error>;
+    fn try_parse_stream_from_without_guaranteed_rollback(sp: &mut SP) -> Result<Self, Self::Error>;
+}
+
+pub trait ParseFromStream<SP>: Sized
+where
+    SP: StreamParser + ?Sized,
+{
+    fn parse_from_stream(sp: &mut SP) -> Self;
 }
 
 pub trait TryParseOptionFromStreamWithContext<SP>: Sized

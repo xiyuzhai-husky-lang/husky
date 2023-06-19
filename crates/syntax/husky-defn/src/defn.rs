@@ -35,7 +35,8 @@ impl Defn {
     }
 
     pub fn ast_idx(self, db: &dyn DefnDb) -> AstIdx {
-        self.decl(db).ast_idx(db)
+        todo!()
+        // self.decl(db).ast_idx(db)
     }
 
     pub fn implicit_parameters<'a>(self, db: &'a dyn DefnDb) -> &'a [ImplicitParameterDeclPattern] {

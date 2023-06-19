@@ -1,17 +1,26 @@
 Ok(
-    DeclSheet {
+    NodeDeclSheet {
         [salsa id]: 2,
         decls: [
             (
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Type(
-                        TypePath(`core::basic::bool`, `Extern`),
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Type(
+                        TypeNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(
+                                    Id {
+                                        value: 2,
+                                    },
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Decl::ModuleItem(
-                    ModuleItemDecl::Type(
-                        TypeDecl::Extern(
-                            ExternTypeDecl {
+                NodeDecl::ModuleItem(
+                    ModuleItemNodeDecl::Type(
+                        TypeNodeDecl::Extern(
+                            ExternTypeNodeDecl {
                                 node_path: TypeNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(
@@ -22,7 +31,10 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                implicit_parameters: [],
+                                ast_idx: 0,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
@@ -87,15 +99,24 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Type(
-                        TypePath(`core::basic::never`, `Extern`),
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Type(
+                        TypeNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(
+                                    Id {
+                                        value: 3,
+                                    },
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Decl::ModuleItem(
-                    ModuleItemDecl::Type(
-                        TypeDecl::Extern(
-                            ExternTypeDecl {
+                NodeDecl::ModuleItem(
+                    ModuleItemNodeDecl::Type(
+                        TypeNodeDecl::Extern(
+                            ExternTypeNodeDecl {
                                 node_path: TypeNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(
@@ -106,7 +127,10 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                implicit_parameters: [],
+                                ast_idx: 1,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
@@ -171,15 +195,24 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Type(
-                        TypePath(`core::basic::unit`, `Extern`),
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Type(
+                        TypeNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(
+                                    Id {
+                                        value: 4,
+                                    },
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Decl::ModuleItem(
-                    ModuleItemDecl::Type(
-                        TypeDecl::Extern(
-                            ExternTypeDecl {
+                NodeDecl::ModuleItem(
+                    ModuleItemNodeDecl::Type(
+                        TypeNodeDecl::Extern(
+                            ExternTypeNodeDecl {
                                 node_path: TypeNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(
@@ -190,7 +223,10 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                implicit_parameters: [],
+                                ast_idx: 2,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
@@ -255,15 +291,24 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Type(
-                        TypePath(`core::basic::Trait`, `Structure`),
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Type(
+                        TypeNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(
+                                    Id {
+                                        value: 5,
+                                    },
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Decl::ModuleItem(
-                    ModuleItemDecl::Type(
-                        TypeDecl::Structure(
-                            StructureTypeDecl {
+                NodeDecl::ModuleItem(
+                    ModuleItemNodeDecl::Type(
+                        TypeNodeDecl::Structure(
+                            StructureTypeNodeDecl {
                                 node_path: TypeNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(
@@ -274,7 +319,10 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                implicit_parameters: [],
+                                ast_idx: 3,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
@@ -339,15 +387,24 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Type(
-                        TypePath(`core::basic::Module`, `Structure`),
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Type(
+                        TypeNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(
+                                    Id {
+                                        value: 6,
+                                    },
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Decl::ModuleItem(
-                    ModuleItemDecl::Type(
-                        TypeDecl::Structure(
-                            StructureTypeDecl {
+                NodeDecl::ModuleItem(
+                    ModuleItemNodeDecl::Type(
+                        TypeNodeDecl::Structure(
+                            StructureTypeNodeDecl {
                                 node_path: TypeNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(
@@ -358,7 +415,10 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                implicit_parameters: [],
+                                ast_idx: 4,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,

@@ -42,14 +42,12 @@ pub struct SeparatedListWithKet<Element, Separator, Ket, Error> {
     result: Result<(), Error>,
 }
 
-impl<SP, Element, Separator, Ket, Error> TryParseFromStream<SP>
+impl<SP, Element, Separator, Ket, Error> ParseFromStream<SP>
     for SeparatedListWithKet<Element, Separator, Ket, Error>
 where
     SP: StreamParser + ?Sized,
 {
-    type Error = Error;
-
-    fn try_parse_from_without_guaranteed_rollback(sp: &mut SP) -> Result<Self, Self::Error> {
+    fn parse_from_stream(sp: &mut SP) -> Self {
         todo!()
     }
 }
@@ -139,6 +137,55 @@ where
 {
     let mut elements = vec![];
     let mut separators = vec![];
+    let result = loop {
+        let state = ctx.save_state();
+        match ctx.try_parse_optional::<Element>() {
+            Ok(Some(element)) => {
+                elements.push(element);
+                match ctx.try_parse_optional::<Separator>() {
+                    Ok(Some(separator)) => separators.push(separator),
+                    Ok(None) => {
+                        if elements.len() < nelem_min {
+                            break Err(f(state).into());
+                        } else {
+                            break Ok(());
+                        }
+                    }
+                    Err(error) => break Err(error.into()),
+                }
+            }
+            Ok(None) => {
+                if elements.len() < nelem_min {
+                    break Err(f(state).into());
+                } else {
+                    break Ok(());
+                }
+            }
+            Err(error) => break Err(error.into()),
+        }
+    };
+    assert!(result.is_err() || elements.len() >= nelem_min);
+    (elements, separators, result)
+}
+
+pub fn parse_separated_small2_list_expected<Context, Element, Separator, E: OriginalError>(
+    ctx: &mut Context,
+    nelem_min: usize,
+    f: impl FnOnce(<Context as HasStreamState>::State) -> E,
+) -> (
+    smallvec::SmallVec<[Element; 2]>,
+    smallvec::SmallVec<[Separator; 2]>,
+    Result<(), E::Error>,
+)
+where
+    Context: StreamParser,
+    Element: TryParseOptionalFromStream<Context>,
+    Separator: TryParseOptionalFromStream<Context>,
+    E::Error: From<<Element as TryParseOptionalFromStream<Context>>::Error>,
+    E::Error: From<<Separator as TryParseOptionalFromStream<Context>>::Error>,
+{
+    let mut elements = smallvec::smallvec![];
+    let mut separators = smallvec::smallvec![];
     let result = loop {
         let state = ctx.save_state();
         match ctx.try_parse_optional::<Element>() {

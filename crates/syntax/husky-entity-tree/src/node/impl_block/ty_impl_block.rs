@@ -1,9 +1,36 @@
 use super::*;
 
+// basically a wrapper type
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub struct TypeImplBlockNodePath {
     path: TypeImplBlockPath,
+}
+
+impl salsa::AsId for TypeImplBlockNodePath {
+    fn as_id(self) -> salsa::Id {
+        self.path.as_id()
+    }
+
+    fn from_id(id: salsa::Id) -> Self {
+        TypeImplBlockNodePath {
+            path: TypeImplBlockPath::from_id(id),
+        }
+    }
+}
+
+impl<DB> salsa::salsa_struct::SalsaStructInDb<DB> for TypeImplBlockNodePath
+where
+    DB: ?Sized + salsa::DbWithJar<EntityPathJar>,
+{
+    fn register_dependent_fn(_db: &DB, _index: salsa::routes::IngredientIndex) {}
+}
+
+impl From<TypeImplBlockNodePath> for EntityNodePath {
+    #[inline(always)]
+    fn from(id: TypeImplBlockNodePath) -> Self {
+        EntityNodePath::ImplBlock(id.into())
+    }
 }
 
 impl TypeImplBlockNodePath {
@@ -19,22 +46,21 @@ impl TypeImplBlockNodePath {
         self.path.ty_path(db)
     }
 
+    pub fn node(self, db: &dyn EntityTreeDb) -> TypeImplBlockNode {
+        ty_impl_block_node(db, self)
+    }
+
     pub fn item_node_paths(self, db: &dyn EntityTreeDb) -> &[TypeItemNodePath] {
         todo!()
-    }
-}
-
-impl From<TypeImplBlockNodePath> for EntityNodePath {
-    fn from(id: TypeImplBlockNodePath) -> Self {
-        EntityNodePath::ImplBlock(id.into())
     }
 }
 
 impl HasNodePath for TypeImplBlockPath {
     type NodePath = TypeImplBlockNodePath;
 
+    #[inline(always)]
     fn node_path(self, db: &dyn EntityTreeDb) -> Self::NodePath {
-        todo!()
+        TypeImplBlockNodePath { path: self }
     }
 }
 
@@ -84,6 +110,16 @@ impl TypeImplBlockNode {
     }
 }
 
+#[salsa::tracked(jar = EntityTreeJar)]
+pub(crate) fn ty_impl_block_node(
+    db: &dyn EntityTreeDb,
+    node_path: TypeImplBlockNodePath,
+) -> TypeImplBlockNode {
+    let module_path = node_path.module_path(db);
+    let entity_tree_sheet = db.entity_tree_sheet(module_path).expect("valid module");
+    entity_tree_sheet.ty_impl_block_node(node_path)
+}
+
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub(crate) fn ty_impl_block_items(
     db: &dyn EntityTreeDb,
@@ -96,26 +132,4 @@ pub(crate) fn ty_impl_block_items(
     //     impl_block.module_path(db),
     //     impl_block.body(db),
     // )
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = EntityTreeDb)]
-pub struct TypeImplBlockId {
-    module_path: ModulePath,
-    ty_path: TypePath,
-    disambiguator: u8,
-}
-
-impl TypeImplBlockId {
-    pub fn module_path(&self) -> ModulePath {
-        self.module_path
-    }
-
-    pub fn ty_path(&self) -> TypePath {
-        self.ty_path
-    }
-
-    pub fn disambiguator(&self) -> u8 {
-        self.disambiguator
-    }
 }

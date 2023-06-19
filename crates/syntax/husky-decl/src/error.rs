@@ -19,6 +19,12 @@ pub enum DeclError {
 pub type DeclResult<T> = Result<T, DeclError>;
 pub type DeclResultRef<'a, T> = Result<T, &'a DeclError>;
 
+impl From<&DeclExprError> for DeclError {
+    fn from(value: &DeclExprError) -> Self {
+        todo!()
+    }
+}
+
 impl From<DeclExprError> for DeclError {
     fn from(value: DeclExprError) -> Self {
         match value {
