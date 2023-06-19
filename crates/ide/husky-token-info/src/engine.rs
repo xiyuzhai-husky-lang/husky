@@ -114,7 +114,7 @@ impl<'a> InferEngine<'a> {
                 ..
             } => self.sheet.add(
                 ident_token.token_idx(),
-                TokenInfo::EntityNode(decl.node_path(self.db), entity_kind),
+                TokenInfo::EntityNode(decl.node_id(self.db), entity_kind),
             ),
             Ast::ImplBlock { .. } => (),
             _ => unreachable!(),

@@ -9,7 +9,7 @@ pub struct TypeImplBlockDeclarativeSignatureTemplate {
     pub ty: DeclarativeTerm,
 }
 
-impl HasDeclarativeSignatureTemplate for TypeImplBlockNode {
+impl HasDeclarativeSignatureTemplate for TypeImplBlockPath {
     type DeclarativeSignatureTemplate = TypeImplBlockDeclarativeSignatureTemplate;
 
     fn declarative_signature_template(

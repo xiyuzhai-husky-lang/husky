@@ -11,7 +11,7 @@ use husky_expr::{
 pub enum TokenInfo {
     None,
     Entity(EntityPath),
-    EntityNode(EntityNodePath, EntityKind),
+    EntityNode(EntityNodeId, EntityKind),
     InheritedSymbol {
         inherited_symbol_idx: InheritedSymbolIdx,
         inherited_symbol_kind: InheritedSymbolKind,

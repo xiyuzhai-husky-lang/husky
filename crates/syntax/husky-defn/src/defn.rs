@@ -77,6 +77,7 @@ impl HasDefn for Decl {
 
     fn defn(self, db: &dyn DefnDb) -> Self::Defn {
         match self {
+            Decl::Submodule(_) => todo!(),
             Decl::ModuleItem(decl) => decl.defn(db).into(),
             Decl::ImplBlock(decl) => decl.defn(db).into(),
             Decl::AssociatedItem(decl) => decl.defn(db).into(),

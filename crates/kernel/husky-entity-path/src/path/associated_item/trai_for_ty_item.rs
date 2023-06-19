@@ -9,6 +9,12 @@ pub struct TraitForTypeItemPath {
     pub item_kind: TraitItemKind,
 }
 
+impl From<TraitForTypeItemPath> for EntityPath {
+    fn from(path: TraitForTypeItemPath) -> Self {
+        EntityPath::AssociatedItem(path.into())
+    }
+}
+
 impl<Db> salsa::DisplayWithDb<Db> for TraitForTypeItemPath
 where
     Db: EntityPathDb + ?Sized,

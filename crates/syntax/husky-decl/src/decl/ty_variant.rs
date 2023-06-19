@@ -18,7 +18,7 @@ pub enum TypeVariantNodeDecl {
 }
 
 impl TypeVariantNodeDecl {
-    pub fn node_path(self, db: &dyn DeclDb) -> TypeVariantNodePath {
+    pub fn node_id(self, db: &dyn DeclDb) -> TypeVariantNodeId {
         match self {
             TypeVariantNodeDecl::Props(_) => todo!(),
             TypeVariantNodeDecl::Unit(_) => todo!(),
@@ -41,7 +41,7 @@ pub enum TypeVariantDecl {
 }
 
 impl TypeVariantDecl {
-    pub fn node_path(self, db: &dyn DeclDb) -> TypeVariantNodePath {
+    pub fn node_id(self, db: &dyn DeclDb) -> TypeVariantNodeId {
         match self {
             TypeVariantDecl::Props(_) => todo!(),
             TypeVariantDecl::Unit(_) => todo!(),
@@ -54,7 +54,7 @@ impl TypeVariantDecl {
     }
 }
 
-impl HasDecl for TypeVariantNodePath {
+impl HasDecl for TypeVariantNodeId {
     type Decl = TypeVariantDecl;
 
     fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
@@ -65,21 +65,21 @@ impl HasDecl for TypeVariantNodePath {
 #[salsa::tracked(jar = DeclJar,return_ref)]
 pub(crate) fn ty_variant_decl(
     db: &dyn DeclDb,
-    node_path: TypeVariantNodePath,
+    node_id: TypeVariantNodeId,
 ) -> DeclResult<TypeVariantDecl> {
-    DeclParseContext::new(db, node_path.module_path(db))?.parse_ty_variant_decl(node_path)
+    DeclParseContext::new(db, node_id.module_path(db))?.parse_ty_variant_decl(node_id)
 }
 
 impl HasDecl for TypeVariantPath {
     type Decl = TypeVariantDecl;
 
     fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
-        self.node_path(db).decl(db)
+        self.node_id(db).decl(db)
     }
 }
 
 impl<'a> DeclParseContext<'a> {
-    fn parse_ty_variant_decl(&self, id: TypeVariantNodePath) -> DeclResult<TypeVariantDecl> {
+    fn parse_ty_variant_decl(&self, id: TypeVariantNodeId) -> DeclResult<TypeVariantDecl> {
         let (
             ast_idx,
             Ast::TypeVariant {

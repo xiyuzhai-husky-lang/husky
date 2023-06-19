@@ -30,11 +30,11 @@ impl From<TraitForTypeItemNodeDecl> for NodeDecl {
 }
 
 impl TraitForTypeItemNodeDecl {
-    pub fn node_path(self, db: &dyn DeclDb) -> TraitForTypeItemNodePath {
+    pub fn node_id(self, db: &dyn DeclDb) -> TraitForTypeItemNodeId {
         match self {
             TraitForTypeItemNodeDecl::AssociatedFn(_) => todo!(),
-            TraitForTypeItemNodeDecl::MethodFn(decl) => decl.node_path(db),
-            TraitForTypeItemNodeDecl::AssociatedType(decl) => decl.node_path(db),
+            TraitForTypeItemNodeDecl::MethodFn(decl) => decl.node_id(db),
+            TraitForTypeItemNodeDecl::AssociatedType(decl) => decl.node_id(db),
             TraitForTypeItemNodeDecl::AssociatedVal(_) => todo!(),
         }
     }
@@ -70,7 +70,7 @@ impl TraitForTypeItemNodeDecl {
     }
 }
 
-impl HasNodeDecl for TraitForTypeItemNodePath {
+impl HasNodeDecl for TraitForTypeItemNodeId {
     type NodeDecl = TraitForTypeItemNodeDecl;
 
     fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
@@ -88,12 +88,18 @@ pub enum TraitForTypeItemDecl {
     AssociatedVal(TraitForTypeAssociatedValDecl),
 }
 
+impl From<TraitForTypeItemDecl> for Decl {
+    fn from(decl: TraitForTypeItemDecl) -> Self {
+        Decl::AssociatedItem(decl.into())
+    }
+}
+
 impl TraitForTypeItemDecl {
-    pub fn node_path(self, db: &dyn DeclDb) -> TraitForTypeItemNodePath {
+    pub fn node_id(self, db: &dyn DeclDb) -> TraitForTypeItemNodeId {
         match self {
             TraitForTypeItemDecl::AssociatedFn(_) => todo!(),
-            TraitForTypeItemDecl::MethodFn(decl) => decl.node_path(db),
-            TraitForTypeItemDecl::AssociatedType(decl) => decl.node_path(db),
+            TraitForTypeItemDecl::MethodFn(decl) => decl.node_id(db),
+            TraitForTypeItemDecl::AssociatedType(decl) => decl.node_id(db),
             TraitForTypeItemDecl::AssociatedVal(_) => todo!(),
         }
     }
@@ -126,6 +132,14 @@ impl TraitForTypeItemDecl {
             TraitForTypeItemDecl::AssociatedType(decl) => decl.expr_region(db),
             TraitForTypeItemDecl::AssociatedVal(decl) => decl.expr_region(db),
         }
+    }
+}
+
+impl HasDecl for TraitForTypeItemPath {
+    type Decl = TraitForTypeItemDecl;
+
+    fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
+        todo!()
     }
 }
 

@@ -2,11 +2,11 @@ use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
-pub struct TypeImplBlockNodePath {
+pub struct TypeImplBlockNodeId {
     path: TypeImplBlockPath,
 }
 
-impl TypeImplBlockNodePath {
+impl TypeImplBlockNodeId {
     pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
         self.path.module_path(db)
     }
@@ -15,21 +15,29 @@ impl TypeImplBlockNodePath {
         self.path.ty_path(db)
     }
 
-    pub fn item_node_paths(self, db: &dyn EntityTreeDb) -> &[TypeItemNodePath] {
+    pub fn item_node_ids(self, db: &dyn EntityTreeDb) -> &[TypeItemNodeId] {
         todo!()
     }
 }
 
-impl From<TypeImplBlockNodePath> for EntityNodePath {
-    fn from(id: TypeImplBlockNodePath) -> Self {
-        EntityNodePath::ImplBlock(id.into())
+impl From<TypeImplBlockNodeId> for EntityNodeId {
+    fn from(id: TypeImplBlockNodeId) -> Self {
+        EntityNodeId::ImplBlock(id.into())
+    }
+}
+
+impl HasNodeId for TypeImplBlockPath {
+    type NodeId = TypeImplBlockNodeId;
+
+    fn node_id(self, db: &dyn EntityTreeDb) -> Self::NodeId {
+        todo!()
     }
 }
 
 #[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
 pub struct TypeImplBlockNode {
     #[id]
-    pub id: TypeImplBlockNodePath,
+    pub node_id: TypeImplBlockNodeId,
     pub ast_idx: AstIdx,
     pub impl_token: ImplToken,
     pub ty_expr: ModuleItemPathExprIdx,
@@ -49,7 +57,7 @@ impl TypeImplBlockNode {
     ) -> Self {
         Self::new_inner(
             db,
-            TypeImplBlockNodePath {
+            TypeImplBlockNodeId {
                 path: TypeImplBlockPath::new(db, registry, module_path, ty_path),
             },
             ast_idx,
@@ -60,11 +68,11 @@ impl TypeImplBlockNode {
     }
 
     pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
-        self.id(db).path.module_path(db)
+        self.node_id(db).path.module_path(db)
     }
 
     pub fn ty_path(self, db: &dyn EntityTreeDb) -> TypePath {
-        self.id(db).path.ty_path(db)
+        self.node_id(db).path.ty_path(db)
     }
 
     pub fn items(self, db: &dyn EntityTreeDb) -> Vec<(Ident, AssociatedItemNode)> {

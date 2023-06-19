@@ -22,11 +22,11 @@ pub enum AssociatedItemNodeDecl {
 }
 
 impl AssociatedItemNodeDecl {
-    pub fn node_path(self, db: &dyn DeclDb) -> AssociatedItemNodePath {
+    pub fn node_id(self, db: &dyn DeclDb) -> AssociatedItemNodeId {
         match self {
-            AssociatedItemNodeDecl::TypeItem(decl) => decl.node_path(db).into(),
-            AssociatedItemNodeDecl::TraitItem(decl) => decl.node_path(db).into(),
-            AssociatedItemNodeDecl::TraitForTypeItem(decl) => decl.node_path(db).into(),
+            AssociatedItemNodeDecl::TypeItem(decl) => decl.node_id(db).into(),
+            AssociatedItemNodeDecl::TraitItem(decl) => decl.node_id(db).into(),
+            AssociatedItemNodeDecl::TraitForTypeItem(decl) => decl.node_id(db).into(),
         }
     }
 
@@ -65,11 +65,11 @@ pub enum AssociatedItemDecl {
 }
 
 impl AssociatedItemDecl {
-    pub fn node_path(self, db: &dyn DeclDb) -> AssociatedItemNodePath {
+    pub fn node_id(self, db: &dyn DeclDb) -> AssociatedItemNodeId {
         match self {
-            AssociatedItemDecl::TypeItem(decl) => decl.node_path(db).into(),
-            AssociatedItemDecl::TraitItem(decl) => decl.node_path(db).into(),
-            AssociatedItemDecl::TraitForTypeItem(decl) => decl.node_path(db).into(),
+            AssociatedItemDecl::TypeItem(decl) => decl.node_id(db).into(),
+            AssociatedItemDecl::TraitItem(decl) => decl.node_id(db).into(),
+            AssociatedItemDecl::TraitForTypeItem(decl) => decl.node_id(db).into(),
         }
     }
 
@@ -95,6 +95,15 @@ impl AssociatedItemDecl {
             AssociatedItemDecl::TraitItem(decl) => decl.expr_region(db),
             AssociatedItemDecl::TraitForTypeItem(decl) => decl.expr_region(db),
         }
+    }
+}
+
+impl HasDecl for AssociatedItemPath {
+    type Decl = AssociatedItemDecl;
+
+    fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
+        todo!()
+        // associated_item_decl(db, self).as_ref().copied()
     }
 }
 
@@ -161,13 +170,4 @@ pub trait HasItemDecls {
     type ItemDecls;
 
     fn item_decls<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, &'a Self::ItemDecls>;
-}
-
-impl HasDecl for AssociatedItemNode {
-    type Decl = AssociatedItemDecl;
-
-    fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
-        todo!()
-        // associated_item_decl(db, self).as_ref().copied()
-    }
 }

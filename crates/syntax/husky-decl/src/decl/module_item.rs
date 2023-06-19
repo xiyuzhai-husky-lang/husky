@@ -42,20 +42,24 @@ impl ModuleItemNodeDecl {
         }
     }
 
-    pub fn node_path(self, db: &dyn DeclDb) -> EntityNodePath {
+    pub fn node_id(self, db: &dyn DeclDb) -> EntityNodeId {
         match self {
-            ModuleItemNodeDecl::Type(decl) => decl.node_path(db).into(),
-            ModuleItemNodeDecl::Fugitive(decl) => decl.node_path(db).into(),
-            ModuleItemNodeDecl::Trait(decl) => decl.node_path(db).into(),
+            ModuleItemNodeDecl::Type(decl) => decl.node_id(db).into(),
+            ModuleItemNodeDecl::Fugitive(decl) => decl.node_id(db).into(),
+            ModuleItemNodeDecl::Trait(decl) => decl.node_id(db).into(),
         }
     }
 }
 
-impl HasNodeDecl for ModuleItemNodePath {
+impl HasNodeDecl for ModuleItemNodeId {
     type NodeDecl = ModuleItemNodeDecl;
 
     fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
-        todo!()
+        match self {
+            ModuleItemNodeId::Trait(node_id) => node_id.node_decl(db).into(),
+            ModuleItemNodeId::Type(node_id) => node_id.node_decl(db).into(),
+            ModuleItemNodeId::Fugitive(node_id) => node_id.node_decl(db).into(),
+        }
     }
 }
 
@@ -93,11 +97,11 @@ impl ModuleItemDecl {
         }
     }
 
-    pub fn node_path(self, db: &dyn DeclDb) -> EntityNodePath {
+    pub fn node_id(self, db: &dyn DeclDb) -> EntityNodeId {
         match self {
-            ModuleItemDecl::Type(decl) => decl.node_path(db).into(),
-            ModuleItemDecl::Fugitive(decl) => decl.node_path(db).into(),
-            ModuleItemDecl::Trait(decl) => decl.node_path(db).into(),
+            ModuleItemDecl::Type(decl) => decl.node_id(db).into(),
+            ModuleItemDecl::Fugitive(decl) => decl.node_id(db).into(),
+            ModuleItemDecl::Trait(decl) => decl.node_id(db).into(),
         }
     }
 }

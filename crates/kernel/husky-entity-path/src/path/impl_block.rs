@@ -4,17 +4,15 @@ use vec_like::VecPairMap;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]
 pub enum ImplBlockPath {
-    Type(TypeImplBlockPath),
-    TraitForType(TraitForTypeImplBlockPath),
-    IllFormed(IllFormedImplBlockPath),
+    TypeImplBlock(TypeImplBlockPath),
+    TraitForTypeImplBlock(TraitForTypeImplBlockPath),
 }
 
 impl ImplBlockPath {
     pub fn module(self, db: &dyn EntityPathDb) -> ModulePath {
         match self {
-            ImplBlockPath::Type(path) => path.module_path(db),
-            ImplBlockPath::TraitForType(path) => path.module_path(db),
-            ImplBlockPath::IllFormed(path) => path.module_path(db),
+            ImplBlockPath::TypeImplBlock(path) => path.module_path(db),
+            ImplBlockPath::TraitForTypeImplBlock(path) => path.module_path(db),
         }
     }
 }
@@ -39,6 +37,10 @@ impl TypeImplBlockPath {
             ty_path,
             registry.issue_disambiguitor(module_path, ImplBlockKind::Type { ty_path }),
         )
+    }
+
+    pub fn toolchain(self, db: &dyn EntityPathDb) -> Toolchain {
+        self.module_path(db).toolchain(db)
     }
 }
 

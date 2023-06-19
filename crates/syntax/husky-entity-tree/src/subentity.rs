@@ -36,7 +36,8 @@ pub(crate) fn subentity_path(
                     if let Some((_, variant)) = path.variants(db)?.get_entry(ident) {
                         Ok(variant.path(db).into())
                     } else if let Some((_, node)) = path.items(db)?.get_entry(ident) {
-                        Ok(TypeItemPath::new(db, path, ident, node.kind(db)).into())
+                        todo!();
+                        // Ok(TypeItemPath::new(db, path, ident, node.kind(db)).into())
                         // Ok(match associated_item.associated_item_kind(db) {
                         //     AssociatedItemKind::TypeItem(ty_item_kind) => {
                         //         TypeItemPath::new(db, path, ident, ty_item_kind).into()

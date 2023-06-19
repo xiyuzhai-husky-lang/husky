@@ -115,25 +115,23 @@ impl SymbolDeclarativeTermRegion {
     ) {
         if symbol_region.allow_self_ty().to_bool() && self.self_ty_term.is_none() {
             self.self_ty_term = Some(match region_path {
-                RegionPath::Decl(EntityNodePath::ModuleItem(ModuleItemNodePath::Trait(_))) => {
+                RegionPath::Decl(EntityNodeId::ModuleItem(ModuleItemNodeId::Trait(_))) => {
                     self.trai_self_ty_term(db)
                 }
-                RegionPath::Decl(EntityNodePath::ModuleItem(ModuleItemNodePath::Type(
-                    ty_node_path,
-                ))) => self.ty_self_ty_term(
-                    db,
-                    ty_node_path
-                        .path(db)
-                        .expect("should have valid entity path"),
-                ),
-                RegionPath::Decl(EntityNodePath::ImplBlock(node_path)) => match node_path {
-                    ImplBlockNodePath::TypeImplBlock(node_path) => {
-                        self.ty_self_ty_term(db, node_path.ty_path(db))
+                RegionPath::Decl(EntityNodeId::ModuleItem(ModuleItemNodeId::Type(ty_node_id))) => {
+                    self.ty_self_ty_term(
+                        db,
+                        ty_node_id.path(db).expect("should have valid entity path"),
+                    )
+                }
+                RegionPath::Decl(EntityNodeId::ImplBlock(node_id)) => match node_id {
+                    ImplBlockNodeId::TypeImplBlock(node_id) => {
+                        self.ty_self_ty_term(db, node_id.ty_path(db))
                     }
-                    ImplBlockNodePath::TraitForTypeImplBlock(impl_block_path) => {
+                    ImplBlockNodeId::TraitForTypeImplBlock(impl_block_path) => {
                         self.ty_self_ty_term(db, impl_block_path.ty_path(db))
                     }
-                    ImplBlockNodePath::IllFormedImplBlock(_) => unreachable!(),
+                    ImplBlockNodeId::IllFormedImplBlock(_) => unreachable!(),
                 },
                 _ => unreachable!(),
             })

@@ -11,17 +11,17 @@ pub(crate) fn collect_defn_sheet(
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct DefnSheet<'a> {
-    defns: Vec<(EntityNodePath, DeclResultRef<'a, Defn>)>,
+    defns: Vec<(EntityNodeId, DeclResultRef<'a, Defn>)>,
 }
 
 impl<'a> DefnSheet<'a> {
-    pub fn new(defns: Vec<(EntityNodePath, DeclResultRef<'a, Defn>)>) -> Self {
+    pub fn new(defns: Vec<(EntityNodeId, DeclResultRef<'a, Defn>)>) -> Self {
         Self { defns }
     }
 
     pub fn defns<'b>(
         &'b self,
-    ) -> impl Iterator<Item = (EntityNodePath, DeclResultRef<'a, Defn>)> + 'b {
+    ) -> impl Iterator<Item = (EntityNodeId, DeclResultRef<'a, Defn>)> + 'b {
         self.defns.iter().copied()
     }
 }
