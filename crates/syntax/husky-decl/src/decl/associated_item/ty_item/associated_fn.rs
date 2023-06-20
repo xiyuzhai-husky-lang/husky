@@ -7,12 +7,14 @@ pub struct TypeAssociatedFnNodeDecl {
     pub node: TypeItemNode,
     pub ast_idx: AstIdx,
     #[return_ref]
-    implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
+    implicit_parameter_decl_list: DeclExprResult<Option<ImplicitParameterDeclList>>,
     #[return_ref]
-    pub parameter_decl_list: ExplicitParameterDeclList,
-    pub curry_token: Option<CurryToken>,
+    pub parameter_decl_list: DeclExprResult<ExplicitParameterDeclList>,
+    #[return_ref]
+    pub curry_token: DeclExprResult<Option<CurryToken>>,
     pub return_ty: Option<ReturnTypeExpr>,
-    pub eol_colon: EolToken,
+    #[return_ref]
+    pub eol_colon: DeclExprResult<EolToken>,
     pub expr_region: ExprRegion,
 }
 
@@ -21,7 +23,7 @@ pub struct TypeAssociatedFnDecl {
     #[id]
     pub path: TypeItemPath,
     #[return_ref]
-    implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
+    pub implicit_parameters: ImplicitParameterDeclPatterns,
     #[return_ref]
     pub parameter_decl_list: ExplicitParameterDeclList,
     pub return_ty: Option<ReturnTypeExpr>,
@@ -29,26 +31,19 @@ pub struct TypeAssociatedFnDecl {
 }
 
 impl TypeAssociatedFnDecl {
-    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDeclPattern] {
-        self.implicit_parameter_decl_list(db)
-            .as_ref()
-            .map(ImplicitParameterDeclList::implicit_parameters)
-            .unwrap_or(&[])
-    }
-
     pub fn parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [RegularParameterDeclPattern] {
         self.parameter_decl_list(db).regular_parameters()
     }
 }
 
 impl<'a> DeclParseContext<'a> {
-    pub(super) fn parse_ty_associated_fn_decl(
+    pub(super) fn parse_ty_associated_fn_node_decl(
         &self,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
         node: TypeItemNode,
         saved_stream_state: TokenStreamState,
-    ) -> DeclResult<TypeAssociatedFnDecl> {
+    ) -> TypeAssociatedFnNodeDecl {
         todo!()
         // let db = self.db();
         // let impl_block_node_decl = node.impl_block_node_path(db).node_decl(db);

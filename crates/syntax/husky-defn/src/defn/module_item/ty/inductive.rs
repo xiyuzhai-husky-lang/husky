@@ -9,6 +9,7 @@ pub struct InductiveTypeDefn {
 
 #[salsa::tracked(jar = DefnJar)]
 pub(crate) fn inductive_ty_defn(db: &dyn DefnDb, decl: InductiveTypeDecl) -> InductiveTypeDefn {
-    let node_path = decl.node_path(db);
-    InductiveTypeDefn::new(db, node_path, decl)
+    todo!()
+    // let node_path = decl.node_path(db);
+    // InductiveTypeDefn::new(db, node_path, decl)
 }

@@ -67,6 +67,7 @@ pub struct EntityTreeJar(
     // associated items
     TypeItemNodePath,
     TypeItemNode,
+    ty_item_node,
     TraitItemNodePath,
     TraitItemNode,
     TraitForTypeItemNodePath,

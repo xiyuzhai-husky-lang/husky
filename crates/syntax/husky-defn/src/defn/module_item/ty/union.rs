@@ -9,6 +9,7 @@ pub struct UnionTypeDefn {
 
 #[salsa::tracked(jar = DefnJar)]
 pub(crate) fn union_ty_defn(db: &dyn DefnDb, decl: UnionTypeDecl) -> UnionTypeDefn {
-    let node_path = decl.node_path(db);
-    UnionTypeDefn::new(db, node_path, decl)
+    todo!()
+    // let node_path = decl.node_path(db);
+    // UnionTypeDefn::new(db, node_path, decl)
 }

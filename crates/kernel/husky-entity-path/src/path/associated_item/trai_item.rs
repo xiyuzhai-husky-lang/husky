@@ -4,6 +4,7 @@ use super::*;
 pub struct TraitItemPath {
     pub trai_path: TraitPath,
     pub ident: Ident,
+    pub item_kind: TraitItemKind,
 }
 
 impl TraitItemPath {

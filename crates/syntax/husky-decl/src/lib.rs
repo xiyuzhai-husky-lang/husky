@@ -92,6 +92,7 @@ pub struct DeclJar(
     TupleVariantDecl,
     // - associated items
     // - - type item
+    ty_item_node_decl,
     ty_item_decl,
     ty_item_decls_map,
     TypeAssociatedFnNodeDecl,

@@ -11,17 +11,9 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Trait(
                         TraitDecl {
-                            node_path: TraitNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 1,
-                                        },
-                                    ),
-                                    disambiguator: 0,
-                                },
-                            },
+                            path: TraitPath(`core::clone::Clone`),
                             ast_idx: 1,
+                            implicit_parameters: [],
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -80,7 +72,6 @@ Ok(
                                     roots: [],
                                 },
                             },
-                            implicit_parameter_decl_list: None,
                         },
                     ),
                 ),

@@ -6,26 +6,14 @@ pub struct TypeMemoizedFieldNodeDecl {
     pub node_path: TypeItemNodePath,
     pub associated_item_node: AssociatedItemNode,
     pub ast_idx: AstIdx,
-    pub colon_token: Option<ColonToken>,
-    pub memo_ty: Option<FormTypeExpr>,
-    pub eq_token: EqToken,
+    #[return_ref]
+    pub colon_token: DeclExprResult<Option<ColonToken>>,
+    #[return_ref]
+    pub memo_ty: DeclExprResult<Option<FormTypeExpr>>,
+    #[return_ref]
+    pub eq_token: DeclExprResult<EqToken>,
     pub expr: Option<ExprIdx>,
     pub expr_region: ExprRegion,
-}
-
-#[salsa::tracked(db = DeclDb, jar = DeclJar)]
-pub struct TypeMemoizedFieldDecl {
-    #[id]
-    pub path: TypeItemPath,
-    pub memo_ty: Option<FormTypeExpr>,
-    pub expr: Option<ExprIdx>,
-    pub expr_region: ExprRegion,
-}
-
-impl TypeMemoizedFieldDecl {
-    pub fn impl_block_path(self, db: &dyn DeclDb) -> TypeImplBlockPath {
-        self.path(db).impl_block(db)
-    }
 }
 
 impl<'a> DeclParseContext<'a> {
@@ -35,7 +23,7 @@ impl<'a> DeclParseContext<'a> {
         token_group_idx: TokenGroupIdx,
         node: TypeItemNode,
         saved_stream_state: TokenStreamState,
-    ) -> DeclResult<TypeMemoizedFieldDecl> {
+    ) -> TypeMemoizedFieldNodeDecl {
         todo!()
         // let db = self.db();
         // let node_path = node.node_path(db);
@@ -66,5 +54,28 @@ impl<'a> DeclParseContext<'a> {
         //     parser.finish(),
         // )
         // .into())
+    }
+}
+
+#[salsa::tracked(db = DeclDb, jar = DeclJar)]
+pub struct TypeMemoizedFieldDecl {
+    #[id]
+    pub path: TypeItemPath,
+    pub memo_ty: Option<FormTypeExpr>,
+    pub expr: Option<ExprIdx>,
+    pub expr_region: ExprRegion,
+}
+
+impl TypeMemoizedFieldDecl {
+    pub(super) fn from_node_decl(
+        db: &dyn DeclDb,
+        path: TypeItemPath,
+        node_decl: TypeMemoizedFieldNodeDecl,
+    ) -> DeclResult<Self> {
+        todo!()
+    }
+
+    pub fn impl_block_path(self, db: &dyn DeclDb) -> TypeImplBlockPath {
+        self.path(db).impl_block(db)
     }
 }

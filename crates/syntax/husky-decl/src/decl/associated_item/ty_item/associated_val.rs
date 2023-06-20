@@ -9,6 +9,8 @@ pub struct TypeAssociatedValNodeDecl {
     pub expr_region: ExprRegion,
 }
 
+impl<'a> DeclParseContext<'a> {}
+
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TypeAssociatedValDecl {
     #[id]
@@ -16,4 +18,12 @@ pub struct TypeAssociatedValDecl {
     pub expr_region: ExprRegion,
 }
 
-impl<'a> DeclParseContext<'a> {}
+impl TypeAssociatedValDecl {
+    pub(super) fn from_node_decl(
+        db: &dyn DeclDb,
+        path: TypeItemPath,
+        node_decl: TypeAssociatedValNodeDecl,
+    ) -> DeclResult<Self> {
+        todo!()
+    }
+}

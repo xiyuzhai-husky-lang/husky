@@ -12,6 +12,7 @@ pub(crate) fn tuple_struct_ty_defn(
     db: &dyn DefnDb,
     decl: TupleStructTypeDecl,
 ) -> TupleStructTypeDefn {
-    let node_path = decl.node_path(db);
-    TupleStructTypeDefn::new(db, node_path, decl)
+    todo!()
+    // let node_path = decl.node_path(db);
+    // TupleStructTypeDefn::new(db, node_path, decl)
 }

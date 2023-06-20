@@ -17,6 +17,7 @@ impl HasDefn for TraitDecl {
 
 #[salsa::tracked(jar = DefnJar)]
 pub(crate) fn trai_defn(db: &dyn DefnDb, decl: TraitDecl) -> TraitDefn {
-    let node_path = decl.node_path(db);
-    TraitDefn::new(db, node_path, decl)
+    todo!()
+    // let node_path = decl.node_path(db);
+    // TraitDefn::new(db, node_path, decl)
 }
