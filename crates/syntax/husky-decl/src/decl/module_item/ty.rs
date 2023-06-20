@@ -67,20 +67,6 @@ impl TypeNodeDecl {
         // }
     }
 
-    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDeclPattern] {
-        match self {
-            TypeNodeDecl::Enum(decl) => decl.implicit_parameters(db),
-            TypeNodeDecl::UnitStruct(decl) => decl.implicit_parameters(db),
-            TypeNodeDecl::TupleStruct(decl) => decl.implicit_parameters(db),
-            TypeNodeDecl::RegularStruct(decl) => decl.implicit_parameters(db),
-            TypeNodeDecl::Record(decl) => decl.implicit_parameters(db),
-            TypeNodeDecl::Inductive(decl) => decl.implicit_parameters(db),
-            TypeNodeDecl::Structure(decl) => decl.implicit_parameters(db),
-            TypeNodeDecl::Extern(decl) => decl.implicit_parameters(db),
-            TypeNodeDecl::Union(decl) => decl.implicit_parameters(db),
-        }
-    }
-
     pub fn expr_region(self, db: &dyn DeclDb) -> ExprRegion {
         match self {
             TypeNodeDecl::Enum(decl) => decl.expr_region(db),

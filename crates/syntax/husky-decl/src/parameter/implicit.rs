@@ -1,9 +1,7 @@
+use super::*;
 use parsec::parse_separated_small2_list_expected;
 
-use super::*;
-
 pub(crate) type ImplicitParameterDeclPatterns = SmallVec<[ImplicitParameterDeclPattern; 2]>;
-pub(crate) type CommaTokens = SmallVec<[CommaToken; 2]>;
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = DeclDb)]

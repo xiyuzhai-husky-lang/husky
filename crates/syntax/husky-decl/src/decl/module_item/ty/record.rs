@@ -6,17 +6,8 @@ pub struct RecordTypeNodeDecl {
     pub node_path: TypeNodePath,
     pub ast_idx: AstIdx,
     #[return_ref]
-    implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
+    implicit_parameter_decl_list: DeclExprResult<Option<ImplicitParameterDeclList>>,
     pub expr_region: ExprRegion,
-}
-
-impl RecordTypeNodeDecl {
-    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDeclPattern] {
-        self.implicit_parameter_decl_list(db)
-            .as_ref()
-            .map(ImplicitParameterDeclList::implicit_parameters)
-            .unwrap_or(&[])
-    }
 }
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
@@ -35,6 +26,18 @@ impl RecordTypeDecl {
         path: TypePath,
         node_decl: RecordTypeNodeDecl,
     ) -> DeclResult<Self> {
-        todo!()
+        let implicit_parameters = node_decl
+            .implicit_parameter_decl_list(db)
+            .as_ref()?
+            .as_ref()
+            .map(|list| list.implicit_parameters().to_smallvec())
+            .unwrap_or_default();
+        let expr_region = node_decl.expr_region(db);
+        Ok(RecordTypeDecl::new(
+            db,
+            path,
+            implicit_parameters,
+            expr_region,
+        ))
     }
 }

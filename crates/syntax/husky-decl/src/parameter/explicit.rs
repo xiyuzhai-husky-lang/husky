@@ -1,6 +1,7 @@
-use parsec::parse_separated_list2;
-
 use super::*;
+use parsec::{parse_separated_list2, parse_separated_small_list2};
+
+pub(crate) type RegularParameterDeclPatterns = SmallVec<[RegularParameterDeclPattern; 2]>;
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
@@ -9,8 +10,8 @@ pub struct ExplicitParameterDeclList {
     lpar: LeftParenthesisToken,
     self_parameter: Option<SelfParameterDeclPattern>,
     comma_after_self_parameter: Option<CommaToken>,
-    regular_parameters: Vec<RegularParameterDeclPattern>,
-    commas: Vec<CommaToken>,
+    regular_parameters: RegularParameterDeclPatterns,
+    commas: CommaTokens,
     rpar: RightParenthesisToken,
 }
 
@@ -31,7 +32,7 @@ impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for ExplicitPa
         };
         let (regular_parameters, commas) =
             if self_parameter.is_none() || comma_after_self_parameter.is_some() {
-                parse_separated_list2(ctx, |e| e)?
+                parse_separated_small_list2(ctx, |e| e)?
             } else {
                 Default::default()
             };
