@@ -9,6 +9,7 @@ pub struct RecordTypeDefn {
 
 #[salsa::tracked(jar = DefnJar)]
 pub(crate) fn record_ty_defn(db: &dyn DefnDb, decl: RecordTypeDecl) -> RecordTypeDefn {
-    let node_path = decl.node_path(db);
-    RecordTypeDefn::new(db, node_path, decl)
+    todo!()
+    // let node_path = decl.node_path(db);
+    // RecordTypeDefn::new(db, node_path, decl)
 }

@@ -12,16 +12,7 @@ Ok(
                     ModuleItemDecl::Type(
                         TypeDecl::Extern(
                             ExternTypeDecl {
-                                node_path: TypeNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(
-                                            Id {
-                                                value: 2,
-                                            },
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
+                                path: TypePath(`core::basic::bool`, `Extern`),
                                 implicit_parameters: [],
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -96,16 +87,7 @@ Ok(
                     ModuleItemDecl::Type(
                         TypeDecl::Extern(
                             ExternTypeDecl {
-                                node_path: TypeNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(
-                                            Id {
-                                                value: 3,
-                                            },
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
+                                path: TypePath(`core::basic::never`, `Extern`),
                                 implicit_parameters: [],
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -180,16 +162,7 @@ Ok(
                     ModuleItemDecl::Type(
                         TypeDecl::Extern(
                             ExternTypeDecl {
-                                node_path: TypeNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(
-                                            Id {
-                                                value: 4,
-                                            },
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
+                                path: TypePath(`core::basic::unit`, `Extern`),
                                 implicit_parameters: [],
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -264,16 +237,7 @@ Ok(
                     ModuleItemDecl::Type(
                         TypeDecl::Structure(
                             StructureTypeDecl {
-                                node_path: TypeNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(
-                                            Id {
-                                                value: 5,
-                                            },
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
+                                path: TypePath(`core::basic::Trait`, `Structure`),
                                 implicit_parameters: [],
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -348,16 +312,7 @@ Ok(
                     ModuleItemDecl::Type(
                         TypeDecl::Structure(
                             StructureTypeDecl {
-                                node_path: TypeNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(
-                                            Id {
-                                                value: 6,
-                                            },
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
+                                path: TypePath(`core::basic::Module`, `Structure`),
                                 implicit_parameters: [],
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {

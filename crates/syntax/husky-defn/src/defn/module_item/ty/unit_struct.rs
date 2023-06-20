@@ -9,6 +9,7 @@ pub struct UnitStructTypeDefn {
 
 #[salsa::tracked(jar = DefnJar)]
 pub(crate) fn unit_struct_ty_defn(db: &dyn DefnDb, decl: UnitStructTypeDecl) -> UnitStructTypeDefn {
-    let node_path = decl.node_path(db);
-    UnitStructTypeDefn::new(db, node_path, decl)
+    todo!()
+    // let node_path = decl.node_path(db);
+    // UnitStructTypeDefn::new(db, node_path, decl)
 }

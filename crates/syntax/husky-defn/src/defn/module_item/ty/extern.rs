@@ -9,6 +9,7 @@ pub struct ExternTypeDefn {
 
 #[salsa::tracked(jar = DefnJar)]
 pub(crate) fn alien_ty_defn(db: &dyn DefnDb, decl: ExternTypeDecl) -> ExternTypeDefn {
-    let node_path = decl.node_path(db);
-    ExternTypeDefn::new(db, node_path, decl)
+    todo!()
+    // let node_path = decl.node_path(db);
+    // ExternTypeDefn::new(db, node_path, decl)
 }

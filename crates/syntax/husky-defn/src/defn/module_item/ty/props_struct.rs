@@ -12,6 +12,7 @@ pub(crate) fn regular_struct_ty_defn(
     db: &dyn DefnDb,
     decl: RegularStructTypeDecl,
 ) -> RegularStructTypeDefn {
-    let node_path = decl.node_path(db);
-    RegularStructTypeDefn::new(db, node_path, decl)
+    todo!()
+    // let node_path = decl.node_path(db);
+    // RegularStructTypeDefn::new(db, node_path, decl)
 }

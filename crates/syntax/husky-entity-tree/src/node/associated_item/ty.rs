@@ -30,13 +30,21 @@ impl TypeItemNodePath {
     }
 
     pub fn node(self, db: &dyn EntityTreeDb) -> TypeItemNode {
-        todo!()
+        ty_item_node(db, self)
     }
 }
 
 impl From<TypeItemNodePath> for EntityNodePath {
     fn from(id: TypeItemNodePath) -> Self {
         EntityNodePath::AssociatedItem(id.into())
+    }
+}
+
+impl HasNodePath for TypeItemPath {
+    type NodePath = TypeItemNodePath;
+
+    fn node_path(self, db: &dyn EntityTreeDb) -> Self::NodePath {
+        TypeItemNodePath::new_inner(db, MaybeAmbiguousPath::from_path(self))
     }
 }
 
@@ -84,6 +92,17 @@ impl TypeItemNode {
     pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
         self.node_path(db).module_path(db)
     }
+}
+
+#[salsa::tracked(jar = EntityTreeJar)]
+pub(crate) fn ty_item_node(db: &dyn EntityTreeDb, node_path: TypeItemNodePath) -> TypeItemNode {
+    node_path
+        .impl_block(db)
+        .items(db)
+        .iter()
+        .copied()
+        .find_map(|(_, node_path1, node)| (node_path1 == node_path).then_some(node))
+        .expect("some")
 }
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]

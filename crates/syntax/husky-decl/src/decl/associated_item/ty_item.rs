@@ -82,7 +82,7 @@ impl HasNodeDecl for TypeItemNodePath {
     type NodeDecl = TypeItemNodeDecl;
 
     fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
-        todo!()
+        ty_item_node_decl(db, self)
     }
 }
 
@@ -91,6 +91,75 @@ impl HasNodeDecl for TypeItemNode {
 
     fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
         todo!()
+    }
+}
+
+#[salsa::tracked(jar = DeclJar)]
+pub(crate) fn ty_item_node_decl(db: &dyn DeclDb, node_path: TypeItemNodePath) -> TypeItemNodeDecl {
+    let module_path = node_path.module_path(db);
+    let ctx = DeclParseContext::new(db, module_path);
+    ctx.parse_ty_item_node_decl(node_path)
+}
+
+impl<'a> DeclParseContext<'a> {
+    fn parse_ty_item_node_decl(&self, node_path: TypeItemNodePath) -> TypeItemNodeDecl {
+        let db = self.db();
+        let node = node_path.node(db);
+        let ast_idx = node.ast_idx(db);
+        match self.ast_sheet()[ast_idx] {
+            Ast::Defn {
+                token_group_idx,
+                entity_kind:
+                    EntityKind::AssociatedItem {
+                        associated_item_kind: AssociatedItemKind::TypeItem(ty_item_kind),
+                    },
+                saved_stream_state,
+                ..
+            } => self.parse_ty_item_node_decl_aux(
+                node_path,
+                node,
+                ast_idx,
+                token_group_idx,
+                ty_item_kind,
+                saved_stream_state,
+            ),
+            _ => unreachable!(),
+        }
+    }
+
+    fn parse_ty_item_node_decl_aux(
+        &self,
+        node_path: TypeItemNodePath,
+        node: TypeItemNode,
+        ast_idx: AstIdx,
+        token_group_idx: TokenGroupIdx,
+        ty_item_kind: TypeItemKind,
+        saved_stream_state: TokenStreamState,
+    ) -> TypeItemNodeDecl {
+        match ty_item_kind {
+            TypeItemKind::MethodFn => self
+                .parse_ty_method_node_decl(
+                    node_path,
+                    node,
+                    ast_idx,
+                    token_group_idx,
+                    saved_stream_state,
+                )
+                .into(),
+            TypeItemKind::AssociatedFn => self
+                .parse_ty_associated_fn_node_decl(
+                    ast_idx,
+                    token_group_idx,
+                    node,
+                    saved_stream_state,
+                )
+                .into(),
+            TypeItemKind::MemoizedField => self
+                .parse_ty_memo_decl(ast_idx, token_group_idx, node, saved_stream_state)
+                .into(),
+            TypeItemKind::AssociatedVal => todo!(),
+            TypeItemKind::AssociatedType => todo!(),
+        }
     }
 }
 
@@ -168,7 +237,15 @@ impl HasDecl for TypeItemPath {
 
 #[salsa::tracked(jar = DeclJar)]
 pub(crate) fn ty_item_decl(db: &dyn DeclDb, path: TypeItemPath) -> DeclResult<TypeItemDecl> {
-    todo!()
+    match path.node_path(db).node_decl(db) {
+        TypeItemNodeDecl::AssociatedFn(_) => todo!(),
+        TypeItemNodeDecl::MethodFn(node_decl) => {
+            TypeMethodFnDecl::from_node_decl(db, path, node_decl).map(Into::into)
+        }
+        TypeItemNodeDecl::AssociatedType(_) => todo!(),
+        TypeItemNodeDecl::AssociatedVal(_) => todo!(),
+        TypeItemNodeDecl::MemoizedField(_) => todo!(),
+    }
 }
 
 // impl HasDecl for TypeItemNodePath {
@@ -264,31 +341,6 @@ pub(crate) fn ty_item_decls_map(
     //     }
     // }
     // Ok(map)
-}
-
-impl<'a> DeclParseContext<'a> {
-    pub(super) fn parse_ty_item_decl(
-        &self,
-        ty_item_kind: TypeItemKind,
-        ast_idx: AstIdx,
-        token_group_idx: TokenGroupIdx,
-        node: TypeItemNode,
-        saved_stream_state: TokenStreamState,
-    ) -> Result<TypeItemDecl, DeclError> {
-        Ok(match ty_item_kind {
-            TypeItemKind::MethodFn => self
-                .parse_ty_method_decl(ast_idx, token_group_idx, node, saved_stream_state)?
-                .into(),
-            TypeItemKind::AssociatedFn => self
-                .parse_ty_associated_fn_decl(ast_idx, token_group_idx, node, saved_stream_state)?
-                .into(),
-            TypeItemKind::MemoizedField => self
-                .parse_ty_memo_decl(ast_idx, token_group_idx, node, saved_stream_state)?
-                .into(),
-            TypeItemKind::AssociatedVal => todo!(),
-            TypeItemKind::AssociatedType => todo!(),
-        })
-    }
 }
 
 impl HasItemDeclsMap for TypePath {

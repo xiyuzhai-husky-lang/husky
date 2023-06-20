@@ -11,17 +11,9 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Trait(
                         TraitDecl {
-                            node_path: TraitNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 2,
-                                        },
-                                    ),
-                                    disambiguator: 0,
-                                },
-                            },
+                            path: TraitPath(`core::cmp::PartialEq`),
                             ast_idx: 0,
+                            implicit_parameters: [],
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -80,7 +72,6 @@ Ok(
                                     roots: [],
                                 },
                             },
-                            implicit_parameter_decl_list: None,
                         },
                     ),
                 ),
@@ -94,17 +85,9 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Trait(
                         TraitDecl {
-                            node_path: TraitNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 3,
-                                        },
-                                    ),
-                                    disambiguator: 0,
-                                },
-                            },
+                            path: TraitPath(`core::cmp::Eq`),
                             ast_idx: 1,
+                            implicit_parameters: [],
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -163,7 +146,6 @@ Ok(
                                     roots: [],
                                 },
                             },
-                            implicit_parameter_decl_list: None,
                         },
                     ),
                 ),
@@ -177,17 +159,9 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Trait(
                         TraitDecl {
-                            node_path: TraitNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 4,
-                                        },
-                                    ),
-                                    disambiguator: 0,
-                                },
-                            },
+                            path: TraitPath(`core::cmp::PartialOrd`),
                             ast_idx: 2,
+                            implicit_parameters: [],
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -246,7 +220,6 @@ Ok(
                                     roots: [],
                                 },
                             },
-                            implicit_parameter_decl_list: None,
                         },
                     ),
                 ),
@@ -260,17 +233,9 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Trait(
                         TraitDecl {
-                            node_path: TraitNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 5,
-                                        },
-                                    ),
-                                    disambiguator: 0,
-                                },
-                            },
+                            path: TraitPath(`core::cmp::Ord`),
                             ast_idx: 3,
+                            implicit_parameters: [],
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -329,7 +294,6 @@ Ok(
                                     roots: [],
                                 },
                             },
-                            implicit_parameter_decl_list: None,
                         },
                     ),
                 ),

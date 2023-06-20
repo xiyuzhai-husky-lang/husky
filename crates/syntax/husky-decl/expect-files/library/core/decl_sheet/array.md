@@ -12,16 +12,7 @@ Ok(
                     ModuleItemDecl::Type(
                         TypeDecl::Extern(
                             ExternTypeDecl {
-                                node_path: TypeNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(
-                                            Id {
-                                                value: 1,
-                                            },
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
+                                path: TypePath(`core::array::Array`, `Extern`),
                                 implicit_parameters: [
                                     ImplicitParameterDeclPattern {
                                         annotated_variance_token: None,
