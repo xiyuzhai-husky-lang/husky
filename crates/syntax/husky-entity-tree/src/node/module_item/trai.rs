@@ -25,7 +25,7 @@ impl TraitNodePath {
         registry: &mut EntityNodeRegistry,
         path: TraitPath,
     ) -> Self {
-        Self::new_inner(db, registry.issue_maybe_ambiguous(path))
+        Self::new_inner(db, registry.issue_maybe_ambiguous_path(path))
     }
 
     pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {

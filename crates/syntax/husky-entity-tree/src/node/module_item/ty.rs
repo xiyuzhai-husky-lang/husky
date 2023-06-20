@@ -11,7 +11,7 @@ impl TypeNodePath {
         registry: &mut EntityNodeRegistry,
         path: TypePath,
     ) -> Self {
-        Self::new_inner(db, registry.issue_maybe_ambiguous(path))
+        Self::new_inner(db, registry.issue_maybe_ambiguous_path(path))
     }
 
     pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {

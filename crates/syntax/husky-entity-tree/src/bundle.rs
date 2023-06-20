@@ -47,10 +47,19 @@ impl EntityTreeCrateBundle {
         &self.sheets
     }
 
-    pub fn all_ty_impl_blocks<'a>(&'a self) -> impl Iterator<Item = TypeImplBlockNode> + 'a {
+    pub fn all_ty_impl_block_node_paths<'a>(
+        &'a self,
+    ) -> impl Iterator<Item = TypeImplBlockNodePath> + 'a {
         self.sheets
             .iter()
-            .map(|sheet| sheet.all_ty_impl_block_node_iter())
+            .map(|sheet| sheet.all_ty_impl_block_node_paths())
+            .flatten()
+    }
+
+    pub fn all_ty_impl_block_nodes<'a>(&'a self) -> impl Iterator<Item = TypeImplBlockNode> + 'a {
+        self.sheets
+            .iter()
+            .map(|sheet| sheet.all_ty_impl_block_nodes())
             .flatten()
     }
 

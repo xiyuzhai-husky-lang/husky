@@ -11,7 +11,7 @@ impl SubmoduleNodePath {
         registry: &mut EntityNodeRegistry,
         path: ModulePath,
     ) -> Self {
-        Self::new_inner(db, registry.issue_maybe_ambiguous(path))
+        Self::new_inner(db, registry.issue_maybe_ambiguous_path(path))
     }
 
     // gives the parent

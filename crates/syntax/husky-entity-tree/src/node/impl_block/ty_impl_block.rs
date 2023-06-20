@@ -1,3 +1,5 @@
+use husky_entity_taxonomy::AssociatedItemKind;
+
 use super::*;
 
 // basically a wrapper type
@@ -34,24 +36,40 @@ impl From<TypeImplBlockNodePath> for EntityNodePath {
 }
 
 impl TypeImplBlockNodePath {
+    #[inline(always)]
     pub fn path(self) -> TypeImplBlockPath {
         self.path
     }
 
+    #[inline(always)]
     pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
         self.path.module_path(db)
     }
 
+    #[inline(always)]
     pub fn ty_path(self, db: &dyn EntityTreeDb) -> TypePath {
         self.path.ty_path(db)
     }
 
+    #[inline(always)]
     pub fn node(self, db: &dyn EntityTreeDb) -> TypeImplBlockNode {
         ty_impl_block_node(db, self)
     }
 
-    pub fn item_node_paths(self, db: &dyn EntityTreeDb) -> &[TypeItemNodePath] {
-        todo!()
+    #[inline(always)]
+    pub fn items(self, db: &dyn EntityTreeDb) -> &[(Ident, TypeItemNodePath, TypeItemNode)] {
+        ty_impl_block_items(db, self)
+    }
+
+    #[inline(always)]
+    pub fn item_node_paths<'a>(
+        self,
+        db: &'a dyn EntityTreeDb,
+    ) -> impl Iterator<Item = TypeItemNodePath> + 'a {
+        self.items(db)
+            .iter()
+            .copied()
+            .map(|(_, node_path, _)| node_path)
     }
 }
 
@@ -71,7 +89,7 @@ pub struct TypeImplBlockNode {
     pub ast_idx: AstIdx,
     pub impl_token: ImplToken,
     pub ty_expr: ModuleItemPathExprIdx,
-    pub body: ImplBlockItems,
+    pub items: TypeItems,
 }
 
 impl TypeImplBlockNode {
@@ -81,7 +99,7 @@ impl TypeImplBlockNode {
         registry: &mut ImplBlockRegistry,
         module_path: ModulePath,
         ast_idx: AstIdx,
-        body: ImplBlockItems,
+        items: TypeItems,
         ty_path: TypePath,
         ty_expr: ModuleItemPathExprIdx,
     ) -> Self {
@@ -93,7 +111,7 @@ impl TypeImplBlockNode {
             ast_idx,
             impl_token,
             ty_expr,
-            body,
+            items,
         )
     }
 
@@ -103,10 +121,6 @@ impl TypeImplBlockNode {
 
     pub fn ty_path(self, db: &dyn EntityTreeDb) -> TypePath {
         self.node_path(db).path.ty_path(db)
-    }
-
-    pub fn items(self, db: &dyn EntityTreeDb) -> Vec<(Ident, AssociatedItemNode)> {
-        calc_impl_block_items(db, self.into(), self.module_path(db), self.body(db))
     }
 }
 
@@ -118,18 +132,4 @@ pub(crate) fn ty_impl_block_node(
     let module_path = node_path.module_path(db);
     let entity_tree_sheet = db.entity_tree_sheet(module_path).expect("valid module");
     entity_tree_sheet.ty_impl_block_node(node_path)
-}
-
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
-pub(crate) fn ty_impl_block_items(
-    db: &dyn EntityTreeDb,
-    impl_block: TypeImplBlockNode,
-) -> Vec<(Ident, TypeItemNode)> {
-    todo!()
-    // calc_impl_block_items(
-    //     db,
-    //     impl_block.into(),
-    //     impl_block.module_path(db),
-    //     impl_block.body(db),
-    // )
 }

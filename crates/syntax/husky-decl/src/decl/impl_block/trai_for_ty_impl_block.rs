@@ -48,7 +48,7 @@ impl TraitForTypeImplBlockDecl {
 impl HasDecl for TraitForTypeImplBlockPath {
     type Decl = TraitForTypeImplBlockDecl;
 
-    fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
+    fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
         todo!()
     }
 }
@@ -56,12 +56,12 @@ impl HasDecl for TraitForTypeImplBlockPath {
 impl HasDecl for TraitForTypeImplBlockNode {
     type Decl = TraitForTypeImplBlockDecl;
 
-    fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
-        trai_for_ty_impl_block_decl(db, self).as_ref().copied()
+    fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
+        trai_for_ty_impl_block_decl(db, self)
     }
 }
 
-#[salsa::tracked(jar = DeclJar, return_ref)]
+#[salsa::tracked(jar = DeclJar)]
 pub(crate) fn trai_for_ty_impl_block_decl(
     db: &dyn DeclDb,
     impl_block: TraitForTypeImplBlockNode,
@@ -93,33 +93,34 @@ impl<'a> DeclParseContext<'a> {
         token_group_idx: TokenGroupIdx,
         node: TraitForTypeImplBlockNode,
     ) -> DeclResult<TraitForTypeImplBlockDecl> {
-        let db = self.db();
-        let mut parser = self.expr_parser(
-            node.node_path(db),
-            None,
-            AllowSelfType::True,
-            AllowSelfValue::False,
-        );
-        let mut ctx = parser.ctx(None, token_group_idx, None);
-        let impl_token = ctx.try_parse_optional().unwrap().unwrap();
-        let implicit_parameter_decl_list = ctx.try_parse_optional()?;
-        // ad hoc
-        let trai: TraitExpr = ctx.try_parse_optional().unwrap().unwrap();
-        let for_token = ctx.try_parse_optional().unwrap().unwrap();
-        let ty = ctx.try_parse_optional().unwrap().unwrap();
-        let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectedEolColon)?;
-        Ok(TraitForTypeImplBlockDecl::new(
-            db,
-            todo!(),
-            ast_idx,
-            node,
-            impl_token,
-            implicit_parameter_decl_list,
-            trai,
-            for_token,
-            ty,
-            eol_colon,
-            parser.finish(),
-        ))
+        todo!()
+        // let db = self.db();
+        // let mut parser = self.expr_parser(
+        //     node.node_path(db),
+        //     None,
+        //     AllowSelfType::True,
+        //     AllowSelfValue::False,
+        // );
+        // let mut ctx = parser.ctx(None, token_group_idx, None);
+        // let impl_token = ctx.try_parse_optional().unwrap().unwrap();
+        // let implicit_parameter_decl_list = ctx.try_parse_optional()?;
+        // // ad hoc
+        // let trai: TraitExpr = ctx.try_parse_optional().unwrap().unwrap();
+        // let for_token = ctx.try_parse_optional().unwrap().unwrap();
+        // let ty = ctx.try_parse_optional().unwrap().unwrap();
+        // let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectedEolColon)?;
+        // Ok(TraitForTypeImplBlockDecl::new(
+        //     db,
+        //     todo!(),
+        //     ast_idx,
+        //     node,
+        //     impl_token,
+        //     implicit_parameter_decl_list,
+        //     trai,
+        //     for_token,
+        //     ty,
+        //     eol_colon,
+        //     parser.finish(),
+        // ))
     }
 }

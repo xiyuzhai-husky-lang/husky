@@ -31,35 +31,35 @@ pub(crate) fn decl_diagnostic_sheet(
     DeclDiagnosticSheet::new(db, sheet_collector.finish())
 }
 
-impl Diagnose for OriginalDeclError {
-    type Context<'a> = SheetDiagnosticsContext<'a>;
+// impl Diagnose for OriginalDeclError {
+//     type Context<'a> = SheetDiagnosticsContext<'a>;
 
-    fn message(&self, ctx: &Self::Context<'_>) -> String {
-        match self {
-            OriginalDeclError::ExpectedLCurlOrLParOrSemicolon(_) => {
-                format!("expected `{{` or `(` or `;`")
-            }
-            OriginalDeclError::NoSuchItem => format!("no such item"),
-            OriginalDeclError::Expr(e) => e.message(ctx),
-            OriginalDeclError::Deprecated => "deprecated".to_string(),
-        }
-    }
+//     fn message(&self, ctx: &Self::Context<'_>) -> String {
+//         match self {
+//             OriginalDeclError::ExpectedLCurlOrLParOrSemicolon(_) => {
+//                 format!("expected `{{` or `(` or `;`")
+//             }
+//             OriginalDeclError::NoSuchItem => format!("no such item"),
+//             OriginalDeclError::Expr(e) => e.message(ctx),
+//             OriginalDeclError::Deprecated => "deprecated".to_string(),
+//         }
+//     }
 
-    fn severity(&self) -> DiagnosticSeverity {
-        DiagnosticSeverity::Error
-    }
+//     fn severity(&self) -> DiagnosticSeverity {
+//         DiagnosticSeverity::Error
+//     }
 
-    fn range(&self, ctx: &Self::Context<'_>) -> TextRange {
-        match self {
-            OriginalDeclError::ExpectedLCurlOrLParOrSemicolon(token_stream_state) => {
-                ctx.token_stream_state_text_range(*token_stream_state)
-            }
-            OriginalDeclError::NoSuchItem => todo!(),
-            OriginalDeclError::Expr(e) => e.range(ctx),
-            OriginalDeclError::Deprecated => todo!(),
-        }
-    }
-}
+//     fn range(&self, ctx: &Self::Context<'_>) -> TextRange {
+//         match self {
+//             OriginalDeclError::ExpectedLCurlOrLParOrSemicolon(token_stream_state) => {
+//                 ctx.token_stream_state_text_range(*token_stream_state)
+//             }
+//             OriginalDeclError::NoSuchItem => todo!(),
+//             OriginalDeclError::Expr(e) => e.range(ctx),
+//             OriginalDeclError::Deprecated => todo!(),
+//         }
+//     }
+// }
 
 impl Diagnose for OriginalDeclExprError {
     type Context<'a> = SheetDiagnosticsContext<'a>;

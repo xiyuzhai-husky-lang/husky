@@ -109,7 +109,7 @@ impl ModuleItemDecl {
 impl HasDecl for ModuleItemPath {
     type Decl = ModuleItemDecl;
 
-    fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
+    fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
         match self {
             ModuleItemPath::Type(id) => id.decl(db).map(Into::into),
             ModuleItemPath::Trait(id) => id.decl(db).map(Into::into),

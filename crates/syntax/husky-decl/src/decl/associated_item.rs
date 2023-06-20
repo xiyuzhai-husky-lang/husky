@@ -101,7 +101,7 @@ impl AssociatedItemDecl {
 impl HasDecl for AssociatedItemPath {
     type Decl = AssociatedItemDecl;
 
-    fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
+    fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
         todo!()
         // associated_item_decl(db, self).as_ref().copied()
     }
@@ -169,5 +169,5 @@ pub trait HasItemDeclsMap {
 pub trait HasItemDecls {
     type ItemDecls;
 
-    fn item_decls<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, &'a Self::ItemDecls>;
+    fn item_decls<'a>(self, db: &'a dyn DeclDb) -> DeclResult<&'a Self::ItemDecls>;
 }

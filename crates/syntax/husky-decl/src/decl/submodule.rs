@@ -43,12 +43,12 @@ impl SubmoduleDecl {
 impl HasDecl for ModulePath {
     type Decl = SubmoduleDecl;
 
-    fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
-        submodule_decl(db, self).as_ref().copied()
+    fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
+        submodule_decl(db, self)
     }
 }
 
-#[salsa::tracked(jar = DeclJar, return_ref)]
+#[salsa::tracked(jar = DeclJar)]
 pub(crate) fn submodule_decl(db: &dyn DeclDb, path: ModulePath) -> DeclResult<SubmoduleDecl> {
     let node_path = path.node_path(db);
     let node_decl = node_path.node_decl(db);

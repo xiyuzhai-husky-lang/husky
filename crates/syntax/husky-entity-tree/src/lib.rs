@@ -79,8 +79,7 @@ pub struct EntityTreeJar(
     all_modules_within_crate,
     crate_specific_prelude,
     ty_impl_blocks,
-    ty_items,
-    ty_impl_block_items,
+    all_ty_items,
     trai_for_ty_impl_block_items,
     // variants
     TypeVariant,
@@ -89,6 +88,7 @@ pub struct EntityTreeJar(
     // - type impl block
     TypeImplBlockNode,
     ty_impl_block_node,
+    ty_impl_block_items,
     // - trait for type impl block
     TraitForTypeImplBlockNode,
     // - ill formed impl block

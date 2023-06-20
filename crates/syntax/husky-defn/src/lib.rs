@@ -92,11 +92,13 @@ pub struct DefnJar(
     trai_for_ty_associated_ty_defn,
     TraitForTypeAssociatedValDefn,
     trai_for_ty_associated_val_defn,
+    // sheet
+    defn_sheet,
 );
 
 #[test]
 fn defn_sheet_works() {
     use tests::*;
 
-    DB::default().ast_expect_test_debug_with_db("defn_sheet", DefnDb::collect_defns);
+    DB::default().ast_expect_test_debug_with_db("defn_sheet", DefnDb::defn_sheet);
 }

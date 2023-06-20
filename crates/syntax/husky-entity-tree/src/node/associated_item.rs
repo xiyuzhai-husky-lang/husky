@@ -123,17 +123,6 @@ impl AsVecMapEntry for AssociatedItemNode {
     }
 }
 
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
-pub(crate) fn trai_for_ty_impl_block_items(
-    db: &dyn EntityTreeDb,
-    impl_block: TraitForTypeImplBlockNode,
-) -> Vec<(Ident, AssociatedItemNode)> {
-    let Some(items) = impl_block.items(db) else {
-        return Default::default()
-    };
-    calc_impl_block_items(db, impl_block.into(), impl_block.module_path(db), items)
-}
-
 pub(crate) fn calc_impl_block_items(
     db: &dyn EntityTreeDb,
     impl_block: ImplBlockNode,

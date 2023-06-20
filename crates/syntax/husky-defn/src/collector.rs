@@ -25,7 +25,7 @@ impl<'a> DefnCollector<'a> {
         })
     }
 
-    pub(crate) fn collect_all(self) -> DefnSheet<'a> {
+    pub(crate) fn collect_all(self) -> DefnSheet {
         todo!()
         // DefnSheet::new(
         //     self.decl_sheet

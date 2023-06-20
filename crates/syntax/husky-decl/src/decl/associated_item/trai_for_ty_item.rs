@@ -138,7 +138,7 @@ impl TraitForTypeItemDecl {
 impl HasDecl for TraitForTypeItemPath {
     type Decl = TraitForTypeItemDecl;
 
-    fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
+    fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
         todo!()
     }
 }

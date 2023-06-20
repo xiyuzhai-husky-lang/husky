@@ -171,112 +171,109 @@ pub enum TypeItemDecls {
 impl HasDecl for TypeItemPath {
     type Decl = TypeItemDecl;
 
-    fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
-        todo!()
-        // Err(&DeclError::Original(OriginalDeclError::Deprecated))
-        // todo!("deprecated")
-        // self.parent_ty(db)
-        //     .item_decls(db)
-        //     .map_err(|_| todo!())?
-        //     .get_entry(self.ident(db))
-        //     .ok_or(&DeclError::Original(OriginalDeclError::NoSuchItem))?
-        //     .1
-        //     .map_err(|_| todo!())
+    fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
+        ty_item_decl(db, self)
     }
 }
 
-impl HasDecl for TypeItemNodePath {
-    type Decl = TypeItemDecl;
-
-    fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
-        todo!()
-        // Err(&DeclError::Original(OriginalDeclError::Deprecated))
-        // todo!("deprecated")
-        // self.parent_ty(db)
-        //     .item_decls(db)
-        //     .map_err(|_| todo!())?
-        //     .get_entry(self.ident(db))
-        //     .ok_or(&DeclError::Original(OriginalDeclError::NoSuchItem))?
-        //     .1
-        //     .map_err(|_| todo!())
-    }
+#[salsa::tracked(jar = DeclJar)]
+pub(crate) fn ty_item_decl(db: &dyn DeclDb, path: TypeItemPath) -> DeclResult<TypeItemDecl> {
+    todo!()
 }
 
-impl HasDecl for TypeItemNode {
-    type Decl = TypeItemDecl;
+// impl HasDecl for TypeItemNodePath {
+//     type Decl = TypeItemDecl;
 
-    fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
-        todo!()
-        // Err(&DeclError::Original(OriginalDeclError::Deprecated))
-        // todo!("deprecated")
-        // self.parent_ty(db)
-        //     .item_decls(db)
-        //     .map_err(|_| todo!())?
-        //     .get_entry(self.ident(db))
-        //     .ok_or(&DeclError::Original(OriginalDeclError::NoSuchItem))?
-        //     .1
-        //     .map_err(|_| todo!())
-    }
-}
+//     fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
+//         todo!()
+//         // Err(&DeclError::Original(OriginalDeclError::Deprecated))
+//         // todo!("deprecated")
+//         // self.parent_ty(db)
+//         //     .item_decls(db)
+//         //     .map_err(|_| todo!())?
+//         //     .get_entry(self.ident(db))
+//         //     .ok_or(&DeclError::Original(OriginalDeclError::NoSuchItem))?
+//         //     .1
+//         //     .map_err(|_| todo!())
+//     }
+// }
 
-impl HasItemDecls for TypeItemPath {
-    type ItemDecls = TypeItemDecls;
+// impl HasDecl for TypeItemNode {
+//     type Decl = TypeItemDecl;
 
-    fn item_decls<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, &'a Self::ItemDecls> {
-        todo!()
-        // self.ty_path(db)
-        //     .item_decls_map(db)
-        //     .map_err(|_| todo!())?
-        //     .get_entry(self.ident(db))
-        //     .ok_or(&DeclError::Original(OriginalDeclError::NoSuchItem))?
-        //     .1
-        //     .as_ref()
-        //     .map_err(|_| todo!())
-    }
-}
+//     fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
+//         todo!()
+//         // Err(&DeclError::Original(OriginalDeclError::Deprecated))
+//         // todo!("deprecated")
+//         // self.parent_ty(db)
+//         //     .item_decls(db)
+//         //     .map_err(|_| todo!())?
+//         //     .get_entry(self.ident(db))
+//         //     .ok_or(&DeclError::Original(OriginalDeclError::NoSuchItem))?
+//         //     .1
+//         //     .map_err(|_| todo!())
+//     }
+// }
+
+// impl HasItemDecls for TypeItemPath {
+//     type ItemDecls = TypeItemDecls;
+
+//     fn item_decls<'a>(self, db: &'a dyn DeclDb) -> DeclResult<'a, &'a Self::ItemDecls> {
+//         todo!()
+//         // self.ty_path(db)
+//         //     .item_decls_map(db)
+//         //     .map_err(|_| todo!())?
+//         //     .get_entry(self.ident(db))
+//         //     .ok_or(&DeclError::Original(OriginalDeclError::NoSuchItem))?
+//         //     .1
+//         //     .as_ref()
+//         //     .map_err(|_| todo!())
+//     }
+// }
 
 #[salsa::tracked(jar = DeclJar, return_ref)]
-pub(crate) fn ty_item_decls_map<'a>(
-    db: &'a dyn DeclDb,
+pub(crate) fn ty_item_decls_map(
+    db: &dyn DeclDb,
     path: TypePath,
 ) -> EntityTreeBundleResult<IdentPairMap<Result<TypeItemDecls, ()>>> {
-    let mut map = IdentPairMap::default();
-    for (ident, ty_item) in path.items(db)?.iter().copied() {
-        let ty_item_kind = ty_item.kind(db);
-        let result = map.get_mut_or_insert_with(ident, || {
-            Ok(match ty_item_kind {
-                TypeItemKind::MethodFn => TypeItemDecls::MethodFn(Default::default()),
-                TypeItemKind::AssociatedFn => TypeItemDecls::AssociatedFn(Default::default()),
-                TypeItemKind::AssociatedVal => TypeItemDecls::AssociatedVal(Default::default()),
-                TypeItemKind::AssociatedType => TypeItemDecls::AssociatedType(Default::default()),
-                TypeItemKind::MemoizedField => TypeItemDecls::MemoizedField(Default::default()),
-            })
-        });
-        let Ok(decl) = ty_item.decl(db) else {
-            *result = Err(());
-            continue
-        };
-        match result {
-            Ok(decls) => match (decls, decl) {
-                (TypeItemDecls::AssociatedFn(decls), TypeItemDecl::AssociatedFn(decl)) => {
-                    decls.push(decl)
-                }
-                (TypeItemDecls::MethodFn(decls), TypeItemDecl::MethodFn(decl)) => decls.push(decl),
-                (TypeItemDecls::AssociatedType(decls), TypeItemDecl::AssociatedType(decl)) => {
-                    decls.push(decl)
-                }
-                (TypeItemDecls::AssociatedVal(decls), TypeItemDecl::AssociatedVal(decl)) => {
-                    decls.push(decl)
-                }
-                (TypeItemDecls::MemoizedField(decls), TypeItemDecl::MemoizedField(decl)) => {
-                    decls.push(decl)
-                }
-                _ => *result = Err(()), // error because of inconsistent type item kind
-            },
-            Err(_) => continue,
-        }
-    }
-    Ok(map)
+    todo!()
+    // let mut map = IdentPairMap::default();
+    // for (ident, node_path) in path.items(db)?.iter().copied() {
+    //     let ty_item_kind = node_path.item_kind(db);
+    //     let result = map.get_mut_or_insert_with(ident, || {
+    //         Ok(match ty_item_kind {
+    //             TypeItemKind::MethodFn => TypeItemDecls::MethodFn(Default::default()),
+    //             TypeItemKind::AssociatedFn => TypeItemDecls::AssociatedFn(Default::default()),
+    //             TypeItemKind::AssociatedVal => TypeItemDecls::AssociatedVal(Default::default()),
+    //             TypeItemKind::AssociatedType => TypeItemDecls::AssociatedType(Default::default()),
+    //             TypeItemKind::MemoizedField => TypeItemDecls::MemoizedField(Default::default()),
+    //         })
+    //     });
+    //     let Ok(decl) = node_path.decl(db) else {
+    //         *result = Err(());
+    //         continue
+    //     };
+    //     match result {
+    //         Ok(decls) => match (decls, decl) {
+    //             (TypeItemDecls::AssociatedFn(decls), TypeItemDecl::AssociatedFn(decl)) => {
+    //                 decls.push(decl)
+    //             }
+    //             (TypeItemDecls::MethodFn(decls), TypeItemDecl::MethodFn(decl)) => decls.push(decl),
+    //             (TypeItemDecls::AssociatedType(decls), TypeItemDecl::AssociatedType(decl)) => {
+    //                 decls.push(decl)
+    //             }
+    //             (TypeItemDecls::AssociatedVal(decls), TypeItemDecl::AssociatedVal(decl)) => {
+    //                 decls.push(decl)
+    //             }
+    //             (TypeItemDecls::MemoizedField(decls), TypeItemDecl::MemoizedField(decl)) => {
+    //                 decls.push(decl)
+    //             }
+    //             _ => *result = Err(()), // error because of inconsistent type item kind
+    //         },
+    //         Err(_) => continue,
+    //     }
+    // }
+    // Ok(map)
 }
 
 impl<'a> DeclParseContext<'a> {

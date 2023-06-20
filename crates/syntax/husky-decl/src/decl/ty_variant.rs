@@ -57,12 +57,12 @@ impl TypeVariantDecl {
 impl HasDecl for TypeVariantNodePath {
     type Decl = TypeVariantDecl;
 
-    fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
-        ty_variant_decl(db, self).as_ref().copied()
+    fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
+        ty_variant_decl(db, self)
     }
 }
 
-#[salsa::tracked(jar = DeclJar,return_ref)]
+#[salsa::tracked(jar = DeclJar)]
 pub(crate) fn ty_variant_decl(
     db: &dyn DeclDb,
     node_path: TypeVariantNodePath,
@@ -73,7 +73,7 @@ pub(crate) fn ty_variant_decl(
 impl HasDecl for TypeVariantPath {
     type Decl = TypeVariantDecl;
 
-    fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
+    fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
         self.node_path(db).decl(db)
     }
 }

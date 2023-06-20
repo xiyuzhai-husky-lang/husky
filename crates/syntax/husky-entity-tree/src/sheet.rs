@@ -122,9 +122,20 @@ impl EntityTreeSheet {
             .map(|(node_path, _)| *node_path)
     }
 
-    pub fn all_ty_impl_block_node_iter<'a>(
+    pub fn all_ty_impl_block_node_paths<'a>(
         &'a self,
-    ) -> impl Iterator<Item = TypeImplBlockNode> + 'a {
+    ) -> impl Iterator<Item = TypeImplBlockNodePath> + 'a {
+        self.impl_block_node_table
+            .iter()
+            .copied()
+            .filter_map(|(node_path, _)| match node_path {
+                ImplBlockNodePath::TypeImplBlock(node_path) => Some(node_path),
+                ImplBlockNodePath::TraitForTypeImplBlock(_) => todo!(),
+                ImplBlockNodePath::IllFormedImplBlock(_) => todo!(),
+            })
+    }
+
+    pub fn all_ty_impl_block_nodes<'a>(&'a self) -> impl Iterator<Item = TypeImplBlockNode> + 'a {
         self.impl_block_node_table
             .iter()
             .copied()

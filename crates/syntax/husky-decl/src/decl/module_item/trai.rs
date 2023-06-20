@@ -49,12 +49,12 @@ impl TraitDecl {
 impl HasDecl for TraitNodePath {
     type Decl = TraitDecl;
 
-    fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
-        trai_decl(db, self).as_ref().copied()
+    fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
+        trai_decl(db, self)
     }
 }
 
-#[salsa::tracked(jar = DeclJar,return_ref)]
+#[salsa::tracked(jar = DeclJar)]
 pub(crate) fn trai_decl(db: &dyn DeclDb, id: TraitNodePath) -> DeclResult<TraitDecl> {
     let parser = DeclParseContext::new(db, id.module_path(db));
     parser.parse_trai_decl(id)
@@ -82,23 +82,24 @@ impl<'a> DeclParseContext<'a> {
         token_group_idx: TokenGroupIdx,
         saved_stream_state: TokenStreamState,
     ) -> DeclResult<TraitDecl> {
-        let mut parser = self.expr_parser(id, None, AllowSelfType::True, AllowSelfValue::False);
-        let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
-        let implicit_parameters = ctx.try_parse_optional()?;
-        Ok(TraitDecl::new(
-            self.db(),
-            id,
-            ast_idx,
-            parser.finish(),
-            implicit_parameters,
-        ))
+        todo!()
+        // let mut parser = self.expr_parser(id, None, AllowSelfType::True, AllowSelfValue::False);
+        // let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
+        // let implicit_parameters = ctx.try_parse_optional()?;
+        // Ok(TraitDecl::new(
+        //     self.db(),
+        //     id,
+        //     ast_idx,
+        //     parser.finish(),
+        //     implicit_parameters,
+        // ))
     }
 }
 
 impl HasDecl for TraitPath {
     type Decl = TraitDecl;
 
-    fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
+    fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
         self.node_path(db).decl(db)
     }
 }
