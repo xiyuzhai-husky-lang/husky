@@ -136,13 +136,13 @@ impl HasNodeDecl for EntityNodePath {
 pub trait HasDecl: Copy {
     type Decl;
 
-    fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl>;
+    fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl>;
 }
 
 impl HasDecl for EntityPath {
     type Decl = Decl;
 
-    fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
+    fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
         match self {
             EntityPath::Module(path) => path.decl(db).map(Into::into),
             EntityPath::ModuleItem(path) => path.decl(db).map(Into::into),

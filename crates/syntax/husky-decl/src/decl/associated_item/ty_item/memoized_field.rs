@@ -39,34 +39,35 @@ impl<'a> DeclParseContext<'a> {
         node: TypeItemNode,
         saved_stream_state: TokenStreamState,
     ) -> DeclResult<TypeMemoizedFieldDecl> {
-        let db = self.db();
-        let node_path = node.node_path(db);
-        let impl_block_node_decl = node_path.impl_block(db).node_decl(db);
-        let mut parser = self.expr_parser(
-            node_path,
-            Some(impl_block_node_decl.expr_region(db)),
-            AllowSelfType::True,
-            AllowSelfValue::True,
-        );
-        let mut ctx = parser.ctx(None, token_group_idx, saved_stream_state);
-        let colon_token = ctx.try_parse_optional()?;
-        let form_ty = if colon_token.is_some() {
-            Some(ctx.parse_expected(OriginalDeclExprError::ExpectedOutputType)?)
-        } else {
-            None
-        };
-        let eq_token = ctx.parse_expected(OriginalDeclExprError::ExpectEqTokenForVariable)?;
-        let expr = ctx.parse_expr_root(None, ExprRootKind::ValExpr);
-        Ok(TypeMemoizedFieldDecl::new(
-            db,
-            node_path,
-            ast_idx,
-            colon_token,
-            form_ty,
-            eq_token,
-            expr,
-            parser.finish(),
-        )
-        .into())
+        todo!()
+        // let db = self.db();
+        // let node_path = node.node_path(db);
+        // let impl_block_node_decl = node_path.impl_block(db).node_decl(db);
+        // let mut parser = self.expr_parser(
+        //     node_path,
+        //     Some(impl_block_node_decl.expr_region(db)),
+        //     AllowSelfType::True,
+        //     AllowSelfValue::True,
+        // );
+        // let mut ctx = parser.ctx(None, token_group_idx, saved_stream_state);
+        // let colon_token = ctx.try_parse_optional()?;
+        // let form_ty = if colon_token.is_some() {
+        //     Some(ctx.parse_expected(OriginalDeclExprError::ExpectedOutputType)?)
+        // } else {
+        //     None
+        // };
+        // let eq_token = ctx.parse_expected(OriginalDeclExprError::ExpectEqTokenForVariable)?;
+        // let expr = ctx.parse_expr_root(None, ExprRootKind::ValExpr);
+        // Ok(TypeMemoizedFieldDecl::new(
+        //     db,
+        //     node_path,
+        //     ast_idx,
+        //     colon_token,
+        //     form_ty,
+        //     eq_token,
+        //     expr,
+        //     parser.finish(),
+        // )
+        // .into())
     }
 }

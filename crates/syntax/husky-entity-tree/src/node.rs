@@ -82,7 +82,7 @@ impl EntityNodeRegistry {
         self.errors
     }
 
-    fn issue_maybe_ambiguous<P: Copy + Into<EntityPath>>(
+    fn issue_maybe_ambiguous_path<P: Copy + Into<EntityPath>>(
         &mut self,
         path: P,
     ) -> MaybeAmbiguousPath<P> {

@@ -106,12 +106,12 @@ impl From<TypeImplBlockDecl> for Decl {
 impl HasDecl for TypeImplBlockPath {
     type Decl = TypeImplBlockDecl;
 
-    fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
-        ty_impl_block_decl(db, self).as_ref().copied()
+    fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
+        ty_impl_block_decl(db, self)
     }
 }
 
-#[salsa::tracked(jar = DeclJar, return_ref)]
+#[salsa::tracked(jar = DeclJar)]
 pub(crate) fn ty_impl_block_decl(
     db: &dyn DeclDb,
     // here use path instead of node_path because salsa doesn't support use wrapper type by default

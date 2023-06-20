@@ -346,12 +346,12 @@ impl HasDecl for TypePath {
     type Decl = TypeDecl;
 
     #[inline(always)]
-    fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
-        ty_decl(db, self).as_ref().copied()
+    fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
+        ty_decl(db, self)
     }
 }
 
-#[salsa::tracked(jar = DeclJar, return_ref)]
+#[salsa::tracked(jar = DeclJar)]
 pub(crate) fn ty_decl(db: &dyn DeclDb, path: TypePath) -> DeclResult<TypeDecl> {
     TypeDecl::from_node_decl(db, path.node_path(db).node_decl(db))
 }

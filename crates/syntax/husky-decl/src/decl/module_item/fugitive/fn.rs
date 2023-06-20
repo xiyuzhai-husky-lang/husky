@@ -66,30 +66,31 @@ impl<'a> DeclParseContext<'a> {
 
         id: FugitiveNodePath,
     ) -> Result<FugitiveDecl, DeclError> {
-        let mut parser = self.expr_parser(id, None, AllowSelfType::False, AllowSelfValue::False);
-        let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
-        let implicit_parameter_decl_list = ctx.try_parse_optional()?;
-        let parameter_decl_list =
-            ctx.parse_expected(OriginalDeclExprError::ExpectedParameterDeclList)?;
+        todo!()
+        // let mut parser = self.expr_parser(id, None, AllowSelfType::False, AllowSelfValue::False);
+        // let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
+        // let implicit_parameter_decl_list = ctx.try_parse_optional()?;
+        // let parameter_decl_list =
+        //     ctx.parse_expected(OriginalDeclExprError::ExpectedParameterDeclList)?;
 
-        let curry_token = ctx.try_parse_optional()?;
-        let return_ty = if curry_token.is_some() {
-            Some(ctx.parse_expected(OriginalDeclExprError::ExpectedOutputType)?)
-        } else {
-            None
-        };
-        let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectedEolColon)?;
-        Ok(FnDecl::new(
-            self.db(),
-            id,
-            ast_idx,
-            parser.finish(),
-            implicit_parameter_decl_list,
-            parameter_decl_list,
-            curry_token,
-            return_ty,
-            eol_colon,
-        )
-        .into())
+        // let curry_token = ctx.try_parse_optional()?;
+        // let return_ty = if curry_token.is_some() {
+        //     Some(ctx.parse_expected(OriginalDeclExprError::ExpectedOutputType)?)
+        // } else {
+        //     None
+        // };
+        // let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectedEolColon)?;
+        // Ok(FnDecl::new(
+        //     self.db(),
+        //     id,
+        //     ast_idx,
+        //     parser.finish(),
+        //     implicit_parameter_decl_list,
+        //     parameter_decl_list,
+        //     curry_token,
+        //     return_ty,
+        //     eol_colon,
+        // )
+        // .into())
     }
 }

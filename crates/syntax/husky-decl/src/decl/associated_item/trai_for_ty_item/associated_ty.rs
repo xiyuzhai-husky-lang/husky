@@ -30,28 +30,29 @@ impl<'a> DeclParseContext<'a> {
         node: TraitForTypeItemNode,
         saved_stream_state: TokenStreamState,
     ) -> DeclResult<TraitForTypeAssociatedTypeDecl> {
-        let db = self.db();
-        let Ok(impl_decl) = node.impl_block(db).decl(db) else {
-            return Err(
-                DerivedDeclError::UnableToParseImplDeclForTyAsTraitMethodFnDecl.into()
-            )
-        };
-        let mut parser = self.expr_parser(
-            node.node_path(db),
-            Some(impl_decl.expr_region(db)),
-            AllowSelfType::True,
-            AllowSelfValue::False,
-        );
-        let mut ctx = parser.ctx(None, token_group_idx, saved_stream_state);
-        let implicit_parameter_decl_list = ctx.try_parse_optional()?;
-        // let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectedEolColon)?;
-        Ok(TraitForTypeAssociatedTypeDecl::new(
-            db,
-            node.node_path(db),
-            node,
-            ast_idx,
-            implicit_parameter_decl_list,
-            parser.finish(),
-        ))
+        todo!()
+        // let db = self.db();
+        // let Ok(impl_decl) = node.impl_block(db).decl(db) else {
+        //     return Err(
+        //         DerivedDeclError::UnableToParseImplDeclForTyAsTraitMethodFnDecl.into()
+        //     )
+        // };
+        // let mut parser = self.expr_parser(
+        //     node.node_path(db),
+        //     Some(impl_decl.expr_region(db)),
+        //     AllowSelfType::True,
+        //     AllowSelfValue::False,
+        // );
+        // let mut ctx = parser.ctx(None, token_group_idx, saved_stream_state);
+        // let implicit_parameter_decl_list = ctx.try_parse_optional()?;
+        // // let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectedEolColon)?;
+        // Ok(TraitForTypeAssociatedTypeDecl::new(
+        //     db,
+        //     node.node_path(db),
+        //     node,
+        //     ast_idx,
+        //     implicit_parameter_decl_list,
+        //     parser.finish(),
+        // ))
     }
 }

@@ -23,8 +23,8 @@ pub enum DeclarativeSignatureError {
     ExprError,
 }
 
-impl From<&DeclError> for DeclarativeSignatureError {
-    fn from(_: &DeclError) -> Self {
+impl From<DeclError> for DeclarativeSignatureError {
+    fn from(_: DeclError) -> Self {
         DeclarativeSignatureError::DeclError
     }
 }

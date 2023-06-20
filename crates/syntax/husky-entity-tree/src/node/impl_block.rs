@@ -124,17 +124,22 @@ impl ImplBlockNode {
             }
         };
         match path {
-            ModuleItemPath::Type(ty) => TypeImplBlockNode::new(
-                db,
-                impl_token,
-                registry,
-                module_path,
-                ast_idx,
-                items.expect("it should be guaranteed in `husky-ast` that items are not none"),
-                ty,
-                expr,
-            )
-            .into(),
+            ModuleItemPath::Type(ty) => {
+                let Some(ImplBlockItems::Type(items)) = items else {
+                    unreachable!("it should be guaranteed in `husky-ast` that items are not none")
+                };
+                TypeImplBlockNode::new(
+                    db,
+                    impl_token,
+                    registry,
+                    module_path,
+                    ast_idx,
+                    items,
+                    ty,
+                    expr,
+                )
+                .into()
+            }
             ModuleItemPath::Trait(trai_path) => {
                 let trai_expr = expr;
                 let for_token = match ignore_util_for_is_eaten(&mut parser) {
@@ -259,47 +264,49 @@ pub(crate) fn ty_impl_blocks(
     let crate_path = ty.module_path(db).crate_path(db);
     let entity_tree_crate_bundle = db.entity_tree_bundle(crate_path)?;
     Ok(entity_tree_crate_bundle
-        .all_ty_impl_blocks()
+        .all_ty_impl_block_nodes()
         .filter_map(|impl_block| (impl_block.ty_path(db) == ty).then_some(impl_block))
         .collect())
 }
 
 pub trait HasItemNodes: Copy {
-    type ItemNode;
+    type ItemNodePath;
 
     fn items<'a>(
         self,
         db: &'a dyn EntityTreeDb,
-    ) -> EntityTreeBundleResultRef<'a, &'a [(Ident, Self::ItemNode)]>;
+    ) -> EntityTreeBundleResultRef<'a, &'a [(Ident, Self::ItemNodePath)]>;
 }
 
 impl HasItemNodes for TypePath {
-    type ItemNode = TypeItemNode;
+    type ItemNodePath = TypeItemNodePath;
 
     fn items<'a>(
         self,
         db: &'a dyn EntityTreeDb,
-    ) -> EntityTreeBundleResultRef<'a, &'a [(Ident, TypeItemNode)]> {
-        ty_items(db, self).as_ref().map(|v| v as &[_])
+    ) -> EntityTreeBundleResultRef<'a, &'a [(Ident, TypeItemNodePath)]> {
+        all_ty_items(db, self).as_ref().map(|v| v as &[_])
     }
 }
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
-pub(crate) fn ty_items(
+pub(crate) fn all_ty_items(
     db: &dyn EntityTreeDb,
     path: TypePath,
-) -> EntityTreeBundleResult<Vec<(Ident, TypeItemNode)>> {
+) -> EntityTreeBundleResult<Vec<(Ident, TypeItemNodePath)>> {
     let crate_path = path.module_path(db).crate_path(db);
     let entity_tree_crate_bundle = db.entity_tree_bundle(crate_path)?;
     Ok(entity_tree_crate_bundle
-        .all_ty_impl_blocks()
-        .filter_map(|impl_block| {
+        .all_ty_impl_block_node_paths()
+        .filter_map(|node_path| {
             // ad hoc
             // todo: guard against two methods with the same ident
-            (impl_block.ty_path(db) == path).then(|| {
-                ty_impl_block_items(db, impl_block)
+            (node_path.ty_path(db) == path).then(|| {
+                node_path
+                    .items(db)
                     .iter()
-                    .map(|(ident, associated_item)| (*ident, *associated_item))
+                    .copied()
+                    .map(|(ident, node_path, node)| (ident, node_path))
             })
         })
         .flatten()

@@ -91,7 +91,7 @@ impl ImplBlockDecl {
 impl HasDecl for ImplBlockPath {
     type Decl = ImplBlockDecl;
 
-    fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
+    fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
         match self {
             ImplBlockPath::TypeImplBlock(path) => path.decl(db).map(Into::into),
             ImplBlockPath::TraitForTypeImplBlock(path) => path.decl(db).map(Into::into),
@@ -102,7 +102,7 @@ impl HasDecl for ImplBlockPath {
 pub(crate) fn impl_block_decl(
     db: &dyn DeclDb,
     impl_block: ImplBlockPath,
-) -> DeclResultRef<ImplBlockDecl> {
+) -> DeclResult<ImplBlockDecl> {
     todo!()
     // match impl_block {
     //     ImplBlockNode::TypeImplBlock(impl_block) => impl_block.decl(db).map(Into::into),

@@ -30,7 +30,7 @@ pub fn node_decl_sheet(db: &dyn DeclDb, path: ModulePath) -> EntityTreeResult<No
         decls.push((node_path.into(), node_path.node_decl(db).into()));
         match node_path {
             ImplBlockNodePath::TypeImplBlock(node_path) => {
-                for node_path in node_path.item_node_paths(db).iter().copied() {
+                for (_, node_path, _) in node_path.items(db).iter().copied() {
                     decls.push((node_path.into(), node_path.node_decl(db).into()))
                 }
             }
@@ -82,19 +82,18 @@ pub fn decl_sheet(db: &dyn DeclDb, path: ModulePath) -> EntityTreeResult<DeclShe
     // todo: trait item
     for node_path in entity_tree_sheet.impl_block_node_paths() {
         if let Some(path) = node_path.path(db) && let Ok(decl) = path.decl(db) {
-            decls.push(( path.into(), decl.into()));
+            decls.push((path.into(), decl.into()));
             match path {
                 ImplBlockPath::TypeImplBlock(path) => {
-                    for node_path in path.node_path(db).item_node_paths(db).iter().copied() {
-                        let path = node_path.path(db);
-                        if let Ok(decl) = path.decl(db) {
-                            decls.push(( path.into(), decl.into()))
+                    for node_path in path.node_path(db).item_node_paths(db) {
+                        if let Some(path) = node_path.path(db) && let Ok(decl) = path.decl(db) {
+                            decls.push((path.into(), decl.into()))
                         }
                     }
                 }
                 ImplBlockPath::TraitForTypeImplBlock(path) => {
                     for node_path in path.node_path(db).item_node_paths(db).iter().copied() { 
-                        if let Some(path) = node_path.path(db) &&let Ok(decl) = path.decl(db) {
+                        if let Some(path) = node_path.path(db) && let Ok(decl) = path.decl(db) {
                             decls.push((path.into(), decl.into()))
                         }
                     }

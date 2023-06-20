@@ -113,7 +113,7 @@ impl FugitiveDecl {
 impl HasDecl for FugitivePath {
     type Decl = FugitiveDecl;
 
-    fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
+    fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
         self.node_path(db).decl(db)
     }
 }
@@ -121,15 +121,18 @@ impl HasDecl for FugitivePath {
 impl HasDecl for FugitiveNodePath {
     type Decl = FugitiveDecl;
 
-    fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
-        fugitive_decl(db, self).as_ref().copied()
+    fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
+        fugitive_decl(db, self)
     }
 }
 
-#[salsa::tracked(jar = DeclJar, return_ref)]
-pub(crate) fn fugitive_decl(db: &dyn DeclDb, id: FugitiveNodePath) -> DeclResult<FugitiveDecl> {
-    let parser = DeclParseContext::new(db, id.module_path(db));
-    parser.parse_fugitive_decl(id)
+#[salsa::tracked(jar = DeclJar)]
+pub(crate) fn fugitive_decl(
+    db: &dyn DeclDb,
+    node_path: FugitiveNodePath,
+) -> DeclResult<FugitiveDecl> {
+    let parser = DeclParseContext::new(db, node_path.module_path(db));
+    parser.parse_fugitive_decl(node_path)
 }
 
 impl<'a> DeclParseContext<'a> {
