@@ -138,5 +138,5 @@ pub(crate) fn trai_for_ty_impl_block_node(
 ) -> TraitForTypeImplBlockNode {
     let module_path = node_path.module_path(db);
     let entity_tree_sheet = db.entity_tree_sheet(module_path).expect("valid module");
-    entity_tree_sheet.trai_for_ty_impl_block_node(node_path)
+    entity_tree_sheet.trai_for_ty_impl_block_node(db, node_path)
 }
