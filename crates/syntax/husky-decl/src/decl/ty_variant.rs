@@ -41,7 +41,7 @@ pub enum TypeVariantDecl {
 }
 
 impl TypeVariantDecl {
-    pub fn node_path(self, db: &dyn DeclDb) -> TypeVariantNodePath {
+    pub fn path(self, db: &dyn DeclDb) -> TypeVariantPath {
         match self {
             TypeVariantDecl::Props(_) => todo!(),
             TypeVariantDecl::Unit(_) => todo!(),

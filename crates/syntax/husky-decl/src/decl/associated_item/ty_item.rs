@@ -112,23 +112,13 @@ impl From<TypeItemDecl> for Decl {
 }
 
 impl TypeItemDecl {
-    pub fn node_path(self, db: &dyn DeclDb) -> TypeItemNodePath {
+    pub fn path(self, db: &dyn DeclDb) -> TypeItemPath {
         match self {
-            TypeItemDecl::AssociatedFn(decl) => decl.node_path(db),
-            TypeItemDecl::MethodFn(decl) => decl.node_path(db),
+            TypeItemDecl::AssociatedFn(decl) => decl.path(db),
+            TypeItemDecl::MethodFn(decl) => decl.path(db),
             TypeItemDecl::AssociatedType(_) => todo!(),
             TypeItemDecl::AssociatedVal(_) => todo!(),
-            TypeItemDecl::MemoizedField(decl) => decl.node_path(db),
-        }
-    }
-
-    pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
-        match self {
-            TypeItemDecl::AssociatedFn(decl) => decl.ast_idx(db),
-            TypeItemDecl::MethodFn(decl) => decl.ast_idx(db),
-            TypeItemDecl::AssociatedType(decl) => decl.ast_idx(db),
-            TypeItemDecl::AssociatedVal(decl) => decl.ast_idx(db),
-            TypeItemDecl::MemoizedField(decl) => decl.ast_idx(db),
+            TypeItemDecl::MemoizedField(decl) => decl.path(db),
         }
     }
 

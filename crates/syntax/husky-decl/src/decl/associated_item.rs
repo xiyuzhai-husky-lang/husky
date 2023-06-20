@@ -65,19 +65,11 @@ pub enum AssociatedItemDecl {
 }
 
 impl AssociatedItemDecl {
-    pub fn node_path(self, db: &dyn DeclDb) -> AssociatedItemNodePath {
+    pub fn path(self, db: &dyn DeclDb) -> AssociatedItemPath {
         match self {
-            AssociatedItemDecl::TypeItem(decl) => decl.node_path(db).into(),
-            AssociatedItemDecl::TraitItem(decl) => decl.node_path(db).into(),
-            AssociatedItemDecl::TraitForTypeItem(decl) => decl.node_path(db).into(),
-        }
-    }
-
-    pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
-        match self {
-            AssociatedItemDecl::TypeItem(decl) => decl.ast_idx(db),
-            AssociatedItemDecl::TraitItem(decl) => decl.ast_idx(db),
-            AssociatedItemDecl::TraitForTypeItem(decl) => decl.ast_idx(db),
+            AssociatedItemDecl::TypeItem(decl) => decl.path(db).into(),
+            AssociatedItemDecl::TraitItem(decl) => decl.path(db).into(),
+            AssociatedItemDecl::TraitForTypeItem(decl) => decl.path(db).into(),
         }
     }
 

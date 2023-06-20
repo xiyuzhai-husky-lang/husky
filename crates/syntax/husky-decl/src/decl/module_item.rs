@@ -26,14 +26,6 @@ impl ModuleItemNodeDecl {
         }
     }
 
-    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDeclPattern] {
-        match self {
-            ModuleItemNodeDecl::Type(decl) => decl.implicit_parameters(db),
-            ModuleItemNodeDecl::Fugitive(decl) => decl.implicit_parameters(db),
-            ModuleItemNodeDecl::Trait(decl) => decl.implicit_parameters(db),
-        }
-    }
-
     pub fn expr_region(self, db: &dyn DeclDb) -> ExprRegion {
         match self {
             ModuleItemNodeDecl::Type(decl) => decl.expr_region(db).into(),
@@ -73,14 +65,6 @@ pub enum ModuleItemDecl {
 }
 
 impl ModuleItemDecl {
-    pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
-        match self {
-            ModuleItemDecl::Type(decl) => decl.ast_idx(db),
-            ModuleItemDecl::Fugitive(decl) => decl.ast_idx(db),
-            ModuleItemDecl::Trait(decl) => decl.ast_idx(db),
-        }
-    }
-
     pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDeclPattern] {
         match self {
             ModuleItemDecl::Type(decl) => decl.implicit_parameters(db),
@@ -97,11 +81,11 @@ impl ModuleItemDecl {
         }
     }
 
-    pub fn node_path(self, db: &dyn DeclDb) -> EntityNodePath {
+    pub fn path(self, db: &dyn DeclDb) -> ModuleItemPath {
         match self {
-            ModuleItemDecl::Type(decl) => decl.node_path(db).into(),
-            ModuleItemDecl::Fugitive(decl) => decl.node_path(db).into(),
-            ModuleItemDecl::Trait(decl) => decl.node_path(db).into(),
+            ModuleItemDecl::Type(decl) => decl.path(db).into(),
+            ModuleItemDecl::Fugitive(decl) => decl.path(db).into(),
+            ModuleItemDecl::Trait(decl) => decl.path(db).into(),
         }
     }
 }

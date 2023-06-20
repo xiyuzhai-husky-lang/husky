@@ -38,16 +38,6 @@ impl NodeDecl {
         }
     }
 
-    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDeclPattern] {
-        match self {
-            NodeDecl::Submodule(_) => todo!(),
-            NodeDecl::ModuleItem(decl) => decl.implicit_parameters(db),
-            NodeDecl::ImplBlock(decl) => decl.implicit_parameters(db),
-            NodeDecl::AssociatedItem(decl) => decl.implicit_parameters(db),
-            NodeDecl::TypeVariant(_decl) => &[],
-        }
-    }
-
     pub fn expr_region(self, db: &dyn DeclDb) -> ExprRegion {
         match self {
             NodeDecl::Submodule(_) => todo!(),
@@ -102,13 +92,13 @@ impl Decl {
         }
     }
 
-    pub fn node_path(self, db: &dyn DeclDb) -> EntityNodePath {
+    pub fn path(self, db: &dyn DeclDb) -> EntityPath {
         match self {
             Decl::Submodule(_) => todo!(),
-            Decl::ModuleItem(decl) => decl.node_path(db).into(),
-            Decl::ImplBlock(decl) => decl.node_path(db).into(),
-            Decl::AssociatedItem(decl) => decl.node_path(db).into(),
-            Decl::TypeVariant(decl) => decl.node_path(db).into(),
+            Decl::ModuleItem(decl) => decl.path(db).into(),
+            Decl::ImplBlock(decl) => decl.path(db).into(),
+            Decl::AssociatedItem(decl) => decl.path(db).into(),
+            Decl::TypeVariant(decl) => decl.path(db).into(),
         }
     }
 }

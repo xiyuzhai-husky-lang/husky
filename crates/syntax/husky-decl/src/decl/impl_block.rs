@@ -66,9 +66,9 @@ pub enum ImplBlockDecl {
 }
 
 impl ImplBlockDecl {
-    pub fn node_path(self, db: &dyn DeclDb) -> ImplBlockNodePath {
+    pub fn path(self, db: &dyn DeclDb) -> ImplBlockPath {
         match self {
-            ImplBlockDecl::Type(decl) => decl.node_path(db).into(),
+            ImplBlockDecl::Type(decl) => decl.path(db).into(),
             ImplBlockDecl::TraitForType(_) => todo!(),
         }
     }

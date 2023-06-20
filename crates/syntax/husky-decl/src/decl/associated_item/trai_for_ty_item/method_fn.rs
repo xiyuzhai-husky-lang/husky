@@ -19,11 +19,9 @@ pub struct TraitForTypeMethodFnNodeDecl {
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TraitForTypeMethodFnDecl {
     #[id]
-    pub node_path: TraitForTypeItemNodePath,
-    pub node: TraitForTypeItemNode,
-    pub ast_idx: AstIdx,
+    pub path: TraitForTypeItemPath,
     #[return_ref]
-    pub implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
+    pub implicit_parameters: ImplicitParameterDeclPatterns,
     #[return_ref]
     pub explicit_parameter_decl_list: ExplicitParameterDeclList,
     pub curry_token: Option<CurryToken>,
@@ -43,15 +41,9 @@ impl TraitForTypeMethodFnDecl {
         self.explicit_parameter_decl_list(db).regular_parameters()
     }
 
-    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDeclPattern] {
-        match self.implicit_parameter_decl_list(db) {
-            Some(list) => list.implicit_parameters(),
-            None => &[],
-        }
-    }
-
     pub fn impl_block(self, db: &dyn DeclDb) -> TraitForTypeImplBlockNode {
-        self.node(db).impl_block(db)
+        todo!()
+        // self.node(db).impl_block(db)
     }
 }
 

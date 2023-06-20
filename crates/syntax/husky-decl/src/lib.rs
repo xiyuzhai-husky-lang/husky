@@ -59,9 +59,10 @@ pub struct DeclJar(
     UnionTypeNodeDecl,
     UnionTypeDecl,
     // - trait
-    trai_decl,
     TraitNodeDecl,
+    trai_node_decl,
     TraitDecl,
+    trai_decl,
     // - form
     fugitive_node_decl,
     fugitive_decl,

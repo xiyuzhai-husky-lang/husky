@@ -74,17 +74,10 @@ pub enum FugitiveDecl {
     Fn(FnDecl),
     Val(ValDecl),
     Gn(GnDecl),
+    // todo: TypeAlias
 }
 
 impl FugitiveDecl {
-    pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
-        match self {
-            FugitiveDecl::Fn(decl) => decl.ast_idx(db),
-            FugitiveDecl::Val(decl) => decl.ast_idx(db),
-            FugitiveDecl::Gn(decl) => decl.ast_idx(db),
-        }
-    }
-
     pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDeclPattern] {
         match self {
             FugitiveDecl::Fn(decl) => decl.implicit_parameters(db),
@@ -101,11 +94,11 @@ impl FugitiveDecl {
         }
     }
 
-    pub fn node_path(self, db: &dyn DeclDb) -> FugitiveNodePath {
+    pub fn path(self, db: &dyn DeclDb) -> FugitivePath {
         match self {
-            FugitiveDecl::Fn(decl) => decl.node_path(db),
-            FugitiveDecl::Val(decl) => decl.node_path(db),
-            FugitiveDecl::Gn(decl) => decl.node_path(db),
+            FugitiveDecl::Fn(decl) => decl.path(db),
+            FugitiveDecl::Val(decl) => decl.path(db),
+            FugitiveDecl::Gn(decl) => decl.path(db),
         }
     }
 }
