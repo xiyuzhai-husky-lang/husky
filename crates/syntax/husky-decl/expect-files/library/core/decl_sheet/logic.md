@@ -1,29 +1,35 @@
 Ok(
     DeclSheet {
+        [salsa id]: 8,
         decls: [
             (
-                DeclRegionPath::Entity(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::logic::Prop`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::logic::Prop`, `Extern`),
                     ),
                 ),
-                Ok(
-                    Decl::Type(
+                Decl::ModuleItem(
+                    ModuleItemDecl::Type(
                         TypeDecl::Extern(
                             ExternTypeDecl {
                                 path: TypePath(`core::logic::Prop`, `Extern`),
-                                ast_idx: 2,
+                                implicit_parameters: [],
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Entity(
-                                                EntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
-                                                        TypePath(`core::logic::Prop`, `Extern`),
-                                                    ),
+                                            EntityNodePath::ModuleItem(
+                                                ModuleItemNodePath::Type(
+                                                    TypeNodePath {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(
+                                                                Id {
+                                                                    value: 8,
+                                                                },
+                                                            ),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -66,35 +72,84 @@ Ok(
                                         roots: [],
                                     },
                                 },
-                                implicit_parameter_decl_list: None,
                             },
                         ),
                     ),
                 ),
             ),
             (
-                DeclRegionPath::Entity(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::logic::LogicAnd`, `Structure`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::logic::LogicAnd`, `Structure`),
                     ),
                 ),
-                Ok(
-                    Decl::Type(
+                Decl::ModuleItem(
+                    ModuleItemDecl::Type(
                         TypeDecl::Structure(
                             StructureTypeDecl {
                                 path: TypePath(`core::logic::LogicAnd`, `Structure`),
-                                ast_idx: 3,
+                                implicit_parameters: [
+                                    ImplicitParameterDeclPattern {
+                                        annotated_variance_token: None,
+                                        symbol: 0,
+                                        variant: ImplicitParameterDeclPatternVariant::Type {
+                                            ident_token: IdentToken {
+                                                ident: `P`,
+                                                token_idx: TokenIdx(
+                                                    8,
+                                                ),
+                                            },
+                                            traits: Some(
+                                                (
+                                                    ColonToken(
+                                                        TokenIdx(
+                                                            9,
+                                                        ),
+                                                    ),
+                                                    0,
+                                                ),
+                                            ),
+                                        },
+                                    },
+                                    ImplicitParameterDeclPattern {
+                                        annotated_variance_token: None,
+                                        symbol: 1,
+                                        variant: ImplicitParameterDeclPatternVariant::Type {
+                                            ident_token: IdentToken {
+                                                ident: `Q`,
+                                                token_idx: TokenIdx(
+                                                    12,
+                                                ),
+                                            },
+                                            traits: Some(
+                                                (
+                                                    ColonToken(
+                                                        TokenIdx(
+                                                            13,
+                                                        ),
+                                                    ),
+                                                    1,
+                                                ),
+                                            ),
+                                        },
+                                    },
+                                ],
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Entity(
-                                                EntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
-                                                        TypePath(`core::logic::LogicAnd`, `Structure`),
-                                                    ),
+                                            EntityNodePath::ModuleItem(
+                                                ModuleItemNodePath::Type(
+                                                    TypeNodePath {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(
+                                                                Id {
+                                                                    value: 9,
+                                                                },
+                                                            ),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -246,104 +301,84 @@ Ok(
                                         ],
                                     },
                                 },
-                                implicit_parameter_decl_list: Some(
-                                    ImplicitParameterDeclList {
-                                        langle: LeftAngleBracketOrLessThanToken(
-                                            TokenIdx(
-                                                7,
-                                            ),
-                                        ),
-                                        implicit_parameters: [
-                                            ImplicitParameterDeclPattern {
-                                                annotated_variance_token: None,
-                                                symbol: 0,
-                                                variant: ImplicitParameterDeclPatternVariant::Type {
-                                                    ident_token: IdentToken {
-                                                        ident: `P`,
-                                                        token_idx: TokenIdx(
-                                                            8,
-                                                        ),
-                                                    },
-                                                    traits: Some(
-                                                        (
-                                                            ColonToken(
-                                                                TokenIdx(
-                                                                    9,
-                                                                ),
-                                                            ),
-                                                            0,
-                                                        ),
-                                                    ),
-                                                },
-                                            },
-                                            ImplicitParameterDeclPattern {
-                                                annotated_variance_token: None,
-                                                symbol: 1,
-                                                variant: ImplicitParameterDeclPatternVariant::Type {
-                                                    ident_token: IdentToken {
-                                                        ident: `Q`,
-                                                        token_idx: TokenIdx(
-                                                            12,
-                                                        ),
-                                                    },
-                                                    traits: Some(
-                                                        (
-                                                            ColonToken(
-                                                                TokenIdx(
-                                                                    13,
-                                                                ),
-                                                            ),
-                                                            1,
-                                                        ),
-                                                    ),
-                                                },
-                                            },
-                                        ],
-                                        commas: [
-                                            CommaToken(
-                                                TokenIdx(
-                                                    11,
-                                                ),
-                                            ),
-                                        ],
-                                        decl_list_result: Ok(
-                                            (),
-                                        ),
-                                        rangle: RightAngleBracketToken(
-                                            TokenIdx(
-                                                15,
-                                            ),
-                                        ),
-                                    },
-                                ),
                             },
                         ),
                     ),
                 ),
             ),
             (
-                DeclRegionPath::Entity(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::logic::LogicOr`, `Inductive`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::logic::LogicOr`, `Inductive`),
                     ),
                 ),
-                Ok(
-                    Decl::Type(
+                Decl::ModuleItem(
+                    ModuleItemDecl::Type(
                         TypeDecl::Inductive(
                             InductiveTypeDecl {
                                 path: TypePath(`core::logic::LogicOr`, `Inductive`),
-                                ast_idx: 4,
+                                implicit_parameters: [
+                                    ImplicitParameterDeclPattern {
+                                        annotated_variance_token: None,
+                                        symbol: 0,
+                                        variant: ImplicitParameterDeclPatternVariant::Type {
+                                            ident_token: IdentToken {
+                                                ident: `P`,
+                                                token_idx: TokenIdx(
+                                                    30,
+                                                ),
+                                            },
+                                            traits: Some(
+                                                (
+                                                    ColonToken(
+                                                        TokenIdx(
+                                                            31,
+                                                        ),
+                                                    ),
+                                                    0,
+                                                ),
+                                            ),
+                                        },
+                                    },
+                                    ImplicitParameterDeclPattern {
+                                        annotated_variance_token: None,
+                                        symbol: 1,
+                                        variant: ImplicitParameterDeclPatternVariant::Type {
+                                            ident_token: IdentToken {
+                                                ident: `Q`,
+                                                token_idx: TokenIdx(
+                                                    34,
+                                                ),
+                                            },
+                                            traits: Some(
+                                                (
+                                                    ColonToken(
+                                                        TokenIdx(
+                                                            35,
+                                                        ),
+                                                    ),
+                                                    1,
+                                                ),
+                                            ),
+                                        },
+                                    },
+                                ],
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Entity(
-                                                EntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
-                                                        TypePath(`core::logic::LogicOr`, `Inductive`),
-                                                    ),
+                                            EntityNodePath::ModuleItem(
+                                                ModuleItemNodePath::Type(
+                                                    TypeNodePath {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(
+                                                                Id {
+                                                                    value: 10,
+                                                                },
+                                                            ),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -495,76 +530,6 @@ Ok(
                                         ],
                                     },
                                 },
-                                implicit_parameter_decl_list: Some(
-                                    ImplicitParameterDeclList {
-                                        langle: LeftAngleBracketOrLessThanToken(
-                                            TokenIdx(
-                                                29,
-                                            ),
-                                        ),
-                                        implicit_parameters: [
-                                            ImplicitParameterDeclPattern {
-                                                annotated_variance_token: None,
-                                                symbol: 0,
-                                                variant: ImplicitParameterDeclPatternVariant::Type {
-                                                    ident_token: IdentToken {
-                                                        ident: `P`,
-                                                        token_idx: TokenIdx(
-                                                            30,
-                                                        ),
-                                                    },
-                                                    traits: Some(
-                                                        (
-                                                            ColonToken(
-                                                                TokenIdx(
-                                                                    31,
-                                                                ),
-                                                            ),
-                                                            0,
-                                                        ),
-                                                    ),
-                                                },
-                                            },
-                                            ImplicitParameterDeclPattern {
-                                                annotated_variance_token: None,
-                                                symbol: 1,
-                                                variant: ImplicitParameterDeclPatternVariant::Type {
-                                                    ident_token: IdentToken {
-                                                        ident: `Q`,
-                                                        token_idx: TokenIdx(
-                                                            34,
-                                                        ),
-                                                    },
-                                                    traits: Some(
-                                                        (
-                                                            ColonToken(
-                                                                TokenIdx(
-                                                                    35,
-                                                                ),
-                                                            ),
-                                                            1,
-                                                        ),
-                                                    ),
-                                                },
-                                            },
-                                        ],
-                                        commas: [
-                                            CommaToken(
-                                                TokenIdx(
-                                                    33,
-                                                ),
-                                            ),
-                                        ],
-                                        decl_list_result: Ok(
-                                            (),
-                                        ),
-                                        rangle: RightAngleBracketToken(
-                                            TokenIdx(
-                                                37,
-                                            ),
-                                        ),
-                                    },
-                                ),
                             },
                         ),
                     ),

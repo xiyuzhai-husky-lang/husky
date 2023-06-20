@@ -69,8 +69,9 @@ pub struct TypeMethodFnDecl {
     pub path: TypeItemPath,
     #[return_ref]
     pub implicit_parameters: ImplicitParameterDeclPatterns,
+    pub self_parameter: Option<SelfParameterDeclPattern>,
     #[return_ref]
-    pub explicit_parameter_decl_list: ExplicitParameterDeclList,
+    pub regular_parameters: RegularParameterDeclPatterns,
     pub return_ty: Option<ReturnTypeExpr>,
     pub expr_region: ExprRegion,
 }
@@ -87,25 +88,22 @@ impl TypeMethodFnDecl {
             .as_ref()
             .map(|list| list.implicit_parameters().to_smallvec())
             .unwrap_or_default();
+        let explicit_parameter_decl_list = node_decl.explicit_parameter_decl_list(db).as_ref()?;
+        let self_parameter = *explicit_parameter_decl_list.self_parameter();
+        let regular_parameters: RegularParameterDeclPatterns = explicit_parameter_decl_list
+            .regular_parameters()
+            .to_smallvec();
+        let return_ty = *node_decl.return_ty(db).as_ref()?;
         let expr_region = node_decl.expr_region(db);
         Ok(TypeMethodFnDecl::new(
             db,
             path,
             implicit_parameters,
-            todo!(),
-            todo!(),
+            self_parameter,
+            regular_parameters,
+            return_ty,
             expr_region,
         ))
-    }
-
-    pub fn self_parameter<'a>(self, db: &'a dyn DeclDb) -> Option<&'a SelfParameterDeclPattern> {
-        self.explicit_parameter_decl_list(db)
-            .self_parameter()
-            .as_ref()
-    }
-
-    pub fn regular_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [RegularParameterDeclPattern] {
-        self.explicit_parameter_decl_list(db).regular_parameters()
     }
 
     pub fn impl_block_path(self, db: &dyn DeclDb) -> TypeImplBlockPath {

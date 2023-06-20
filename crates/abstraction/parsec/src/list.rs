@@ -1,3 +1,4 @@
+use smallvec::{smallvec, SmallVec};
 use vec_like::{AsVecMapEntry, VecMap};
 
 use crate::*;
@@ -109,6 +110,35 @@ where
     Ok((elements, separators))
 }
 
+pub fn parse_separated_small_list2<Context, Element, Separator, E1, E2>(
+    ctx: &mut Context,
+    f: impl FnOnce(E1) -> E2,
+) -> Result<(SmallVec<[Element; 2]>, SmallVec<[Separator; 2]>), E2>
+where
+    Context: StreamParser,
+    Element: TryParseOptionalFromStream<Context, Error = E1>,
+    Separator: TryParseOptionalFromStream<Context>,
+    E1: From<<Separator as TryParseOptionalFromStream<Context>>::Error>,
+{
+    let mut elements = smallvec![];
+    let mut separators = smallvec![];
+    loop {
+        match ctx.try_parse_optional::<Element>() {
+            Ok(Some(element)) => {
+                elements.push(element);
+                match ctx.try_parse_optional::<Separator>() {
+                    Ok(Some(separator)) => separators.push(separator),
+                    Ok(None) => break,
+                    Err(error) => return Err(f(error.into())),
+                }
+            }
+            Ok(None) => break,
+            Err(error) => return Err(f(error)),
+        }
+    }
+    Ok((elements, separators))
+}
+
 #[test]
 fn parse_separated_list_works() {
     fn t(input: &str) -> (Vec<A>, Vec<Comma>, Result<(), ()>) {
@@ -173,8 +203,8 @@ pub fn parse_separated_small2_list_expected<Context, Element, Separator, E: Orig
     nelem_min: usize,
     f: impl FnOnce(<Context as HasStreamState>::State) -> E,
 ) -> (
-    smallvec::SmallVec<[Element; 2]>,
-    smallvec::SmallVec<[Separator; 2]>,
+    SmallVec<[Element; 2]>,
+    SmallVec<[Separator; 2]>,
     Result<(), E::Error>,
 )
 where
@@ -184,8 +214,8 @@ where
     E::Error: From<<Element as TryParseOptionalFromStream<Context>>::Error>,
     E::Error: From<<Separator as TryParseOptionalFromStream<Context>>::Error>,
 {
-    let mut elements = smallvec::smallvec![];
-    let mut separators = smallvec::smallvec![];
+    let mut elements = smallvec![];
+    let mut separators = smallvec![];
     let result = loop {
         let state = ctx.save_state();
         match ctx.try_parse_optional::<Element>() {

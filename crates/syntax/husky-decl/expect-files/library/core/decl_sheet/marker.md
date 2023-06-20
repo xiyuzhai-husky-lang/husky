@@ -1,28 +1,35 @@
 Ok(
     DeclSheet {
+        [salsa id]: 9,
         decls: [
             (
-                DeclRegionPath::Entity(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Trait(
-                            TraitPath(`core::marker::Copy`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Trait(
+                        TraitPath(`core::marker::Copy`),
                     ),
                 ),
-                Ok(
-                    Decl::Trait(
+                Decl::ModuleItem(
+                    ModuleItemDecl::Trait(
                         TraitDecl {
                             path: TraitPath(`core::marker::Copy`),
                             ast_idx: 0,
+                            implicit_parameters: [],
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        DeclRegionPath::Entity(
-                                            EntityPath::ModuleItem(
-                                                ModuleItemPath::Trait(
-                                                    TraitPath(`core::marker::Copy`),
-                                                ),
+                                        EntityNodePath::ModuleItem(
+                                            ModuleItemNodePath::Trait(
+                                                TraitNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(
+                                                            Id {
+                                                                value: 7,
+                                                            },
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
                                         ),
                                     ),
@@ -65,33 +72,38 @@ Ok(
                                     roots: [],
                                 },
                             },
-                            implicit_parameter_decl_list: None,
                         },
                     ),
                 ),
             ),
             (
-                DeclRegionPath::Entity(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Trait(
-                            TraitPath(`core::marker::Sized`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Trait(
+                        TraitPath(`core::marker::Sized`),
                     ),
                 ),
-                Ok(
-                    Decl::Trait(
+                Decl::ModuleItem(
+                    ModuleItemDecl::Trait(
                         TraitDecl {
                             path: TraitPath(`core::marker::Sized`),
                             ast_idx: 1,
+                            implicit_parameters: [],
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        DeclRegionPath::Entity(
-                                            EntityPath::ModuleItem(
-                                                ModuleItemPath::Trait(
-                                                    TraitPath(`core::marker::Sized`),
-                                                ),
+                                        EntityNodePath::ModuleItem(
+                                            ModuleItemNodePath::Trait(
+                                                TraitNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(
+                                                            Id {
+                                                                value: 8,
+                                                            },
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
                                         ),
                                     ),
@@ -134,7 +146,6 @@ Ok(
                                     roots: [],
                                 },
                             },
-                            implicit_parameter_decl_list: None,
                         },
                     ),
                 ),
