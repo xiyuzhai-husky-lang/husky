@@ -1,4 +1,5 @@
 use crate::*;
+use husky_print_utils::p;
 use vec_like::VecPairMap;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -7,6 +8,7 @@ pub struct EntityTreeSheet {
     module_path: ModulePath,
     major_entity_node_table: MajorEntityNodeTable,
     entity_symbol_table: EntitySymbolTable,
+    // todo: split this into ty impl block and trai for ty impl block
     impl_block_node_table: VecPairMap<ImplBlockNodePath, ImplBlockNode>,
     use_expr_rules: UseExprRules,
     use_all_rules: UseAllRules,
@@ -93,7 +95,7 @@ impl EntityTreeSheet {
         self.impl_block_node_table
             .iter()
             .find_map(|(node_path1, node)| {
-                (*node_path1 == node_path.into()).then_some(match node {
+                (*node_path1 == node_path.into()).then(|| match node {
                     ImplBlockNode::TypeImplBlock(node) => *node,
                     _ => unreachable!(),
                 })
@@ -103,12 +105,13 @@ impl EntityTreeSheet {
 
     pub(crate) fn trai_for_ty_impl_block_node(
         &self,
+        db: &dyn EntityTreeDb,
         node_path: TraitForTypeImplBlockNodePath,
     ) -> TraitForTypeImplBlockNode {
         self.impl_block_node_table
             .iter()
             .find_map(|(node_path1, node)| {
-                (*node_path1 == node_path.into()).then_some(match node {
+                (*node_path1 == node_path.into()).then(|| match node {
                     ImplBlockNode::TraitForTypeImplBlock(node) => *node,
                     _ => unreachable!(),
                 })
