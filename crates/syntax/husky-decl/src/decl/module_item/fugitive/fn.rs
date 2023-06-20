@@ -32,16 +32,13 @@ impl FnNodeDecl {
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct FnDecl {
     #[id]
-    pub node_path: FugitiveNodePath,
-    pub ast_idx: AstIdx,
-    pub expr_region: ExprRegion,
+    pub path: FugitivePath,
     #[return_ref]
     implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
     #[return_ref]
     parameter_decl_list: ExplicitParameterDeclList,
-    pub curry_token: Option<CurryToken>,
     pub return_ty: Option<ReturnTypeExpr>,
-    pub eol_colon: EolToken,
+    pub expr_region: ExprRegion,
 }
 
 impl FnDecl {
@@ -63,7 +60,6 @@ impl<'a> DeclParseContext<'a> {
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
         saved_stream_state: TokenStreamState,
-
         id: FugitiveNodePath,
     ) -> Result<FugitiveDecl, DeclError> {
         todo!()

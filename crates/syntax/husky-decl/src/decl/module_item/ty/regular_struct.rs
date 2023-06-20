@@ -37,9 +37,9 @@ impl RegularStructTypeNodeDecl {
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct RegularStructTypeDecl {
     #[id]
-    pub node_path: TypeNodePath,
+    pub path: TypePath,
     #[return_ref]
-    implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
+    pub implicit_parameters: ImplicitParameterDeclPatterns,
     pub lcurl: LeftCurlyBraceToken,
     #[return_ref]
     field_comma_list: (Vec<RegularStructFieldDeclPattern>, Vec<CommaToken>),
@@ -51,16 +51,10 @@ pub struct RegularStructTypeDecl {
 impl RegularStructTypeDecl {
     pub(super) fn from_node_decl(
         db: &dyn DeclDb,
+        path: TypePath,
         node_decl: RegularStructTypeNodeDecl,
     ) -> DeclResult<Self> {
         todo!()
-    }
-
-    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDeclPattern] {
-        self.implicit_parameter_decl_list(db)
-            .as_ref()
-            .map(ImplicitParameterDeclList::implicit_parameters)
-            .unwrap_or(&[])
     }
 
     pub fn fields<'a>(self, db: &'a dyn DeclDb) -> &'a [RegularStructFieldDeclPattern] {

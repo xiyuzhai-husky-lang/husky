@@ -5,63 +5,27 @@ pub struct TraitNodeDecl {
     #[id]
     pub node_path: TraitNodePath,
     pub ast_idx: AstIdx,
-    pub expr_region: ExprRegion,
     #[return_ref]
-    implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
-}
-
-impl TraitNodeDecl {
-    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDeclPattern] {
-        match self.implicit_parameter_decl_list(db) {
-            Some(list) => list.implicit_parameters(),
-            None => &[],
-        }
-    }
+    implicit_parameter_decl_list: DeclExprResult<Option<ImplicitParameterDeclList>>,
+    pub expr_region: ExprRegion,
 }
 
 impl HasNodeDecl for TraitNodePath {
     type NodeDecl = TraitNodeDecl;
 
     fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
-        todo!()
-    }
-}
-
-#[salsa::tracked(db = DeclDb, jar = DeclJar)]
-pub struct TraitDecl {
-    #[id]
-    pub node_path: TraitNodePath,
-    pub ast_idx: AstIdx,
-    pub expr_region: ExprRegion,
-    #[return_ref]
-    implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
-}
-
-impl TraitDecl {
-    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDeclPattern] {
-        match self.implicit_parameter_decl_list(db) {
-            Some(list) => list.implicit_parameters(),
-            None => &[],
-        }
-    }
-}
-
-impl HasDecl for TraitNodePath {
-    type Decl = TraitDecl;
-
-    fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
-        trai_decl(db, self)
+        trai_node_decl(db, self)
     }
 }
 
 #[salsa::tracked(jar = DeclJar)]
-pub(crate) fn trai_decl(db: &dyn DeclDb, id: TraitNodePath) -> DeclResult<TraitDecl> {
-    let parser = DeclParseContext::new(db, id.module_path(db));
-    parser.parse_trai_decl(id)
+pub(crate) fn trai_node_decl(db: &dyn DeclDb, node_path: TraitNodePath) -> TraitNodeDecl {
+    let parser = DeclParseContext::new(db, node_path.module_path(db));
+    parser.parse_trai_node_decl(node_path)
 }
 
 impl<'a> DeclParseContext<'a> {
-    fn parse_trai_decl(&self, node_path: TraitNodePath) -> DeclResult<TraitDecl> {
+    fn parse_trai_node_decl(&self, node_path: TraitNodePath) -> TraitNodeDecl {
         let db = self.db();
         let node = node_path.node(db);
         let ast_idx: AstIdx = node.ast_idx(db);
@@ -81,18 +45,45 @@ impl<'a> DeclParseContext<'a> {
         id: TraitNodePath,
         token_group_idx: TokenGroupIdx,
         saved_stream_state: TokenStreamState,
+    ) -> TraitNodeDecl {
+        let mut parser = self.expr_parser(id, None, AllowSelfType::True, AllowSelfValue::False);
+        let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
+        let implicit_parameters = ctx.try_parse_optional();
+        TraitNodeDecl::new(self.db(), id, ast_idx, implicit_parameters, parser.finish())
+    }
+}
+
+#[salsa::tracked(db = DeclDb, jar = DeclJar, constructor = new)]
+pub struct TraitDecl {
+    #[id]
+    pub path: TraitPath,
+    pub ast_idx: AstIdx,
+    #[return_ref]
+    pub implicit_parameters: ImplicitParameterDeclPatterns,
+    pub expr_region: ExprRegion,
+}
+
+impl TraitDecl {
+    fn from_node_decl(
+        db: &dyn DeclDb,
+        path: TraitPath,
+        node_decl: TraitNodeDecl,
     ) -> DeclResult<TraitDecl> {
-        todo!()
-        // let mut parser = self.expr_parser(id, None, AllowSelfType::True, AllowSelfValue::False);
-        // let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
-        // let implicit_parameters = ctx.try_parse_optional()?;
-        // Ok(TraitDecl::new(
-        //     self.db(),
-        //     id,
-        //     ast_idx,
-        //     parser.finish(),
-        //     implicit_parameters,
-        // ))
+        let ast_idx = node_decl.ast_idx(db);
+        let implicit_parameters = node_decl
+            .implicit_parameter_decl_list(db)
+            .as_ref()?
+            .as_ref()
+            .map(|list| list.implicit_parameters().to_smallvec())
+            .unwrap_or_default();
+        let expr_region = node_decl.expr_region(db);
+        Ok(TraitDecl::new(
+            db,
+            path,
+            ast_idx,
+            implicit_parameters,
+            expr_region,
+        ))
     }
 }
 
@@ -100,6 +91,12 @@ impl HasDecl for TraitPath {
     type Decl = TraitDecl;
 
     fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
-        self.node_path(db).decl(db)
+        trai_decl(db, self)
     }
+}
+
+#[salsa::tracked(jar = DeclJar)]
+pub(crate) fn trai_decl(db: &dyn DeclDb, path: TraitPath) -> DeclResult<TraitDecl> {
+    let node_decl = path.node_path(db).node_decl(db);
+    TraitDecl::from_node_decl(db, path, node_decl)
 }

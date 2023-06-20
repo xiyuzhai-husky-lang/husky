@@ -12,9 +12,7 @@ pub struct TypeAssociatedTypeNodeDecl {
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TypeAssociatedTypeDecl {
     #[id]
-    pub node_path: TypeItemNodePath,
-    pub node: TypeItemNode,
-    pub ast_idx: AstIdx,
+    pub path: TypeItemPath,
     pub expr_region: ExprRegion,
 }
 

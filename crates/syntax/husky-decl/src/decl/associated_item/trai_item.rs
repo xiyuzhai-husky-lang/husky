@@ -82,7 +82,7 @@ pub enum TraitItemDecl {
 }
 
 impl TraitItemDecl {
-    pub fn node_path(self, _db: &dyn DeclDb) -> TraitItemNodePath {
+    pub fn path(self, _db: &dyn DeclDb) -> TraitItemPath {
         match self {
             TraitItemDecl::AssociatedFn(_) => todo!(),
             TraitItemDecl::MethodFn(_) => todo!(),

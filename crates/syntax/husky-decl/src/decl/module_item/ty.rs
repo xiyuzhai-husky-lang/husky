@@ -256,33 +256,18 @@ pub enum TypeDecl {
 }
 
 impl TypeDecl {
-    pub fn node_path(self, db: &dyn DeclDb) -> TypeNodePath {
+    pub fn path(self, db: &dyn DeclDb) -> TypePath {
         match self {
-            TypeDecl::Enum(decl) => decl.node_path(db),
-            TypeDecl::Inductive(decl) => decl.node_path(db),
-            TypeDecl::Record(decl) => decl.node_path(db),
-            TypeDecl::UnitStruct(decl) => decl.node_path(db),
-            TypeDecl::RegularStruct(decl) => decl.node_path(db),
-            TypeDecl::TupleStruct(decl) => decl.node_path(db),
-            TypeDecl::Structure(decl) => decl.node_path(db),
-            TypeDecl::Extern(decl) => decl.node_path(db),
-            TypeDecl::Union(decl) => decl.node_path(db),
+            TypeDecl::Enum(decl) => decl.path(db),
+            TypeDecl::Inductive(decl) => decl.path(db),
+            TypeDecl::Record(decl) => decl.path(db),
+            TypeDecl::UnitStruct(decl) => decl.path(db),
+            TypeDecl::RegularStruct(decl) => decl.path(db),
+            TypeDecl::TupleStruct(decl) => decl.path(db),
+            TypeDecl::Structure(decl) => decl.path(db),
+            TypeDecl::Extern(decl) => decl.path(db),
+            TypeDecl::Union(decl) => decl.path(db),
         }
-    }
-
-    pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
-        todo!()
-        // match self {
-        //     TypeDecl::Enum(decl) => decl.ast_idx(db),
-        //     TypeDecl::UnitStruct(decl) => decl.ast_idx(db),
-        //     TypeDecl::TupleStruct(decl) => decl.ast_idx(db),
-        //     TypeDecl::RegularStruct(decl) => decl.ast_idx(db),
-        //     TypeDecl::Record(decl) => decl.ast_idx(db),
-        //     TypeDecl::Inductive(decl) => decl.ast_idx(db),
-        //     TypeDecl::Structure(decl) => decl.ast_idx(db),
-        //     TypeDecl::Extern(decl) => decl.ast_idx(db),
-        //     TypeDecl::Union(decl) => decl.ast_idx(db),
-        // }
     }
 
     pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDeclPattern] {
@@ -313,31 +298,40 @@ impl TypeDecl {
         }
     }
 
-    fn from_node_decl(db: &dyn DeclDb, node_decl: TypeNodeDecl) -> DeclResult<Self> {
+    #[inline(always)]
+    fn from_node_decl(
+        db: &dyn DeclDb,
+        path: TypePath,
+        node_decl: TypeNodeDecl,
+    ) -> DeclResult<Self> {
         Ok(match node_decl {
-            TypeNodeDecl::Enum(node_decl) => EnumTypeDecl::from_node_decl(db, node_decl)?.into(),
+            TypeNodeDecl::Enum(node_decl) => {
+                EnumTypeDecl::from_node_decl(db, path, node_decl)?.into()
+            }
             TypeNodeDecl::RegularStruct(node_decl) => {
-                RegularStructTypeDecl::from_node_decl(db, node_decl)?.into()
+                RegularStructTypeDecl::from_node_decl(db, path, node_decl)?.into()
             }
             TypeNodeDecl::UnitStruct(node_decl) => {
-                UnitStructTypeDecl::from_node_decl(db, node_decl)?.into()
+                UnitStructTypeDecl::from_node_decl(db, path, node_decl)?.into()
             }
             TypeNodeDecl::TupleStruct(node_decl) => {
-                TupleStructTypeDecl::from_node_decl(db, node_decl)?.into()
+                TupleStructTypeDecl::from_node_decl(db, path, node_decl)?.into()
             }
             TypeNodeDecl::Record(node_decl) => {
-                RecordTypeDecl::from_node_decl(db, node_decl)?.into()
+                RecordTypeDecl::from_node_decl(db, path, node_decl)?.into()
             }
             TypeNodeDecl::Inductive(node_decl) => {
-                InductiveTypeDecl::from_node_decl(db, node_decl)?.into()
+                InductiveTypeDecl::from_node_decl(db, path, node_decl)?.into()
             }
             TypeNodeDecl::Structure(node_decl) => {
-                StructureTypeDecl::from_node_decl(db, node_decl)?.into()
+                StructureTypeDecl::from_node_decl(db, path, node_decl)?.into()
             }
             TypeNodeDecl::Extern(node_decl) => {
-                ExternTypeDecl::from_node_decl(db, node_decl)?.into()
+                ExternTypeDecl::from_node_decl(db, path, node_decl)?.into()
             }
-            TypeNodeDecl::Union(node_decl) => UnionTypeDecl::from_node_decl(db, node_decl)?.into(),
+            TypeNodeDecl::Union(node_decl) => {
+                UnionTypeDecl::from_node_decl(db, path, node_decl)?.into()
+            }
         })
     }
 }
@@ -353,7 +347,7 @@ impl HasDecl for TypePath {
 
 #[salsa::tracked(jar = DeclJar)]
 pub(crate) fn ty_decl(db: &dyn DeclDb, path: TypePath) -> DeclResult<TypeDecl> {
-    TypeDecl::from_node_decl(db, path.node_path(db).node_decl(db))
+    TypeDecl::from_node_decl(db, path, path.node_path(db).node_decl(db))
 }
 
 #[test]

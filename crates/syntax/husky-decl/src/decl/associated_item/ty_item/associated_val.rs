@@ -12,9 +12,7 @@ pub struct TypeAssociatedValNodeDecl {
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TypeAssociatedValDecl {
     #[id]
-    pub id: TypeItemNodePath,
-    pub node: TypeItemNode,
-    pub ast_idx: AstIdx,
+    pub path: TypeItemPath,
     pub expr_region: ExprRegion,
 }
 

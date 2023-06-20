@@ -41,14 +41,19 @@ impl<'a> DeclParseContext<'a> {
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct EnumTypeDecl {
     #[id]
-    pub node_path: TypeNodePath,
+    pub path: TypePath,
     #[return_ref]
     pub implicit_parameters: ImplicitParameterDeclPatterns,
     pub expr_region: ExprRegion,
 }
 
 impl EnumTypeDecl {
-    pub(super) fn from_node_decl(db: &dyn DeclDb, node_decl: EnumTypeNodeDecl) -> DeclResult<Self> {
+    #[inline(always)]
+    pub(super) fn from_node_decl(
+        db: &dyn DeclDb,
+        path: TypePath,
+        node_decl: EnumTypeNodeDecl,
+    ) -> DeclResult<Self> {
         todo!()
     }
 }

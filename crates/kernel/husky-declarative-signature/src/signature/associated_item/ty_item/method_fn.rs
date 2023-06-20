@@ -41,7 +41,7 @@ pub fn ty_method_fn_declarative_signature_template(
     let expr_region_data = expr_region.data(db);
     let declarative_term_region = declarative_term_region(db, expr_region);
     let impl_block = decl
-        .impl_block_node_path(db)
+        .impl_block_path(db)
         .declarative_signature_template(db)?;
     let self_ty = impl_block.ty(db);
     let contract = match decl.self_parameter(db) {

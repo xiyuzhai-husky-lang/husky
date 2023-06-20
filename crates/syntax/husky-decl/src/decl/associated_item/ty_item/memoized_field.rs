@@ -16,18 +16,15 @@ pub struct TypeMemoizedFieldNodeDecl {
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TypeMemoizedFieldDecl {
     #[id]
-    pub node_path: TypeItemNodePath,
-    pub ast_idx: AstIdx,
-    pub colon_token: Option<ColonToken>,
+    pub path: TypeItemPath,
     pub memo_ty: Option<FormTypeExpr>,
-    pub eq_token: EqToken,
     pub expr: Option<ExprIdx>,
     pub expr_region: ExprRegion,
 }
 
 impl TypeMemoizedFieldDecl {
-    pub fn impl_block_node_path(self, db: &dyn DeclDb) -> TypeImplBlockNodePath {
-        self.node_path(db).impl_block(db)
+    pub fn impl_block_path(self, db: &dyn DeclDb) -> TypeImplBlockPath {
+        self.path(db).impl_block(db)
     }
 }
 

@@ -11,8 +11,7 @@ pub struct TypeAliasNodeDecl {
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TypeAliasDecl {
     #[id]
-    pub node_path: FugitiveNodePath,
-    pub ast_idx: AstIdx,
+    pub path: FugitivePath,
     pub expr_region: ExprRegion,
 }
 

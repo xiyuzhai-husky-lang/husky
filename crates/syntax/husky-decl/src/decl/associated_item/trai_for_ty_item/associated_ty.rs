@@ -14,11 +14,11 @@ pub struct TraitForTypeAssociatedTypeNodeDecl {
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TraitForTypeAssociatedTypeDecl {
     #[id]
-    pub node_path: TraitForTypeItemNodePath,
+    pub path: TraitForTypeItemPath,
     pub node: TraitForTypeItemNode,
     pub ast_idx: AstIdx,
     #[return_ref]
-    pub implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
+    pub implicit_parameters: ImplicitParameterDeclPatterns,
     pub expr_region: ExprRegion,
 }
 

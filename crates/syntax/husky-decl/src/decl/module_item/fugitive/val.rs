@@ -16,11 +16,8 @@ pub struct ValNodeDecl {
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct ValDecl {
     #[id]
-    pub node_path: FugitiveNodePath,
-    pub ast_idx: AstIdx,
-    pub colon_token: Option<ColonToken>,
+    pub path: FugitivePath,
     pub var_ty: Option<FormTypeExpr>,
-    pub eq_token: EqToken,
     pub expr: Option<ExprIdx>,
     pub expr_region: ExprRegion,
 }

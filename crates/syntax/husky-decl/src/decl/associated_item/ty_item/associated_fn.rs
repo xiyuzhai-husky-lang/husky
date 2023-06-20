@@ -19,16 +19,12 @@ pub struct TypeAssociatedFnNodeDecl {
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TypeAssociatedFnDecl {
     #[id]
-    pub node_path: TypeItemNodePath,
-    pub node: TypeItemNode,
-    pub ast_idx: AstIdx,
+    pub path: TypeItemPath,
     #[return_ref]
     implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
     #[return_ref]
     pub parameter_decl_list: ExplicitParameterDeclList,
-    pub curry_token: Option<CurryToken>,
     pub return_ty: Option<ReturnTypeExpr>,
-    pub eol_colon: EolToken,
     pub expr_region: ExprRegion,
 }
 

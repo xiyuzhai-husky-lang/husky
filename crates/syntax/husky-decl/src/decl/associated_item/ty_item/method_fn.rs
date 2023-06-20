@@ -19,17 +19,13 @@ pub struct TypeMethodFnNodeDecl {
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TypeMethodFnDecl {
     #[id]
-    pub node_path: TypeItemNodePath,
-    pub node: TypeItemNode,
-    pub ast_idx: AstIdx,
+    pub path: TypeItemPath,
     pub expr_region: ExprRegion,
     #[return_ref]
     implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
     #[return_ref]
     pub explicit_parameter_decl_list: ExplicitParameterDeclList,
-    pub curry_token: Option<CurryToken>,
     pub return_ty: Option<ReturnTypeExpr>,
-    pub eol_colon: EolToken,
 }
 
 impl TypeMethodFnDecl {
@@ -50,8 +46,8 @@ impl TypeMethodFnDecl {
         }
     }
 
-    pub fn impl_block_node_path(self, db: &dyn DeclDb) -> TypeImplBlockNodePath {
-        self.node_path(db).impl_block(db)
+    pub fn impl_block_path(self, db: &dyn DeclDb) -> TypeImplBlockPath {
+        self.path(db).impl_block(db)
     }
 }
 

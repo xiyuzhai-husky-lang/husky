@@ -46,18 +46,19 @@ impl<'a> DeclParseContext<'a> {
 #[salsa::tracked(db = DeclDb, jar = DeclJar, constructor = new)]
 pub struct ExternTypeDecl {
     #[id]
-    pub node_path: TypeNodePath,
+    pub path: TypePath,
     #[return_ref]
     pub implicit_parameters: ImplicitParameterDeclPatterns,
     pub expr_region: ExprRegion,
 }
 
 impl ExternTypeDecl {
+    #[inline(always)]
     pub(super) fn from_node_decl(
         db: &dyn DeclDb,
+        path: TypePath,
         node_decl: ExternTypeNodeDecl,
     ) -> DeclResult<Self> {
-        let node_path = node_decl.node_path(db);
         let implicit_parameters = node_decl
             .implicit_parameter_decl_list(db)
             .as_ref()?
@@ -67,7 +68,7 @@ impl ExternTypeDecl {
         let expr_region = node_decl.expr_region(db);
         Ok(ExternTypeDecl::new(
             db,
-            node_path,
+            path,
             implicit_parameters,
             expr_region,
         ))

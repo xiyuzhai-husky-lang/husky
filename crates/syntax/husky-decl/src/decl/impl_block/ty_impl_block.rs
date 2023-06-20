@@ -90,7 +90,7 @@ impl<'a> DeclParseContext<'a> {
 #[salsa::tracked(db = DeclDb, jar = DeclJar, constructor = new)]
 pub struct TypeImplBlockDecl {
     #[id]
-    pub node_path: TypeImplBlockNodePath,
+    pub path: TypeImplBlockPath,
     #[return_ref]
     pub implicit_parameters: ImplicitParameterDeclPatterns,
     pub ty_expr: TypeExpr,
@@ -120,13 +120,13 @@ pub(crate) fn ty_impl_block_decl(
 ) -> DeclResult<TypeImplBlockDecl> {
     let node_path = path.node_path(db);
     let node_decl = node_path.node_decl(db);
-    TypeImplBlockDecl::from_node_decl(db, node_path, node_decl)
+    TypeImplBlockDecl::from_node_decl(db, path, node_decl)
 }
 
 impl TypeImplBlockDecl {
     fn from_node_decl(
         db: &dyn DeclDb,
-        node_path: TypeImplBlockNodePath,
+        path: TypeImplBlockPath,
         node_decl: TypeImplBlockNodeDecl,
     ) -> DeclResult<Self> {
         let implicit_parameters = node_decl
@@ -140,7 +140,7 @@ impl TypeImplBlockDecl {
         node_decl.eol_colon(db).as_ref()?;
         Ok(Self::new(
             db,
-            node_path,
+            path,
             implicit_parameters,
             ty_expr,
             expr_region,

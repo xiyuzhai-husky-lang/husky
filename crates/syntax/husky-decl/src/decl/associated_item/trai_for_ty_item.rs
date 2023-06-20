@@ -95,22 +95,23 @@ impl From<TraitForTypeItemDecl> for Decl {
 }
 
 impl TraitForTypeItemDecl {
-    pub fn node_path(self, db: &dyn DeclDb) -> TraitForTypeItemNodePath {
+    pub fn path(self, db: &dyn DeclDb) -> TraitForTypeItemPath {
         match self {
             TraitForTypeItemDecl::AssociatedFn(_) => todo!(),
-            TraitForTypeItemDecl::MethodFn(decl) => decl.node_path(db),
-            TraitForTypeItemDecl::AssociatedType(decl) => decl.node_path(db),
+            TraitForTypeItemDecl::MethodFn(decl) => decl.path(db),
+            TraitForTypeItemDecl::AssociatedType(decl) => decl.path(db),
             TraitForTypeItemDecl::AssociatedVal(_) => todo!(),
         }
     }
 
     pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
-        match self {
-            TraitForTypeItemDecl::AssociatedFn(decl) => decl.ast_idx(db),
-            TraitForTypeItemDecl::MethodFn(decl) => decl.ast_idx(db),
-            TraitForTypeItemDecl::AssociatedType(decl) => decl.ast_idx(db),
-            TraitForTypeItemDecl::AssociatedVal(decl) => decl.ast_idx(db),
-        }
+        todo!()
+        // match self {
+        //     TraitForTypeItemDecl::AssociatedFn(decl) => decl.ast_idx(db),
+        //     TraitForTypeItemDecl::MethodFn(decl) => decl.ast_idx(db),
+        //     TraitForTypeItemDecl::AssociatedType(decl) => decl.ast_idx(db),
+        //     TraitForTypeItemDecl::AssociatedVal(decl) => decl.ast_idx(db),
+        // }
     }
 
     pub fn implicit_parameters<'a>(
