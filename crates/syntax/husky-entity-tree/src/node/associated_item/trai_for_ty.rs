@@ -6,6 +6,14 @@ pub struct TraitForTypeItemNodePath {
 }
 
 impl TraitForTypeItemNodePath {
+    fn new(
+        db: &dyn EntityTreeDb,
+        registry: &mut EntityNodeRegistry,
+        path: TraitForTypeItemPath,
+    ) -> Self {
+        Self::new_inner(db, registry.issue_maybe_ambiguous_path(path))
+    }
+
     pub fn path(self, db: &dyn EntityTreeDb) -> Option<TraitForTypeItemPath> {
         self.maybe_ambiguous_path(db).unambiguous_path()
     }
@@ -25,59 +33,82 @@ impl From<TraitForTypeItemNodePath> for EntityNodePath {
 pub struct TraitForTypeItemNode {
     #[id]
     pub node_path: TraitForTypeItemNodePath,
-    pub impl_block: TraitForTypeImplBlockNode,
     pub ast_idx: AstIdx,
     pub ident: Ident,
-    pub kind: TraitItemKind,
+    pub item_kind: TraitItemKind,
     pub visibility: Scope,
     pub is_generic: bool,
 }
 
 impl TraitForTypeItemNode {
-    pub fn new(
+    #[inline(always)]
+    fn new(
         db: &dyn EntityTreeDb,
-        impl_block: TraitForTypeImplBlockNode,
+        registry: &mut EntityNodeRegistry,
+        impl_block_node_path: TraitForTypeImplBlockNodePath,
         ast_idx: AstIdx,
         ident: Ident,
-        kind: TraitItemKind,
+        item_kind: TraitItemKind,
         visibility: Scope,
         is_generic: bool,
-    ) -> Self {
-        todo!();
-        // let id = TraitForTypeItemNodePath::new(db, todo!());
-        // let path: Option<AssociatedItemPath> = match associated_item_kind {
-        //     AssociatedItemKind::TraitItem(_) => todo!(),
-        //     AssociatedItemKind::TypeItem(ty_item_kind) => match impl_block {
-        //         ImplBlock::Type(impl_block) => {
-        //             Some(TypeItemPath::new(db, impl_block.ty_path(db), ident, ty_item_kind).into())
-        //         }
-        //         ImplBlock::TraitForType(_) => unreachable!(),
-        //         ImplBlock::IllFormed(_) => None,
-        //     },
-        //     AssociatedItemKind::TraitForTypeItem(trai_for_ty_item_kind) => match impl_block {
-        //         ImplBlock::TraitForType(impl_block) => Some(
-        //             TraitForTypeItemPath::new(
-        //                 db,
-        //                 impl_block.ty_path(db),
-        //                 impl_block.trai(db),
-        //                 ident,
-        //                 trai_for_ty_item_kind,
-        //             )
-        //             .into(),
-        //         ),
-        //         ImplBlock::Type(_) => unreachable!(),
-        //         ImplBlock::IllFormed(_) => None,
-        //     },
-        // };
-        Self::new_inner(
-            db,
-            todo!(),
-            impl_block,
-            ast_idx,
-            ident,
-            kind,
-            visibility,
-            is_generic,
+    ) -> (TraitForTypeItemNodePath, Self) {
+        let path = TraitForTypeItemPath::new(db, impl_block_node_path.path(), ident, item_kind);
+        let node_path = TraitForTypeItemNodePath::new(db, registry, path);
+        (
+            node_path,
+            Self::new_inner(
+                db, node_path, ast_idx, ident, item_kind, visibility, is_generic,
+            ),
         )
     }
+}
+
+#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+pub(crate) fn trai_for_ty_impl_block_items(
+    db: &dyn EntityTreeDb,
+    impl_block_node_path: TraitForTypeImplBlockNodePath,
+) -> Vec<(Ident, TraitForTypeItemNodePath, TraitForTypeItemNode)> {
+    let impl_block_node = impl_block_node_path.node(db);
+    let module_path = impl_block_node_path.module_path(db);
+    let ast_sheet = db.ast_sheet(module_path).unwrap();
+    let Some(items) = impl_block_node.items(db) else {
+        return vec![]
+    };
+    let mut registry = EntityNodeRegistry::default();
+    items
+        .ast_idx_range()
+        .into_iter()
+        .filter_map(|ast_idx| {
+            let ast = &ast_sheet[ast_idx];
+            match ast {
+                Ast::Defn {
+                    visibility_expr,
+                    entity_kind,
+                    ident_token,
+                    is_generic,
+                    ..
+                } => {
+                    let item_kind = match entity_kind {
+                        EntityKind::AssociatedItem {
+                            associated_item_kind: AssociatedItemKind::TraitForTypeItem(ty_item_kind),
+                        } => *ty_item_kind,
+                        _ => unreachable!(),
+                    };
+                    let (node_path, node) = TraitForTypeItemNode::new(
+                        db,
+                        &mut registry,
+                        impl_block_node_path,
+                        ast_idx,
+                        ident_token.ident(),
+                        item_kind,
+                        visibility_expr.visibility(),
+                        *is_generic,
+                    );
+                    Some((ident_token.ident(), node_path, node))
+                }
+                Ast::Err { .. } => None,
+                _ => unreachable!(),
+            }
+        })
+        .collect()
 }

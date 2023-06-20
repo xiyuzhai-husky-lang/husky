@@ -75,13 +75,14 @@ pub struct DeclJar(
     TypeAliasNodeDecl,
     TypeAliasDecl,
     // - impl block
-    ty_impl_block_decl,
     TypeImplBlockNodeDecl,
     ty_impl_block_node_decl,
     TypeImplBlockDecl,
-    trai_for_ty_impl_block_decl,
+    ty_impl_block_decl,
     TraitForTypeImplBlockNodeDecl,
+    trai_for_ty_impl_block_node_decl,
     TraitForTypeImplBlockDecl,
+    trai_for_ty_impl_block_decl,
     // - variant
     ty_variant_decl,
     UnitVariantNodeDecl,

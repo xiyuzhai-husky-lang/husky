@@ -2,9 +2,7 @@ use super::*;
 
 #[salsa::interned(db = EntityPathDb, jar = EntityPathJar)]
 pub struct TraitForTypeItemPath {
-    pub module_path: ModulePath,
-    pub ty_path: TypePath,
-    pub trai_path: TraitPath,
+    pub impl_block: TraitForTypeImplBlockPath,
     pub ident: Ident,
     pub item_kind: TraitItemKind,
 }
@@ -37,5 +35,13 @@ impl TraitForTypeItemPath {
         _db: &dyn EntityPathDb,
     ) -> std::fmt::Result {
         todo!()
+    }
+
+    pub fn module_path(self, db: &dyn EntityPathDb) -> ModulePath {
+        self.impl_block(db).module_path(db)
+    }
+
+    pub fn toolchain(self, db: &dyn EntityPathDb) -> Toolchain {
+        self.impl_block(db).toolchain(db)
     }
 }

@@ -92,6 +92,7 @@ pub struct EntityTreeJar(
     ty_impl_block_items,
     // - trait for type impl block
     TraitForTypeImplBlockNode,
+    trai_for_ty_impl_block_node,
     // - ill formed impl block
     IllFormedImplBlockNode,
 );

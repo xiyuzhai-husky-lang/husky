@@ -42,8 +42,25 @@ impl TraitForTypeImplBlockNodePath {
         self.path.ty_path(db)
     }
 
-    pub fn item_node_paths(self, db: &dyn EntityTreeDb) -> &[TraitForTypeItemNodePath] {
-        todo!()
+    pub fn items(
+        self,
+        db: &dyn EntityTreeDb,
+    ) -> &[(Ident, TraitForTypeItemNodePath, TraitForTypeItemNode)] {
+        trai_for_ty_impl_block_items(db, self)
+    }
+
+    pub fn item_node_paths<'a>(
+        self,
+        db: &'a dyn EntityTreeDb,
+    ) -> impl Iterator<Item = TraitForTypeItemNodePath> + 'a {
+        self.items(db)
+            .iter()
+            .copied()
+            .map(|(_, node_path, _)| node_path)
+    }
+
+    pub fn node(self, db: &dyn EntityTreeDb) -> TraitForTypeImplBlockNode {
+        trai_for_ty_impl_block_node(db, self)
     }
 }
 
@@ -114,13 +131,12 @@ impl TraitForTypeImplBlockNode {
     }
 }
 
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
-pub(crate) fn trai_for_ty_impl_block_items(
+#[salsa::tracked(jar = EntityTreeJar)]
+pub(crate) fn trai_for_ty_impl_block_node(
     db: &dyn EntityTreeDb,
-    impl_block: TraitForTypeImplBlockNode,
-) -> Vec<(Ident, AssociatedItemNode)> {
-    let Some(items) = impl_block.items(db) else {
-        return Default::default()
-    };
-    calc_impl_block_items(db, impl_block.into(), impl_block.module_path(db), items)
+    node_path: TraitForTypeImplBlockNodePath,
+) -> TraitForTypeImplBlockNode {
+    let module_path = node_path.module_path(db);
+    let entity_tree_sheet = db.entity_tree_sheet(module_path).expect("valid module");
+    entity_tree_sheet.trai_for_ty_impl_block_node(node_path)
 }
