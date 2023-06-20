@@ -12,7 +12,8 @@ pub(crate) fn trai_for_ty_method_fn_declarative_signature_template(
             Some(self_parameter) => todo!(),
             None => Contract::Pure,
         },
-        decl.impl_block(db)
+        decl.path(db)
+            .impl_block(db)
             .declarative_signature_template(db)?
             .ty(db),
     );

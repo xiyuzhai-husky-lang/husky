@@ -81,28 +81,28 @@ impl EntityTreeCrateBundle {
             .flatten()
     }
 
-    pub fn trai_for_ty_impl_blocks_filtered_by_trai_path<'a>(
+    pub fn trai_for_ty_impl_block_paths_filtered_by_trai_path<'a>(
         &'a self,
         db: &'a dyn EntityTreeDb,
         trai_path: TraitPath,
-    ) -> impl Iterator<Item = TraitForTypeImplBlockNode> + 'a {
+    ) -> impl Iterator<Item = TraitForTypeImplBlockPath> + 'a {
         self.sheets
             .iter()
-            .map(|sheet| sheet.all_trai_for_ty_impl_block_nodes())
+            .map(|sheet| sheet.all_trai_for_ty_impl_block_paths(db))
             .flatten()
-            .filter(move |impl_block| impl_block.trai_path(db) == trai_path)
+            .filter(move |path| path.trai_path(db) == trai_path)
     }
 
-    pub fn trai_for_ty_impl_blocks_filtered_by_ty_path<'a>(
+    pub fn trai_for_ty_impl_block_paths_filtered_by_ty_path<'a>(
         &'a self,
         db: &'a dyn EntityTreeDb,
         ty_path: TypePath,
-    ) -> impl Iterator<Item = TraitForTypeImplBlockNode> + 'a {
+    ) -> impl Iterator<Item = TraitForTypeImplBlockPath> + 'a {
         self.sheets
             .iter()
-            .map(|sheet| sheet.all_trai_for_ty_impl_block_nodes())
+            .map(|sheet| sheet.all_trai_for_ty_impl_block_paths(db))
             .flatten()
-            .filter(move |impl_block| impl_block.ty_path(db) == ty_path)
+            .filter(move |path| path.ty_path(db) == ty_path)
     }
 
     pub(crate) fn get_sheet(&self, module_path: ModulePath) -> Option<&EntityTreeSheet> {

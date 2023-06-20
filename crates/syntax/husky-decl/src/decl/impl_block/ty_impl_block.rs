@@ -103,26 +103,6 @@ impl From<TypeImplBlockDecl> for Decl {
     }
 }
 
-impl HasDecl for TypeImplBlockPath {
-    type Decl = TypeImplBlockDecl;
-
-    fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
-        ty_impl_block_decl(db, self)
-    }
-}
-
-#[salsa::tracked(jar = DeclJar)]
-pub(crate) fn ty_impl_block_decl(
-    db: &dyn DeclDb,
-    // here use path instead of node_path because salsa doesn't support use wrapper type by default
-    // maybe add AsId carefully
-    path: TypeImplBlockPath,
-) -> DeclResult<TypeImplBlockDecl> {
-    let node_path = path.node_path(db);
-    let node_decl = node_path.node_decl(db);
-    TypeImplBlockDecl::from_node_decl(db, path, node_decl)
-}
-
 impl TypeImplBlockDecl {
     fn from_node_decl(
         db: &dyn DeclDb,
@@ -146,4 +126,24 @@ impl TypeImplBlockDecl {
             expr_region,
         ))
     }
+}
+
+impl HasDecl for TypeImplBlockPath {
+    type Decl = TypeImplBlockDecl;
+
+    fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
+        ty_impl_block_decl(db, self)
+    }
+}
+
+#[salsa::tracked(jar = DeclJar)]
+pub(crate) fn ty_impl_block_decl(
+    db: &dyn DeclDb,
+    // here use path instead of node_path because salsa doesn't support use wrapper type by default
+    // maybe add AsId carefully
+    path: TypeImplBlockPath,
+) -> DeclResult<TypeImplBlockDecl> {
+    let node_path = path.node_path(db);
+    let node_decl = node_path.node_decl(db);
+    TypeImplBlockDecl::from_node_decl(db, path, node_decl)
 }

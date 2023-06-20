@@ -52,7 +52,6 @@ impl HasNodePath for TypeItemPath {
 pub struct TypeItemNode {
     #[id]
     pub node_path: TypeItemNodePath,
-    pub impl_block_node_path: TypeImplBlockNodePath,
     pub ast_idx: AstIdx,
     pub ident: Ident,
     pub item_kind: TypeItemKind,
@@ -71,20 +70,13 @@ impl TypeItemNode {
         item_kind: TypeItemKind,
         visibility: Scope,
         is_generic: bool,
-    ) -> (TypeItemNodePath, TypeItemNode) {
+    ) -> (TypeItemNodePath, Self) {
         let path = TypeItemPath::new(db, impl_block_node_path.path(), ident, item_kind);
         let node_path = TypeItemNodePath::new(db, registry, path);
         (
             node_path,
-            TypeItemNode::new_inner(
-                db,
-                node_path,
-                impl_block_node_path,
-                ast_idx,
-                ident,
-                item_kind,
-                visibility,
-                is_generic,
+            Self::new_inner(
+                db, node_path, ast_idx, ident, item_kind, visibility, is_generic,
             ),
         )
     }
@@ -147,20 +139,7 @@ pub(crate) fn ty_impl_block_items(
                     Some((ident_token.ident(), node_path, node))
                 }
                 Ast::Err { .. } => None,
-                _ => {
-                    let ast_token_idx_range_sheet =
-                        db.ast_token_idx_range_sheet(module_path).unwrap();
-                    let token_sheet_data = db.token_sheet_data(module_path).unwrap();
-                    let ast_range = ast_token_idx_range_sheet[ast_idx];
-                    // p!(ast_range);
-                    // assert!(token_sheet_data.len() >= ast_range.end().token_idx().raw());
-                    // p!(token_sheet_data[ast_range.start().token_idx()].debug(db));
-                    // p!(token_sheet_data[ast_range.start().token_idx() + 1].debug(db));
-                    // p!(module_path.debug(db), impl_block.debug(db));
-                    // p!(ast.debug(db));
-                    // p!(token_sheet_data.debug(db));
-                    todo!()
-                }
+                _ => unreachable!(),
             }
         })
         .collect()

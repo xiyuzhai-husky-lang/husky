@@ -29,7 +29,7 @@ impl<'a> DeclParseContext<'a> {
         saved_stream_state: TokenStreamState,
     ) -> TypeMethodFnNodeDecl {
         let db = self.db();
-        let impl_block_node_decl = node.impl_block_node_path(db).node_decl(db);
+        let impl_block_node_decl = node.node_path(db).impl_block(db).node_decl(db);
         let mut parser = self.expr_parser(
             node.node_path(db),
             Some(impl_block_node_decl.expr_region(db)),

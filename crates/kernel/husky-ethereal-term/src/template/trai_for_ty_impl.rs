@@ -14,7 +14,7 @@ pub struct TraitForTypeImplTemplate {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = EtherealTermDb)]
 pub enum TraitForTypeImplTemplateSource {
-    ImplBlock(TraitForTypeImplBlockNode),
+    ImplBlock(TraitForTypeImplBlockPath),
     DeriveDecr,
 }
 
@@ -71,9 +71,9 @@ impl TraitForTypeImplTemplate {
 #[salsa::tracked(jar = EtherealTermJar)]
 pub(crate) fn trai_for_type_impl_template_from_impl_block(
     db: &dyn EtherealTermDb,
-    impl_block: TraitForTypeImplBlockNode,
+    impl_block_path: TraitForTypeImplBlockPath,
 ) -> EtherealTermResult<TraitForTypeImplTemplate> {
-    let signature = impl_block.declarative_signature_template(db)?;
+    let signature = impl_block_path.declarative_signature_template(db)?;
     let template_parameters = signature.template_parameters(db)?;
     let template_parameters_data = template_parameters.data(db);
     let trai = EtherealTerm::from_declarative(db, signature.trai(db), TermTypeExpectation::Any)?;
@@ -84,11 +84,11 @@ pub(crate) fn trai_for_type_impl_template_from_impl_block(
         ty_path: ty.leading_ty_path(db),
         trai: TemplateTerm::new(db, trai, template_parameters_data),
         ty: TemplateTerm::new(db, ty, template_parameters_data),
-        src: TraitForTypeImplTemplateSource::ImplBlock(impl_block),
+        src: TraitForTypeImplTemplateSource::ImplBlock(impl_block_path),
     })
 }
 
-impl HasTemplate for TraitForTypeImplBlockNode {
+impl HasTemplate for TraitForTypeImplBlockPath {
     type Template = TraitForTypeImplTemplate;
 
     fn template(self, db: &dyn EtherealTermDb) -> EtherealTermResult<Self::Template> {

@@ -146,6 +146,19 @@ impl EntityTreeSheet {
             })
     }
 
+    pub fn all_trai_for_ty_impl_block_paths<'a>(
+        &'a self,
+        db: &'a dyn EntityTreeDb,
+    ) -> impl Iterator<Item = TraitForTypeImplBlockPath> + 'a {
+        self.impl_block_node_table
+            .iter()
+            .copied()
+            .filter_map(|(node_path, _)| match node_path.path(db)? {
+                ImplBlockPath::TraitForTypeImplBlock(path) => Some(path),
+                ImplBlockPath::TypeImplBlock(_) => None,
+            })
+    }
+
     pub fn all_trai_for_ty_impl_block_nodes<'a>(
         &'a self,
     ) -> impl Iterator<Item = TraitForTypeImplBlockNode> + 'a {

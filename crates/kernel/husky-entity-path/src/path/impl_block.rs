@@ -71,6 +71,10 @@ impl TraitForTypeImplBlockPath {
             ),
         )
     }
+
+    pub fn toolchain(self, db: &dyn EntityPathDb) -> Toolchain {
+        self.module_path(db).toolchain(db)
+    }
 }
 
 // deprecated
