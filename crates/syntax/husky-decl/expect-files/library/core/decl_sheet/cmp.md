@@ -22,11 +22,7 @@ Ok(
                                             ModuleItemNodePath::Trait(
                                                 TraitNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitPath(
-                                                            Id {
-                                                                value: 2,
-                                                            },
-                                                        ),
+                                                        path: TraitPath(`core::cmp::PartialEq`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -96,11 +92,7 @@ Ok(
                                             ModuleItemNodePath::Trait(
                                                 TraitNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitPath(
-                                                            Id {
-                                                                value: 3,
-                                                            },
-                                                        ),
+                                                        path: TraitPath(`core::cmp::Eq`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -170,11 +162,7 @@ Ok(
                                             ModuleItemNodePath::Trait(
                                                 TraitNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitPath(
-                                                            Id {
-                                                                value: 4,
-                                                            },
-                                                        ),
+                                                        path: TraitPath(`core::cmp::PartialOrd`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -244,11 +232,7 @@ Ok(
                                             ModuleItemNodePath::Trait(
                                                 TraitNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitPath(
-                                                            Id {
-                                                                value: 5,
-                                                            },
-                                                        ),
+                                                        path: TraitPath(`core::cmp::Ord`),
                                                         disambiguator: 0,
                                                     },
                                                 },

@@ -36,11 +36,7 @@ Ok(
                                                 ModuleItemNodePath::Type(
                                                     TypeNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(
-                                                                Id {
-                                                                    value: 29,
-                                                                },
-                                                            ),
+                                                            path: TypePath(`core::option::Option`, `Enum`),
                                                             disambiguator: 0,
                                                         },
                                                     },

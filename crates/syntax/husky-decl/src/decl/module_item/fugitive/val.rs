@@ -56,3 +56,16 @@ pub struct ValDecl {
     pub expr: Option<ExprIdx>,
     pub expr_region: ExprRegion,
 }
+
+impl ValDecl {
+    pub(super) fn from_node_decl(
+        db: &dyn DeclDb,
+        path: FugitivePath,
+        node_decl: ValNodeDecl,
+    ) -> DeclResult<Self> {
+        let var_ty = *node_decl.var_ty(db).as_ref()?;
+        let expr = node_decl.expr(db);
+        let expr_region = node_decl.expr_region(db);
+        Ok(ValDecl::new(db, path, var_ty, expr, expr_region))
+    }
+}

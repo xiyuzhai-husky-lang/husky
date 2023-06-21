@@ -7,11 +7,7 @@ Ok(
                     ModuleItemNodePath::Fugitive(
                         FugitiveNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 23,
-                                    },
-                                ),
+                                path: FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
@@ -23,11 +19,7 @@ Ok(
                             FnNodeDecl {
                                 node_path: FugitiveNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(
-                                            Id {
-                                                value: 23,
-                                            },
-                                        ),
+                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -117,11 +109,7 @@ Ok(
                                                 ModuleItemNodePath::Fugitive(
                                                     FugitiveNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(
-                                                                Id {
-                                                                    value: 23,
-                                                                },
-                                                            ),
+                                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
                                                             disambiguator: 0,
                                                         },
                                                     },

@@ -238,7 +238,9 @@ impl HasDecl for TypeItemPath {
 #[salsa::tracked(jar = DeclJar)]
 pub(crate) fn ty_item_decl(db: &dyn DeclDb, path: TypeItemPath) -> DeclResult<TypeItemDecl> {
     match path.node_path(db).node_decl(db) {
-        TypeItemNodeDecl::AssociatedFn(_) => todo!(),
+        TypeItemNodeDecl::AssociatedFn(node_decl) => {
+            TypeAssociatedFnDecl::from_node_decl(db, path, node_decl).map(Into::into)
+        }
         TypeItemNodeDecl::MethodFn(node_decl) => {
             TypeMethodFnDecl::from_node_decl(db, path, node_decl).map(Into::into)
         }

@@ -7,11 +7,7 @@ Ok(
                     ModuleItemNodePath::Type(
                         TypeNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypePath(
-                                    Id {
-                                        value: 7,
-                                    },
-                                ),
+                                path: TypePath(`core::list::List`, `Extern`),
                                 disambiguator: 0,
                             },
                         },
@@ -23,11 +19,7 @@ Ok(
                             ExternTypeNodeDecl {
                                 node_path: TypeNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(
-                                            Id {
-                                                value: 7,
-                                            },
-                                        ),
+                                        path: TypePath(`core::list::List`, `Extern`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -83,11 +75,7 @@ Ok(
                                                 ModuleItemNodePath::Type(
                                                     TypeNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(
-                                                                Id {
-                                                                    value: 7,
-                                                                },
-                                                            ),
+                                                            path: TypePath(`core::list::List`, `Extern`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -401,11 +389,15 @@ Ok(
                     AssociatedItemNodePath::TypeItem(
                         TypeItemNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypeItemPath(
-                                    Id {
-                                        value: 1,
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `core::list`,
+                                        ty_path: TypePath(`core::list::List`, `Extern`),
+                                        disambiguator: 0,
                                     },
-                                ),
+                                    ident: `ilen`,
+                                    item_kind: MethodFn,
+                                },
                                 disambiguator: 0,
                             },
                         },
@@ -417,22 +409,30 @@ Ok(
                             TypeMethodFnNodeDecl {
                                 node_path: TypeItemNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath(
-                                            Id {
-                                                value: 1,
+                                        path: TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `core::list`,
+                                                ty_path: TypePath(`core::list::List`, `Extern`),
+                                                disambiguator: 0,
                                             },
-                                        ),
+                                            ident: `ilen`,
+                                            item_kind: MethodFn,
+                                        },
                                         disambiguator: 0,
                                     },
                                 },
                                 node: TypeItemNode {
                                     node_path: TypeItemNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(
-                                                Id {
-                                                    value: 1,
+                                            path: TypeItemPath {
+                                                impl_block: TypeImplBlockPath {
+                                                    module_path: `core::list`,
+                                                    ty_path: TypePath(`core::list::List`, `Extern`),
+                                                    disambiguator: 0,
                                                 },
-                                            ),
+                                                ident: `ilen`,
+                                                item_kind: MethodFn,
+                                            },
                                             disambiguator: 0,
                                         },
                                     },
@@ -631,11 +631,15 @@ Ok(
                                                 AssociatedItemNodePath::TypeItem(
                                                     TypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                Id {
-                                                                    value: 1,
+                                                            path: TypeItemPath {
+                                                                impl_block: TypeImplBlockPath {
+                                                                    module_path: `core::list`,
+                                                                    ty_path: TypePath(`core::list::List`, `Extern`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `ilen`,
+                                                                item_kind: MethodFn,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -735,11 +739,15 @@ Ok(
                     AssociatedItemNodePath::TypeItem(
                         TypeItemNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypeItemPath(
-                                    Id {
-                                        value: 2,
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `core::list`,
+                                        ty_path: TypePath(`core::list::List`, `Extern`),
+                                        disambiguator: 0,
                                     },
-                                ),
+                                    ident: `push`,
+                                    item_kind: MethodFn,
+                                },
                                 disambiguator: 0,
                             },
                         },
@@ -751,22 +759,30 @@ Ok(
                             TypeMethodFnNodeDecl {
                                 node_path: TypeItemNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath(
-                                            Id {
-                                                value: 2,
+                                        path: TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `core::list`,
+                                                ty_path: TypePath(`core::list::List`, `Extern`),
+                                                disambiguator: 0,
                                             },
-                                        ),
+                                            ident: `push`,
+                                            item_kind: MethodFn,
+                                        },
                                         disambiguator: 0,
                                     },
                                 },
                                 node: TypeItemNode {
                                     node_path: TypeItemNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(
-                                                Id {
-                                                    value: 2,
+                                            path: TypeItemPath {
+                                                impl_block: TypeImplBlockPath {
+                                                    module_path: `core::list`,
+                                                    ty_path: TypePath(`core::list::List`, `Extern`),
+                                                    disambiguator: 0,
                                                 },
-                                            ),
+                                                ident: `push`,
+                                                item_kind: MethodFn,
+                                            },
                                             disambiguator: 0,
                                         },
                                     },
@@ -987,11 +1003,15 @@ Ok(
                                                 AssociatedItemNodePath::TypeItem(
                                                     TypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                Id {
-                                                                    value: 2,
+                                                            path: TypeItemPath {
+                                                                impl_block: TypeImplBlockPath {
+                                                                    module_path: `core::list`,
+                                                                    ty_path: TypePath(`core::list::List`, `Extern`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `push`,
+                                                                item_kind: MethodFn,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -1126,11 +1146,15 @@ Ok(
                     AssociatedItemNodePath::TypeItem(
                         TypeItemNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypeItemPath(
-                                    Id {
-                                        value: 3,
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `core::list`,
+                                        ty_path: TypePath(`core::list::List`, `Extern`),
+                                        disambiguator: 0,
                                     },
-                                ),
+                                    ident: `first`,
+                                    item_kind: MethodFn,
+                                },
                                 disambiguator: 0,
                             },
                         },
@@ -1142,22 +1166,30 @@ Ok(
                             TypeMethodFnNodeDecl {
                                 node_path: TypeItemNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath(
-                                            Id {
-                                                value: 3,
+                                        path: TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `core::list`,
+                                                ty_path: TypePath(`core::list::List`, `Extern`),
+                                                disambiguator: 0,
                                             },
-                                        ),
+                                            ident: `first`,
+                                            item_kind: MethodFn,
+                                        },
                                         disambiguator: 0,
                                     },
                                 },
                                 node: TypeItemNode {
                                     node_path: TypeItemNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(
-                                                Id {
-                                                    value: 3,
+                                            path: TypeItemPath {
+                                                impl_block: TypeImplBlockPath {
+                                                    module_path: `core::list`,
+                                                    ty_path: TypePath(`core::list::List`, `Extern`),
+                                                    disambiguator: 0,
                                                 },
-                                            ),
+                                                ident: `first`,
+                                                item_kind: MethodFn,
+                                            },
                                             disambiguator: 0,
                                         },
                                     },
@@ -1356,11 +1388,15 @@ Ok(
                                                 AssociatedItemNodePath::TypeItem(
                                                     TypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                Id {
-                                                                    value: 3,
+                                                            path: TypeItemPath {
+                                                                impl_block: TypeImplBlockPath {
+                                                                    module_path: `core::list`,
+                                                                    ty_path: TypePath(`core::list::List`, `Extern`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `first`,
+                                                                item_kind: MethodFn,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -1446,11 +1482,15 @@ Ok(
                     AssociatedItemNodePath::TypeItem(
                         TypeItemNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypeItemPath(
-                                    Id {
-                                        value: 3,
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `core::list`,
+                                        ty_path: TypePath(`core::list::List`, `Extern`),
+                                        disambiguator: 0,
                                     },
-                                ),
+                                    ident: `first`,
+                                    item_kind: MethodFn,
+                                },
                                 disambiguator: 1,
                             },
                         },
@@ -1462,22 +1502,30 @@ Ok(
                             TypeMethodFnNodeDecl {
                                 node_path: TypeItemNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath(
-                                            Id {
-                                                value: 3,
+                                        path: TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `core::list`,
+                                                ty_path: TypePath(`core::list::List`, `Extern`),
+                                                disambiguator: 0,
                                             },
-                                        ),
+                                            ident: `first`,
+                                            item_kind: MethodFn,
+                                        },
                                         disambiguator: 1,
                                     },
                                 },
                                 node: TypeItemNode {
                                     node_path: TypeItemNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(
-                                                Id {
-                                                    value: 3,
+                                            path: TypeItemPath {
+                                                impl_block: TypeImplBlockPath {
+                                                    module_path: `core::list`,
+                                                    ty_path: TypePath(`core::list::List`, `Extern`),
+                                                    disambiguator: 0,
                                                 },
-                                            ),
+                                                ident: `first`,
+                                                item_kind: MethodFn,
+                                            },
                                             disambiguator: 1,
                                         },
                                     },
@@ -1676,11 +1724,15 @@ Ok(
                                                 AssociatedItemNodePath::TypeItem(
                                                     TypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                Id {
-                                                                    value: 3,
+                                                            path: TypeItemPath {
+                                                                impl_block: TypeImplBlockPath {
+                                                                    module_path: `core::list`,
+                                                                    ty_path: TypePath(`core::list::List`, `Extern`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `first`,
+                                                                item_kind: MethodFn,
+                                                            },
                                                             disambiguator: 1,
                                                         },
                                                     },

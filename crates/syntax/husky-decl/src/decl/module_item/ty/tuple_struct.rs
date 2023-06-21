@@ -43,10 +43,8 @@ pub struct TupleStructTypeDecl {
     pub path: TypePath,
     #[return_ref]
     pub implicit_parameters: ImplicitParameterDeclPatterns,
-    pub lpar: LeftParenthesisToken,
     #[return_ref]
-    field_comma_list: (Vec<TupleStructFieldDeclPattern>, Vec<CommaToken>),
-    pub rpar: RightParenthesisToken,
+    pub fields: SmallVec<[TupleStructFieldDeclPattern; 4]>,
     pub expr_region: ExprRegion,
 }
 
@@ -57,11 +55,21 @@ impl TupleStructTypeDecl {
         path: TypePath,
         node_decl: TupleStructTypeNodeDecl,
     ) -> DeclResult<Self> {
-        todo!()
-    }
-
-    pub fn fields<'a>(self, db: &'a dyn DeclDb) -> &'a [TupleStructFieldDeclPattern] {
-        &self.field_comma_list(db).0
+        let implicit_parameters = node_decl
+            .implicit_parameter_decl_list(db)
+            .as_ref()?
+            .as_ref()
+            .map(|list| list.implicit_parameters().to_smallvec())
+            .unwrap_or_default();
+        let fields = SmallVec::from(node_decl.field_comma_list(db).as_ref()?.elements());
+        let expr_region = node_decl.expr_region(db);
+        Ok(Self::new(
+            db,
+            path,
+            implicit_parameters,
+            fields,
+            expr_region,
+        ))
     }
 }
 

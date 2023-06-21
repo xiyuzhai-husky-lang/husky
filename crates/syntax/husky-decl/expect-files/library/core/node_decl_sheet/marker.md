@@ -7,11 +7,7 @@ Ok(
                     ModuleItemNodePath::Trait(
                         TraitNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TraitPath(
-                                    Id {
-                                        value: 7,
-                                    },
-                                ),
+                                path: TraitPath(`core::marker::Copy`),
                                 disambiguator: 0,
                             },
                         },
@@ -22,11 +18,7 @@ Ok(
                         TraitNodeDecl {
                             node_path: TraitNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 7,
-                                        },
-                                    ),
+                                    path: TraitPath(`core::marker::Copy`),
                                     disambiguator: 0,
                                 },
                             },
@@ -42,11 +34,7 @@ Ok(
                                             ModuleItemNodePath::Trait(
                                                 TraitNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitPath(
-                                                            Id {
-                                                                value: 7,
-                                                            },
-                                                        ),
+                                                        path: TraitPath(`core::marker::Copy`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -101,11 +89,7 @@ Ok(
                     ModuleItemNodePath::Trait(
                         TraitNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TraitPath(
-                                    Id {
-                                        value: 8,
-                                    },
-                                ),
+                                path: TraitPath(`core::marker::Sized`),
                                 disambiguator: 0,
                             },
                         },
@@ -116,11 +100,7 @@ Ok(
                         TraitNodeDecl {
                             node_path: TraitNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 8,
-                                        },
-                                    ),
+                                    path: TraitPath(`core::marker::Sized`),
                                     disambiguator: 0,
                                 },
                             },
@@ -136,11 +116,7 @@ Ok(
                                             ModuleItemNodePath::Trait(
                                                 TraitNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitPath(
-                                                            Id {
-                                                                value: 8,
-                                                            },
-                                                        ),
+                                                        path: TraitPath(`core::marker::Sized`),
                                                         disambiguator: 0,
                                                     },
                                                 },

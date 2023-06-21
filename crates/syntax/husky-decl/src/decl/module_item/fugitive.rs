@@ -123,8 +123,10 @@ impl FugitiveDecl {
     ) -> DeclResult<Self> {
         Ok(match node_decl {
             FugitiveNodeDecl::Fn(node_decl) => FnDecl::from_node_decl(db, path, node_decl)?.into(),
-            FugitiveNodeDecl::Val(node_decl) => todo!(),
-            FugitiveNodeDecl::Gn(node_decl) => todo!(),
+            FugitiveNodeDecl::Val(node_decl) => {
+                ValDecl::from_node_decl(db, path, node_decl)?.into()
+            }
+            FugitiveNodeDecl::Gn(node_decl) => GnDecl::from_node_decl(db, path, node_decl)?.into(),
         })
     }
 

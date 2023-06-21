@@ -144,7 +144,7 @@ Ok(
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            Structure,
+                            Extern,
                         ),
                         connection: Connected,
                     },
@@ -186,7 +186,7 @@ Ok(
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            Structure,
+                            Extern,
                         ),
                         connection: Connected,
                     },

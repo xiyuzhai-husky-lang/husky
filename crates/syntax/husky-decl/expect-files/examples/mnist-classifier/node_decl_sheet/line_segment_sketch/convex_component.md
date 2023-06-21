@@ -7,11 +7,7 @@ Ok(
                     ModuleItemNodePath::Type(
                         TypeNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypePath(
-                                    Id {
-                                        value: 84,
-                                    },
-                                ),
+                                path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                                 disambiguator: 0,
                             },
                         },
@@ -23,11 +19,7 @@ Ok(
                             RegularStructTypeNodeDecl {
                                 node_path: TypeNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(
-                                            Id {
-                                                value: 84,
-                                            },
-                                        ),
+                                        path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -126,11 +118,7 @@ Ok(
                                                 ModuleItemNodePath::Type(
                                                     TypeNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(
-                                                                Id {
-                                                                    value: 84,
-                                                                },
-                                                            ),
+                                                            path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -497,11 +485,16 @@ Ok(
                     AssociatedItemNodePath::TraitForTypeItem(
                         TraitForTypeItemNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TraitForTypeItemPath(
-                                    Id {
-                                        value: 19,
+                                path: TraitForTypeItemPath {
+                                    impl_block: TraitForTypeImplBlockPath {
+                                        module_path: `mnist_classifier::line_segment_sketch::convex_component`,
+                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                                        disambiguator: 0,
                                     },
-                                ),
+                                    ident: `visualize`,
+                                    item_kind: MethodFn,
+                                },
                                 disambiguator: 0,
                             },
                         },
@@ -513,22 +506,32 @@ Ok(
                             TraitForTypeMethodFnNodeDecl {
                                 node_path: TraitForTypeItemNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TraitForTypeItemPath(
-                                            Id {
-                                                value: 19,
+                                        path: TraitForTypeItemPath {
+                                            impl_block: TraitForTypeImplBlockPath {
+                                                module_path: `mnist_classifier::line_segment_sketch::convex_component`,
+                                                trai_path: TraitPath(`core::visual::Visualize`),
+                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                                                disambiguator: 0,
                                             },
-                                        ),
+                                            ident: `visualize`,
+                                            item_kind: MethodFn,
+                                        },
                                         disambiguator: 0,
                                     },
                                 },
                                 node: TraitForTypeItemNode {
                                     node_path: TraitForTypeItemNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitForTypeItemPath(
-                                                Id {
-                                                    value: 19,
+                                            path: TraitForTypeItemPath {
+                                                impl_block: TraitForTypeImplBlockPath {
+                                                    module_path: `mnist_classifier::line_segment_sketch::convex_component`,
+                                                    trai_path: TraitPath(`core::visual::Visualize`),
+                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                                                    disambiguator: 0,
                                                 },
-                                            ),
+                                                ident: `visualize`,
+                                                item_kind: MethodFn,
+                                            },
                                             disambiguator: 0,
                                         },
                                     },
@@ -713,11 +716,16 @@ Ok(
                                                 AssociatedItemNodePath::TraitForTypeItem(
                                                     TraitForTypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TraitForTypeItemPath(
-                                                                Id {
-                                                                    value: 19,
+                                                            path: TraitForTypeItemPath {
+                                                                impl_block: TraitForTypeImplBlockPath {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::convex_component`,
+                                                                    trai_path: TraitPath(`core::visual::Visualize`),
+                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `visualize`,
+                                                                item_kind: MethodFn,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },

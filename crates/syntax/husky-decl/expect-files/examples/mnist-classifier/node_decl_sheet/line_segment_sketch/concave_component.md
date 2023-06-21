@@ -7,11 +7,7 @@ Ok(
                     ModuleItemNodePath::Type(
                         TypeNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypePath(
-                                    Id {
-                                        value: 83,
-                                    },
-                                ),
+                                path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                 disambiguator: 0,
                             },
                         },
@@ -23,11 +19,7 @@ Ok(
                             RegularStructTypeNodeDecl {
                                 node_path: TypeNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(
-                                            Id {
-                                                value: 83,
-                                            },
-                                        ),
+                                        path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -126,11 +118,7 @@ Ok(
                                                 ModuleItemNodePath::Type(
                                                     TypeNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(
-                                                                Id {
-                                                                    value: 83,
-                                                                },
-                                                            ),
+                                                            path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -323,11 +311,7 @@ Ok(
                     ModuleItemNodePath::Fugitive(
                         FugitiveNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 22,
-                                    },
-                                ),
+                                path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
@@ -339,11 +323,7 @@ Ok(
                             FnNodeDecl {
                                 node_path: FugitiveNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(
-                                            Id {
-                                                value: 22,
-                                            },
-                                        ),
+                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -415,11 +395,7 @@ Ok(
                                                 ModuleItemNodePath::Fugitive(
                                                     FugitiveNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(
-                                                                Id {
-                                                                    value: 22,
-                                                                },
-                                                            ),
+                                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -781,11 +757,16 @@ Ok(
                     AssociatedItemNodePath::TraitForTypeItem(
                         TraitForTypeItemNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TraitForTypeItemPath(
-                                    Id {
-                                        value: 18,
+                                path: TraitForTypeItemPath {
+                                    impl_block: TraitForTypeImplBlockPath {
+                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                        disambiguator: 0,
                                     },
-                                ),
+                                    ident: `visualize`,
+                                    item_kind: MethodFn,
+                                },
                                 disambiguator: 0,
                             },
                         },
@@ -797,22 +778,32 @@ Ok(
                             TraitForTypeMethodFnNodeDecl {
                                 node_path: TraitForTypeItemNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TraitForTypeItemPath(
-                                            Id {
-                                                value: 18,
+                                        path: TraitForTypeItemPath {
+                                            impl_block: TraitForTypeImplBlockPath {
+                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                trai_path: TraitPath(`core::visual::Visualize`),
+                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                disambiguator: 0,
                                             },
-                                        ),
+                                            ident: `visualize`,
+                                            item_kind: MethodFn,
+                                        },
                                         disambiguator: 0,
                                     },
                                 },
                                 node: TraitForTypeItemNode {
                                     node_path: TraitForTypeItemNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitForTypeItemPath(
-                                                Id {
-                                                    value: 18,
+                                            path: TraitForTypeItemPath {
+                                                impl_block: TraitForTypeImplBlockPath {
+                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    trai_path: TraitPath(`core::visual::Visualize`),
+                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    disambiguator: 0,
                                                 },
-                                            ),
+                                                ident: `visualize`,
+                                                item_kind: MethodFn,
+                                            },
                                             disambiguator: 0,
                                         },
                                     },
@@ -997,11 +988,16 @@ Ok(
                                                 AssociatedItemNodePath::TraitForTypeItem(
                                                     TraitForTypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TraitForTypeItemPath(
-                                                                Id {
-                                                                    value: 18,
+                                                            path: TraitForTypeItemPath {
+                                                                impl_block: TraitForTypeImplBlockPath {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    trai_path: TraitPath(`core::visual::Visualize`),
+                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `visualize`,
+                                                                item_kind: MethodFn,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -1244,11 +1240,15 @@ Ok(
                     AssociatedItemNodePath::TypeItem(
                         TypeItemNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypeItemPath(
-                                    Id {
-                                        value: 57,
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                        disambiguator: 0,
                                     },
-                                ),
+                                    ident: `norm`,
+                                    item_kind: MemoizedField,
+                                },
                                 disambiguator: 0,
                             },
                         },
@@ -1260,11 +1260,15 @@ Ok(
                             TypeMemoizedFieldNodeDecl {
                                 node_path: TypeItemNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath(
-                                            Id {
-                                                value: 57,
+                                        path: TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                disambiguator: 0,
                                             },
-                                        ),
+                                            ident: `norm`,
+                                            item_kind: MemoizedField,
+                                        },
                                         disambiguator: 0,
                                     },
                                 },
@@ -1389,11 +1393,15 @@ Ok(
                                                 AssociatedItemNodePath::TypeItem(
                                                     TypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                Id {
-                                                                    value: 57,
+                                                            path: TypeItemPath {
+                                                                impl_block: TypeImplBlockPath {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `norm`,
+                                                                item_kind: MemoizedField,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -1481,11 +1489,15 @@ Ok(
                     AssociatedItemNodePath::TypeItem(
                         TypeItemNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypeItemPath(
-                                    Id {
-                                        value: 58,
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                        disambiguator: 0,
                                     },
-                                ),
+                                    ident: `rel_norm`,
+                                    item_kind: MemoizedField,
+                                },
                                 disambiguator: 0,
                             },
                         },
@@ -1497,11 +1509,15 @@ Ok(
                             TypeMemoizedFieldNodeDecl {
                                 node_path: TypeItemNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath(
-                                            Id {
-                                                value: 58,
+                                        path: TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                disambiguator: 0,
                                             },
-                                        ),
+                                            ident: `rel_norm`,
+                                            item_kind: MemoizedField,
+                                        },
                                         disambiguator: 0,
                                     },
                                 },
@@ -1626,11 +1642,15 @@ Ok(
                                                 AssociatedItemNodePath::TypeItem(
                                                     TypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                Id {
-                                                                    value: 58,
+                                                            path: TypeItemPath {
+                                                                impl_block: TypeImplBlockPath {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `rel_norm`,
+                                                                item_kind: MemoizedField,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -1718,11 +1738,15 @@ Ok(
                     AssociatedItemNodePath::TypeItem(
                         TypeItemNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypeItemPath(
-                                    Id {
-                                        value: 59,
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                        disambiguator: 0,
                                     },
-                                ),
+                                    ident: `hausdorff_norm`,
+                                    item_kind: MemoizedField,
+                                },
                                 disambiguator: 0,
                             },
                         },
@@ -1734,11 +1758,15 @@ Ok(
                             TypeMemoizedFieldNodeDecl {
                                 node_path: TypeItemNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath(
-                                            Id {
-                                                value: 59,
+                                        path: TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                disambiguator: 0,
                                             },
-                                        ),
+                                            ident: `hausdorff_norm`,
+                                            item_kind: MemoizedField,
+                                        },
                                         disambiguator: 0,
                                     },
                                 },
@@ -1863,11 +1891,15 @@ Ok(
                                                 AssociatedItemNodePath::TypeItem(
                                                     TypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                Id {
-                                                                    value: 59,
+                                                            path: TypeItemPath {
+                                                                impl_block: TypeImplBlockPath {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `hausdorff_norm`,
+                                                                item_kind: MemoizedField,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -1955,11 +1987,15 @@ Ok(
                     AssociatedItemNodePath::TypeItem(
                         TypeItemNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypeItemPath(
-                                    Id {
-                                        value: 60,
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                        disambiguator: 0,
                                     },
-                                ),
+                                    ident: `angle_change`,
+                                    item_kind: MemoizedField,
+                                },
                                 disambiguator: 0,
                             },
                         },
@@ -1971,11 +2007,15 @@ Ok(
                             TypeMemoizedFieldNodeDecl {
                                 node_path: TypeItemNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath(
-                                            Id {
-                                                value: 60,
+                                        path: TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                disambiguator: 0,
                                             },
-                                        ),
+                                            ident: `angle_change`,
+                                            item_kind: MemoizedField,
+                                        },
                                         disambiguator: 0,
                                     },
                                 },
@@ -2100,11 +2140,15 @@ Ok(
                                                 AssociatedItemNodePath::TypeItem(
                                                     TypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                Id {
-                                                                    value: 60,
+                                                            path: TypeItemPath {
+                                                                impl_block: TypeImplBlockPath {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `angle_change`,
+                                                                item_kind: MemoizedField,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -2192,11 +2236,15 @@ Ok(
                     AssociatedItemNodePath::TypeItem(
                         TypeItemNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypeItemPath(
-                                    Id {
-                                        value: 61,
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                        disambiguator: 0,
                                     },
-                                ),
+                                    ident: `bounding_box`,
+                                    item_kind: MemoizedField,
+                                },
                                 disambiguator: 0,
                             },
                         },
@@ -2208,11 +2256,15 @@ Ok(
                             TypeMemoizedFieldNodeDecl {
                                 node_path: TypeItemNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath(
-                                            Id {
-                                                value: 61,
+                                        path: TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                disambiguator: 0,
                                             },
-                                        ),
+                                            ident: `bounding_box`,
+                                            item_kind: MemoizedField,
+                                        },
                                         disambiguator: 0,
                                     },
                                 },
@@ -2337,11 +2389,15 @@ Ok(
                                                 AssociatedItemNodePath::TypeItem(
                                                     TypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                Id {
-                                                                    value: 61,
+                                                            path: TypeItemPath {
+                                                                impl_block: TypeImplBlockPath {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `bounding_box`,
+                                                                item_kind: MemoizedField,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -2429,11 +2485,15 @@ Ok(
                     AssociatedItemNodePath::TypeItem(
                         TypeItemNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypeItemPath(
-                                    Id {
-                                        value: 62,
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                        disambiguator: 0,
                                     },
-                                ),
+                                    ident: `relative_bounding_box`,
+                                    item_kind: MemoizedField,
+                                },
                                 disambiguator: 0,
                             },
                         },
@@ -2445,11 +2505,15 @@ Ok(
                             TypeMemoizedFieldNodeDecl {
                                 node_path: TypeItemNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath(
-                                            Id {
-                                                value: 62,
+                                        path: TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                disambiguator: 0,
                                             },
-                                        ),
+                                            ident: `relative_bounding_box`,
+                                            item_kind: MemoizedField,
+                                        },
                                         disambiguator: 0,
                                     },
                                 },
@@ -2574,11 +2638,15 @@ Ok(
                                                 AssociatedItemNodePath::TypeItem(
                                                     TypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                Id {
-                                                                    value: 62,
+                                                            path: TypeItemPath {
+                                                                impl_block: TypeImplBlockPath {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `relative_bounding_box`,
+                                                                item_kind: MemoizedField,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -2666,11 +2734,15 @@ Ok(
                     AssociatedItemNodePath::TypeItem(
                         TypeItemNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypeItemPath(
-                                    Id {
-                                        value: 63,
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                        disambiguator: 0,
                                     },
-                                ),
+                                    ident: `line_segment`,
+                                    item_kind: MethodFn,
+                                },
                                 disambiguator: 0,
                             },
                         },
@@ -2682,22 +2754,30 @@ Ok(
                             TypeMethodFnNodeDecl {
                                 node_path: TypeItemNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath(
-                                            Id {
-                                                value: 63,
+                                        path: TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                disambiguator: 0,
                                             },
-                                        ),
+                                            ident: `line_segment`,
+                                            item_kind: MethodFn,
+                                        },
                                         disambiguator: 0,
                                     },
                                 },
                                 node: TypeItemNode {
                                     node_path: TypeItemNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(
-                                                Id {
-                                                    value: 63,
+                                            path: TypeItemPath {
+                                                impl_block: TypeImplBlockPath {
+                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    disambiguator: 0,
                                                 },
-                                            ),
+                                                ident: `line_segment`,
+                                                item_kind: MethodFn,
+                                            },
                                             disambiguator: 0,
                                         },
                                     },
@@ -2852,11 +2932,15 @@ Ok(
                                                 AssociatedItemNodePath::TypeItem(
                                                     TypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                Id {
-                                                                    value: 63,
+                                                            path: TypeItemPath {
+                                                                impl_block: TypeImplBlockPath {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `line_segment`,
+                                                                item_kind: MethodFn,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -2944,11 +3028,15 @@ Ok(
                     AssociatedItemNodePath::TypeItem(
                         TypeItemNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypeItemPath(
-                                    Id {
-                                        value: 64,
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                        disambiguator: 0,
                                     },
-                                ),
+                                    ident: `start`,
+                                    item_kind: MethodFn,
+                                },
                                 disambiguator: 0,
                             },
                         },
@@ -2960,22 +3048,30 @@ Ok(
                             TypeMethodFnNodeDecl {
                                 node_path: TypeItemNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath(
-                                            Id {
-                                                value: 64,
+                                        path: TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                disambiguator: 0,
                                             },
-                                        ),
+                                            ident: `start`,
+                                            item_kind: MethodFn,
+                                        },
                                         disambiguator: 0,
                                     },
                                 },
                                 node: TypeItemNode {
                                     node_path: TypeItemNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(
-                                                Id {
-                                                    value: 64,
+                                            path: TypeItemPath {
+                                                impl_block: TypeImplBlockPath {
+                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    disambiguator: 0,
                                                 },
-                                            ),
+                                                ident: `start`,
+                                                item_kind: MethodFn,
+                                            },
                                             disambiguator: 0,
                                         },
                                     },
@@ -3130,11 +3226,15 @@ Ok(
                                                 AssociatedItemNodePath::TypeItem(
                                                     TypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                Id {
-                                                                    value: 64,
+                                                            path: TypeItemPath {
+                                                                impl_block: TypeImplBlockPath {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `start`,
+                                                                item_kind: MethodFn,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -3222,11 +3322,15 @@ Ok(
                     AssociatedItemNodePath::TypeItem(
                         TypeItemNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypeItemPath(
-                                    Id {
-                                        value: 65,
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                        disambiguator: 0,
                                     },
-                                ),
+                                    ident: `end`,
+                                    item_kind: MethodFn,
+                                },
                                 disambiguator: 0,
                             },
                         },
@@ -3238,22 +3342,30 @@ Ok(
                             TypeMethodFnNodeDecl {
                                 node_path: TypeItemNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath(
-                                            Id {
-                                                value: 65,
+                                        path: TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                disambiguator: 0,
                                             },
-                                        ),
+                                            ident: `end`,
+                                            item_kind: MethodFn,
+                                        },
                                         disambiguator: 0,
                                     },
                                 },
                                 node: TypeItemNode {
                                     node_path: TypeItemNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(
-                                                Id {
-                                                    value: 65,
+                                            path: TypeItemPath {
+                                                impl_block: TypeImplBlockPath {
+                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    disambiguator: 0,
                                                 },
-                                            ),
+                                                ident: `end`,
+                                                item_kind: MethodFn,
+                                            },
                                             disambiguator: 0,
                                         },
                                     },
@@ -3408,11 +3520,15 @@ Ok(
                                                 AssociatedItemNodePath::TypeItem(
                                                     TypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                Id {
-                                                                    value: 65,
+                                                            path: TypeItemPath {
+                                                                impl_block: TypeImplBlockPath {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `end`,
+                                                                item_kind: MethodFn,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -3500,11 +3616,15 @@ Ok(
                     AssociatedItemNodePath::TypeItem(
                         TypeItemNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypeItemPath(
-                                    Id {
-                                        value: 66,
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                        disambiguator: 0,
                                     },
-                                ),
+                                    ident: `displacement`,
+                                    item_kind: MethodFn,
+                                },
                                 disambiguator: 0,
                             },
                         },
@@ -3516,22 +3636,30 @@ Ok(
                             TypeMethodFnNodeDecl {
                                 node_path: TypeItemNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath(
-                                            Id {
-                                                value: 66,
+                                        path: TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                disambiguator: 0,
                                             },
-                                        ),
+                                            ident: `displacement`,
+                                            item_kind: MethodFn,
+                                        },
                                         disambiguator: 0,
                                     },
                                 },
                                 node: TypeItemNode {
                                     node_path: TypeItemNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(
-                                                Id {
-                                                    value: 66,
+                                            path: TypeItemPath {
+                                                impl_block: TypeImplBlockPath {
+                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    disambiguator: 0,
                                                 },
-                                            ),
+                                                ident: `displacement`,
+                                                item_kind: MethodFn,
+                                            },
                                             disambiguator: 0,
                                         },
                                     },
@@ -3686,11 +3814,15 @@ Ok(
                                                 AssociatedItemNodePath::TypeItem(
                                                     TypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                Id {
-                                                                    value: 66,
+                                                            path: TypeItemPath {
+                                                                impl_block: TypeImplBlockPath {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `displacement`,
+                                                                item_kind: MethodFn,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -3778,11 +3910,15 @@ Ok(
                     AssociatedItemNodePath::TypeItem(
                         TypeItemNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypeItemPath(
-                                    Id {
-                                        value: 67,
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                        disambiguator: 0,
                                     },
-                                ),
+                                    ident: `start_tangent`,
+                                    item_kind: MethodFn,
+                                },
                                 disambiguator: 0,
                             },
                         },
@@ -3794,22 +3930,30 @@ Ok(
                             TypeMethodFnNodeDecl {
                                 node_path: TypeItemNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath(
-                                            Id {
-                                                value: 67,
+                                        path: TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                disambiguator: 0,
                                             },
-                                        ),
+                                            ident: `start_tangent`,
+                                            item_kind: MethodFn,
+                                        },
                                         disambiguator: 0,
                                     },
                                 },
                                 node: TypeItemNode {
                                     node_path: TypeItemNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(
-                                                Id {
-                                                    value: 67,
+                                            path: TypeItemPath {
+                                                impl_block: TypeImplBlockPath {
+                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    disambiguator: 0,
                                                 },
-                                            ),
+                                                ident: `start_tangent`,
+                                                item_kind: MethodFn,
+                                            },
                                             disambiguator: 0,
                                         },
                                     },
@@ -3964,11 +4108,15 @@ Ok(
                                                 AssociatedItemNodePath::TypeItem(
                                                     TypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                Id {
-                                                                    value: 67,
+                                                            path: TypeItemPath {
+                                                                impl_block: TypeImplBlockPath {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `start_tangent`,
+                                                                item_kind: MethodFn,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -4056,11 +4204,15 @@ Ok(
                     AssociatedItemNodePath::TypeItem(
                         TypeItemNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypeItemPath(
-                                    Id {
-                                        value: 68,
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                        disambiguator: 0,
                                     },
-                                ),
+                                    ident: `end_tangent`,
+                                    item_kind: MethodFn,
+                                },
                                 disambiguator: 0,
                             },
                         },
@@ -4072,22 +4224,30 @@ Ok(
                             TypeMethodFnNodeDecl {
                                 node_path: TypeItemNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath(
-                                            Id {
-                                                value: 68,
+                                        path: TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                disambiguator: 0,
                                             },
-                                        ),
+                                            ident: `end_tangent`,
+                                            item_kind: MethodFn,
+                                        },
                                         disambiguator: 0,
                                     },
                                 },
                                 node: TypeItemNode {
                                     node_path: TypeItemNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(
-                                                Id {
-                                                    value: 68,
+                                            path: TypeItemPath {
+                                                impl_block: TypeImplBlockPath {
+                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    disambiguator: 0,
                                                 },
-                                            ),
+                                                ident: `end_tangent`,
+                                                item_kind: MethodFn,
+                                            },
                                             disambiguator: 0,
                                         },
                                     },
@@ -4242,11 +4402,15 @@ Ok(
                                                 AssociatedItemNodePath::TypeItem(
                                                     TypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                Id {
-                                                                    value: 68,
+                                                            path: TypeItemPath {
+                                                                impl_block: TypeImplBlockPath {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `end_tangent`,
+                                                                item_kind: MethodFn,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },

@@ -66,12 +66,7 @@ impl ExternTypeDecl {
             .map(|list| list.implicit_parameters().to_smallvec())
             .unwrap_or_default();
         let expr_region = node_decl.expr_region(db);
-        Ok(ExternTypeDecl::new(
-            db,
-            path,
-            implicit_parameters,
-            expr_region,
-        ))
+        Ok(Self::new(db, path, implicit_parameters, expr_region))
     }
 }
 

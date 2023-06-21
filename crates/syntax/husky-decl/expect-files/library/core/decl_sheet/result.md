@@ -49,11 +49,7 @@ Ok(
                                                 ModuleItemNodePath::Type(
                                                     TypeNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(
-                                                                Id {
-                                                                    value: 31,
-                                                                },
-                                                            ),
+                                                            path: TypePath(`core::result::Result`, `Enum`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -1004,11 +1000,16 @@ Ok(
                                                 AssociatedItemNodePath::TraitForTypeItem(
                                                     TraitForTypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TraitForTypeItemPath(
-                                                                Id {
-                                                                    value: 15,
+                                                            path: TraitForTypeItemPath {
+                                                                impl_block: TraitForTypeImplBlockPath {
+                                                                    module_path: `core::result`,
+                                                                    trai_path: TraitPath(`core::ops::Unveil`),
+                                                                    ty_path: TypePath(`core::result::Result`, `Enum`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `Continue`,
+                                                                item_kind: AssociatedType,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -1528,11 +1529,16 @@ Ok(
                                                 AssociatedItemNodePath::TraitForTypeItem(
                                                     TraitForTypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TraitForTypeItemPath(
-                                                                Id {
-                                                                    value: 16,
+                                                            path: TraitForTypeItemPath {
+                                                                impl_block: TraitForTypeImplBlockPath {
+                                                                    module_path: `core::result`,
+                                                                    trai_path: TraitPath(`core::ops::Unveil`),
+                                                                    ty_path: TypePath(`core::result::Result`, `Enum`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `branch`,
+                                                                item_kind: MethodFn,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },

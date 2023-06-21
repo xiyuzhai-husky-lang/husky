@@ -7,11 +7,7 @@ Ok(
                     ModuleItemNodePath::Type(
                         TypeNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypePath(
-                                    Id {
-                                        value: 72,
-                                    },
-                                ),
+                                path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                 disambiguator: 0,
                             },
                         },
@@ -23,11 +19,7 @@ Ok(
                             RegularStructTypeNodeDecl {
                                 node_path: TypeNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(
-                                            Id {
-                                                value: 72,
-                                            },
-                                        ),
+                                        path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -126,11 +118,7 @@ Ok(
                                                 ModuleItemNodePath::Type(
                                                     TypeNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(
-                                                                Id {
-                                                                    value: 72,
-                                                                },
-                                                            ),
+                                                            path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -295,11 +283,7 @@ Ok(
                     ModuleItemNodePath::Type(
                         TypeNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypePath(
-                                    Id {
-                                        value: 73,
-                                    },
-                                ),
+                                path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                                 disambiguator: 0,
                             },
                         },
@@ -311,11 +295,7 @@ Ok(
                             EnumTypeNodeDecl {
                                 node_path: TypeNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(
-                                            Id {
-                                                value: 73,
-                                            },
-                                        ),
+                                        path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -331,11 +311,7 @@ Ok(
                                                 ModuleItemNodePath::Type(
                                                     TypeNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(
-                                                                Id {
-                                                                    value: 73,
-                                                                },
-                                                            ),
+                                                            path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -391,11 +367,7 @@ Ok(
                     ModuleItemNodePath::Fugitive(
                         FugitiveNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 9,
-                                    },
-                                ),
+                                path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
@@ -407,11 +379,7 @@ Ok(
                             FnNodeDecl {
                                 node_path: FugitiveNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(
-                                            Id {
-                                                value: 9,
-                                            },
-                                        ),
+                                        path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -501,11 +469,7 @@ Ok(
                                                 ModuleItemNodePath::Fugitive(
                                                     FugitiveNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(
-                                                                Id {
-                                                                    value: 9,
-                                                                },
-                                                            ),
+                                                            path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -741,11 +705,7 @@ Ok(
                     ModuleItemNodePath::Fugitive(
                         FugitiveNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 10,
-                                    },
-                                ),
+                                path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
@@ -757,11 +717,7 @@ Ok(
                             FnNodeDecl {
                                 node_path: FugitiveNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(
-                                            Id {
-                                                value: 10,
-                                            },
-                                        ),
+                                        path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Fn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -851,11 +807,7 @@ Ok(
                                                 ModuleItemNodePath::Fugitive(
                                                     FugitiveNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(
-                                                                Id {
-                                                                    value: 10,
-                                                                },
-                                                            ),
+                                                            path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Fn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -1091,11 +1043,7 @@ Ok(
                     ModuleItemNodePath::Fugitive(
                         FugitiveNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 11,
-                                    },
-                                ),
+                                path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
@@ -1107,11 +1055,7 @@ Ok(
                             FnNodeDecl {
                                 node_path: FugitiveNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(
-                                            Id {
-                                                value: 11,
-                                            },
-                                        ),
+                                        path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Fn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -1201,11 +1145,7 @@ Ok(
                                                 ModuleItemNodePath::Fugitive(
                                                     FugitiveNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(
-                                                                Id {
-                                                                    value: 11,
-                                                                },
-                                                            ),
+                                                            path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Fn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -1441,11 +1381,7 @@ Ok(
                     ModuleItemNodePath::Fugitive(
                         FugitiveNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 12,
-                                    },
-                                ),
+                                path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
@@ -1457,11 +1393,7 @@ Ok(
                             FnNodeDecl {
                                 node_path: FugitiveNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(
-                                            Id {
-                                                value: 12,
-                                            },
-                                        ),
+                                        path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -1573,11 +1505,7 @@ Ok(
                                                 ModuleItemNodePath::Fugitive(
                                                     FugitiveNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(
-                                                                Id {
-                                                                    value: 12,
-                                                                },
-                                                            ),
+                                                            path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -1883,11 +1811,7 @@ Ok(
                     ModuleItemNodePath::Fugitive(
                         FugitiveNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 13,
-                                    },
-                                ),
+                                path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
@@ -1899,11 +1823,7 @@ Ok(
                             FnNodeDecl {
                                 node_path: FugitiveNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(
-                                            Id {
-                                                value: 13,
-                                            },
-                                        ),
+                                        path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -1993,11 +1913,7 @@ Ok(
                                                 ModuleItemNodePath::Fugitive(
                                                     FugitiveNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(
-                                                                Id {
-                                                                    value: 13,
-                                                                },
-                                                            ),
+                                                            path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -2233,11 +2149,7 @@ Ok(
                     ModuleItemNodePath::Fugitive(
                         FugitiveNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 14,
-                                    },
-                                ),
+                                path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
@@ -2249,11 +2161,7 @@ Ok(
                             FnNodeDecl {
                                 node_path: FugitiveNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(
-                                            Id {
-                                                value: 14,
-                                            },
-                                        ),
+                                        path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -2382,11 +2290,7 @@ Ok(
                                                 ModuleItemNodePath::Fugitive(
                                                     FugitiveNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(
-                                                                Id {
-                                                                    value: 14,
-                                                                },
-                                                            ),
+                                                            path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -2762,11 +2666,7 @@ Ok(
                     ModuleItemNodePath::Type(
                         TypeNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypePath(
-                                    Id {
-                                        value: 74,
-                                    },
-                                ),
+                                path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
                                 disambiguator: 0,
                             },
                         },
@@ -2778,11 +2678,7 @@ Ok(
                             RegularStructTypeNodeDecl {
                                 node_path: TypeNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(
-                                            Id {
-                                                value: 74,
-                                            },
-                                        ),
+                                        path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -2881,11 +2777,7 @@ Ok(
                                                 ModuleItemNodePath::Type(
                                                     TypeNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(
-                                                                Id {
-                                                                    value: 74,
-                                                                },
-                                                            ),
+                                                            path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -3028,11 +2920,7 @@ Ok(
                     ModuleItemNodePath::Fugitive(
                         FugitiveNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 15,
-                                    },
-                                ),
+                                path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
@@ -3044,11 +2932,7 @@ Ok(
                             FnNodeDecl {
                                 node_path: FugitiveNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
+                                        path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -3120,11 +3004,7 @@ Ok(
                                                 ModuleItemNodePath::Fugitive(
                                                     FugitiveNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(
-                                                                Id {
-                                                                    value: 15,
-                                                                },
-                                                            ),
+                                                            path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -3305,11 +3185,7 @@ Ok(
                     ModuleItemNodePath::Fugitive(
                         FugitiveNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 16,
-                                    },
-                                ),
+                                path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
@@ -3321,11 +3197,7 @@ Ok(
                             FnNodeDecl {
                                 node_path: FugitiveNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(
-                                            Id {
-                                                value: 16,
-                                            },
-                                        ),
+                                        path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -3397,11 +3269,7 @@ Ok(
                                                 ModuleItemNodePath::Fugitive(
                                                     FugitiveNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(
-                                                                Id {
-                                                                    value: 16,
-                                                                },
-                                                            ),
+                                                            path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -3763,11 +3631,16 @@ Ok(
                     AssociatedItemNodePath::TraitForTypeItem(
                         TraitForTypeItemNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TraitForTypeItemPath(
-                                    Id {
-                                        value: 22,
+                                path: TraitForTypeItemPath {
+                                    impl_block: TraitForTypeImplBlockPath {
+                                        module_path: `mnist_classifier::raw_contour`,
+                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                        disambiguator: 0,
                                     },
-                                ),
+                                    ident: `visualize`,
+                                    item_kind: MethodFn,
+                                },
                                 disambiguator: 0,
                             },
                         },
@@ -3779,22 +3652,32 @@ Ok(
                             TraitForTypeMethodFnNodeDecl {
                                 node_path: TraitForTypeItemNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TraitForTypeItemPath(
-                                            Id {
-                                                value: 22,
+                                        path: TraitForTypeItemPath {
+                                            impl_block: TraitForTypeImplBlockPath {
+                                                module_path: `mnist_classifier::raw_contour`,
+                                                trai_path: TraitPath(`core::visual::Visualize`),
+                                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                disambiguator: 0,
                                             },
-                                        ),
+                                            ident: `visualize`,
+                                            item_kind: MethodFn,
+                                        },
                                         disambiguator: 0,
                                     },
                                 },
                                 node: TraitForTypeItemNode {
                                     node_path: TraitForTypeItemNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitForTypeItemPath(
-                                                Id {
-                                                    value: 22,
+                                            path: TraitForTypeItemPath {
+                                                impl_block: TraitForTypeImplBlockPath {
+                                                    module_path: `mnist_classifier::raw_contour`,
+                                                    trai_path: TraitPath(`core::visual::Visualize`),
+                                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                    disambiguator: 0,
                                                 },
-                                            ),
+                                                ident: `visualize`,
+                                                item_kind: MethodFn,
+                                            },
                                             disambiguator: 0,
                                         },
                                     },
@@ -3979,11 +3862,16 @@ Ok(
                                                 AssociatedItemNodePath::TraitForTypeItem(
                                                     TraitForTypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TraitForTypeItemPath(
-                                                                Id {
-                                                                    value: 22,
+                                                            path: TraitForTypeItemPath {
+                                                                impl_block: TraitForTypeImplBlockPath {
+                                                                    module_path: `mnist_classifier::raw_contour`,
+                                                                    trai_path: TraitPath(`core::visual::Visualize`),
+                                                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `visualize`,
+                                                                item_kind: MethodFn,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -4226,11 +4114,15 @@ Ok(
                     AssociatedItemNodePath::TypeItem(
                         TypeItemNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypeItemPath(
-                                    Id {
-                                        value: 76,
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::raw_contour`,
+                                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                        disambiguator: 0,
                                     },
-                                ),
+                                    ident: `line_segment_sketch`,
+                                    item_kind: MemoizedField,
+                                },
                                 disambiguator: 0,
                             },
                         },
@@ -4242,11 +4134,15 @@ Ok(
                             TypeMemoizedFieldNodeDecl {
                                 node_path: TypeItemNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath(
-                                            Id {
-                                                value: 76,
+                                        path: TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `mnist_classifier::raw_contour`,
+                                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                disambiguator: 0,
                                             },
-                                        ),
+                                            ident: `line_segment_sketch`,
+                                            item_kind: MemoizedField,
+                                        },
                                         disambiguator: 0,
                                     },
                                 },
@@ -4371,11 +4267,15 @@ Ok(
                                                 AssociatedItemNodePath::TypeItem(
                                                     TypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                Id {
-                                                                    value: 76,
+                                                            path: TypeItemPath {
+                                                                impl_block: TypeImplBlockPath {
+                                                                    module_path: `mnist_classifier::raw_contour`,
+                                                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `line_segment_sketch`,
+                                                                item_kind: MemoizedField,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -4463,11 +4363,15 @@ Ok(
                     AssociatedItemNodePath::TypeItem(
                         TypeItemNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypeItemPath(
-                                    Id {
-                                        value: 77,
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::raw_contour`,
+                                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                        disambiguator: 0,
                                     },
-                                ),
+                                    ident: `bounding_box`,
+                                    item_kind: MemoizedField,
+                                },
                                 disambiguator: 0,
                             },
                         },
@@ -4479,11 +4383,15 @@ Ok(
                             TypeMemoizedFieldNodeDecl {
                                 node_path: TypeItemNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath(
-                                            Id {
-                                                value: 77,
+                                        path: TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `mnist_classifier::raw_contour`,
+                                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                disambiguator: 0,
                                             },
-                                        ),
+                                            ident: `bounding_box`,
+                                            item_kind: MemoizedField,
+                                        },
                                         disambiguator: 0,
                                     },
                                 },
@@ -4608,11 +4516,15 @@ Ok(
                                                 AssociatedItemNodePath::TypeItem(
                                                     TypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                Id {
-                                                                    value: 77,
+                                                            path: TypeItemPath {
+                                                                impl_block: TypeImplBlockPath {
+                                                                    module_path: `mnist_classifier::raw_contour`,
+                                                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `bounding_box`,
+                                                                item_kind: MemoizedField,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -4700,11 +4612,15 @@ Ok(
                     AssociatedItemNodePath::TypeItem(
                         TypeItemNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypeItemPath(
-                                    Id {
-                                        value: 78,
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::raw_contour`,
+                                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                        disambiguator: 0,
                                     },
-                                ),
+                                    ident: `relative_bounding_box`,
+                                    item_kind: MemoizedField,
+                                },
                                 disambiguator: 0,
                             },
                         },
@@ -4716,11 +4632,15 @@ Ok(
                             TypeMemoizedFieldNodeDecl {
                                 node_path: TypeItemNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath(
-                                            Id {
-                                                value: 78,
+                                        path: TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `mnist_classifier::raw_contour`,
+                                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                disambiguator: 0,
                                             },
-                                        ),
+                                            ident: `relative_bounding_box`,
+                                            item_kind: MemoizedField,
+                                        },
                                         disambiguator: 0,
                                     },
                                 },
@@ -4845,11 +4765,15 @@ Ok(
                                                 AssociatedItemNodePath::TypeItem(
                                                     TypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                Id {
-                                                                    value: 78,
+                                                            path: TypeItemPath {
+                                                                impl_block: TypeImplBlockPath {
+                                                                    module_path: `mnist_classifier::raw_contour`,
+                                                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `relative_bounding_box`,
+                                                                item_kind: MemoizedField,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -4937,11 +4861,15 @@ Ok(
                     AssociatedItemNodePath::TypeItem(
                         TypeItemNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypeItemPath(
-                                    Id {
-                                        value: 79,
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::raw_contour`,
+                                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                        disambiguator: 0,
                                     },
-                                ),
+                                    ident: `contour_len`,
+                                    item_kind: MemoizedField,
+                                },
                                 disambiguator: 0,
                             },
                         },
@@ -4953,11 +4881,15 @@ Ok(
                             TypeMemoizedFieldNodeDecl {
                                 node_path: TypeItemNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath(
-                                            Id {
-                                                value: 79,
+                                        path: TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `mnist_classifier::raw_contour`,
+                                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                disambiguator: 0,
                                             },
-                                        ),
+                                            ident: `contour_len`,
+                                            item_kind: MemoizedField,
+                                        },
                                         disambiguator: 0,
                                     },
                                 },
@@ -5082,11 +5014,15 @@ Ok(
                                                 AssociatedItemNodePath::TypeItem(
                                                     TypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                Id {
-                                                                    value: 79,
+                                                            path: TypeItemPath {
+                                                                impl_block: TypeImplBlockPath {
+                                                                    module_path: `mnist_classifier::raw_contour`,
+                                                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `contour_len`,
+                                                                item_kind: MemoizedField,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -5174,11 +5110,15 @@ Ok(
                     AssociatedItemNodePath::TypeItem(
                         TypeItemNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypeItemPath(
-                                    Id {
-                                        value: 80,
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::raw_contour`,
+                                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                        disambiguator: 0,
                                     },
-                                ),
+                                    ident: `displacement`,
+                                    item_kind: MethodFn,
+                                },
                                 disambiguator: 0,
                             },
                         },
@@ -5190,22 +5130,30 @@ Ok(
                             TypeMethodFnNodeDecl {
                                 node_path: TypeItemNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath(
-                                            Id {
-                                                value: 80,
+                                        path: TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `mnist_classifier::raw_contour`,
+                                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                disambiguator: 0,
                                             },
-                                        ),
+                                            ident: `displacement`,
+                                            item_kind: MethodFn,
+                                        },
                                         disambiguator: 0,
                                     },
                                 },
                                 node: TypeItemNode {
                                     node_path: TypeItemNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(
-                                                Id {
-                                                    value: 80,
+                                            path: TypeItemPath {
+                                                impl_block: TypeImplBlockPath {
+                                                    module_path: `mnist_classifier::raw_contour`,
+                                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                    disambiguator: 0,
                                                 },
-                                            ),
+                                                ident: `displacement`,
+                                                item_kind: MethodFn,
+                                            },
                                             disambiguator: 0,
                                         },
                                     },
@@ -5389,11 +5337,15 @@ Ok(
                                                 AssociatedItemNodePath::TypeItem(
                                                     TypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                Id {
-                                                                    value: 80,
+                                                            path: TypeItemPath {
+                                                                impl_block: TypeImplBlockPath {
+                                                                    module_path: `mnist_classifier::raw_contour`,
+                                                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `displacement`,
+                                                                item_kind: MethodFn,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },

@@ -1,47 +1,36 @@
 Ok(
     DeclSheet {
+        [salsa id]: 35,
         decls: [
             (
-                DeclRegionPath::Entity(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
                     ),
                 ),
-                Ok(
-                    Decl::Form(
+                Decl::ModuleItem(
+                    ModuleItemDecl::Fugitive(
                         FugitiveDecl::Val(
                             ValDecl {
                                 path: FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
-                                ast_idx: 26,
-                                colon_token: Some(
-                                    ColonToken(
-                                        TokenIdx(
-                                            6,
-                                        ),
-                                    ),
-                                ),
                                 var_ty: Some(
                                     FormTypeExpr {
                                         expr: 0,
                                     },
-                                ),
-                                eq_token: EqToken(
-                                    TokenIdx(
-                                        8,
-                                    ),
                                 ),
                                 expr: None,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Entity(
-                                                EntityPath::ModuleItem(
-                                                    ModuleItemPath::Form(
-                                                        FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
-                                                    ),
+                                            EntityNodePath::ModuleItem(
+                                                ModuleItemNodePath::Fugitive(
+                                                    FugitiveNodePath {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -122,28 +111,48 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Entity(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Fn`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Fn`),
                     ),
                 ),
-                Ok(
-                    Decl::Form(
+                Decl::ModuleItem(
+                    ModuleItemDecl::Fugitive(
                         FugitiveDecl::Fn(
                             FnDecl {
                                 path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Fn`),
-                                ast_idx: 27,
+                                implicit_parameters: [],
+                                regular_parameters: [
+                                    RegularParameterDeclPattern {
+                                        pattern: 0,
+                                        variables: ArenaIdxRange(
+                                            0..1,
+                                        ),
+                                        colon: ColonToken(
+                                            TokenIdx(
+                                                21,
+                                            ),
+                                        ),
+                                        ty: 1,
+                                    },
+                                ],
+                                return_ty: Some(
+                                    ReturnTypeExpr {
+                                        expr: 3,
+                                    },
+                                ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Entity(
-                                                EntityPath::ModuleItem(
-                                                    ModuleItemPath::Form(
-                                                        FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Fn`),
-                                                    ),
+                                            EntityNodePath::ModuleItem(
+                                                ModuleItemNodePath::Fugitive(
+                                                    FugitiveNodePath {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Fn`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -310,101 +319,40 @@ Ok(
                                         ],
                                     },
                                 },
-                                implicit_parameter_decl_list: None,
-                                parameter_decl_list: ExplicitParameterDeclList {
-                                    lpar: LeftParenthesisToken(
-                                        TokenIdx(
-                                            19,
-                                        ),
-                                    ),
-                                    self_parameter: None,
-                                    comma_after_self_parameter: None,
-                                    regular_parameters: [
-                                        RegularParameterDeclPattern {
-                                            pattern: 0,
-                                            variables: ArenaIdxRange(
-                                                0..1,
-                                            ),
-                                            colon: ColonToken(
-                                                TokenIdx(
-                                                    21,
-                                                ),
-                                            ),
-                                            ty: 1,
-                                        },
-                                    ],
-                                    commas: [],
-                                    rpar: RightParenthesisToken(
-                                        TokenIdx(
-                                            24,
-                                        ),
-                                    ),
-                                },
-                                curry_token: Some(
-                                    CurryToken(
-                                        TokenIdx(
-                                            25,
-                                        ),
-                                    ),
-                                ),
-                                return_ty: Some(
-                                    ReturnTypeExpr {
-                                        expr: 3,
-                                    },
-                                ),
-                                eol_colon: EolToken::Colon(
-                                    EolColonToken {
-                                        token_idx: TokenIdx(
-                                            28,
-                                        ),
-                                    },
-                                ),
                             },
                         ),
                     ),
                 ),
             ),
             (
-                DeclRegionPath::Entity(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                     ),
                 ),
-                Ok(
-                    Decl::Form(
+                Decl::ModuleItem(
+                    ModuleItemDecl::Fugitive(
                         FugitiveDecl::Val(
                             ValDecl {
                                 path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
-                                ast_idx: 28,
-                                colon_token: Some(
-                                    ColonToken(
-                                        TokenIdx(
-                                            50,
-                                        ),
-                                    ),
-                                ),
                                 var_ty: Some(
                                     FormTypeExpr {
                                         expr: 1,
                                     },
-                                ),
-                                eq_token: EqToken(
-                                    TokenIdx(
-                                        53,
-                                    ),
                                 ),
                                 expr: None,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Entity(
-                                                EntityPath::ModuleItem(
-                                                    ModuleItemPath::Form(
-                                                        FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
-                                                    ),
+                                            EntityNodePath::ModuleItem(
+                                                ModuleItemNodePath::Fugitive(
+                                                    FugitiveNodePath {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),

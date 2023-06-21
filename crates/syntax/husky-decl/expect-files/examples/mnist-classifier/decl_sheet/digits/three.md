@@ -1,47 +1,36 @@
 Ok(
     DeclSheet {
+        [salsa id]: 33,
         decls: [
             (
-                DeclRegionPath::Entity(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     ),
                 ),
-                Ok(
-                    Decl::Form(
+                Decl::ModuleItem(
+                    ModuleItemDecl::Fugitive(
                         FugitiveDecl::Val(
                             ValDecl {
                                 path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
-                                ast_idx: 28,
-                                colon_token: Some(
-                                    ColonToken(
-                                        TokenIdx(
-                                            6,
-                                        ),
-                                    ),
-                                ),
                                 var_ty: Some(
                                     FormTypeExpr {
                                         expr: 0,
                                     },
-                                ),
-                                eq_token: EqToken(
-                                    TokenIdx(
-                                        8,
-                                    ),
                                 ),
                                 expr: None,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Entity(
-                                                EntityPath::ModuleItem(
-                                                    ModuleItemPath::Form(
-                                                        FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
-                                                    ),
+                                            EntityNodePath::ModuleItem(
+                                                ModuleItemNodePath::Fugitive(
+                                                    FugitiveNodePath {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -122,46 +111,34 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Entity(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
                     ),
                 ),
-                Ok(
-                    Decl::Form(
+                Decl::ModuleItem(
+                    ModuleItemDecl::Fugitive(
                         FugitiveDecl::Val(
                             ValDecl {
                                 path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
-                                ast_idx: 29,
-                                colon_token: Some(
-                                    ColonToken(
-                                        TokenIdx(
-                                            27,
-                                        ),
-                                    ),
-                                ),
                                 var_ty: Some(
                                     FormTypeExpr {
                                         expr: 1,
                                     },
-                                ),
-                                eq_token: EqToken(
-                                    TokenIdx(
-                                        30,
-                                    ),
                                 ),
                                 expr: None,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Entity(
-                                                EntityPath::ModuleItem(
-                                                    ModuleItemPath::Form(
-                                                        FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
-                                                    ),
+                                            EntityNodePath::ModuleItem(
+                                                ModuleItemNodePath::Fugitive(
+                                                    FugitiveNodePath {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -249,28 +226,48 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Entity(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::digits::three::uparc`, `Fn`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::digits::three::uparc`, `Fn`),
                     ),
                 ),
-                Ok(
-                    Decl::Form(
+                Decl::ModuleItem(
+                    ModuleItemDecl::Fugitive(
                         FugitiveDecl::Fn(
                             FnDecl {
                                 path: FugitivePath(`mnist_classifier::digits::three::uparc`, `Fn`),
-                                ast_idx: 30,
+                                implicit_parameters: [],
+                                regular_parameters: [
+                                    RegularParameterDeclPattern {
+                                        pattern: 0,
+                                        variables: ArenaIdxRange(
+                                            0..1,
+                                        ),
+                                        colon: ColonToken(
+                                            TokenIdx(
+                                                159,
+                                            ),
+                                        ),
+                                        ty: 1,
+                                    },
+                                ],
+                                return_ty: Some(
+                                    ReturnTypeExpr {
+                                        expr: 3,
+                                    },
+                                ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Entity(
-                                                EntityPath::ModuleItem(
-                                                    ModuleItemPath::Form(
-                                                        FugitivePath(`mnist_classifier::digits::three::uparc`, `Fn`),
-                                                    ),
+                                            EntityNodePath::ModuleItem(
+                                                ModuleItemNodePath::Fugitive(
+                                                    FugitiveNodePath {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: FugitivePath(`mnist_classifier::digits::three::uparc`, `Fn`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -437,83 +434,54 @@ Ok(
                                         ],
                                     },
                                 },
-                                implicit_parameter_decl_list: None,
-                                parameter_decl_list: ExplicitParameterDeclList {
-                                    lpar: LeftParenthesisToken(
-                                        TokenIdx(
-                                            157,
-                                        ),
-                                    ),
-                                    self_parameter: None,
-                                    comma_after_self_parameter: None,
-                                    regular_parameters: [
-                                        RegularParameterDeclPattern {
-                                            pattern: 0,
-                                            variables: ArenaIdxRange(
-                                                0..1,
-                                            ),
-                                            colon: ColonToken(
-                                                TokenIdx(
-                                                    159,
-                                                ),
-                                            ),
-                                            ty: 1,
-                                        },
-                                    ],
-                                    commas: [],
-                                    rpar: RightParenthesisToken(
-                                        TokenIdx(
-                                            162,
-                                        ),
-                                    ),
-                                },
-                                curry_token: Some(
-                                    CurryToken(
-                                        TokenIdx(
-                                            163,
-                                        ),
-                                    ),
-                                ),
-                                return_ty: Some(
-                                    ReturnTypeExpr {
-                                        expr: 3,
-                                    },
-                                ),
-                                eol_colon: EolToken::Colon(
-                                    EolColonToken {
-                                        token_idx: TokenIdx(
-                                            166,
-                                        ),
-                                    },
-                                ),
                             },
                         ),
                     ),
                 ),
             ),
             (
-                DeclRegionPath::Entity(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::digits::three::downarc`, `Fn`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::digits::three::downarc`, `Fn`),
                     ),
                 ),
-                Ok(
-                    Decl::Form(
+                Decl::ModuleItem(
+                    ModuleItemDecl::Fugitive(
                         FugitiveDecl::Fn(
                             FnDecl {
                                 path: FugitivePath(`mnist_classifier::digits::three::downarc`, `Fn`),
-                                ast_idx: 31,
+                                implicit_parameters: [],
+                                regular_parameters: [
+                                    RegularParameterDeclPattern {
+                                        pattern: 0,
+                                        variables: ArenaIdxRange(
+                                            0..1,
+                                        ),
+                                        colon: ColonToken(
+                                            TokenIdx(
+                                                193,
+                                            ),
+                                        ),
+                                        ty: 1,
+                                    },
+                                ],
+                                return_ty: Some(
+                                    ReturnTypeExpr {
+                                        expr: 3,
+                                    },
+                                ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Entity(
-                                                EntityPath::ModuleItem(
-                                                    ModuleItemPath::Form(
-                                                        FugitivePath(`mnist_classifier::digits::three::downarc`, `Fn`),
-                                                    ),
+                                            EntityNodePath::ModuleItem(
+                                                ModuleItemNodePath::Fugitive(
+                                                    FugitiveNodePath {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: FugitivePath(`mnist_classifier::digits::three::downarc`, `Fn`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -680,83 +648,54 @@ Ok(
                                         ],
                                     },
                                 },
-                                implicit_parameter_decl_list: None,
-                                parameter_decl_list: ExplicitParameterDeclList {
-                                    lpar: LeftParenthesisToken(
-                                        TokenIdx(
-                                            191,
-                                        ),
-                                    ),
-                                    self_parameter: None,
-                                    comma_after_self_parameter: None,
-                                    regular_parameters: [
-                                        RegularParameterDeclPattern {
-                                            pattern: 0,
-                                            variables: ArenaIdxRange(
-                                                0..1,
-                                            ),
-                                            colon: ColonToken(
-                                                TokenIdx(
-                                                    193,
-                                                ),
-                                            ),
-                                            ty: 1,
-                                        },
-                                    ],
-                                    commas: [],
-                                    rpar: RightParenthesisToken(
-                                        TokenIdx(
-                                            196,
-                                        ),
-                                    ),
-                                },
-                                curry_token: Some(
-                                    CurryToken(
-                                        TokenIdx(
-                                            197,
-                                        ),
-                                    ),
-                                ),
-                                return_ty: Some(
-                                    ReturnTypeExpr {
-                                        expr: 3,
-                                    },
-                                ),
-                                eol_colon: EolToken::Colon(
-                                    EolColonToken {
-                                        token_idx: TokenIdx(
-                                            200,
-                                        ),
-                                    },
-                                ),
                             },
                         ),
                     ),
                 ),
             ),
             (
-                DeclRegionPath::Entity(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::digits::three::back`, `Fn`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::digits::three::back`, `Fn`),
                     ),
                 ),
-                Ok(
-                    Decl::Form(
+                Decl::ModuleItem(
+                    ModuleItemDecl::Fugitive(
                         FugitiveDecl::Fn(
                             FnDecl {
                                 path: FugitivePath(`mnist_classifier::digits::three::back`, `Fn`),
-                                ast_idx: 32,
+                                implicit_parameters: [],
+                                regular_parameters: [
+                                    RegularParameterDeclPattern {
+                                        pattern: 0,
+                                        variables: ArenaIdxRange(
+                                            0..1,
+                                        ),
+                                        colon: ColonToken(
+                                            TokenIdx(
+                                                227,
+                                            ),
+                                        ),
+                                        ty: 1,
+                                    },
+                                ],
+                                return_ty: Some(
+                                    ReturnTypeExpr {
+                                        expr: 3,
+                                    },
+                                ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Entity(
-                                                EntityPath::ModuleItem(
-                                                    ModuleItemPath::Form(
-                                                        FugitivePath(`mnist_classifier::digits::three::back`, `Fn`),
-                                                    ),
+                                            EntityNodePath::ModuleItem(
+                                                ModuleItemNodePath::Fugitive(
+                                                    FugitiveNodePath {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: FugitivePath(`mnist_classifier::digits::three::back`, `Fn`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -923,55 +862,6 @@ Ok(
                                         ],
                                     },
                                 },
-                                implicit_parameter_decl_list: None,
-                                parameter_decl_list: ExplicitParameterDeclList {
-                                    lpar: LeftParenthesisToken(
-                                        TokenIdx(
-                                            225,
-                                        ),
-                                    ),
-                                    self_parameter: None,
-                                    comma_after_self_parameter: None,
-                                    regular_parameters: [
-                                        RegularParameterDeclPattern {
-                                            pattern: 0,
-                                            variables: ArenaIdxRange(
-                                                0..1,
-                                            ),
-                                            colon: ColonToken(
-                                                TokenIdx(
-                                                    227,
-                                                ),
-                                            ),
-                                            ty: 1,
-                                        },
-                                    ],
-                                    commas: [],
-                                    rpar: RightParenthesisToken(
-                                        TokenIdx(
-                                            230,
-                                        ),
-                                    ),
-                                },
-                                curry_token: Some(
-                                    CurryToken(
-                                        TokenIdx(
-                                            231,
-                                        ),
-                                    ),
-                                ),
-                                return_ty: Some(
-                                    ReturnTypeExpr {
-                                        expr: 3,
-                                    },
-                                ),
-                                eol_colon: EolToken::Colon(
-                                    EolColonToken {
-                                        token_idx: TokenIdx(
-                                            234,
-                                        ),
-                                    },
-                                ),
                             },
                         ),
                     ),

@@ -7,11 +7,7 @@ Ok(
                     ModuleItemNodePath::Type(
                         TypeNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypePath(
-                                    Id {
-                                        value: 2,
-                                    },
-                                ),
+                                path: TypePath(`core::basic::bool`, `Extern`),
                                 disambiguator: 0,
                             },
                         },
@@ -23,11 +19,7 @@ Ok(
                             ExternTypeNodeDecl {
                                 node_path: TypeNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(
-                                            Id {
-                                                value: 2,
-                                            },
-                                        ),
+                                        path: TypePath(`core::basic::bool`, `Extern`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -43,11 +35,7 @@ Ok(
                                                 ModuleItemNodePath::Type(
                                                     TypeNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(
-                                                                Id {
-                                                                    value: 2,
-                                                                },
-                                                            ),
+                                                            path: TypePath(`core::basic::bool`, `Extern`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -103,11 +91,7 @@ Ok(
                     ModuleItemNodePath::Type(
                         TypeNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypePath(
-                                    Id {
-                                        value: 3,
-                                    },
-                                ),
+                                path: TypePath(`core::basic::never`, `Extern`),
                                 disambiguator: 0,
                             },
                         },
@@ -119,11 +103,7 @@ Ok(
                             ExternTypeNodeDecl {
                                 node_path: TypeNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(
-                                            Id {
-                                                value: 3,
-                                            },
-                                        ),
+                                        path: TypePath(`core::basic::never`, `Extern`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -139,11 +119,7 @@ Ok(
                                                 ModuleItemNodePath::Type(
                                                     TypeNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(
-                                                                Id {
-                                                                    value: 3,
-                                                                },
-                                                            ),
+                                                            path: TypePath(`core::basic::never`, `Extern`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -199,11 +175,7 @@ Ok(
                     ModuleItemNodePath::Type(
                         TypeNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypePath(
-                                    Id {
-                                        value: 4,
-                                    },
-                                ),
+                                path: TypePath(`core::basic::unit`, `Extern`),
                                 disambiguator: 0,
                             },
                         },
@@ -215,11 +187,7 @@ Ok(
                             ExternTypeNodeDecl {
                                 node_path: TypeNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(
-                                            Id {
-                                                value: 4,
-                                            },
-                                        ),
+                                        path: TypePath(`core::basic::unit`, `Extern`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -235,11 +203,7 @@ Ok(
                                                 ModuleItemNodePath::Type(
                                                     TypeNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(
-                                                                Id {
-                                                                    value: 4,
-                                                                },
-                                                            ),
+                                                            path: TypePath(`core::basic::unit`, `Extern`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -295,11 +259,7 @@ Ok(
                     ModuleItemNodePath::Type(
                         TypeNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypePath(
-                                    Id {
-                                        value: 5,
-                                    },
-                                ),
+                                path: TypePath(`core::basic::Trait`, `Extern`),
                                 disambiguator: 0,
                             },
                         },
@@ -307,15 +267,11 @@ Ok(
                 ),
                 NodeDecl::ModuleItem(
                     ModuleItemNodeDecl::Type(
-                        TypeNodeDecl::Structure(
-                            StructureTypeNodeDecl {
+                        TypeNodeDecl::Extern(
+                            ExternTypeNodeDecl {
                                 node_path: TypeNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(
-                                            Id {
-                                                value: 5,
-                                            },
-                                        ),
+                                        path: TypePath(`core::basic::Trait`, `Extern`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -331,11 +287,7 @@ Ok(
                                                 ModuleItemNodePath::Type(
                                                     TypeNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(
-                                                                Id {
-                                                                    value: 5,
-                                                                },
-                                                            ),
+                                                            path: TypePath(`core::basic::Trait`, `Extern`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -375,7 +327,7 @@ Ok(
                                                 data: [],
                                             },
                                             allow_self_type: True,
-                                            allow_self_value: True,
+                                            allow_self_value: False,
                                             pattern_ty_constraints: [],
                                         },
                                         roots: [],
@@ -391,11 +343,7 @@ Ok(
                     ModuleItemNodePath::Type(
                         TypeNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypePath(
-                                    Id {
-                                        value: 6,
-                                    },
-                                ),
+                                path: TypePath(`core::basic::Module`, `Extern`),
                                 disambiguator: 0,
                             },
                         },
@@ -403,15 +351,11 @@ Ok(
                 ),
                 NodeDecl::ModuleItem(
                     ModuleItemNodeDecl::Type(
-                        TypeNodeDecl::Structure(
-                            StructureTypeNodeDecl {
+                        TypeNodeDecl::Extern(
+                            ExternTypeNodeDecl {
                                 node_path: TypeNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(
-                                            Id {
-                                                value: 6,
-                                            },
-                                        ),
+                                        path: TypePath(`core::basic::Module`, `Extern`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -427,11 +371,7 @@ Ok(
                                                 ModuleItemNodePath::Type(
                                                     TypeNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(
-                                                                Id {
-                                                                    value: 6,
-                                                                },
-                                                            ),
+                                                            path: TypePath(`core::basic::Module`, `Extern`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -471,7 +411,7 @@ Ok(
                                                 data: [],
                                             },
                                             allow_self_type: True,
-                                            allow_self_value: True,
+                                            allow_self_value: False,
                                             pattern_ty_constraints: [],
                                         },
                                         roots: [],

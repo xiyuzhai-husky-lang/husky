@@ -22,11 +22,7 @@ Ok(
                                                 ModuleItemNodePath::Type(
                                                     TypeNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(
-                                                                Id {
-                                                                    value: 14,
-                                                                },
-                                                            ),
+                                                            path: TypePath(`core::num::i8`, `Extern`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -97,11 +93,7 @@ Ok(
                                                 ModuleItemNodePath::Type(
                                                     TypeNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(
-                                                                Id {
-                                                                    value: 15,
-                                                                },
-                                                            ),
+                                                            path: TypePath(`core::num::i16`, `Extern`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -172,11 +164,7 @@ Ok(
                                                 ModuleItemNodePath::Type(
                                                     TypeNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(
-                                                                Id {
-                                                                    value: 16,
-                                                                },
-                                                            ),
+                                                            path: TypePath(`core::num::i32`, `Extern`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -247,11 +235,7 @@ Ok(
                                                 ModuleItemNodePath::Type(
                                                     TypeNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(
-                                                                Id {
-                                                                    value: 17,
-                                                                },
-                                                            ),
+                                                            path: TypePath(`core::num::i64`, `Extern`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -322,11 +306,7 @@ Ok(
                                                 ModuleItemNodePath::Type(
                                                     TypeNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(
-                                                                Id {
-                                                                    value: 18,
-                                                                },
-                                                            ),
+                                                            path: TypePath(`core::num::i128`, `Extern`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -397,11 +377,7 @@ Ok(
                                                 ModuleItemNodePath::Type(
                                                     TypeNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(
-                                                                Id {
-                                                                    value: 19,
-                                                                },
-                                                            ),
+                                                            path: TypePath(`core::num::isize`, `Extern`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -472,11 +448,7 @@ Ok(
                                                 ModuleItemNodePath::Type(
                                                     TypeNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(
-                                                                Id {
-                                                                    value: 20,
-                                                                },
-                                                            ),
+                                                            path: TypePath(`core::num::u8`, `Extern`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -547,11 +519,7 @@ Ok(
                                                 ModuleItemNodePath::Type(
                                                     TypeNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(
-                                                                Id {
-                                                                    value: 21,
-                                                                },
-                                                            ),
+                                                            path: TypePath(`core::num::u16`, `Extern`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -622,11 +590,7 @@ Ok(
                                                 ModuleItemNodePath::Type(
                                                     TypeNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(
-                                                                Id {
-                                                                    value: 22,
-                                                                },
-                                                            ),
+                                                            path: TypePath(`core::num::u32`, `Extern`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -697,11 +661,7 @@ Ok(
                                                 ModuleItemNodePath::Type(
                                                     TypeNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(
-                                                                Id {
-                                                                    value: 23,
-                                                                },
-                                                            ),
+                                                            path: TypePath(`core::num::u64`, `Extern`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -772,11 +732,7 @@ Ok(
                                                 ModuleItemNodePath::Type(
                                                     TypeNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(
-                                                                Id {
-                                                                    value: 24,
-                                                                },
-                                                            ),
+                                                            path: TypePath(`core::num::u128`, `Extern`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -847,11 +803,7 @@ Ok(
                                                 ModuleItemNodePath::Type(
                                                     TypeNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(
-                                                                Id {
-                                                                    value: 25,
-                                                                },
-                                                            ),
+                                                            path: TypePath(`core::num::usize`, `Extern`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -922,11 +874,7 @@ Ok(
                                                 ModuleItemNodePath::Type(
                                                     TypeNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(
-                                                                Id {
-                                                                    value: 26,
-                                                                },
-                                                            ),
+                                                            path: TypePath(`core::num::f32`, `Extern`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -997,11 +945,7 @@ Ok(
                                                 ModuleItemNodePath::Type(
                                                     TypeNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(
-                                                                Id {
-                                                                    value: 27,
-                                                                },
-                                                            ),
+                                                            path: TypePath(`core::num::f64`, `Extern`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -1296,11 +1240,15 @@ Ok(
                                                 AssociatedItemNodePath::TypeItem(
                                                     TypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                Id {
-                                                                    value: 4,
+                                                            path: TypeItemPath {
+                                                                impl_block: TypeImplBlockPath {
+                                                                    module_path: `core::num`,
+                                                                    ty_path: TypePath(`core::num::i8`, `Extern`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `abs`,
+                                                                item_kind: MethodFn,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -1764,11 +1712,16 @@ Ok(
                                                 AssociatedItemNodePath::TraitForTypeItem(
                                                     TraitForTypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TraitForTypeItemPath(
-                                                                Id {
-                                                                    value: 1,
+                                                            path: TraitForTypeItemPath {
+                                                                impl_block: TraitForTypeImplBlockPath {
+                                                                    module_path: `core::num`,
+                                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                                    ty_path: TypePath(`core::num::i8`, `Extern`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `add`,
+                                                                item_kind: MethodFn,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -2173,11 +2126,15 @@ Ok(
                                                 AssociatedItemNodePath::TypeItem(
                                                     TypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                Id {
-                                                                    value: 5,
+                                                            path: TypeItemPath {
+                                                                impl_block: TypeImplBlockPath {
+                                                                    module_path: `core::num`,
+                                                                    ty_path: TypePath(`core::num::i16`, `Extern`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `abs`,
+                                                                item_kind: MethodFn,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -2641,11 +2598,16 @@ Ok(
                                                 AssociatedItemNodePath::TraitForTypeItem(
                                                     TraitForTypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TraitForTypeItemPath(
-                                                                Id {
-                                                                    value: 2,
+                                                            path: TraitForTypeItemPath {
+                                                                impl_block: TraitForTypeImplBlockPath {
+                                                                    module_path: `core::num`,
+                                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                                    ty_path: TypePath(`core::num::i16`, `Extern`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `add`,
+                                                                item_kind: MethodFn,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -3050,11 +3012,15 @@ Ok(
                                                 AssociatedItemNodePath::TypeItem(
                                                     TypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                Id {
-                                                                    value: 6,
+                                                            path: TypeItemPath {
+                                                                impl_block: TypeImplBlockPath {
+                                                                    module_path: `core::num`,
+                                                                    ty_path: TypePath(`core::num::i32`, `Extern`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `abs`,
+                                                                item_kind: MethodFn,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -3518,11 +3484,16 @@ Ok(
                                                 AssociatedItemNodePath::TraitForTypeItem(
                                                     TraitForTypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TraitForTypeItemPath(
-                                                                Id {
-                                                                    value: 3,
+                                                            path: TraitForTypeItemPath {
+                                                                impl_block: TraitForTypeImplBlockPath {
+                                                                    module_path: `core::num`,
+                                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                                    ty_path: TypePath(`core::num::i32`, `Extern`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `add`,
+                                                                item_kind: MethodFn,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -3927,11 +3898,15 @@ Ok(
                                                 AssociatedItemNodePath::TypeItem(
                                                     TypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                Id {
-                                                                    value: 7,
+                                                            path: TypeItemPath {
+                                                                impl_block: TypeImplBlockPath {
+                                                                    module_path: `core::num`,
+                                                                    ty_path: TypePath(`core::num::i64`, `Extern`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `abs`,
+                                                                item_kind: MethodFn,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -4395,11 +4370,16 @@ Ok(
                                                 AssociatedItemNodePath::TraitForTypeItem(
                                                     TraitForTypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TraitForTypeItemPath(
-                                                                Id {
-                                                                    value: 4,
+                                                            path: TraitForTypeItemPath {
+                                                                impl_block: TraitForTypeImplBlockPath {
+                                                                    module_path: `core::num`,
+                                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                                    ty_path: TypePath(`core::num::i64`, `Extern`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `add`,
+                                                                item_kind: MethodFn,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -4804,11 +4784,15 @@ Ok(
                                                 AssociatedItemNodePath::TypeItem(
                                                     TypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                Id {
-                                                                    value: 8,
+                                                            path: TypeItemPath {
+                                                                impl_block: TypeImplBlockPath {
+                                                                    module_path: `core::num`,
+                                                                    ty_path: TypePath(`core::num::i128`, `Extern`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `abs`,
+                                                                item_kind: MethodFn,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -5272,11 +5256,16 @@ Ok(
                                                 AssociatedItemNodePath::TraitForTypeItem(
                                                     TraitForTypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TraitForTypeItemPath(
-                                                                Id {
-                                                                    value: 5,
+                                                            path: TraitForTypeItemPath {
+                                                                impl_block: TraitForTypeImplBlockPath {
+                                                                    module_path: `core::num`,
+                                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                                    ty_path: TypePath(`core::num::i128`, `Extern`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `add`,
+                                                                item_kind: MethodFn,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -5681,11 +5670,15 @@ Ok(
                                                 AssociatedItemNodePath::TypeItem(
                                                     TypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                Id {
-                                                                    value: 9,
+                                                            path: TypeItemPath {
+                                                                impl_block: TypeImplBlockPath {
+                                                                    module_path: `core::num`,
+                                                                    ty_path: TypePath(`core::num::isize`, `Extern`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `abs`,
+                                                                item_kind: MethodFn,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -6149,11 +6142,16 @@ Ok(
                                                 AssociatedItemNodePath::TraitForTypeItem(
                                                     TraitForTypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TraitForTypeItemPath(
-                                                                Id {
-                                                                    value: 6,
+                                                            path: TraitForTypeItemPath {
+                                                                impl_block: TraitForTypeImplBlockPath {
+                                                                    module_path: `core::num`,
+                                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                                    ty_path: TypePath(`core::num::isize`, `Extern`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `add`,
+                                                                item_kind: MethodFn,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -6558,11 +6556,15 @@ Ok(
                                                 AssociatedItemNodePath::TypeItem(
                                                     TypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                Id {
-                                                                    value: 10,
+                                                            path: TypeItemPath {
+                                                                impl_block: TypeImplBlockPath {
+                                                                    module_path: `core::num`,
+                                                                    ty_path: TypePath(`core::num::u8`, `Extern`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `abs`,
+                                                                item_kind: MethodFn,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -7026,11 +7028,16 @@ Ok(
                                                 AssociatedItemNodePath::TraitForTypeItem(
                                                     TraitForTypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TraitForTypeItemPath(
-                                                                Id {
-                                                                    value: 7,
+                                                            path: TraitForTypeItemPath {
+                                                                impl_block: TraitForTypeImplBlockPath {
+                                                                    module_path: `core::num`,
+                                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                                    ty_path: TypePath(`core::num::u8`, `Extern`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `add`,
+                                                                item_kind: MethodFn,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -7435,11 +7442,15 @@ Ok(
                                                 AssociatedItemNodePath::TypeItem(
                                                     TypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                Id {
-                                                                    value: 11,
+                                                            path: TypeItemPath {
+                                                                impl_block: TypeImplBlockPath {
+                                                                    module_path: `core::num`,
+                                                                    ty_path: TypePath(`core::num::u16`, `Extern`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `abs`,
+                                                                item_kind: MethodFn,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -7903,11 +7914,16 @@ Ok(
                                                 AssociatedItemNodePath::TraitForTypeItem(
                                                     TraitForTypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TraitForTypeItemPath(
-                                                                Id {
-                                                                    value: 8,
+                                                            path: TraitForTypeItemPath {
+                                                                impl_block: TraitForTypeImplBlockPath {
+                                                                    module_path: `core::num`,
+                                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                                    ty_path: TypePath(`core::num::u16`, `Extern`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `add`,
+                                                                item_kind: MethodFn,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -8312,11 +8328,15 @@ Ok(
                                                 AssociatedItemNodePath::TypeItem(
                                                     TypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                Id {
-                                                                    value: 12,
+                                                            path: TypeItemPath {
+                                                                impl_block: TypeImplBlockPath {
+                                                                    module_path: `core::num`,
+                                                                    ty_path: TypePath(`core::num::u32`, `Extern`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `abs`,
+                                                                item_kind: MethodFn,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -8780,11 +8800,16 @@ Ok(
                                                 AssociatedItemNodePath::TraitForTypeItem(
                                                     TraitForTypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TraitForTypeItemPath(
-                                                                Id {
-                                                                    value: 9,
+                                                            path: TraitForTypeItemPath {
+                                                                impl_block: TraitForTypeImplBlockPath {
+                                                                    module_path: `core::num`,
+                                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                                    ty_path: TypePath(`core::num::u32`, `Extern`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `add`,
+                                                                item_kind: MethodFn,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -9189,11 +9214,15 @@ Ok(
                                                 AssociatedItemNodePath::TypeItem(
                                                     TypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                Id {
-                                                                    value: 13,
+                                                            path: TypeItemPath {
+                                                                impl_block: TypeImplBlockPath {
+                                                                    module_path: `core::num`,
+                                                                    ty_path: TypePath(`core::num::u64`, `Extern`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `abs`,
+                                                                item_kind: MethodFn,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -9657,11 +9686,16 @@ Ok(
                                                 AssociatedItemNodePath::TraitForTypeItem(
                                                     TraitForTypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TraitForTypeItemPath(
-                                                                Id {
-                                                                    value: 10,
+                                                            path: TraitForTypeItemPath {
+                                                                impl_block: TraitForTypeImplBlockPath {
+                                                                    module_path: `core::num`,
+                                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                                    ty_path: TypePath(`core::num::u64`, `Extern`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `add`,
+                                                                item_kind: MethodFn,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -10066,11 +10100,15 @@ Ok(
                                                 AssociatedItemNodePath::TypeItem(
                                                     TypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                Id {
-                                                                    value: 14,
+                                                            path: TypeItemPath {
+                                                                impl_block: TypeImplBlockPath {
+                                                                    module_path: `core::num`,
+                                                                    ty_path: TypePath(`core::num::u128`, `Extern`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `abs`,
+                                                                item_kind: MethodFn,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -10534,11 +10572,16 @@ Ok(
                                                 AssociatedItemNodePath::TraitForTypeItem(
                                                     TraitForTypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TraitForTypeItemPath(
-                                                                Id {
-                                                                    value: 11,
+                                                            path: TraitForTypeItemPath {
+                                                                impl_block: TraitForTypeImplBlockPath {
+                                                                    module_path: `core::num`,
+                                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                                    ty_path: TypePath(`core::num::u128`, `Extern`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `add`,
+                                                                item_kind: MethodFn,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -10943,11 +10986,15 @@ Ok(
                                                 AssociatedItemNodePath::TypeItem(
                                                     TypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                Id {
-                                                                    value: 15,
+                                                            path: TypeItemPath {
+                                                                impl_block: TypeImplBlockPath {
+                                                                    module_path: `core::num`,
+                                                                    ty_path: TypePath(`core::num::usize`, `Extern`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `abs`,
+                                                                item_kind: MethodFn,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -11411,11 +11458,16 @@ Ok(
                                                 AssociatedItemNodePath::TraitForTypeItem(
                                                     TraitForTypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TraitForTypeItemPath(
-                                                                Id {
-                                                                    value: 12,
+                                                            path: TraitForTypeItemPath {
+                                                                impl_block: TraitForTypeImplBlockPath {
+                                                                    module_path: `core::num`,
+                                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                                    ty_path: TypePath(`core::num::usize`, `Extern`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `add`,
+                                                                item_kind: MethodFn,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -11820,11 +11872,15 @@ Ok(
                                                 AssociatedItemNodePath::TypeItem(
                                                     TypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                Id {
-                                                                    value: 16,
+                                                            path: TypeItemPath {
+                                                                impl_block: TypeImplBlockPath {
+                                                                    module_path: `core::num`,
+                                                                    ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `abs`,
+                                                                item_kind: MethodFn,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -12038,11 +12094,15 @@ Ok(
                                                 AssociatedItemNodePath::TypeItem(
                                                     TypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                Id {
-                                                                    value: 17,
+                                                            path: TypeItemPath {
+                                                                impl_block: TypeImplBlockPath {
+                                                                    module_path: `core::num`,
+                                                                    ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `sqrt`,
+                                                                item_kind: MethodFn,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -12506,11 +12566,16 @@ Ok(
                                                 AssociatedItemNodePath::TraitForTypeItem(
                                                     TraitForTypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TraitForTypeItemPath(
-                                                                Id {
-                                                                    value: 13,
+                                                            path: TraitForTypeItemPath {
+                                                                impl_block: TraitForTypeImplBlockPath {
+                                                                    module_path: `core::num`,
+                                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                                    ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `add`,
+                                                                item_kind: MethodFn,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -12915,11 +12980,15 @@ Ok(
                                                 AssociatedItemNodePath::TypeItem(
                                                     TypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                Id {
-                                                                    value: 18,
+                                                            path: TypeItemPath {
+                                                                impl_block: TypeImplBlockPath {
+                                                                    module_path: `core::num`,
+                                                                    ty_path: TypePath(`core::num::f64`, `Extern`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `abs`,
+                                                                item_kind: MethodFn,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -13383,11 +13452,16 @@ Ok(
                                                 AssociatedItemNodePath::TraitForTypeItem(
                                                     TraitForTypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TraitForTypeItemPath(
-                                                                Id {
-                                                                    value: 14,
+                                                            path: TraitForTypeItemPath {
+                                                                impl_block: TraitForTypeImplBlockPath {
+                                                                    module_path: `core::num`,
+                                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                                    ty_path: TypePath(`core::num::f64`, `Extern`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `add`,
+                                                                item_kind: MethodFn,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },

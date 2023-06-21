@@ -7,11 +7,7 @@ Ok(
                     ModuleItemNodePath::Fugitive(
                         FugitiveNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 78,
-                                    },
-                                ),
+                                path: FugitivePath(`malamute::narrow_down`, `Gn`),
                                 disambiguator: 0,
                             },
                         },
@@ -23,11 +19,7 @@ Ok(
                             GnNodeDecl {
                                 node_path: FugitiveNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(
-                                            Id {
-                                                value: 78,
-                                            },
-                                        ),
+                                        path: FugitivePath(`malamute::narrow_down`, `Gn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -40,11 +32,7 @@ Ok(
                                                 ModuleItemNodePath::Fugitive(
                                                     FugitiveNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(
-                                                                Id {
-                                                                    value: 78,
-                                                                },
-                                                            ),
+                                                            path: FugitivePath(`malamute::narrow_down`, `Gn`),
                                                             disambiguator: 0,
                                                         },
                                                     },

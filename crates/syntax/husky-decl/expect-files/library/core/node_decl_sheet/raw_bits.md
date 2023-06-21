@@ -7,11 +7,7 @@ Ok(
                     ModuleItemNodePath::Type(
                         TypeNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypePath(
-                                    Id {
-                                        value: 30,
-                                    },
-                                ),
+                                path: TypePath(`core::raw_bits::r32`, `Extern`),
                                 disambiguator: 0,
                             },
                         },
@@ -23,11 +19,7 @@ Ok(
                             ExternTypeNodeDecl {
                                 node_path: TypeNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(
-                                            Id {
-                                                value: 30,
-                                            },
-                                        ),
+                                        path: TypePath(`core::raw_bits::r32`, `Extern`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -43,11 +35,7 @@ Ok(
                                                 ModuleItemNodePath::Type(
                                                     TypeNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(
-                                                                Id {
-                                                                    value: 30,
-                                                                },
-                                                            ),
+                                                            path: TypePath(`core::raw_bits::r32`, `Extern`),
                                                             disambiguator: 0,
                                                         },
                                                     },

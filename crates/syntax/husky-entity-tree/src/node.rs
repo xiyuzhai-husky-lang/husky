@@ -117,6 +117,41 @@ impl<P> MaybeAmbiguousPath<P> {
     }
 }
 
+impl<P, _Db: EntityTreeDb + ?Sized> ::salsa::DebugWithDb<_Db> for MaybeAmbiguousPath<P>
+where
+    P: ::salsa::DebugWithDb<_Db>,
+{
+    fn fmt(
+        &self,
+        f: &mut ::std::fmt::Formatter<'_>,
+        _db: &_Db,
+        _level: salsa::DebugFormatLevel,
+    ) -> ::std::fmt::Result {
+        #[allow(unused_imports)]
+        use ::salsa::debug::helper::Fallback;
+        let mut debug_struct = &mut f.debug_struct("MaybeAmbiguousPath");
+        debug_struct = debug_struct.field(
+            "path",
+            &::salsa::debug::helper::SalsaDebug::<P, _Db>::salsa_debug(
+                #[allow(clippy::needless_borrow)]
+                &self.path,
+                _db,
+                _level.next(),
+            ),
+        );
+        debug_struct = debug_struct.field(
+            "disambiguator",
+            &::salsa::debug::helper::SalsaDebug::<u8, _Db>::salsa_debug(
+                #[allow(clippy::needless_borrow)]
+                &self.disambiguator,
+                _db,
+                _level.next(),
+            ),
+        );
+        debug_struct.finish()
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 #[enum_class::from_variants]

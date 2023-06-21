@@ -7,11 +7,7 @@ Ok(
                     ModuleItemNodePath::Fugitive(
                         FugitiveNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 38,
-                                    },
-                                ),
+                                path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                                 disambiguator: 0,
                             },
                         },
@@ -23,11 +19,7 @@ Ok(
                             ValNodeDecl {
                                 node_path: FugitiveNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(
-                                            Id {
-                                                value: 38,
-                                            },
-                                        ),
+                                        path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -64,11 +56,7 @@ Ok(
                                                 ModuleItemNodePath::Fugitive(
                                                     FugitiveNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(
-                                                                Id {
-                                                                    value: 38,
-                                                                },
-                                                            ),
+                                                            path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -156,11 +144,7 @@ Ok(
                     ModuleItemNodePath::Fugitive(
                         FugitiveNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 39,
-                                    },
-                                ),
+                                path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
                                 disambiguator: 0,
                             },
                         },
@@ -172,11 +156,7 @@ Ok(
                             ValNodeDecl {
                                 node_path: FugitiveNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(
-                                            Id {
-                                                value: 39,
-                                            },
-                                        ),
+                                        path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -213,11 +193,7 @@ Ok(
                                                 ModuleItemNodePath::Fugitive(
                                                     FugitiveNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(
-                                                                Id {
-                                                                    value: 39,
-                                                                },
-                                                            ),
+                                                            path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -312,11 +288,7 @@ Ok(
                     ModuleItemNodePath::Fugitive(
                         FugitiveNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 40,
-                                    },
-                                ),
+                                path: FugitivePath(`mnist_classifier::digits::three::uparc`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
@@ -328,11 +300,7 @@ Ok(
                             FnNodeDecl {
                                 node_path: FugitiveNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(
-                                            Id {
-                                                value: 40,
-                                            },
-                                        ),
+                                        path: FugitivePath(`mnist_classifier::digits::three::uparc`, `Fn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -404,11 +372,7 @@ Ok(
                                                 ModuleItemNodePath::Fugitive(
                                                     FugitiveNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(
-                                                                Id {
-                                                                    value: 40,
-                                                                },
-                                                            ),
+                                                            path: FugitivePath(`mnist_classifier::digits::three::uparc`, `Fn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -588,11 +552,7 @@ Ok(
                     ModuleItemNodePath::Fugitive(
                         FugitiveNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 41,
-                                    },
-                                ),
+                                path: FugitivePath(`mnist_classifier::digits::three::downarc`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
@@ -604,11 +564,7 @@ Ok(
                             FnNodeDecl {
                                 node_path: FugitiveNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(
-                                            Id {
-                                                value: 41,
-                                            },
-                                        ),
+                                        path: FugitivePath(`mnist_classifier::digits::three::downarc`, `Fn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -680,11 +636,7 @@ Ok(
                                                 ModuleItemNodePath::Fugitive(
                                                     FugitiveNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(
-                                                                Id {
-                                                                    value: 41,
-                                                                },
-                                                            ),
+                                                            path: FugitivePath(`mnist_classifier::digits::three::downarc`, `Fn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -864,11 +816,7 @@ Ok(
                     ModuleItemNodePath::Fugitive(
                         FugitiveNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 42,
-                                    },
-                                ),
+                                path: FugitivePath(`mnist_classifier::digits::three::back`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
@@ -880,11 +828,7 @@ Ok(
                             FnNodeDecl {
                                 node_path: FugitiveNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(
-                                            Id {
-                                                value: 42,
-                                            },
-                                        ),
+                                        path: FugitivePath(`mnist_classifier::digits::three::back`, `Fn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -956,11 +900,7 @@ Ok(
                                                 ModuleItemNodePath::Fugitive(
                                                     FugitiveNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(
-                                                                Id {
-                                                                    value: 42,
-                                                                },
-                                                            ),
+                                                            path: FugitivePath(`mnist_classifier::digits::three::back`, `Fn`),
                                                             disambiguator: 0,
                                                         },
                                                     },

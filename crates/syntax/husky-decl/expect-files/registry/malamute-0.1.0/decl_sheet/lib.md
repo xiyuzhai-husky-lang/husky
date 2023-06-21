@@ -1,29 +1,33 @@
 Ok(
     DeclSheet {
+        [salsa id]: 47,
         decls: [
             (
-                DeclRegionPath::Entity(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`malamute::narrow_down`, `Gn`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`malamute::narrow_down`, `Gn`),
                     ),
                 ),
-                Ok(
-                    Decl::Form(
+                Decl::ModuleItem(
+                    ModuleItemDecl::Fugitive(
                         FugitiveDecl::Gn(
                             GnDecl {
                                 path: FugitivePath(`malamute::narrow_down`, `Gn`),
-                                ast_idx: 0,
+                                implicit_parameters: [],
+                                regular_parameters: [],
+                                return_ty: None,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Entity(
-                                                EntityPath::ModuleItem(
-                                                    ModuleItemPath::Form(
-                                                        FugitivePath(`malamute::narrow_down`, `Gn`),
-                                                    ),
+                                            EntityNodePath::ModuleItem(
+                                                ModuleItemNodePath::Fugitive(
+                                                    FugitiveNodePath {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -66,32 +70,6 @@ Ok(
                                         roots: [],
                                     },
                                 },
-                                implicit_parameter_decl_list: None,
-                                parameter_decl_list: ExplicitParameterDeclList {
-                                    lpar: LeftParenthesisToken(
-                                        TokenIdx(
-                                            3,
-                                        ),
-                                    ),
-                                    self_parameter: None,
-                                    comma_after_self_parameter: None,
-                                    regular_parameters: [],
-                                    commas: [],
-                                    rpar: RightParenthesisToken(
-                                        TokenIdx(
-                                            4,
-                                        ),
-                                    ),
-                                },
-                                curry_token: None,
-                                return_ty: None,
-                                eol_colon: EolToken::Semicolon(
-                                    EolSemicolonToken {
-                                        token_idx: TokenIdx(
-                                            5,
-                                        ),
-                                    },
-                                ),
                             },
                         ),
                     ),

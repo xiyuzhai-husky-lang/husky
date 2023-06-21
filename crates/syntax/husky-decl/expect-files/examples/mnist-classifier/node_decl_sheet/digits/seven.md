@@ -7,11 +7,7 @@ Ok(
                     ModuleItemNodePath::Fugitive(
                         FugitiveNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 51,
-                                    },
-                                ),
+                                path: FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                                 disambiguator: 0,
                             },
                         },
@@ -23,11 +19,7 @@ Ok(
                             ValNodeDecl {
                                 node_path: FugitiveNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(
-                                            Id {
-                                                value: 51,
-                                            },
-                                        ),
+                                        path: FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -64,11 +56,7 @@ Ok(
                                                 ModuleItemNodePath::Fugitive(
                                                     FugitiveNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(
-                                                                Id {
-                                                                    value: 51,
-                                                                },
-                                                            ),
+                                                            path: FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -156,11 +144,7 @@ Ok(
                     ModuleItemNodePath::Fugitive(
                         FugitiveNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 52,
-                                    },
-                                ),
+                                path: FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
@@ -172,11 +156,7 @@ Ok(
                             FnNodeDecl {
                                 node_path: FugitiveNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(
-                                            Id {
-                                                value: 52,
-                                            },
-                                        ),
+                                        path: FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Fn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -248,11 +228,7 @@ Ok(
                                                 ModuleItemNodePath::Fugitive(
                                                     FugitiveNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(
-                                                                Id {
-                                                                    value: 52,
-                                                                },
-                                                            ),
+                                                            path: FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Fn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -432,11 +408,7 @@ Ok(
                     ModuleItemNodePath::Fugitive(
                         FugitiveNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 53,
-                                    },
-                                ),
+                                path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                                 disambiguator: 0,
                             },
                         },
@@ -448,11 +420,7 @@ Ok(
                             ValNodeDecl {
                                 node_path: FugitiveNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(
-                                            Id {
-                                                value: 53,
-                                            },
-                                        ),
+                                        path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -489,11 +457,7 @@ Ok(
                                                 ModuleItemNodePath::Fugitive(
                                                     FugitiveNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(
-                                                                Id {
-                                                                    value: 53,
-                                                                },
-                                                            ),
+                                                            path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -581,11 +545,7 @@ Ok(
                     ModuleItemNodePath::Fugitive(
                         FugitiveNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 54,
-                                    },
-                                ),
+                                path: FugitivePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
@@ -597,11 +557,7 @@ Ok(
                             FnNodeDecl {
                                 node_path: FugitiveNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(
-                                            Id {
-                                                value: 54,
-                                            },
-                                        ),
+                                        path: FugitivePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Fn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -673,11 +629,7 @@ Ok(
                                                 ModuleItemNodePath::Fugitive(
                                                     FugitiveNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(
-                                                                Id {
-                                                                    value: 54,
-                                                                },
-                                                            ),
+                                                            path: FugitivePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Fn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -857,11 +809,7 @@ Ok(
                     ModuleItemNodePath::Fugitive(
                         FugitiveNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 55,
-                                    },
-                                ),
+                                path: FugitivePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
@@ -873,11 +821,7 @@ Ok(
                             FnNodeDecl {
                                 node_path: FugitiveNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(
-                                            Id {
-                                                value: 55,
-                                            },
-                                        ),
+                                        path: FugitivePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Fn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -949,11 +893,7 @@ Ok(
                                                 ModuleItemNodePath::Fugitive(
                                                     FugitiveNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(
-                                                                Id {
-                                                                    value: 55,
-                                                                },
-                                                            ),
+                                                            path: FugitivePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Fn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -1133,11 +1073,7 @@ Ok(
                     ModuleItemNodePath::Fugitive(
                         FugitiveNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 56,
-                                    },
-                                ),
+                                path: FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                                 disambiguator: 0,
                             },
                         },
@@ -1149,11 +1085,7 @@ Ok(
                             ValNodeDecl {
                                 node_path: FugitiveNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(
-                                            Id {
-                                                value: 56,
-                                            },
-                                        ),
+                                        path: FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -1190,11 +1122,7 @@ Ok(
                                                 ModuleItemNodePath::Fugitive(
                                                     FugitiveNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(
-                                                                Id {
-                                                                    value: 56,
-                                                                },
-                                                            ),
+                                                            path: FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                                                             disambiguator: 0,
                                                         },
                                                     },

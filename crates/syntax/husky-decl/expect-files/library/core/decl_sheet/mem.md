@@ -64,11 +64,7 @@ Ok(
                                                 ModuleItemNodePath::Type(
                                                     TypeNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(
-                                                                Id {
-                                                                    value: 11,
-                                                                },
-                                                            ),
+                                                            path: TypePath(`core::mem::Ref`, `Extern`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -229,11 +225,7 @@ Ok(
                                                 ModuleItemNodePath::Type(
                                                     TypeNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(
-                                                                Id {
-                                                                    value: 12,
-                                                                },
-                                                            ),
+                                                            path: TypePath(`core::mem::RefMut`, `Extern`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -374,11 +366,7 @@ Ok(
                                                 ModuleItemNodePath::Type(
                                                     TypeNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(
-                                                                Id {
-                                                                    value: 13,
-                                                                },
-                                                            ),
+                                                            path: TypePath(`core::mem::Leash`, `Extern`),
                                                             disambiguator: 0,
                                                         },
                                                     },

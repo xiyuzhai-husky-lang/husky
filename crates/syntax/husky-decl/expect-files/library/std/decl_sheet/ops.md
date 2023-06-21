@@ -36,11 +36,7 @@ Ok(
                                             ModuleItemNodePath::Trait(
                                                 TraitNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitPath(
-                                                            Id {
-                                                                value: 51,
-                                                            },
-                                                        ),
+                                                        path: TraitPath(`std::ops::Add`),
                                                         disambiguator: 0,
                                                     },
                                                 },

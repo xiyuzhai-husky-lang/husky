@@ -22,11 +22,7 @@ Ok(
                                             ModuleItemNodePath::Trait(
                                                 TraitNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitPath(
-                                                            Id {
-                                                                value: 6,
-                                                            },
-                                                        ),
+                                                        path: TraitPath(`core::fmt::Debug`),
                                                         disambiguator: 0,
                                                     },
                                                 },
