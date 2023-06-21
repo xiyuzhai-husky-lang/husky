@@ -50,8 +50,8 @@ impl HasNodeDecl for ImplBlockNodePath {
 
     fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
         match self {
-            ImplBlockNodePath::TypeImplBlock(_) => todo!(),
-            ImplBlockNodePath::TraitForTypeImplBlock(_) => todo!(),
+            ImplBlockNodePath::TypeImplBlock(node_path) => node_path.node_decl(db).into(),
+            ImplBlockNodePath::TraitForTypeImplBlock(node_path) => node_path.node_decl(db).into(),
             ImplBlockNodePath::IllFormedImplBlock(_) => todo!(),
         }
     }

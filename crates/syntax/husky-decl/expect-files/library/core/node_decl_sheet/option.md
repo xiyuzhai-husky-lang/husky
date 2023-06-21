@@ -1,33 +1,72 @@
 Ok(
-    DeclSheet {
+    NodeDeclSheet {
         [salsa id]: 13,
         decls: [
             (
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Type(
-                        TypePath(`core::option::Option`, `Enum`),
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Type(
+                        TypeNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(
+                                    Id {
+                                        value: 29,
+                                    },
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Decl::ModuleItem(
-                    ModuleItemDecl::Type(
-                        TypeDecl::Enum(
-                            EnumTypeDecl {
-                                path: TypePath(`core::option::Option`, `Enum`),
-                                implicit_parameters: [
-                                    ImplicitParameterDeclPattern {
-                                        annotated_variance_token: None,
-                                        symbol: 0,
-                                        variant: ImplicitParameterDeclPatternVariant::Type {
-                                            ident_token: IdentToken {
-                                                ident: `T`,
-                                                token_idx: TokenIdx(
-                                                    4,
-                                                ),
+                NodeDecl::ModuleItem(
+                    ModuleItemNodeDecl::Type(
+                        TypeNodeDecl::Enum(
+                            EnumTypeNodeDecl {
+                                node_path: TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(
+                                            Id {
+                                                value: 29,
                                             },
-                                            traits: None,
-                                        },
+                                        ),
+                                        disambiguator: 0,
                                     },
-                                ],
+                                },
+                                ast_idx: 2,
+                                implicit_parameter_decl_list: Ok(
+                                    Some(
+                                        ImplicitParameterDeclList {
+                                            langle: LeftAngleBracketOrLessThanToken(
+                                                TokenIdx(
+                                                    3,
+                                                ),
+                                            ),
+                                            implicit_parameters: [
+                                                ImplicitParameterDeclPattern {
+                                                    annotated_variance_token: None,
+                                                    symbol: 0,
+                                                    variant: ImplicitParameterDeclPatternVariant::Type {
+                                                        ident_token: IdentToken {
+                                                            ident: `T`,
+                                                            token_idx: TokenIdx(
+                                                                4,
+                                                            ),
+                                                        },
+                                                        traits: None,
+                                                    },
+                                                },
+                                            ],
+                                            commas: [],
+                                            decl_list_result: Ok(
+                                                (),
+                                            ),
+                                            rangle: RightAngleBracketToken(
+                                                TokenIdx(
+                                                    5,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,

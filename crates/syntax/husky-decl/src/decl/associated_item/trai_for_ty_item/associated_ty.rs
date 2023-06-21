@@ -7,42 +7,37 @@ pub struct TraitForTypeAssociatedTypeNodeDecl {
     pub node: TraitForTypeItemNode,
     pub ast_idx: AstIdx,
     #[return_ref]
-    pub implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
+    pub implicit_parameter_decl_list: DeclExprResult<Option<ImplicitParameterDeclList>>,
     pub expr_region: ExprRegion,
 }
 
 impl<'a> DeclParser<'a> {
     pub(super) fn parse_trai_for_ty_associated_ty_node_decl(
         &self,
+        node_path: TraitForTypeItemNodePath,
+        node: TraitForTypeItemNode,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
-        node: TraitForTypeItemNode,
         saved_stream_state: TokenStreamState,
     ) -> TraitForTypeAssociatedTypeNodeDecl {
-        todo!()
-        // let db = self.db();
-        // let Ok(impl_decl) = node.impl_block(db).decl(db) else {
-        //     return Err(
-        //         DerivedDeclError::UnableToParseImplDeclForTyAsTraitMethodFnDecl.into()
-        //     )
-        // };
-        // let mut parser = self.expr_parser(
-        //     node.node_path(db),
-        //     Some(impl_decl.expr_region(db)),
-        //     AllowSelfType::True,
-        //     AllowSelfValue::False,
-        // );
-        // let mut ctx = parser.ctx(None, token_group_idx, saved_stream_state);
-        // let implicit_parameter_decl_list = ctx.try_parse_optional()?;
-        // // let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectedEolColon)?;
-        // Ok(TraitForTypeAssociatedTypeDecl::new(
-        //     db,
-        //     node.node_path(db),
-        //     node,
-        //     ast_idx,
-        //     implicit_parameter_decl_list,
-        //     parser.finish(),
-        // ))
+        let db = self.db();
+        let impl_block_node_decl = node_path.impl_block(db).node_decl(db);
+        let mut parser = self.expr_parser(
+            node.node_path(db),
+            Some(impl_block_node_decl.expr_region(db)),
+            AllowSelfType::True,
+            AllowSelfValue::False,
+        );
+        let mut ctx = parser.ctx(None, token_group_idx, saved_stream_state);
+        let implicit_parameter_decl_list = ctx.try_parse_optional();
+        TraitForTypeAssociatedTypeNodeDecl::new(
+            db,
+            node.node_path(db),
+            node,
+            ast_idx,
+            implicit_parameter_decl_list,
+            parser.finish(),
+        )
     }
 }
 
@@ -50,9 +45,17 @@ impl<'a> DeclParser<'a> {
 pub struct TraitForTypeAssociatedTypeDecl {
     #[id]
     pub path: TraitForTypeItemPath,
-    pub node: TraitForTypeItemNode,
-    pub ast_idx: AstIdx,
     #[return_ref]
     pub implicit_parameters: ImplicitParameterDeclPatterns,
     pub expr_region: ExprRegion,
+}
+
+impl TraitForTypeAssociatedTypeDecl {
+    pub(super) fn from_node_decl(
+        db: &dyn DeclDb,
+        path: TraitForTypeItemPath,
+        node_decl: TraitForTypeAssociatedTypeNodeDecl,
+    ) -> DeclResult<Self> {
+        todo!()
+    }
 }

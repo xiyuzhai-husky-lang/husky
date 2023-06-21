@@ -74,7 +74,7 @@ impl HasNodeDecl for TraitForTypeItemNodePath {
     type NodeDecl = TraitForTypeItemNodeDecl;
 
     fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
-        todo!()
+        trai_for_ty_item_node_decl(db, self)
     }
 }
 
@@ -128,17 +128,19 @@ impl<'a> DeclParser<'a> {
         match trai_item_kind {
             TraitItemKind::MethodFn => self
                 .parse_trai_for_ty_method_fn_node_decl(
+                    node_path,
+                    node,
                     ast_idx,
                     token_group_idx,
-                    node,
                     saved_stream_state,
                 )
                 .into(),
             TraitItemKind::AssociatedType => self
                 .parse_trai_for_ty_associated_ty_node_decl(
+                    node_path,
+                    node,
                     ast_idx,
                     token_group_idx,
-                    node,
                     saved_stream_state,
                 )
                 .into(),
@@ -163,34 +165,40 @@ impl From<TraitForTypeItemDecl> for Decl {
 }
 
 impl TraitForTypeItemDecl {
+    fn from_node_decl(
+        db: &dyn DeclDb,
+        path: TraitForTypeItemPath,
+        node_decl: TraitForTypeItemNodeDecl,
+    ) -> DeclResult<Self> {
+        Ok(match node_decl {
+            TraitForTypeItemNodeDecl::AssociatedFn(node_decl) => {
+                TraitForTypeAssociatedFnDecl::from_node_decl(db, path, node_decl)?.into()
+            }
+            TraitForTypeItemNodeDecl::MethodFn(node_decl) => {
+                TraitForTypeMethodFnDecl::from_node_decl(db, path, node_decl)?.into()
+            }
+            TraitForTypeItemNodeDecl::AssociatedType(node_decl) => {
+                TraitForTypeAssociatedTypeDecl::from_node_decl(db, path, node_decl)?.into()
+            }
+            TraitForTypeItemNodeDecl::AssociatedVal(_) => todo!(),
+        })
+    }
+
     pub fn path(self, db: &dyn DeclDb) -> TraitForTypeItemPath {
         match self {
-            TraitForTypeItemDecl::AssociatedFn(_) => todo!(),
+            TraitForTypeItemDecl::AssociatedFn(decl) => decl.path(db),
             TraitForTypeItemDecl::MethodFn(decl) => decl.path(db),
             TraitForTypeItemDecl::AssociatedType(decl) => decl.path(db),
-            TraitForTypeItemDecl::AssociatedVal(_) => todo!(),
+            TraitForTypeItemDecl::AssociatedVal(decl) => decl.path(db),
         }
     }
 
-    pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
-        todo!()
-        // match self {
-        //     TraitForTypeItemDecl::AssociatedFn(decl) => decl.ast_idx(db),
-        //     TraitForTypeItemDecl::MethodFn(decl) => decl.ast_idx(db),
-        //     TraitForTypeItemDecl::AssociatedType(decl) => decl.ast_idx(db),
-        //     TraitForTypeItemDecl::AssociatedVal(decl) => decl.ast_idx(db),
-        // }
-    }
-
-    pub fn implicit_parameters<'a>(
-        self,
-        _db: &'a dyn DeclDb,
-    ) -> &'a [ImplicitParameterDeclPattern] {
+    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDeclPattern] {
         match self {
-            TraitForTypeItemDecl::AssociatedFn(_) => todo!(),
-            TraitForTypeItemDecl::MethodFn(_) => todo!(),
-            TraitForTypeItemDecl::AssociatedType(_) => todo!(),
-            TraitForTypeItemDecl::AssociatedVal(_) => todo!(),
+            TraitForTypeItemDecl::AssociatedFn(decl) => decl.implicit_parameters(db),
+            TraitForTypeItemDecl::MethodFn(decl) => decl.implicit_parameters(db),
+            TraitForTypeItemDecl::AssociatedType(decl) => decl.implicit_parameters(db),
+            TraitForTypeItemDecl::AssociatedVal(_) => &[],
         }
     }
 
@@ -208,6 +216,15 @@ impl HasDecl for TraitForTypeItemPath {
     type Decl = TraitForTypeItemDecl;
 
     fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
-        todo!()
+        trai_for_ty_item_decl(db, self)
     }
+}
+
+#[salsa::tracked(jar = DeclJar)]
+pub(crate) fn trai_for_ty_item_decl(
+    db: &dyn DeclDb,
+    path: TraitForTypeItemPath,
+) -> DeclResult<TraitForTypeItemDecl> {
+    let node_decl = path.node_path(db).node_decl(db);
+    TraitForTypeItemDecl::from_node_decl(db, path, node_decl)
 }

@@ -54,6 +54,18 @@ impl EnumTypeDecl {
         path: TypePath,
         node_decl: EnumTypeNodeDecl,
     ) -> DeclResult<Self> {
-        todo!()
+        let implicit_parameters = node_decl
+            .implicit_parameter_decl_list(db)
+            .as_ref()?
+            .as_ref()
+            .map(|list| list.implicit_parameters().to_smallvec())
+            .unwrap_or_default();
+        let expr_region = node_decl.expr_region(db);
+        Ok(EnumTypeDecl::new(
+            db,
+            path,
+            implicit_parameters,
+            expr_region,
+        ))
     }
 }

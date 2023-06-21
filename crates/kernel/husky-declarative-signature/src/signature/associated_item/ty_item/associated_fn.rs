@@ -35,7 +35,7 @@ pub(crate) fn ty_associated_fn_declarative_signature_template(
         declarative_term_menu,
     );
     let parameters = ExplicitParameterDeclarativeSignatureTemplates::from_decl(
-        decl.parameters(db),
+        decl.regular_parameters(db),
         expr_region_data,
         declarative_term_region,
     )?;

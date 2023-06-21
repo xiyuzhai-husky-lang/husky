@@ -1,19 +1,40 @@
 Ok(
-    DeclSheet {
+    NodeDeclSheet {
         [salsa id]: 11,
         decls: [
             (
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Type(
-                        TypePath(`core::num::i8`, `Extern`),
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Type(
+                        TypeNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(
+                                    Id {
+                                        value: 14,
+                                    },
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Decl::ModuleItem(
-                    ModuleItemDecl::Type(
-                        TypeDecl::Extern(
-                            ExternTypeDecl {
-                                path: TypePath(`core::num::i8`, `Extern`),
-                                implicit_parameters: [],
+                NodeDecl::ModuleItem(
+                    ModuleItemNodeDecl::Type(
+                        TypeNodeDecl::Extern(
+                            ExternTypeNodeDecl {
+                                node_path: TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(
+                                            Id {
+                                                value: 14,
+                                            },
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 32,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
@@ -78,17 +99,38 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Type(
-                        TypePath(`core::num::i16`, `Extern`),
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Type(
+                        TypeNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(
+                                    Id {
+                                        value: 15,
+                                    },
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Decl::ModuleItem(
-                    ModuleItemDecl::Type(
-                        TypeDecl::Extern(
-                            ExternTypeDecl {
-                                path: TypePath(`core::num::i16`, `Extern`),
-                                implicit_parameters: [],
+                NodeDecl::ModuleItem(
+                    ModuleItemNodeDecl::Type(
+                        TypeNodeDecl::Extern(
+                            ExternTypeNodeDecl {
+                                node_path: TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(
+                                            Id {
+                                                value: 15,
+                                            },
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 37,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
@@ -153,17 +195,38 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Type(
-                        TypePath(`core::num::i32`, `Extern`),
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Type(
+                        TypeNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(
+                                    Id {
+                                        value: 16,
+                                    },
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Decl::ModuleItem(
-                    ModuleItemDecl::Type(
-                        TypeDecl::Extern(
-                            ExternTypeDecl {
-                                path: TypePath(`core::num::i32`, `Extern`),
-                                implicit_parameters: [],
+                NodeDecl::ModuleItem(
+                    ModuleItemNodeDecl::Type(
+                        TypeNodeDecl::Extern(
+                            ExternTypeNodeDecl {
+                                node_path: TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(
+                                            Id {
+                                                value: 16,
+                                            },
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 42,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
@@ -228,17 +291,38 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Type(
-                        TypePath(`core::num::i64`, `Extern`),
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Type(
+                        TypeNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(
+                                    Id {
+                                        value: 17,
+                                    },
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Decl::ModuleItem(
-                    ModuleItemDecl::Type(
-                        TypeDecl::Extern(
-                            ExternTypeDecl {
-                                path: TypePath(`core::num::i64`, `Extern`),
-                                implicit_parameters: [],
+                NodeDecl::ModuleItem(
+                    ModuleItemNodeDecl::Type(
+                        TypeNodeDecl::Extern(
+                            ExternTypeNodeDecl {
+                                node_path: TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(
+                                            Id {
+                                                value: 17,
+                                            },
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 47,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
@@ -303,17 +387,38 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Type(
-                        TypePath(`core::num::i128`, `Extern`),
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Type(
+                        TypeNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(
+                                    Id {
+                                        value: 18,
+                                    },
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Decl::ModuleItem(
-                    ModuleItemDecl::Type(
-                        TypeDecl::Extern(
-                            ExternTypeDecl {
-                                path: TypePath(`core::num::i128`, `Extern`),
-                                implicit_parameters: [],
+                NodeDecl::ModuleItem(
+                    ModuleItemNodeDecl::Type(
+                        TypeNodeDecl::Extern(
+                            ExternTypeNodeDecl {
+                                node_path: TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(
+                                            Id {
+                                                value: 18,
+                                            },
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 52,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
@@ -378,17 +483,38 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Type(
-                        TypePath(`core::num::isize`, `Extern`),
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Type(
+                        TypeNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(
+                                    Id {
+                                        value: 19,
+                                    },
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Decl::ModuleItem(
-                    ModuleItemDecl::Type(
-                        TypeDecl::Extern(
-                            ExternTypeDecl {
-                                path: TypePath(`core::num::isize`, `Extern`),
-                                implicit_parameters: [],
+                NodeDecl::ModuleItem(
+                    ModuleItemNodeDecl::Type(
+                        TypeNodeDecl::Extern(
+                            ExternTypeNodeDecl {
+                                node_path: TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(
+                                            Id {
+                                                value: 19,
+                                            },
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 57,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
@@ -453,17 +579,38 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Type(
-                        TypePath(`core::num::u8`, `Extern`),
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Type(
+                        TypeNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(
+                                    Id {
+                                        value: 20,
+                                    },
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Decl::ModuleItem(
-                    ModuleItemDecl::Type(
-                        TypeDecl::Extern(
-                            ExternTypeDecl {
-                                path: TypePath(`core::num::u8`, `Extern`),
-                                implicit_parameters: [],
+                NodeDecl::ModuleItem(
+                    ModuleItemNodeDecl::Type(
+                        TypeNodeDecl::Extern(
+                            ExternTypeNodeDecl {
+                                node_path: TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(
+                                            Id {
+                                                value: 20,
+                                            },
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 62,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
@@ -528,17 +675,38 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Type(
-                        TypePath(`core::num::u16`, `Extern`),
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Type(
+                        TypeNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(
+                                    Id {
+                                        value: 21,
+                                    },
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Decl::ModuleItem(
-                    ModuleItemDecl::Type(
-                        TypeDecl::Extern(
-                            ExternTypeDecl {
-                                path: TypePath(`core::num::u16`, `Extern`),
-                                implicit_parameters: [],
+                NodeDecl::ModuleItem(
+                    ModuleItemNodeDecl::Type(
+                        TypeNodeDecl::Extern(
+                            ExternTypeNodeDecl {
+                                node_path: TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(
+                                            Id {
+                                                value: 21,
+                                            },
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 67,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
@@ -603,17 +771,38 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Type(
-                        TypePath(`core::num::u32`, `Extern`),
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Type(
+                        TypeNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(
+                                    Id {
+                                        value: 22,
+                                    },
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Decl::ModuleItem(
-                    ModuleItemDecl::Type(
-                        TypeDecl::Extern(
-                            ExternTypeDecl {
-                                path: TypePath(`core::num::u32`, `Extern`),
-                                implicit_parameters: [],
+                NodeDecl::ModuleItem(
+                    ModuleItemNodeDecl::Type(
+                        TypeNodeDecl::Extern(
+                            ExternTypeNodeDecl {
+                                node_path: TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(
+                                            Id {
+                                                value: 22,
+                                            },
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 72,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
@@ -678,17 +867,38 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Type(
-                        TypePath(`core::num::u64`, `Extern`),
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Type(
+                        TypeNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(
+                                    Id {
+                                        value: 23,
+                                    },
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Decl::ModuleItem(
-                    ModuleItemDecl::Type(
-                        TypeDecl::Extern(
-                            ExternTypeDecl {
-                                path: TypePath(`core::num::u64`, `Extern`),
-                                implicit_parameters: [],
+                NodeDecl::ModuleItem(
+                    ModuleItemNodeDecl::Type(
+                        TypeNodeDecl::Extern(
+                            ExternTypeNodeDecl {
+                                node_path: TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(
+                                            Id {
+                                                value: 23,
+                                            },
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 77,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
@@ -753,17 +963,38 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Type(
-                        TypePath(`core::num::u128`, `Extern`),
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Type(
+                        TypeNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(
+                                    Id {
+                                        value: 24,
+                                    },
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Decl::ModuleItem(
-                    ModuleItemDecl::Type(
-                        TypeDecl::Extern(
-                            ExternTypeDecl {
-                                path: TypePath(`core::num::u128`, `Extern`),
-                                implicit_parameters: [],
+                NodeDecl::ModuleItem(
+                    ModuleItemNodeDecl::Type(
+                        TypeNodeDecl::Extern(
+                            ExternTypeNodeDecl {
+                                node_path: TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(
+                                            Id {
+                                                value: 24,
+                                            },
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 82,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
@@ -828,17 +1059,38 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Type(
-                        TypePath(`core::num::usize`, `Extern`),
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Type(
+                        TypeNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(
+                                    Id {
+                                        value: 25,
+                                    },
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Decl::ModuleItem(
-                    ModuleItemDecl::Type(
-                        TypeDecl::Extern(
-                            ExternTypeDecl {
-                                path: TypePath(`core::num::usize`, `Extern`),
-                                implicit_parameters: [],
+                NodeDecl::ModuleItem(
+                    ModuleItemNodeDecl::Type(
+                        TypeNodeDecl::Extern(
+                            ExternTypeNodeDecl {
+                                node_path: TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(
+                                            Id {
+                                                value: 25,
+                                            },
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 87,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
@@ -903,17 +1155,38 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Type(
-                        TypePath(`core::num::f32`, `Extern`),
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Type(
+                        TypeNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(
+                                    Id {
+                                        value: 26,
+                                    },
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Decl::ModuleItem(
-                    ModuleItemDecl::Type(
-                        TypeDecl::Extern(
-                            ExternTypeDecl {
-                                path: TypePath(`core::num::f32`, `Extern`),
-                                implicit_parameters: [],
+                NodeDecl::ModuleItem(
+                    ModuleItemNodeDecl::Type(
+                        TypeNodeDecl::Extern(
+                            ExternTypeNodeDecl {
+                                node_path: TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(
+                                            Id {
+                                                value: 26,
+                                            },
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 92,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
@@ -978,17 +1251,38 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Type(
-                        TypePath(`core::num::f64`, `Extern`),
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Type(
+                        TypeNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(
+                                    Id {
+                                        value: 27,
+                                    },
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Decl::ModuleItem(
-                    ModuleItemDecl::Type(
-                        TypeDecl::Extern(
-                            ExternTypeDecl {
-                                path: TypePath(`core::num::f64`, `Extern`),
-                                implicit_parameters: [],
+                NodeDecl::ModuleItem(
+                    ModuleItemNodeDecl::Type(
+                        TypeNodeDecl::Extern(
+                            ExternTypeNodeDecl {
+                                node_path: TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(
+                                            Id {
+                                                value: 27,
+                                            },
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 97,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
@@ -1053,27 +1347,69 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ImplBlock(
-                    TypeImplBlock(
-                        TypeImplBlockPath(
-                            Id {
-                                value: 17,
-                            },
-                        ),
-                    ),
-                ),
-                Decl::ImplBlock(
-                    ImplBlockDecl::Type(
-                        TypeImplBlockDecl {
+                EntityNodePath::ImplBlock(
+                    ImplBlockNodePath::TypeImplBlock(
+                        TypeImplBlockNodePath {
                             path: TypeImplBlockPath {
                                 module_path: `core::num`,
                                 ty_path: TypePath(`core::num::i8`, `Extern`),
                                 disambiguator: 0,
                             },
-                            implicit_parameters: [],
+                        },
+                    ),
+                ),
+                NodeDecl::ImplBlock(
+                    ImplBlockNodeDecl::Type(
+                        TypeImplBlockNodeDecl {
+                            node_path: TypeImplBlockNodePath {
+                                path: TypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::i8`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            },
+                            ast_idx: 33,
+                            impl_block: TypeImplBlockNode {
+                                node_path: TypeImplBlockNodePath {
+                                    path: TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::i8`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 33,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        30,
+                                    ),
+                                },
+                                ty_expr: 3,
+                                items: TypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        0..1,
+                                    ),
+                                },
+                            },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    30,
+                                ),
+                            },
+                            implicit_parameter_decl_list: Ok(
+                                None,
+                            ),
                             ty_expr: TypeExpr {
                                 expr: 0,
                             },
+                            eol_colon: Ok(
+                                EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            32,
+                                        ),
+                                    },
+                                ),
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -1166,39 +1502,97 @@ Ok(
                 ),
             ),
             (
-                EntityPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
-                        TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::i8`, `Extern`),
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath(
+                                    Id {
+                                        value: 4,
+                                    },
+                                ),
                                 disambiguator: 0,
                             },
-                            ident: `abs`,
-                            item_kind: MethodFn,
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
-                    AssociatedItemDecl::TypeItem(
-                        TypeItemDecl::MethodFn(
-                            TypeMethodFnDecl {
-                                path: TypeItemPath {
-                                    impl_block: TypeImplBlockPath {
-                                        module_path: `core::num`,
-                                        ty_path: TypePath(`core::num::i8`, `Extern`),
+                NodeDecl::AssociatedItem(
+                    AssociatedItemNodeDecl::TypeItem(
+                        TypeItemNodeDecl::MethodFn(
+                            TypeMethodFnNodeDecl {
+                                node_path: TypeItemNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypeItemPath(
+                                            Id {
+                                                value: 4,
+                                            },
+                                        ),
                                         disambiguator: 0,
                                     },
+                                },
+                                node: TypeItemNode {
+                                    node_path: TypeItemNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                Id {
+                                                    value: 4,
+                                                },
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    ast_idx: 0,
                                     ident: `abs`,
                                     item_kind: MethodFn,
+                                    visibility: Scope::Pub,
+                                    is_generic: false,
                                 },
-                                implicit_parameters: [],
-                                self_parameter: None,
-                                regular_parameters: [],
-                                return_ty: Some(
-                                    ReturnTypeExpr {
-                                        expr: 0,
+                                ast_idx: 0,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
+                                explicit_parameter_decl_list: Ok(
+                                    ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
+                                            TokenIdx(
+                                                36,
+                                            ),
+                                        ),
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        regular_parameters: [],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                37,
+                                            ),
+                                        ),
                                     },
+                                ),
+                                curry_token: Ok(
+                                    Some(
+                                        CurryToken(
+                                            TokenIdx(
+                                                38,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                                return_ty: Ok(
+                                    Some(
+                                        ReturnTypeExpr {
+                                            expr: 0,
+                                        },
+                                    ),
+                                ),
+                                eol_colon: Ok(
+                                    EolToken::Semicolon(
+                                        EolSemicolonToken {
+                                            token_idx: TokenIdx(
+                                                40,
+                                            ),
+                                        },
+                                    ),
                                 ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -1384,31 +1778,58 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ImplBlock(
-                    TraitForTypeImplBlock(
-                        TraitForTypeImplBlockPath(
-                            Id {
-                                value: 18,
-                            },
-                        ),
-                    ),
-                ),
-                Decl::ImplBlock(
-                    ImplBlockDecl::TraitForType(
-                        TraitForTypeImplBlockDecl {
+                EntityNodePath::ImplBlock(
+                    ImplBlockNodePath::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockNodePath {
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
                                 ty_path: TypePath(`core::num::i8`, `Extern`),
                                 disambiguator: 0,
                             },
-                            implicit_parameters: [],
+                        },
+                    ),
+                ),
+                NodeDecl::ImplBlock(
+                    ImplBlockNodeDecl::TraitForType(
+                        TraitForTypeImplBlockNodeDecl {
+                            node_path: TraitForTypeImplBlockNodePath {
+                                path: TraitForTypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    trai_path: TraitPath(`core::ops::Add`),
+                                    ty_path: TypePath(`core::num::i8`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            },
+                            ast_idx: 34,
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    41,
+                                ),
+                            },
+                            implicit_parameter_decl_list: Ok(
+                                None,
+                            ),
                             trai_expr: TraitExpr {
                                 expr: 2,
+                            },
+                            for_token: ConnectionForToken {
+                                token_idx: TokenIdx(
+                                    44,
+                                ),
                             },
                             ty_expr: TypeExpr {
                                 expr: 3,
                             },
+                            eol_colon: Ok(
+                                EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            46,
+                                        ),
+                                    },
+                                ),
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -1560,54 +1981,110 @@ Ok(
                 ),
             ),
             (
-                EntityPath::AssociatedItem(
-                    AssociatedItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath {
-                            impl_block: TraitForTypeImplBlockPath {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::i8`, `Extern`),
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TraitForTypeItem(
+                        TraitForTypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitForTypeItemPath(
+                                    Id {
+                                        value: 1,
+                                    },
+                                ),
                                 disambiguator: 0,
                             },
-                            ident: `add`,
-                            item_kind: MethodFn,
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
-                    AssociatedItemDecl::TraitForTypeItem(
-                        TraitForTypeItemDecl::MethodFn(
-                            TraitForTypeMethodFnDecl {
-                                path: TraitForTypeItemPath {
-                                    impl_block: TraitForTypeImplBlockPath {
-                                        module_path: `core::num`,
-                                        trai_path: TraitPath(`core::ops::Add`),
-                                        ty_path: TypePath(`core::num::i8`, `Extern`),
+                NodeDecl::AssociatedItem(
+                    AssociatedItemNodeDecl::TraitForTypeItem(
+                        TraitForTypeItemNodeDecl::MethodFn(
+                            TraitForTypeMethodFnNodeDecl {
+                                node_path: TraitForTypeItemNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitForTypeItemPath(
+                                            Id {
+                                                value: 1,
+                                            },
+                                        ),
                                         disambiguator: 0,
                                     },
+                                },
+                                node: TraitForTypeItemNode {
+                                    node_path: TraitForTypeItemNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitForTypeItemPath(
+                                                Id {
+                                                    value: 1,
+                                                },
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    ast_idx: 1,
                                     ident: `add`,
                                     item_kind: MethodFn,
+                                    visibility: Scope::Pub,
+                                    is_generic: false,
                                 },
-                                implicit_parameters: [],
-                                self_parameter: None,
-                                regular_parameters: [
-                                    RegularParameterDeclPattern {
-                                        pattern: 0,
-                                        variables: ArenaIdxRange(
-                                            0..1,
-                                        ),
-                                        colon: ColonToken(
+                                ast_idx: 1,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
+                                explicit_parameter_decl_list: Ok(
+                                    ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
                                             TokenIdx(
-                                                52,
+                                                50,
                                             ),
                                         ),
-                                        ty: 0,
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        regular_parameters: [
+                                            RegularParameterDeclPattern {
+                                                pattern: 0,
+                                                variables: ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                                colon: ColonToken(
+                                                    TokenIdx(
+                                                        52,
+                                                    ),
+                                                ),
+                                                ty: 0,
+                                            },
+                                        ],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                54,
+                                            ),
+                                        ),
                                     },
-                                ],
-                                return_ty: Some(
-                                    ReturnTypeExpr {
-                                        expr: 1,
-                                    },
+                                ),
+                                curry_token: Ok(
+                                    Some(
+                                        CurryToken(
+                                            TokenIdx(
+                                                55,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                                return_ty: Ok(
+                                    Some(
+                                        ReturnTypeExpr {
+                                            expr: 1,
+                                        },
+                                    ),
+                                ),
+                                eol_colon: Ok(
+                                    EolToken::Semicolon(
+                                        EolSemicolonToken {
+                                            token_idx: TokenIdx(
+                                                57,
+                                            ),
+                                        },
+                                    ),
                                 ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -1930,27 +2407,69 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ImplBlock(
-                    TypeImplBlock(
-                        TypeImplBlockPath(
-                            Id {
-                                value: 18,
-                            },
-                        ),
-                    ),
-                ),
-                Decl::ImplBlock(
-                    ImplBlockDecl::Type(
-                        TypeImplBlockDecl {
+                EntityNodePath::ImplBlock(
+                    ImplBlockNodePath::TypeImplBlock(
+                        TypeImplBlockNodePath {
                             path: TypeImplBlockPath {
                                 module_path: `core::num`,
                                 ty_path: TypePath(`core::num::i16`, `Extern`),
                                 disambiguator: 0,
                             },
-                            implicit_parameters: [],
+                        },
+                    ),
+                ),
+                NodeDecl::ImplBlock(
+                    ImplBlockNodeDecl::Type(
+                        TypeImplBlockNodeDecl {
+                            node_path: TypeImplBlockNodePath {
+                                path: TypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::i16`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            },
+                            ast_idx: 38,
+                            impl_block: TypeImplBlockNode {
+                                node_path: TypeImplBlockNodePath {
+                                    path: TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::i16`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 38,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        82,
+                                    ),
+                                },
+                                ty_expr: 6,
+                                items: TypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        2..3,
+                                    ),
+                                },
+                            },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    82,
+                                ),
+                            },
+                            implicit_parameter_decl_list: Ok(
+                                None,
+                            ),
                             ty_expr: TypeExpr {
                                 expr: 0,
                             },
+                            eol_colon: Ok(
+                                EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            84,
+                                        ),
+                                    },
+                                ),
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -2043,39 +2562,97 @@ Ok(
                 ),
             ),
             (
-                EntityPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
-                        TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::i16`, `Extern`),
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath(
+                                    Id {
+                                        value: 5,
+                                    },
+                                ),
                                 disambiguator: 0,
                             },
-                            ident: `abs`,
-                            item_kind: MethodFn,
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
-                    AssociatedItemDecl::TypeItem(
-                        TypeItemDecl::MethodFn(
-                            TypeMethodFnDecl {
-                                path: TypeItemPath {
-                                    impl_block: TypeImplBlockPath {
-                                        module_path: `core::num`,
-                                        ty_path: TypePath(`core::num::i16`, `Extern`),
+                NodeDecl::AssociatedItem(
+                    AssociatedItemNodeDecl::TypeItem(
+                        TypeItemNodeDecl::MethodFn(
+                            TypeMethodFnNodeDecl {
+                                node_path: TypeItemNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypeItemPath(
+                                            Id {
+                                                value: 5,
+                                            },
+                                        ),
                                         disambiguator: 0,
                                     },
+                                },
+                                node: TypeItemNode {
+                                    node_path: TypeItemNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    ast_idx: 2,
                                     ident: `abs`,
                                     item_kind: MethodFn,
+                                    visibility: Scope::Pub,
+                                    is_generic: false,
                                 },
-                                implicit_parameters: [],
-                                self_parameter: None,
-                                regular_parameters: [],
-                                return_ty: Some(
-                                    ReturnTypeExpr {
-                                        expr: 0,
+                                ast_idx: 2,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
+                                explicit_parameter_decl_list: Ok(
+                                    ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
+                                            TokenIdx(
+                                                88,
+                                            ),
+                                        ),
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        regular_parameters: [],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                89,
+                                            ),
+                                        ),
                                     },
+                                ),
+                                curry_token: Ok(
+                                    Some(
+                                        CurryToken(
+                                            TokenIdx(
+                                                90,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                                return_ty: Ok(
+                                    Some(
+                                        ReturnTypeExpr {
+                                            expr: 0,
+                                        },
+                                    ),
+                                ),
+                                eol_colon: Ok(
+                                    EolToken::Semicolon(
+                                        EolSemicolonToken {
+                                            token_idx: TokenIdx(
+                                                92,
+                                            ),
+                                        },
+                                    ),
                                 ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -2261,31 +2838,58 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ImplBlock(
-                    TraitForTypeImplBlock(
-                        TraitForTypeImplBlockPath(
-                            Id {
-                                value: 19,
-                            },
-                        ),
-                    ),
-                ),
-                Decl::ImplBlock(
-                    ImplBlockDecl::TraitForType(
-                        TraitForTypeImplBlockDecl {
+                EntityNodePath::ImplBlock(
+                    ImplBlockNodePath::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockNodePath {
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
                                 ty_path: TypePath(`core::num::i16`, `Extern`),
                                 disambiguator: 0,
                             },
-                            implicit_parameters: [],
+                        },
+                    ),
+                ),
+                NodeDecl::ImplBlock(
+                    ImplBlockNodeDecl::TraitForType(
+                        TraitForTypeImplBlockNodeDecl {
+                            node_path: TraitForTypeImplBlockNodePath {
+                                path: TraitForTypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    trai_path: TraitPath(`core::ops::Add`),
+                                    ty_path: TypePath(`core::num::i16`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            },
+                            ast_idx: 39,
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    93,
+                                ),
+                            },
+                            implicit_parameter_decl_list: Ok(
+                                None,
+                            ),
                             trai_expr: TraitExpr {
                                 expr: 2,
+                            },
+                            for_token: ConnectionForToken {
+                                token_idx: TokenIdx(
+                                    96,
+                                ),
                             },
                             ty_expr: TypeExpr {
                                 expr: 3,
                             },
+                            eol_colon: Ok(
+                                EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            98,
+                                        ),
+                                    },
+                                ),
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -2437,54 +3041,110 @@ Ok(
                 ),
             ),
             (
-                EntityPath::AssociatedItem(
-                    AssociatedItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath {
-                            impl_block: TraitForTypeImplBlockPath {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::i16`, `Extern`),
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TraitForTypeItem(
+                        TraitForTypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitForTypeItemPath(
+                                    Id {
+                                        value: 2,
+                                    },
+                                ),
                                 disambiguator: 0,
                             },
-                            ident: `add`,
-                            item_kind: MethodFn,
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
-                    AssociatedItemDecl::TraitForTypeItem(
-                        TraitForTypeItemDecl::MethodFn(
-                            TraitForTypeMethodFnDecl {
-                                path: TraitForTypeItemPath {
-                                    impl_block: TraitForTypeImplBlockPath {
-                                        module_path: `core::num`,
-                                        trai_path: TraitPath(`core::ops::Add`),
-                                        ty_path: TypePath(`core::num::i16`, `Extern`),
+                NodeDecl::AssociatedItem(
+                    AssociatedItemNodeDecl::TraitForTypeItem(
+                        TraitForTypeItemNodeDecl::MethodFn(
+                            TraitForTypeMethodFnNodeDecl {
+                                node_path: TraitForTypeItemNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitForTypeItemPath(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
                                         disambiguator: 0,
                                     },
+                                },
+                                node: TraitForTypeItemNode {
+                                    node_path: TraitForTypeItemNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitForTypeItemPath(
+                                                Id {
+                                                    value: 2,
+                                                },
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    ast_idx: 3,
                                     ident: `add`,
                                     item_kind: MethodFn,
+                                    visibility: Scope::Pub,
+                                    is_generic: false,
                                 },
-                                implicit_parameters: [],
-                                self_parameter: None,
-                                regular_parameters: [
-                                    RegularParameterDeclPattern {
-                                        pattern: 0,
-                                        variables: ArenaIdxRange(
-                                            0..1,
-                                        ),
-                                        colon: ColonToken(
+                                ast_idx: 3,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
+                                explicit_parameter_decl_list: Ok(
+                                    ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
                                             TokenIdx(
-                                                104,
+                                                102,
                                             ),
                                         ),
-                                        ty: 0,
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        regular_parameters: [
+                                            RegularParameterDeclPattern {
+                                                pattern: 0,
+                                                variables: ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                                colon: ColonToken(
+                                                    TokenIdx(
+                                                        104,
+                                                    ),
+                                                ),
+                                                ty: 0,
+                                            },
+                                        ],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                106,
+                                            ),
+                                        ),
                                     },
-                                ],
-                                return_ty: Some(
-                                    ReturnTypeExpr {
-                                        expr: 1,
-                                    },
+                                ),
+                                curry_token: Ok(
+                                    Some(
+                                        CurryToken(
+                                            TokenIdx(
+                                                107,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                                return_ty: Ok(
+                                    Some(
+                                        ReturnTypeExpr {
+                                            expr: 1,
+                                        },
+                                    ),
+                                ),
+                                eol_colon: Ok(
+                                    EolToken::Semicolon(
+                                        EolSemicolonToken {
+                                            token_idx: TokenIdx(
+                                                109,
+                                            ),
+                                        },
+                                    ),
                                 ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -2807,27 +3467,69 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ImplBlock(
-                    TypeImplBlock(
-                        TypeImplBlockPath(
-                            Id {
-                                value: 19,
-                            },
-                        ),
-                    ),
-                ),
-                Decl::ImplBlock(
-                    ImplBlockDecl::Type(
-                        TypeImplBlockDecl {
+                EntityNodePath::ImplBlock(
+                    ImplBlockNodePath::TypeImplBlock(
+                        TypeImplBlockNodePath {
                             path: TypeImplBlockPath {
                                 module_path: `core::num`,
                                 ty_path: TypePath(`core::num::i32`, `Extern`),
                                 disambiguator: 0,
                             },
-                            implicit_parameters: [],
+                        },
+                    ),
+                ),
+                NodeDecl::ImplBlock(
+                    ImplBlockNodeDecl::Type(
+                        TypeImplBlockNodeDecl {
+                            node_path: TypeImplBlockNodePath {
+                                path: TypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::i32`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            },
+                            ast_idx: 43,
+                            impl_block: TypeImplBlockNode {
+                                node_path: TypeImplBlockNodePath {
+                                    path: TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::i32`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 43,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        134,
+                                    ),
+                                },
+                                ty_expr: 9,
+                                items: TypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        4..5,
+                                    ),
+                                },
+                            },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    134,
+                                ),
+                            },
+                            implicit_parameter_decl_list: Ok(
+                                None,
+                            ),
                             ty_expr: TypeExpr {
                                 expr: 0,
                             },
+                            eol_colon: Ok(
+                                EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            136,
+                                        ),
+                                    },
+                                ),
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -2920,39 +3622,97 @@ Ok(
                 ),
             ),
             (
-                EntityPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
-                        TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::i32`, `Extern`),
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath(
+                                    Id {
+                                        value: 6,
+                                    },
+                                ),
                                 disambiguator: 0,
                             },
-                            ident: `abs`,
-                            item_kind: MethodFn,
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
-                    AssociatedItemDecl::TypeItem(
-                        TypeItemDecl::MethodFn(
-                            TypeMethodFnDecl {
-                                path: TypeItemPath {
-                                    impl_block: TypeImplBlockPath {
-                                        module_path: `core::num`,
-                                        ty_path: TypePath(`core::num::i32`, `Extern`),
+                NodeDecl::AssociatedItem(
+                    AssociatedItemNodeDecl::TypeItem(
+                        TypeItemNodeDecl::MethodFn(
+                            TypeMethodFnNodeDecl {
+                                node_path: TypeItemNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypeItemPath(
+                                            Id {
+                                                value: 6,
+                                            },
+                                        ),
                                         disambiguator: 0,
                                     },
+                                },
+                                node: TypeItemNode {
+                                    node_path: TypeItemNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                Id {
+                                                    value: 6,
+                                                },
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    ast_idx: 4,
                                     ident: `abs`,
                                     item_kind: MethodFn,
+                                    visibility: Scope::Pub,
+                                    is_generic: false,
                                 },
-                                implicit_parameters: [],
-                                self_parameter: None,
-                                regular_parameters: [],
-                                return_ty: Some(
-                                    ReturnTypeExpr {
-                                        expr: 0,
+                                ast_idx: 4,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
+                                explicit_parameter_decl_list: Ok(
+                                    ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
+                                            TokenIdx(
+                                                140,
+                                            ),
+                                        ),
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        regular_parameters: [],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                141,
+                                            ),
+                                        ),
                                     },
+                                ),
+                                curry_token: Ok(
+                                    Some(
+                                        CurryToken(
+                                            TokenIdx(
+                                                142,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                                return_ty: Ok(
+                                    Some(
+                                        ReturnTypeExpr {
+                                            expr: 0,
+                                        },
+                                    ),
+                                ),
+                                eol_colon: Ok(
+                                    EolToken::Semicolon(
+                                        EolSemicolonToken {
+                                            token_idx: TokenIdx(
+                                                144,
+                                            ),
+                                        },
+                                    ),
                                 ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -3138,31 +3898,58 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ImplBlock(
-                    TraitForTypeImplBlock(
-                        TraitForTypeImplBlockPath(
-                            Id {
-                                value: 20,
-                            },
-                        ),
-                    ),
-                ),
-                Decl::ImplBlock(
-                    ImplBlockDecl::TraitForType(
-                        TraitForTypeImplBlockDecl {
+                EntityNodePath::ImplBlock(
+                    ImplBlockNodePath::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockNodePath {
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
                                 ty_path: TypePath(`core::num::i32`, `Extern`),
                                 disambiguator: 0,
                             },
-                            implicit_parameters: [],
+                        },
+                    ),
+                ),
+                NodeDecl::ImplBlock(
+                    ImplBlockNodeDecl::TraitForType(
+                        TraitForTypeImplBlockNodeDecl {
+                            node_path: TraitForTypeImplBlockNodePath {
+                                path: TraitForTypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    trai_path: TraitPath(`core::ops::Add`),
+                                    ty_path: TypePath(`core::num::i32`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            },
+                            ast_idx: 44,
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    145,
+                                ),
+                            },
+                            implicit_parameter_decl_list: Ok(
+                                None,
+                            ),
                             trai_expr: TraitExpr {
                                 expr: 2,
+                            },
+                            for_token: ConnectionForToken {
+                                token_idx: TokenIdx(
+                                    148,
+                                ),
                             },
                             ty_expr: TypeExpr {
                                 expr: 3,
                             },
+                            eol_colon: Ok(
+                                EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            150,
+                                        ),
+                                    },
+                                ),
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -3314,54 +4101,112 @@ Ok(
                 ),
             ),
             (
-                EntityPath::AssociatedItem(
-                    AssociatedItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath {
-                            impl_block: TraitForTypeImplBlockPath {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::i32`, `Extern`),
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TraitForTypeItem(
+                        TraitForTypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitForTypeItemPath(
+                                    Id {
+                                        value: 3,
+                                    },
+                                ),
                                 disambiguator: 0,
                             },
-                            ident: `add`,
-                            item_kind: MethodFn,
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
-                    AssociatedItemDecl::TraitForTypeItem(
-                        TraitForTypeItemDecl::MethodFn(
-                            TraitForTypeMethodFnDecl {
-                                path: TraitForTypeItemPath {
-                                    impl_block: TraitForTypeImplBlockPath {
-                                        module_path: `core::num`,
-                                        trai_path: TraitPath(`core::ops::Add`),
-                                        ty_path: TypePath(`core::num::i32`, `Extern`),
+                NodeDecl::AssociatedItem(
+                    AssociatedItemNodeDecl::TraitForTypeItem(
+                        TraitForTypeItemNodeDecl::MethodFn(
+                            TraitForTypeMethodFnNodeDecl {
+                                node_path: TraitForTypeItemNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitForTypeItemPath(
+                                            Id {
+                                                value: 3,
+                                            },
+                                        ),
                                         disambiguator: 0,
                                     },
+                                },
+                                node: TraitForTypeItemNode {
+                                    node_path: TraitForTypeItemNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitForTypeItemPath(
+                                                Id {
+                                                    value: 3,
+                                                },
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    ast_idx: 5,
                                     ident: `add`,
                                     item_kind: MethodFn,
+                                    visibility: Scope::PubUnder(
+                                        `core::num`,
+                                    ),
+                                    is_generic: false,
                                 },
-                                implicit_parameters: [],
-                                self_parameter: None,
-                                regular_parameters: [
-                                    RegularParameterDeclPattern {
-                                        pattern: 0,
-                                        variables: ArenaIdxRange(
-                                            0..1,
-                                        ),
-                                        colon: ColonToken(
+                                ast_idx: 5,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
+                                explicit_parameter_decl_list: Ok(
+                                    ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
                                             TokenIdx(
-                                                155,
+                                                153,
                                             ),
                                         ),
-                                        ty: 0,
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        regular_parameters: [
+                                            RegularParameterDeclPattern {
+                                                pattern: 0,
+                                                variables: ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                                colon: ColonToken(
+                                                    TokenIdx(
+                                                        155,
+                                                    ),
+                                                ),
+                                                ty: 0,
+                                            },
+                                        ],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                157,
+                                            ),
+                                        ),
                                     },
-                                ],
-                                return_ty: Some(
-                                    ReturnTypeExpr {
-                                        expr: 1,
-                                    },
+                                ),
+                                curry_token: Ok(
+                                    Some(
+                                        CurryToken(
+                                            TokenIdx(
+                                                158,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                                return_ty: Ok(
+                                    Some(
+                                        ReturnTypeExpr {
+                                            expr: 1,
+                                        },
+                                    ),
+                                ),
+                                eol_colon: Ok(
+                                    EolToken::Semicolon(
+                                        EolSemicolonToken {
+                                            token_idx: TokenIdx(
+                                                160,
+                                            ),
+                                        },
+                                    ),
                                 ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -3684,27 +4529,69 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ImplBlock(
-                    TypeImplBlock(
-                        TypeImplBlockPath(
-                            Id {
-                                value: 20,
-                            },
-                        ),
-                    ),
-                ),
-                Decl::ImplBlock(
-                    ImplBlockDecl::Type(
-                        TypeImplBlockDecl {
+                EntityNodePath::ImplBlock(
+                    ImplBlockNodePath::TypeImplBlock(
+                        TypeImplBlockNodePath {
                             path: TypeImplBlockPath {
                                 module_path: `core::num`,
                                 ty_path: TypePath(`core::num::i64`, `Extern`),
                                 disambiguator: 0,
                             },
-                            implicit_parameters: [],
+                        },
+                    ),
+                ),
+                NodeDecl::ImplBlock(
+                    ImplBlockNodeDecl::Type(
+                        TypeImplBlockNodeDecl {
+                            node_path: TypeImplBlockNodePath {
+                                path: TypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::i64`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            },
+                            ast_idx: 48,
+                            impl_block: TypeImplBlockNode {
+                                node_path: TypeImplBlockNodePath {
+                                    path: TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::i64`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 48,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        185,
+                                    ),
+                                },
+                                ty_expr: 12,
+                                items: TypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        6..7,
+                                    ),
+                                },
+                            },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    185,
+                                ),
+                            },
+                            implicit_parameter_decl_list: Ok(
+                                None,
+                            ),
                             ty_expr: TypeExpr {
                                 expr: 0,
                             },
+                            eol_colon: Ok(
+                                EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            187,
+                                        ),
+                                    },
+                                ),
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -3797,39 +4684,97 @@ Ok(
                 ),
             ),
             (
-                EntityPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
-                        TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::i64`, `Extern`),
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath(
+                                    Id {
+                                        value: 7,
+                                    },
+                                ),
                                 disambiguator: 0,
                             },
-                            ident: `abs`,
-                            item_kind: MethodFn,
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
-                    AssociatedItemDecl::TypeItem(
-                        TypeItemDecl::MethodFn(
-                            TypeMethodFnDecl {
-                                path: TypeItemPath {
-                                    impl_block: TypeImplBlockPath {
-                                        module_path: `core::num`,
-                                        ty_path: TypePath(`core::num::i64`, `Extern`),
+                NodeDecl::AssociatedItem(
+                    AssociatedItemNodeDecl::TypeItem(
+                        TypeItemNodeDecl::MethodFn(
+                            TypeMethodFnNodeDecl {
+                                node_path: TypeItemNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypeItemPath(
+                                            Id {
+                                                value: 7,
+                                            },
+                                        ),
                                         disambiguator: 0,
                                     },
+                                },
+                                node: TypeItemNode {
+                                    node_path: TypeItemNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                Id {
+                                                    value: 7,
+                                                },
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    ast_idx: 6,
                                     ident: `abs`,
                                     item_kind: MethodFn,
+                                    visibility: Scope::Pub,
+                                    is_generic: false,
                                 },
-                                implicit_parameters: [],
-                                self_parameter: None,
-                                regular_parameters: [],
-                                return_ty: Some(
-                                    ReturnTypeExpr {
-                                        expr: 0,
+                                ast_idx: 6,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
+                                explicit_parameter_decl_list: Ok(
+                                    ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
+                                            TokenIdx(
+                                                191,
+                                            ),
+                                        ),
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        regular_parameters: [],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                192,
+                                            ),
+                                        ),
                                     },
+                                ),
+                                curry_token: Ok(
+                                    Some(
+                                        CurryToken(
+                                            TokenIdx(
+                                                193,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                                return_ty: Ok(
+                                    Some(
+                                        ReturnTypeExpr {
+                                            expr: 0,
+                                        },
+                                    ),
+                                ),
+                                eol_colon: Ok(
+                                    EolToken::Semicolon(
+                                        EolSemicolonToken {
+                                            token_idx: TokenIdx(
+                                                195,
+                                            ),
+                                        },
+                                    ),
                                 ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -4015,31 +4960,58 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ImplBlock(
-                    TraitForTypeImplBlock(
-                        TraitForTypeImplBlockPath(
-                            Id {
-                                value: 21,
-                            },
-                        ),
-                    ),
-                ),
-                Decl::ImplBlock(
-                    ImplBlockDecl::TraitForType(
-                        TraitForTypeImplBlockDecl {
+                EntityNodePath::ImplBlock(
+                    ImplBlockNodePath::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockNodePath {
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
                                 ty_path: TypePath(`core::num::i64`, `Extern`),
                                 disambiguator: 0,
                             },
-                            implicit_parameters: [],
+                        },
+                    ),
+                ),
+                NodeDecl::ImplBlock(
+                    ImplBlockNodeDecl::TraitForType(
+                        TraitForTypeImplBlockNodeDecl {
+                            node_path: TraitForTypeImplBlockNodePath {
+                                path: TraitForTypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    trai_path: TraitPath(`core::ops::Add`),
+                                    ty_path: TypePath(`core::num::i64`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            },
+                            ast_idx: 49,
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    196,
+                                ),
+                            },
+                            implicit_parameter_decl_list: Ok(
+                                None,
+                            ),
                             trai_expr: TraitExpr {
                                 expr: 2,
+                            },
+                            for_token: ConnectionForToken {
+                                token_idx: TokenIdx(
+                                    199,
+                                ),
                             },
                             ty_expr: TypeExpr {
                                 expr: 3,
                             },
+                            eol_colon: Ok(
+                                EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            201,
+                                        ),
+                                    },
+                                ),
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -4191,54 +5163,110 @@ Ok(
                 ),
             ),
             (
-                EntityPath::AssociatedItem(
-                    AssociatedItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath {
-                            impl_block: TraitForTypeImplBlockPath {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::i64`, `Extern`),
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TraitForTypeItem(
+                        TraitForTypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitForTypeItemPath(
+                                    Id {
+                                        value: 4,
+                                    },
+                                ),
                                 disambiguator: 0,
                             },
-                            ident: `add`,
-                            item_kind: MethodFn,
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
-                    AssociatedItemDecl::TraitForTypeItem(
-                        TraitForTypeItemDecl::MethodFn(
-                            TraitForTypeMethodFnDecl {
-                                path: TraitForTypeItemPath {
-                                    impl_block: TraitForTypeImplBlockPath {
-                                        module_path: `core::num`,
-                                        trai_path: TraitPath(`core::ops::Add`),
-                                        ty_path: TypePath(`core::num::i64`, `Extern`),
+                NodeDecl::AssociatedItem(
+                    AssociatedItemNodeDecl::TraitForTypeItem(
+                        TraitForTypeItemNodeDecl::MethodFn(
+                            TraitForTypeMethodFnNodeDecl {
+                                node_path: TraitForTypeItemNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitForTypeItemPath(
+                                            Id {
+                                                value: 4,
+                                            },
+                                        ),
                                         disambiguator: 0,
                                     },
+                                },
+                                node: TraitForTypeItemNode {
+                                    node_path: TraitForTypeItemNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitForTypeItemPath(
+                                                Id {
+                                                    value: 4,
+                                                },
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    ast_idx: 7,
                                     ident: `add`,
                                     item_kind: MethodFn,
+                                    visibility: Scope::Pub,
+                                    is_generic: false,
                                 },
-                                implicit_parameters: [],
-                                self_parameter: None,
-                                regular_parameters: [
-                                    RegularParameterDeclPattern {
-                                        pattern: 0,
-                                        variables: ArenaIdxRange(
-                                            0..1,
-                                        ),
-                                        colon: ColonToken(
+                                ast_idx: 7,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
+                                explicit_parameter_decl_list: Ok(
+                                    ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
                                             TokenIdx(
-                                                207,
+                                                205,
                                             ),
                                         ),
-                                        ty: 0,
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        regular_parameters: [
+                                            RegularParameterDeclPattern {
+                                                pattern: 0,
+                                                variables: ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                                colon: ColonToken(
+                                                    TokenIdx(
+                                                        207,
+                                                    ),
+                                                ),
+                                                ty: 0,
+                                            },
+                                        ],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                209,
+                                            ),
+                                        ),
                                     },
-                                ],
-                                return_ty: Some(
-                                    ReturnTypeExpr {
-                                        expr: 1,
-                                    },
+                                ),
+                                curry_token: Ok(
+                                    Some(
+                                        CurryToken(
+                                            TokenIdx(
+                                                210,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                                return_ty: Ok(
+                                    Some(
+                                        ReturnTypeExpr {
+                                            expr: 1,
+                                        },
+                                    ),
+                                ),
+                                eol_colon: Ok(
+                                    EolToken::Semicolon(
+                                        EolSemicolonToken {
+                                            token_idx: TokenIdx(
+                                                212,
+                                            ),
+                                        },
+                                    ),
                                 ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -4561,27 +5589,69 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ImplBlock(
-                    TypeImplBlock(
-                        TypeImplBlockPath(
-                            Id {
-                                value: 21,
-                            },
-                        ),
-                    ),
-                ),
-                Decl::ImplBlock(
-                    ImplBlockDecl::Type(
-                        TypeImplBlockDecl {
+                EntityNodePath::ImplBlock(
+                    ImplBlockNodePath::TypeImplBlock(
+                        TypeImplBlockNodePath {
                             path: TypeImplBlockPath {
                                 module_path: `core::num`,
                                 ty_path: TypePath(`core::num::i128`, `Extern`),
                                 disambiguator: 0,
                             },
-                            implicit_parameters: [],
+                        },
+                    ),
+                ),
+                NodeDecl::ImplBlock(
+                    ImplBlockNodeDecl::Type(
+                        TypeImplBlockNodeDecl {
+                            node_path: TypeImplBlockNodePath {
+                                path: TypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::i128`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            },
+                            ast_idx: 53,
+                            impl_block: TypeImplBlockNode {
+                                node_path: TypeImplBlockNodePath {
+                                    path: TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::i128`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 53,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        237,
+                                    ),
+                                },
+                                ty_expr: 15,
+                                items: TypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        8..9,
+                                    ),
+                                },
+                            },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    237,
+                                ),
+                            },
+                            implicit_parameter_decl_list: Ok(
+                                None,
+                            ),
                             ty_expr: TypeExpr {
                                 expr: 0,
                             },
+                            eol_colon: Ok(
+                                EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            239,
+                                        ),
+                                    },
+                                ),
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -4674,39 +5744,97 @@ Ok(
                 ),
             ),
             (
-                EntityPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
-                        TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::i128`, `Extern`),
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath(
+                                    Id {
+                                        value: 8,
+                                    },
+                                ),
                                 disambiguator: 0,
                             },
-                            ident: `abs`,
-                            item_kind: MethodFn,
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
-                    AssociatedItemDecl::TypeItem(
-                        TypeItemDecl::MethodFn(
-                            TypeMethodFnDecl {
-                                path: TypeItemPath {
-                                    impl_block: TypeImplBlockPath {
-                                        module_path: `core::num`,
-                                        ty_path: TypePath(`core::num::i128`, `Extern`),
+                NodeDecl::AssociatedItem(
+                    AssociatedItemNodeDecl::TypeItem(
+                        TypeItemNodeDecl::MethodFn(
+                            TypeMethodFnNodeDecl {
+                                node_path: TypeItemNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypeItemPath(
+                                            Id {
+                                                value: 8,
+                                            },
+                                        ),
                                         disambiguator: 0,
                                     },
+                                },
+                                node: TypeItemNode {
+                                    node_path: TypeItemNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                Id {
+                                                    value: 8,
+                                                },
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    ast_idx: 8,
                                     ident: `abs`,
                                     item_kind: MethodFn,
+                                    visibility: Scope::Pub,
+                                    is_generic: false,
                                 },
-                                implicit_parameters: [],
-                                self_parameter: None,
-                                regular_parameters: [],
-                                return_ty: Some(
-                                    ReturnTypeExpr {
-                                        expr: 0,
+                                ast_idx: 8,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
+                                explicit_parameter_decl_list: Ok(
+                                    ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
+                                            TokenIdx(
+                                                243,
+                                            ),
+                                        ),
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        regular_parameters: [],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                244,
+                                            ),
+                                        ),
                                     },
+                                ),
+                                curry_token: Ok(
+                                    Some(
+                                        CurryToken(
+                                            TokenIdx(
+                                                245,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                                return_ty: Ok(
+                                    Some(
+                                        ReturnTypeExpr {
+                                            expr: 0,
+                                        },
+                                    ),
+                                ),
+                                eol_colon: Ok(
+                                    EolToken::Semicolon(
+                                        EolSemicolonToken {
+                                            token_idx: TokenIdx(
+                                                247,
+                                            ),
+                                        },
+                                    ),
                                 ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -4892,31 +6020,58 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ImplBlock(
-                    TraitForTypeImplBlock(
-                        TraitForTypeImplBlockPath(
-                            Id {
-                                value: 22,
-                            },
-                        ),
-                    ),
-                ),
-                Decl::ImplBlock(
-                    ImplBlockDecl::TraitForType(
-                        TraitForTypeImplBlockDecl {
+                EntityNodePath::ImplBlock(
+                    ImplBlockNodePath::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockNodePath {
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
                                 ty_path: TypePath(`core::num::i128`, `Extern`),
                                 disambiguator: 0,
                             },
-                            implicit_parameters: [],
+                        },
+                    ),
+                ),
+                NodeDecl::ImplBlock(
+                    ImplBlockNodeDecl::TraitForType(
+                        TraitForTypeImplBlockNodeDecl {
+                            node_path: TraitForTypeImplBlockNodePath {
+                                path: TraitForTypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    trai_path: TraitPath(`core::ops::Add`),
+                                    ty_path: TypePath(`core::num::i128`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            },
+                            ast_idx: 54,
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    248,
+                                ),
+                            },
+                            implicit_parameter_decl_list: Ok(
+                                None,
+                            ),
                             trai_expr: TraitExpr {
                                 expr: 2,
+                            },
+                            for_token: ConnectionForToken {
+                                token_idx: TokenIdx(
+                                    251,
+                                ),
                             },
                             ty_expr: TypeExpr {
                                 expr: 3,
                             },
+                            eol_colon: Ok(
+                                EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            253,
+                                        ),
+                                    },
+                                ),
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -5068,54 +6223,110 @@ Ok(
                 ),
             ),
             (
-                EntityPath::AssociatedItem(
-                    AssociatedItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath {
-                            impl_block: TraitForTypeImplBlockPath {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::i128`, `Extern`),
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TraitForTypeItem(
+                        TraitForTypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitForTypeItemPath(
+                                    Id {
+                                        value: 5,
+                                    },
+                                ),
                                 disambiguator: 0,
                             },
-                            ident: `add`,
-                            item_kind: MethodFn,
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
-                    AssociatedItemDecl::TraitForTypeItem(
-                        TraitForTypeItemDecl::MethodFn(
-                            TraitForTypeMethodFnDecl {
-                                path: TraitForTypeItemPath {
-                                    impl_block: TraitForTypeImplBlockPath {
-                                        module_path: `core::num`,
-                                        trai_path: TraitPath(`core::ops::Add`),
-                                        ty_path: TypePath(`core::num::i128`, `Extern`),
+                NodeDecl::AssociatedItem(
+                    AssociatedItemNodeDecl::TraitForTypeItem(
+                        TraitForTypeItemNodeDecl::MethodFn(
+                            TraitForTypeMethodFnNodeDecl {
+                                node_path: TraitForTypeItemNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitForTypeItemPath(
+                                            Id {
+                                                value: 5,
+                                            },
+                                        ),
                                         disambiguator: 0,
                                     },
+                                },
+                                node: TraitForTypeItemNode {
+                                    node_path: TraitForTypeItemNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitForTypeItemPath(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    ast_idx: 9,
                                     ident: `add`,
                                     item_kind: MethodFn,
+                                    visibility: Scope::Pub,
+                                    is_generic: false,
                                 },
-                                implicit_parameters: [],
-                                self_parameter: None,
-                                regular_parameters: [
-                                    RegularParameterDeclPattern {
-                                        pattern: 0,
-                                        variables: ArenaIdxRange(
-                                            0..1,
-                                        ),
-                                        colon: ColonToken(
+                                ast_idx: 9,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
+                                explicit_parameter_decl_list: Ok(
+                                    ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
                                             TokenIdx(
-                                                259,
+                                                257,
                                             ),
                                         ),
-                                        ty: 0,
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        regular_parameters: [
+                                            RegularParameterDeclPattern {
+                                                pattern: 0,
+                                                variables: ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                                colon: ColonToken(
+                                                    TokenIdx(
+                                                        259,
+                                                    ),
+                                                ),
+                                                ty: 0,
+                                            },
+                                        ],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                261,
+                                            ),
+                                        ),
                                     },
-                                ],
-                                return_ty: Some(
-                                    ReturnTypeExpr {
-                                        expr: 1,
-                                    },
+                                ),
+                                curry_token: Ok(
+                                    Some(
+                                        CurryToken(
+                                            TokenIdx(
+                                                262,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                                return_ty: Ok(
+                                    Some(
+                                        ReturnTypeExpr {
+                                            expr: 1,
+                                        },
+                                    ),
+                                ),
+                                eol_colon: Ok(
+                                    EolToken::Semicolon(
+                                        EolSemicolonToken {
+                                            token_idx: TokenIdx(
+                                                264,
+                                            ),
+                                        },
+                                    ),
                                 ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -5438,27 +6649,69 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ImplBlock(
-                    TypeImplBlock(
-                        TypeImplBlockPath(
-                            Id {
-                                value: 22,
-                            },
-                        ),
-                    ),
-                ),
-                Decl::ImplBlock(
-                    ImplBlockDecl::Type(
-                        TypeImplBlockDecl {
+                EntityNodePath::ImplBlock(
+                    ImplBlockNodePath::TypeImplBlock(
+                        TypeImplBlockNodePath {
                             path: TypeImplBlockPath {
                                 module_path: `core::num`,
                                 ty_path: TypePath(`core::num::isize`, `Extern`),
                                 disambiguator: 0,
                             },
-                            implicit_parameters: [],
+                        },
+                    ),
+                ),
+                NodeDecl::ImplBlock(
+                    ImplBlockNodeDecl::Type(
+                        TypeImplBlockNodeDecl {
+                            node_path: TypeImplBlockNodePath {
+                                path: TypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::isize`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            },
+                            ast_idx: 58,
+                            impl_block: TypeImplBlockNode {
+                                node_path: TypeImplBlockNodePath {
+                                    path: TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::isize`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 58,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        289,
+                                    ),
+                                },
+                                ty_expr: 18,
+                                items: TypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        10..11,
+                                    ),
+                                },
+                            },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    289,
+                                ),
+                            },
+                            implicit_parameter_decl_list: Ok(
+                                None,
+                            ),
                             ty_expr: TypeExpr {
                                 expr: 0,
                             },
+                            eol_colon: Ok(
+                                EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            291,
+                                        ),
+                                    },
+                                ),
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -5551,39 +6804,97 @@ Ok(
                 ),
             ),
             (
-                EntityPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
-                        TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::isize`, `Extern`),
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath(
+                                    Id {
+                                        value: 9,
+                                    },
+                                ),
                                 disambiguator: 0,
                             },
-                            ident: `abs`,
-                            item_kind: MethodFn,
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
-                    AssociatedItemDecl::TypeItem(
-                        TypeItemDecl::MethodFn(
-                            TypeMethodFnDecl {
-                                path: TypeItemPath {
-                                    impl_block: TypeImplBlockPath {
-                                        module_path: `core::num`,
-                                        ty_path: TypePath(`core::num::isize`, `Extern`),
+                NodeDecl::AssociatedItem(
+                    AssociatedItemNodeDecl::TypeItem(
+                        TypeItemNodeDecl::MethodFn(
+                            TypeMethodFnNodeDecl {
+                                node_path: TypeItemNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypeItemPath(
+                                            Id {
+                                                value: 9,
+                                            },
+                                        ),
                                         disambiguator: 0,
                                     },
+                                },
+                                node: TypeItemNode {
+                                    node_path: TypeItemNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                Id {
+                                                    value: 9,
+                                                },
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    ast_idx: 10,
                                     ident: `abs`,
                                     item_kind: MethodFn,
+                                    visibility: Scope::Pub,
+                                    is_generic: false,
                                 },
-                                implicit_parameters: [],
-                                self_parameter: None,
-                                regular_parameters: [],
-                                return_ty: Some(
-                                    ReturnTypeExpr {
-                                        expr: 0,
+                                ast_idx: 10,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
+                                explicit_parameter_decl_list: Ok(
+                                    ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
+                                            TokenIdx(
+                                                295,
+                                            ),
+                                        ),
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        regular_parameters: [],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                296,
+                                            ),
+                                        ),
                                     },
+                                ),
+                                curry_token: Ok(
+                                    Some(
+                                        CurryToken(
+                                            TokenIdx(
+                                                297,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                                return_ty: Ok(
+                                    Some(
+                                        ReturnTypeExpr {
+                                            expr: 0,
+                                        },
+                                    ),
+                                ),
+                                eol_colon: Ok(
+                                    EolToken::Semicolon(
+                                        EolSemicolonToken {
+                                            token_idx: TokenIdx(
+                                                299,
+                                            ),
+                                        },
+                                    ),
                                 ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -5769,31 +7080,58 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ImplBlock(
-                    TraitForTypeImplBlock(
-                        TraitForTypeImplBlockPath(
-                            Id {
-                                value: 23,
-                            },
-                        ),
-                    ),
-                ),
-                Decl::ImplBlock(
-                    ImplBlockDecl::TraitForType(
-                        TraitForTypeImplBlockDecl {
+                EntityNodePath::ImplBlock(
+                    ImplBlockNodePath::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockNodePath {
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
                                 ty_path: TypePath(`core::num::isize`, `Extern`),
                                 disambiguator: 0,
                             },
-                            implicit_parameters: [],
+                        },
+                    ),
+                ),
+                NodeDecl::ImplBlock(
+                    ImplBlockNodeDecl::TraitForType(
+                        TraitForTypeImplBlockNodeDecl {
+                            node_path: TraitForTypeImplBlockNodePath {
+                                path: TraitForTypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    trai_path: TraitPath(`core::ops::Add`),
+                                    ty_path: TypePath(`core::num::isize`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            },
+                            ast_idx: 59,
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    300,
+                                ),
+                            },
+                            implicit_parameter_decl_list: Ok(
+                                None,
+                            ),
                             trai_expr: TraitExpr {
                                 expr: 2,
+                            },
+                            for_token: ConnectionForToken {
+                                token_idx: TokenIdx(
+                                    303,
+                                ),
                             },
                             ty_expr: TypeExpr {
                                 expr: 3,
                             },
+                            eol_colon: Ok(
+                                EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            305,
+                                        ),
+                                    },
+                                ),
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -5945,54 +7283,110 @@ Ok(
                 ),
             ),
             (
-                EntityPath::AssociatedItem(
-                    AssociatedItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath {
-                            impl_block: TraitForTypeImplBlockPath {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::isize`, `Extern`),
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TraitForTypeItem(
+                        TraitForTypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitForTypeItemPath(
+                                    Id {
+                                        value: 6,
+                                    },
+                                ),
                                 disambiguator: 0,
                             },
-                            ident: `add`,
-                            item_kind: MethodFn,
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
-                    AssociatedItemDecl::TraitForTypeItem(
-                        TraitForTypeItemDecl::MethodFn(
-                            TraitForTypeMethodFnDecl {
-                                path: TraitForTypeItemPath {
-                                    impl_block: TraitForTypeImplBlockPath {
-                                        module_path: `core::num`,
-                                        trai_path: TraitPath(`core::ops::Add`),
-                                        ty_path: TypePath(`core::num::isize`, `Extern`),
+                NodeDecl::AssociatedItem(
+                    AssociatedItemNodeDecl::TraitForTypeItem(
+                        TraitForTypeItemNodeDecl::MethodFn(
+                            TraitForTypeMethodFnNodeDecl {
+                                node_path: TraitForTypeItemNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitForTypeItemPath(
+                                            Id {
+                                                value: 6,
+                                            },
+                                        ),
                                         disambiguator: 0,
                                     },
+                                },
+                                node: TraitForTypeItemNode {
+                                    node_path: TraitForTypeItemNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitForTypeItemPath(
+                                                Id {
+                                                    value: 6,
+                                                },
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    ast_idx: 11,
                                     ident: `add`,
                                     item_kind: MethodFn,
+                                    visibility: Scope::Pub,
+                                    is_generic: false,
                                 },
-                                implicit_parameters: [],
-                                self_parameter: None,
-                                regular_parameters: [
-                                    RegularParameterDeclPattern {
-                                        pattern: 0,
-                                        variables: ArenaIdxRange(
-                                            0..1,
-                                        ),
-                                        colon: ColonToken(
+                                ast_idx: 11,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
+                                explicit_parameter_decl_list: Ok(
+                                    ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
                                             TokenIdx(
-                                                311,
+                                                309,
                                             ),
                                         ),
-                                        ty: 0,
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        regular_parameters: [
+                                            RegularParameterDeclPattern {
+                                                pattern: 0,
+                                                variables: ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                                colon: ColonToken(
+                                                    TokenIdx(
+                                                        311,
+                                                    ),
+                                                ),
+                                                ty: 0,
+                                            },
+                                        ],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                313,
+                                            ),
+                                        ),
                                     },
-                                ],
-                                return_ty: Some(
-                                    ReturnTypeExpr {
-                                        expr: 1,
-                                    },
+                                ),
+                                curry_token: Ok(
+                                    Some(
+                                        CurryToken(
+                                            TokenIdx(
+                                                314,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                                return_ty: Ok(
+                                    Some(
+                                        ReturnTypeExpr {
+                                            expr: 1,
+                                        },
+                                    ),
+                                ),
+                                eol_colon: Ok(
+                                    EolToken::Semicolon(
+                                        EolSemicolonToken {
+                                            token_idx: TokenIdx(
+                                                316,
+                                            ),
+                                        },
+                                    ),
                                 ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -6315,27 +7709,69 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ImplBlock(
-                    TypeImplBlock(
-                        TypeImplBlockPath(
-                            Id {
-                                value: 23,
-                            },
-                        ),
-                    ),
-                ),
-                Decl::ImplBlock(
-                    ImplBlockDecl::Type(
-                        TypeImplBlockDecl {
+                EntityNodePath::ImplBlock(
+                    ImplBlockNodePath::TypeImplBlock(
+                        TypeImplBlockNodePath {
                             path: TypeImplBlockPath {
                                 module_path: `core::num`,
                                 ty_path: TypePath(`core::num::u8`, `Extern`),
                                 disambiguator: 0,
                             },
-                            implicit_parameters: [],
+                        },
+                    ),
+                ),
+                NodeDecl::ImplBlock(
+                    ImplBlockNodeDecl::Type(
+                        TypeImplBlockNodeDecl {
+                            node_path: TypeImplBlockNodePath {
+                                path: TypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::u8`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            },
+                            ast_idx: 63,
+                            impl_block: TypeImplBlockNode {
+                                node_path: TypeImplBlockNodePath {
+                                    path: TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::u8`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 63,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        341,
+                                    ),
+                                },
+                                ty_expr: 21,
+                                items: TypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        12..13,
+                                    ),
+                                },
+                            },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    341,
+                                ),
+                            },
+                            implicit_parameter_decl_list: Ok(
+                                None,
+                            ),
                             ty_expr: TypeExpr {
                                 expr: 0,
                             },
+                            eol_colon: Ok(
+                                EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            343,
+                                        ),
+                                    },
+                                ),
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -6428,39 +7864,97 @@ Ok(
                 ),
             ),
             (
-                EntityPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
-                        TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::u8`, `Extern`),
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath(
+                                    Id {
+                                        value: 10,
+                                    },
+                                ),
                                 disambiguator: 0,
                             },
-                            ident: `abs`,
-                            item_kind: MethodFn,
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
-                    AssociatedItemDecl::TypeItem(
-                        TypeItemDecl::MethodFn(
-                            TypeMethodFnDecl {
-                                path: TypeItemPath {
-                                    impl_block: TypeImplBlockPath {
-                                        module_path: `core::num`,
-                                        ty_path: TypePath(`core::num::u8`, `Extern`),
+                NodeDecl::AssociatedItem(
+                    AssociatedItemNodeDecl::TypeItem(
+                        TypeItemNodeDecl::MethodFn(
+                            TypeMethodFnNodeDecl {
+                                node_path: TypeItemNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypeItemPath(
+                                            Id {
+                                                value: 10,
+                                            },
+                                        ),
                                         disambiguator: 0,
                                     },
+                                },
+                                node: TypeItemNode {
+                                    node_path: TypeItemNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                Id {
+                                                    value: 10,
+                                                },
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    ast_idx: 12,
                                     ident: `abs`,
                                     item_kind: MethodFn,
+                                    visibility: Scope::Pub,
+                                    is_generic: false,
                                 },
-                                implicit_parameters: [],
-                                self_parameter: None,
-                                regular_parameters: [],
-                                return_ty: Some(
-                                    ReturnTypeExpr {
-                                        expr: 0,
+                                ast_idx: 12,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
+                                explicit_parameter_decl_list: Ok(
+                                    ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
+                                            TokenIdx(
+                                                347,
+                                            ),
+                                        ),
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        regular_parameters: [],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                348,
+                                            ),
+                                        ),
                                     },
+                                ),
+                                curry_token: Ok(
+                                    Some(
+                                        CurryToken(
+                                            TokenIdx(
+                                                349,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                                return_ty: Ok(
+                                    Some(
+                                        ReturnTypeExpr {
+                                            expr: 0,
+                                        },
+                                    ),
+                                ),
+                                eol_colon: Ok(
+                                    EolToken::Semicolon(
+                                        EolSemicolonToken {
+                                            token_idx: TokenIdx(
+                                                351,
+                                            ),
+                                        },
+                                    ),
                                 ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -6646,31 +8140,58 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ImplBlock(
-                    TraitForTypeImplBlock(
-                        TraitForTypeImplBlockPath(
-                            Id {
-                                value: 24,
-                            },
-                        ),
-                    ),
-                ),
-                Decl::ImplBlock(
-                    ImplBlockDecl::TraitForType(
-                        TraitForTypeImplBlockDecl {
+                EntityNodePath::ImplBlock(
+                    ImplBlockNodePath::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockNodePath {
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
                                 ty_path: TypePath(`core::num::u8`, `Extern`),
                                 disambiguator: 0,
                             },
-                            implicit_parameters: [],
+                        },
+                    ),
+                ),
+                NodeDecl::ImplBlock(
+                    ImplBlockNodeDecl::TraitForType(
+                        TraitForTypeImplBlockNodeDecl {
+                            node_path: TraitForTypeImplBlockNodePath {
+                                path: TraitForTypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    trai_path: TraitPath(`core::ops::Add`),
+                                    ty_path: TypePath(`core::num::u8`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            },
+                            ast_idx: 64,
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    352,
+                                ),
+                            },
+                            implicit_parameter_decl_list: Ok(
+                                None,
+                            ),
                             trai_expr: TraitExpr {
                                 expr: 2,
+                            },
+                            for_token: ConnectionForToken {
+                                token_idx: TokenIdx(
+                                    355,
+                                ),
                             },
                             ty_expr: TypeExpr {
                                 expr: 3,
                             },
+                            eol_colon: Ok(
+                                EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            357,
+                                        ),
+                                    },
+                                ),
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -6822,54 +8343,110 @@ Ok(
                 ),
             ),
             (
-                EntityPath::AssociatedItem(
-                    AssociatedItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath {
-                            impl_block: TraitForTypeImplBlockPath {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::u8`, `Extern`),
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TraitForTypeItem(
+                        TraitForTypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitForTypeItemPath(
+                                    Id {
+                                        value: 7,
+                                    },
+                                ),
                                 disambiguator: 0,
                             },
-                            ident: `add`,
-                            item_kind: MethodFn,
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
-                    AssociatedItemDecl::TraitForTypeItem(
-                        TraitForTypeItemDecl::MethodFn(
-                            TraitForTypeMethodFnDecl {
-                                path: TraitForTypeItemPath {
-                                    impl_block: TraitForTypeImplBlockPath {
-                                        module_path: `core::num`,
-                                        trai_path: TraitPath(`core::ops::Add`),
-                                        ty_path: TypePath(`core::num::u8`, `Extern`),
+                NodeDecl::AssociatedItem(
+                    AssociatedItemNodeDecl::TraitForTypeItem(
+                        TraitForTypeItemNodeDecl::MethodFn(
+                            TraitForTypeMethodFnNodeDecl {
+                                node_path: TraitForTypeItemNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitForTypeItemPath(
+                                            Id {
+                                                value: 7,
+                                            },
+                                        ),
                                         disambiguator: 0,
                                     },
+                                },
+                                node: TraitForTypeItemNode {
+                                    node_path: TraitForTypeItemNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitForTypeItemPath(
+                                                Id {
+                                                    value: 7,
+                                                },
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    ast_idx: 13,
                                     ident: `add`,
                                     item_kind: MethodFn,
+                                    visibility: Scope::Pub,
+                                    is_generic: false,
                                 },
-                                implicit_parameters: [],
-                                self_parameter: None,
-                                regular_parameters: [
-                                    RegularParameterDeclPattern {
-                                        pattern: 0,
-                                        variables: ArenaIdxRange(
-                                            0..1,
-                                        ),
-                                        colon: ColonToken(
+                                ast_idx: 13,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
+                                explicit_parameter_decl_list: Ok(
+                                    ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
                                             TokenIdx(
-                                                363,
+                                                361,
                                             ),
                                         ),
-                                        ty: 0,
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        regular_parameters: [
+                                            RegularParameterDeclPattern {
+                                                pattern: 0,
+                                                variables: ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                                colon: ColonToken(
+                                                    TokenIdx(
+                                                        363,
+                                                    ),
+                                                ),
+                                                ty: 0,
+                                            },
+                                        ],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                365,
+                                            ),
+                                        ),
                                     },
-                                ],
-                                return_ty: Some(
-                                    ReturnTypeExpr {
-                                        expr: 1,
-                                    },
+                                ),
+                                curry_token: Ok(
+                                    Some(
+                                        CurryToken(
+                                            TokenIdx(
+                                                366,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                                return_ty: Ok(
+                                    Some(
+                                        ReturnTypeExpr {
+                                            expr: 1,
+                                        },
+                                    ),
+                                ),
+                                eol_colon: Ok(
+                                    EolToken::Semicolon(
+                                        EolSemicolonToken {
+                                            token_idx: TokenIdx(
+                                                368,
+                                            ),
+                                        },
+                                    ),
                                 ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -7192,27 +8769,69 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ImplBlock(
-                    TypeImplBlock(
-                        TypeImplBlockPath(
-                            Id {
-                                value: 24,
-                            },
-                        ),
-                    ),
-                ),
-                Decl::ImplBlock(
-                    ImplBlockDecl::Type(
-                        TypeImplBlockDecl {
+                EntityNodePath::ImplBlock(
+                    ImplBlockNodePath::TypeImplBlock(
+                        TypeImplBlockNodePath {
                             path: TypeImplBlockPath {
                                 module_path: `core::num`,
                                 ty_path: TypePath(`core::num::u16`, `Extern`),
                                 disambiguator: 0,
                             },
-                            implicit_parameters: [],
+                        },
+                    ),
+                ),
+                NodeDecl::ImplBlock(
+                    ImplBlockNodeDecl::Type(
+                        TypeImplBlockNodeDecl {
+                            node_path: TypeImplBlockNodePath {
+                                path: TypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::u16`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            },
+                            ast_idx: 68,
+                            impl_block: TypeImplBlockNode {
+                                node_path: TypeImplBlockNodePath {
+                                    path: TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::u16`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 68,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        393,
+                                    ),
+                                },
+                                ty_expr: 24,
+                                items: TypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        14..15,
+                                    ),
+                                },
+                            },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    393,
+                                ),
+                            },
+                            implicit_parameter_decl_list: Ok(
+                                None,
+                            ),
                             ty_expr: TypeExpr {
                                 expr: 0,
                             },
+                            eol_colon: Ok(
+                                EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            395,
+                                        ),
+                                    },
+                                ),
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -7305,39 +8924,97 @@ Ok(
                 ),
             ),
             (
-                EntityPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
-                        TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::u16`, `Extern`),
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath(
+                                    Id {
+                                        value: 11,
+                                    },
+                                ),
                                 disambiguator: 0,
                             },
-                            ident: `abs`,
-                            item_kind: MethodFn,
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
-                    AssociatedItemDecl::TypeItem(
-                        TypeItemDecl::MethodFn(
-                            TypeMethodFnDecl {
-                                path: TypeItemPath {
-                                    impl_block: TypeImplBlockPath {
-                                        module_path: `core::num`,
-                                        ty_path: TypePath(`core::num::u16`, `Extern`),
+                NodeDecl::AssociatedItem(
+                    AssociatedItemNodeDecl::TypeItem(
+                        TypeItemNodeDecl::MethodFn(
+                            TypeMethodFnNodeDecl {
+                                node_path: TypeItemNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypeItemPath(
+                                            Id {
+                                                value: 11,
+                                            },
+                                        ),
                                         disambiguator: 0,
                                     },
+                                },
+                                node: TypeItemNode {
+                                    node_path: TypeItemNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                Id {
+                                                    value: 11,
+                                                },
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    ast_idx: 14,
                                     ident: `abs`,
                                     item_kind: MethodFn,
+                                    visibility: Scope::Pub,
+                                    is_generic: false,
                                 },
-                                implicit_parameters: [],
-                                self_parameter: None,
-                                regular_parameters: [],
-                                return_ty: Some(
-                                    ReturnTypeExpr {
-                                        expr: 0,
+                                ast_idx: 14,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
+                                explicit_parameter_decl_list: Ok(
+                                    ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
+                                            TokenIdx(
+                                                399,
+                                            ),
+                                        ),
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        regular_parameters: [],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                400,
+                                            ),
+                                        ),
                                     },
+                                ),
+                                curry_token: Ok(
+                                    Some(
+                                        CurryToken(
+                                            TokenIdx(
+                                                401,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                                return_ty: Ok(
+                                    Some(
+                                        ReturnTypeExpr {
+                                            expr: 0,
+                                        },
+                                    ),
+                                ),
+                                eol_colon: Ok(
+                                    EolToken::Semicolon(
+                                        EolSemicolonToken {
+                                            token_idx: TokenIdx(
+                                                403,
+                                            ),
+                                        },
+                                    ),
                                 ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -7523,31 +9200,58 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ImplBlock(
-                    TraitForTypeImplBlock(
-                        TraitForTypeImplBlockPath(
-                            Id {
-                                value: 25,
-                            },
-                        ),
-                    ),
-                ),
-                Decl::ImplBlock(
-                    ImplBlockDecl::TraitForType(
-                        TraitForTypeImplBlockDecl {
+                EntityNodePath::ImplBlock(
+                    ImplBlockNodePath::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockNodePath {
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
                                 ty_path: TypePath(`core::num::u16`, `Extern`),
                                 disambiguator: 0,
                             },
-                            implicit_parameters: [],
+                        },
+                    ),
+                ),
+                NodeDecl::ImplBlock(
+                    ImplBlockNodeDecl::TraitForType(
+                        TraitForTypeImplBlockNodeDecl {
+                            node_path: TraitForTypeImplBlockNodePath {
+                                path: TraitForTypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    trai_path: TraitPath(`core::ops::Add`),
+                                    ty_path: TypePath(`core::num::u16`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            },
+                            ast_idx: 69,
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    404,
+                                ),
+                            },
+                            implicit_parameter_decl_list: Ok(
+                                None,
+                            ),
                             trai_expr: TraitExpr {
                                 expr: 2,
+                            },
+                            for_token: ConnectionForToken {
+                                token_idx: TokenIdx(
+                                    407,
+                                ),
                             },
                             ty_expr: TypeExpr {
                                 expr: 3,
                             },
+                            eol_colon: Ok(
+                                EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            409,
+                                        ),
+                                    },
+                                ),
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -7699,54 +9403,110 @@ Ok(
                 ),
             ),
             (
-                EntityPath::AssociatedItem(
-                    AssociatedItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath {
-                            impl_block: TraitForTypeImplBlockPath {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::u16`, `Extern`),
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TraitForTypeItem(
+                        TraitForTypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitForTypeItemPath(
+                                    Id {
+                                        value: 8,
+                                    },
+                                ),
                                 disambiguator: 0,
                             },
-                            ident: `add`,
-                            item_kind: MethodFn,
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
-                    AssociatedItemDecl::TraitForTypeItem(
-                        TraitForTypeItemDecl::MethodFn(
-                            TraitForTypeMethodFnDecl {
-                                path: TraitForTypeItemPath {
-                                    impl_block: TraitForTypeImplBlockPath {
-                                        module_path: `core::num`,
-                                        trai_path: TraitPath(`core::ops::Add`),
-                                        ty_path: TypePath(`core::num::u16`, `Extern`),
+                NodeDecl::AssociatedItem(
+                    AssociatedItemNodeDecl::TraitForTypeItem(
+                        TraitForTypeItemNodeDecl::MethodFn(
+                            TraitForTypeMethodFnNodeDecl {
+                                node_path: TraitForTypeItemNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitForTypeItemPath(
+                                            Id {
+                                                value: 8,
+                                            },
+                                        ),
                                         disambiguator: 0,
                                     },
+                                },
+                                node: TraitForTypeItemNode {
+                                    node_path: TraitForTypeItemNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitForTypeItemPath(
+                                                Id {
+                                                    value: 8,
+                                                },
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    ast_idx: 15,
                                     ident: `add`,
                                     item_kind: MethodFn,
+                                    visibility: Scope::Pub,
+                                    is_generic: false,
                                 },
-                                implicit_parameters: [],
-                                self_parameter: None,
-                                regular_parameters: [
-                                    RegularParameterDeclPattern {
-                                        pattern: 0,
-                                        variables: ArenaIdxRange(
-                                            0..1,
-                                        ),
-                                        colon: ColonToken(
+                                ast_idx: 15,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
+                                explicit_parameter_decl_list: Ok(
+                                    ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
                                             TokenIdx(
-                                                415,
+                                                413,
                                             ),
                                         ),
-                                        ty: 0,
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        regular_parameters: [
+                                            RegularParameterDeclPattern {
+                                                pattern: 0,
+                                                variables: ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                                colon: ColonToken(
+                                                    TokenIdx(
+                                                        415,
+                                                    ),
+                                                ),
+                                                ty: 0,
+                                            },
+                                        ],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                417,
+                                            ),
+                                        ),
                                     },
-                                ],
-                                return_ty: Some(
-                                    ReturnTypeExpr {
-                                        expr: 1,
-                                    },
+                                ),
+                                curry_token: Ok(
+                                    Some(
+                                        CurryToken(
+                                            TokenIdx(
+                                                418,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                                return_ty: Ok(
+                                    Some(
+                                        ReturnTypeExpr {
+                                            expr: 1,
+                                        },
+                                    ),
+                                ),
+                                eol_colon: Ok(
+                                    EolToken::Semicolon(
+                                        EolSemicolonToken {
+                                            token_idx: TokenIdx(
+                                                420,
+                                            ),
+                                        },
+                                    ),
                                 ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -8069,27 +9829,69 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ImplBlock(
-                    TypeImplBlock(
-                        TypeImplBlockPath(
-                            Id {
-                                value: 25,
-                            },
-                        ),
-                    ),
-                ),
-                Decl::ImplBlock(
-                    ImplBlockDecl::Type(
-                        TypeImplBlockDecl {
+                EntityNodePath::ImplBlock(
+                    ImplBlockNodePath::TypeImplBlock(
+                        TypeImplBlockNodePath {
                             path: TypeImplBlockPath {
                                 module_path: `core::num`,
                                 ty_path: TypePath(`core::num::u32`, `Extern`),
                                 disambiguator: 0,
                             },
-                            implicit_parameters: [],
+                        },
+                    ),
+                ),
+                NodeDecl::ImplBlock(
+                    ImplBlockNodeDecl::Type(
+                        TypeImplBlockNodeDecl {
+                            node_path: TypeImplBlockNodePath {
+                                path: TypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::u32`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            },
+                            ast_idx: 73,
+                            impl_block: TypeImplBlockNode {
+                                node_path: TypeImplBlockNodePath {
+                                    path: TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::u32`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 73,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        445,
+                                    ),
+                                },
+                                ty_expr: 27,
+                                items: TypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        16..17,
+                                    ),
+                                },
+                            },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    445,
+                                ),
+                            },
+                            implicit_parameter_decl_list: Ok(
+                                None,
+                            ),
                             ty_expr: TypeExpr {
                                 expr: 0,
                             },
+                            eol_colon: Ok(
+                                EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            447,
+                                        ),
+                                    },
+                                ),
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -8182,39 +9984,97 @@ Ok(
                 ),
             ),
             (
-                EntityPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
-                        TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::u32`, `Extern`),
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath(
+                                    Id {
+                                        value: 12,
+                                    },
+                                ),
                                 disambiguator: 0,
                             },
-                            ident: `abs`,
-                            item_kind: MethodFn,
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
-                    AssociatedItemDecl::TypeItem(
-                        TypeItemDecl::MethodFn(
-                            TypeMethodFnDecl {
-                                path: TypeItemPath {
-                                    impl_block: TypeImplBlockPath {
-                                        module_path: `core::num`,
-                                        ty_path: TypePath(`core::num::u32`, `Extern`),
+                NodeDecl::AssociatedItem(
+                    AssociatedItemNodeDecl::TypeItem(
+                        TypeItemNodeDecl::MethodFn(
+                            TypeMethodFnNodeDecl {
+                                node_path: TypeItemNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypeItemPath(
+                                            Id {
+                                                value: 12,
+                                            },
+                                        ),
                                         disambiguator: 0,
                                     },
+                                },
+                                node: TypeItemNode {
+                                    node_path: TypeItemNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                Id {
+                                                    value: 12,
+                                                },
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    ast_idx: 16,
                                     ident: `abs`,
                                     item_kind: MethodFn,
+                                    visibility: Scope::Pub,
+                                    is_generic: false,
                                 },
-                                implicit_parameters: [],
-                                self_parameter: None,
-                                regular_parameters: [],
-                                return_ty: Some(
-                                    ReturnTypeExpr {
-                                        expr: 0,
+                                ast_idx: 16,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
+                                explicit_parameter_decl_list: Ok(
+                                    ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
+                                            TokenIdx(
+                                                451,
+                                            ),
+                                        ),
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        regular_parameters: [],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                452,
+                                            ),
+                                        ),
                                     },
+                                ),
+                                curry_token: Ok(
+                                    Some(
+                                        CurryToken(
+                                            TokenIdx(
+                                                453,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                                return_ty: Ok(
+                                    Some(
+                                        ReturnTypeExpr {
+                                            expr: 0,
+                                        },
+                                    ),
+                                ),
+                                eol_colon: Ok(
+                                    EolToken::Semicolon(
+                                        EolSemicolonToken {
+                                            token_idx: TokenIdx(
+                                                455,
+                                            ),
+                                        },
+                                    ),
                                 ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -8400,31 +10260,58 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ImplBlock(
-                    TraitForTypeImplBlock(
-                        TraitForTypeImplBlockPath(
-                            Id {
-                                value: 26,
-                            },
-                        ),
-                    ),
-                ),
-                Decl::ImplBlock(
-                    ImplBlockDecl::TraitForType(
-                        TraitForTypeImplBlockDecl {
+                EntityNodePath::ImplBlock(
+                    ImplBlockNodePath::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockNodePath {
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
                                 ty_path: TypePath(`core::num::u32`, `Extern`),
                                 disambiguator: 0,
                             },
-                            implicit_parameters: [],
+                        },
+                    ),
+                ),
+                NodeDecl::ImplBlock(
+                    ImplBlockNodeDecl::TraitForType(
+                        TraitForTypeImplBlockNodeDecl {
+                            node_path: TraitForTypeImplBlockNodePath {
+                                path: TraitForTypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    trai_path: TraitPath(`core::ops::Add`),
+                                    ty_path: TypePath(`core::num::u32`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            },
+                            ast_idx: 74,
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    456,
+                                ),
+                            },
+                            implicit_parameter_decl_list: Ok(
+                                None,
+                            ),
                             trai_expr: TraitExpr {
                                 expr: 2,
+                            },
+                            for_token: ConnectionForToken {
+                                token_idx: TokenIdx(
+                                    459,
+                                ),
                             },
                             ty_expr: TypeExpr {
                                 expr: 3,
                             },
+                            eol_colon: Ok(
+                                EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            461,
+                                        ),
+                                    },
+                                ),
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -8576,54 +10463,110 @@ Ok(
                 ),
             ),
             (
-                EntityPath::AssociatedItem(
-                    AssociatedItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath {
-                            impl_block: TraitForTypeImplBlockPath {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::u32`, `Extern`),
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TraitForTypeItem(
+                        TraitForTypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitForTypeItemPath(
+                                    Id {
+                                        value: 9,
+                                    },
+                                ),
                                 disambiguator: 0,
                             },
-                            ident: `add`,
-                            item_kind: MethodFn,
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
-                    AssociatedItemDecl::TraitForTypeItem(
-                        TraitForTypeItemDecl::MethodFn(
-                            TraitForTypeMethodFnDecl {
-                                path: TraitForTypeItemPath {
-                                    impl_block: TraitForTypeImplBlockPath {
-                                        module_path: `core::num`,
-                                        trai_path: TraitPath(`core::ops::Add`),
-                                        ty_path: TypePath(`core::num::u32`, `Extern`),
+                NodeDecl::AssociatedItem(
+                    AssociatedItemNodeDecl::TraitForTypeItem(
+                        TraitForTypeItemNodeDecl::MethodFn(
+                            TraitForTypeMethodFnNodeDecl {
+                                node_path: TraitForTypeItemNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitForTypeItemPath(
+                                            Id {
+                                                value: 9,
+                                            },
+                                        ),
                                         disambiguator: 0,
                                     },
+                                },
+                                node: TraitForTypeItemNode {
+                                    node_path: TraitForTypeItemNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitForTypeItemPath(
+                                                Id {
+                                                    value: 9,
+                                                },
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    ast_idx: 17,
                                     ident: `add`,
                                     item_kind: MethodFn,
+                                    visibility: Scope::Pub,
+                                    is_generic: false,
                                 },
-                                implicit_parameters: [],
-                                self_parameter: None,
-                                regular_parameters: [
-                                    RegularParameterDeclPattern {
-                                        pattern: 0,
-                                        variables: ArenaIdxRange(
-                                            0..1,
-                                        ),
-                                        colon: ColonToken(
+                                ast_idx: 17,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
+                                explicit_parameter_decl_list: Ok(
+                                    ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
                                             TokenIdx(
-                                                467,
+                                                465,
                                             ),
                                         ),
-                                        ty: 0,
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        regular_parameters: [
+                                            RegularParameterDeclPattern {
+                                                pattern: 0,
+                                                variables: ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                                colon: ColonToken(
+                                                    TokenIdx(
+                                                        467,
+                                                    ),
+                                                ),
+                                                ty: 0,
+                                            },
+                                        ],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                469,
+                                            ),
+                                        ),
                                     },
-                                ],
-                                return_ty: Some(
-                                    ReturnTypeExpr {
-                                        expr: 1,
-                                    },
+                                ),
+                                curry_token: Ok(
+                                    Some(
+                                        CurryToken(
+                                            TokenIdx(
+                                                470,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                                return_ty: Ok(
+                                    Some(
+                                        ReturnTypeExpr {
+                                            expr: 1,
+                                        },
+                                    ),
+                                ),
+                                eol_colon: Ok(
+                                    EolToken::Semicolon(
+                                        EolSemicolonToken {
+                                            token_idx: TokenIdx(
+                                                472,
+                                            ),
+                                        },
+                                    ),
                                 ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -8946,27 +10889,69 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ImplBlock(
-                    TypeImplBlock(
-                        TypeImplBlockPath(
-                            Id {
-                                value: 26,
-                            },
-                        ),
-                    ),
-                ),
-                Decl::ImplBlock(
-                    ImplBlockDecl::Type(
-                        TypeImplBlockDecl {
+                EntityNodePath::ImplBlock(
+                    ImplBlockNodePath::TypeImplBlock(
+                        TypeImplBlockNodePath {
                             path: TypeImplBlockPath {
                                 module_path: `core::num`,
                                 ty_path: TypePath(`core::num::u64`, `Extern`),
                                 disambiguator: 0,
                             },
-                            implicit_parameters: [],
+                        },
+                    ),
+                ),
+                NodeDecl::ImplBlock(
+                    ImplBlockNodeDecl::Type(
+                        TypeImplBlockNodeDecl {
+                            node_path: TypeImplBlockNodePath {
+                                path: TypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::u64`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            },
+                            ast_idx: 78,
+                            impl_block: TypeImplBlockNode {
+                                node_path: TypeImplBlockNodePath {
+                                    path: TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::u64`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 78,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        497,
+                                    ),
+                                },
+                                ty_expr: 30,
+                                items: TypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        18..19,
+                                    ),
+                                },
+                            },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    497,
+                                ),
+                            },
+                            implicit_parameter_decl_list: Ok(
+                                None,
+                            ),
                             ty_expr: TypeExpr {
                                 expr: 0,
                             },
+                            eol_colon: Ok(
+                                EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            499,
+                                        ),
+                                    },
+                                ),
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -9059,39 +11044,97 @@ Ok(
                 ),
             ),
             (
-                EntityPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
-                        TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::u64`, `Extern`),
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath(
+                                    Id {
+                                        value: 13,
+                                    },
+                                ),
                                 disambiguator: 0,
                             },
-                            ident: `abs`,
-                            item_kind: MethodFn,
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
-                    AssociatedItemDecl::TypeItem(
-                        TypeItemDecl::MethodFn(
-                            TypeMethodFnDecl {
-                                path: TypeItemPath {
-                                    impl_block: TypeImplBlockPath {
-                                        module_path: `core::num`,
-                                        ty_path: TypePath(`core::num::u64`, `Extern`),
+                NodeDecl::AssociatedItem(
+                    AssociatedItemNodeDecl::TypeItem(
+                        TypeItemNodeDecl::MethodFn(
+                            TypeMethodFnNodeDecl {
+                                node_path: TypeItemNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypeItemPath(
+                                            Id {
+                                                value: 13,
+                                            },
+                                        ),
                                         disambiguator: 0,
                                     },
+                                },
+                                node: TypeItemNode {
+                                    node_path: TypeItemNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                Id {
+                                                    value: 13,
+                                                },
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    ast_idx: 18,
                                     ident: `abs`,
                                     item_kind: MethodFn,
+                                    visibility: Scope::Pub,
+                                    is_generic: false,
                                 },
-                                implicit_parameters: [],
-                                self_parameter: None,
-                                regular_parameters: [],
-                                return_ty: Some(
-                                    ReturnTypeExpr {
-                                        expr: 0,
+                                ast_idx: 18,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
+                                explicit_parameter_decl_list: Ok(
+                                    ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
+                                            TokenIdx(
+                                                503,
+                                            ),
+                                        ),
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        regular_parameters: [],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                504,
+                                            ),
+                                        ),
                                     },
+                                ),
+                                curry_token: Ok(
+                                    Some(
+                                        CurryToken(
+                                            TokenIdx(
+                                                505,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                                return_ty: Ok(
+                                    Some(
+                                        ReturnTypeExpr {
+                                            expr: 0,
+                                        },
+                                    ),
+                                ),
+                                eol_colon: Ok(
+                                    EolToken::Semicolon(
+                                        EolSemicolonToken {
+                                            token_idx: TokenIdx(
+                                                507,
+                                            ),
+                                        },
+                                    ),
                                 ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -9277,31 +11320,58 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ImplBlock(
-                    TraitForTypeImplBlock(
-                        TraitForTypeImplBlockPath(
-                            Id {
-                                value: 27,
-                            },
-                        ),
-                    ),
-                ),
-                Decl::ImplBlock(
-                    ImplBlockDecl::TraitForType(
-                        TraitForTypeImplBlockDecl {
+                EntityNodePath::ImplBlock(
+                    ImplBlockNodePath::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockNodePath {
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
                                 ty_path: TypePath(`core::num::u64`, `Extern`),
                                 disambiguator: 0,
                             },
-                            implicit_parameters: [],
+                        },
+                    ),
+                ),
+                NodeDecl::ImplBlock(
+                    ImplBlockNodeDecl::TraitForType(
+                        TraitForTypeImplBlockNodeDecl {
+                            node_path: TraitForTypeImplBlockNodePath {
+                                path: TraitForTypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    trai_path: TraitPath(`core::ops::Add`),
+                                    ty_path: TypePath(`core::num::u64`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            },
+                            ast_idx: 79,
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    508,
+                                ),
+                            },
+                            implicit_parameter_decl_list: Ok(
+                                None,
+                            ),
                             trai_expr: TraitExpr {
                                 expr: 2,
+                            },
+                            for_token: ConnectionForToken {
+                                token_idx: TokenIdx(
+                                    511,
+                                ),
                             },
                             ty_expr: TypeExpr {
                                 expr: 3,
                             },
+                            eol_colon: Ok(
+                                EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            513,
+                                        ),
+                                    },
+                                ),
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -9453,54 +11523,110 @@ Ok(
                 ),
             ),
             (
-                EntityPath::AssociatedItem(
-                    AssociatedItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath {
-                            impl_block: TraitForTypeImplBlockPath {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::u64`, `Extern`),
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TraitForTypeItem(
+                        TraitForTypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitForTypeItemPath(
+                                    Id {
+                                        value: 10,
+                                    },
+                                ),
                                 disambiguator: 0,
                             },
-                            ident: `add`,
-                            item_kind: MethodFn,
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
-                    AssociatedItemDecl::TraitForTypeItem(
-                        TraitForTypeItemDecl::MethodFn(
-                            TraitForTypeMethodFnDecl {
-                                path: TraitForTypeItemPath {
-                                    impl_block: TraitForTypeImplBlockPath {
-                                        module_path: `core::num`,
-                                        trai_path: TraitPath(`core::ops::Add`),
-                                        ty_path: TypePath(`core::num::u64`, `Extern`),
+                NodeDecl::AssociatedItem(
+                    AssociatedItemNodeDecl::TraitForTypeItem(
+                        TraitForTypeItemNodeDecl::MethodFn(
+                            TraitForTypeMethodFnNodeDecl {
+                                node_path: TraitForTypeItemNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitForTypeItemPath(
+                                            Id {
+                                                value: 10,
+                                            },
+                                        ),
                                         disambiguator: 0,
                                     },
+                                },
+                                node: TraitForTypeItemNode {
+                                    node_path: TraitForTypeItemNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitForTypeItemPath(
+                                                Id {
+                                                    value: 10,
+                                                },
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    ast_idx: 19,
                                     ident: `add`,
                                     item_kind: MethodFn,
+                                    visibility: Scope::Pub,
+                                    is_generic: false,
                                 },
-                                implicit_parameters: [],
-                                self_parameter: None,
-                                regular_parameters: [
-                                    RegularParameterDeclPattern {
-                                        pattern: 0,
-                                        variables: ArenaIdxRange(
-                                            0..1,
-                                        ),
-                                        colon: ColonToken(
+                                ast_idx: 19,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
+                                explicit_parameter_decl_list: Ok(
+                                    ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
                                             TokenIdx(
-                                                519,
+                                                517,
                                             ),
                                         ),
-                                        ty: 0,
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        regular_parameters: [
+                                            RegularParameterDeclPattern {
+                                                pattern: 0,
+                                                variables: ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                                colon: ColonToken(
+                                                    TokenIdx(
+                                                        519,
+                                                    ),
+                                                ),
+                                                ty: 0,
+                                            },
+                                        ],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                521,
+                                            ),
+                                        ),
                                     },
-                                ],
-                                return_ty: Some(
-                                    ReturnTypeExpr {
-                                        expr: 1,
-                                    },
+                                ),
+                                curry_token: Ok(
+                                    Some(
+                                        CurryToken(
+                                            TokenIdx(
+                                                522,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                                return_ty: Ok(
+                                    Some(
+                                        ReturnTypeExpr {
+                                            expr: 1,
+                                        },
+                                    ),
+                                ),
+                                eol_colon: Ok(
+                                    EolToken::Semicolon(
+                                        EolSemicolonToken {
+                                            token_idx: TokenIdx(
+                                                524,
+                                            ),
+                                        },
+                                    ),
                                 ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -9823,27 +11949,69 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ImplBlock(
-                    TypeImplBlock(
-                        TypeImplBlockPath(
-                            Id {
-                                value: 27,
-                            },
-                        ),
-                    ),
-                ),
-                Decl::ImplBlock(
-                    ImplBlockDecl::Type(
-                        TypeImplBlockDecl {
+                EntityNodePath::ImplBlock(
+                    ImplBlockNodePath::TypeImplBlock(
+                        TypeImplBlockNodePath {
                             path: TypeImplBlockPath {
                                 module_path: `core::num`,
                                 ty_path: TypePath(`core::num::u128`, `Extern`),
                                 disambiguator: 0,
                             },
-                            implicit_parameters: [],
+                        },
+                    ),
+                ),
+                NodeDecl::ImplBlock(
+                    ImplBlockNodeDecl::Type(
+                        TypeImplBlockNodeDecl {
+                            node_path: TypeImplBlockNodePath {
+                                path: TypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::u128`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            },
+                            ast_idx: 83,
+                            impl_block: TypeImplBlockNode {
+                                node_path: TypeImplBlockNodePath {
+                                    path: TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::u128`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 83,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        549,
+                                    ),
+                                },
+                                ty_expr: 33,
+                                items: TypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        20..21,
+                                    ),
+                                },
+                            },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    549,
+                                ),
+                            },
+                            implicit_parameter_decl_list: Ok(
+                                None,
+                            ),
                             ty_expr: TypeExpr {
                                 expr: 0,
                             },
+                            eol_colon: Ok(
+                                EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            551,
+                                        ),
+                                    },
+                                ),
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -9936,39 +12104,97 @@ Ok(
                 ),
             ),
             (
-                EntityPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
-                        TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::u128`, `Extern`),
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath(
+                                    Id {
+                                        value: 14,
+                                    },
+                                ),
                                 disambiguator: 0,
                             },
-                            ident: `abs`,
-                            item_kind: MethodFn,
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
-                    AssociatedItemDecl::TypeItem(
-                        TypeItemDecl::MethodFn(
-                            TypeMethodFnDecl {
-                                path: TypeItemPath {
-                                    impl_block: TypeImplBlockPath {
-                                        module_path: `core::num`,
-                                        ty_path: TypePath(`core::num::u128`, `Extern`),
+                NodeDecl::AssociatedItem(
+                    AssociatedItemNodeDecl::TypeItem(
+                        TypeItemNodeDecl::MethodFn(
+                            TypeMethodFnNodeDecl {
+                                node_path: TypeItemNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypeItemPath(
+                                            Id {
+                                                value: 14,
+                                            },
+                                        ),
                                         disambiguator: 0,
                                     },
+                                },
+                                node: TypeItemNode {
+                                    node_path: TypeItemNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                Id {
+                                                    value: 14,
+                                                },
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    ast_idx: 20,
                                     ident: `abs`,
                                     item_kind: MethodFn,
+                                    visibility: Scope::Pub,
+                                    is_generic: false,
                                 },
-                                implicit_parameters: [],
-                                self_parameter: None,
-                                regular_parameters: [],
-                                return_ty: Some(
-                                    ReturnTypeExpr {
-                                        expr: 0,
+                                ast_idx: 20,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
+                                explicit_parameter_decl_list: Ok(
+                                    ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
+                                            TokenIdx(
+                                                555,
+                                            ),
+                                        ),
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        regular_parameters: [],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                556,
+                                            ),
+                                        ),
                                     },
+                                ),
+                                curry_token: Ok(
+                                    Some(
+                                        CurryToken(
+                                            TokenIdx(
+                                                557,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                                return_ty: Ok(
+                                    Some(
+                                        ReturnTypeExpr {
+                                            expr: 0,
+                                        },
+                                    ),
+                                ),
+                                eol_colon: Ok(
+                                    EolToken::Semicolon(
+                                        EolSemicolonToken {
+                                            token_idx: TokenIdx(
+                                                559,
+                                            ),
+                                        },
+                                    ),
                                 ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -10154,31 +12380,58 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ImplBlock(
-                    TraitForTypeImplBlock(
-                        TraitForTypeImplBlockPath(
-                            Id {
-                                value: 28,
-                            },
-                        ),
-                    ),
-                ),
-                Decl::ImplBlock(
-                    ImplBlockDecl::TraitForType(
-                        TraitForTypeImplBlockDecl {
+                EntityNodePath::ImplBlock(
+                    ImplBlockNodePath::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockNodePath {
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
                                 ty_path: TypePath(`core::num::u128`, `Extern`),
                                 disambiguator: 0,
                             },
-                            implicit_parameters: [],
+                        },
+                    ),
+                ),
+                NodeDecl::ImplBlock(
+                    ImplBlockNodeDecl::TraitForType(
+                        TraitForTypeImplBlockNodeDecl {
+                            node_path: TraitForTypeImplBlockNodePath {
+                                path: TraitForTypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    trai_path: TraitPath(`core::ops::Add`),
+                                    ty_path: TypePath(`core::num::u128`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            },
+                            ast_idx: 84,
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    560,
+                                ),
+                            },
+                            implicit_parameter_decl_list: Ok(
+                                None,
+                            ),
                             trai_expr: TraitExpr {
                                 expr: 2,
+                            },
+                            for_token: ConnectionForToken {
+                                token_idx: TokenIdx(
+                                    563,
+                                ),
                             },
                             ty_expr: TypeExpr {
                                 expr: 3,
                             },
+                            eol_colon: Ok(
+                                EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            565,
+                                        ),
+                                    },
+                                ),
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -10330,54 +12583,110 @@ Ok(
                 ),
             ),
             (
-                EntityPath::AssociatedItem(
-                    AssociatedItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath {
-                            impl_block: TraitForTypeImplBlockPath {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::u128`, `Extern`),
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TraitForTypeItem(
+                        TraitForTypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitForTypeItemPath(
+                                    Id {
+                                        value: 11,
+                                    },
+                                ),
                                 disambiguator: 0,
                             },
-                            ident: `add`,
-                            item_kind: MethodFn,
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
-                    AssociatedItemDecl::TraitForTypeItem(
-                        TraitForTypeItemDecl::MethodFn(
-                            TraitForTypeMethodFnDecl {
-                                path: TraitForTypeItemPath {
-                                    impl_block: TraitForTypeImplBlockPath {
-                                        module_path: `core::num`,
-                                        trai_path: TraitPath(`core::ops::Add`),
-                                        ty_path: TypePath(`core::num::u128`, `Extern`),
+                NodeDecl::AssociatedItem(
+                    AssociatedItemNodeDecl::TraitForTypeItem(
+                        TraitForTypeItemNodeDecl::MethodFn(
+                            TraitForTypeMethodFnNodeDecl {
+                                node_path: TraitForTypeItemNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitForTypeItemPath(
+                                            Id {
+                                                value: 11,
+                                            },
+                                        ),
                                         disambiguator: 0,
                                     },
+                                },
+                                node: TraitForTypeItemNode {
+                                    node_path: TraitForTypeItemNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitForTypeItemPath(
+                                                Id {
+                                                    value: 11,
+                                                },
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    ast_idx: 21,
                                     ident: `add`,
                                     item_kind: MethodFn,
+                                    visibility: Scope::Pub,
+                                    is_generic: false,
                                 },
-                                implicit_parameters: [],
-                                self_parameter: None,
-                                regular_parameters: [
-                                    RegularParameterDeclPattern {
-                                        pattern: 0,
-                                        variables: ArenaIdxRange(
-                                            0..1,
-                                        ),
-                                        colon: ColonToken(
+                                ast_idx: 21,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
+                                explicit_parameter_decl_list: Ok(
+                                    ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
                                             TokenIdx(
-                                                571,
+                                                569,
                                             ),
                                         ),
-                                        ty: 0,
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        regular_parameters: [
+                                            RegularParameterDeclPattern {
+                                                pattern: 0,
+                                                variables: ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                                colon: ColonToken(
+                                                    TokenIdx(
+                                                        571,
+                                                    ),
+                                                ),
+                                                ty: 0,
+                                            },
+                                        ],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                573,
+                                            ),
+                                        ),
                                     },
-                                ],
-                                return_ty: Some(
-                                    ReturnTypeExpr {
-                                        expr: 1,
-                                    },
+                                ),
+                                curry_token: Ok(
+                                    Some(
+                                        CurryToken(
+                                            TokenIdx(
+                                                574,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                                return_ty: Ok(
+                                    Some(
+                                        ReturnTypeExpr {
+                                            expr: 1,
+                                        },
+                                    ),
+                                ),
+                                eol_colon: Ok(
+                                    EolToken::Semicolon(
+                                        EolSemicolonToken {
+                                            token_idx: TokenIdx(
+                                                576,
+                                            ),
+                                        },
+                                    ),
                                 ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -10700,27 +13009,69 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ImplBlock(
-                    TypeImplBlock(
-                        TypeImplBlockPath(
-                            Id {
-                                value: 28,
-                            },
-                        ),
-                    ),
-                ),
-                Decl::ImplBlock(
-                    ImplBlockDecl::Type(
-                        TypeImplBlockDecl {
+                EntityNodePath::ImplBlock(
+                    ImplBlockNodePath::TypeImplBlock(
+                        TypeImplBlockNodePath {
                             path: TypeImplBlockPath {
                                 module_path: `core::num`,
                                 ty_path: TypePath(`core::num::usize`, `Extern`),
                                 disambiguator: 0,
                             },
-                            implicit_parameters: [],
+                        },
+                    ),
+                ),
+                NodeDecl::ImplBlock(
+                    ImplBlockNodeDecl::Type(
+                        TypeImplBlockNodeDecl {
+                            node_path: TypeImplBlockNodePath {
+                                path: TypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::usize`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            },
+                            ast_idx: 88,
+                            impl_block: TypeImplBlockNode {
+                                node_path: TypeImplBlockNodePath {
+                                    path: TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::usize`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 88,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        601,
+                                    ),
+                                },
+                                ty_expr: 36,
+                                items: TypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        22..23,
+                                    ),
+                                },
+                            },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    601,
+                                ),
+                            },
+                            implicit_parameter_decl_list: Ok(
+                                None,
+                            ),
                             ty_expr: TypeExpr {
                                 expr: 0,
                             },
+                            eol_colon: Ok(
+                                EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            603,
+                                        ),
+                                    },
+                                ),
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -10813,39 +13164,97 @@ Ok(
                 ),
             ),
             (
-                EntityPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
-                        TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::usize`, `Extern`),
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath(
+                                    Id {
+                                        value: 15,
+                                    },
+                                ),
                                 disambiguator: 0,
                             },
-                            ident: `abs`,
-                            item_kind: MethodFn,
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
-                    AssociatedItemDecl::TypeItem(
-                        TypeItemDecl::MethodFn(
-                            TypeMethodFnDecl {
-                                path: TypeItemPath {
-                                    impl_block: TypeImplBlockPath {
-                                        module_path: `core::num`,
-                                        ty_path: TypePath(`core::num::usize`, `Extern`),
+                NodeDecl::AssociatedItem(
+                    AssociatedItemNodeDecl::TypeItem(
+                        TypeItemNodeDecl::MethodFn(
+                            TypeMethodFnNodeDecl {
+                                node_path: TypeItemNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypeItemPath(
+                                            Id {
+                                                value: 15,
+                                            },
+                                        ),
                                         disambiguator: 0,
                                     },
+                                },
+                                node: TypeItemNode {
+                                    node_path: TypeItemNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                Id {
+                                                    value: 15,
+                                                },
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    ast_idx: 22,
                                     ident: `abs`,
                                     item_kind: MethodFn,
+                                    visibility: Scope::Pub,
+                                    is_generic: false,
                                 },
-                                implicit_parameters: [],
-                                self_parameter: None,
-                                regular_parameters: [],
-                                return_ty: Some(
-                                    ReturnTypeExpr {
-                                        expr: 0,
+                                ast_idx: 22,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
+                                explicit_parameter_decl_list: Ok(
+                                    ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
+                                            TokenIdx(
+                                                607,
+                                            ),
+                                        ),
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        regular_parameters: [],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                608,
+                                            ),
+                                        ),
                                     },
+                                ),
+                                curry_token: Ok(
+                                    Some(
+                                        CurryToken(
+                                            TokenIdx(
+                                                609,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                                return_ty: Ok(
+                                    Some(
+                                        ReturnTypeExpr {
+                                            expr: 0,
+                                        },
+                                    ),
+                                ),
+                                eol_colon: Ok(
+                                    EolToken::Semicolon(
+                                        EolSemicolonToken {
+                                            token_idx: TokenIdx(
+                                                611,
+                                            ),
+                                        },
+                                    ),
                                 ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -11031,31 +13440,58 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ImplBlock(
-                    TraitForTypeImplBlock(
-                        TraitForTypeImplBlockPath(
-                            Id {
-                                value: 29,
-                            },
-                        ),
-                    ),
-                ),
-                Decl::ImplBlock(
-                    ImplBlockDecl::TraitForType(
-                        TraitForTypeImplBlockDecl {
+                EntityNodePath::ImplBlock(
+                    ImplBlockNodePath::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockNodePath {
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
                                 ty_path: TypePath(`core::num::usize`, `Extern`),
                                 disambiguator: 0,
                             },
-                            implicit_parameters: [],
+                        },
+                    ),
+                ),
+                NodeDecl::ImplBlock(
+                    ImplBlockNodeDecl::TraitForType(
+                        TraitForTypeImplBlockNodeDecl {
+                            node_path: TraitForTypeImplBlockNodePath {
+                                path: TraitForTypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    trai_path: TraitPath(`core::ops::Add`),
+                                    ty_path: TypePath(`core::num::usize`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            },
+                            ast_idx: 89,
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    612,
+                                ),
+                            },
+                            implicit_parameter_decl_list: Ok(
+                                None,
+                            ),
                             trai_expr: TraitExpr {
                                 expr: 2,
+                            },
+                            for_token: ConnectionForToken {
+                                token_idx: TokenIdx(
+                                    615,
+                                ),
                             },
                             ty_expr: TypeExpr {
                                 expr: 3,
                             },
+                            eol_colon: Ok(
+                                EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            617,
+                                        ),
+                                    },
+                                ),
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -11207,54 +13643,110 @@ Ok(
                 ),
             ),
             (
-                EntityPath::AssociatedItem(
-                    AssociatedItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath {
-                            impl_block: TraitForTypeImplBlockPath {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::usize`, `Extern`),
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TraitForTypeItem(
+                        TraitForTypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitForTypeItemPath(
+                                    Id {
+                                        value: 12,
+                                    },
+                                ),
                                 disambiguator: 0,
                             },
-                            ident: `add`,
-                            item_kind: MethodFn,
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
-                    AssociatedItemDecl::TraitForTypeItem(
-                        TraitForTypeItemDecl::MethodFn(
-                            TraitForTypeMethodFnDecl {
-                                path: TraitForTypeItemPath {
-                                    impl_block: TraitForTypeImplBlockPath {
-                                        module_path: `core::num`,
-                                        trai_path: TraitPath(`core::ops::Add`),
-                                        ty_path: TypePath(`core::num::usize`, `Extern`),
+                NodeDecl::AssociatedItem(
+                    AssociatedItemNodeDecl::TraitForTypeItem(
+                        TraitForTypeItemNodeDecl::MethodFn(
+                            TraitForTypeMethodFnNodeDecl {
+                                node_path: TraitForTypeItemNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitForTypeItemPath(
+                                            Id {
+                                                value: 12,
+                                            },
+                                        ),
                                         disambiguator: 0,
                                     },
+                                },
+                                node: TraitForTypeItemNode {
+                                    node_path: TraitForTypeItemNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitForTypeItemPath(
+                                                Id {
+                                                    value: 12,
+                                                },
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    ast_idx: 23,
                                     ident: `add`,
                                     item_kind: MethodFn,
+                                    visibility: Scope::Pub,
+                                    is_generic: false,
                                 },
-                                implicit_parameters: [],
-                                self_parameter: None,
-                                regular_parameters: [
-                                    RegularParameterDeclPattern {
-                                        pattern: 0,
-                                        variables: ArenaIdxRange(
-                                            0..1,
-                                        ),
-                                        colon: ColonToken(
+                                ast_idx: 23,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
+                                explicit_parameter_decl_list: Ok(
+                                    ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
                                             TokenIdx(
-                                                623,
+                                                621,
                                             ),
                                         ),
-                                        ty: 0,
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        regular_parameters: [
+                                            RegularParameterDeclPattern {
+                                                pattern: 0,
+                                                variables: ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                                colon: ColonToken(
+                                                    TokenIdx(
+                                                        623,
+                                                    ),
+                                                ),
+                                                ty: 0,
+                                            },
+                                        ],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                625,
+                                            ),
+                                        ),
                                     },
-                                ],
-                                return_ty: Some(
-                                    ReturnTypeExpr {
-                                        expr: 1,
-                                    },
+                                ),
+                                curry_token: Ok(
+                                    Some(
+                                        CurryToken(
+                                            TokenIdx(
+                                                626,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                                return_ty: Ok(
+                                    Some(
+                                        ReturnTypeExpr {
+                                            expr: 1,
+                                        },
+                                    ),
+                                ),
+                                eol_colon: Ok(
+                                    EolToken::Semicolon(
+                                        EolSemicolonToken {
+                                            token_idx: TokenIdx(
+                                                628,
+                                            ),
+                                        },
+                                    ),
                                 ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -11577,27 +14069,69 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ImplBlock(
-                    TypeImplBlock(
-                        TypeImplBlockPath(
-                            Id {
-                                value: 29,
-                            },
-                        ),
-                    ),
-                ),
-                Decl::ImplBlock(
-                    ImplBlockDecl::Type(
-                        TypeImplBlockDecl {
+                EntityNodePath::ImplBlock(
+                    ImplBlockNodePath::TypeImplBlock(
+                        TypeImplBlockNodePath {
                             path: TypeImplBlockPath {
                                 module_path: `core::num`,
                                 ty_path: TypePath(`core::num::f32`, `Extern`),
                                 disambiguator: 0,
                             },
-                            implicit_parameters: [],
+                        },
+                    ),
+                ),
+                NodeDecl::ImplBlock(
+                    ImplBlockNodeDecl::Type(
+                        TypeImplBlockNodeDecl {
+                            node_path: TypeImplBlockNodePath {
+                                path: TypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::f32`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            },
+                            ast_idx: 93,
+                            impl_block: TypeImplBlockNode {
+                                node_path: TypeImplBlockNodePath {
+                                    path: TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 93,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        653,
+                                    ),
+                                },
+                                ty_expr: 39,
+                                items: TypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        24..26,
+                                    ),
+                                },
+                            },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    653,
+                                ),
+                            },
+                            implicit_parameter_decl_list: Ok(
+                                None,
+                            ),
                             ty_expr: TypeExpr {
                                 expr: 0,
                             },
+                            eol_colon: Ok(
+                                EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            655,
+                                        ),
+                                    },
+                                ),
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -11690,39 +14224,97 @@ Ok(
                 ),
             ),
             (
-                EntityPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
-                        TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath(
+                                    Id {
+                                        value: 16,
+                                    },
+                                ),
                                 disambiguator: 0,
                             },
-                            ident: `abs`,
-                            item_kind: MethodFn,
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
-                    AssociatedItemDecl::TypeItem(
-                        TypeItemDecl::MethodFn(
-                            TypeMethodFnDecl {
-                                path: TypeItemPath {
-                                    impl_block: TypeImplBlockPath {
-                                        module_path: `core::num`,
-                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                NodeDecl::AssociatedItem(
+                    AssociatedItemNodeDecl::TypeItem(
+                        TypeItemNodeDecl::MethodFn(
+                            TypeMethodFnNodeDecl {
+                                node_path: TypeItemNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypeItemPath(
+                                            Id {
+                                                value: 16,
+                                            },
+                                        ),
                                         disambiguator: 0,
                                     },
+                                },
+                                node: TypeItemNode {
+                                    node_path: TypeItemNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                Id {
+                                                    value: 16,
+                                                },
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    ast_idx: 24,
                                     ident: `abs`,
                                     item_kind: MethodFn,
+                                    visibility: Scope::Pub,
+                                    is_generic: false,
                                 },
-                                implicit_parameters: [],
-                                self_parameter: None,
-                                regular_parameters: [],
-                                return_ty: Some(
-                                    ReturnTypeExpr {
-                                        expr: 0,
+                                ast_idx: 24,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
+                                explicit_parameter_decl_list: Ok(
+                                    ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
+                                            TokenIdx(
+                                                659,
+                                            ),
+                                        ),
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        regular_parameters: [],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                660,
+                                            ),
+                                        ),
                                     },
+                                ),
+                                curry_token: Ok(
+                                    Some(
+                                        CurryToken(
+                                            TokenIdx(
+                                                661,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                                return_ty: Ok(
+                                    Some(
+                                        ReturnTypeExpr {
+                                            expr: 0,
+                                        },
+                                    ),
+                                ),
+                                eol_colon: Ok(
+                                    EolToken::Semicolon(
+                                        EolSemicolonToken {
+                                            token_idx: TokenIdx(
+                                                663,
+                                            ),
+                                        },
+                                    ),
                                 ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -11908,39 +14500,97 @@ Ok(
                 ),
             ),
             (
-                EntityPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
-                        TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath(
+                                    Id {
+                                        value: 17,
+                                    },
+                                ),
                                 disambiguator: 0,
                             },
-                            ident: `sqrt`,
-                            item_kind: MethodFn,
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
-                    AssociatedItemDecl::TypeItem(
-                        TypeItemDecl::MethodFn(
-                            TypeMethodFnDecl {
-                                path: TypeItemPath {
-                                    impl_block: TypeImplBlockPath {
-                                        module_path: `core::num`,
-                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                NodeDecl::AssociatedItem(
+                    AssociatedItemNodeDecl::TypeItem(
+                        TypeItemNodeDecl::MethodFn(
+                            TypeMethodFnNodeDecl {
+                                node_path: TypeItemNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypeItemPath(
+                                            Id {
+                                                value: 17,
+                                            },
+                                        ),
                                         disambiguator: 0,
                                     },
+                                },
+                                node: TypeItemNode {
+                                    node_path: TypeItemNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                Id {
+                                                    value: 17,
+                                                },
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    ast_idx: 25,
                                     ident: `sqrt`,
                                     item_kind: MethodFn,
+                                    visibility: Scope::Pub,
+                                    is_generic: false,
                                 },
-                                implicit_parameters: [],
-                                self_parameter: None,
-                                regular_parameters: [],
-                                return_ty: Some(
-                                    ReturnTypeExpr {
-                                        expr: 0,
+                                ast_idx: 25,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
+                                explicit_parameter_decl_list: Ok(
+                                    ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
+                                            TokenIdx(
+                                                667,
+                                            ),
+                                        ),
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        regular_parameters: [],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                668,
+                                            ),
+                                        ),
                                     },
+                                ),
+                                curry_token: Ok(
+                                    Some(
+                                        CurryToken(
+                                            TokenIdx(
+                                                669,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                                return_ty: Ok(
+                                    Some(
+                                        ReturnTypeExpr {
+                                            expr: 0,
+                                        },
+                                    ),
+                                ),
+                                eol_colon: Ok(
+                                    EolToken::Semicolon(
+                                        EolSemicolonToken {
+                                            token_idx: TokenIdx(
+                                                671,
+                                            ),
+                                        },
+                                    ),
                                 ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -12126,31 +14776,58 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ImplBlock(
-                    TraitForTypeImplBlock(
-                        TraitForTypeImplBlockPath(
-                            Id {
-                                value: 30,
-                            },
-                        ),
-                    ),
-                ),
-                Decl::ImplBlock(
-                    ImplBlockDecl::TraitForType(
-                        TraitForTypeImplBlockDecl {
+                EntityNodePath::ImplBlock(
+                    ImplBlockNodePath::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockNodePath {
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
                                 ty_path: TypePath(`core::num::f32`, `Extern`),
                                 disambiguator: 0,
                             },
-                            implicit_parameters: [],
+                        },
+                    ),
+                ),
+                NodeDecl::ImplBlock(
+                    ImplBlockNodeDecl::TraitForType(
+                        TraitForTypeImplBlockNodeDecl {
+                            node_path: TraitForTypeImplBlockNodePath {
+                                path: TraitForTypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    trai_path: TraitPath(`core::ops::Add`),
+                                    ty_path: TypePath(`core::num::f32`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            },
+                            ast_idx: 94,
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    672,
+                                ),
+                            },
+                            implicit_parameter_decl_list: Ok(
+                                None,
+                            ),
                             trai_expr: TraitExpr {
                                 expr: 2,
+                            },
+                            for_token: ConnectionForToken {
+                                token_idx: TokenIdx(
+                                    675,
+                                ),
                             },
                             ty_expr: TypeExpr {
                                 expr: 3,
                             },
+                            eol_colon: Ok(
+                                EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            677,
+                                        ),
+                                    },
+                                ),
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -12302,54 +14979,112 @@ Ok(
                 ),
             ),
             (
-                EntityPath::AssociatedItem(
-                    AssociatedItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath {
-                            impl_block: TraitForTypeImplBlockPath {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TraitForTypeItem(
+                        TraitForTypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitForTypeItemPath(
+                                    Id {
+                                        value: 13,
+                                    },
+                                ),
                                 disambiguator: 0,
                             },
-                            ident: `add`,
-                            item_kind: MethodFn,
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
-                    AssociatedItemDecl::TraitForTypeItem(
-                        TraitForTypeItemDecl::MethodFn(
-                            TraitForTypeMethodFnDecl {
-                                path: TraitForTypeItemPath {
-                                    impl_block: TraitForTypeImplBlockPath {
-                                        module_path: `core::num`,
-                                        trai_path: TraitPath(`core::ops::Add`),
-                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                NodeDecl::AssociatedItem(
+                    AssociatedItemNodeDecl::TraitForTypeItem(
+                        TraitForTypeItemNodeDecl::MethodFn(
+                            TraitForTypeMethodFnNodeDecl {
+                                node_path: TraitForTypeItemNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitForTypeItemPath(
+                                            Id {
+                                                value: 13,
+                                            },
+                                        ),
                                         disambiguator: 0,
                                     },
+                                },
+                                node: TraitForTypeItemNode {
+                                    node_path: TraitForTypeItemNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitForTypeItemPath(
+                                                Id {
+                                                    value: 13,
+                                                },
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    ast_idx: 26,
                                     ident: `add`,
                                     item_kind: MethodFn,
+                                    visibility: Scope::PubUnder(
+                                        `core::num`,
+                                    ),
+                                    is_generic: false,
                                 },
-                                implicit_parameters: [],
-                                self_parameter: None,
-                                regular_parameters: [
-                                    RegularParameterDeclPattern {
-                                        pattern: 0,
-                                        variables: ArenaIdxRange(
-                                            0..1,
-                                        ),
-                                        colon: ColonToken(
+                                ast_idx: 26,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
+                                explicit_parameter_decl_list: Ok(
+                                    ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
                                             TokenIdx(
-                                                682,
+                                                680,
                                             ),
                                         ),
-                                        ty: 0,
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        regular_parameters: [
+                                            RegularParameterDeclPattern {
+                                                pattern: 0,
+                                                variables: ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                                colon: ColonToken(
+                                                    TokenIdx(
+                                                        682,
+                                                    ),
+                                                ),
+                                                ty: 0,
+                                            },
+                                        ],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                684,
+                                            ),
+                                        ),
                                     },
-                                ],
-                                return_ty: Some(
-                                    ReturnTypeExpr {
-                                        expr: 1,
-                                    },
+                                ),
+                                curry_token: Ok(
+                                    Some(
+                                        CurryToken(
+                                            TokenIdx(
+                                                685,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                                return_ty: Ok(
+                                    Some(
+                                        ReturnTypeExpr {
+                                            expr: 1,
+                                        },
+                                    ),
+                                ),
+                                eol_colon: Ok(
+                                    EolToken::Semicolon(
+                                        EolSemicolonToken {
+                                            token_idx: TokenIdx(
+                                                687,
+                                            ),
+                                        },
+                                    ),
                                 ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -12672,27 +15407,69 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ImplBlock(
-                    TypeImplBlock(
-                        TypeImplBlockPath(
-                            Id {
-                                value: 30,
-                            },
-                        ),
-                    ),
-                ),
-                Decl::ImplBlock(
-                    ImplBlockDecl::Type(
-                        TypeImplBlockDecl {
+                EntityNodePath::ImplBlock(
+                    ImplBlockNodePath::TypeImplBlock(
+                        TypeImplBlockNodePath {
                             path: TypeImplBlockPath {
                                 module_path: `core::num`,
                                 ty_path: TypePath(`core::num::f64`, `Extern`),
                                 disambiguator: 0,
                             },
-                            implicit_parameters: [],
+                        },
+                    ),
+                ),
+                NodeDecl::ImplBlock(
+                    ImplBlockNodeDecl::Type(
+                        TypeImplBlockNodeDecl {
+                            node_path: TypeImplBlockNodePath {
+                                path: TypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::f64`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            },
+                            ast_idx: 98,
+                            impl_block: TypeImplBlockNode {
+                                node_path: TypeImplBlockNodePath {
+                                    path: TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::f64`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 98,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        712,
+                                    ),
+                                },
+                                ty_expr: 42,
+                                items: TypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        27..28,
+                                    ),
+                                },
+                            },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    712,
+                                ),
+                            },
+                            implicit_parameter_decl_list: Ok(
+                                None,
+                            ),
                             ty_expr: TypeExpr {
                                 expr: 0,
                             },
+                            eol_colon: Ok(
+                                EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            714,
+                                        ),
+                                    },
+                                ),
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -12785,39 +15562,97 @@ Ok(
                 ),
             ),
             (
-                EntityPath::AssociatedItem(
-                    AssociatedItemPath::TypeItem(
-                        TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::f64`, `Extern`),
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath(
+                                    Id {
+                                        value: 18,
+                                    },
+                                ),
                                 disambiguator: 0,
                             },
-                            ident: `abs`,
-                            item_kind: MethodFn,
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
-                    AssociatedItemDecl::TypeItem(
-                        TypeItemDecl::MethodFn(
-                            TypeMethodFnDecl {
-                                path: TypeItemPath {
-                                    impl_block: TypeImplBlockPath {
-                                        module_path: `core::num`,
-                                        ty_path: TypePath(`core::num::f64`, `Extern`),
+                NodeDecl::AssociatedItem(
+                    AssociatedItemNodeDecl::TypeItem(
+                        TypeItemNodeDecl::MethodFn(
+                            TypeMethodFnNodeDecl {
+                                node_path: TypeItemNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypeItemPath(
+                                            Id {
+                                                value: 18,
+                                            },
+                                        ),
                                         disambiguator: 0,
                                     },
+                                },
+                                node: TypeItemNode {
+                                    node_path: TypeItemNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                Id {
+                                                    value: 18,
+                                                },
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    ast_idx: 27,
                                     ident: `abs`,
                                     item_kind: MethodFn,
+                                    visibility: Scope::Pub,
+                                    is_generic: false,
                                 },
-                                implicit_parameters: [],
-                                self_parameter: None,
-                                regular_parameters: [],
-                                return_ty: Some(
-                                    ReturnTypeExpr {
-                                        expr: 0,
+                                ast_idx: 27,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
+                                explicit_parameter_decl_list: Ok(
+                                    ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
+                                            TokenIdx(
+                                                718,
+                                            ),
+                                        ),
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        regular_parameters: [],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                719,
+                                            ),
+                                        ),
                                     },
+                                ),
+                                curry_token: Ok(
+                                    Some(
+                                        CurryToken(
+                                            TokenIdx(
+                                                720,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                                return_ty: Ok(
+                                    Some(
+                                        ReturnTypeExpr {
+                                            expr: 0,
+                                        },
+                                    ),
+                                ),
+                                eol_colon: Ok(
+                                    EolToken::Semicolon(
+                                        EolSemicolonToken {
+                                            token_idx: TokenIdx(
+                                                722,
+                                            ),
+                                        },
+                                    ),
                                 ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -13003,31 +15838,58 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ImplBlock(
-                    TraitForTypeImplBlock(
-                        TraitForTypeImplBlockPath(
-                            Id {
-                                value: 31,
-                            },
-                        ),
-                    ),
-                ),
-                Decl::ImplBlock(
-                    ImplBlockDecl::TraitForType(
-                        TraitForTypeImplBlockDecl {
+                EntityNodePath::ImplBlock(
+                    ImplBlockNodePath::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockNodePath {
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
                                 ty_path: TypePath(`core::num::f64`, `Extern`),
                                 disambiguator: 0,
                             },
-                            implicit_parameters: [],
+                        },
+                    ),
+                ),
+                NodeDecl::ImplBlock(
+                    ImplBlockNodeDecl::TraitForType(
+                        TraitForTypeImplBlockNodeDecl {
+                            node_path: TraitForTypeImplBlockNodePath {
+                                path: TraitForTypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    trai_path: TraitPath(`core::ops::Add`),
+                                    ty_path: TypePath(`core::num::f64`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            },
+                            ast_idx: 99,
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    723,
+                                ),
+                            },
+                            implicit_parameter_decl_list: Ok(
+                                None,
+                            ),
                             trai_expr: TraitExpr {
                                 expr: 2,
+                            },
+                            for_token: ConnectionForToken {
+                                token_idx: TokenIdx(
+                                    726,
+                                ),
                             },
                             ty_expr: TypeExpr {
                                 expr: 3,
                             },
+                            eol_colon: Ok(
+                                EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            728,
+                                        ),
+                                    },
+                                ),
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -13179,54 +16041,110 @@ Ok(
                 ),
             ),
             (
-                EntityPath::AssociatedItem(
-                    AssociatedItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath {
-                            impl_block: TraitForTypeImplBlockPath {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::f64`, `Extern`),
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TraitForTypeItem(
+                        TraitForTypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitForTypeItemPath(
+                                    Id {
+                                        value: 14,
+                                    },
+                                ),
                                 disambiguator: 0,
                             },
-                            ident: `add`,
-                            item_kind: MethodFn,
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
-                    AssociatedItemDecl::TraitForTypeItem(
-                        TraitForTypeItemDecl::MethodFn(
-                            TraitForTypeMethodFnDecl {
-                                path: TraitForTypeItemPath {
-                                    impl_block: TraitForTypeImplBlockPath {
-                                        module_path: `core::num`,
-                                        trai_path: TraitPath(`core::ops::Add`),
-                                        ty_path: TypePath(`core::num::f64`, `Extern`),
+                NodeDecl::AssociatedItem(
+                    AssociatedItemNodeDecl::TraitForTypeItem(
+                        TraitForTypeItemNodeDecl::MethodFn(
+                            TraitForTypeMethodFnNodeDecl {
+                                node_path: TraitForTypeItemNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitForTypeItemPath(
+                                            Id {
+                                                value: 14,
+                                            },
+                                        ),
                                         disambiguator: 0,
                                     },
+                                },
+                                node: TraitForTypeItemNode {
+                                    node_path: TraitForTypeItemNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitForTypeItemPath(
+                                                Id {
+                                                    value: 14,
+                                                },
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    ast_idx: 28,
                                     ident: `add`,
                                     item_kind: MethodFn,
+                                    visibility: Scope::Pub,
+                                    is_generic: false,
                                 },
-                                implicit_parameters: [],
-                                self_parameter: None,
-                                regular_parameters: [
-                                    RegularParameterDeclPattern {
-                                        pattern: 0,
-                                        variables: ArenaIdxRange(
-                                            0..1,
-                                        ),
-                                        colon: ColonToken(
+                                ast_idx: 28,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
+                                explicit_parameter_decl_list: Ok(
+                                    ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
                                             TokenIdx(
-                                                734,
+                                                732,
                                             ),
                                         ),
-                                        ty: 0,
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        regular_parameters: [
+                                            RegularParameterDeclPattern {
+                                                pattern: 0,
+                                                variables: ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                                colon: ColonToken(
+                                                    TokenIdx(
+                                                        734,
+                                                    ),
+                                                ),
+                                                ty: 0,
+                                            },
+                                        ],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                736,
+                                            ),
+                                        ),
                                     },
-                                ],
-                                return_ty: Some(
-                                    ReturnTypeExpr {
-                                        expr: 1,
-                                    },
+                                ),
+                                curry_token: Ok(
+                                    Some(
+                                        CurryToken(
+                                            TokenIdx(
+                                                737,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                                return_ty: Ok(
+                                    Some(
+                                        ReturnTypeExpr {
+                                            expr: 1,
+                                        },
+                                    ),
+                                ),
+                                eol_colon: Ok(
+                                    EolToken::Semicolon(
+                                        EolSemicolonToken {
+                                            token_idx: TokenIdx(
+                                                739,
+                                            ),
+                                        },
+                                    ),
                                 ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {

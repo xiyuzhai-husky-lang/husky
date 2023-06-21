@@ -85,7 +85,7 @@ impl Scope {
                 Scope::Private(module_path) => module_path == reference_module_path,
                 Scope::Disconnected { .. } => todo!(),
             },
-            ReferenceModulePath::Generic => todo!(),
+            ReferenceModulePath::Generic => self == Scope::Pub,
         }
     }
 }

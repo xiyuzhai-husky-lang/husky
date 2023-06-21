@@ -16,14 +16,6 @@ pub struct TypeImplBlockNodeDecl {
     pub expr_region: ExprRegion,
 }
 
-impl HasNodeDecl for TypeImplBlockNodePath {
-    type NodeDecl = TypeImplBlockNodeDecl;
-
-    fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
-        ty_impl_block_node_decl(db, self)
-    }
-}
-
 impl HasNodeDecl for TypeImplBlockNode {
     type NodeDecl = TypeImplBlockNodeDecl;
 
@@ -84,6 +76,14 @@ impl<'a> DeclParser<'a> {
             eol_colon,
             parser.finish(),
         )
+    }
+}
+
+impl HasNodeDecl for TypeImplBlockNodePath {
+    type NodeDecl = TypeImplBlockNodeDecl;
+
+    fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
+        ty_impl_block_node_decl(db, self)
     }
 }
 

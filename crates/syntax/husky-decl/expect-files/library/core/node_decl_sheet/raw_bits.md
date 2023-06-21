@@ -1,33 +1,40 @@
 Ok(
-    DeclSheet {
-        [salsa id]: 13,
+    NodeDeclSheet {
+        [salsa id]: 15,
         decls: [
             (
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Type(
-                        TypePath(`core::option::Option`, `Enum`),
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Type(
+                        TypeNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(
+                                    Id {
+                                        value: 30,
+                                    },
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Decl::ModuleItem(
-                    ModuleItemDecl::Type(
-                        TypeDecl::Enum(
-                            EnumTypeDecl {
-                                path: TypePath(`core::option::Option`, `Enum`),
-                                implicit_parameters: [
-                                    ImplicitParameterDeclPattern {
-                                        annotated_variance_token: None,
-                                        symbol: 0,
-                                        variant: ImplicitParameterDeclPatternVariant::Type {
-                                            ident_token: IdentToken {
-                                                ident: `T`,
-                                                token_idx: TokenIdx(
-                                                    4,
-                                                ),
+                NodeDecl::ModuleItem(
+                    ModuleItemNodeDecl::Type(
+                        TypeNodeDecl::Extern(
+                            ExternTypeNodeDecl {
+                                node_path: TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(
+                                            Id {
+                                                value: 30,
                                             },
-                                            traits: None,
-                                        },
+                                        ),
+                                        disambiguator: 0,
                                     },
-                                ],
+                                },
+                                ast_idx: 2,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
@@ -38,7 +45,7 @@ Ok(
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(
                                                                 Id {
-                                                                    value: 29,
+                                                                    value: 30,
                                                                 },
                                                             ),
                                                             disambiguator: 0,
@@ -77,36 +84,11 @@ Ok(
                                                 data: [],
                                             },
                                             current_symbol_arena: Arena {
-                                                data: [
-                                                    CurrentSymbol {
-                                                        modifier: Const,
-                                                        access_start: TokenIdx(
-                                                            5,
-                                                        ),
-                                                        access_end: None,
-                                                        variant: CurrentSymbolVariant::ImplicitParameter {
-                                                            implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
-                                                                ident_token: IdentToken {
-                                                                    ident: `T`,
-                                                                    token_idx: TokenIdx(
-                                                                        4,
-                                                                    ),
-                                                                },
-                                                            },
-                                                        },
-                                                    },
-                                                ],
+                                                data: [],
                                             },
                                             allow_self_type: True,
-                                            allow_self_value: True,
-                                            pattern_ty_constraints: [
-                                                (
-                                                    ImplicitTypeParameter,
-                                                    ArenaIdxRange(
-                                                        0..1,
-                                                    ),
-                                                ),
-                                            ],
+                                            allow_self_value: False,
+                                            pattern_ty_constraints: [],
                                         },
                                         roots: [],
                                     },
