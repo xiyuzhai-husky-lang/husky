@@ -16,7 +16,7 @@ use crate::*;
 pub enum FugitiveDeclarativeSignatureTemplate {
     Fn(FnDeclarativeSignatureTemplate),
     Gn(GnDeclarativeSignatureTemplate),
-    TypeAlias(TypeAliasDeclarativeSignatureTemplate),
+    AliasType(TypeAliasDeclarativeSignatureTemplate),
     Val(ValDeclarativeSignatureTemplate),
 }
 
@@ -55,7 +55,7 @@ impl FugitiveDeclarativeSignatureTemplate {
             FugitiveDeclarativeSignatureTemplate::Fn(decl) => decl.implicit_parameters(db),
             FugitiveDeclarativeSignatureTemplate::Val(decl) => decl.implicit_parameters(db),
             FugitiveDeclarativeSignatureTemplate::Gn(decl) => decl.implicit_parameters(db),
-            FugitiveDeclarativeSignatureTemplate::TypeAlias(_) => todo!(),
+            FugitiveDeclarativeSignatureTemplate::AliasType(_) => todo!(),
         }
     }
 }

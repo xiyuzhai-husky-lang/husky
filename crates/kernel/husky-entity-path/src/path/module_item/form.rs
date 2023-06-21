@@ -6,7 +6,7 @@ pub struct FugitivePath {
     pub module_path: ModulePath,
     pub ident: Ident,
     pub connection: ModuleItemConnection,
-    pub form_kind: FugitiveKind,
+    pub fugitive_kind: FugitiveKind,
 }
 
 impl FugitivePath {
@@ -40,7 +40,7 @@ impl<Db: EntityPathDb + ?Sized> salsa::DebugWithDb<Db> for FugitivePath {
         f.write_str("FugitivePath(`")?;
         self.show_aux(f, db)?;
         f.write_str("`, `")?;
-        self.form_kind(db).fmt(f)?;
+        self.fugitive_kind(db).fmt(f)?;
         f.write_str("`)")
     }
 }

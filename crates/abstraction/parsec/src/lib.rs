@@ -101,7 +101,7 @@ where
 
     #[inline(always)]
     fn parse<P: ParseFromStream<Self>>(&mut self) -> P {
-        todo!()
+        P::parse_from_stream(self)
     }
 
     #[inline(always)]

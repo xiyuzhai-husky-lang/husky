@@ -69,7 +69,7 @@ impl SemanticToken {
                     ModuleItemKind::Fugitive(form_kind) => match form_kind {
                         FugitiveKind::Val => ext::SemanticTokenType::VARIABLE,
                         FugitiveKind::Fn | FugitiveKind::Gn => ext::SemanticTokenType::FUNCTION,
-                        FugitiveKind::Type => todo!(),
+                        FugitiveKind::AliasType => todo!(),
                     },
                     ModuleItemKind::Trait => ext::SemanticTokenType::TYPE,
                 },

@@ -21,6 +21,14 @@ pub enum FugitiveNodeDecl {
 }
 
 impl FugitiveNodeDecl {
+    pub fn node_path(self, db: &dyn DeclDb) -> FugitiveNodePath {
+        match self {
+            FugitiveNodeDecl::Fn(decl) => decl.node_path(db),
+            FugitiveNodeDecl::Val(decl) => decl.node_path(db),
+            FugitiveNodeDecl::Gn(decl) => decl.node_path(db),
+        }
+    }
+
     pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
         match self {
             FugitiveNodeDecl::Fn(decl) => decl.ast_idx(db),
@@ -29,27 +37,11 @@ impl FugitiveNodeDecl {
         }
     }
 
-    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDeclPattern] {
-        match self {
-            FugitiveNodeDecl::Fn(decl) => decl.implicit_parameters(db),
-            FugitiveNodeDecl::Val(_decl) => &[],
-            FugitiveNodeDecl::Gn(decl) => decl.implicit_parameters(db),
-        }
-    }
-
     pub fn expr_region(self, db: &dyn DeclDb) -> ExprRegion {
         match self {
             FugitiveNodeDecl::Fn(decl) => decl.expr_region(db),
             FugitiveNodeDecl::Val(decl) => decl.expr_region(db),
             FugitiveNodeDecl::Gn(decl) => decl.expr_region(db),
-        }
-    }
-
-    pub fn node_path(self, db: &dyn DeclDb) -> FugitiveNodePath {
-        match self {
-            FugitiveNodeDecl::Fn(decl) => decl.node_path(db),
-            FugitiveNodeDecl::Val(decl) => decl.node_path(db),
-            FugitiveNodeDecl::Gn(decl) => decl.node_path(db),
         }
     }
 }
@@ -64,7 +56,53 @@ impl HasNodeDecl for FugitiveNodePath {
 
 #[salsa::tracked(jar = DeclJar)]
 pub(crate) fn fugitive_node_decl(db: &dyn DeclDb, node_path: FugitiveNodePath) -> FugitiveNodeDecl {
-    todo!()
+    let parser = DeclParser::new(db, node_path.module_path(db));
+    parser.parse_fugitive_node_decl(node_path)
+}
+
+impl<'a> DeclParser<'a> {
+    fn parse_fugitive_node_decl(&self, node_path: FugitiveNodePath) -> FugitiveNodeDecl {
+        let db = self.db();
+        let node = node_path.node(db);
+        let ast_idx: AstIdx = node.ast_idx(db);
+        match self.ast_sheet()[ast_idx] {
+            Ast::Defn {
+                token_group_idx,
+                saved_stream_state,
+                ..
+            } => self.parse_fugitive_node_decl_aux(
+                node_path,
+                ast_idx,
+                token_group_idx,
+                saved_stream_state,
+            ),
+            _ => unreachable!(),
+        }
+    }
+
+    fn parse_fugitive_node_decl_aux(
+        &self,
+        node_path: FugitiveNodePath,
+        ast_idx: AstIdx,
+        token_group_idx: TokenGroupIdx,
+        saved_stream_state: TokenStreamState,
+    ) -> FugitiveNodeDecl {
+        let db = self.db();
+        match node_path.fugitive_kind(db) {
+            FugitiveKind::Val => self
+                .parse_val_node_decl(node_path, ast_idx, token_group_idx, saved_stream_state)
+                .into(),
+            FugitiveKind::Fn => self
+                .parse_fn_node_decl(node_path, ast_idx, token_group_idx, saved_stream_state)
+                .into(),
+            FugitiveKind::AliasType => {
+                todo!()
+            }
+            FugitiveKind::Gn => self
+                .parse_gn_node_decl(node_path, ast_idx, token_group_idx, saved_stream_state)
+                .into(),
+        }
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -74,10 +112,22 @@ pub enum FugitiveDecl {
     Fn(FnDecl),
     Val(ValDecl),
     Gn(GnDecl),
-    // todo: TypeAlias
+    // todo: AliasType
 }
 
 impl FugitiveDecl {
+    fn from_node_decl(
+        db: &dyn DeclDb,
+        path: FugitivePath,
+        node_decl: FugitiveNodeDecl,
+    ) -> DeclResult<Self> {
+        Ok(match node_decl {
+            FugitiveNodeDecl::Fn(node_decl) => FnDecl::from_node_decl(db, path, node_decl)?.into(),
+            FugitiveNodeDecl::Val(node_decl) => todo!(),
+            FugitiveNodeDecl::Gn(node_decl) => todo!(),
+        })
+    }
+
     pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDeclPattern] {
         match self {
             FugitiveDecl::Fn(decl) => decl.implicit_parameters(db),
@@ -107,64 +157,12 @@ impl HasDecl for FugitivePath {
     type Decl = FugitiveDecl;
 
     fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
-        self.node_path(db).decl(db)
-    }
-}
-
-impl HasDecl for FugitiveNodePath {
-    type Decl = FugitiveDecl;
-
-    fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
         fugitive_decl(db, self)
     }
 }
 
 #[salsa::tracked(jar = DeclJar)]
-pub(crate) fn fugitive_decl(
-    db: &dyn DeclDb,
-    node_path: FugitiveNodePath,
-) -> DeclResult<FugitiveDecl> {
-    let parser = DeclParser::new(db, node_path.module_path(db));
-    parser.parse_fugitive_decl(node_path)
-}
-
-impl<'a> DeclParser<'a> {
-    fn parse_fugitive_decl(&self, path: FugitiveNodePath) -> DeclResult<FugitiveDecl> {
-        let db = self.db();
-        let node = path.node(db);
-        let ast_idx: AstIdx = node.ast_idx(db);
-        match self.ast_sheet()[ast_idx] {
-            Ast::Defn {
-                token_group_idx,
-                saved_stream_state,
-                ..
-            } => self.parse_fugitive_decl_aux(ast_idx, path, token_group_idx, saved_stream_state),
-            _ => unreachable!(),
-        }
-    }
-
-    fn parse_fugitive_decl_aux(
-        &self,
-        ast_idx: AstIdx,
-        id: FugitiveNodePath,
-        token_group_idx: TokenGroupIdx,
-        saved_stream_state: TokenStreamState,
-    ) -> Result<FugitiveDecl, DeclError> {
-        let db = self.db();
-        todo!()
-        // match id.path(db).form_kind(db) {
-        //     FugitiveKind::Val => {
-        //         self.parse_feature_decl(ast_idx, token_group_idx, saved_stream_state, id)
-        //     }
-        //     FugitiveKind::Fn => {
-        //         self.parse_fn_decl(ast_idx, token_group_idx, saved_stream_state, id)
-        //     }
-        //     FugitiveKind::Type => {
-        //         todo!()
-        //     }
-        //     FugitiveKind::Gn => {
-        //         self.parse_gn_decl(ast_idx, token_group_idx, saved_stream_state, id)
-        //     }
-        // }
-    }
+pub(crate) fn fugitive_decl(db: &dyn DeclDb, path: FugitivePath) -> DeclResult<FugitiveDecl> {
+    let node_decl = path.node_path(db).node_decl(db);
+    FugitiveDecl::from_node_decl(db, path, node_decl)
 }

@@ -1,28 +1,49 @@
 Ok(
     DeclSheet {
+        [salsa id]: 21,
         decls: [
             (
-                DeclRegionPath::Entity(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Trait(
-                            TraitPath(`std::ops::Add`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Trait(
+                        TraitPath(`std::ops::Add`),
                     ),
                 ),
-                Ok(
-                    Decl::Trait(
+                Decl::ModuleItem(
+                    ModuleItemDecl::Trait(
                         TraitDecl {
                             path: TraitPath(`std::ops::Add`),
                             ast_idx: 3,
+                            implicit_parameters: [
+                                ImplicitParameterDeclPattern {
+                                    annotated_variance_token: None,
+                                    symbol: 0,
+                                    variant: ImplicitParameterDeclPatternVariant::Type {
+                                        ident_token: IdentToken {
+                                            ident: `B`,
+                                            token_idx: TokenIdx(
+                                                9,
+                                            ),
+                                        },
+                                        traits: None,
+                                    },
+                                },
+                            ],
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        DeclRegionPath::Entity(
-                                            EntityPath::ModuleItem(
-                                                ModuleItemPath::Trait(
-                                                    TraitPath(`std::ops::Add`),
-                                                ),
+                                        EntityNodePath::ModuleItem(
+                                            ModuleItemNodePath::Trait(
+                                                TraitNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(
+                                                            Id {
+                                                                value: 51,
+                                                            },
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
                                         ),
                                     ),
@@ -90,39 +111,6 @@ Ok(
                                     roots: [],
                                 },
                             },
-                            implicit_parameter_decl_list: Some(
-                                ImplicitParameterDeclList {
-                                    langle: LeftAngleBracketOrLessThanToken(
-                                        TokenIdx(
-                                            8,
-                                        ),
-                                    ),
-                                    implicit_parameters: [
-                                        ImplicitParameterDeclPattern {
-                                            annotated_variance_token: None,
-                                            symbol: 0,
-                                            variant: ImplicitParameterDeclPatternVariant::Type {
-                                                ident_token: IdentToken {
-                                                    ident: `B`,
-                                                    token_idx: TokenIdx(
-                                                        9,
-                                                    ),
-                                                },
-                                                traits: None,
-                                            },
-                                        },
-                                    ],
-                                    commas: [],
-                                    decl_list_result: Ok(
-                                        (),
-                                    ),
-                                    rangle: RightAngleBracketToken(
-                                        TokenIdx(
-                                            10,
-                                        ),
-                                    ),
-                                },
-                            ),
                         },
                     ),
                 ),
