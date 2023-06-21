@@ -124,11 +124,11 @@ pub(crate) fn fugitive_decl(
     db: &dyn DeclDb,
     node_path: FugitiveNodePath,
 ) -> DeclResult<FugitiveDecl> {
-    let parser = DeclParseContext::new(db, node_path.module_path(db));
+    let parser = DeclParser::new(db, node_path.module_path(db));
     parser.parse_fugitive_decl(node_path)
 }
 
-impl<'a> DeclParseContext<'a> {
+impl<'a> DeclParser<'a> {
     fn parse_fugitive_decl(&self, path: FugitiveNodePath) -> DeclResult<FugitiveDecl> {
         let db = self.db();
         let node = path.node(db);

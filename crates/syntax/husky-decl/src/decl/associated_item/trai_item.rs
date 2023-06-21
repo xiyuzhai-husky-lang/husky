@@ -122,4 +122,4 @@ impl TraitItemDecl {
     }
 }
 
-impl<'a> DeclParseContext<'a> {}
+impl<'a> DeclParser<'a> {}

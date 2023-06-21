@@ -21,6 +21,21 @@ impl TraitForTypeItemNodePath {
     pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
         self.maybe_ambiguous_path(db).path.module_path(db)
     }
+
+    pub fn impl_block(self, db: &dyn EntityTreeDb) -> TraitForTypeImplBlockNodePath {
+        self.maybe_ambiguous_path(db)
+            .path
+            .impl_block(db)
+            .node_path(db)
+    }
+
+    pub fn item_kind(self, db: &dyn EntityTreeDb) -> TraitItemKind {
+        self.maybe_ambiguous_path(db).path.item_kind(db)
+    }
+
+    pub fn node(self, db: &dyn EntityTreeDb) -> TraitForTypeItemNode {
+        trai_for_ty_item_node(db, self)
+    }
 }
 
 impl From<TraitForTypeItemNodePath> for EntityNodePath {
@@ -61,6 +76,20 @@ impl TraitForTypeItemNode {
             ),
         )
     }
+}
+
+#[salsa::tracked(jar = EntityTreeJar)]
+pub(crate) fn trai_for_ty_item_node(
+    db: &dyn EntityTreeDb,
+    node_path: TraitForTypeItemNodePath,
+) -> TraitForTypeItemNode {
+    node_path
+        .impl_block(db)
+        .items(db)
+        .iter()
+        .copied()
+        .find_map(|(_, node_path1, node)| (node_path1 == node_path).then_some(node))
+        .expect("some")
 }
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]

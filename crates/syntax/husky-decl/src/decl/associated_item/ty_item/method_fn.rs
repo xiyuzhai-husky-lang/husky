@@ -19,7 +19,7 @@ pub struct TypeMethodFnNodeDecl {
     pub expr_region: ExprRegion,
 }
 
-impl<'a> DeclParseContext<'a> {
+impl<'a> DeclParser<'a> {
     pub(super) fn parse_ty_method_node_decl(
         &self,
         node_path: TypeItemNodePath,

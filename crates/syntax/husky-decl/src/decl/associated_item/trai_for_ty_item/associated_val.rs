@@ -16,4 +16,4 @@ pub struct TraitForTypeAssociatedValDecl {
     pub expr_region: ExprRegion,
 }
 
-impl<'a> DeclParseContext<'a> {}
+impl<'a> DeclParser<'a> {}

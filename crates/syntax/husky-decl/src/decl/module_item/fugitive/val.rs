@@ -22,7 +22,7 @@ pub struct ValDecl {
     pub expr_region: ExprRegion,
 }
 
-impl<'a> DeclParseContext<'a> {
+impl<'a> DeclParser<'a> {
     pub(super) fn parse_feature_decl(
         &self,
         ast_idx: AstIdx,

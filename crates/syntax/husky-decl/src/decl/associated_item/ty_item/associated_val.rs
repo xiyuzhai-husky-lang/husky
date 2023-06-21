@@ -9,7 +9,7 @@ pub struct TypeAssociatedValNodeDecl {
     pub expr_region: ExprRegion,
 }
 
-impl<'a> DeclParseContext<'a> {}
+impl<'a> DeclParser<'a> {}
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TypeAssociatedValDecl {

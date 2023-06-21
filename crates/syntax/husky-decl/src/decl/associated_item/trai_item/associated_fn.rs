@@ -22,4 +22,4 @@ pub struct TraitAssociatedFnDecl {
     pub eol_colon: EolToken,
 }
 
-impl<'a> DeclParseContext<'a> {}
+impl<'a> DeclParser<'a> {}

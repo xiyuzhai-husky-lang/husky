@@ -47,14 +47,14 @@ impl TraitForTypeMethodFnDecl {
     }
 }
 
-impl<'a> DeclParseContext<'a> {
-    pub(super) fn parse_trai_for_ty_method_fn_decl(
+impl<'a> DeclParser<'a> {
+    pub(super) fn parse_trai_for_ty_method_fn_node_decl(
         &self,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
         node: TraitForTypeItemNode,
         saved_stream_state: TokenStreamState,
-    ) -> DeclResult<TraitForTypeMethodFnDecl> {
+    ) -> TraitForTypeMethodFnNodeDecl {
         todo!()
         // let db = self.db();
         // let Ok(impl_decl) = node.impl_block(db).decl(db) else {

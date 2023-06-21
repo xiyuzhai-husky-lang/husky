@@ -97,11 +97,11 @@ impl HasNodeDecl for TypeItemNode {
 #[salsa::tracked(jar = DeclJar)]
 pub(crate) fn ty_item_node_decl(db: &dyn DeclDb, node_path: TypeItemNodePath) -> TypeItemNodeDecl {
     let module_path = node_path.module_path(db);
-    let ctx = DeclParseContext::new(db, module_path);
+    let ctx = DeclParser::new(db, module_path);
     ctx.parse_ty_item_node_decl(node_path)
 }
 
-impl<'a> DeclParseContext<'a> {
+impl<'a> DeclParser<'a> {
     fn parse_ty_item_node_decl(&self, node_path: TypeItemNodePath) -> TypeItemNodeDecl {
         let db = self.db();
         let node = node_path.node(db);
@@ -111,7 +111,7 @@ impl<'a> DeclParseContext<'a> {
                 token_group_idx,
                 entity_kind:
                     EntityKind::AssociatedItem {
-                        associated_item_kind: AssociatedItemKind::TypeItem(ty_item_kind),
+                        associated_item_kind: AssociatedItemKind::TypeItem(item_kind),
                     },
                 saved_stream_state,
                 ..
@@ -120,7 +120,7 @@ impl<'a> DeclParseContext<'a> {
                 node,
                 ast_idx,
                 token_group_idx,
-                ty_item_kind,
+                item_kind,
                 saved_stream_state,
             ),
             _ => unreachable!(),

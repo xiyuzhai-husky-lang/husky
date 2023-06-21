@@ -11,25 +11,14 @@ pub struct TraitForTypeAssociatedTypeNodeDecl {
     pub expr_region: ExprRegion,
 }
 
-#[salsa::tracked(db = DeclDb, jar = DeclJar)]
-pub struct TraitForTypeAssociatedTypeDecl {
-    #[id]
-    pub path: TraitForTypeItemPath,
-    pub node: TraitForTypeItemNode,
-    pub ast_idx: AstIdx,
-    #[return_ref]
-    pub implicit_parameters: ImplicitParameterDeclPatterns,
-    pub expr_region: ExprRegion,
-}
-
-impl<'a> DeclParseContext<'a> {
-    pub(super) fn parse_trai_for_ty_associated_ty_decl(
+impl<'a> DeclParser<'a> {
+    pub(super) fn parse_trai_for_ty_associated_ty_node_decl(
         &self,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
         node: TraitForTypeItemNode,
         saved_stream_state: TokenStreamState,
-    ) -> DeclResult<TraitForTypeAssociatedTypeDecl> {
+    ) -> TraitForTypeAssociatedTypeNodeDecl {
         todo!()
         // let db = self.db();
         // let Ok(impl_decl) = node.impl_block(db).decl(db) else {
@@ -55,4 +44,15 @@ impl<'a> DeclParseContext<'a> {
         //     parser.finish(),
         // ))
     }
+}
+
+#[salsa::tracked(db = DeclDb, jar = DeclJar)]
+pub struct TraitForTypeAssociatedTypeDecl {
+    #[id]
+    pub path: TraitForTypeItemPath,
+    pub node: TraitForTypeItemNode,
+    pub ast_idx: AstIdx,
+    #[return_ref]
+    pub implicit_parameters: ImplicitParameterDeclPatterns,
+    pub expr_region: ExprRegion,
 }

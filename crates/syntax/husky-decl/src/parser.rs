@@ -10,7 +10,7 @@ use husky_token::*;
 use husky_word::Ident;
 use parsec::*;
 
-pub(crate) struct DeclParseContext<'a> {
+pub(crate) struct DeclParser<'a> {
     db: &'a dyn DeclDb,
     module_symbol_context: ModuleSymbolContext<'a>,
     token_sheet_data: &'a TokenSheetData,
@@ -19,7 +19,7 @@ pub(crate) struct DeclParseContext<'a> {
     entity_tree_crate_bundle: &'a EntityTreeCrateBundle,
 }
 
-impl<'a> DeclParseContext<'a> {
+impl<'a> DeclParser<'a> {
     pub(crate) fn new(db: &'a dyn DeclDb, path: ModulePath) -> Self {
         let module_symbol_context = db.module_symbol_context(path).expect("valid module");
         Self {

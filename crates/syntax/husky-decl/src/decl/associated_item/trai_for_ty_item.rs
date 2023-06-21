@@ -78,6 +78,74 @@ impl HasNodeDecl for TraitForTypeItemNodePath {
     }
 }
 
+#[salsa::tracked(jar = DeclJar)]
+pub(crate) fn trai_for_ty_item_node_decl(
+    db: &dyn DeclDb,
+    node_path: TraitForTypeItemNodePath,
+) -> TraitForTypeItemNodeDecl {
+    let parser = DeclParser::new(db, node_path.module_path(db));
+    parser.parse_trai_for_ty_item_node_decl(node_path)
+}
+
+impl<'a> DeclParser<'a> {
+    fn parse_trai_for_ty_item_node_decl(
+        &self,
+        node_path: TraitForTypeItemNodePath,
+    ) -> TraitForTypeItemNodeDecl {
+        let db = self.db();
+        let node = node_path.node(db);
+        let ast_idx = node.ast_idx(db);
+        match self.ast_sheet()[ast_idx] {
+            Ast::Defn {
+                token_group_idx,
+                entity_kind:
+                    EntityKind::AssociatedItem {
+                        associated_item_kind: AssociatedItemKind::TraitForTypeItem(item_kind),
+                    },
+                saved_stream_state,
+                ..
+            } => self.parse_trai_for_ty_item_node_decl_aux(
+                node_path,
+                node,
+                ast_idx,
+                token_group_idx,
+                item_kind,
+                saved_stream_state,
+            ),
+            _ => unreachable!(),
+        }
+    }
+
+    pub(super) fn parse_trai_for_ty_item_node_decl_aux(
+        &self,
+        node_path: TraitForTypeItemNodePath,
+        node: TraitForTypeItemNode,
+        ast_idx: AstIdx,
+        token_group_idx: TokenGroupIdx,
+        trai_item_kind: TraitItemKind,
+        saved_stream_state: TokenStreamState,
+    ) -> TraitForTypeItemNodeDecl {
+        match trai_item_kind {
+            TraitItemKind::MethodFn => self
+                .parse_trai_for_ty_method_fn_node_decl(
+                    ast_idx,
+                    token_group_idx,
+                    node,
+                    saved_stream_state,
+                )
+                .into(),
+            TraitItemKind::AssociatedType => self
+                .parse_trai_for_ty_associated_ty_node_decl(
+                    ast_idx,
+                    token_group_idx,
+                    node,
+                    saved_stream_state,
+                )
+                .into(),
+        }
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
@@ -141,35 +209,5 @@ impl HasDecl for TraitForTypeItemPath {
 
     fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
         todo!()
-    }
-}
-
-impl<'a> DeclParseContext<'a> {
-    pub(super) fn parse_trai_for_ty_item_decl(
-        &self,
-        trai_item_kind: TraitItemKind,
-        ast_idx: AstIdx,
-        token_group_idx: TokenGroupIdx,
-        node: TraitForTypeItemNode,
-        saved_stream_state: TokenStreamState,
-    ) -> DeclResult<TraitForTypeItemDecl> {
-        Ok(match trai_item_kind {
-            TraitItemKind::MethodFn => self
-                .parse_trai_for_ty_method_fn_decl(
-                    ast_idx,
-                    token_group_idx,
-                    node,
-                    saved_stream_state,
-                )?
-                .into(),
-            TraitItemKind::AssociatedType => self
-                .parse_trai_for_ty_associated_ty_decl(
-                    ast_idx,
-                    token_group_idx,
-                    node,
-                    saved_stream_state,
-                )?
-                .into(),
-        })
     }
 }

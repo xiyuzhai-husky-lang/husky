@@ -92,11 +92,11 @@ impl HasNodeDecl for TypeNodePath {
 
 #[salsa::tracked(jar = DeclJar)]
 pub(crate) fn ty_node_decl(db: &dyn DeclDb, node_path: TypeNodePath) -> TypeNodeDecl {
-    let ctx = DeclParseContext::new(db, node_path.module_path(db));
+    let ctx = DeclParser::new(db, node_path.module_path(db));
     ctx.parse_ty_node_decl(node_path)
 }
 
-impl<'a> DeclParseContext<'a> {
+impl<'a> DeclParser<'a> {
     fn parse_ty_node_decl(&self, node_path: TypeNodePath) -> TypeNodeDecl {
         let db = self.db();
         let node = node_path.node(db);
@@ -183,7 +183,7 @@ impl<'a> DeclParseContext<'a> {
     }
 }
 
-impl<'a> DeclParseContext<'a> {
+impl<'a> DeclParser<'a> {
     pub(super) fn parse_struct_ty_node_decl(
         &self,
         node_path: TypeNodePath,
