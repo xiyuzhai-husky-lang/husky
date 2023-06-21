@@ -20,7 +20,7 @@ impl ExternTypeNodeDecl {
     }
 }
 
-impl<'a> DeclParseContext<'a> {
+impl<'a> DeclParser<'a> {
     // get declaration from tokens
     pub(super) fn parse_extern_ty_node_decl(
         &self,

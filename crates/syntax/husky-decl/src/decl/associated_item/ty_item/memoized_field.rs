@@ -16,7 +16,7 @@ pub struct TypeMemoizedFieldNodeDecl {
     pub expr_region: ExprRegion,
 }
 
-impl<'a> DeclParseContext<'a> {
+impl<'a> DeclParser<'a> {
     pub(super) fn parse_ty_memo_decl(
         &self,
         ast_idx: AstIdx,

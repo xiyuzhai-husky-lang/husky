@@ -37,11 +37,11 @@ pub(crate) fn ty_impl_block_node_decl(
     db: &dyn DeclDb,
     node_path: TypeImplBlockNodePath,
 ) -> TypeImplBlockNodeDecl {
-    let parser = DeclParseContext::new(db, node_path.module_path(db));
+    let parser = DeclParser::new(db, node_path.module_path(db));
     parser.parse_ty_impl_block_node_decl(node_path)
 }
 
-impl<'a> DeclParseContext<'a> {
+impl<'a> DeclParser<'a> {
     fn parse_ty_impl_block_node_decl(
         &self,
         node_path: TypeImplBlockNodePath,

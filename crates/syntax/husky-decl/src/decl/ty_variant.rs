@@ -67,7 +67,7 @@ pub(crate) fn ty_variant_decl(
     db: &dyn DeclDb,
     node_path: TypeVariantNodePath,
 ) -> DeclResult<TypeVariantDecl> {
-    DeclParseContext::new(db, node_path.module_path(db)).parse_ty_variant_decl(node_path)
+    DeclParser::new(db, node_path.module_path(db)).parse_ty_variant_decl(node_path)
 }
 
 impl HasDecl for TypeVariantPath {
@@ -78,7 +78,7 @@ impl HasDecl for TypeVariantPath {
     }
 }
 
-impl<'a> DeclParseContext<'a> {
+impl<'a> DeclParser<'a> {
     fn parse_ty_variant_decl(&self, id: TypeVariantNodePath) -> DeclResult<TypeVariantDecl> {
         let (
             ast_idx,

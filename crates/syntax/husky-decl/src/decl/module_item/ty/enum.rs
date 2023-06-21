@@ -20,7 +20,7 @@ impl EnumTypeNodeDecl {
     }
 }
 
-impl<'a> DeclParseContext<'a> {
+impl<'a> DeclParser<'a> {
     pub(super) fn parse_enum_ty_node_decl(
         &self,
         node_path: TypeNodePath,

@@ -42,4 +42,4 @@ impl TraitMethodFnDecl {
     }
 }
 
-impl<'a> DeclParseContext<'a> {}
+impl<'a> DeclParser<'a> {}

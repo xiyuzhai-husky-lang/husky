@@ -108,7 +108,7 @@ impl HasDecl for AssociatedItemPath {
 //     parser.parse_associated_item_decl(node)
 // }
 
-impl<'a> DeclParseContext<'a> {
+impl<'a> DeclParser<'a> {
     // fn parse_associated_item_decl(
     //     &self,
     //     node: AssociatedItemNode,

@@ -72,6 +72,7 @@ pub struct EntityTreeJar(
     TraitItemNode,
     TraitForTypeItemNodePath,
     TraitForTypeItemNode,
+    trai_for_ty_item_node,
     TypeVariantNode,
     entity_tree_presheet,
     entity_tree_crate_bundle,

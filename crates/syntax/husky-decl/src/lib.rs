@@ -115,7 +115,8 @@ pub struct DeclJar(
     TraitAssociatedTypeDecl,
     TraitAssociatedValNodeDecl,
     TraitAssociatedValDecl,
-    // - - type as trait item
+    // - - trait for type item
+    trai_for_ty_item_node_decl,
     TraitForTypeAssociatedFnNodeDecl,
     TraitForTypeAssociatedFnDecl,
     TraitForTypeMethodFnNodeDecl,

@@ -53,7 +53,7 @@ impl GnDecl {
     }
 }
 
-impl<'a> DeclParseContext<'a> {
+impl<'a> DeclParser<'a> {
     pub(super) fn parse_gn_decl(
         &self,
         ast_idx: AstIdx,

@@ -20,7 +20,7 @@ impl StructureTypeNodeDecl {
     }
 }
 
-impl<'a> DeclParseContext<'a> {
+impl<'a> DeclParser<'a> {
     pub(super) fn parse_structure_ty_node_decl(
         &self,
         node_path: TypeNodePath,

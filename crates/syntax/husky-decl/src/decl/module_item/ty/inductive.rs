@@ -20,7 +20,7 @@ impl InductiveTypeNodeDecl {
     }
 }
 
-impl<'a> DeclParseContext<'a> {
+impl<'a> DeclParser<'a> {
     pub(super) fn parse_inductive_ty_node_decl(
         &self,
         ast_idx: AstIdx,
