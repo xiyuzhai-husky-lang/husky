@@ -47,14 +47,20 @@ impl FugitiveDefn {
     }
 }
 
-impl HasDefn for FugitiveDecl {
+impl HasDefn for FugitivePath {
     type Defn = FugitiveDefn;
 
-    fn defn(self, db: &dyn DefnDb) -> Self::Defn {
-        match self {
-            FugitiveDecl::Fn(decl) => decl.defn(db).into(),
-            FugitiveDecl::Val(decl) => decl.defn(db).into(),
-            FugitiveDecl::Gn(decl) => decl.defn(db).into(),
-        }
+    fn defn(self, db: &dyn DefnDb) -> DefnResult<Self::Defn> {
+        fugitive_defn(db, self)
     }
+}
+
+#[salsa::tracked(jar= DefnJar)]
+pub(crate) fn fugitive_defn(db: &dyn DefnDb, path: FugitivePath) -> DefnResult<FugitiveDefn> {
+    todo!()
+    // match self {
+    //     FugitivePath::Fn(path) => path.defn(db).into(),
+    //     FugitivePath::Val(decl) => decl.defn(db).into(),
+    //     FugitivePath::Gn(decl) => decl.defn(db).into(),
+    // }
 }

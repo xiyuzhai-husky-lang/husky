@@ -219,3 +219,71 @@ fn entity_tree_sheet_works() {
         entity_tree_sheet(db, module_path)
     })
 }
+
+// include submodules, module items, associated items
+#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+pub fn module_entity_node_paths(
+    db: &dyn EntityTreeDb,
+    module_path: ModulePath,
+) -> EntityTreeResult<Vec<EntityNodePath>> {
+    let mut node_paths: Vec<EntityNodePath> = Default::default();
+    let entity_tree_sheet = db.entity_tree_sheet(module_path)?;
+    for node_path in entity_tree_sheet.major_entity_node_paths() {
+        node_paths.push(node_path)
+    }
+    // todo: trait item
+    for node_path in entity_tree_sheet.impl_block_node_paths() {
+        match node_path {
+            ImplBlockNodePath::TypeImplBlock(node_path) => {
+                for node_path in node_path.item_node_paths(db) {
+                    node_paths.push(node_path.into())
+                }
+            }
+            ImplBlockNodePath::TraitForTypeImplBlock(node_path) => {
+                for node_path in node_path.item_node_paths(db) {
+                    node_paths.push(node_path.into())
+                }
+            }
+            ImplBlockNodePath::IllFormedImplBlock(_) => todo!(),
+        }
+    }
+    Ok(node_paths)
+}
+
+// include submodules, module items, associated items
+#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+pub fn module_entity_paths(
+    db: &dyn EntityTreeDb,
+    module_path: ModulePath,
+) -> EntityTreeResult<Vec<EntityPath>> {
+    let mut paths: Vec<EntityPath> = Default::default();
+    let entity_tree_sheet = db.entity_tree_sheet(module_path)?;
+    for node_path in entity_tree_sheet.major_entity_node_paths() {
+        if let Some(path) = node_path.path(db) {
+            paths.push(path)
+        }
+    }
+    // todo: trait item
+    for node_path in entity_tree_sheet.impl_block_node_paths() {
+        if let Some(path) = node_path.path(db) {
+            paths.push(path.into());
+            match path {
+                ImplBlockPath::TypeImplBlock(path) => {
+                    for node_path in path.node_path(db).item_node_paths(db) {
+                        if let Some(path) = node_path.path(db) {
+                            paths.push(path.into())
+                        }
+                    }
+                }
+                ImplBlockPath::TraitForTypeImplBlock(path) => {
+                    for node_path in path.node_path(db).item_node_paths(db) {
+                        if let Some(path) = node_path.path(db) {
+                            paths.push(path.into())
+                        }
+                    }
+                }
+            }
+        }
+    }
+    Ok(paths)
+}

@@ -74,17 +74,12 @@ fn decl_expr_ty_sheets_works() {
 }
 
 fn defn_expr_ty_regions(db: &DB, module_path: ModulePath) -> Vec<&ExprTypeRegion> {
-    let Ok(defn_sheet) = db.defn_sheet(module_path)
+    let Ok(defns) = module_path.defns(db)
         else { return vec![] };
-    defn_sheet
-        .defns()
-        .filter_map(|(_, defn)| {
-            defn.as_ref()
-                .ok()
-                .copied()
-                .map(|defn| Some(db.expr_ty_region(defn.expr_region(db)?)))
-                .flatten()
-        })
+    defns
+        .iter()
+        .copied()
+        .filter_map(|defn| Some(db.expr_ty_region(defn.expr_region(db)?)))
         .collect()
 }
 

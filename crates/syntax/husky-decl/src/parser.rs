@@ -15,8 +15,6 @@ pub(crate) struct DeclParser<'a> {
     module_symbol_context: ModuleSymbolContext<'a>,
     token_sheet_data: &'a TokenSheetData,
     ast_sheet: &'a AstSheet,
-    entity_tree_sheet: &'a EntityTreeSheet,
-    entity_tree_crate_bundle: &'a EntityTreeCrateBundle,
 }
 
 impl<'a> DeclParser<'a> {
@@ -27,10 +25,6 @@ impl<'a> DeclParser<'a> {
             module_symbol_context,
             token_sheet_data: db.token_sheet_data(path).expect("valid module"),
             ast_sheet: db.ast_sheet(path).expect("valid module"),
-            entity_tree_sheet: db.entity_tree_sheet(path).expect("valid module"),
-            entity_tree_crate_bundle: db
-                .entity_tree_bundle(path.crate_path(db))
-                .expect("valid module"),
         }
     }
 

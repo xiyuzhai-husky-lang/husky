@@ -1,3 +1,4 @@
+#![feature(let_chains)]
 #![feature(stmt_expr_attributes)]
 #![feature(trait_upcasting)]
 mod bundle;
@@ -74,12 +75,6 @@ pub struct EntityTreeJar(
     TraitForTypeItemNode,
     trai_for_ty_item_node,
     TypeVariantNode,
-    entity_tree_presheet,
-    entity_tree_crate_bundle,
-    submodules,
-    module_subentity_path,
-    all_modules_within_crate,
-    crate_specific_prelude,
     ty_impl_blocks,
     all_ty_items,
     trai_for_ty_impl_block_items,
@@ -96,4 +91,13 @@ pub struct EntityTreeJar(
     trai_for_ty_impl_block_node,
     // - ill formed impl block
     IllFormedImplBlockNode,
+    // other
+    entity_tree_presheet,
+    entity_tree_crate_bundle,
+    module_entity_paths,
+    module_entity_node_paths,
+    submodules,
+    module_subentity_path,
+    all_modules_within_crate,
+    crate_specific_prelude,
 );

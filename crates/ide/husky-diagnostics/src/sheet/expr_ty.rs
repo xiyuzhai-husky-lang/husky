@@ -1,4 +1,5 @@
 use super::*;
+use husky_defn::HasDefns;
 use husky_expr::{ExprIdx, ExprRegion};
 use husky_expr_ty::{ExprTermError, ExprTypeError, OriginalExprTermError, OriginalExprTypeError};
 use husky_fluffy_term::*;
@@ -16,18 +17,15 @@ pub(crate) fn expr_ty_diagnostic_sheet(
     module_path: ModulePath,
 ) -> ExprTypeDiagnosticSheet {
     let mut diagnostics = vec![];
-    if let (Ok(ranged_token_sheet), Ok(defn_sheet)) = (
-        db.ranged_token_sheet(module_path),
-        db.defn_sheet(module_path),
-    ) {
+    if let (Ok(ranged_token_sheet), Ok(defns)) =
+        (db.ranged_token_sheet(module_path), module_path.defns(db))
+    {
         let _token_sheet_data = ranged_token_sheet.token_sheet_data(db);
-        for (_, defn) in defn_sheet.defns() {
-            if let Ok(defn) = defn {
-                let decl = defn.decl(db);
-                collect_expr_ty_diagnostics(db, decl.expr_region(db), &mut diagnostics);
-                if let Some(expr_region) = defn.expr_region(db) {
-                    collect_expr_ty_diagnostics(db, expr_region, &mut diagnostics);
-                }
+        for defn in defns {
+            let decl = defn.decl(db);
+            collect_expr_ty_diagnostics(db, decl.expr_region(db), &mut diagnostics);
+            if let Some(expr_region) = defn.expr_region(db) {
+                collect_expr_ty_diagnostics(db, expr_region, &mut diagnostics);
             }
         }
     }

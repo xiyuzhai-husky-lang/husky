@@ -13,18 +13,15 @@ pub(crate) fn defn_diagnostic_sheet(
     module_path: ModulePath,
 ) -> DefnDiagnosticSheet {
     let mut sheet_collector = SheetDiagnosticsCollector::new(db, module_path);
-    if let (Ok(ranged_token_sheet), Ok(defn_sheet)) = (
-        db.ranged_token_sheet(module_path),
-        db.defn_sheet(module_path),
-    ) {
+    if let (Ok(ranged_token_sheet), Ok(defns)) =
+        (db.ranged_token_sheet(module_path), module_path.defns(db))
+    {
         let _token_sheet_data = ranged_token_sheet.token_sheet_data(db);
-        for (_path, defn) in defn_sheet.defns() {
-            if let Ok(defn) = defn {
-                if let Some(expr_region) = defn.expr_region(db) {
-                    let mut region_collector =
-                        RegionDiagnosticsCollector::new(db, expr_region, &mut sheet_collector);
-                    region_collector.visit_defn(defn)
-                }
+        for defn in defns.iter().copied() {
+            if let Some(expr_region) = defn.expr_region(db) {
+                let mut region_collector =
+                    RegionDiagnosticsCollector::new(db, expr_region, &mut sheet_collector);
+                region_collector.visit_defn(defn)
             }
         }
     }
@@ -36,6 +33,7 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
     fn visit_defn(&mut self, defn: Defn) {
         // todo
         match defn {
+            Defn::Submodule(_) => (),
             Defn::ModuleItem(_) => (),
             // Defn::Type(Defn) => match Defn {
             //     TypeDefn::Enum(_Defn) => (),

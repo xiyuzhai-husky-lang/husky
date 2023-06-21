@@ -8,13 +8,13 @@ pub struct TraitForTypeAssociatedTypeDefn {
     pub expr_region: ExprRegion,
 }
 
-impl HasDefn for TraitForTypeAssociatedTypeDecl {
-    type Defn = TraitForTypeAssociatedTypeDefn;
+// impl HasDefn for TraitForTypeAssociatedTypeDecl {
+//     type Defn = TraitForTypeAssociatedTypeDefn;
 
-    fn defn(self, db: &dyn DefnDb) -> Self::Defn {
-        trai_for_ty_associated_ty_defn(db, self)
-    }
-}
+//     fn defn(self, db: &dyn DefnDb) -> DefnResult<Self::Defn> {
+//         trai_for_ty_associated_ty_defn(db, self)
+//     }
+// }
 
 #[salsa::tracked(jar = DefnJar)]
 pub(crate) fn trai_for_ty_associated_ty_defn(

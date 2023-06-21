@@ -3,14 +3,12 @@ mod collector;
 mod db;
 mod defn;
 mod error;
-mod sheet;
 #[cfg(test)]
 mod tests;
 
 pub use self::db::*;
 pub use self::defn::*;
 pub use self::error::*;
-pub use self::sheet::*;
 
 use self::collector::*;
 use husky_ast::*;
@@ -25,6 +23,7 @@ use salsa::DbWithJar;
 #[salsa::jar(db = DefnDb)]
 pub struct DefnJar(
     // type
+    ty_defn,
     EnumTypeDefn,
     enum_ty_defn,
     UnitStructTypeDefn,
@@ -43,7 +42,8 @@ pub struct DefnJar(
     alien_ty_defn,
     UnionTypeDefn,
     union_ty_defn,
-    // form
+    // fugitive
+    fugitive_defn,
     ValDefn,
     val_defn,
     FnDefn,
@@ -64,6 +64,7 @@ pub struct DefnJar(
     PropsVariantDefn,
     props_variant_defn,
     // type item
+    ty_item_defn,
     TypeAssociatedFnDefn,
     ty_associated_fn_defn,
     TypeMethodFnDefn,
@@ -75,6 +76,7 @@ pub struct DefnJar(
     TypeMemoizedFieldDefn,
     ty_memo_defn,
     // trait item
+    trai_item_defn,
     TraitAssociatedFnDefn,
     trai_associated_fn_defn,
     TraitMethodFnDefn,
@@ -83,7 +85,8 @@ pub struct DefnJar(
     trai_associated_ty_defn,
     TraitAssociatedValDefn,
     trai_associated_val_defn,
-    // type as trait item
+    // trait for type item
+    trai_for_ty_item_defn,
     TraitForTypeAssociatedFnDefn,
     trai_for_ty_associated_fn_defn,
     TraitForTypeMethodFnDefn,
@@ -93,12 +96,5 @@ pub struct DefnJar(
     TraitForTypeAssociatedValDefn,
     trai_for_ty_associated_val_defn,
     // sheet
-    defn_sheet,
+    module_defns,
 );
-
-#[test]
-fn defn_sheet_works() {
-    use tests::*;
-
-    DB::default().ast_expect_test_debug_with_db("defn_sheet", DefnDb::defn_sheet);
-}

@@ -1,11 +1,11 @@
 mod connection;
-mod form;
+mod fugitive;
 mod trai;
 mod ty;
 mod utils;
 
 pub use self::connection::*;
-pub use self::form::*;
+pub use self::fugitive::*;
 pub use self::trai::*;
 pub use self::ty::*;
 
@@ -14,6 +14,7 @@ use utils::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::derive_debug_with_db(db = EntityPathDb)]
+#[enum_class::from_variants]
 pub enum ModuleItemPath {
     Type(TypePath),
     Trait(TraitPath),
@@ -62,24 +63,6 @@ impl ModuleItemPath {
                 connection: path.connection(db).kind(),
             },
         }
-    }
-}
-
-impl From<FugitivePath> for ModuleItemPath {
-    fn from(v: FugitivePath) -> Self {
-        Self::Fugitive(v)
-    }
-}
-
-impl From<TraitPath> for ModuleItemPath {
-    fn from(v: TraitPath) -> Self {
-        Self::Trait(v)
-    }
-}
-
-impl From<TypePath> for ModuleItemPath {
-    fn from(v: TypePath) -> Self {
-        Self::Type(v)
     }
 }
 

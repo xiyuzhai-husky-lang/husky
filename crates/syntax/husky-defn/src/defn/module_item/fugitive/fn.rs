@@ -3,18 +3,10 @@ use super::*;
 #[salsa::tracked(db = DefnDb, jar = DefnJar)]
 pub struct FnDefn {
     #[id]
-    pub node_path: FugitiveNodePath,
+    pub path: FugitivePath,
     pub decl: FnDecl,
     pub body: Option<ExprIdx>,
     pub expr_region: ExprRegion,
-}
-
-impl HasDefn for FnDecl {
-    type Defn = FnDefn;
-
-    fn defn(self, db: &dyn DefnDb) -> Self::Defn {
-        fn_defn(db, self)
-    }
 }
 
 #[salsa::tracked(jar = DefnJar)]

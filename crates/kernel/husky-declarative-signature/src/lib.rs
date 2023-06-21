@@ -50,8 +50,9 @@ pub struct DeclarativeSignatureJar(
     // trait
     TraitDeclarativeSignatureTemplate,
     trai_declarative_signature_template,
-    // form
-    // form_signature,
+    // fugitive
+    // fugitive_signature,
+    fugitive_declarative_signature_template,
     ValDeclarativeSignatureTemplate,
     val_declarative_signature_template,
     FnDeclarativeSignatureTemplate,

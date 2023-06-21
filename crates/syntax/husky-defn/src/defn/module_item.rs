@@ -26,14 +26,14 @@ impl ModuleItemDefn {
     }
 }
 
-impl HasDefn for ModuleItemDecl {
+impl HasDefn for ModuleItemPath {
     type Defn = ModuleItemDefn;
 
-    fn defn(self, db: &dyn DefnDb) -> Self::Defn {
-        match self {
-            ModuleItemDecl::Type(decl) => decl.defn(db).into(),
-            ModuleItemDecl::Fugitive(decl) => decl.defn(db).into(),
-            ModuleItemDecl::Trait(decl) => decl.defn(db).into(),
-        }
+    fn defn(self, db: &dyn DefnDb) -> DefnResult<Self::Defn> {
+        Ok(match self {
+            ModuleItemPath::Type(path) => path.defn(db)?.into(),
+            ModuleItemPath::Fugitive(path) => path.defn(db)?.into(),
+            ModuleItemPath::Trait(path) => path.defn(db)?.into(),
+        })
     }
 }

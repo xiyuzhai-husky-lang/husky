@@ -34,15 +34,21 @@ impl TraitItemDefn {
     }
 }
 
-impl HasDefn for TraitItemDecl {
+impl HasDefn for TraitItemPath {
     type Defn = TraitItemDefn;
 
-    fn defn(self, db: &dyn DefnDb) -> Self::Defn {
-        match self {
-            TraitItemDecl::AssociatedFn(decl) => trai_associated_fn_defn(db, decl).into(),
-            TraitItemDecl::MethodFn(decl) => trai_method_defn(db, decl).into(),
-            TraitItemDecl::AssociatedType(_decl) => todo!(),
-            TraitItemDecl::AssociatedVal(_decl) => todo!(),
-        }
+    fn defn(self, db: &dyn DefnDb) -> DefnResult<Self::Defn> {
+        trai_item_defn(db, self)
     }
+}
+
+#[salsa::tracked(jar = DefnJar)]
+pub(crate) fn trai_item_defn(db: &dyn DefnDb, path: TraitItemPath) -> DefnResult<TraitItemDefn> {
+    let decl = path.decl(db)?;
+    Ok(match decl {
+        TraitItemDecl::AssociatedFn(decl) => trai_associated_fn_defn(db, decl).into(),
+        TraitItemDecl::MethodFn(decl) => trai_method_defn(db, decl).into(),
+        TraitItemDecl::AssociatedType(_decl) => todo!(),
+        TraitItemDecl::AssociatedVal(_decl) => todo!(),
+    })
 }
