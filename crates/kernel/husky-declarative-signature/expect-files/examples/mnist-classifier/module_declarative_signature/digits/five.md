@@ -1,10 +1,19 @@
 [
-    Ok(
-        SignatureTemplate::Form(
-            FugitiveDeclarativeSignatureTemplate::Val(
-                ValDeclarativeSignatureTemplate {
-                    initialization_ty: DeclarativeTerm(`core::option::Option mnist::MnistLabel`),
-                },
+    (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Fugitive(
+                FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+            ),
+        ),
+        Ok(
+            SignatureTemplate::ModuleItem(
+                ModuleItemDeclarativeSignatureTemplate::Fugitive(
+                    FugitiveDeclarativeSignatureTemplate::Val(
+                        ValDeclarativeSignatureTemplate {
+                            initialization_ty: DeclarativeTerm(`core::option::Option mnist::MnistLabel`),
+                        },
+                    ),
+                ),
             ),
         ),
     ),

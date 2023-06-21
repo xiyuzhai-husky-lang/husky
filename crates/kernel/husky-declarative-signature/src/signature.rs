@@ -1,49 +1,26 @@
 mod associated_item;
 mod derive_decr;
-mod fugitive;
 mod impl_block;
-mod trai;
-mod ty;
+mod module_item;
 mod ty_variant;
 
 pub use self::associated_item::*;
 pub use self::derive_decr::*;
-pub use self::fugitive::*;
 pub use self::impl_block::*;
-pub use self::trai::*;
-pub use self::ty::*;
+pub use self::module_item::*;
 pub use self::ty_variant::*;
 
 use crate::*;
-
-pub(crate) fn signature_template_from_decl(
-    db: &dyn DeclarativeSignatureDb,
-    decl: Decl,
-) -> DeclarativeSignatureResult<SignatureTemplate> {
-    match decl {
-        Decl::Submodule(_) => todo!(),
-        Decl::ModuleItem(_) => todo!(),
-        // Decl::Type(decl) => ty_declarative_signature_template(db, decl).map(Into::into),
-        // Decl::Fugitive(decl) => decl.declarative_signature_template(db).map(Into::into),
-        // Decl::Trait(decl) => trai_declarative_signature_template(db, decl).map(Into::into),
-        Decl::ImplBlock(decl) => decl.declarative_signature_template(db).map(Into::into),
-        Decl::AssociatedItem(decl) => {
-            associated_item_declarative_signature_from_decl(db, decl).map(Into::into)
-        }
-        Decl::TypeVariant(decl) => variant_signature_template_from_decl(db, decl).map(Into::into),
-    }
-}
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 #[enum_class::from_variants]
 pub enum SignatureTemplate {
-    Type(TypeDeclarativeSignatureTemplate),
-    Form(FugitiveDeclarativeSignatureTemplate),
-    Trait(TraitDeclarativeSignatureTemplate),
+    Module,
+    ModuleItem(ModuleItemDeclarativeSignatureTemplate),
     ImplBlock(ImplBlockDeclarativeSignatureTemplate),
     AssociatedItem(AssociatedItemDeclarativeSignatureTemplate),
-    Variant(VariantDeclarativeSignatureTemplate),
+    Variant(TypeVariantDeclarativeSignatureTemplate),
     DeriveDecr(DeriveDecrDeclarativeSignatureTemplate),
 }
 
@@ -54,4 +31,21 @@ pub trait HasDeclarativeSignatureTemplate: Copy {
         self,
         db: &dyn DeclarativeSignatureDb,
     ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate>;
+}
+
+impl HasDeclarativeSignatureTemplate for EntityPath {
+    type DeclarativeSignatureTemplate = SignatureTemplate;
+
+    fn declarative_signature_template(
+        self,
+        db: &dyn DeclarativeSignatureDb,
+    ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
+        Ok(match self {
+            EntityPath::Module(_) => SignatureTemplate::Module,
+            EntityPath::ModuleItem(path) => path.declarative_signature_template(db)?.into(),
+            EntityPath::AssociatedItem(path) => path.declarative_signature_template(db)?.into(),
+            EntityPath::TypeVariant(path) => path.declarative_signature_template(db)?.into(),
+            EntityPath::ImplBlock(path) => path.declarative_signature_template(db)?.into(),
+        })
+    }
 }

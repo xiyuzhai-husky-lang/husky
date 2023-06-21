@@ -28,6 +28,7 @@ type SmallVecImpl<T> = SmallVec<[T; 2]>;
 pub struct DeclarativeSignatureJar(
     declarative_term_region,
     // type
+    ty_declarative_signature_template,
     EnumDeclarativeSignatureTemplate,
     enum_declarative_signature_template,
     UnitStructDeclarativeSignatureTemplate,
@@ -72,6 +73,7 @@ pub struct DeclarativeSignatureJar(
     // associated items
     // associated_item_declarative_signature_from_decl,
     // type item
+    ty_item_declarative_signature_template,
     ty_associated_fn_declarative_signature_template,
     TypeAssociatedFnDeclarativeSignatureTemplate,
     ty_method_fn_declarative_signature_template,
@@ -87,6 +89,7 @@ pub struct DeclarativeSignatureJar(
     ty_memoized_field_declarative_signature_template,
     ty_memoized_field_declarative_signature_templates_map,
     // trait item
+    trai_item_declarative_signature_template,
     TraitAssociatedFnDeclarativeSignatureTemplate,
     trai_associated_form_fn_declarative_signature_template,
     TraitMethodFnDeclarativeSignatureTemplate,
@@ -96,6 +99,7 @@ pub struct DeclarativeSignatureJar(
     TraitAssociatedValDeclarativeSignatureTemplate,
     trai_associated_val_declarative_signature_template,
     // type as trait item
+    trai_for_ty_item_declarative_signature_from_decl,
     TraitForTypeAssociatedFnDeclarativeSignatureTemplate,
     trai_for_ty_associated_fn_declarative_signature_template,
     TraitForTypeMethodFnDeclarativeSignatureTemplateTemplate,

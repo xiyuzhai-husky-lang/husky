@@ -76,14 +76,16 @@ impl HasDeclarativeSignatureTemplate for TypePath {
         self,
         db: &dyn DeclarativeSignatureDb,
     ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
-        ty_declarative_signature_template(db, self.decl(db)?)
+        ty_declarative_signature_template(db, self)
     }
 }
 
+#[salsa::tracked(jar = DeclarativeSignatureJar)]
 pub(crate) fn ty_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
-    decl: TypeDecl,
+    path: TypePath,
 ) -> DeclarativeSignatureResult<TypeDeclarativeSignatureTemplate> {
+    let decl = path.decl(db)?;
     match decl {
         TypeDecl::Enum(decl) => enum_declarative_signature_template(db, decl).map(Into::into),
         TypeDecl::RegularStruct(decl) => {

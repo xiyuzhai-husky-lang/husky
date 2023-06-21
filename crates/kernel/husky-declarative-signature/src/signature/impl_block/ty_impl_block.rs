@@ -9,29 +9,7 @@ pub struct TypeImplBlockDeclarativeSignatureTemplate {
     pub ty: DeclarativeTerm,
 }
 
-impl HasDeclarativeSignatureTemplate for TypeImplBlockNodePath {
-    type DeclarativeSignatureTemplate = TypeImplBlockDeclarativeSignatureTemplate;
-
-    fn declarative_signature_template(
-        self,
-        db: &dyn DeclarativeSignatureDb,
-    ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
-        self.path().declarative_signature_template(db)
-    }
-}
-
 impl HasDeclarativeSignatureTemplate for TypeImplBlockPath {
-    type DeclarativeSignatureTemplate = TypeImplBlockDeclarativeSignatureTemplate;
-
-    fn declarative_signature_template(
-        self,
-        db: &dyn DeclarativeSignatureDb,
-    ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
-        self.decl(db)?.declarative_signature_template(db)
-    }
-}
-
-impl HasDeclarativeSignatureTemplate for TypeImplBlockDecl {
     type DeclarativeSignatureTemplate = TypeImplBlockDeclarativeSignatureTemplate;
 
     fn declarative_signature_template(
@@ -45,8 +23,9 @@ impl HasDeclarativeSignatureTemplate for TypeImplBlockDecl {
 #[salsa::tracked(jar = DeclarativeSignatureJar)]
 pub(crate) fn ty_impl_block_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
-    decl: TypeImplBlockDecl,
+    path: TypeImplBlockPath,
 ) -> DeclarativeSignatureResult<TypeImplBlockDeclarativeSignatureTemplate> {
+    let decl = path.decl(db)?;
     let expr_region = decl.expr_region(db);
     let declarative_term_region = declarative_term_region(db, expr_region);
     let declarative_term_menu = db.declarative_term_menu(expr_region.toolchain(db)).unwrap();

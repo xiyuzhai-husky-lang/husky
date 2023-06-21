@@ -54,7 +54,7 @@ fn module_declarative_signature_templates(
         .decls(db)
         .iter()
         .copied()
-        .map(|(path, decl)| (path, signature_template_from_decl(db, decl)))
+        .map(|(path, _)| (path, path.declarative_signature_template(db)))
         .collect()
 }
 
@@ -86,9 +86,7 @@ fn menu_ty_declarative_signature_templates_works() {
 
     // Iterate over the type paths and assert that they are Ok
     for ty_path in ty_paths {
-        let ty_decl = ty_path.decl(&db).unwrap();
-        let ty_declarative_signature_template = db.ty_declarative_signature_template(ty_decl);
-
+        let ty_declarative_signature_template = ty_path.declarative_signature_template(&db);
         assert!(
             ty_declarative_signature_template.is_ok(),
             "Failed for type path: {:?}",

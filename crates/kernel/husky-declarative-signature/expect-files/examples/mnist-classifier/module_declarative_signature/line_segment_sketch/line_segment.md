@@ -1,118 +1,168 @@
 [
-    Ok(
-        SignatureTemplate::Type(
-            TypeDeclarativeSignatureTemplate::RegularStruct(
-                RegularStructDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
-                        data: [],
-                    },
-                    fields: [
-                        RegularStructFieldDeclarativeSignatureTemplate {
-                            ident: `start`,
-                            ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
-                        },
-                        RegularStructFieldDeclarativeSignatureTemplate {
-                            ident: `end`,
-                            ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
-                        },
-                    ],
-                },
+    (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Type(
+                TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
             ),
         ),
-    ),
-    Ok(
-        SignatureTemplate::ImplBlock(
-            ImplBlockDeclarativeSignatureTemplate::TypeImpl(
-                TypeImplBlockDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
-                        data: [],
-                    },
-                    ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`),
-                },
-            ),
-        ),
-    ),
-    Ok(
-        SignatureTemplate::AssociatedItem(
-            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                TypeItemDeclarativeSignatureTemplate::MethodFn(
-                    TypeMethodFnDeclarativeSignatureTemplate {
-                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+        Ok(
+            SignatureTemplate::ModuleItem(
+                ModuleItemDeclarativeSignatureTemplate::Type(
+                    TypeDeclarativeSignatureTemplate::RegularStruct(
+                        RegularStructDeclarativeSignatureTemplate {
                             implicit_parameters: ImplicitParameterDeclarativeSignatures {
                                 data: [],
                             },
-                            ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`),
+                            fields: [
+                                RegularStructFieldDeclarativeSignatureTemplate {
+                                    ident: `start`,
+                                    ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
+                                },
+                                RegularStructFieldDeclarativeSignatureTemplate {
+                                    ident: `end`,
+                                    ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
+                                },
+                            ],
                         },
-                        self_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`),
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        EntityPath::ImplBlock(
+            TypeImplBlock(
+                TypeImplBlockPath(
+                    Id {
+                        value: 41,
+                    },
+                ),
+            ),
+        ),
+        Ok(
+            SignatureTemplate::ImplBlock(
+                ImplBlockDeclarativeSignatureTemplate::TypeImpl(
+                    TypeImplBlockDeclarativeSignatureTemplate {
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
-                        self_parameter: ExplicitParameterDeclarativeSignatureTemplate {
-                            contract: Pure,
-                            ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        Id {
-                                            value: 94,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        },
-                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
-                            data: [],
-                        },
-                        return_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
+                        ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`),
                     },
                 ),
             ),
         ),
     ),
-    Ok(
-        SignatureTemplate::AssociatedItem(
-            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                TypeItemDeclarativeSignatureTemplate::MethodFn(
-                    TypeMethodFnDeclarativeSignatureTemplate {
-                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+    (
+        EntityPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `mnist_classifier::line_segment_sketch::line_segment`,
+                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                        disambiguator: 0,
+                    },
+                    ident: `displacement`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                    TypeItemDeclarativeSignatureTemplate::MethodFn(
+                        TypeMethodFnDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                    data: [],
+                                },
+                                ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`),
+                            },
+                            self_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`),
                             implicit_parameters: ImplicitParameterDeclarativeSignatures {
                                 data: [],
                             },
-                            ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`),
-                        },
-                        self_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`),
-                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
-                            data: [],
-                        },
-                        self_parameter: ExplicitParameterDeclarativeSignatureTemplate {
-                            contract: Pure,
-                            ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        Id {
-                                            value: 94,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        },
-                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
-                            data: [
-                                ExplicitParameterDeclarativeSignatureTemplate {
-                                    contract: Pure,
-                                    ty: EntityPath(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 84,
-                                                },
-                                            ),
+                            self_parameter: ExplicitParameterDeclarativeSignatureTemplate {
+                                contract: Pure,
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 92,
+                                            },
                                         ),
                                     ),
-                                },
-                            ],
+                                ),
+                            },
+                            nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                                data: [],
+                            },
+                            return_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                         },
-                        return_ty: DeclarativeTerm(`core::num::f32`),
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        EntityPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `mnist_classifier::line_segment_sketch::line_segment`,
+                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                        disambiguator: 0,
                     },
+                    ident: `dist_to_point`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                    TypeItemDeclarativeSignatureTemplate::MethodFn(
+                        TypeMethodFnDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                    data: [],
+                                },
+                                ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`),
+                            },
+                            self_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`),
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            self_parameter: ExplicitParameterDeclarativeSignatureTemplate {
+                                contract: Pure,
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 92,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
+                            nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                                data: [
+                                    ExplicitParameterDeclarativeSignatureTemplate {
+                                        contract: Pure,
+                                        ty: EntityPath(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 82,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                ],
+                            },
+                            return_ty: DeclarativeTerm(`core::num::f32`),
+                        },
+                    ),
                 ),
             ),
         ),

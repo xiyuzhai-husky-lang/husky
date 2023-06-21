@@ -15,17 +15,6 @@ impl HasDeclarativeSignatureTemplate for TraitForTypeImplBlockPath {
         self,
         db: &dyn DeclarativeSignatureDb,
     ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
-        self.decl(db)?.declarative_signature_template(db)
-    }
-}
-
-impl HasDeclarativeSignatureTemplate for TraitForTypeImplBlockDecl {
-    type DeclarativeSignatureTemplate = TraitForTypeImplBlockDeclarativeSignatureTemplate;
-
-    fn declarative_signature_template(
-        self,
-        db: &dyn DeclarativeSignatureDb,
-    ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
         trai_for_ty_impl_block_declarative_signature_template(db, self)
     }
 }
@@ -33,8 +22,9 @@ impl HasDeclarativeSignatureTemplate for TraitForTypeImplBlockDecl {
 #[salsa::tracked(jar = DeclarativeSignatureJar)]
 pub(crate) fn trai_for_ty_impl_block_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
-    decl: TraitForTypeImplBlockDecl,
+    path: TraitForTypeImplBlockPath,
 ) -> DeclarativeSignatureResult<TraitForTypeImplBlockDeclarativeSignatureTemplate> {
+    let decl = path.decl(db)?;
     let expr_region = decl.expr_region(db);
     let declarative_term_region = declarative_term_region(db, expr_region);
     let declarative_term_menu = db.declarative_term_menu(expr_region.toolchain(db)).unwrap();

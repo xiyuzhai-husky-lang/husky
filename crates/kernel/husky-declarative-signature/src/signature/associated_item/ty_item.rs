@@ -67,33 +67,16 @@ impl HasDeclarativeSignatureTemplate for TypeItemPath {
         self,
         db: &dyn DeclarativeSignatureDb,
     ) -> DeclarativeSignatureResult<TypeItemDeclarativeSignatureTemplate> {
-        self.decl(db)?.declarative_signature_template(db)
+        ty_item_declarative_signature_template(db, self)
     }
 }
 
-impl HasDeclarativeSignatureTemplate for TypeItemDecl {
-    type DeclarativeSignatureTemplate = TypeItemDeclarativeSignatureTemplate;
-
-    fn declarative_signature_template(
-        self,
-        db: &dyn DeclarativeSignatureDb,
-    ) -> DeclarativeSignatureResult<TypeItemDeclarativeSignatureTemplate> {
-        ty_item_declarative_signature_from_decl(db, self)
-    }
-}
-
-pub(crate) fn ty_item_declarative_signature(
+#[salsa::tracked(jar = DeclarativeSignatureJar)]
+pub(crate) fn ty_item_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
     path: TypeItemPath,
 ) -> DeclarativeSignatureResult<TypeItemDeclarativeSignatureTemplate> {
     let decl = path.decl(db)?;
-    ty_item_declarative_signature_from_decl(db, decl)
-}
-
-pub(crate) fn ty_item_declarative_signature_from_decl(
-    db: &dyn DeclarativeSignatureDb,
-    decl: TypeItemDecl,
-) -> DeclarativeSignatureResult<TypeItemDeclarativeSignatureTemplate> {
     match decl {
         TypeItemDecl::AssociatedFn(decl) => {
             ty_associated_fn_declarative_signature_template(db, decl).map(Into::into)

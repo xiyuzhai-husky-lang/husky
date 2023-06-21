@@ -1,127 +1,179 @@
 [
-    Ok(
-        SignatureTemplate::Type(
-            TypeDeclarativeSignatureTemplate::Enum(
-                EnumDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
-                        data: [
-                            ImplicitParameterDeclarativeSignature {
-                                annotated_variance: None,
-                                symbol: DeclarativeTermSymbol(
-                                    Id {
-                                        value: 2,
-                                    },
-                                ),
-                                traits: [],
-                            },
-                            ImplicitParameterDeclarativeSignature {
-                                annotated_variance: None,
-                                symbol: DeclarativeTermSymbol(
-                                    Id {
-                                        value: 6,
-                                    },
-                                ),
-                                traits: [],
-                            },
-                        ],
-                    },
-                },
+    (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Type(
+                TypePath(`core::result::Result`, `Enum`),
             ),
         ),
-    ),
-    Ok(
-        SignatureTemplate::ImplBlock(
-            ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
-                TraitForTypeImplBlockDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
-                        data: [
-                            ImplicitParameterDeclarativeSignature {
-                                annotated_variance: None,
-                                symbol: DeclarativeTermSymbol(
-                                    Id {
-                                        value: 2,
+        Ok(
+            SignatureTemplate::ModuleItem(
+                ModuleItemDeclarativeSignatureTemplate::Type(
+                    TypeDeclarativeSignatureTemplate::Enum(
+                        EnumDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [
+                                    ImplicitParameterDeclarativeSignature {
+                                        annotated_variance: None,
+                                        symbol: DeclarativeTermSymbol(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
+                                        traits: [],
                                     },
-                                ),
-                                traits: [],
-                            },
-                            ImplicitParameterDeclarativeSignature {
-                                annotated_variance: None,
-                                symbol: DeclarativeTermSymbol(
-                                    Id {
-                                        value: 6,
+                                    ImplicitParameterDeclarativeSignature {
+                                        annotated_variance: None,
+                                        symbol: DeclarativeTermSymbol(
+                                            Id {
+                                                value: 4,
+                                            },
+                                        ),
+                                        traits: [],
                                     },
-                                ),
-                                traits: [],
+                                ],
                             },
-                            ImplicitParameterDeclarativeSignature {
-                                annotated_variance: None,
-                                symbol: DeclarativeTermSymbol(
-                                    Id {
-                                        value: 26,
-                                    },
-                                ),
-                                traits: [],
-                            },
-                            ImplicitParameterDeclarativeSignature {
-                                annotated_variance: None,
-                                symbol: DeclarativeTermSymbol(
-                                    Id {
-                                        value: 27,
-                                    },
-                                ),
-                                traits: [],
-                            },
-                        ],
-                    },
-                    trai: DeclarativeTerm(`core::ops::Unveil core::result::Result t s`),
-                    ty: DeclarativeTerm(`core::result::Result t s`),
-                },
-            ),
-        ),
-    ),
-    Ok(
-        SignatureTemplate::AssociatedItem(
-            AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
-                TraitForTypeItemDeclarativeSignatureTemplate::AssociatedType(
-                    TraitForTypeAssociatedTypeDeclarativeSignatureTemplate,
+                        },
+                    ),
                 ),
             ),
         ),
     ),
-    Ok(
-        SignatureTemplate::AssociatedItem(
-            AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
-                TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
-                    TraitForTypeMethodFnDeclarativeSignatureTemplateTemplate {
+    (
+        EntityPath::ImplBlock(
+            TraitForTypeImplBlock(
+                TraitForTypeImplBlockPath(
+                    Id {
+                        value: 32,
+                    },
+                ),
+            ),
+        ),
+        Ok(
+            SignatureTemplate::ImplBlock(
+                ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
+                    TraitForTypeImplBlockDeclarativeSignatureTemplate {
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
-                            data: [],
-                        },
-                        self_parameter: ExplicitParameterDeclarativeSignatureTemplate {
-                            contract: Pure,
-                            ty: ExplicitApplication(
-                                DeclarativeTermExplicitApplication(
-                                    Id {
-                                        value: 39,
-                                    },
-                                ),
-                            ),
-                        },
-                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                             data: [
-                                ExplicitParameterDeclarativeSignatureTemplate {
-                                    contract: Pure,
-                                    ty: ExplicitApplication(
-                                        DeclarativeTermExplicitApplication(
-                                            Id {
-                                                value: 41,
-                                            },
-                                        ),
+                                ImplicitParameterDeclarativeSignature {
+                                    annotated_variance: None,
+                                    symbol: DeclarativeTermSymbol(
+                                        Id {
+                                            value: 2,
+                                        },
                                     ),
+                                    traits: [],
+                                },
+                                ImplicitParameterDeclarativeSignature {
+                                    annotated_variance: None,
+                                    symbol: DeclarativeTermSymbol(
+                                        Id {
+                                            value: 4,
+                                        },
+                                    ),
+                                    traits: [],
+                                },
+                                ImplicitParameterDeclarativeSignature {
+                                    annotated_variance: None,
+                                    symbol: DeclarativeTermSymbol(
+                                        Id {
+                                            value: 24,
+                                        },
+                                    ),
+                                    traits: [],
+                                },
+                                ImplicitParameterDeclarativeSignature {
+                                    annotated_variance: None,
+                                    symbol: DeclarativeTermSymbol(
+                                        Id {
+                                            value: 25,
+                                        },
+                                    ),
+                                    traits: [],
                                 },
                             ],
                         },
-                        return_ty: DeclarativeTerm(`core::result::Result t s`),
+                        trai: DeclarativeTerm(`core::ops::Unveil core::result::Result t s`),
+                        ty: DeclarativeTerm(`core::result::Result t s`),
                     },
+                ),
+            ),
+        ),
+    ),
+    (
+        EntityPath::AssociatedItem(
+            AssociatedItemPath::TraitForTypeItem(
+                TraitForTypeItemPath {
+                    impl_block: TraitForTypeImplBlockPath {
+                        module_path: `core::result`,
+                        trai_path: TraitPath(`core::ops::Unveil`),
+                        ty_path: TypePath(`core::result::Result`, `Enum`),
+                        disambiguator: 0,
+                    },
+                    ident: `Continue`,
+                    item_kind: AssociatedType,
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
+                    TraitForTypeItemDeclarativeSignatureTemplate::AssociatedType(
+                        TraitForTypeAssociatedTypeDeclarativeSignatureTemplate,
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        EntityPath::AssociatedItem(
+            AssociatedItemPath::TraitForTypeItem(
+                TraitForTypeItemPath {
+                    impl_block: TraitForTypeImplBlockPath {
+                        module_path: `core::result`,
+                        trai_path: TraitPath(`core::ops::Unveil`),
+                        ty_path: TypePath(`core::result::Result`, `Enum`),
+                        disambiguator: 0,
+                    },
+                    ident: `branch`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
+                    TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
+                        TraitForTypeMethodFnDeclarativeSignatureTemplateTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            self_parameter: ExplicitParameterDeclarativeSignatureTemplate {
+                                contract: Pure,
+                                ty: ExplicitApplication(
+                                    DeclarativeTermExplicitApplication(
+                                        Id {
+                                            value: 39,
+                                        },
+                                    ),
+                                ),
+                            },
+                            nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                                data: [
+                                    ExplicitParameterDeclarativeSignatureTemplate {
+                                        contract: Pure,
+                                        ty: ExplicitApplication(
+                                            DeclarativeTermExplicitApplication(
+                                                Id {
+                                                    value: 41,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ],
+                            },
+                            return_ty: DeclarativeTerm(`core::result::Result t s`),
+                        },
+                    ),
                 ),
             ),
         ),

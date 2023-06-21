@@ -33,10 +33,23 @@ pub enum TraitItemDeclarativeSignatureTemplates {
     // MemoizedField(SmallVecImpl<TraitMemoizedFieldDeclarativeSignatureTemplate>),
 }
 
-pub(crate) fn trai_associated_item_declarative_signature_from_decl(
+impl HasDeclarativeSignatureTemplate for TraitItemPath {
+    type DeclarativeSignatureTemplate = TraitItemDeclarativeSignatureTemplate;
+
+    fn declarative_signature_template(
+        self,
+        db: &dyn DeclarativeSignatureDb,
+    ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
+        trai_item_declarative_signature_template(db, self)
+    }
+}
+
+#[salsa::tracked(jar = DeclarativeSignatureJar)]
+pub(crate) fn trai_item_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
-    decl: TraitItemDecl,
+    path: TraitItemPath,
 ) -> DeclarativeSignatureResult<TraitItemDeclarativeSignatureTemplate> {
+    let decl = path.decl(db)?;
     match decl {
         TraitItemDecl::AssociatedFn(decl) => {
             trai_associated_form_fn_declarative_signature_template(db, decl).map(Into::into)

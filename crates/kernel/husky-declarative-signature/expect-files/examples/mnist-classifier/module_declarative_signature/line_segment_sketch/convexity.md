@@ -1,41 +1,50 @@
 [
-    Ok(
-        SignatureTemplate::Form(
-            FugitiveDeclarativeSignatureTemplate::Fn(
-                FnDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
-                        data: [],
-                    },
-                    parameters: ExplicitParameterDeclarativeSignatureTemplates {
-                        data: [
-                            ExplicitParameterDeclarativeSignatureTemplate {
-                                contract: Pure,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 91,
-                                            },
-                                        ),
-                                    ),
-                                ),
+    (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Fugitive(
+                FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
+            ),
+        ),
+        Ok(
+            SignatureTemplate::ModuleItem(
+                ModuleItemDeclarativeSignatureTemplate::Fugitive(
+                    FugitiveDeclarativeSignatureTemplate::Fn(
+                        FnDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
                             },
-                            ExplicitParameterDeclarativeSignatureTemplate {
-                                contract: Pure,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 50,
-                                            },
+                            regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                                data: [
+                                    ExplicitParameterDeclarativeSignatureTemplate {
+                                        contract: Pure,
+                                        ty: EntityPath(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 89,
+                                                    },
+                                                ),
+                                            ),
                                         ),
-                                    ),
-                                ),
+                                    },
+                                    ExplicitParameterDeclarativeSignatureTemplate {
+                                        contract: Pure,
+                                        ty: EntityPath(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 50,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                ],
                             },
-                        ],
-                    },
-                    return_ty: DeclarativeTerm(`core::basic::bool`),
-                },
+                            return_ty: DeclarativeTerm(`core::basic::bool`),
+                        },
+                    ),
+                ),
             ),
         ),
     ),
