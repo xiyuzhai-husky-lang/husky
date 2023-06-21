@@ -6,9 +6,9 @@ pub struct TypeAssociatedFnNodeDecl {
     pub node_path: TypeItemNodePath,
     pub ast_idx: AstIdx,
     #[return_ref]
-    implicit_parameter_decl_list: DeclExprResult<Option<ImplicitParameterDeclList>>,
+    pub implicit_parameter_decl_list: DeclExprResult<Option<ImplicitParameterDeclList>>,
     #[return_ref]
-    pub parameter_decl_list: DeclExprResult<ExplicitParameterDeclList>,
+    pub explicit_parameter_decl_list: DeclExprResult<ExplicitParameterDeclList>,
     pub curry_token: TokenResult<Option<CurryToken>>,
     #[return_ref]
     pub return_ty: DeclExprResult<Option<ReturnTypeExpr>>,
@@ -59,7 +59,7 @@ impl<'a> DeclParser<'a> {
     }
 }
 
-#[salsa::tracked(db = DeclDb, jar = DeclJar)]
+#[salsa::tracked(db = DeclDb, jar = DeclJar, constructor = new)]
 pub struct TypeAssociatedFnDecl {
     #[id]
     pub path: TypeItemPath,
@@ -69,4 +69,33 @@ pub struct TypeAssociatedFnDecl {
     pub regular_parameters: RegularParameterDeclPatterns,
     pub return_ty: Option<ReturnTypeExpr>,
     pub expr_region: ExprRegion,
+}
+
+impl TypeAssociatedFnDecl {
+    pub(super) fn from_node_decl(
+        db: &dyn DeclDb,
+        path: TypeItemPath,
+        node_decl: TypeAssociatedFnNodeDecl,
+    ) -> DeclResult<Self> {
+        let implicit_parameters = node_decl
+            .implicit_parameter_decl_list(db)
+            .as_ref()?
+            .as_ref()
+            .map(|list| list.implicit_parameters().to_smallvec())
+            .unwrap_or_default();
+        let explicit_parameter_decl_list = node_decl.explicit_parameter_decl_list(db).as_ref()?;
+        let regular_parameters: RegularParameterDeclPatterns = explicit_parameter_decl_list
+            .regular_parameters()
+            .to_smallvec();
+        let return_ty = *node_decl.return_ty(db).as_ref()?;
+        let expr_region = node_decl.expr_region(db);
+        Ok(TypeAssociatedFnDecl::new(
+            db,
+            path,
+            implicit_parameters,
+            regular_parameters,
+            return_ty,
+            expr_region,
+        ))
+    }
 }

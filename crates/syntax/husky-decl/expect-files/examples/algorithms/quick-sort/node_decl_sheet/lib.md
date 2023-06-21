@@ -7,11 +7,7 @@ Ok(
                     ModuleItemNodePath::Fugitive(
                         FugitiveNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 1,
-                                    },
-                                ),
+                                path: FugitivePath(`quick_sort::quick_sort`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
@@ -23,11 +19,7 @@ Ok(
                             FnNodeDecl {
                                 node_path: FugitiveNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(
-                                            Id {
-                                                value: 1,
-                                            },
-                                        ),
+                                        path: FugitivePath(`quick_sort::quick_sort`, `Fn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -130,11 +122,7 @@ Ok(
                                                 ModuleItemNodePath::Fugitive(
                                                     FugitiveNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(
-                                                                Id {
-                                                                    value: 1,
-                                                                },
-                                                            ),
+                                                            path: FugitivePath(`quick_sort::quick_sort`, `Fn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -341,11 +329,7 @@ Ok(
                     ModuleItemNodePath::Fugitive(
                         FugitiveNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 2,
-                                    },
-                                ),
+                                path: FugitivePath(`quick_sort::quick_sort_aux`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
@@ -357,11 +341,7 @@ Ok(
                             FnNodeDecl {
                                 node_path: FugitiveNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(
-                                            Id {
-                                                value: 2,
-                                            },
-                                        ),
+                                        path: FugitivePath(`quick_sort::quick_sort_aux`, `Fn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -499,11 +479,7 @@ Ok(
                                                 ModuleItemNodePath::Fugitive(
                                                     FugitiveNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(
-                                                                Id {
-                                                                    value: 2,
-                                                                },
-                                                            ),
+                                                            path: FugitivePath(`quick_sort::quick_sort_aux`, `Fn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -850,11 +826,7 @@ Ok(
                     ModuleItemNodePath::Fugitive(
                         FugitiveNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 3,
-                                    },
-                                ),
+                                path: FugitivePath(`quick_sort::partition`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
@@ -866,11 +838,7 @@ Ok(
                             FnNodeDecl {
                                 node_path: FugitiveNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(
-                                            Id {
-                                                value: 3,
-                                            },
-                                        ),
+                                        path: FugitivePath(`quick_sort::partition`, `Fn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -1018,11 +986,7 @@ Ok(
                                                 ModuleItemNodePath::Fugitive(
                                                     FugitiveNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(
-                                                                Id {
-                                                                    value: 3,
-                                                                },
-                                                            ),
+                                                            path: FugitivePath(`quick_sort::partition`, `Fn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -1398,11 +1362,7 @@ Ok(
                     ModuleItemNodePath::Fugitive(
                         FugitiveNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 4,
-                                    },
-                                ),
+                                path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
@@ -1414,11 +1374,7 @@ Ok(
                             FnNodeDecl {
                                 node_path: FugitiveNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(
-                                            Id {
-                                                value: 4,
-                                            },
-                                        ),
+                                        path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Fn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -1461,11 +1417,7 @@ Ok(
                                                 ModuleItemNodePath::Fugitive(
                                                     FugitiveNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(
-                                                                Id {
-                                                                    value: 4,
-                                                                },
-                                                            ),
+                                                            path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Fn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -1521,11 +1473,7 @@ Ok(
                     ModuleItemNodePath::Fugitive(
                         FugitiveNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 5,
-                                    },
-                                ),
+                                path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
@@ -1537,11 +1485,7 @@ Ok(
                             FnNodeDecl {
                                 node_path: FugitiveNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(
-                                            Id {
-                                                value: 5,
-                                            },
-                                        ),
+                                        path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Fn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -1584,11 +1528,7 @@ Ok(
                                                 ModuleItemNodePath::Fugitive(
                                                     FugitiveNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(
-                                                                Id {
-                                                                    value: 5,
-                                                                },
-                                                            ),
+                                                            path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Fn`),
                                                             disambiguator: 0,
                                                         },
                                                     },

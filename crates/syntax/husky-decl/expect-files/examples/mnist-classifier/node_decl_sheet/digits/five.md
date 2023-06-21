@@ -7,11 +7,7 @@ Ok(
                     ModuleItemNodePath::Fugitive(
                         FugitiveNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 50,
-                                    },
-                                ),
+                                path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
                                 disambiguator: 0,
                             },
                         },
@@ -23,11 +19,7 @@ Ok(
                             ValNodeDecl {
                                 node_path: FugitiveNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(
-                                            Id {
-                                                value: 50,
-                                            },
-                                        ),
+                                        path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -64,11 +56,7 @@ Ok(
                                                 ModuleItemNodePath::Fugitive(
                                                     FugitiveNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(
-                                                                Id {
-                                                                    value: 50,
-                                                                },
-                                                            ),
+                                                            path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
                                                             disambiguator: 0,
                                                         },
                                                     },

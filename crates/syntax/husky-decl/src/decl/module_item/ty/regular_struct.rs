@@ -78,7 +78,7 @@ impl RegularStructTypeDecl {
             .unwrap_or_default();
         let fields = SmallVec::from(node_decl.struct_fields(db).as_ref()?.elements());
         let expr_region = node_decl.expr_region(db);
-        Ok(RegularStructTypeDecl::new(
+        Ok(Self::new(
             db,
             path,
             implicit_parameters,

@@ -7,11 +7,7 @@ Ok(
                     ModuleItemNodePath::Fugitive(
                         FugitiveNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 70,
-                                    },
-                                ),
+                                path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
                                 disambiguator: 0,
                             },
                         },
@@ -23,11 +19,7 @@ Ok(
                             ValNodeDecl {
                                 node_path: FugitiveNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(
-                                            Id {
-                                                value: 70,
-                                            },
-                                        ),
+                                        path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -64,11 +56,7 @@ Ok(
                                                 ModuleItemNodePath::Fugitive(
                                                     FugitiveNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(
-                                                                Id {
-                                                                    value: 70,
-                                                                },
-                                                            ),
+                                                            path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -178,11 +166,7 @@ Ok(
                     ModuleItemNodePath::Fugitive(
                         FugitiveNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 71,
-                                    },
-                                ),
+                                path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                 disambiguator: 0,
                             },
                         },
@@ -194,11 +178,7 @@ Ok(
                             ValNodeDecl {
                                 node_path: FugitiveNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(
-                                            Id {
-                                                value: 71,
-                                            },
-                                        ),
+                                        path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -235,11 +215,7 @@ Ok(
                                                 ModuleItemNodePath::Fugitive(
                                                     FugitiveNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(
-                                                                Id {
-                                                                    value: 71,
-                                                                },
-                                                            ),
+                                                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -334,11 +310,7 @@ Ok(
                     ModuleItemNodePath::Fugitive(
                         FugitiveNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 72,
-                                    },
-                                ),
+                                path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                                 disambiguator: 0,
                             },
                         },
@@ -350,11 +322,7 @@ Ok(
                             ValNodeDecl {
                                 node_path: FugitiveNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(
-                                            Id {
-                                                value: 72,
-                                            },
-                                        ),
+                                        path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -391,11 +359,7 @@ Ok(
                                                 ModuleItemNodePath::Fugitive(
                                                     FugitiveNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(
-                                                                Id {
-                                                                    value: 72,
-                                                                },
-                                                            ),
+                                                            path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -483,11 +447,7 @@ Ok(
                     ModuleItemNodePath::Fugitive(
                         FugitiveNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 73,
-                                    },
-                                ),
+                                path: FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
                                 disambiguator: 0,
                             },
                         },
@@ -499,11 +459,7 @@ Ok(
                             ValNodeDecl {
                                 node_path: FugitiveNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(
-                                            Id {
-                                                value: 73,
-                                            },
-                                        ),
+                                        path: FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -540,11 +496,7 @@ Ok(
                                                 ModuleItemNodePath::Fugitive(
                                                     FugitiveNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(
-                                                                Id {
-                                                                    value: 73,
-                                                                },
-                                                            ),
+                                                            path: FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -654,11 +606,7 @@ Ok(
                     ModuleItemNodePath::Fugitive(
                         FugitiveNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 74,
-                                    },
-                                ),
+                                path: FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
                                 disambiguator: 0,
                             },
                         },
@@ -670,11 +618,7 @@ Ok(
                             ValNodeDecl {
                                 node_path: FugitiveNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(
-                                            Id {
-                                                value: 74,
-                                            },
-                                        ),
+                                        path: FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -711,11 +655,7 @@ Ok(
                                                 ModuleItemNodePath::Fugitive(
                                                     FugitiveNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(
-                                                                Id {
-                                                                    value: 74,
-                                                                },
-                                                            ),
+                                                            path: FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -810,11 +750,7 @@ Ok(
                     ModuleItemNodePath::Fugitive(
                         FugitiveNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 75,
-                                    },
-                                ),
+                                path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                 disambiguator: 0,
                             },
                         },
@@ -826,11 +762,7 @@ Ok(
                             ValNodeDecl {
                                 node_path: FugitiveNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(
-                                            Id {
-                                                value: 75,
-                                            },
-                                        ),
+                                        path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -867,11 +799,7 @@ Ok(
                                                 ModuleItemNodePath::Fugitive(
                                                     FugitiveNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(
-                                                                Id {
-                                                                    value: 75,
-                                                                },
-                                                            ),
+                                                            path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -966,11 +894,7 @@ Ok(
                     ModuleItemNodePath::Fugitive(
                         FugitiveNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 76,
-                                    },
-                                ),
+                                path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                                 disambiguator: 0,
                             },
                         },
@@ -982,11 +906,7 @@ Ok(
                             ValNodeDecl {
                                 node_path: FugitiveNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(
-                                            Id {
-                                                value: 76,
-                                            },
-                                        ),
+                                        path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -1023,11 +943,7 @@ Ok(
                                                 ModuleItemNodePath::Fugitive(
                                                     FugitiveNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(
-                                                                Id {
-                                                                    value: 76,
-                                                                },
-                                                            ),
+                                                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                                                             disambiguator: 0,
                                                         },
                                                     },

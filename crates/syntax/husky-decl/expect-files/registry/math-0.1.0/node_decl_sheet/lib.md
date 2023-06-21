@@ -6,11 +6,7 @@ Ok(
                 EntityNodePath::Submodule(
                     SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: ModulePath(
-                                Id {
-                                    value: 73,
-                                },
-                            ),
+                            path: `math::algebra`,
                             disambiguator: 0,
                         },
                     },
@@ -19,11 +15,7 @@ Ok(
                     SubmoduleNodeDecl {
                         node_path: SubmoduleNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: ModulePath(
-                                    Id {
-                                        value: 73,
-                                    },
-                                ),
+                                path: `math::algebra`,
                                 disambiguator: 0,
                             },
                         },
@@ -35,11 +27,7 @@ Ok(
                 EntityNodePath::Submodule(
                     SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: ModulePath(
-                                Id {
-                                    value: 74,
-                                },
-                            ),
+                            path: `math::algebraic_geometry`,
                             disambiguator: 0,
                         },
                     },
@@ -48,11 +36,7 @@ Ok(
                     SubmoduleNodeDecl {
                         node_path: SubmoduleNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: ModulePath(
-                                    Id {
-                                        value: 74,
-                                    },
-                                ),
+                                path: `math::algebraic_geometry`,
                                 disambiguator: 0,
                             },
                         },
@@ -64,11 +48,7 @@ Ok(
                 EntityNodePath::Submodule(
                     SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: ModulePath(
-                                Id {
-                                    value: 75,
-                                },
-                            ),
+                            path: `math::algebraic_topology`,
                             disambiguator: 0,
                         },
                     },
@@ -77,11 +57,7 @@ Ok(
                     SubmoduleNodeDecl {
                         node_path: SubmoduleNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: ModulePath(
-                                    Id {
-                                        value: 75,
-                                    },
-                                ),
+                                path: `math::algebraic_topology`,
                                 disambiguator: 0,
                             },
                         },
@@ -93,11 +69,7 @@ Ok(
                 EntityNodePath::Submodule(
                     SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: ModulePath(
-                                Id {
-                                    value: 76,
-                                },
-                            ),
+                            path: `math::category_theory`,
                             disambiguator: 0,
                         },
                     },
@@ -106,11 +78,7 @@ Ok(
                     SubmoduleNodeDecl {
                         node_path: SubmoduleNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: ModulePath(
-                                    Id {
-                                        value: 76,
-                                    },
-                                ),
+                                path: `math::category_theory`,
                                 disambiguator: 0,
                             },
                         },
@@ -122,11 +90,7 @@ Ok(
                 EntityNodePath::Submodule(
                     SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: ModulePath(
-                                Id {
-                                    value: 77,
-                                },
-                            ),
+                            path: `math::probability`,
                             disambiguator: 0,
                         },
                     },
@@ -135,11 +99,7 @@ Ok(
                     SubmoduleNodeDecl {
                         node_path: SubmoduleNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: ModulePath(
-                                    Id {
-                                        value: 77,
-                                    },
-                                ),
+                                path: `math::probability`,
                                 disambiguator: 0,
                             },
                         },

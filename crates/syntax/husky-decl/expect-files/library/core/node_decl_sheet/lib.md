@@ -6,11 +6,7 @@ Ok(
                 EntityNodePath::Submodule(
                     SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: ModulePath(
-                                Id {
-                                    value: 2,
-                                },
-                            ),
+                            path: `core::array`,
                             disambiguator: 0,
                         },
                     },
@@ -19,11 +15,7 @@ Ok(
                     SubmoduleNodeDecl {
                         node_path: SubmoduleNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: ModulePath(
-                                    Id {
-                                        value: 2,
-                                    },
-                                ),
+                                path: `core::array`,
                                 disambiguator: 0,
                             },
                         },
@@ -35,11 +27,7 @@ Ok(
                 EntityNodePath::Submodule(
                     SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: ModulePath(
-                                Id {
-                                    value: 3,
-                                },
-                            ),
+                            path: `core::basic`,
                             disambiguator: 0,
                         },
                     },
@@ -48,11 +36,7 @@ Ok(
                     SubmoduleNodeDecl {
                         node_path: SubmoduleNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: ModulePath(
-                                    Id {
-                                        value: 3,
-                                    },
-                                ),
+                                path: `core::basic`,
                                 disambiguator: 0,
                             },
                         },
@@ -64,11 +48,7 @@ Ok(
                 EntityNodePath::Submodule(
                     SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: ModulePath(
-                                Id {
-                                    value: 4,
-                                },
-                            ),
+                            path: `core::clone`,
                             disambiguator: 0,
                         },
                     },
@@ -77,11 +57,7 @@ Ok(
                     SubmoduleNodeDecl {
                         node_path: SubmoduleNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: ModulePath(
-                                    Id {
-                                        value: 4,
-                                    },
-                                ),
+                                path: `core::clone`,
                                 disambiguator: 0,
                             },
                         },
@@ -93,11 +69,7 @@ Ok(
                 EntityNodePath::Submodule(
                     SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: ModulePath(
-                                Id {
-                                    value: 5,
-                                },
-                            ),
+                            path: `core::cmp`,
                             disambiguator: 0,
                         },
                     },
@@ -106,11 +78,7 @@ Ok(
                     SubmoduleNodeDecl {
                         node_path: SubmoduleNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: ModulePath(
-                                    Id {
-                                        value: 5,
-                                    },
-                                ),
+                                path: `core::cmp`,
                                 disambiguator: 0,
                             },
                         },
@@ -122,11 +90,7 @@ Ok(
                 EntityNodePath::Submodule(
                     SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: ModulePath(
-                                Id {
-                                    value: 6,
-                                },
-                            ),
+                            path: `core::default`,
                             disambiguator: 0,
                         },
                     },
@@ -135,11 +99,7 @@ Ok(
                     SubmoduleNodeDecl {
                         node_path: SubmoduleNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: ModulePath(
-                                    Id {
-                                        value: 6,
-                                    },
-                                ),
+                                path: `core::default`,
                                 disambiguator: 0,
                             },
                         },
@@ -151,11 +111,7 @@ Ok(
                 EntityNodePath::Submodule(
                     SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: ModulePath(
-                                Id {
-                                    value: 7,
-                                },
-                            ),
+                            path: `core::fmt`,
                             disambiguator: 0,
                         },
                     },
@@ -164,11 +120,7 @@ Ok(
                     SubmoduleNodeDecl {
                         node_path: SubmoduleNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: ModulePath(
-                                    Id {
-                                        value: 7,
-                                    },
-                                ),
+                                path: `core::fmt`,
                                 disambiguator: 0,
                             },
                         },
@@ -180,11 +132,7 @@ Ok(
                 EntityNodePath::Submodule(
                     SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: ModulePath(
-                                Id {
-                                    value: 8,
-                                },
-                            ),
+                            path: `core::list`,
                             disambiguator: 0,
                         },
                     },
@@ -193,11 +141,7 @@ Ok(
                     SubmoduleNodeDecl {
                         node_path: SubmoduleNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: ModulePath(
-                                    Id {
-                                        value: 8,
-                                    },
-                                ),
+                                path: `core::list`,
                                 disambiguator: 0,
                             },
                         },
@@ -209,11 +153,7 @@ Ok(
                 EntityNodePath::Submodule(
                     SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: ModulePath(
-                                Id {
-                                    value: 9,
-                                },
-                            ),
+                            path: `core::logic`,
                             disambiguator: 0,
                         },
                     },
@@ -222,11 +162,7 @@ Ok(
                     SubmoduleNodeDecl {
                         node_path: SubmoduleNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: ModulePath(
-                                    Id {
-                                        value: 9,
-                                    },
-                                ),
+                                path: `core::logic`,
                                 disambiguator: 0,
                             },
                         },
@@ -238,11 +174,7 @@ Ok(
                 EntityNodePath::Submodule(
                     SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: ModulePath(
-                                Id {
-                                    value: 10,
-                                },
-                            ),
+                            path: `core::marker`,
                             disambiguator: 0,
                         },
                     },
@@ -251,11 +183,7 @@ Ok(
                     SubmoduleNodeDecl {
                         node_path: SubmoduleNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: ModulePath(
-                                    Id {
-                                        value: 10,
-                                    },
-                                ),
+                                path: `core::marker`,
                                 disambiguator: 0,
                             },
                         },
@@ -267,11 +195,7 @@ Ok(
                 EntityNodePath::Submodule(
                     SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: ModulePath(
-                                Id {
-                                    value: 11,
-                                },
-                            ),
+                            path: `core::mem`,
                             disambiguator: 0,
                         },
                     },
@@ -280,11 +204,7 @@ Ok(
                     SubmoduleNodeDecl {
                         node_path: SubmoduleNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: ModulePath(
-                                    Id {
-                                        value: 11,
-                                    },
-                                ),
+                                path: `core::mem`,
                                 disambiguator: 0,
                             },
                         },
@@ -296,11 +216,7 @@ Ok(
                 EntityNodePath::Submodule(
                     SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: ModulePath(
-                                Id {
-                                    value: 12,
-                                },
-                            ),
+                            path: `core::num`,
                             disambiguator: 0,
                         },
                     },
@@ -309,11 +225,7 @@ Ok(
                     SubmoduleNodeDecl {
                         node_path: SubmoduleNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: ModulePath(
-                                    Id {
-                                        value: 12,
-                                    },
-                                ),
+                                path: `core::num`,
                                 disambiguator: 0,
                             },
                         },
@@ -325,11 +237,7 @@ Ok(
                 EntityNodePath::Submodule(
                     SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: ModulePath(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                            path: `core::ops`,
                             disambiguator: 0,
                         },
                     },
@@ -338,11 +246,7 @@ Ok(
                     SubmoduleNodeDecl {
                         node_path: SubmoduleNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: ModulePath(
-                                    Id {
-                                        value: 13,
-                                    },
-                                ),
+                                path: `core::ops`,
                                 disambiguator: 0,
                             },
                         },
@@ -354,11 +258,7 @@ Ok(
                 EntityNodePath::Submodule(
                     SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: ModulePath(
-                                Id {
-                                    value: 14,
-                                },
-                            ),
+                            path: `core::option`,
                             disambiguator: 0,
                         },
                     },
@@ -367,11 +267,7 @@ Ok(
                     SubmoduleNodeDecl {
                         node_path: SubmoduleNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: ModulePath(
-                                    Id {
-                                        value: 14,
-                                    },
-                                ),
+                                path: `core::option`,
                                 disambiguator: 0,
                             },
                         },
@@ -383,11 +279,7 @@ Ok(
                 EntityNodePath::Submodule(
                     SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: ModulePath(
-                                Id {
-                                    value: 15,
-                                },
-                            ),
+                            path: `core::prelude`,
                             disambiguator: 0,
                         },
                     },
@@ -396,11 +288,7 @@ Ok(
                     SubmoduleNodeDecl {
                         node_path: SubmoduleNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: ModulePath(
-                                    Id {
-                                        value: 15,
-                                    },
-                                ),
+                                path: `core::prelude`,
                                 disambiguator: 0,
                             },
                         },
@@ -412,11 +300,7 @@ Ok(
                 EntityNodePath::Submodule(
                     SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: ModulePath(
-                                Id {
-                                    value: 16,
-                                },
-                            ),
+                            path: `core::raw_bits`,
                             disambiguator: 0,
                         },
                     },
@@ -425,11 +309,7 @@ Ok(
                     SubmoduleNodeDecl {
                         node_path: SubmoduleNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: ModulePath(
-                                    Id {
-                                        value: 16,
-                                    },
-                                ),
+                                path: `core::raw_bits`,
                                 disambiguator: 0,
                             },
                         },
@@ -441,11 +321,7 @@ Ok(
                 EntityNodePath::Submodule(
                     SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: ModulePath(
-                                Id {
-                                    value: 17,
-                                },
-                            ),
+                            path: `core::result`,
                             disambiguator: 0,
                         },
                     },
@@ -454,11 +330,7 @@ Ok(
                     SubmoduleNodeDecl {
                         node_path: SubmoduleNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: ModulePath(
-                                    Id {
-                                        value: 17,
-                                    },
-                                ),
+                                path: `core::result`,
                                 disambiguator: 0,
                             },
                         },
@@ -470,11 +342,7 @@ Ok(
                 EntityNodePath::Submodule(
                     SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: ModulePath(
-                                Id {
-                                    value: 18,
-                                },
-                            ),
+                            path: `core::str`,
                             disambiguator: 0,
                         },
                     },
@@ -483,11 +351,7 @@ Ok(
                     SubmoduleNodeDecl {
                         node_path: SubmoduleNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: ModulePath(
-                                    Id {
-                                        value: 18,
-                                    },
-                                ),
+                                path: `core::str`,
                                 disambiguator: 0,
                             },
                         },
@@ -499,11 +363,7 @@ Ok(
                 EntityNodePath::Submodule(
                     SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: ModulePath(
-                                Id {
-                                    value: 19,
-                                },
-                            ),
+                            path: `core::visual`,
                             disambiguator: 0,
                         },
                     },
@@ -512,11 +372,7 @@ Ok(
                     SubmoduleNodeDecl {
                         node_path: SubmoduleNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: ModulePath(
-                                    Id {
-                                        value: 19,
-                                    },
-                                ),
+                                path: `core::visual`,
                                 disambiguator: 0,
                             },
                         },

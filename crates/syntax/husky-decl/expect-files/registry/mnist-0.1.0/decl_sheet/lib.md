@@ -1,29 +1,31 @@
 Ok(
     DeclSheet {
+        [salsa id]: 54,
         decls: [
             (
-                DeclRegionPath::Entity(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist::MnistLabel`, `Enum`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist::MnistLabel`, `Enum`),
                     ),
                 ),
-                Ok(
-                    Decl::Type(
+                Decl::ModuleItem(
+                    ModuleItemDecl::Type(
                         TypeDecl::Enum(
                             EnumTypeDecl {
                                 path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                ast_idx: 10,
+                                implicit_parameters: [],
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Entity(
-                                                EntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
-                                                        TypePath(`mnist::MnistLabel`, `Enum`),
-                                                    ),
+                                            EntityNodePath::ModuleItem(
+                                                ModuleItemNodePath::Type(
+                                                    TypeNodePath {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -66,35 +68,42 @@ Ok(
                                         roots: [],
                                     },
                                 },
-                                implicit_parameter_decl_list: None,
                             },
                         ),
                     ),
                 ),
             ),
             (
-                DeclRegionPath::Entity(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist::BinaryImage28`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist::BinaryImage28`, `Struct`),
                     ),
                 ),
-                Ok(
-                    Decl::Type(
+                Decl::ModuleItem(
+                    ModuleItemDecl::Type(
                         TypeDecl::TupleStruct(
                             TupleStructTypeDecl {
                                 path: TypePath(`mnist::BinaryImage28`, `Struct`),
-                                ast_idx: 11,
+                                implicit_parameters: [],
+                                fields: [
+                                    TupleStructFieldDeclPattern {
+                                        decorators: [],
+                                        visibility: None,
+                                        ty: 3,
+                                    },
+                                ],
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Entity(
-                                                EntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
-                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
-                                                    ),
+                                            EntityNodePath::ModuleItem(
+                                                ModuleItemNodePath::Type(
+                                                    TypeNodePath {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -192,27 +201,6 @@ Ok(
                                         ],
                                     },
                                 },
-                                implicit_parameter_decl_list: None,
-                                lpar: LeftParenthesisToken(
-                                    TokenIdx(
-                                        26,
-                                    ),
-                                ),
-                                field_comma_list: (
-                                    [
-                                        TupleStructFieldDeclPattern {
-                                            decorators: [],
-                                            visibility: None,
-                                            ty: 3,
-                                        },
-                                    ],
-                                    [],
-                                ),
-                                rpar: RightParenthesisToken(
-                                    TokenIdx(
-                                        31,
-                                    ),
-                                ),
                             },
                         ),
                     ),

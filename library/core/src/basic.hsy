@@ -4,6 +4,6 @@ pub extern never;
 
 pub extern unit;
 
-pub structure Trait;
+pub extern Trait;
 
-pub structure Module;
+pub extern Module;

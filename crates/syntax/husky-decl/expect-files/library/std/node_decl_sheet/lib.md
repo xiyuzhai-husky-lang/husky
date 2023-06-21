@@ -6,11 +6,7 @@ Ok(
                 EntityNodePath::Submodule(
                     SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: ModulePath(
-                                Id {
-                                    value: 44,
-                                },
-                            ),
+                            path: `std::prelude`,
                             disambiguator: 0,
                         },
                     },
@@ -19,11 +15,7 @@ Ok(
                     SubmoduleNodeDecl {
                         node_path: SubmoduleNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: ModulePath(
-                                    Id {
-                                        value: 44,
-                                    },
-                                ),
+                                path: `std::prelude`,
                                 disambiguator: 0,
                             },
                         },
@@ -35,11 +27,7 @@ Ok(
                 EntityNodePath::Submodule(
                     SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: ModulePath(
-                                Id {
-                                    value: 42,
-                                },
-                            ),
+                            path: `std::logic`,
                             disambiguator: 0,
                         },
                     },
@@ -48,11 +36,7 @@ Ok(
                     SubmoduleNodeDecl {
                         node_path: SubmoduleNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: ModulePath(
-                                    Id {
-                                        value: 42,
-                                    },
-                                ),
+                                path: `std::logic`,
                                 disambiguator: 0,
                             },
                         },
@@ -64,11 +48,7 @@ Ok(
                 EntityNodePath::Submodule(
                     SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: ModulePath(
-                                Id {
-                                    value: 43,
-                                },
-                            ),
+                            path: `std::ops`,
                             disambiguator: 0,
                         },
                     },
@@ -77,11 +57,7 @@ Ok(
                     SubmoduleNodeDecl {
                         node_path: SubmoduleNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: ModulePath(
-                                    Id {
-                                        value: 43,
-                                    },
-                                ),
+                                path: `std::ops`,
                                 disambiguator: 0,
                             },
                         },

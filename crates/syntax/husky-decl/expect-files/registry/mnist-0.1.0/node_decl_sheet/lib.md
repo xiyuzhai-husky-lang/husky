@@ -7,11 +7,7 @@ Ok(
                     ModuleItemNodePath::Type(
                         TypeNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypePath(
-                                    Id {
-                                        value: 92,
-                                    },
-                                ),
+                                path: TypePath(`mnist::MnistLabel`, `Enum`),
                                 disambiguator: 0,
                             },
                         },
@@ -23,11 +19,7 @@ Ok(
                             EnumTypeNodeDecl {
                                 node_path: TypeNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(
-                                            Id {
-                                                value: 92,
-                                            },
-                                        ),
+                                        path: TypePath(`mnist::MnistLabel`, `Enum`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -43,11 +35,7 @@ Ok(
                                                 ModuleItemNodePath::Type(
                                                     TypeNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(
-                                                                Id {
-                                                                    value: 92,
-                                                                },
-                                                            ),
+                                                            path: TypePath(`mnist::MnistLabel`, `Enum`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -103,11 +91,7 @@ Ok(
                     ModuleItemNodePath::Type(
                         TypeNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypePath(
-                                    Id {
-                                        value: 93,
-                                    },
-                                ),
+                                path: TypePath(`mnist::BinaryImage28`, `Struct`),
                                 disambiguator: 0,
                             },
                         },
@@ -119,11 +103,7 @@ Ok(
                             TupleStructTypeNodeDecl {
                                 node_path: TypeNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(
-                                            Id {
-                                                value: 93,
-                                            },
-                                        ),
+                                        path: TypePath(`mnist::BinaryImage28`, `Struct`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -166,11 +146,7 @@ Ok(
                                                 ModuleItemNodePath::Type(
                                                     TypeNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(
-                                                                Id {
-                                                                    value: 93,
-                                                                },
-                                                            ),
+                                                            path: TypePath(`mnist::BinaryImage28`, `Struct`),
                                                             disambiguator: 0,
                                                         },
                                                     },

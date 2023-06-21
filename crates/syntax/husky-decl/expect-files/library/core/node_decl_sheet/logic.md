@@ -7,11 +7,7 @@ Ok(
                     ModuleItemNodePath::Type(
                         TypeNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypePath(
-                                    Id {
-                                        value: 8,
-                                    },
-                                ),
+                                path: TypePath(`core::logic::Prop`, `Extern`),
                                 disambiguator: 0,
                             },
                         },
@@ -23,11 +19,7 @@ Ok(
                             ExternTypeNodeDecl {
                                 node_path: TypeNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(
-                                            Id {
-                                                value: 8,
-                                            },
-                                        ),
+                                        path: TypePath(`core::logic::Prop`, `Extern`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -43,11 +35,7 @@ Ok(
                                                 ModuleItemNodePath::Type(
                                                     TypeNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(
-                                                                Id {
-                                                                    value: 8,
-                                                                },
-                                                            ),
+                                                            path: TypePath(`core::logic::Prop`, `Extern`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -103,11 +91,7 @@ Ok(
                     ModuleItemNodePath::Type(
                         TypeNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypePath(
-                                    Id {
-                                        value: 9,
-                                    },
-                                ),
+                                path: TypePath(`core::logic::LogicAnd`, `Structure`),
                                 disambiguator: 0,
                             },
                         },
@@ -119,11 +103,7 @@ Ok(
                             StructureTypeNodeDecl {
                                 node_path: TypeNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(
-                                            Id {
-                                                value: 9,
-                                            },
-                                        ),
+                                        path: TypePath(`core::logic::LogicAnd`, `Structure`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -208,11 +188,7 @@ Ok(
                                                 ModuleItemNodePath::Type(
                                                     TypeNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(
-                                                                Id {
-                                                                    value: 9,
-                                                                },
-                                                            ),
+                                                            path: TypePath(`core::logic::LogicAnd`, `Structure`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -377,11 +353,7 @@ Ok(
                     ModuleItemNodePath::Type(
                         TypeNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypePath(
-                                    Id {
-                                        value: 10,
-                                    },
-                                ),
+                                path: TypePath(`core::logic::LogicOr`, `Inductive`),
                                 disambiguator: 0,
                             },
                         },
@@ -393,11 +365,7 @@ Ok(
                             InductiveTypeNodeDecl {
                                 node_path: TypeNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(
-                                            Id {
-                                                value: 10,
-                                            },
-                                        ),
+                                        path: TypePath(`core::logic::LogicOr`, `Inductive`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -482,11 +450,7 @@ Ok(
                                                 ModuleItemNodePath::Type(
                                                     TypeNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(
-                                                                Id {
-                                                                    value: 10,
-                                                                },
-                                                            ),
+                                                            path: TypePath(`core::logic::LogicOr`, `Inductive`),
                                                             disambiguator: 0,
                                                         },
                                                     },

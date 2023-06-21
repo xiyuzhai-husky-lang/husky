@@ -22,11 +22,7 @@ Ok(
                                             ModuleItemNodePath::Trait(
                                                 TraitNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitPath(
-                                                            Id {
-                                                                value: 25,
-                                                            },
-                                                        ),
+                                                        path: TraitPath(`core::visual::Visualize`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -96,11 +92,7 @@ Ok(
                                                 ModuleItemNodePath::Type(
                                                     TypeNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(
-                                                                Id {
-                                                                    value: 34,
-                                                                },
-                                                            ),
+                                                            path: TypePath(`core::visual::Html`, `Extern`),
                                                             disambiguator: 0,
                                                         },
                                                     },

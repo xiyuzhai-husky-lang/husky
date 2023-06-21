@@ -7,11 +7,7 @@ Ok(
                     ModuleItemNodePath::Type(
                         TypeNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypePath(
-                                    Id {
-                                        value: 89,
-                                    },
-                                ),
+                                path: TypePath(`natural_number_game::Nat`, `Inductive`),
                                 disambiguator: 0,
                             },
                         },
@@ -23,11 +19,7 @@ Ok(
                             InductiveTypeNodeDecl {
                                 node_path: TypeNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(
-                                            Id {
-                                                value: 89,
-                                            },
-                                        ),
+                                        path: TypePath(`natural_number_game::Nat`, `Inductive`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -43,11 +35,7 @@ Ok(
                                                 ModuleItemNodePath::Type(
                                                     TypeNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(
-                                                                Id {
-                                                                    value: 89,
-                                                                },
-                                                            ),
+                                                            path: TypePath(`natural_number_game::Nat`, `Inductive`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -103,11 +91,7 @@ Ok(
                     ModuleItemNodePath::Type(
                         TypeNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypePath(
-                                    Id {
-                                        value: 90,
-                                    },
-                                ),
+                                path: TypePath(`natural_number_game::OddNat`, `Structure`),
                                 disambiguator: 0,
                             },
                         },
@@ -119,11 +103,7 @@ Ok(
                             StructureTypeNodeDecl {
                                 node_path: TypeNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(
-                                            Id {
-                                                value: 90,
-                                            },
-                                        ),
+                                        path: TypePath(`natural_number_game::OddNat`, `Structure`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -139,11 +119,7 @@ Ok(
                                                 ModuleItemNodePath::Type(
                                                     TypeNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(
-                                                                Id {
-                                                                    value: 90,
-                                                                },
-                                                            ),
+                                                            path: TypePath(`natural_number_game::OddNat`, `Structure`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -199,11 +175,7 @@ Ok(
                     ModuleItemNodePath::Type(
                         TypeNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypePath(
-                                    Id {
-                                        value: 91,
-                                    },
-                                ),
+                                path: TypePath(`natural_number_game::EvenNat`, `Structure`),
                                 disambiguator: 0,
                             },
                         },
@@ -215,11 +187,7 @@ Ok(
                             StructureTypeNodeDecl {
                                 node_path: TypeNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(
-                                            Id {
-                                                value: 91,
-                                            },
-                                        ),
+                                        path: TypePath(`natural_number_game::EvenNat`, `Structure`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -235,11 +203,7 @@ Ok(
                                                 ModuleItemNodePath::Type(
                                                     TypeNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(
-                                                                Id {
-                                                                    value: 91,
-                                                                },
-                                                            ),
+                                                            path: TypePath(`natural_number_game::EvenNat`, `Structure`),
                                                             disambiguator: 0,
                                                         },
                                                     },

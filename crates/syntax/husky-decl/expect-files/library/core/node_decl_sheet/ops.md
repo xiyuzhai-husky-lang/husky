@@ -7,11 +7,7 @@ Ok(
                     ModuleItemNodePath::Trait(
                         TraitNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TraitPath(
-                                    Id {
-                                        value: 9,
-                                    },
-                                ),
+                                path: TraitPath(`core::ops::Add`),
                                 disambiguator: 0,
                             },
                         },
@@ -22,11 +18,7 @@ Ok(
                         TraitNodeDecl {
                             node_path: TraitNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 9,
-                                        },
-                                    ),
+                                    path: TraitPath(`core::ops::Add`),
                                     disambiguator: 0,
                                 },
                             },
@@ -74,11 +66,7 @@ Ok(
                                             ModuleItemNodePath::Trait(
                                                 TraitNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitPath(
-                                                            Id {
-                                                                value: 9,
-                                                            },
-                                                        ),
+                                                        path: TraitPath(`core::ops::Add`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -158,11 +146,7 @@ Ok(
                     ModuleItemNodePath::Trait(
                         TraitNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TraitPath(
-                                    Id {
-                                        value: 10,
-                                    },
-                                ),
+                                path: TraitPath(`core::ops::AddAssign`),
                                 disambiguator: 0,
                             },
                         },
@@ -173,11 +157,7 @@ Ok(
                         TraitNodeDecl {
                             node_path: TraitNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 10,
-                                        },
-                                    ),
+                                    path: TraitPath(`core::ops::AddAssign`),
                                     disambiguator: 0,
                                 },
                             },
@@ -225,11 +205,7 @@ Ok(
                                             ModuleItemNodePath::Trait(
                                                 TraitNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitPath(
-                                                            Id {
-                                                                value: 10,
-                                                            },
-                                                        ),
+                                                        path: TraitPath(`core::ops::AddAssign`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -309,11 +285,7 @@ Ok(
                     ModuleItemNodePath::Trait(
                         TraitNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TraitPath(
-                                    Id {
-                                        value: 11,
-                                    },
-                                ),
+                                path: TraitPath(`core::ops::BitAnd`),
                                 disambiguator: 0,
                             },
                         },
@@ -324,11 +296,7 @@ Ok(
                         TraitNodeDecl {
                             node_path: TraitNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 11,
-                                        },
-                                    ),
+                                    path: TraitPath(`core::ops::BitAnd`),
                                     disambiguator: 0,
                                 },
                             },
@@ -376,11 +344,7 @@ Ok(
                                             ModuleItemNodePath::Trait(
                                                 TraitNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitPath(
-                                                            Id {
-                                                                value: 11,
-                                                            },
-                                                        ),
+                                                        path: TraitPath(`core::ops::BitAnd`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -460,11 +424,7 @@ Ok(
                     ModuleItemNodePath::Trait(
                         TraitNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TraitPath(
-                                    Id {
-                                        value: 12,
-                                    },
-                                ),
+                                path: TraitPath(`core::ops::BitAndAssign`),
                                 disambiguator: 0,
                             },
                         },
@@ -475,11 +435,7 @@ Ok(
                         TraitNodeDecl {
                             node_path: TraitNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 12,
-                                        },
-                                    ),
+                                    path: TraitPath(`core::ops::BitAndAssign`),
                                     disambiguator: 0,
                                 },
                             },
@@ -527,11 +483,7 @@ Ok(
                                             ModuleItemNodePath::Trait(
                                                 TraitNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitPath(
-                                                            Id {
-                                                                value: 12,
-                                                            },
-                                                        ),
+                                                        path: TraitPath(`core::ops::BitAndAssign`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -611,11 +563,7 @@ Ok(
                     ModuleItemNodePath::Trait(
                         TraitNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TraitPath(
-                                    Id {
-                                        value: 13,
-                                    },
-                                ),
+                                path: TraitPath(`core::ops::BitOr`),
                                 disambiguator: 0,
                             },
                         },
@@ -626,11 +574,7 @@ Ok(
                         TraitNodeDecl {
                             node_path: TraitNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 13,
-                                        },
-                                    ),
+                                    path: TraitPath(`core::ops::BitOr`),
                                     disambiguator: 0,
                                 },
                             },
@@ -678,11 +622,7 @@ Ok(
                                             ModuleItemNodePath::Trait(
                                                 TraitNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitPath(
-                                                            Id {
-                                                                value: 13,
-                                                            },
-                                                        ),
+                                                        path: TraitPath(`core::ops::BitOr`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -762,11 +702,7 @@ Ok(
                     ModuleItemNodePath::Trait(
                         TraitNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TraitPath(
-                                    Id {
-                                        value: 14,
-                                    },
-                                ),
+                                path: TraitPath(`core::ops::BitOrAssign`),
                                 disambiguator: 0,
                             },
                         },
@@ -777,11 +713,7 @@ Ok(
                         TraitNodeDecl {
                             node_path: TraitNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 14,
-                                        },
-                                    ),
+                                    path: TraitPath(`core::ops::BitOrAssign`),
                                     disambiguator: 0,
                                 },
                             },
@@ -829,11 +761,7 @@ Ok(
                                             ModuleItemNodePath::Trait(
                                                 TraitNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitPath(
-                                                            Id {
-                                                                value: 14,
-                                                            },
-                                                        ),
+                                                        path: TraitPath(`core::ops::BitOrAssign`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -913,11 +841,7 @@ Ok(
                     ModuleItemNodePath::Trait(
                         TraitNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TraitPath(
-                                    Id {
-                                        value: 15,
-                                    },
-                                ),
+                                path: TraitPath(`core::ops::BitXor`),
                                 disambiguator: 0,
                             },
                         },
@@ -928,11 +852,7 @@ Ok(
                         TraitNodeDecl {
                             node_path: TraitNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 15,
-                                        },
-                                    ),
+                                    path: TraitPath(`core::ops::BitXor`),
                                     disambiguator: 0,
                                 },
                             },
@@ -980,11 +900,7 @@ Ok(
                                             ModuleItemNodePath::Trait(
                                                 TraitNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitPath(
-                                                            Id {
-                                                                value: 15,
-                                                            },
-                                                        ),
+                                                        path: TraitPath(`core::ops::BitXor`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -1064,11 +980,7 @@ Ok(
                     ModuleItemNodePath::Trait(
                         TraitNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TraitPath(
-                                    Id {
-                                        value: 16,
-                                    },
-                                ),
+                                path: TraitPath(`core::ops::BitXorAssign`),
                                 disambiguator: 0,
                             },
                         },
@@ -1079,11 +991,7 @@ Ok(
                         TraitNodeDecl {
                             node_path: TraitNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 16,
-                                        },
-                                    ),
+                                    path: TraitPath(`core::ops::BitXorAssign`),
                                     disambiguator: 0,
                                 },
                             },
@@ -1131,11 +1039,7 @@ Ok(
                                             ModuleItemNodePath::Trait(
                                                 TraitNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitPath(
-                                                            Id {
-                                                                value: 16,
-                                                            },
-                                                        ),
+                                                        path: TraitPath(`core::ops::BitXorAssign`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -1215,11 +1119,7 @@ Ok(
                     ModuleItemNodePath::Trait(
                         TraitNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TraitPath(
-                                    Id {
-                                        value: 17,
-                                    },
-                                ),
+                                path: TraitPath(`core::ops::Div`),
                                 disambiguator: 0,
                             },
                         },
@@ -1230,11 +1130,7 @@ Ok(
                         TraitNodeDecl {
                             node_path: TraitNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 17,
-                                        },
-                                    ),
+                                    path: TraitPath(`core::ops::Div`),
                                     disambiguator: 0,
                                 },
                             },
@@ -1282,11 +1178,7 @@ Ok(
                                             ModuleItemNodePath::Trait(
                                                 TraitNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitPath(
-                                                            Id {
-                                                                value: 17,
-                                                            },
-                                                        ),
+                                                        path: TraitPath(`core::ops::Div`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -1366,11 +1258,7 @@ Ok(
                     ModuleItemNodePath::Trait(
                         TraitNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TraitPath(
-                                    Id {
-                                        value: 18,
-                                    },
-                                ),
+                                path: TraitPath(`core::ops::DivAssign`),
                                 disambiguator: 0,
                             },
                         },
@@ -1381,11 +1269,7 @@ Ok(
                         TraitNodeDecl {
                             node_path: TraitNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 18,
-                                        },
-                                    ),
+                                    path: TraitPath(`core::ops::DivAssign`),
                                     disambiguator: 0,
                                 },
                             },
@@ -1433,11 +1317,7 @@ Ok(
                                             ModuleItemNodePath::Trait(
                                                 TraitNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitPath(
-                                                            Id {
-                                                                value: 18,
-                                                            },
-                                                        ),
+                                                        path: TraitPath(`core::ops::DivAssign`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -1517,11 +1397,7 @@ Ok(
                     ModuleItemNodePath::Trait(
                         TraitNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TraitPath(
-                                    Id {
-                                        value: 19,
-                                    },
-                                ),
+                                path: TraitPath(`core::ops::Mul`),
                                 disambiguator: 0,
                             },
                         },
@@ -1532,11 +1408,7 @@ Ok(
                         TraitNodeDecl {
                             node_path: TraitNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 19,
-                                        },
-                                    ),
+                                    path: TraitPath(`core::ops::Mul`),
                                     disambiguator: 0,
                                 },
                             },
@@ -1584,11 +1456,7 @@ Ok(
                                             ModuleItemNodePath::Trait(
                                                 TraitNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitPath(
-                                                            Id {
-                                                                value: 19,
-                                                            },
-                                                        ),
+                                                        path: TraitPath(`core::ops::Mul`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -1668,11 +1536,7 @@ Ok(
                     ModuleItemNodePath::Trait(
                         TraitNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TraitPath(
-                                    Id {
-                                        value: 20,
-                                    },
-                                ),
+                                path: TraitPath(`core::ops::MulAssign`),
                                 disambiguator: 0,
                             },
                         },
@@ -1683,11 +1547,7 @@ Ok(
                         TraitNodeDecl {
                             node_path: TraitNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 20,
-                                        },
-                                    ),
+                                    path: TraitPath(`core::ops::MulAssign`),
                                     disambiguator: 0,
                                 },
                             },
@@ -1735,11 +1595,7 @@ Ok(
                                             ModuleItemNodePath::Trait(
                                                 TraitNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitPath(
-                                                            Id {
-                                                                value: 20,
-                                                            },
-                                                        ),
+                                                        path: TraitPath(`core::ops::MulAssign`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -1819,11 +1675,7 @@ Ok(
                     ModuleItemNodePath::Trait(
                         TraitNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TraitPath(
-                                    Id {
-                                        value: 21,
-                                    },
-                                ),
+                                path: TraitPath(`core::ops::Neg`),
                                 disambiguator: 0,
                             },
                         },
@@ -1834,11 +1686,7 @@ Ok(
                         TraitNodeDecl {
                             node_path: TraitNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 21,
-                                        },
-                                    ),
+                                    path: TraitPath(`core::ops::Neg`),
                                     disambiguator: 0,
                                 },
                             },
@@ -1854,11 +1702,7 @@ Ok(
                                             ModuleItemNodePath::Trait(
                                                 TraitNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitPath(
-                                                            Id {
-                                                                value: 21,
-                                                            },
-                                                        ),
+                                                        path: TraitPath(`core::ops::Neg`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -1913,11 +1757,7 @@ Ok(
                     ModuleItemNodePath::Trait(
                         TraitNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TraitPath(
-                                    Id {
-                                        value: 22,
-                                    },
-                                ),
+                                path: TraitPath(`core::ops::Not`),
                                 disambiguator: 0,
                             },
                         },
@@ -1928,11 +1768,7 @@ Ok(
                         TraitNodeDecl {
                             node_path: TraitNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 22,
-                                        },
-                                    ),
+                                    path: TraitPath(`core::ops::Not`),
                                     disambiguator: 0,
                                 },
                             },
@@ -1948,11 +1784,7 @@ Ok(
                                             ModuleItemNodePath::Trait(
                                                 TraitNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitPath(
-                                                            Id {
-                                                                value: 22,
-                                                            },
-                                                        ),
+                                                        path: TraitPath(`core::ops::Not`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -2007,11 +1839,7 @@ Ok(
                     ModuleItemNodePath::Trait(
                         TraitNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TraitPath(
-                                    Id {
-                                        value: 23,
-                                    },
-                                ),
+                                path: TraitPath(`core::ops::Sub`),
                                 disambiguator: 0,
                             },
                         },
@@ -2022,11 +1850,7 @@ Ok(
                         TraitNodeDecl {
                             node_path: TraitNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 23,
-                                        },
-                                    ),
+                                    path: TraitPath(`core::ops::Sub`),
                                     disambiguator: 0,
                                 },
                             },
@@ -2074,11 +1898,7 @@ Ok(
                                             ModuleItemNodePath::Trait(
                                                 TraitNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitPath(
-                                                            Id {
-                                                                value: 23,
-                                                            },
-                                                        ),
+                                                        path: TraitPath(`core::ops::Sub`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -2158,11 +1978,7 @@ Ok(
                     ModuleItemNodePath::Trait(
                         TraitNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TraitPath(
-                                    Id {
-                                        value: 24,
-                                    },
-                                ),
+                                path: TraitPath(`core::ops::Unveil`),
                                 disambiguator: 0,
                             },
                         },
@@ -2173,11 +1989,7 @@ Ok(
                         TraitNodeDecl {
                             node_path: TraitNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 24,
-                                        },
-                                    ),
+                                    path: TraitPath(`core::ops::Unveil`),
                                     disambiguator: 0,
                                 },
                             },
@@ -2225,11 +2037,7 @@ Ok(
                                             ModuleItemNodePath::Trait(
                                                 TraitNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitPath(
-                                                            Id {
-                                                                value: 24,
-                                                            },
-                                                        ),
+                                                        path: TraitPath(`core::ops::Unveil`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -2309,11 +2117,7 @@ Ok(
                     ModuleItemNodePath::Type(
                         TypeNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypePath(
-                                    Id {
-                                        value: 28,
-                                    },
-                                ),
+                                path: TypePath(`core::ops::ControlFlow`, `Enum`),
                                 disambiguator: 0,
                             },
                         },
@@ -2325,11 +2129,7 @@ Ok(
                             EnumTypeNodeDecl {
                                 node_path: TypeNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(
-                                            Id {
-                                                value: 28,
-                                            },
-                                        ),
+                                        path: TypePath(`core::ops::ControlFlow`, `Enum`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -2396,11 +2196,7 @@ Ok(
                                                 ModuleItemNodePath::Type(
                                                     TypeNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(
-                                                                Id {
-                                                                    value: 28,
-                                                                },
-                                                            ),
+                                                            path: TypePath(`core::ops::ControlFlow`, `Enum`),
                                                             disambiguator: 0,
                                                         },
                                                     },

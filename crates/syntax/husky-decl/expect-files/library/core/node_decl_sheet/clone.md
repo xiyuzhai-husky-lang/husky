@@ -7,11 +7,7 @@ Ok(
                     ModuleItemNodePath::Trait(
                         TraitNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TraitPath(
-                                    Id {
-                                        value: 1,
-                                    },
-                                ),
+                                path: TraitPath(`core::clone::Clone`),
                                 disambiguator: 0,
                             },
                         },
@@ -22,11 +18,7 @@ Ok(
                         TraitNodeDecl {
                             node_path: TraitNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitPath(
-                                        Id {
-                                            value: 1,
-                                        },
-                                    ),
+                                    path: TraitPath(`core::clone::Clone`),
                                     disambiguator: 0,
                                 },
                             },
@@ -42,11 +34,7 @@ Ok(
                                             ModuleItemNodePath::Trait(
                                                 TraitNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitPath(
-                                                            Id {
-                                                                value: 1,
-                                                            },
-                                                        ),
+                                                        path: TraitPath(`core::clone::Clone`),
                                                         disambiguator: 0,
                                                     },
                                                 },

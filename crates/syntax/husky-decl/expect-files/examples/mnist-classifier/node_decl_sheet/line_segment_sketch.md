@@ -6,11 +6,7 @@ Ok(
                 EntityNodePath::Submodule(
                     SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: ModulePath(
-                                Id {
-                                    value: 62,
-                                },
-                            ),
+                            path: `mnist_classifier::line_segment_sketch::concave_component`,
                             disambiguator: 0,
                         },
                     },
@@ -19,11 +15,7 @@ Ok(
                     SubmoduleNodeDecl {
                         node_path: SubmoduleNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: ModulePath(
-                                    Id {
-                                        value: 62,
-                                    },
-                                ),
+                                path: `mnist_classifier::line_segment_sketch::concave_component`,
                                 disambiguator: 0,
                             },
                         },
@@ -35,11 +27,7 @@ Ok(
                 EntityNodePath::Submodule(
                     SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: ModulePath(
-                                Id {
-                                    value: 63,
-                                },
-                            ),
+                            path: `mnist_classifier::line_segment_sketch::convex_component`,
                             disambiguator: 0,
                         },
                     },
@@ -48,11 +36,7 @@ Ok(
                     SubmoduleNodeDecl {
                         node_path: SubmoduleNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: ModulePath(
-                                    Id {
-                                        value: 63,
-                                    },
-                                ),
+                                path: `mnist_classifier::line_segment_sketch::convex_component`,
                                 disambiguator: 0,
                             },
                         },
@@ -64,11 +48,7 @@ Ok(
                 EntityNodePath::Submodule(
                     SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: ModulePath(
-                                Id {
-                                    value: 64,
-                                },
-                            ),
+                            path: `mnist_classifier::line_segment_sketch::convexity`,
                             disambiguator: 0,
                         },
                     },
@@ -77,11 +57,7 @@ Ok(
                     SubmoduleNodeDecl {
                         node_path: SubmoduleNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: ModulePath(
-                                    Id {
-                                        value: 64,
-                                    },
-                                ),
+                                path: `mnist_classifier::line_segment_sketch::convexity`,
                                 disambiguator: 0,
                             },
                         },
@@ -93,11 +69,7 @@ Ok(
                 EntityNodePath::Submodule(
                     SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: ModulePath(
-                                Id {
-                                    value: 65,
-                                },
-                            ),
+                            path: `mnist_classifier::line_segment_sketch::line_segment`,
                             disambiguator: 0,
                         },
                     },
@@ -106,11 +78,7 @@ Ok(
                     SubmoduleNodeDecl {
                         node_path: SubmoduleNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: ModulePath(
-                                    Id {
-                                        value: 65,
-                                    },
-                                ),
+                                path: `mnist_classifier::line_segment_sketch::line_segment`,
                                 disambiguator: 0,
                             },
                         },
@@ -123,11 +91,7 @@ Ok(
                     ModuleItemNodePath::Type(
                         TypeNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypePath(
-                                    Id {
-                                        value: 81,
-                                    },
-                                ),
+                                path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                 disambiguator: 0,
                             },
                         },
@@ -139,11 +103,7 @@ Ok(
                             RegularStructTypeNodeDecl {
                                 node_path: TypeNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(
-                                            Id {
-                                                value: 81,
-                                            },
-                                        ),
+                                        path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -288,11 +248,7 @@ Ok(
                                                 ModuleItemNodePath::Type(
                                                     TypeNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(
-                                                                Id {
-                                                                    value: 81,
-                                                                },
-                                                            ),
+                                                            path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -665,11 +621,7 @@ Ok(
                     ModuleItemNodePath::Type(
                         TypeNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypePath(
-                                    Id {
-                                        value: 82,
-                                    },
-                                ),
+                                path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                 disambiguator: 0,
                             },
                         },
@@ -681,11 +633,7 @@ Ok(
                             RegularStructTypeNodeDecl {
                                 node_path: TypeNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(
-                                            Id {
-                                                value: 82,
-                                            },
-                                        ),
+                                        path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -784,11 +732,7 @@ Ok(
                                                 ModuleItemNodePath::Type(
                                                     TypeNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(
-                                                                Id {
-                                                                    value: 82,
-                                                                },
-                                                            ),
+                                                            path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -953,11 +897,7 @@ Ok(
                     ModuleItemNodePath::Fugitive(
                         FugitiveNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 17,
-                                    },
-                                ),
+                                path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
@@ -969,11 +909,7 @@ Ok(
                             FnNodeDecl {
                                 node_path: FugitiveNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(
-                                            Id {
-                                                value: 17,
-                                            },
-                                        ),
+                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -1063,11 +999,7 @@ Ok(
                                                 ModuleItemNodePath::Fugitive(
                                                     FugitiveNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(
-                                                                Id {
-                                                                    value: 17,
-                                                                },
-                                                            ),
+                                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -1303,11 +1235,7 @@ Ok(
                     ModuleItemNodePath::Fugitive(
                         FugitiveNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 18,
-                                    },
-                                ),
+                                path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
@@ -1319,11 +1247,7 @@ Ok(
                             FnNodeDecl {
                                 node_path: FugitiveNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(
-                                            Id {
-                                                value: 18,
-                                            },
-                                        ),
+                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -1413,11 +1337,7 @@ Ok(
                                                 ModuleItemNodePath::Fugitive(
                                                     FugitiveNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(
-                                                                Id {
-                                                                    value: 18,
-                                                                },
-                                                            ),
+                                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -1653,11 +1573,7 @@ Ok(
                     ModuleItemNodePath::Fugitive(
                         FugitiveNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 19,
-                                    },
-                                ),
+                                path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
@@ -1669,11 +1585,7 @@ Ok(
                             FnNodeDecl {
                                 node_path: FugitiveNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(
-                                            Id {
-                                                value: 19,
-                                            },
-                                        ),
+                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -1780,11 +1692,7 @@ Ok(
                                                 ModuleItemNodePath::Fugitive(
                                                     FugitiveNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(
-                                                                Id {
-                                                                    value: 19,
-                                                                },
-                                                            ),
+                                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -2097,11 +2005,7 @@ Ok(
                     ModuleItemNodePath::Fugitive(
                         FugitiveNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 20,
-                                    },
-                                ),
+                                path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
@@ -2113,11 +2017,7 @@ Ok(
                             FnNodeDecl {
                                 node_path: FugitiveNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(
-                                            Id {
-                                                value: 20,
-                                            },
-                                        ),
+                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -2241,11 +2141,7 @@ Ok(
                                                 ModuleItemNodePath::Fugitive(
                                                     FugitiveNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(
-                                                                Id {
-                                                                    value: 20,
-                                                                },
-                                                            ),
+                                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -2628,11 +2524,7 @@ Ok(
                     ModuleItemNodePath::Fugitive(
                         FugitiveNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(
-                                    Id {
-                                        value: 21,
-                                    },
-                                ),
+                                path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
@@ -2644,11 +2536,7 @@ Ok(
                             FnNodeDecl {
                                 node_path: FugitiveNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(
-                                            Id {
-                                                value: 21,
-                                            },
-                                        ),
+                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -2738,11 +2626,7 @@ Ok(
                                                 ModuleItemNodePath::Fugitive(
                                                     FugitiveNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(
-                                                                Id {
-                                                                    value: 21,
-                                                                },
-                                                            ),
+                                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -3174,11 +3058,16 @@ Ok(
                     AssociatedItemNodePath::TraitForTypeItem(
                         TraitForTypeItemNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TraitForTypeItemPath(
-                                    Id {
-                                        value: 20,
+                                path: TraitForTypeItemPath {
+                                    impl_block: TraitForTypeImplBlockPath {
+                                        module_path: `mnist_classifier::line_segment_sketch`,
+                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                        disambiguator: 0,
                                     },
-                                ),
+                                    ident: `visualize`,
+                                    item_kind: MethodFn,
+                                },
                                 disambiguator: 0,
                             },
                         },
@@ -3190,22 +3079,32 @@ Ok(
                             TraitForTypeMethodFnNodeDecl {
                                 node_path: TraitForTypeItemNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TraitForTypeItemPath(
-                                            Id {
-                                                value: 20,
+                                        path: TraitForTypeItemPath {
+                                            impl_block: TraitForTypeImplBlockPath {
+                                                module_path: `mnist_classifier::line_segment_sketch`,
+                                                trai_path: TraitPath(`core::visual::Visualize`),
+                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                disambiguator: 0,
                                             },
-                                        ),
+                                            ident: `visualize`,
+                                            item_kind: MethodFn,
+                                        },
                                         disambiguator: 0,
                                     },
                                 },
                                 node: TraitForTypeItemNode {
                                     node_path: TraitForTypeItemNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitForTypeItemPath(
-                                                Id {
-                                                    value: 20,
+                                            path: TraitForTypeItemPath {
+                                                impl_block: TraitForTypeImplBlockPath {
+                                                    module_path: `mnist_classifier::line_segment_sketch`,
+                                                    trai_path: TraitPath(`core::visual::Visualize`),
+                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                    disambiguator: 0,
                                                 },
-                                            ),
+                                                ident: `visualize`,
+                                                item_kind: MethodFn,
+                                            },
                                             disambiguator: 0,
                                         },
                                     },
@@ -3380,11 +3279,16 @@ Ok(
                                                 AssociatedItemNodePath::TraitForTypeItem(
                                                     TraitForTypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TraitForTypeItemPath(
-                                                                Id {
-                                                                    value: 20,
+                                                            path: TraitForTypeItemPath {
+                                                                impl_block: TraitForTypeImplBlockPath {
+                                                                    module_path: `mnist_classifier::line_segment_sketch`,
+                                                                    trai_path: TraitPath(`core::visual::Visualize`),
+                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `visualize`,
+                                                                item_kind: MethodFn,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -3595,11 +3499,15 @@ Ok(
                     AssociatedItemNodePath::TypeItem(
                         TypeItemNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypeItemPath(
-                                    Id {
-                                        value: 71,
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::line_segment_sketch`,
+                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                        disambiguator: 0,
                                     },
-                                ),
+                                    ident: `new`,
+                                    item_kind: AssociatedFn,
+                                },
                                 disambiguator: 0,
                             },
                         },
@@ -3611,11 +3519,15 @@ Ok(
                             TypeAssociatedFnNodeDecl {
                                 node_path: TypeItemNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath(
-                                            Id {
-                                                value: 71,
+                                        path: TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `mnist_classifier::line_segment_sketch`,
+                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                disambiguator: 0,
                                             },
-                                        ),
+                                            ident: `new`,
+                                            item_kind: AssociatedFn,
+                                        },
                                         disambiguator: 0,
                                     },
                                 },
@@ -3623,7 +3535,7 @@ Ok(
                                 implicit_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                parameter_decl_list: Ok(
+                                explicit_parameter_decl_list: Ok(
                                     ExplicitParameterDeclList {
                                         lpar: LeftParenthesisToken(
                                             TokenIdx(
@@ -3810,11 +3722,15 @@ Ok(
                                                 AssociatedItemNodePath::TypeItem(
                                                     TypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                Id {
-                                                                    value: 71,
+                                                            path: TypeItemPath {
+                                                                impl_block: TypeImplBlockPath {
+                                                                    module_path: `mnist_classifier::line_segment_sketch`,
+                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `new`,
+                                                                item_kind: AssociatedFn,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -4127,11 +4043,15 @@ Ok(
                     AssociatedItemNodePath::TypeItem(
                         TypeItemNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypeItemPath(
-                                    Id {
-                                        value: 72,
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::line_segment_sketch`,
+                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                        disambiguator: 0,
                                     },
-                                ),
+                                    ident: `displacement`,
+                                    item_kind: MethodFn,
+                                },
                                 disambiguator: 0,
                             },
                         },
@@ -4143,22 +4063,30 @@ Ok(
                             TypeMethodFnNodeDecl {
                                 node_path: TypeItemNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath(
-                                            Id {
-                                                value: 72,
+                                        path: TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `mnist_classifier::line_segment_sketch`,
+                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                disambiguator: 0,
                                             },
-                                        ),
+                                            ident: `displacement`,
+                                            item_kind: MethodFn,
+                                        },
                                         disambiguator: 0,
                                     },
                                 },
                                 node: TypeItemNode {
                                     node_path: TypeItemNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(
-                                                Id {
-                                                    value: 72,
+                                            path: TypeItemPath {
+                                                impl_block: TypeImplBlockPath {
+                                                    module_path: `mnist_classifier::line_segment_sketch`,
+                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                    disambiguator: 0,
                                                 },
-                                            ),
+                                                ident: `displacement`,
+                                                item_kind: MethodFn,
+                                            },
                                             disambiguator: 0,
                                         },
                                     },
@@ -4313,11 +4241,15 @@ Ok(
                                                 AssociatedItemNodePath::TypeItem(
                                                     TypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                Id {
-                                                                    value: 72,
+                                                            path: TypeItemPath {
+                                                                impl_block: TypeImplBlockPath {
+                                                                    module_path: `mnist_classifier::line_segment_sketch`,
+                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `displacement`,
+                                                                item_kind: MethodFn,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -4579,11 +4511,16 @@ Ok(
                     AssociatedItemNodePath::TraitForTypeItem(
                         TraitForTypeItemNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TraitForTypeItemPath(
-                                    Id {
-                                        value: 21,
+                                path: TraitForTypeItemPath {
+                                    impl_block: TraitForTypeImplBlockPath {
+                                        module_path: `mnist_classifier::line_segment_sketch`,
+                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                        disambiguator: 0,
                                     },
-                                ),
+                                    ident: `visualize`,
+                                    item_kind: MethodFn,
+                                },
                                 disambiguator: 0,
                             },
                         },
@@ -4595,22 +4532,32 @@ Ok(
                             TraitForTypeMethodFnNodeDecl {
                                 node_path: TraitForTypeItemNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TraitForTypeItemPath(
-                                            Id {
-                                                value: 21,
+                                        path: TraitForTypeItemPath {
+                                            impl_block: TraitForTypeImplBlockPath {
+                                                module_path: `mnist_classifier::line_segment_sketch`,
+                                                trai_path: TraitPath(`core::visual::Visualize`),
+                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                disambiguator: 0,
                                             },
-                                        ),
+                                            ident: `visualize`,
+                                            item_kind: MethodFn,
+                                        },
                                         disambiguator: 0,
                                     },
                                 },
                                 node: TraitForTypeItemNode {
                                     node_path: TraitForTypeItemNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitForTypeItemPath(
-                                                Id {
-                                                    value: 21,
+                                            path: TraitForTypeItemPath {
+                                                impl_block: TraitForTypeImplBlockPath {
+                                                    module_path: `mnist_classifier::line_segment_sketch`,
+                                                    trai_path: TraitPath(`core::visual::Visualize`),
+                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                    disambiguator: 0,
                                                 },
-                                            ),
+                                                ident: `visualize`,
+                                                item_kind: MethodFn,
+                                            },
                                             disambiguator: 0,
                                         },
                                     },
@@ -4795,11 +4742,16 @@ Ok(
                                                 AssociatedItemNodePath::TraitForTypeItem(
                                                     TraitForTypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TraitForTypeItemPath(
-                                                                Id {
-                                                                    value: 21,
+                                                            path: TraitForTypeItemPath {
+                                                                impl_block: TraitForTypeImplBlockPath {
+                                                                    module_path: `mnist_classifier::line_segment_sketch`,
+                                                                    trai_path: TraitPath(`core::visual::Visualize`),
+                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `visualize`,
+                                                                item_kind: MethodFn,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -5042,11 +4994,15 @@ Ok(
                     AssociatedItemNodePath::TypeItem(
                         TypeItemNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypeItemPath(
-                                    Id {
-                                        value: 73,
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::line_segment_sketch`,
+                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                        disambiguator: 0,
                                     },
-                                ),
+                                    ident: `concave_components`,
+                                    item_kind: MemoizedField,
+                                },
                                 disambiguator: 0,
                             },
                         },
@@ -5058,11 +5014,15 @@ Ok(
                             TypeMemoizedFieldNodeDecl {
                                 node_path: TypeItemNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath(
-                                            Id {
-                                                value: 73,
+                                        path: TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `mnist_classifier::line_segment_sketch`,
+                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                disambiguator: 0,
                                             },
-                                        ),
+                                            ident: `concave_components`,
+                                            item_kind: MemoizedField,
+                                        },
                                         disambiguator: 0,
                                     },
                                 },
@@ -5187,11 +5147,15 @@ Ok(
                                                 AssociatedItemNodePath::TypeItem(
                                                     TypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                Id {
-                                                                    value: 73,
+                                                            path: TypeItemPath {
+                                                                impl_block: TypeImplBlockPath {
+                                                                    module_path: `mnist_classifier::line_segment_sketch`,
+                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `concave_components`,
+                                                                item_kind: MemoizedField,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -5294,11 +5258,15 @@ Ok(
                     AssociatedItemNodePath::TypeItem(
                         TypeItemNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypeItemPath(
-                                    Id {
-                                        value: 74,
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::line_segment_sketch`,
+                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                        disambiguator: 0,
                                     },
-                                ),
+                                    ident: `bounding_box`,
+                                    item_kind: MemoizedField,
+                                },
                                 disambiguator: 0,
                             },
                         },
@@ -5310,11 +5278,15 @@ Ok(
                             TypeMemoizedFieldNodeDecl {
                                 node_path: TypeItemNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath(
-                                            Id {
-                                                value: 74,
+                                        path: TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `mnist_classifier::line_segment_sketch`,
+                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                disambiguator: 0,
                                             },
-                                        ),
+                                            ident: `bounding_box`,
+                                            item_kind: MemoizedField,
+                                        },
                                         disambiguator: 0,
                                     },
                                 },
@@ -5439,11 +5411,15 @@ Ok(
                                                 AssociatedItemNodePath::TypeItem(
                                                     TypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                Id {
-                                                                    value: 74,
+                                                            path: TypeItemPath {
+                                                                impl_block: TypeImplBlockPath {
+                                                                    module_path: `mnist_classifier::line_segment_sketch`,
+                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `bounding_box`,
+                                                                item_kind: MemoizedField,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -5531,11 +5507,15 @@ Ok(
                     AssociatedItemNodePath::TypeItem(
                         TypeItemNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypeItemPath(
-                                    Id {
-                                        value: 75,
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::line_segment_sketch`,
+                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                        disambiguator: 0,
                                     },
-                                ),
+                                    ident: `new`,
+                                    item_kind: AssociatedFn,
+                                },
                                 disambiguator: 0,
                             },
                         },
@@ -5547,11 +5527,15 @@ Ok(
                             TypeAssociatedFnNodeDecl {
                                 node_path: TypeItemNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath(
-                                            Id {
-                                                value: 75,
+                                        path: TypeItemPath {
+                                            impl_block: TypeImplBlockPath {
+                                                module_path: `mnist_classifier::line_segment_sketch`,
+                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                disambiguator: 0,
                                             },
-                                        ),
+                                            ident: `new`,
+                                            item_kind: AssociatedFn,
+                                        },
                                         disambiguator: 0,
                                     },
                                 },
@@ -5559,7 +5543,7 @@ Ok(
                                 implicit_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                parameter_decl_list: Ok(
+                                explicit_parameter_decl_list: Ok(
                                     ExplicitParameterDeclList {
                                         lpar: LeftParenthesisToken(
                                             TokenIdx(
@@ -5729,11 +5713,15 @@ Ok(
                                                 AssociatedItemNodePath::TypeItem(
                                                     TypeItemNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                Id {
-                                                                    value: 75,
+                                                            path: TypeItemPath {
+                                                                impl_block: TypeImplBlockPath {
+                                                                    module_path: `mnist_classifier::line_segment_sketch`,
+                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                                    disambiguator: 0,
                                                                 },
-                                                            ),
+                                                                ident: `new`,
+                                                                item_kind: AssociatedFn,
+                                                            },
                                                             disambiguator: 0,
                                                         },
                                                     },

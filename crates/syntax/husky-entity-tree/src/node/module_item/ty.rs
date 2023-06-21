@@ -1,3 +1,5 @@
+use husky_print_utils::p;
+
 use super::*;
 
 #[salsa::interned(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
@@ -47,10 +49,12 @@ pub(crate) fn ty_node(db: &dyn EntityTreeDb, node_path: TypeNodePath) -> ModuleI
     let entity_sheet = module_path
         .entity_tree_sheet(db)
         .expect("should correspond to valid node");
-
-    match entity_sheet
-        .major_entity_node(node_path.into())
-        .expect("should be some")
+    let Some(major_entity_node) = entity_sheet
+        .major_entity_node(node_path.into()) else { 
+        p!(node_path.debug(db));
+        unreachable!("should be some, must be some erros in library")
+    };
+    match major_entity_node
     {
         EntityNode::ModuleItem(node) => node,
         _ => unreachable!(),
