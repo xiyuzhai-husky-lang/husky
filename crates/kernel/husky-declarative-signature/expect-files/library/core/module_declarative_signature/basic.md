@@ -1,56 +1,101 @@
 [
-    Ok(
-        SignatureTemplate::Type(
-            TypeDeclarativeSignatureTemplate::Extern(
-                ExternDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
-                        data: [],
-                    },
-                },
+    (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Type(
+                TypePath(`core::basic::bool`, `Extern`),
+            ),
+        ),
+        Ok(
+            SignatureTemplate::ModuleItem(
+                ModuleItemDeclarativeSignatureTemplate::Type(
+                    TypeDeclarativeSignatureTemplate::Extern(
+                        ExternDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                        },
+                    ),
+                ),
             ),
         ),
     ),
-    Ok(
-        SignatureTemplate::Type(
-            TypeDeclarativeSignatureTemplate::Extern(
-                ExternDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
-                        data: [],
-                    },
-                },
+    (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Type(
+                TypePath(`core::basic::never`, `Extern`),
+            ),
+        ),
+        Ok(
+            SignatureTemplate::ModuleItem(
+                ModuleItemDeclarativeSignatureTemplate::Type(
+                    TypeDeclarativeSignatureTemplate::Extern(
+                        ExternDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                        },
+                    ),
+                ),
             ),
         ),
     ),
-    Ok(
-        SignatureTemplate::Type(
-            TypeDeclarativeSignatureTemplate::Extern(
-                ExternDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
-                        data: [],
-                    },
-                },
+    (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Type(
+                TypePath(`core::basic::unit`, `Extern`),
+            ),
+        ),
+        Ok(
+            SignatureTemplate::ModuleItem(
+                ModuleItemDeclarativeSignatureTemplate::Type(
+                    TypeDeclarativeSignatureTemplate::Extern(
+                        ExternDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                        },
+                    ),
+                ),
             ),
         ),
     ),
-    Ok(
-        SignatureTemplate::Type(
-            TypeDeclarativeSignatureTemplate::Structure(
-                StructureDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
-                        data: [],
-                    },
-                },
+    (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Type(
+                TypePath(`core::basic::Trait`, `Extern`),
+            ),
+        ),
+        Ok(
+            SignatureTemplate::ModuleItem(
+                ModuleItemDeclarativeSignatureTemplate::Type(
+                    TypeDeclarativeSignatureTemplate::Extern(
+                        ExternDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                        },
+                    ),
+                ),
             ),
         ),
     ),
-    Ok(
-        SignatureTemplate::Type(
-            TypeDeclarativeSignatureTemplate::Structure(
-                StructureDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
-                        data: [],
-                    },
-                },
+    (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Type(
+                TypePath(`core::basic::Module`, `Extern`),
+            ),
+        ),
+        Ok(
+            SignatureTemplate::ModuleItem(
+                ModuleItemDeclarativeSignatureTemplate::Type(
+                    TypeDeclarativeSignatureTemplate::Extern(
+                        ExternDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                        },
+                    ),
+                ),
             ),
         ),
     ),

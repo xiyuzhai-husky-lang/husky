@@ -11,7 +11,7 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclarativeSignatureDb)]
 #[enum_class::from_variants]
-pub enum VariantDeclarativeSignatureTemplate {
+pub enum TypeVariantDeclarativeSignatureTemplate {
     Props(PropsVariantDeclarativeSignatureTemplate),
     Unit(UnitVariantDeclarativeSignatureTemplate),
     Tuple(TupleVariantDeclarativeSignatureTemplate),
@@ -20,7 +20,7 @@ pub enum VariantDeclarativeSignatureTemplate {
 pub(crate) fn variant_signature_template_from_decl(
     _db: &dyn DeclarativeSignatureDb,
     decl: TypeVariantDecl,
-) -> DeclarativeSignatureResult<VariantDeclarativeSignatureTemplate> {
+) -> DeclarativeSignatureResult<TypeVariantDeclarativeSignatureTemplate> {
     match decl {
         TypeVariantDecl::Props(_) => todo!(),
         TypeVariantDecl::Unit(_) => todo!(),
@@ -29,4 +29,15 @@ pub(crate) fn variant_signature_template_from_decl(
     }
 }
 
-impl VariantDeclarativeSignatureTemplate {}
+impl TypeVariantDeclarativeSignatureTemplate {}
+
+impl HasDeclarativeSignatureTemplate for TypeVariantPath {
+    type DeclarativeSignatureTemplate = TypeVariantDeclarativeSignatureTemplate;
+
+    fn declarative_signature_template(
+        self,
+        db: &dyn DeclarativeSignatureDb,
+    ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
+        todo!()
+    }
+}

@@ -1,1 +1,42 @@
-[]
+[
+    (
+        EntityPath::Module(
+            `math::algebra`,
+        ),
+        Ok(
+            SignatureTemplate::Module,
+        ),
+    ),
+    (
+        EntityPath::Module(
+            `math::algebraic_geometry`,
+        ),
+        Ok(
+            SignatureTemplate::Module,
+        ),
+    ),
+    (
+        EntityPath::Module(
+            `math::algebraic_topology`,
+        ),
+        Ok(
+            SignatureTemplate::Module,
+        ),
+    ),
+    (
+        EntityPath::Module(
+            `math::category_theory`,
+        ),
+        Ok(
+            SignatureTemplate::Module,
+        ),
+    ),
+    (
+        EntityPath::Module(
+            `math::probability`,
+        ),
+        Ok(
+            SignatureTemplate::Module,
+        ),
+    ),
+]

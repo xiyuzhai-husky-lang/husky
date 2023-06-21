@@ -6,11 +6,7 @@ pub fn ty_constructor_path_declarative_ty(
     path: TypePath,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
     let _declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();
-    let decl = match path.decl(db) {
-        Ok(decl) => decl,
-        Err(_) => return Err(DerivedDeclarativeTypeError::TypeConstructorDeclError.into()),
-    };
-    let signature = match db.ty_declarative_signature_template(decl) {
+    let signature = match path.declarative_signature_template(db) {
         Ok(signature) => signature,
         Err(_) => return Err(DerivedDeclarativeTypeError::SignatureError.into()),
     };

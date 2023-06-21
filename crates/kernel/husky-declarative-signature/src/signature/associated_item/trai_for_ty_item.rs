@@ -20,10 +20,23 @@ pub enum TraitForTypeItemDeclarativeSignatureTemplate {
     AssociatedVal(TraitForTypeAssociatedValDeclarativeSignatureTemplate),
 }
 
-pub(crate) fn trai_for_ty_associated_item_declarative_signature_from_decl(
+impl HasDeclarativeSignatureTemplate for TraitForTypeItemPath {
+    type DeclarativeSignatureTemplate = TraitForTypeItemDeclarativeSignatureTemplate;
+
+    fn declarative_signature_template(
+        self,
+        db: &dyn DeclarativeSignatureDb,
+    ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
+        trai_for_ty_item_declarative_signature_from_decl(db, self)
+    }
+}
+
+#[salsa::tracked(jar = DeclarativeSignatureJar)]
+pub(crate) fn trai_for_ty_item_declarative_signature_from_decl(
     db: &dyn DeclarativeSignatureDb,
-    decl: TraitForTypeItemDecl,
+    path: TraitForTypeItemPath,
 ) -> DeclarativeSignatureResult<TraitForTypeItemDeclarativeSignatureTemplate> {
+    let decl = path.decl(db)?;
     match decl {
         TraitForTypeItemDecl::AssociatedFn(decl) => {
             trai_for_ty_associated_fn_declarative_signature_template(db, decl).map(Into::into)

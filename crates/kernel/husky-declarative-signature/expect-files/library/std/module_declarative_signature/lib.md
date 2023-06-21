@@ -1,1 +1,26 @@
-[]
+[
+    (
+        EntityPath::Module(
+            `std::prelude`,
+        ),
+        Ok(
+            SignatureTemplate::Module,
+        ),
+    ),
+    (
+        EntityPath::Module(
+            `std::logic`,
+        ),
+        Ok(
+            SignatureTemplate::Module,
+        ),
+    ),
+    (
+        EntityPath::Module(
+            `std::ops`,
+        ),
+        Ok(
+            SignatureTemplate::Module,
+        ),
+    ),
+]

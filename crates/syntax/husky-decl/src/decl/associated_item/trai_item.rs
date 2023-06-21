@@ -113,4 +113,12 @@ impl TraitItemDecl {
     }
 }
 
+impl HasDecl for TraitItemPath {
+    type Decl = TraitItemDecl;
+
+    fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
+        todo!()
+    }
+}
+
 impl<'a> DeclParser<'a> {}

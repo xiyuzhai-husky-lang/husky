@@ -60,11 +60,7 @@ pub(crate) fn declarative_ty_entity_variance_crate_dependencies(
     _idx: u8,
 ) -> VarianceResult<VecSet<VarianceId>> {
     let _declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();
-    let decl = match path.decl(db) {
-        Ok(decl) => decl,
-        Err(_) => return Err(DerivedVarianceError::DeclError.into()),
-    };
-    let signature = match db.ty_declarative_signature_template(decl) {
+    let signature = match path.declarative_signature_template(db) {
         Ok(signature) => signature,
         Err(_) => return Err(DerivedVarianceError::SignatureError.into()),
     };

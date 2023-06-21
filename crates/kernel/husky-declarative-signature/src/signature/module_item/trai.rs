@@ -8,11 +8,23 @@ pub struct TraitDeclarativeSignatureTemplate {
 
 impl TraitDeclarativeSignatureTemplate {}
 
+impl HasDeclarativeSignatureTemplate for TraitPath {
+    type DeclarativeSignatureTemplate = TraitDeclarativeSignatureTemplate;
+
+    fn declarative_signature_template(
+        self,
+        db: &dyn DeclarativeSignatureDb,
+    ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
+        trai_declarative_signature_template(db, self)
+    }
+}
+
 #[salsa::tracked(jar = DeclarativeSignatureJar)]
 pub fn trai_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
-    decl: TraitDecl,
+    path: TraitPath,
 ) -> DeclarativeSignatureResult<TraitDeclarativeSignatureTemplate> {
+    let decl = path.decl(db)?;
     let expr_region = decl.expr_region(db);
     let declarative_term_region = declarative_term_region(db, expr_region);
     let declarative_term_menu = db.declarative_term_menu(expr_region.toolchain(db)).unwrap();
@@ -25,15 +37,4 @@ pub fn trai_declarative_signature_template(
         db,
         implicit_parameters,
     ))
-}
-
-impl HasDeclarativeSignatureTemplate for TraitDecl {
-    type DeclarativeSignatureTemplate = TraitDeclarativeSignatureTemplate;
-
-    fn declarative_signature_template(
-        self,
-        db: &dyn DeclarativeSignatureDb,
-    ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
-        trai_declarative_signature_template(db, self)
-    }
 }

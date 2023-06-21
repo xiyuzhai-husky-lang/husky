@@ -1,59 +1,21 @@
 [
-    Ok(
-        SignatureTemplate::Type(
-            TypeDeclarativeSignatureTemplate::Extern(
-                ExternDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
-                        data: [
-                            ImplicitParameterDeclarativeSignature {
-                                annotated_variance: Some(
-                                    Covariant,
-                                ),
-                                symbol: DeclarativeTermSymbol(
-                                    Id {
-                                        value: 2,
-                                    },
-                                ),
-                                traits: [],
-                            },
-                        ],
-                    },
-                },
+    (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Type(
+                TypePath(`core::list::List`, `Extern`),
             ),
         ),
-    ),
-    Ok(
-        SignatureTemplate::ImplBlock(
-            ImplBlockDeclarativeSignatureTemplate::TypeImpl(
-                TypeImplBlockDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
-                        data: [
-                            ImplicitParameterDeclarativeSignature {
-                                annotated_variance: None,
-                                symbol: DeclarativeTermSymbol(
-                                    Id {
-                                        value: 2,
-                                    },
-                                ),
-                                traits: [],
-                            },
-                        ],
-                    },
-                    ty: DeclarativeTerm(`core::list::List t`),
-                },
-            ),
-        ),
-    ),
-    Ok(
-        SignatureTemplate::AssociatedItem(
-            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                TypeItemDeclarativeSignatureTemplate::MethodFn(
-                    TypeMethodFnDeclarativeSignatureTemplate {
-                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+        Ok(
+            SignatureTemplate::ModuleItem(
+                ModuleItemDeclarativeSignatureTemplate::Type(
+                    TypeDeclarativeSignatureTemplate::Extern(
+                        ExternDeclarativeSignatureTemplate {
                             implicit_parameters: ImplicitParameterDeclarativeSignatures {
                                 data: [
                                     ImplicitParameterDeclarativeSignature {
-                                        annotated_variance: None,
+                                        annotated_variance: Some(
+                                            Covariant,
+                                        ),
                                         symbol: DeclarativeTermSymbol(
                                             Id {
                                                 value: 2,
@@ -63,170 +25,229 @@
                                     },
                                 ],
                             },
-                            ty: DeclarativeTerm(`core::list::List t`),
                         },
-                        self_ty: DeclarativeTerm(`core::list::List t`),
-                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
-                            data: [],
-                        },
-                        self_parameter: ExplicitParameterDeclarativeSignatureTemplate {
-                            contract: Pure,
-                            ty: ExplicitApplication(
-                                DeclarativeTermExplicitApplication(
-                                    Id {
-                                        value: 6,
-                                    },
-                                ),
-                            ),
-                        },
-                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
-                            data: [],
-                        },
-                        return_ty: DeclarativeTerm(`core::num::i32`),
-                    },
+                    ),
                 ),
             ),
         ),
     ),
-    Ok(
-        SignatureTemplate::AssociatedItem(
-            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                TypeItemDeclarativeSignatureTemplate::MethodFn(
-                    TypeMethodFnDeclarativeSignatureTemplate {
-                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
-                                data: [
-                                    ImplicitParameterDeclarativeSignature {
-                                        annotated_variance: None,
-                                        symbol: DeclarativeTermSymbol(
-                                            Id {
-                                                value: 2,
-                                            },
-                                        ),
-                                        traits: [],
-                                    },
-                                ],
-                            },
-                            ty: DeclarativeTerm(`core::list::List t`),
-                        },
-                        self_ty: DeclarativeTerm(`core::list::List t`),
+    (
+        EntityPath::ImplBlock(
+            TypeImplBlock(
+                TypeImplBlockPath(
+                    Id {
+                        value: 16,
+                    },
+                ),
+            ),
+        ),
+        Ok(
+            SignatureTemplate::ImplBlock(
+                ImplBlockDeclarativeSignatureTemplate::TypeImpl(
+                    TypeImplBlockDeclarativeSignatureTemplate {
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
-                            data: [],
-                        },
-                        self_parameter: ExplicitParameterDeclarativeSignatureTemplate {
-                            contract: BorrowMut,
-                            ty: ExplicitApplication(
-                                DeclarativeTermExplicitApplication(
-                                    Id {
-                                        value: 6,
-                                    },
-                                ),
-                            ),
-                        },
-                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                             data: [
-                                ExplicitParameterDeclarativeSignatureTemplate {
-                                    contract: Pure,
-                                    ty: Symbol(
-                                        DeclarativeTermSymbol(
-                                            Id {
-                                                value: 2,
-                                            },
-                                        ),
+                                ImplicitParameterDeclarativeSignature {
+                                    annotated_variance: None,
+                                    symbol: DeclarativeTermSymbol(
+                                        Id {
+                                            value: 2,
+                                        },
                                     ),
+                                    traits: [],
                                 },
                             ],
                         },
-                        return_ty: DeclarativeTerm(`core::basic::unit`),
+                        ty: DeclarativeTerm(`core::list::List t`),
                     },
                 ),
             ),
         ),
     ),
-    Ok(
-        SignatureTemplate::AssociatedItem(
-            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                TypeItemDeclarativeSignatureTemplate::MethodFn(
-                    TypeMethodFnDeclarativeSignatureTemplate {
-                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
-                                data: [
-                                    ImplicitParameterDeclarativeSignature {
-                                        annotated_variance: None,
-                                        symbol: DeclarativeTermSymbol(
-                                            Id {
-                                                value: 2,
-                                            },
-                                        ),
-                                        traits: [],
-                                    },
-                                ],
-                            },
-                            ty: DeclarativeTerm(`core::list::List t`),
-                        },
-                        self_ty: DeclarativeTerm(`core::list::List t`),
-                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
-                            data: [],
-                        },
-                        self_parameter: ExplicitParameterDeclarativeSignatureTemplate {
-                            contract: Pure,
-                            ty: ExplicitApplication(
-                                DeclarativeTermExplicitApplication(
-                                    Id {
-                                        value: 6,
-                                    },
-                                ),
-                            ),
-                        },
-                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
-                            data: [],
-                        },
-                        return_ty: DeclarativeTerm(`t`),
+    (
+        EntityPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `core::list`,
+                        ty_path: TypePath(`core::list::List`, `Extern`),
+                        disambiguator: 0,
                     },
+                    ident: `ilen`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                    TypeItemDeclarativeSignatureTemplate::MethodFn(
+                        TypeMethodFnDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                    data: [
+                                        ImplicitParameterDeclarativeSignature {
+                                            annotated_variance: None,
+                                            symbol: DeclarativeTermSymbol(
+                                                Id {
+                                                    value: 2,
+                                                },
+                                            ),
+                                            traits: [],
+                                        },
+                                    ],
+                                },
+                                ty: DeclarativeTerm(`core::list::List t`),
+                            },
+                            self_ty: DeclarativeTerm(`core::list::List t`),
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            self_parameter: ExplicitParameterDeclarativeSignatureTemplate {
+                                contract: Pure,
+                                ty: ExplicitApplication(
+                                    DeclarativeTermExplicitApplication(
+                                        Id {
+                                            value: 6,
+                                        },
+                                    ),
+                                ),
+                            },
+                            nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                                data: [],
+                            },
+                            return_ty: DeclarativeTerm(`core::num::i32`),
+                        },
+                    ),
                 ),
             ),
         ),
     ),
-    Ok(
-        SignatureTemplate::AssociatedItem(
-            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                TypeItemDeclarativeSignatureTemplate::MethodFn(
-                    TypeMethodFnDeclarativeSignatureTemplate {
-                        impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+    (
+        EntityPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `core::list`,
+                        ty_path: TypePath(`core::list::List`, `Extern`),
+                        disambiguator: 0,
+                    },
+                    ident: `push`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                    TypeItemDeclarativeSignatureTemplate::MethodFn(
+                        TypeMethodFnDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                    data: [
+                                        ImplicitParameterDeclarativeSignature {
+                                            annotated_variance: None,
+                                            symbol: DeclarativeTermSymbol(
+                                                Id {
+                                                    value: 2,
+                                                },
+                                            ),
+                                            traits: [],
+                                        },
+                                    ],
+                                },
+                                ty: DeclarativeTerm(`core::list::List t`),
+                            },
+                            self_ty: DeclarativeTerm(`core::list::List t`),
                             implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            self_parameter: ExplicitParameterDeclarativeSignatureTemplate {
+                                contract: BorrowMut,
+                                ty: ExplicitApplication(
+                                    DeclarativeTermExplicitApplication(
+                                        Id {
+                                            value: 6,
+                                        },
+                                    ),
+                                ),
+                            },
+                            nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [
-                                    ImplicitParameterDeclarativeSignature {
-                                        annotated_variance: None,
-                                        symbol: DeclarativeTermSymbol(
-                                            Id {
-                                                value: 2,
-                                            },
+                                    ExplicitParameterDeclarativeSignatureTemplate {
+                                        contract: Pure,
+                                        ty: Symbol(
+                                            DeclarativeTermSymbol(
+                                                Id {
+                                                    value: 2,
+                                                },
+                                            ),
                                         ),
-                                        traits: [],
                                     },
                                 ],
                             },
-                            ty: DeclarativeTerm(`core::list::List t`),
+                            return_ty: DeclarativeTerm(`core::basic::unit`),
                         },
-                        self_ty: DeclarativeTerm(`core::list::List t`),
-                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
-                            data: [],
-                        },
-                        self_parameter: ExplicitParameterDeclarativeSignatureTemplate {
-                            contract: Pure,
-                            ty: ExplicitApplication(
-                                DeclarativeTermExplicitApplication(
-                                    Id {
-                                        value: 6,
-                                    },
-                                ),
-                            ),
-                        },
-                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
-                            data: [],
-                        },
-                        return_ty: DeclarativeTerm(`t`),
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        EntityPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `core::list`,
+                        ty_path: TypePath(`core::list::List`, `Extern`),
+                        disambiguator: 0,
                     },
+                    ident: `first`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                    TypeItemDeclarativeSignatureTemplate::MethodFn(
+                        TypeMethodFnDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                    data: [
+                                        ImplicitParameterDeclarativeSignature {
+                                            annotated_variance: None,
+                                            symbol: DeclarativeTermSymbol(
+                                                Id {
+                                                    value: 2,
+                                                },
+                                            ),
+                                            traits: [],
+                                        },
+                                    ],
+                                },
+                                ty: DeclarativeTerm(`core::list::List t`),
+                            },
+                            self_ty: DeclarativeTerm(`core::list::List t`),
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            self_parameter: ExplicitParameterDeclarativeSignatureTemplate {
+                                contract: Pure,
+                                ty: ExplicitApplication(
+                                    DeclarativeTermExplicitApplication(
+                                        Id {
+                                            value: 6,
+                                        },
+                                    ),
+                                ),
+                            },
+                            nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                                data: [],
+                            },
+                            return_ty: DeclarativeTerm(`t`),
+                        },
+                    ),
                 ),
             ),
         ),

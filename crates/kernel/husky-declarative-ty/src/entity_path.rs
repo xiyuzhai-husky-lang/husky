@@ -215,13 +215,7 @@ pub fn ty_ontology_path_declarative_ty(
     path: TypePath,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
     let declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();
-    let decl = match path.decl(db) {
-        Ok(decl) => decl,
-        Err(_e) => {
-            return Err(DerivedDeclarativeTypeError::TypeOntologyDeclError { path }.into());
-        }
-    };
-    let signature = match db.ty_declarative_signature_template(decl) {
+    let signature = match path.declarative_signature_template(db) {
         Ok(signature) => signature,
         Err(_) => return Err(DerivedDeclarativeTypeError::SignatureError.into()),
     };
@@ -267,7 +261,7 @@ pub fn ty_variant_path_declarative_ty(
         TypeVariantDecl::Unit(_) => Ok(path.ty_path(db).into()),
         TypeVariantDecl::Tuple(_) => todo!(),
     }
-    // let signature = match db.ty_declarative_signature_template(decl) {
+    // let signature = match path.declarative_signature_template(db) {
     //     Ok(signature) => signature,
     //     Err(_) => return Err(DerivedDeclarativeTypeError::SignatureError.into()),
     // };
@@ -289,14 +283,10 @@ pub fn trai_path_declarative_ty(
     path: TraitPath,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
     let declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();
-    let decl = match path.decl(db) {
-        Ok(decl) => decl,
-        Err(_) => return Err(DerivedDeclarativeTypeError::TraitDeclError.into()),
-    };
     let Ok(variances) = trai_entity_variances(db, path) else {
         todo!()
     };
-    let signature = match decl.declarative_signature_template(db) {
+    let signature = match path.declarative_signature_template(db) {
         Ok(signature) => signature,
         Err(_) => todo!(),
     };

@@ -14,19 +14,19 @@ pub enum ImplBlockDeclarativeSignatureTemplate {
     TraitForTypeImpl(TraitForTypeImplBlockDeclarativeSignatureTemplate),
 }
 
-impl HasDeclarativeSignatureTemplate for ImplBlockDecl {
+impl HasDeclarativeSignatureTemplate for ImplBlockPath {
     type DeclarativeSignatureTemplate = ImplBlockDeclarativeSignatureTemplate;
 
     fn declarative_signature_template(
         self,
         db: &dyn DeclarativeSignatureDb,
     ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
-        match self {
-            ImplBlockDecl::Type(decl) => decl.declarative_signature_template(db).map(Into::into),
-            ImplBlockDecl::TraitForType(decl) => {
-                decl.declarative_signature_template(db).map(Into::into)
+        Ok(match self {
+            ImplBlockPath::TypeImplBlock(path) => path.declarative_signature_template(db)?.into(),
+            ImplBlockPath::TraitForTypeImplBlock(path) => {
+                path.declarative_signature_template(db)?.into()
             }
-        }
+        })
     }
 }
 
