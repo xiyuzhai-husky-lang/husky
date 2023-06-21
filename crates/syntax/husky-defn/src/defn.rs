@@ -16,10 +16,41 @@ use husky_ast::AstIdx;
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = DefnDb)]
 #[enum_class::from_variants]
+pub enum NodeDefn {
+    Submodule(SubmoduleNodeDefn),
+    ModuleItem(ModuleItemNodeDefn),
+    TypeVariant(TypeVariantNodeDefn),
+    ImplBlock(ImplBlockNodeDecl),
+    AssociatedItem(AssociatedItemNodeDefn),
+}
+
+pub trait HasNodeDefn: Copy {
+    type NodeDefn;
+
+    fn node_defn(self, db: &dyn DefnDb) -> Self::NodeDefn;
+}
+
+impl HasNodeDefn for EntityNodePath {
+    type NodeDefn = NodeDefn;
+
+    fn node_defn(self, db: &dyn DefnDb) -> Self::NodeDefn {
+        match self {
+            EntityNodePath::Submodule(path) => path.node_defn(db).into(),
+            EntityNodePath::ModuleItem(path) => path.node_defn(db).into(),
+            EntityNodePath::TypeVariant(path) => path.node_defn(db).into(),
+            EntityNodePath::ImplBlock(path) => path.node_defn(db).into(),
+            EntityNodePath::AssociatedItem(path) => path.node_defn(db).into(),
+        }
+    }
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[salsa::derive_debug_with_db(db = DefnDb)]
+#[enum_class::from_variants]
 pub enum Defn {
     Submodule(SubmoduleDefn),
     ModuleItem(ModuleItemDefn),
-    TypeVariant(VariantDefn),
+    TypeVariant(TypeVariantDefn),
     ImplBlock(ImplBlockDecl),
     AssociatedItem(AssociatedItemDefn),
 }

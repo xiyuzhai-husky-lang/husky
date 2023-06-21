@@ -1,15 +1,15 @@
 use super::*;
 
 #[salsa::tracked(db = DefnDb, jar = DefnJar)]
-pub struct EnumTypeDefn {
+pub struct EnumTypeNodeDefn {
     #[id]
     pub node_path: TypeNodePath,
-    pub decl: EnumTypeDecl,
+    pub node_decl: EnumTypeNodeDecl,
 }
 
-#[salsa::tracked(jar = DefnJar)]
-pub(crate) fn enum_ty_defn(db: &dyn DefnDb, decl: EnumTypeDecl) -> EnumTypeDefn {
-    todo!()
-    // let node_path = decl.node_path(db);
-    // EnumTypeDefn::new(db, node_path, decl)
+#[salsa::tracked(db = DefnDb, jar = DefnJar, constructor = pub(super) new)]
+pub struct EnumTypeDefn {
+    #[id]
+    pub path: TypePath,
+    pub decl: EnumTypeDecl,
 }

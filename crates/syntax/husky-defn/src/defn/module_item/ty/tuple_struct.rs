@@ -1,18 +1,15 @@
 use super::*;
 
 #[salsa::tracked(db = DefnDb, jar = DefnJar)]
-pub struct TupleStructTypeDefn {
+pub struct TupleStructTypeNodeDefn {
     #[id]
     pub node_path: TypeNodePath,
-    pub decl: TupleStructTypeDecl,
+    pub node_decl: TupleStructTypeNodeDecl,
 }
 
-#[salsa::tracked(jar = DefnJar)]
-pub(crate) fn tuple_struct_ty_defn(
-    db: &dyn DefnDb,
-    decl: TupleStructTypeDecl,
-) -> TupleStructTypeDefn {
-    todo!()
-    // let node_path = decl.node_path(db);
-    // TupleStructTypeDefn::new(db, node_path, decl)
+#[salsa::tracked(db = DefnDb, jar = DefnJar)]
+pub struct TupleStructTypeDefn {
+    #[id]
+    pub path: TypePath,
+    pub decl: TupleStructTypeDecl,
 }

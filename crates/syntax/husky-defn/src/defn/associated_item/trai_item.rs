@@ -14,6 +14,16 @@ use husky_entity_path::AssociatedItemPath;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DefnDb)]
 #[enum_class::from_variants]
+pub enum TraitItemNodeDefn {
+    AssociatedFn(TraitAssociatedFnNodeDefn),
+    MethodFn(TraitMethodFnNodeDefn),
+    AssociatedType(TraitAssociatedTypeNodeDefn),
+    AssociatedVal(TraitAssociatedValNodeDefn),
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::derive_debug_with_db(db = DefnDb)]
+#[enum_class::from_variants]
 pub enum TraitItemDefn {
     AssociatedFn(TraitAssociatedFnDefn),
     MethodFn(TraitMethodFnDefn),

@@ -1,9 +1,18 @@
 use super::*;
 
 #[salsa::tracked(db = DefnDb, jar = DefnJar)]
-pub struct TypeMemoizedFieldDefn {
+pub struct TypeMemoizedFieldNodeDefn {
     #[id]
     pub node_path: TypeItemNodePath,
+    pub node_decl: TypeMemoizedFieldNodeDecl,
+    pub body: Option<ExprIdx>,
+    pub expr_region: ExprRegion,
+}
+
+#[salsa::tracked(db = DefnDb, jar = DefnJar)]
+pub struct TypeMemoizedFieldDefn {
+    #[id]
+    pub path: TypeItemPath,
     pub decl: TypeMemoizedFieldDecl,
     pub body: Option<ExprIdx>,
     pub expr_region: ExprRegion,

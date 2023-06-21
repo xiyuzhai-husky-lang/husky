@@ -13,6 +13,25 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = DefnDb)]
 #[enum_class::from_variants]
+pub enum FugitiveNodeDefn {
+    Fn(FnNodeDefn),
+    // Function(FunctionDefn),
+    Val(ValNodeDefn),
+    Gn(GnNodeDefn),
+    // AliasType(TypeAliasDefn)
+}
+
+impl HasNodeDefn for FugitiveNodePath {
+    type NodeDefn = FugitiveNodeDefn;
+
+    fn node_defn(self, db: &dyn DefnDb) -> Self::NodeDefn {
+        todo!()
+    }
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[salsa::derive_debug_with_db(db = DefnDb)]
+#[enum_class::from_variants]
 pub enum FugitiveDefn {
     Fn(FnDefn),
     // Function(FunctionDefn),

@@ -23,6 +23,54 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = DefnDb)]
 #[enum_class::from_variants]
+pub enum TypeNodeDefn {
+    Enum(EnumTypeNodeDefn),
+    Inductive(InductiveTypeNodeDefn),
+    Record(RecordTypeNodeDefn),
+    RegularStruct(RegularStructTypeNodeDefn),
+    TupleStruct(TupleStructTypeNodeDefn),
+    UnitStruct(UnitStructTypeNodeDefn),
+    Structure(StructureTypeNodeDefn),
+    Extern(ExternTypeNodeDefn),
+    Union(UnionTypeNodeDefn),
+}
+
+impl HasNodeDefn for TypeNodePath {
+    type NodeDefn = TypeNodeDefn;
+
+    fn node_defn(self, db: &dyn DefnDb) -> Self::NodeDefn {
+        ty_node_defn(db, self)
+    }
+}
+
+#[salsa::tracked(jar = DefnJar)]
+pub(crate) fn ty_node_defn(db: &dyn DefnDb, node_path: TypeNodePath) -> TypeNodeDefn {
+    match node_path.node_decl(db) {
+        TypeNodeDecl::Enum(node_decl) => EnumTypeNodeDefn::new(db, node_path, node_decl).into(),
+        TypeNodeDecl::RegularStruct(node_decl) => {
+            RegularStructTypeNodeDefn::new(db, node_path, node_decl).into()
+        }
+        TypeNodeDecl::TupleStruct(node_decl) => {
+            TupleStructTypeNodeDefn::new(db, node_path, node_decl).into()
+        }
+        TypeNodeDecl::UnitStruct(node_decl) => {
+            UnitStructTypeNodeDefn::new(db, node_path, node_decl).into()
+        }
+        TypeNodeDecl::Record(node_decl) => RecordTypeNodeDefn::new(db, node_path, node_decl).into(),
+        TypeNodeDecl::Inductive(node_decl) => {
+            InductiveTypeNodeDefn::new(db, node_path, node_decl).into()
+        }
+        TypeNodeDecl::Structure(node_decl) => {
+            StructureTypeNodeDefn::new(db, node_path, node_decl).into()
+        }
+        TypeNodeDecl::Extern(node_decl) => ExternTypeNodeDefn::new(db, node_path, node_decl).into(),
+        TypeNodeDecl::Union(node_decl) => UnionTypeNodeDefn::new(db, node_path, node_decl).into(),
+    }
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[salsa::derive_debug_with_db(db = DefnDb)]
+#[enum_class::from_variants]
 pub enum TypeDefn {
     Enum(EnumTypeDefn),
     Inductive(InductiveTypeDefn),
@@ -77,14 +125,14 @@ impl HasDefn for TypePath {
 #[salsa::tracked(jar = DefnJar)]
 pub(crate) fn ty_defn(db: &dyn DefnDb, path: TypePath) -> DefnResult<TypeDefn> {
     Ok(match path.decl(db)? {
-        TypeDecl::Enum(decl) => enum_ty_defn(db, decl).into(),
-        TypeDecl::RegularStruct(decl) => regular_struct_ty_defn(db, decl).into(),
-        TypeDecl::TupleStruct(decl) => tuple_struct_ty_defn(db, decl).into(),
-        TypeDecl::UnitStruct(decl) => unit_struct_ty_defn(db, decl).into(),
-        TypeDecl::Record(decl) => record_ty_defn(db, decl).into(),
-        TypeDecl::Inductive(decl) => inductive_ty_defn(db, decl).into(),
-        TypeDecl::Structure(decl) => structure_ty_defn(db, decl).into(),
-        TypeDecl::Extern(decl) => alien_ty_defn(db, decl).into(),
-        TypeDecl::Union(decl) => union_ty_defn(db, decl).into(),
+        TypeDecl::Enum(decl) => EnumTypeDefn::new(db, path, decl).into(),
+        TypeDecl::RegularStruct(decl) => RegularStructTypeDefn::new(db, path, decl).into(),
+        TypeDecl::TupleStruct(decl) => TupleStructTypeDefn::new(db, path, decl).into(),
+        TypeDecl::UnitStruct(decl) => UnitStructTypeDefn::new(db, path, decl).into(),
+        TypeDecl::Record(decl) => RecordTypeDefn::new(db, path, decl).into(),
+        TypeDecl::Inductive(decl) => InductiveTypeDefn::new(db, path, decl).into(),
+        TypeDecl::Structure(decl) => StructureTypeDefn::new(db, path, decl).into(),
+        TypeDecl::Extern(decl) => ExternTypeDefn::new(db, path, decl).into(),
+        TypeDecl::Union(decl) => UnionTypeDefn::new(db, path, decl).into(),
     })
 }
