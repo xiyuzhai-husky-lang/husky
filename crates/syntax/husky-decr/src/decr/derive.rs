@@ -36,9 +36,9 @@ impl DeriveDecr {
             .try_parse_optional()
             .expect("should be guaranteed")
             .expect("should be guaranteed");
-        let lpar_token = ctx.parse_expected(OriginalDecrError::ExpectLeftBracketInDerive)?;
+        let lpar_token = ctx.try_parse_expected(OriginalDecrError::ExpectLeftBracketInDerive)?;
         let (traits, commas) = parse_separated_list2(&mut ctx, OriginalDecrError::ExprError)?;
-        let rpar_token = ctx.parse_expected(OriginalDecrError::ExpectRightBracketInDerive)?;
+        let rpar_token = ctx.try_parse_expected(OriginalDecrError::ExpectRightBracketInDerive)?;
         Ok(Self::new_inner(
             db,
             decr_id,

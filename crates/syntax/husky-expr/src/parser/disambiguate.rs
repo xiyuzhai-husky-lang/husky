@@ -71,7 +71,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         ..
                     }
                     | IncompleteExpr::CallList { .. },
-                ) => match self.parse_err_as_none::<EqToken>() {
+                ) => match self.try_parse_err_as_none::<EqToken>() {
                     Some(eq_token) => DisambiguatedToken::IncompleteKeywordArgument {
                         token_idx,
                         ident,

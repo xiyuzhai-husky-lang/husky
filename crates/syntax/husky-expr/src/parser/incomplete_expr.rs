@@ -75,20 +75,20 @@ impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for HtmlArgume
         if let Some(lcurl) = sp.try_parse_optional::<LeftCurlyBraceToken>()? {
             Ok(Some(HtmlArgumentExpr::Shortened {
                 lcurl,
-                property_ident: sp.parse_expected(OriginalExprError::HtmlTodo)?,
-                rcurl: sp.parse_expected(OriginalExprError::HtmlTodo)?,
+                property_ident: sp.try_parse_expected(OriginalExprError::HtmlTodo)?,
+                rcurl: sp.try_parse_expected(OriginalExprError::HtmlTodo)?,
             }))
         } else if let Some(argument_ident) = sp.try_parse_optional::<IdentToken>()? {
             Ok(Some(HtmlArgumentExpr::Expanded {
                 property_ident: argument_ident,
-                eq: sp.parse_expected(OriginalExprError::HtmlTodo)?,
-                lcurl: sp.parse_expected(OriginalExprError::HtmlTodo)?,
+                eq: sp.try_parse_expected(OriginalExprError::HtmlTodo)?,
+                lcurl: sp.try_parse_expected(OriginalExprError::HtmlTodo)?,
                 expr: sp.parse_expr_expected2(
                     None,
                     ExprRootKind::HtmlArgumentExpr,
                     OriginalExprError::HtmlTodo,
                 ),
-                rcurl: sp.parse_expected(OriginalExprError::HtmlTodo)?,
+                rcurl: sp.try_parse_expected(OriginalExprError::HtmlTodo)?,
             }))
         } else {
             Ok(None)

@@ -148,9 +148,9 @@ impl<'a> DeclParser<'a> {
                 .into(),
             TypeItemKind::AssociatedFn => self
                 .parse_ty_associated_fn_node_decl(
+                    node_path,
                     ast_idx,
                     token_group_idx,
-                    node,
                     saved_stream_state,
                 )
                 .into(),
@@ -244,7 +244,9 @@ pub(crate) fn ty_item_decl(db: &dyn DeclDb, path: TypeItemPath) -> DeclResult<Ty
         }
         TypeItemNodeDecl::AssociatedType(_) => todo!(),
         TypeItemNodeDecl::AssociatedVal(_) => todo!(),
-        TypeItemNodeDecl::MemoizedField(_) => todo!(),
+        TypeItemNodeDecl::MemoizedField(node_decl) => {
+            TypeMemoizedFieldDecl::from_node_decl(db, path, node_decl).map(Into::into)
+        }
     }
 }
 

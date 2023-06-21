@@ -36,7 +36,7 @@ impl VisibilityExpr {
             if let Some(pub_token) = token_stream.try_parse_optional::<PubToken>()? {
                 if let Some(lpar) = token_stream.try_parse_optional::<LeftParenthesisToken>()? {
                     let path_name_token: PathNameToken = token_stream
-                        .parse_expected(OriginalVisibilityExprError::ExpectedCrateOrSuper)?;
+                        .try_parse_expected(OriginalVisibilityExprError::ExpectedCrateOrSuper)?;
                     match path_name_token {
                         PathNameToken::Ident(_) => todo!(),
                         PathNameToken::CrateRoot(_) => todo!(),
@@ -51,7 +51,7 @@ impl VisibilityExpr {
                                 pub_token,
                                 lpar,
                                 visibility: VisibilityScopeExpr::Super(super_token),
-                                rpar: token_stream.parse_expected(
+                                rpar: token_stream.try_parse_expected(
                                     OriginalVisibilityExprError::ExpectedRightParenthesis,
                                 )?,
                             },

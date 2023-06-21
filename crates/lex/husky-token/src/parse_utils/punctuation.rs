@@ -93,6 +93,39 @@ fn colon_token_works() {
     assert!(t(&db, "'").is_err());
 }
 
+// semicolon
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = TokenDb)]
+
+pub struct SemiColonToken(TokenIdx);
+
+impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for SemiColonToken
+where
+    Context: TokenParseContext<'a>,
+{
+    type Error = TokenError;
+
+    fn try_parse_stream_optional_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> TokenResult<Option<Self>> {
+        parse_specific_punctuation_from(ctx, Punctuation::SEMICOLON, SemiColonToken)
+    }
+}
+
+#[test]
+fn semicolon_token_works() {
+    fn t(db: &DB, input: &str) -> TokenResult<Option<SemiColonToken>> {
+        quick_parse(db, input)
+    }
+
+    let db = DB::default();
+    assert!(t(&db, ":").unwrap().is_some());
+    assert!(t(&db, ",").unwrap().is_none());
+    assert!(t(&db, "a").unwrap().is_none());
+    assert!(t(&db, "'").is_err());
+}
+
 // comma
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]

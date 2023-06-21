@@ -34,7 +34,7 @@ impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for RegularPar
                     )
                 })
                 .collect::<Vec<_>>();
-            let colon = ctx.parse_expected(OriginalExprError::ExpectedColon)?;
+            let colon = ctx.try_parse_expected(OriginalExprError::ExpectedColon)?;
             let ty = ctx.parse_expr_expected2(
                 Some(ExprEnvironment::WithinBracket(Bracket::Par)),
                 ExprRootKind::ExplicitParameterType,

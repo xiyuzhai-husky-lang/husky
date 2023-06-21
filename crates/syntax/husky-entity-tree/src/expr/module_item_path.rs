@@ -43,7 +43,7 @@ pub enum OriginalMajorPathExprError {
     NoSuchSubentity,
 }
 
-impl OriginalError for OriginalMajorPathExprError {
+impl IntoError for OriginalMajorPathExprError {
     type Error = MajorPathExprError;
 }
 
@@ -93,7 +93,7 @@ impl<'a, 'b> ModuleItemPathExprParser<'a, 'b> {
         &mut self,
     ) -> ModuleItemPathExprResult<(ModuleItemPathExprIdx, ModuleItemPath)> {
         let name_token: PathNameToken =
-            self.parse_expected(OriginalMajorPathExprError::ExpectedName)?;
+            self.try_parse_expected(OriginalMajorPathExprError::ExpectedName)?;
         let entity_path = match name_token {
             PathNameToken::Ident(ident_token) => self
                 .entity_tree_symbol_context
@@ -112,7 +112,7 @@ impl<'a, 'b> ModuleItemPathExprParser<'a, 'b> {
         parent: ModulePath,
     ) -> ModuleItemPathExprResult<(ModuleItemPathExprIdx, ModuleItemPath)> {
         let name_token: PathNameToken =
-            self.parse_expected(OriginalMajorPathExprError::ExpectedName)?;
+            self.try_parse_expected(OriginalMajorPathExprError::ExpectedName)?;
         let entity_path = match name_token {
             PathNameToken::Ident(ident_token) => self
                 .entity_tree_symbol_context
@@ -132,7 +132,7 @@ impl<'a, 'b> ModuleItemPathExprParser<'a, 'b> {
         name_token: PathNameToken,
     ) -> ModuleItemPathExprResult<(ArenaIdx<ModuleItemPathExpr>, ModuleItemPath)> {
         let (expr, module_item_path) = if let Some(scope_resolution_token) =
-            self.parse_err_as_none::<ScopeResolutionToken>()
+            self.try_parse_err_as_none::<ScopeResolutionToken>()
         {
             match entity_path {
                 EntityPath::Module(parent) => {

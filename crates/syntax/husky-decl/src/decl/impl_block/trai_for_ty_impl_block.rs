@@ -83,7 +83,7 @@ impl<'a> DeclParser<'a> {
             .expect("guaranteed by parsing")
             .expect("guaranteed by parsing");
         let ty = ctx.try_parse_optional().unwrap().unwrap();
-        let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectedEolColon);
+        let eol_colon = ctx.try_parse_expected(OriginalDeclExprError::ExpectedEolColon);
         TraitForTypeImplBlockNodeDecl::new(
             db,
             node_path,

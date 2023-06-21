@@ -39,15 +39,15 @@ impl<'a> DeclParser<'a> {
         let mut ctx = parser.ctx(None, token_group_idx, saved_stream_state);
         let implicit_parameter_decl_list = ctx.try_parse_optional();
         let parameter_decl_list =
-            ctx.parse_expected(OriginalDeclExprError::ExpectedParameterDeclList);
+            ctx.try_parse_expected(OriginalDeclExprError::ExpectedParameterDeclList);
         let curry_token = ctx.try_parse_optional();
         let return_ty = if let Ok(Some(_)) = curry_token {
-            ctx.parse_expected(OriginalDeclExprError::ExpectedOutputType)
+            ctx.try_parse_expected(OriginalDeclExprError::ExpectedOutputType)
                 .map(Some)
         } else {
             Ok(None)
         };
-        let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectedEolColon);
+        let eol_colon = ctx.try_parse_expected(OriginalDeclExprError::ExpectedEolColon);
         TraitForTypeMethodFnNodeDecl::new(
             db,
             node.node_path(db),

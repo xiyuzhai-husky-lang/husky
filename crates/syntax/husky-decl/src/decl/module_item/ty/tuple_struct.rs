@@ -1,6 +1,6 @@
 use super::*;
 use husky_expr::ExprIdx;
-use parsec::SeparatedListWithKet;
+use parsec::{SeparatedSmallList, TryParseFromStream};
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TupleStructTypeNodeDecl {
@@ -9,29 +9,31 @@ pub struct TupleStructTypeNodeDecl {
     pub ast_idx: AstIdx,
     #[return_ref]
     implicit_parameter_decl_list: DeclExprResult<Option<ImplicitParameterDeclList>>,
-    pub lpar: LeftParenthesisToken,
     #[return_ref]
-    field_comma_list: SeparatedListWithKet<
-        TupleStructFieldDeclPattern,
-        CommaToken,
-        RightParenthesisToken,
-        DeclExprError,
+    lpar: LeftParenthesisToken,
+    #[return_ref]
+    field_comma_list: DeclExprResult<
+        SeparatedSmallList<TupleStructFieldDeclPattern, CommaToken, 4, DeclExprError>,
     >,
+    #[return_ref]
+    rpar: DeclExprResult<TupleStructRightParenthesisToken>,
     pub expr_region: ExprRegion,
 }
 
-impl TupleStructTypeNodeDecl {
-    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDeclPattern] {
-        todo!()
-        // self.implicit_parameter_decl_list(db)
-        //     .as_ref()
-        //     .map(ImplicitParameterDeclList::implicit_parameters)
-        //     .unwrap_or(&[])
-    }
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct TupleStructRightParenthesisToken(RightParenthesisToken);
 
-    pub fn fields<'a>(self, db: &'a dyn DeclDb) -> &'a [TupleStructFieldDeclPattern] {
-        todo!()
-        // &self.field_comma_list(db).0
+impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for TupleStructRightParenthesisToken {
+    type Error = DeclExprError;
+
+    fn try_parse_from_stream(sp: &mut ExprParseContext) -> Result<Self, Self::Error> {
+        // todo: enrich this
+        // consider unexpected
+        // maybe sp.skip_exprs_until_next_right_parenthesis
+        let rpar = sp.try_parse_expected(
+            OriginalDeclExprError::ExpectedRightParenthesisInTupleStructFieldTypeList,
+        )?;
+        Ok(Self(rpar))
     }
 }
 

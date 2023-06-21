@@ -2,7 +2,7 @@ use husky_entity_tree::EntityTreeError;
 use husky_expr::ExprError;
 use husky_token::{TokenError, TokenIdx, TokenStreamState};
 use husky_vfs::VfsError;
-use original_error::OriginalError;
+use original_error::IntoError;
 use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq)]
@@ -41,7 +41,7 @@ pub enum OriginalDecrError {
     ExprError(ExprError), // ad hoc
 }
 
-impl OriginalError for OriginalDecrError {
+impl IntoError for OriginalDecrError {
     type Error = DecrError;
 }
 

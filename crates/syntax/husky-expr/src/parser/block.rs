@@ -146,7 +146,7 @@ impl<'a> BlockExprParser<'a> {
                 BasicStmtKeywordToken::Let(let_token) => Stmt::Let {
                     let_token,
                     let_variable_pattern: ctx.parse_let_variables_pattern_expected(block_end),
-                    assign_token: ctx.parse_expected(OriginalExprError::ExpectedAssign),
+                    assign_token: ctx.try_parse_expected(OriginalExprError::ExpectedAssign),
                     initial_value: ctx.parse_expr_expected2(
                         None,
                         ExprRootKind::LetStmtInitialValue,
@@ -184,7 +184,7 @@ impl<'a> BlockExprParser<'a> {
                             Ok(expr) => expr,
                             Err(_) => todo!(),
                         };
-                    let eol_colon = ctx.parse_expected(OriginalExprError::ExpectedEolColon);
+                    let eol_colon = ctx.try_parse_expected(OriginalExprError::ExpectedEolColon);
                     self.parse_for_loop_stmt(
                         token_group_idx,
                         for_token,
@@ -200,7 +200,7 @@ impl<'a> BlockExprParser<'a> {
                             Ok(expr) => expr,
                             Err(_) => todo!(),
                         };
-                    let eol_colon = ctx.parse_expected(OriginalExprError::ExpectedEolColon);
+                    let eol_colon = ctx.try_parse_expected(OriginalExprError::ExpectedEolColon);
                     self.parse_forext_loop_stmt(
                         token_group_idx,
                         forext_token,
@@ -216,7 +216,7 @@ impl<'a> BlockExprParser<'a> {
                         Some(ExprEnvironment::Condition(block_end)),
                         OriginalExprError::ExpectedCondition,
                     ),
-                    eol_colon: ctx.parse_expected(OriginalExprError::ExpectedEolColon),
+                    eol_colon: ctx.try_parse_expected(OriginalExprError::ExpectedEolColon),
                     block: self.parse_block_stmts_expected(
                         body.expect("should be checked in `husky_ast`"),
                         token_group_idx,
@@ -231,7 +231,7 @@ impl<'a> BlockExprParser<'a> {
                             Some(ExprEnvironment::Condition(block_end)),
                             OriginalExprError::ExpectedCondition,
                         ),
-                        eol_colon: ctx.parse_expected(OriginalExprError::ExpectedEolColon),
+                        eol_colon: ctx.try_parse_expected(OriginalExprError::ExpectedEolColon),
                         block: self.parse_block_stmts_expected(
                             body.expect("should be checked in `husky_ast`"),
                             token_group_idx,
@@ -409,7 +409,7 @@ impl<'a> BlockExprParser<'a> {
                         Some(ExprEnvironment::Condition(body_end)),
                         OriginalExprError::ExpectedCondition,
                     ),
-                    eol_colon: ctx.parse_expected(OriginalExprError::ExpectedEolColon),
+                    eol_colon: ctx.try_parse_expected(OriginalExprError::ExpectedEolColon),
                     block: self.parse_block_stmts_expected(
                         body.expect("should be checked in `husky_ast`"),
                         token_group_idx,
@@ -448,7 +448,7 @@ impl<'a> BlockExprParser<'a> {
                         Some(ExprEnvironment::Condition(body_end)),
                         OriginalExprError::ExpectedCondition,
                     ),
-                    eol_colon: ctx.parse_expected(OriginalExprError::ExpectedEolColon),
+                    eol_colon: ctx.try_parse_expected(OriginalExprError::ExpectedEolColon),
                     block: self.parse_block_stmts_expected(body, token_group_idx),
                 }
             }
@@ -468,7 +468,7 @@ impl<'a> BlockExprParser<'a> {
                 let mut ctx = self.ctx(token_stream);
                 Some(ElseBranch {
                     else_token: ctx.try_parse_optional().unwrap().unwrap(),
-                    eol_colon: ctx.parse_expected(OriginalExprError::ExpectedEolColon),
+                    eol_colon: ctx.try_parse_expected(OriginalExprError::ExpectedEolColon),
                     block: self.parse_block_stmts_expected(
                         body.expect("should be checked in `husky_ast`"),
                         token_group_idx,

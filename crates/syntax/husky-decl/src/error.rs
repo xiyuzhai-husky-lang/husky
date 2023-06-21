@@ -3,7 +3,7 @@ use husky_entity_tree::EntityTreeError;
 use husky_expr::OriginalExprError;
 use husky_token::*;
 use husky_vfs::VfsError;
-use original_error::OriginalError;
+use original_error::IntoError;
 use parsec::*;
 use thiserror::Error;
 
@@ -150,9 +150,11 @@ pub enum OriginalDeclExprError {
     ExpectedVariableType(TokenStreamState),
     #[error("ExpectEqTokenForVariable")]
     ExpectEqTokenForVariable(TokenStreamState),
+    #[error("expected `{{` `(` or `;` for struct")]
+    ExpectedLeftCurlyBraceOrLeftParenthesisOrSemicolonForStruct(TokenStreamState),
 }
 
-impl OriginalError for OriginalDeclExprError {
+impl IntoError for OriginalDeclExprError {
     type Error = DeclExprError;
 }
 

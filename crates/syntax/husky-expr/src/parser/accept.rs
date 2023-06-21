@@ -440,9 +440,9 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 }
                 Bracket::Lambda => todo!(),
                 Bracket::HtmlAngle => {
-                    let function_ident = match parser
-                        .parse_expected(OriginalExprError::ExpectedFunctionIdentAfterOpeningHtmlBra)
-                    {
+                    let function_ident = match parser.try_parse_expected(
+                        OriginalExprError::ExpectedFunctionIdentAfterOpeningHtmlBra,
+                    ) {
                         Ok(function_ident) => function_ident,
                         Err(e) => return Expr::Err(e).into(),
                     };

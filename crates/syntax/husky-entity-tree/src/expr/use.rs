@@ -1,7 +1,7 @@
 use super::*;
 use husky_opn_syntax::BinaryOpr;
 use husky_token::*;
-use original_error::OriginalError;
+use original_error::IntoError;
 use parsec::{StreamParser, StreamWrapper, TryParseOptionalFromStream};
 use thiserror::Error;
 
@@ -159,7 +159,7 @@ pub enum OriginalUseExprError {
     },
 }
 
-impl OriginalError for OriginalUseExprError {
+impl IntoError for OriginalUseExprError {
     type Error = UseExprError;
 }
 
@@ -225,8 +225,8 @@ impl<'a, 'b> StreamWrapper for UseExprParser<'a, 'b> {}
 
 impl<'a, 'b> UseExprParser<'a, 'b> {
     pub(crate) fn parse_use_expr_root(&mut self) -> UseExprResult<UseExprRoot> {
-        let use_token: UseToken = self.parse_expected(OriginalUseExprError::ExpectUseToken)?;
-        let use_expr = self.parse_expected(OriginalUseExprError::ExpectUseExpr)?;
+        let use_token: UseToken = self.try_parse_expected(OriginalUseExprError::ExpectUseToken)?;
+        let use_expr = self.try_parse_expected(OriginalUseExprError::ExpectUseExpr)?;
         match use_expr {
             UseExpr::All { star_token } => Err(OriginalUseExprError::InvalidAllAsRoot {
                 use_token,
@@ -264,7 +264,7 @@ impl<'a, 'b> UseExprParser<'a, 'b> {
 
     fn parse_children(&mut self) -> UseExprResult<UseExprChildren> {
         let Some(lcurl_token) = self.try_parse_optional::<LeftCurlyBraceToken>()? else {
-            let child = self.parse_expected(OriginalUseExprError::ExpectUseExpr).into();
+            let child = self.try_parse_expected(OriginalUseExprError::ExpectUseExpr).into();
             let child = self.use_expr_arena.alloc_one(child);
             return Ok(UseExprChildren::Single { child })
         };
@@ -277,7 +277,7 @@ impl<'a, 'b> UseExprParser<'a, 'b> {
             lcurl_token,
             children,
             comma_tokens,
-            rcurl_token: self.parse_expected(OriginalUseExprError::ExpectRightCurlyBrace),
+            rcurl_token: self.try_parse_expected(OriginalUseExprError::ExpectRightCurlyBrace),
         })
     }
 }
@@ -300,7 +300,7 @@ impl<'a, 'b> TryParseOptionalFromStream<UseExprParser<'a, 'b>> for UseExpr {
             PathNameToken::CrateRoot(crate_token) => Ok(Some(UseExpr::Parent(ParentUseExpr {
                 parent_name_token: PathNameToken::CrateRoot(crate_token),
                 scope_resolution_token: ctx
-                    .parse_expected(OriginalUseExprError::ExpectScopeResolution),
+                    .try_parse_expected(OriginalUseExprError::ExpectScopeResolution),
                 children: ctx.parse_children(),
             }))),
             PathNameToken::SelfMod(self_mod_token) => {
@@ -321,7 +321,7 @@ impl<'a, 'b> TryParseOptionalFromStream<UseExprParser<'a, 'b>> for UseExpr {
             PathNameToken::Super(super_token) => Ok(Some(UseExpr::Parent(ParentUseExpr {
                 parent_name_token: PathNameToken::Super(super_token),
                 scope_resolution_token: ctx
-                    .parse_expected(OriginalUseExprError::ExpectScopeResolution),
+                    .try_parse_expected(OriginalUseExprError::ExpectScopeResolution),
                 children: ctx.parse_children(),
             }))),
         }

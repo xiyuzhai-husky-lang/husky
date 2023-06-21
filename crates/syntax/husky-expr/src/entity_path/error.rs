@@ -1,5 +1,5 @@
 use super::*;
-use original_error::OriginalError;
+use original_error::IntoError;
 
 #[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = ExprDb)]
@@ -40,7 +40,7 @@ pub enum OriginalEntityPathExprError {
     ExpectIdentAfterScopeResolution(TokenStreamState),
 }
 
-impl OriginalError for OriginalEntityPathExprError {
+impl IntoError for OriginalEntityPathExprError {
     type Error = EntityPathExprError;
 }
 

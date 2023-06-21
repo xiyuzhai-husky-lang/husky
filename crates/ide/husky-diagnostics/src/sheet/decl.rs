@@ -102,6 +102,11 @@ impl Diagnose for OriginalDeclExprError {
             OriginalDeclExprError::ExpectEqTokenForVariable(_) => {
                 format!("Syntax Error: ExpectEqTokenForVariable",)
             }
+            OriginalDeclExprError::ExpectedLeftCurlyBraceOrLeftParenthesisOrSemicolonForStruct(
+                _,
+            ) => {
+                format!("Syntax Error: expected `{{` `(` or `;` for struct",)
+            }
         }
     }
 
@@ -127,9 +132,10 @@ impl Diagnose for OriginalDeclExprError {
                 token_stream_state,
             )
             | OriginalDeclExprError::ExpectedVariableType(token_stream_state)
-            | OriginalDeclExprError::ExpectEqTokenForVariable(token_stream_state) => {
-                ctx.token_stream_state_text_range(*token_stream_state)
-            }
+            | OriginalDeclExprError::ExpectEqTokenForVariable(token_stream_state)
+            | OriginalDeclExprError::ExpectedLeftCurlyBraceOrLeftParenthesisOrSemicolonForStruct(
+                token_stream_state,
+            ) => ctx.token_stream_state_text_range(*token_stream_state),
         }
     }
 }
