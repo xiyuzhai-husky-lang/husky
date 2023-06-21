@@ -55,20 +55,6 @@ impl EntityTreeSheet {
         self.entity_symbol_table.as_ref()
     }
 
-    // pub fn module_item_path_iter<'a>(
-    //     &'a self,
-    //     db: &'a dyn EntityTreeDb,
-    // ) -> impl Iterator<Item = ModuleItemPath> + 'a {
-    //     todo!()
-    //     // self.symbols
-    //     //     .data()
-    //     //     .iter()
-    //     //     .filter_map(|entry| match entry.symbol() {
-    //     //         EntitySymbol::ModuleItem(symbol) => Some(symbol.path(db)),
-    //     //         _ => None,
-    //     //     })
-    // }
-
     pub fn errors(&self) -> &[EntityTreeError] {
         &self.errors
     }
@@ -85,6 +71,15 @@ impl EntityTreeSheet {
 
     pub fn major_entity_node_paths<'a>(&'a self) -> impl Iterator<Item = EntityNodePath> + 'a {
         self.major_entity_node_table.node_paths()
+    }
+
+    pub fn major_entity_paths<'a>(
+        &'a self,
+        db: &'a dyn EntityTreeDb,
+    ) -> impl Iterator<Item = EntityPath> + 'a {
+        self.major_entity_node_table
+            .node_paths()
+            .filter_map(|node_path| node_path.path(db))
     }
 
     pub fn major_entity_node(&self, node_path: EntityNodePath) -> Option<EntityNode> {

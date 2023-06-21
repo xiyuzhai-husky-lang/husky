@@ -47,26 +47,26 @@ pub(crate) struct DB {
 
 impl salsa::Database for DB {}
 
-fn entity_declarative_tys(
+fn major_entity_declarative_tys(
     db: &DB,
     module_path: ModulePath,
 ) -> Vec<(EntityPath, DeclarativeTypeResult<DeclarativeTerm>)> {
     let Ok(entity_tree_sheet) = db.entity_tree_sheet(module_path) else {
         return vec![]
     };
-    todo!()
-    // entity_tree_sheet
-    //     .module_item_path_iter(db)
-    //     .map(|path| {
-    //         (
-    //             path.into(),
-    //             entity_path_declarative_ty(db, TypePathDisambiguation::Ontology, path.into()),
-    //         )
-    //     })
-    //     .collect()
+    entity_tree_sheet
+        .major_entity_paths(db)
+        .map(|path| {
+            (
+                path.into(),
+                entity_path_declarative_ty(db, TypePathDisambiguation::Ontology, path.into()),
+            )
+        })
+        .collect()
 }
 
 #[test]
 fn entity_declarative_tys_works() {
-    DB::default().ast_expect_test_debug_with_db("entity_declarative_tys", entity_declarative_tys)
+    DB::default()
+        .ast_expect_test_debug_with_db("major_entity_declarative_tys", major_entity_declarative_tys)
 }

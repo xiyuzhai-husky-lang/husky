@@ -35,9 +35,9 @@ pub fn entity_path_declarative_ty(
     disambiguation: TypePathDisambiguation,
     path: EntityPath,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
-    let _declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();
+    let declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();
     match path {
-        EntityPath::Module(_) => todo!(),
+        EntityPath::Module(_) => Ok(declarative_term_menu.module()),
         EntityPath::ModuleItem(path) => match path {
             ModuleItemPath::Type(path) => match disambiguation {
                 TypePathDisambiguation::Ontology => ty_ontology_path_declarative_ty(db, path),
