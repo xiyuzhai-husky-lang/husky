@@ -2,7 +2,7 @@ use crate::*;
 use husky_entity_tree::EntityTreeError;
 use husky_opn_syntax::Bracket;
 use husky_token::*;
-use original_error::OriginalError;
+use original_error::IntoError;
 use parsec::*;
 use thiserror::Error;
 
@@ -221,7 +221,7 @@ impl OriginalExprError {
     }
 }
 
-impl OriginalError for OriginalExprError {
+impl IntoError for OriginalExprError {
     type Error = ExprError;
 }
 

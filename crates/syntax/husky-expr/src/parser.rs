@@ -22,7 +22,7 @@ use husky_entity_tree::*;
 use husky_token::Token;
 use husky_token::TokenStream;
 use husky_vfs::{ModulePath, Toolchain};
-use original_error::OriginalError;
+use original_error::IntoError;
 use parsec::{HasStreamState, StreamParser};
 use salsa::DebugWithDb;
 use std::ops::ControlFlow;
@@ -194,7 +194,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         opt_expr_idx
     }
 
-    pub fn parse_expr_expected<E: OriginalError>(
+    pub fn parse_expr_expected<E: IntoError>(
         &mut self,
         env: Option<ExprEnvironment>,
         err: impl FnOnce(TokenStreamState) -> E,
@@ -281,7 +281,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
     ) -> ExprResult<Option<PatternExprIdx>> {
         let modifier_keyword_group = self.try_parse_optional()?;
         let ident_token = match modifier_keyword_group {
-            Some(_) => self.parse_expected(OriginalExprError::ExpectedIdentAfterModifier)?,
+            Some(_) => self.try_parse_expected(OriginalExprError::ExpectedIdentAfterModifier)?,
             None => match self.try_parse_optional::<IdentToken>()? {
                 Some(ident_token) => ident_token,
                 None => return Ok(None),

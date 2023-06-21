@@ -6,11 +6,11 @@ where
 {
     type Error;
 
-    fn try_parse_from_with_rollback_when_no_error<'a>(
+    fn try_parse_from_stream_with_rollback_when_no_error<'a>(
         stream: &mut SP,
     ) -> Result<Option<Self>, <Self as ParseFromWithRollback<SP>>::Error>;
 
-    fn parse_option_from_with_rollback_ignoring_error<'a>(stream: &mut SP) -> Option<Self>;
+    fn try_parse_option_from_with_rollback_ignoring_error<'a>(stream: &mut SP) -> Option<Self>;
 }
 
 impl<Context, P> ParseFromWithRollback<Context> for P
@@ -19,7 +19,7 @@ where
     P: TryParseOptionalFromStream<Context>,
 {
     type Error = <P as TryParseOptionalFromStream<Context>>::Error;
-    fn try_parse_from_with_rollback_when_no_error<'a>(
+    fn try_parse_from_stream_with_rollback_when_no_error<'a>(
         stream: &mut Context,
     ) -> Result<Option<Self>, <P as TryParseOptionalFromStream<Context>>::Error> {
         let state = stream.save_state();
@@ -32,7 +32,9 @@ where
         result
     }
 
-    fn parse_option_from_with_rollback_ignoring_error<'a>(stream: &mut Context) -> Option<Self> {
+    fn try_parse_option_from_with_rollback_ignoring_error<'a>(
+        stream: &mut Context,
+    ) -> Option<Self> {
         let state = stream.save_state();
         let result = Self::try_parse_stream_optional_from_without_guaranteed_rollback(stream);
         match result {

@@ -9,7 +9,7 @@ use husky_entity_path::EntityPathError;
 use husky_ethereal_term::EtherealTermError;
 use husky_expr::ExprIdx;
 use husky_token::IdentToken;
-use original_error::OriginalError;
+use original_error::IntoError;
 use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq)]
@@ -79,7 +79,7 @@ pub enum OriginalExprTypeError {
     CannotUnveil,
 }
 
-impl OriginalError for OriginalExprTypeError {
+impl IntoError for OriginalExprTypeError {
     type Error = ExprTypeError;
 }
 

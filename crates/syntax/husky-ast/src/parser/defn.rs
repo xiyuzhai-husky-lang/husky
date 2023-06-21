@@ -135,9 +135,9 @@ impl<'a> AstParser<'a> {
                 break
             };
             ty_variants.push(
-                match aux_parser
-                    .parse_expected::<IdentToken, _>(OriginalAstError::ExpectedIdentForTypeVariant)
-                {
+                match aux_parser.try_parse_expected::<IdentToken, _>(
+                    OriginalAstError::ExpectedIdentForTypeVariant,
+                ) {
                     Ok(ident_token) => {
                         // check that variant name is available
                         for ty_variant in &ty_variants {
@@ -175,8 +175,8 @@ impl<'a> BasicAuxAstParser<'a> {
         mut self,
     ) -> AstResult<(EntityKind, IdentToken, bool, TokenStreamState)> {
         let entity_keyword_group =
-            self.parse_expected(OriginalAstError::ExpectedEntityKeywordGroup)?;
-        let ident: IdentToken = self.parse_expected(OriginalAstError::ExpectedIdent)?;
+            self.try_parse_expected(OriginalAstError::ExpectedEntityKeywordGroup)?;
+        let ident: IdentToken = self.try_parse_expected(OriginalAstError::ExpectedIdent)?;
         let is_generic = self.parse_is_generic();
         let entity_kind = C::determine_entity_kind(entity_keyword_group)?;
         Ok((

@@ -196,19 +196,9 @@ impl<'a> DeclParser<'a> {
             self.expr_parser(node_path, None, AllowSelfType::True, AllowSelfValue::True);
         let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
         let implicit_parameters = ctx.try_parse_optional();
-        if let Some(lcurl) = ctx.parse_err_as_none::<LeftCurlyBraceToken>() {
-            let field_comma_list = ctx.parse();
-            RegularStructTypeNodeDecl::new(
-                db,
-                node_path,
-                ast_idx,
-                implicit_parameters,
-                field_comma_list,
-                parser.finish(),
-            )
-            .into()
-        } else if let Some(lpar) = ctx.parse_err_as_none::<LeftParenthesisToken>() {
-            let field_comma_list = ctx.parse();
+        if let Some(lpar) = ctx.try_parse_err_as_none::<LeftParenthesisToken>() {
+            let field_comma_list = ctx.try_parse();
+            let rpar = ctx.try_parse();
             TupleStructTypeNodeDecl::new(
                 db,
                 node_path,
@@ -216,12 +206,28 @@ impl<'a> DeclParser<'a> {
                 implicit_parameters,
                 lpar,
                 field_comma_list,
+                rpar,
                 parser.finish(),
             )
             .into()
-        } else {
+        } else if let Some(semicolon) = ctx.try_parse_err_as_none::<SemiColonToken>() {
             todo!()
             // Err(OriginalDeclError::ExpectedLCurlOrLParOrSemicolon(ctx.save_state()).into())
+        } else {
+            let lcurl = ctx.try_parse();
+            let field_comma_list = ctx.try_parse();
+            let rcurl = ctx.try_parse();
+            RegularStructTypeNodeDecl::new(
+                db,
+                node_path,
+                ast_idx,
+                implicit_parameters,
+                lcurl,
+                field_comma_list,
+                rcurl,
+                parser.finish(),
+            )
+            .into()
         }
     }
 }

@@ -1,7 +1,7 @@
-pub trait OriginalError: Sized {
+pub trait IntoError: Sized {
     type Error: From<Self>;
 }
 
-impl OriginalError for () {
+impl IntoError for () {
     type Error = Self;
 }

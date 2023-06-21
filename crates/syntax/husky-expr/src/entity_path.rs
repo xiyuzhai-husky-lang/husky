@@ -36,7 +36,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             path_name_token,
             entity_path,
         });
-        match self.parse_err_as_none::<ScopeResolutionToken>() {
+        match self.try_parse_err_as_none::<ScopeResolutionToken>() {
             Some(scope_resolution_token) => {
                 self.parse_subentity_path_expr(root, Some(entity_path), scope_resolution_token)
             }
@@ -51,7 +51,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         scope_resolution_token: ScopeResolutionToken,
     ) -> (EntityPathExprIdx, Option<EntityPath>) {
         let ident_token: EntityPathExprResult<IdentToken> =
-            self.parse_expected(OriginalEntityPathExprError::ExpectIdentAfterScopeResolution);
+            self.try_parse_expected(OriginalEntityPathExprError::ExpectIdentAfterScopeResolution);
         let path: EntityPathExprResult<EntityPath> = match parent_path {
             Some(parent_path) => match ident_token {
                 Ok(ident_token) => {
@@ -80,7 +80,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             path,
         };
         let expr = self.alloc_entity_path_expr(expr);
-        match self.parse_err_as_none::<ScopeResolutionToken>() {
+        match self.try_parse_err_as_none::<ScopeResolutionToken>() {
             Some(scope_resolution_token) => {
                 self.parse_subentity_path_expr(expr, parent_path, scope_resolution_token)
             }

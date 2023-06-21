@@ -26,7 +26,7 @@ impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for ExplicitPa
         };
         let self_parameter: Option<SelfParameterDeclPattern> = ctx.try_parse_optional()?;
         let comma_after_self_parameter = if self_parameter.is_some() {
-            ctx.parse_err_as_none::<CommaToken>()
+            ctx.try_parse_err_as_none::<CommaToken>()
         } else {
             None
         };
@@ -37,7 +37,7 @@ impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for ExplicitPa
                 Default::default()
             };
         let rpar =
-            ctx.parse_expected(OriginalDeclExprError::ExpectedRightParenthesisInParameterList)?;
+            ctx.try_parse_expected(OriginalDeclExprError::ExpectedRightParenthesisInParameterList)?;
         Ok(Some(Self {
             lpar,
             self_parameter,

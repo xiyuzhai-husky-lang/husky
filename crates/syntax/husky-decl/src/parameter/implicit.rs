@@ -46,7 +46,7 @@ impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for ImplicitPa
             implicit_parameters,
             commas,
             decl_list_result,
-            rangle: ctx.parse_expected(|token_stream_state| {
+            rangle: ctx.try_parse_expected(|token_stream_state| {
                 OriginalDeclExprError::ExpectedRightAngleBracketForImplicitParameterDeclList {
                     langle_token_idx: langle.token_idx(),
                     token_stream_state,

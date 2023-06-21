@@ -51,7 +51,7 @@ impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for ImplicitPa
     fn try_parse_stream_optional_from_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> ExprResult<Option<Self>> {
-        let annotated_variance_token = ctx.parse_err_as_none();
+        let annotated_variance_token = ctx.try_parse_err_as_none();
         if let Some(ident_token) = ctx.try_parse_optional::<IdentToken>()? {
             let access_start = ctx.save_state().next_token_idx();
             let parameter_symbol = CurrentSymbol::new(
@@ -115,8 +115,8 @@ impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for ImplicitPa
                 variant: ImplicitParameterDeclPatternVariant::Binding { label_token },
             }))
         } else if let Some(const_token) = ctx.try_parse_optional::<ConstToken>()? {
-            let ident_token = ctx.parse_expected(OriginalExprError::ExpectedIdent)?;
-            let colon_token = ctx.parse_expected(OriginalExprError::ExpectedColon)?;
+            let ident_token = ctx.try_parse_expected(OriginalExprError::ExpectedIdent)?;
+            let colon_token = ctx.try_parse_expected(OriginalExprError::ExpectedColon)?;
             let ty_expr = ctx.parse_expr_expected2(
                 Some(ExprEnvironment::WithinBracket(Bracket::TemplateAngle)),
                 ExprRootKind::ConstantImplicitParameterType,

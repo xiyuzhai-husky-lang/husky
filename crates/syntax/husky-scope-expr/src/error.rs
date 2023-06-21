@@ -1,5 +1,5 @@
 use husky_token::{TokenError, TokenIdx, TokenStreamState};
-use original_error::OriginalError;
+use original_error::IntoError;
 use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq)]
@@ -20,7 +20,7 @@ pub enum OriginalVisibilityExprError {
     ExpectedCrateOrSuper(TokenStreamState),
 }
 
-impl OriginalError for OriginalVisibilityExprError {
+impl IntoError for OriginalVisibilityExprError {
     type Error = VisibilityExprError;
 }
 

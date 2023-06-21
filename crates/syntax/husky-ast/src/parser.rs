@@ -126,11 +126,11 @@ impl<'a> AstParser<'a> {
                 ),
                 Keyword::Main => Ast::Main {
                     token_group_idx,
-                    body: self.parse_expected(OriginalAstError::ExpectedFormBodyForMain)?,
+                    body: self.try_parse_expected(OriginalAstError::ExpectedFormBodyForMain)?,
                 },
                 Keyword::Config(_) => Ast::Config {
                     token_group_idx,
-                    body: self.parse_expected(OriginalAstError::ExpectedFormBodyForConfig)?,
+                    body: self.try_parse_expected(OriginalAstError::ExpectedFormBodyForConfig)?,
                 },
                 Keyword::Mod | Keyword::Fugitive(_) | Keyword::Trait | Keyword::TypeEntity(_) => {
                     self.parse_defn::<C>(
@@ -148,7 +148,7 @@ impl<'a> AstParser<'a> {
                     } else {
                         // however, type impl block should always have items
                         Some(
-                            self.parse_expected::<TypeItems, _>(
+                            self.try_parse_expected::<TypeItems, _>(
                                 OriginalAstError::ExpectedTypeItems,
                             )?
                             .into(),

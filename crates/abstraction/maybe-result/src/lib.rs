@@ -3,7 +3,7 @@
 
 pub use MaybeResult::*;
 
-use original_error::OriginalError;
+use original_error::IntoError;
 use std::convert::Infallible;
 
 /// composition of option and result
@@ -128,10 +128,10 @@ impl<T, E> MaybeResult<T, E> {
         }
     }
 
-    pub fn into_result_or<OE>(self, nothing_e: OE) -> Result<T, <OE as OriginalError>::Error>
+    pub fn into_result_or<OE>(self, nothing_e: OE) -> Result<T, <OE as IntoError>::Error>
     where
-        OE: OriginalError,
-        E: Into<<OE as OriginalError>::Error>,
+        OE: IntoError,
+        E: Into<<OE as IntoError>::Error>,
     {
         match self {
             JustOk(t) => Ok(t),

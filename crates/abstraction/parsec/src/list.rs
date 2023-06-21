@@ -36,31 +36,75 @@ where
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct SeparatedListWithKet<Element, Separator, Ket, Error> {
-    elements: Vec<Element>,
-    separators: Vec<Separator>,
-    ket: Ket,
-    result: Result<(), Error>,
+pub struct SeparatedSmallList<Element, Separator, const N: usize, Error>
+where
+    [Element; N]: smallvec::Array<Item = Element>,
+    [Separator; N]: smallvec::Array<Item = Separator>,
+{
+    elements: SmallVec<[Element; N]>,
+    separators: SmallVec<[Separator; N]>,
+    phantom: std::marker::PhantomData<Error>,
 }
 
-impl<SP, Element, Separator, Ket, Error> ParseFromStream<SP>
-    for SeparatedListWithKet<Element, Separator, Ket, Error>
+impl<Element, Separator, const N: usize, Error> SeparatedSmallList<Element, Separator, N, Error>
 where
-    SP: StreamParser + ?Sized,
+    [Element; N]: smallvec::Array<Item = Element>,
+    [Separator; N]: smallvec::Array<Item = Separator>,
 {
-    fn parse_from_stream(sp: &mut SP) -> Self {
-        todo!()
+    pub fn elements(&self) -> &[Element] {
+        &self.elements
+    }
+
+    pub fn separators(&self) -> &[Separator] {
+        &self.separators
     }
 }
 
-pub fn parse_separated_list<Context, Element, Separator, Error>(
-    ctx: &mut Context,
+impl<SP, Element, Separator, const N: usize, Error> TryParseFromStream<SP>
+    for SeparatedSmallList<Element, Separator, N, Error>
+where
+    [Element; N]: smallvec::Array<Item = Element>,
+    [Separator; N]: smallvec::Array<Item = Separator>,
+    SP: StreamParser + ?Sized,
+    Element: TryParseOptionalFromStream<SP>,
+    Separator: TryParseOptionalFromStream<SP>,
+    Error: From<Element::Error> + From<Separator::Error>,
+{
+    type Error = Error;
+
+    fn try_parse_from_stream(sp: &mut SP) -> Result<Self, Error> {
+        let mut elements = smallvec![];
+        let mut separators = smallvec![];
+        loop {
+            match sp.try_parse_optional::<Element>() {
+                Ok(Some(element)) => {
+                    elements.push(element);
+                    match sp.try_parse_optional::<Separator>() {
+                        Ok(Some(separator)) => separators.push(separator),
+                        Ok(None) => break,
+                        Err(error) => return Err(error.into()),
+                    }
+                }
+                Ok(None) => break,
+                Err(error) => return Err(error.into()),
+            }
+        }
+        Ok(Self {
+            elements,
+            separators,
+            phantom: std::marker::PhantomData,
+        })
+    }
+}
+
+pub fn parse_separated_list<SP, Element, Separator, Error>(
+    ctx: &mut SP,
 ) -> (Vec<Element>, Vec<Separator>, Result<(), Error>)
 where
-    Context: StreamParser,
-    Element: TryParseOptionalFromStream<Context, Error = Error>,
-    Separator: TryParseOptionalFromStream<Context>,
-    Error: From<<Separator as TryParseOptionalFromStream<Context>>::Error>,
+    SP: StreamParser,
+    Element: TryParseOptionalFromStream<SP, Error = Error>,
+    Separator: TryParseOptionalFromStream<SP>,
+    Error: From<<Separator as TryParseOptionalFromStream<SP>>::Error>,
 {
     let mut elements = vec![];
     let mut separators = vec![];
@@ -153,7 +197,7 @@ fn parse_separated_list_works() {
     );
 }
 
-pub fn parse_separated_list_expected<Context, Element, Separator, E: OriginalError>(
+pub fn parse_separated_list_expected<Context, Element, Separator, E: IntoError>(
     ctx: &mut Context,
     nelem_min: usize,
     f: impl FnOnce(<Context as HasStreamState>::State) -> E,
@@ -198,7 +242,7 @@ where
     (elements, separators, result)
 }
 
-pub fn parse_separated_small2_list_expected<Context, Element, Separator, E: OriginalError>(
+pub fn parse_separated_small2_list_expected<Context, Element, Separator, E: IntoError>(
     ctx: &mut Context,
     nelem_min: usize,
     f: impl FnOnce(<Context as HasStreamState>::State) -> E,

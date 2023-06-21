@@ -2,7 +2,7 @@ use parsec::{parse_consecutive_list, HasStreamState};
 
 use super::*;
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub struct RegularStructFieldDeclPattern {
     decorators: Vec<FieldDecorator>,
@@ -49,7 +49,7 @@ impl<'a, 'b> parsec::TryParseOptionalFromStream<ExprParseContext<'a, 'b>>
         let Some(ident_token) = ctx.try_parse_optional::<IdentToken>()? else {
                 return Ok(None)
             };
-        let colon: ColonToken = ctx.parse_expected(OriginalExprError::ExpectedColon)?;
+        let colon: ColonToken = ctx.try_parse_expected(OriginalExprError::ExpectedColon)?;
         let ty_expr_idx = ctx.parse_expr_expected2(
             None,
             ExprRootKind::RegularStructFieldType { ident_token },
@@ -82,7 +82,7 @@ impl<'a, 'b> parsec::TryParseOptionalFromStream<ExprParseContext<'a, 'b>>
     }
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub struct FieldDecorator {}
 
@@ -99,7 +99,7 @@ impl<'a, 'b> parsec::TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for Fi
     }
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub enum FieldVisibilityExpr {
     Pub,
