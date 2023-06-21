@@ -44,6 +44,14 @@ impl From<TraitForTypeItemNodePath> for EntityNodePath {
     }
 }
 
+impl HasNodePath for TraitForTypeItemPath {
+    type NodePath = TraitForTypeItemNodePath;
+
+    fn node_path(self, db: &dyn EntityTreeDb) -> Self::NodePath {
+        TraitForTypeItemNodePath::new_inner(db, MaybeAmbiguousPath::from_path(self))
+    }
+}
+
 #[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
 pub struct TraitForTypeItemNode {
     #[id]

@@ -18,24 +18,6 @@ pub struct TypeAssociatedFnNodeDecl {
     pub expr_region: ExprRegion,
 }
 
-#[salsa::tracked(db = DeclDb, jar = DeclJar)]
-pub struct TypeAssociatedFnDecl {
-    #[id]
-    pub path: TypeItemPath,
-    #[return_ref]
-    pub implicit_parameters: ImplicitParameterDeclPatterns,
-    #[return_ref]
-    pub parameter_decl_list: ExplicitParameterDeclList,
-    pub return_ty: Option<ReturnTypeExpr>,
-    pub expr_region: ExprRegion,
-}
-
-impl TypeAssociatedFnDecl {
-    pub fn parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [RegularParameterDeclPattern] {
-        self.parameter_decl_list(db).regular_parameters()
-    }
-}
-
 impl<'a> DeclParser<'a> {
     pub(super) fn parse_ty_associated_fn_node_decl(
         &self,
@@ -78,4 +60,16 @@ impl<'a> DeclParser<'a> {
         //     parser.finish(),
         // ))
     }
+}
+
+#[salsa::tracked(db = DeclDb, jar = DeclJar)]
+pub struct TypeAssociatedFnDecl {
+    #[id]
+    pub path: TypeItemPath,
+    #[return_ref]
+    pub implicit_parameters: ImplicitParameterDeclPatterns,
+    #[return_ref]
+    pub regular_parameters: RegularParameterDeclPatterns,
+    pub return_ty: Option<ReturnTypeExpr>,
+    pub expr_region: ExprRegion,
 }

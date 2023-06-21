@@ -22,7 +22,7 @@ pub(crate) fn subentity_path(
             match db
                 .entity_tree_sheet(module_path)?
                 .module_symbols()
-                .resolve_ident(db, todo!(), ident)
+                .resolve_ident(db, ReferenceModulePath::Generic, ident)
             {
                 Some(entity_symbol) => Ok(entity_symbol.path(db)),
                 None => Err(OriginalEntityTreeError::NoVisibleSubentity)?,

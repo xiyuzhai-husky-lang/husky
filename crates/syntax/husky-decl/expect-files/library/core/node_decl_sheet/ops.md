@@ -1,33 +1,71 @@
 Ok(
-    DeclSheet {
+    NodeDeclSheet {
         [salsa id]: 12,
         decls: [
             (
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Trait(
-                        TraitPath(`core::ops::Add`),
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Trait(
+                        TraitNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitPath(
+                                    Id {
+                                        value: 9,
+                                    },
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Decl::ModuleItem(
-                    ModuleItemDecl::Trait(
-                        TraitDecl {
-                            path: TraitPath(`core::ops::Add`),
-                            ast_idx: 30,
-                            implicit_parameters: [
-                                ImplicitParameterDeclPattern {
-                                    annotated_variance_token: None,
-                                    symbol: 0,
-                                    variant: ImplicitParameterDeclPatternVariant::Type {
-                                        ident_token: IdentToken {
-                                            ident: `Rhs`,
-                                            token_idx: TokenIdx(
-                                                11,
-                                            ),
+                NodeDecl::ModuleItem(
+                    ModuleItemNodeDecl::Trait(
+                        TraitNodeDecl {
+                            node_path: TraitNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TraitPath(
+                                        Id {
+                                            value: 9,
                                         },
-                                        traits: None,
-                                    },
+                                    ),
+                                    disambiguator: 0,
                                 },
-                            ],
+                            },
+                            ast_idx: 30,
+                            implicit_parameter_decl_list: Ok(
+                                Some(
+                                    ImplicitParameterDeclList {
+                                        langle: LeftAngleBracketOrLessThanToken(
+                                            TokenIdx(
+                                                10,
+                                            ),
+                                        ),
+                                        implicit_parameters: [
+                                            ImplicitParameterDeclPattern {
+                                                annotated_variance_token: None,
+                                                symbol: 0,
+                                                variant: ImplicitParameterDeclPatternVariant::Type {
+                                                    ident_token: IdentToken {
+                                                        ident: `Rhs`,
+                                                        token_idx: TokenIdx(
+                                                            11,
+                                                        ),
+                                                    },
+                                                    traits: None,
+                                                },
+                                            },
+                                        ],
+                                        commas: [],
+                                        decl_list_result: Ok(
+                                            (),
+                                        ),
+                                        rangle: RightAngleBracketToken(
+                                            TokenIdx(
+                                                12,
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -116,31 +154,69 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Trait(
-                        TraitPath(`core::ops::AddAssign`),
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Trait(
+                        TraitNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitPath(
+                                    Id {
+                                        value: 10,
+                                    },
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Decl::ModuleItem(
-                    ModuleItemDecl::Trait(
-                        TraitDecl {
-                            path: TraitPath(`core::ops::AddAssign`),
-                            ast_idx: 32,
-                            implicit_parameters: [
-                                ImplicitParameterDeclPattern {
-                                    annotated_variance_token: None,
-                                    symbol: 0,
-                                    variant: ImplicitParameterDeclPatternVariant::Type {
-                                        ident_token: IdentToken {
-                                            ident: `Rhs`,
-                                            token_idx: TokenIdx(
-                                                40,
-                                            ),
+                NodeDecl::ModuleItem(
+                    ModuleItemNodeDecl::Trait(
+                        TraitNodeDecl {
+                            node_path: TraitNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TraitPath(
+                                        Id {
+                                            value: 10,
                                         },
-                                        traits: None,
-                                    },
+                                    ),
+                                    disambiguator: 0,
                                 },
-                            ],
+                            },
+                            ast_idx: 32,
+                            implicit_parameter_decl_list: Ok(
+                                Some(
+                                    ImplicitParameterDeclList {
+                                        langle: LeftAngleBracketOrLessThanToken(
+                                            TokenIdx(
+                                                39,
+                                            ),
+                                        ),
+                                        implicit_parameters: [
+                                            ImplicitParameterDeclPattern {
+                                                annotated_variance_token: None,
+                                                symbol: 0,
+                                                variant: ImplicitParameterDeclPatternVariant::Type {
+                                                    ident_token: IdentToken {
+                                                        ident: `Rhs`,
+                                                        token_idx: TokenIdx(
+                                                            40,
+                                                        ),
+                                                    },
+                                                    traits: None,
+                                                },
+                                            },
+                                        ],
+                                        commas: [],
+                                        decl_list_result: Ok(
+                                            (),
+                                        ),
+                                        rangle: RightAngleBracketToken(
+                                            TokenIdx(
+                                                41,
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -229,31 +305,69 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Trait(
-                        TraitPath(`core::ops::BitAnd`),
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Trait(
+                        TraitNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitPath(
+                                    Id {
+                                        value: 11,
+                                    },
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Decl::ModuleItem(
-                    ModuleItemDecl::Trait(
-                        TraitDecl {
-                            path: TraitPath(`core::ops::BitAnd`),
-                            ast_idx: 34,
-                            implicit_parameters: [
-                                ImplicitParameterDeclPattern {
-                                    annotated_variance_token: None,
-                                    symbol: 0,
-                                    variant: ImplicitParameterDeclPatternVariant::Type {
-                                        ident_token: IdentToken {
-                                            ident: `Rhs`,
-                                            token_idx: TokenIdx(
-                                                69,
-                                            ),
+                NodeDecl::ModuleItem(
+                    ModuleItemNodeDecl::Trait(
+                        TraitNodeDecl {
+                            node_path: TraitNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TraitPath(
+                                        Id {
+                                            value: 11,
                                         },
-                                        traits: None,
-                                    },
+                                    ),
+                                    disambiguator: 0,
                                 },
-                            ],
+                            },
+                            ast_idx: 34,
+                            implicit_parameter_decl_list: Ok(
+                                Some(
+                                    ImplicitParameterDeclList {
+                                        langle: LeftAngleBracketOrLessThanToken(
+                                            TokenIdx(
+                                                68,
+                                            ),
+                                        ),
+                                        implicit_parameters: [
+                                            ImplicitParameterDeclPattern {
+                                                annotated_variance_token: None,
+                                                symbol: 0,
+                                                variant: ImplicitParameterDeclPatternVariant::Type {
+                                                    ident_token: IdentToken {
+                                                        ident: `Rhs`,
+                                                        token_idx: TokenIdx(
+                                                            69,
+                                                        ),
+                                                    },
+                                                    traits: None,
+                                                },
+                                            },
+                                        ],
+                                        commas: [],
+                                        decl_list_result: Ok(
+                                            (),
+                                        ),
+                                        rangle: RightAngleBracketToken(
+                                            TokenIdx(
+                                                70,
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -342,31 +456,69 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Trait(
-                        TraitPath(`core::ops::BitAndAssign`),
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Trait(
+                        TraitNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitPath(
+                                    Id {
+                                        value: 12,
+                                    },
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Decl::ModuleItem(
-                    ModuleItemDecl::Trait(
-                        TraitDecl {
-                            path: TraitPath(`core::ops::BitAndAssign`),
-                            ast_idx: 36,
-                            implicit_parameters: [
-                                ImplicitParameterDeclPattern {
-                                    annotated_variance_token: None,
-                                    symbol: 0,
-                                    variant: ImplicitParameterDeclPatternVariant::Type {
-                                        ident_token: IdentToken {
-                                            ident: `Rhs`,
-                                            token_idx: TokenIdx(
-                                                98,
-                                            ),
+                NodeDecl::ModuleItem(
+                    ModuleItemNodeDecl::Trait(
+                        TraitNodeDecl {
+                            node_path: TraitNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TraitPath(
+                                        Id {
+                                            value: 12,
                                         },
-                                        traits: None,
-                                    },
+                                    ),
+                                    disambiguator: 0,
                                 },
-                            ],
+                            },
+                            ast_idx: 36,
+                            implicit_parameter_decl_list: Ok(
+                                Some(
+                                    ImplicitParameterDeclList {
+                                        langle: LeftAngleBracketOrLessThanToken(
+                                            TokenIdx(
+                                                97,
+                                            ),
+                                        ),
+                                        implicit_parameters: [
+                                            ImplicitParameterDeclPattern {
+                                                annotated_variance_token: None,
+                                                symbol: 0,
+                                                variant: ImplicitParameterDeclPatternVariant::Type {
+                                                    ident_token: IdentToken {
+                                                        ident: `Rhs`,
+                                                        token_idx: TokenIdx(
+                                                            98,
+                                                        ),
+                                                    },
+                                                    traits: None,
+                                                },
+                                            },
+                                        ],
+                                        commas: [],
+                                        decl_list_result: Ok(
+                                            (),
+                                        ),
+                                        rangle: RightAngleBracketToken(
+                                            TokenIdx(
+                                                99,
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -455,31 +607,69 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Trait(
-                        TraitPath(`core::ops::BitOr`),
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Trait(
+                        TraitNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitPath(
+                                    Id {
+                                        value: 13,
+                                    },
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Decl::ModuleItem(
-                    ModuleItemDecl::Trait(
-                        TraitDecl {
-                            path: TraitPath(`core::ops::BitOr`),
-                            ast_idx: 38,
-                            implicit_parameters: [
-                                ImplicitParameterDeclPattern {
-                                    annotated_variance_token: None,
-                                    symbol: 0,
-                                    variant: ImplicitParameterDeclPatternVariant::Type {
-                                        ident_token: IdentToken {
-                                            ident: `Rhs`,
-                                            token_idx: TokenIdx(
-                                                123,
-                                            ),
+                NodeDecl::ModuleItem(
+                    ModuleItemNodeDecl::Trait(
+                        TraitNodeDecl {
+                            node_path: TraitNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TraitPath(
+                                        Id {
+                                            value: 13,
                                         },
-                                        traits: None,
-                                    },
+                                    ),
+                                    disambiguator: 0,
                                 },
-                            ],
+                            },
+                            ast_idx: 38,
+                            implicit_parameter_decl_list: Ok(
+                                Some(
+                                    ImplicitParameterDeclList {
+                                        langle: LeftAngleBracketOrLessThanToken(
+                                            TokenIdx(
+                                                122,
+                                            ),
+                                        ),
+                                        implicit_parameters: [
+                                            ImplicitParameterDeclPattern {
+                                                annotated_variance_token: None,
+                                                symbol: 0,
+                                                variant: ImplicitParameterDeclPatternVariant::Type {
+                                                    ident_token: IdentToken {
+                                                        ident: `Rhs`,
+                                                        token_idx: TokenIdx(
+                                                            123,
+                                                        ),
+                                                    },
+                                                    traits: None,
+                                                },
+                                            },
+                                        ],
+                                        commas: [],
+                                        decl_list_result: Ok(
+                                            (),
+                                        ),
+                                        rangle: RightAngleBracketToken(
+                                            TokenIdx(
+                                                124,
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -568,31 +758,69 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Trait(
-                        TraitPath(`core::ops::BitOrAssign`),
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Trait(
+                        TraitNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitPath(
+                                    Id {
+                                        value: 14,
+                                    },
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Decl::ModuleItem(
-                    ModuleItemDecl::Trait(
-                        TraitDecl {
-                            path: TraitPath(`core::ops::BitOrAssign`),
-                            ast_idx: 40,
-                            implicit_parameters: [
-                                ImplicitParameterDeclPattern {
-                                    annotated_variance_token: None,
-                                    symbol: 0,
-                                    variant: ImplicitParameterDeclPatternVariant::Type {
-                                        ident_token: IdentToken {
-                                            ident: `Rhs`,
-                                            token_idx: TokenIdx(
-                                                152,
-                                            ),
+                NodeDecl::ModuleItem(
+                    ModuleItemNodeDecl::Trait(
+                        TraitNodeDecl {
+                            node_path: TraitNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TraitPath(
+                                        Id {
+                                            value: 14,
                                         },
-                                        traits: None,
-                                    },
+                                    ),
+                                    disambiguator: 0,
                                 },
-                            ],
+                            },
+                            ast_idx: 40,
+                            implicit_parameter_decl_list: Ok(
+                                Some(
+                                    ImplicitParameterDeclList {
+                                        langle: LeftAngleBracketOrLessThanToken(
+                                            TokenIdx(
+                                                151,
+                                            ),
+                                        ),
+                                        implicit_parameters: [
+                                            ImplicitParameterDeclPattern {
+                                                annotated_variance_token: None,
+                                                symbol: 0,
+                                                variant: ImplicitParameterDeclPatternVariant::Type {
+                                                    ident_token: IdentToken {
+                                                        ident: `Rhs`,
+                                                        token_idx: TokenIdx(
+                                                            152,
+                                                        ),
+                                                    },
+                                                    traits: None,
+                                                },
+                                            },
+                                        ],
+                                        commas: [],
+                                        decl_list_result: Ok(
+                                            (),
+                                        ),
+                                        rangle: RightAngleBracketToken(
+                                            TokenIdx(
+                                                153,
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -681,31 +909,69 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Trait(
-                        TraitPath(`core::ops::BitXor`),
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Trait(
+                        TraitNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitPath(
+                                    Id {
+                                        value: 15,
+                                    },
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Decl::ModuleItem(
-                    ModuleItemDecl::Trait(
-                        TraitDecl {
-                            path: TraitPath(`core::ops::BitXor`),
-                            ast_idx: 42,
-                            implicit_parameters: [
-                                ImplicitParameterDeclPattern {
-                                    annotated_variance_token: None,
-                                    symbol: 0,
-                                    variant: ImplicitParameterDeclPatternVariant::Type {
-                                        ident_token: IdentToken {
-                                            ident: `Rhs`,
-                                            token_idx: TokenIdx(
-                                                177,
-                                            ),
+                NodeDecl::ModuleItem(
+                    ModuleItemNodeDecl::Trait(
+                        TraitNodeDecl {
+                            node_path: TraitNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TraitPath(
+                                        Id {
+                                            value: 15,
                                         },
-                                        traits: None,
-                                    },
+                                    ),
+                                    disambiguator: 0,
                                 },
-                            ],
+                            },
+                            ast_idx: 42,
+                            implicit_parameter_decl_list: Ok(
+                                Some(
+                                    ImplicitParameterDeclList {
+                                        langle: LeftAngleBracketOrLessThanToken(
+                                            TokenIdx(
+                                                176,
+                                            ),
+                                        ),
+                                        implicit_parameters: [
+                                            ImplicitParameterDeclPattern {
+                                                annotated_variance_token: None,
+                                                symbol: 0,
+                                                variant: ImplicitParameterDeclPatternVariant::Type {
+                                                    ident_token: IdentToken {
+                                                        ident: `Rhs`,
+                                                        token_idx: TokenIdx(
+                                                            177,
+                                                        ),
+                                                    },
+                                                    traits: None,
+                                                },
+                                            },
+                                        ],
+                                        commas: [],
+                                        decl_list_result: Ok(
+                                            (),
+                                        ),
+                                        rangle: RightAngleBracketToken(
+                                            TokenIdx(
+                                                178,
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -794,31 +1060,69 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Trait(
-                        TraitPath(`core::ops::BitXorAssign`),
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Trait(
+                        TraitNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitPath(
+                                    Id {
+                                        value: 16,
+                                    },
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Decl::ModuleItem(
-                    ModuleItemDecl::Trait(
-                        TraitDecl {
-                            path: TraitPath(`core::ops::BitXorAssign`),
-                            ast_idx: 44,
-                            implicit_parameters: [
-                                ImplicitParameterDeclPattern {
-                                    annotated_variance_token: None,
-                                    symbol: 0,
-                                    variant: ImplicitParameterDeclPatternVariant::Type {
-                                        ident_token: IdentToken {
-                                            ident: `Rhs`,
-                                            token_idx: TokenIdx(
-                                                206,
-                                            ),
+                NodeDecl::ModuleItem(
+                    ModuleItemNodeDecl::Trait(
+                        TraitNodeDecl {
+                            node_path: TraitNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TraitPath(
+                                        Id {
+                                            value: 16,
                                         },
-                                        traits: None,
-                                    },
+                                    ),
+                                    disambiguator: 0,
                                 },
-                            ],
+                            },
+                            ast_idx: 44,
+                            implicit_parameter_decl_list: Ok(
+                                Some(
+                                    ImplicitParameterDeclList {
+                                        langle: LeftAngleBracketOrLessThanToken(
+                                            TokenIdx(
+                                                205,
+                                            ),
+                                        ),
+                                        implicit_parameters: [
+                                            ImplicitParameterDeclPattern {
+                                                annotated_variance_token: None,
+                                                symbol: 0,
+                                                variant: ImplicitParameterDeclPatternVariant::Type {
+                                                    ident_token: IdentToken {
+                                                        ident: `Rhs`,
+                                                        token_idx: TokenIdx(
+                                                            206,
+                                                        ),
+                                                    },
+                                                    traits: None,
+                                                },
+                                            },
+                                        ],
+                                        commas: [],
+                                        decl_list_result: Ok(
+                                            (),
+                                        ),
+                                        rangle: RightAngleBracketToken(
+                                            TokenIdx(
+                                                207,
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -907,31 +1211,69 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Trait(
-                        TraitPath(`core::ops::Div`),
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Trait(
+                        TraitNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitPath(
+                                    Id {
+                                        value: 17,
+                                    },
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Decl::ModuleItem(
-                    ModuleItemDecl::Trait(
-                        TraitDecl {
-                            path: TraitPath(`core::ops::Div`),
-                            ast_idx: 46,
-                            implicit_parameters: [
-                                ImplicitParameterDeclPattern {
-                                    annotated_variance_token: None,
-                                    symbol: 0,
-                                    variant: ImplicitParameterDeclPatternVariant::Type {
-                                        ident_token: IdentToken {
-                                            ident: `Rhs`,
-                                            token_idx: TokenIdx(
-                                                231,
-                                            ),
+                NodeDecl::ModuleItem(
+                    ModuleItemNodeDecl::Trait(
+                        TraitNodeDecl {
+                            node_path: TraitNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TraitPath(
+                                        Id {
+                                            value: 17,
                                         },
-                                        traits: None,
-                                    },
+                                    ),
+                                    disambiguator: 0,
                                 },
-                            ],
+                            },
+                            ast_idx: 46,
+                            implicit_parameter_decl_list: Ok(
+                                Some(
+                                    ImplicitParameterDeclList {
+                                        langle: LeftAngleBracketOrLessThanToken(
+                                            TokenIdx(
+                                                230,
+                                            ),
+                                        ),
+                                        implicit_parameters: [
+                                            ImplicitParameterDeclPattern {
+                                                annotated_variance_token: None,
+                                                symbol: 0,
+                                                variant: ImplicitParameterDeclPatternVariant::Type {
+                                                    ident_token: IdentToken {
+                                                        ident: `Rhs`,
+                                                        token_idx: TokenIdx(
+                                                            231,
+                                                        ),
+                                                    },
+                                                    traits: None,
+                                                },
+                                            },
+                                        ],
+                                        commas: [],
+                                        decl_list_result: Ok(
+                                            (),
+                                        ),
+                                        rangle: RightAngleBracketToken(
+                                            TokenIdx(
+                                                232,
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -1020,31 +1362,69 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Trait(
-                        TraitPath(`core::ops::DivAssign`),
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Trait(
+                        TraitNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitPath(
+                                    Id {
+                                        value: 18,
+                                    },
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Decl::ModuleItem(
-                    ModuleItemDecl::Trait(
-                        TraitDecl {
-                            path: TraitPath(`core::ops::DivAssign`),
-                            ast_idx: 48,
-                            implicit_parameters: [
-                                ImplicitParameterDeclPattern {
-                                    annotated_variance_token: None,
-                                    symbol: 0,
-                                    variant: ImplicitParameterDeclPatternVariant::Type {
-                                        ident_token: IdentToken {
-                                            ident: `Rhs`,
-                                            token_idx: TokenIdx(
-                                                260,
-                                            ),
+                NodeDecl::ModuleItem(
+                    ModuleItemNodeDecl::Trait(
+                        TraitNodeDecl {
+                            node_path: TraitNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TraitPath(
+                                        Id {
+                                            value: 18,
                                         },
-                                        traits: None,
-                                    },
+                                    ),
+                                    disambiguator: 0,
                                 },
-                            ],
+                            },
+                            ast_idx: 48,
+                            implicit_parameter_decl_list: Ok(
+                                Some(
+                                    ImplicitParameterDeclList {
+                                        langle: LeftAngleBracketOrLessThanToken(
+                                            TokenIdx(
+                                                259,
+                                            ),
+                                        ),
+                                        implicit_parameters: [
+                                            ImplicitParameterDeclPattern {
+                                                annotated_variance_token: None,
+                                                symbol: 0,
+                                                variant: ImplicitParameterDeclPatternVariant::Type {
+                                                    ident_token: IdentToken {
+                                                        ident: `Rhs`,
+                                                        token_idx: TokenIdx(
+                                                            260,
+                                                        ),
+                                                    },
+                                                    traits: None,
+                                                },
+                                            },
+                                        ],
+                                        commas: [],
+                                        decl_list_result: Ok(
+                                            (),
+                                        ),
+                                        rangle: RightAngleBracketToken(
+                                            TokenIdx(
+                                                261,
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -1133,31 +1513,69 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Trait(
-                        TraitPath(`core::ops::Mul`),
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Trait(
+                        TraitNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitPath(
+                                    Id {
+                                        value: 19,
+                                    },
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Decl::ModuleItem(
-                    ModuleItemDecl::Trait(
-                        TraitDecl {
-                            path: TraitPath(`core::ops::Mul`),
-                            ast_idx: 50,
-                            implicit_parameters: [
-                                ImplicitParameterDeclPattern {
-                                    annotated_variance_token: None,
-                                    symbol: 0,
-                                    variant: ImplicitParameterDeclPatternVariant::Type {
-                                        ident_token: IdentToken {
-                                            ident: `Rhs`,
-                                            token_idx: TokenIdx(
-                                                285,
-                                            ),
+                NodeDecl::ModuleItem(
+                    ModuleItemNodeDecl::Trait(
+                        TraitNodeDecl {
+                            node_path: TraitNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TraitPath(
+                                        Id {
+                                            value: 19,
                                         },
-                                        traits: None,
-                                    },
+                                    ),
+                                    disambiguator: 0,
                                 },
-                            ],
+                            },
+                            ast_idx: 50,
+                            implicit_parameter_decl_list: Ok(
+                                Some(
+                                    ImplicitParameterDeclList {
+                                        langle: LeftAngleBracketOrLessThanToken(
+                                            TokenIdx(
+                                                284,
+                                            ),
+                                        ),
+                                        implicit_parameters: [
+                                            ImplicitParameterDeclPattern {
+                                                annotated_variance_token: None,
+                                                symbol: 0,
+                                                variant: ImplicitParameterDeclPatternVariant::Type {
+                                                    ident_token: IdentToken {
+                                                        ident: `Rhs`,
+                                                        token_idx: TokenIdx(
+                                                            285,
+                                                        ),
+                                                    },
+                                                    traits: None,
+                                                },
+                                            },
+                                        ],
+                                        commas: [],
+                                        decl_list_result: Ok(
+                                            (),
+                                        ),
+                                        rangle: RightAngleBracketToken(
+                                            TokenIdx(
+                                                286,
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -1246,31 +1664,69 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Trait(
-                        TraitPath(`core::ops::MulAssign`),
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Trait(
+                        TraitNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitPath(
+                                    Id {
+                                        value: 20,
+                                    },
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Decl::ModuleItem(
-                    ModuleItemDecl::Trait(
-                        TraitDecl {
-                            path: TraitPath(`core::ops::MulAssign`),
-                            ast_idx: 52,
-                            implicit_parameters: [
-                                ImplicitParameterDeclPattern {
-                                    annotated_variance_token: None,
-                                    symbol: 0,
-                                    variant: ImplicitParameterDeclPatternVariant::Type {
-                                        ident_token: IdentToken {
-                                            ident: `Rhs`,
-                                            token_idx: TokenIdx(
-                                                314,
-                                            ),
+                NodeDecl::ModuleItem(
+                    ModuleItemNodeDecl::Trait(
+                        TraitNodeDecl {
+                            node_path: TraitNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TraitPath(
+                                        Id {
+                                            value: 20,
                                         },
-                                        traits: None,
-                                    },
+                                    ),
+                                    disambiguator: 0,
                                 },
-                            ],
+                            },
+                            ast_idx: 52,
+                            implicit_parameter_decl_list: Ok(
+                                Some(
+                                    ImplicitParameterDeclList {
+                                        langle: LeftAngleBracketOrLessThanToken(
+                                            TokenIdx(
+                                                313,
+                                            ),
+                                        ),
+                                        implicit_parameters: [
+                                            ImplicitParameterDeclPattern {
+                                                annotated_variance_token: None,
+                                                symbol: 0,
+                                                variant: ImplicitParameterDeclPatternVariant::Type {
+                                                    ident_token: IdentToken {
+                                                        ident: `Rhs`,
+                                                        token_idx: TokenIdx(
+                                                            314,
+                                                        ),
+                                                    },
+                                                    traits: None,
+                                                },
+                                            },
+                                        ],
+                                        commas: [],
+                                        decl_list_result: Ok(
+                                            (),
+                                        ),
+                                        rangle: RightAngleBracketToken(
+                                            TokenIdx(
+                                                315,
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -1359,17 +1815,37 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Trait(
-                        TraitPath(`core::ops::Neg`),
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Trait(
+                        TraitNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitPath(
+                                    Id {
+                                        value: 21,
+                                    },
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Decl::ModuleItem(
-                    ModuleItemDecl::Trait(
-                        TraitDecl {
-                            path: TraitPath(`core::ops::Neg`),
+                NodeDecl::ModuleItem(
+                    ModuleItemNodeDecl::Trait(
+                        TraitNodeDecl {
+                            node_path: TraitNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TraitPath(
+                                        Id {
+                                            value: 21,
+                                        },
+                                    ),
+                                    disambiguator: 0,
+                                },
+                            },
                             ast_idx: 54,
-                            implicit_parameters: [],
+                            implicit_parameter_decl_list: Ok(
+                                None,
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -1433,17 +1909,37 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Trait(
-                        TraitPath(`core::ops::Not`),
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Trait(
+                        TraitNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitPath(
+                                    Id {
+                                        value: 22,
+                                    },
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Decl::ModuleItem(
-                    ModuleItemDecl::Trait(
-                        TraitDecl {
-                            path: TraitPath(`core::ops::Not`),
+                NodeDecl::ModuleItem(
+                    ModuleItemNodeDecl::Trait(
+                        TraitNodeDecl {
+                            node_path: TraitNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TraitPath(
+                                        Id {
+                                            value: 22,
+                                        },
+                                    ),
+                                    disambiguator: 0,
+                                },
+                            },
                             ast_idx: 56,
-                            implicit_parameters: [],
+                            implicit_parameter_decl_list: Ok(
+                                None,
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -1507,31 +2003,69 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Trait(
-                        TraitPath(`core::ops::Sub`),
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Trait(
+                        TraitNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitPath(
+                                    Id {
+                                        value: 23,
+                                    },
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Decl::ModuleItem(
-                    ModuleItemDecl::Trait(
-                        TraitDecl {
-                            path: TraitPath(`core::ops::Sub`),
-                            ast_idx: 58,
-                            implicit_parameters: [
-                                ImplicitParameterDeclPattern {
-                                    annotated_variance_token: None,
-                                    symbol: 0,
-                                    variant: ImplicitParameterDeclPatternVariant::Type {
-                                        ident_token: IdentToken {
-                                            ident: `Rhs`,
-                                            token_idx: TokenIdx(
-                                                387,
-                                            ),
+                NodeDecl::ModuleItem(
+                    ModuleItemNodeDecl::Trait(
+                        TraitNodeDecl {
+                            node_path: TraitNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TraitPath(
+                                        Id {
+                                            value: 23,
                                         },
-                                        traits: None,
-                                    },
+                                    ),
+                                    disambiguator: 0,
                                 },
-                            ],
+                            },
+                            ast_idx: 58,
+                            implicit_parameter_decl_list: Ok(
+                                Some(
+                                    ImplicitParameterDeclList {
+                                        langle: LeftAngleBracketOrLessThanToken(
+                                            TokenIdx(
+                                                386,
+                                            ),
+                                        ),
+                                        implicit_parameters: [
+                                            ImplicitParameterDeclPattern {
+                                                annotated_variance_token: None,
+                                                symbol: 0,
+                                                variant: ImplicitParameterDeclPatternVariant::Type {
+                                                    ident_token: IdentToken {
+                                                        ident: `Rhs`,
+                                                        token_idx: TokenIdx(
+                                                            387,
+                                                        ),
+                                                    },
+                                                    traits: None,
+                                                },
+                                            },
+                                        ],
+                                        commas: [],
+                                        decl_list_result: Ok(
+                                            (),
+                                        ),
+                                        rangle: RightAngleBracketToken(
+                                            TokenIdx(
+                                                388,
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -1620,31 +2154,69 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Trait(
-                        TraitPath(`core::ops::Unveil`),
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Trait(
+                        TraitNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitPath(
+                                    Id {
+                                        value: 24,
+                                    },
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Decl::ModuleItem(
-                    ModuleItemDecl::Trait(
-                        TraitDecl {
-                            path: TraitPath(`core::ops::Unveil`),
-                            ast_idx: 59,
-                            implicit_parameters: [
-                                ImplicitParameterDeclPattern {
-                                    annotated_variance_token: None,
-                                    symbol: 0,
-                                    variant: ImplicitParameterDeclPatternVariant::Type {
-                                        ident_token: IdentToken {
-                                            ident: `T`,
-                                            token_idx: TokenIdx(
-                                                409,
-                                            ),
+                NodeDecl::ModuleItem(
+                    ModuleItemNodeDecl::Trait(
+                        TraitNodeDecl {
+                            node_path: TraitNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TraitPath(
+                                        Id {
+                                            value: 24,
                                         },
-                                        traits: None,
-                                    },
+                                    ),
+                                    disambiguator: 0,
                                 },
-                            ],
+                            },
+                            ast_idx: 59,
+                            implicit_parameter_decl_list: Ok(
+                                Some(
+                                    ImplicitParameterDeclList {
+                                        langle: LeftAngleBracketOrLessThanToken(
+                                            TokenIdx(
+                                                408,
+                                            ),
+                                        ),
+                                        implicit_parameters: [
+                                            ImplicitParameterDeclPattern {
+                                                annotated_variance_token: None,
+                                                symbol: 0,
+                                                variant: ImplicitParameterDeclPatternVariant::Type {
+                                                    ident_token: IdentToken {
+                                                        ident: `T`,
+                                                        token_idx: TokenIdx(
+                                                            409,
+                                                        ),
+                                                    },
+                                                    traits: None,
+                                                },
+                                            },
+                                        ],
+                                        commas: [],
+                                        decl_list_result: Ok(
+                                            (),
+                                        ),
+                                        rangle: RightAngleBracketToken(
+                                            TokenIdx(
+                                                410,
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -1733,44 +2305,89 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Type(
-                        TypePath(`core::ops::ControlFlow`, `Enum`),
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Type(
+                        TypeNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(
+                                    Id {
+                                        value: 28,
+                                    },
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Decl::ModuleItem(
-                    ModuleItemDecl::Type(
-                        TypeDecl::Enum(
-                            EnumTypeDecl {
-                                path: TypePath(`core::ops::ControlFlow`, `Enum`),
-                                implicit_parameters: [
-                                    ImplicitParameterDeclPattern {
-                                        annotated_variance_token: None,
-                                        symbol: 0,
-                                        variant: ImplicitParameterDeclPatternVariant::Type {
-                                            ident_token: IdentToken {
-                                                ident: `R`,
-                                                token_idx: TokenIdx(
-                                                    438,
-                                                ),
+                NodeDecl::ModuleItem(
+                    ModuleItemNodeDecl::Type(
+                        TypeNodeDecl::Enum(
+                            EnumTypeNodeDecl {
+                                node_path: TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(
+                                            Id {
+                                                value: 28,
                                             },
-                                            traits: None,
-                                        },
+                                        ),
+                                        disambiguator: 0,
                                     },
-                                    ImplicitParameterDeclPattern {
-                                        annotated_variance_token: None,
-                                        symbol: 1,
-                                        variant: ImplicitParameterDeclPatternVariant::Type {
-                                            ident_token: IdentToken {
-                                                ident: `C`,
-                                                token_idx: TokenIdx(
-                                                    440,
+                                },
+                                ast_idx: 60,
+                                implicit_parameter_decl_list: Ok(
+                                    Some(
+                                        ImplicitParameterDeclList {
+                                            langle: LeftAngleBracketOrLessThanToken(
+                                                TokenIdx(
+                                                    437,
                                                 ),
-                                            },
-                                            traits: None,
+                                            ),
+                                            implicit_parameters: [
+                                                ImplicitParameterDeclPattern {
+                                                    annotated_variance_token: None,
+                                                    symbol: 0,
+                                                    variant: ImplicitParameterDeclPatternVariant::Type {
+                                                        ident_token: IdentToken {
+                                                            ident: `R`,
+                                                            token_idx: TokenIdx(
+                                                                438,
+                                                            ),
+                                                        },
+                                                        traits: None,
+                                                    },
+                                                },
+                                                ImplicitParameterDeclPattern {
+                                                    annotated_variance_token: None,
+                                                    symbol: 1,
+                                                    variant: ImplicitParameterDeclPatternVariant::Type {
+                                                        ident_token: IdentToken {
+                                                            ident: `C`,
+                                                            token_idx: TokenIdx(
+                                                                440,
+                                                            ),
+                                                        },
+                                                        traits: None,
+                                                    },
+                                                },
+                                            ],
+                                            commas: [
+                                                CommaToken(
+                                                    TokenIdx(
+                                                        439,
+                                                    ),
+                                                ),
+                                            ],
+                                            decl_list_result: Ok(
+                                                (),
+                                            ),
+                                            rangle: RightAngleBracketToken(
+                                                TokenIdx(
+                                                    441,
+                                                ),
+                                            ),
                                         },
-                                    },
-                                ],
+                                    ),
+                                ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,

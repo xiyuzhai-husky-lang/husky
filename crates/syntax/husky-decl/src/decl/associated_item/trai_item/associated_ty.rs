@@ -12,7 +12,8 @@ pub struct TraitAssociatedTypeNodeDecl {
 pub struct TraitAssociatedTypeDecl {
     #[id]
     pub path: TraitItemPath,
-    pub ast_idx: AstIdx,
+    #[return_ref]
+    pub implicit_parameters: ImplicitParameterDeclPatterns,
     pub expr_region: ExprRegion,
 }
 

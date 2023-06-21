@@ -91,15 +91,6 @@ impl TraitItemDecl {
         }
     }
 
-    pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
-        match self {
-            TraitItemDecl::AssociatedFn(decl) => decl.ast_idx(db),
-            TraitItemDecl::MethodFn(decl) => decl.ast_idx(db),
-            TraitItemDecl::AssociatedType(decl) => decl.ast_idx(db),
-            TraitItemDecl::AssociatedVal(decl) => decl.ast_idx(db),
-        }
-    }
-
     pub fn implicit_parameters<'a>(
         self,
         _db: &'a dyn DeclDb,
