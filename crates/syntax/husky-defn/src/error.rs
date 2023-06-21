@@ -17,6 +17,12 @@ pub enum OriginalDefnError {
     ExpectBody,
 }
 
+impl From<DeclError> for DefnError {
+    fn from(value: DeclError) -> Self {
+        todo!()
+    }
+}
+
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
 // #[salsa::derive_debug_with_db(db = DefnDb)]
 pub enum DerivedDefnError {}

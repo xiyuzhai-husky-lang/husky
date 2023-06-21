@@ -43,19 +43,27 @@ impl TraitForTypeItemDefn {
     }
 }
 
-impl HasDefn for TraitForTypeItemDecl {
+impl HasDefn for TraitForTypeItemPath {
     type Defn = TraitForTypeItemDefn;
 
-    fn defn(self, db: &dyn DefnDb) -> Self::Defn {
-        match self {
-            TraitForTypeItemDecl::AssociatedFn(_) => todo!(),
-            TraitForTypeItemDecl::MethodFn(decl) => trai_for_ty_method_defn(db, decl).into(),
-            TraitForTypeItemDecl::AssociatedType(decl) => {
-                trai_for_ty_associated_ty_defn(db, decl).into()
-            }
-            TraitForTypeItemDecl::AssociatedVal(decl) => {
-                trai_for_ty_associated_val_defn(db, decl).into()
-            }
-        }
+    fn defn(self, db: &dyn DefnDb) -> DefnResult<Self::Defn> {
+        trai_for_ty_item_defn(db, self)
     }
+}
+
+#[salsa::tracked(jar = DefnJar)]
+pub(crate) fn trai_for_ty_item_defn(
+    db: &dyn DefnDb,
+    path: TraitForTypeItemPath,
+) -> DefnResult<TraitForTypeItemDefn> {
+    Ok(match path.decl(db)? {
+        TraitForTypeItemDecl::AssociatedFn(_) => todo!(),
+        TraitForTypeItemDecl::MethodFn(decl) => trai_for_ty_method_defn(db, decl).into(),
+        TraitForTypeItemDecl::AssociatedType(decl) => {
+            trai_for_ty_associated_ty_defn(db, decl).into()
+        }
+        TraitForTypeItemDecl::AssociatedVal(decl) => {
+            trai_for_ty_associated_val_defn(db, decl).into()
+        }
+    })
 }

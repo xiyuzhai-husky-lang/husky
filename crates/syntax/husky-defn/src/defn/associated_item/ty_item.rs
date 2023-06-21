@@ -49,16 +49,22 @@ impl TypeItemDefn {
     }
 }
 
-impl HasDefn for TypeItemDecl {
+impl HasDefn for TypeItemPath {
     type Defn = TypeItemDefn;
 
-    fn defn(self, db: &dyn DefnDb) -> Self::Defn {
-        match self {
-            TypeItemDecl::AssociatedFn(decl) => ty_associated_fn_defn(db, decl).into(),
-            TypeItemDecl::MethodFn(decl) => ty_method_fn_defn(db, decl).into(),
-            TypeItemDecl::AssociatedType(_) => todo!(),
-            TypeItemDecl::AssociatedVal(_) => todo!(),
-            TypeItemDecl::MemoizedField(decl) => ty_memo_defn(db, decl).into(),
-        }
+    fn defn(self, db: &dyn DefnDb) -> DefnResult<Self::Defn> {
+        ty_item_defn(db, self)
     }
+}
+
+#[salsa::tracked(jar = DefnJar)]
+pub(crate) fn ty_item_defn(db: &dyn DefnDb, path: TypeItemPath) -> DefnResult<TypeItemDefn> {
+    let decl = path.decl(db)?;
+    Ok(match decl {
+        TypeItemDecl::AssociatedFn(decl) => ty_associated_fn_defn(db, decl).into(),
+        TypeItemDecl::MethodFn(decl) => ty_method_fn_defn(db, decl).into(),
+        TypeItemDecl::AssociatedType(_) => todo!(),
+        TypeItemDecl::AssociatedVal(_) => todo!(),
+        TypeItemDecl::MemoizedField(decl) => ty_memo_defn(db, decl).into(),
+    })
 }

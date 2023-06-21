@@ -1,11 +1,13 @@
 mod associated_item;
 mod impl_block;
 mod module_item;
+mod submodule;
 mod ty_variant;
 
 pub use self::associated_item::*;
 pub use self::impl_block::*;
 pub use self::module_item::*;
+pub use self::submodule::*;
 pub use self::ty_variant::*;
 
 use crate::*;
@@ -15,6 +17,7 @@ use husky_ast::AstIdx;
 #[salsa::derive_debug_with_db(db = DefnDb)]
 #[enum_class::from_variants]
 pub enum Defn {
+    Submodule(SubmoduleDefn),
     ModuleItem(ModuleItemDefn),
     TypeVariant(VariantDefn),
     ImplBlock(ImplBlockDecl),
@@ -24,6 +27,7 @@ pub enum Defn {
 impl Defn {
     pub fn decl(self, db: &dyn DefnDb) -> Decl {
         match self {
+            Defn::Submodule(defn) => Decl::Submodule(defn.decl()),
             Defn::ModuleItem(defn) => todo!(),
             // Defn::Type(defn) => defn.decl(db).into(),
             // Defn::Trait(defn) => defn.decl(db).into(),
@@ -45,6 +49,7 @@ impl Defn {
 
     pub fn expr_region(self, db: &dyn DefnDb) -> Option<ExprRegion> {
         match self {
+            Defn::Submodule(_) => None,
             Defn::ModuleItem(defn) => defn.expr_region(db),
             Defn::AssociatedItem(defn) => defn.expr_region(db),
             Defn::TypeVariant(_defn) => None,
@@ -70,19 +75,51 @@ impl Defn {
 pub trait HasDefn: Copy {
     type Defn;
 
-    fn defn(self, db: &dyn DefnDb) -> Self::Defn;
+    fn defn(self, db: &dyn DefnDb) -> DefnResult<Self::Defn>;
 }
 
-impl HasDefn for Decl {
+impl HasDefn for EntityPath {
     type Defn = Defn;
 
-    fn defn(self, db: &dyn DefnDb) -> Self::Defn {
-        match self {
-            Decl::Submodule(_) => todo!(),
-            Decl::ModuleItem(decl) => decl.defn(db).into(),
-            Decl::ImplBlock(decl) => decl.defn(db).into(),
-            Decl::AssociatedItem(decl) => decl.defn(db).into(),
-            Decl::TypeVariant(_) => todo!(),
-        }
+    fn defn(self, db: &dyn DefnDb) -> DefnResult<Self::Defn> {
+        Ok(match self {
+            EntityPath::Module(path) => path.defn(db)?.into(),
+            EntityPath::ModuleItem(path) => path.defn(db)?.into(),
+            EntityPath::ImplBlock(path) => path.defn(db)?.into(),
+            EntityPath::AssociatedItem(path) => path.defn(db)?.into(),
+            EntityPath::TypeVariant(_) => todo!(),
+        })
     }
+}
+
+pub trait HasDefns: Copy {
+    fn defns(self, db: &dyn DefnDb) -> EntityTreeResult<&[Defn]>;
+}
+
+impl HasDefns for ModulePath {
+    fn defns(self, db: &dyn DefnDb) -> EntityTreeResult<&[Defn]> {
+        Ok(module_defns(db, self).as_ref()?)
+    }
+}
+
+#[salsa::tracked(jar = DefnJar, return_ref)]
+pub(crate) fn module_defns(
+    db: &dyn DefnDb,
+    module_path: ModulePath,
+) -> EntityTreeResult<Vec<Defn>> {
+    Ok(module_entity_paths(db, module_path)
+        .as_ref()?
+        .iter()
+        .copied()
+        .filter_map(|path| path.defn(db).ok())
+        .collect())
+}
+
+#[test]
+fn module_defns_works() {
+    use tests::*;
+
+    DB::default().ast_expect_test_debug_with_db("defn_sheet", |db, module_path: ModulePath| {
+        module_path.defns(db)
+    });
 }

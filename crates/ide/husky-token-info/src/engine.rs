@@ -57,10 +57,8 @@ impl<'a> InferEngine<'a> {
     }
 
     fn visit_decl_and_defns(&mut self) -> EntityTreeResult<()> {
-        for (_, defn) in self.db.defn_sheet(self.module_path)?.defns() {
-            if let Ok(defn) = defn {
-                self.visit_node_decl_and_defn(defn);
-            }
+        for defn in self.module_path.defns(self.db)?.iter().copied() {
+            self.visit_node_decl_and_defn(defn)
         }
         Ok(())
     }

@@ -1,3 +1,4 @@
+use husky_defn::HasDefns;
 use husky_expr::{
     EntityPathExpr, EntityPathExprError, Expr, ExprError, ExprRegion, OriginalEntityPathExprError,
     OriginalExprError, Stmt, StmtError,
@@ -19,18 +20,15 @@ pub(crate) fn expr_diagnostic_sheet(
     module_path: ModulePath,
 ) -> ExprDiagnosticSheet {
     let mut sheet_collector = SheetDiagnosticsCollector::new(db, module_path);
-    if let (Ok(ranged_token_sheet), Ok(defn_sheet)) = (
-        db.ranged_token_sheet(module_path),
-        db.defn_sheet(module_path),
-    ) {
+    if let (Ok(ranged_token_sheet), Ok(defns)) =
+        (db.ranged_token_sheet(module_path), module_path.defns(db))
+    {
         let _token_sheet_data = ranged_token_sheet.token_sheet_data(db);
-        for (_, defn) in defn_sheet.defns() {
-            if let Ok(defn) = defn {
-                let decl = defn.decl(db);
-                sheet_collector.collect_expr_diagnostics(decl.expr_region(db));
-                if let Some(expr_region) = defn.expr_region(db) {
-                    sheet_collector.collect_expr_diagnostics(expr_region);
-                }
+        for defn in defns.iter().copied() {
+            let decl = defn.decl(db);
+            sheet_collector.collect_expr_diagnostics(decl.expr_region(db));
+            if let Some(expr_region) = defn.expr_region(db) {
+                sheet_collector.collect_expr_diagnostics(expr_region);
             }
         }
     }

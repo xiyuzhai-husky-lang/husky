@@ -9,14 +9,6 @@ pub struct GnDefn {
     pub expr_region: ExprRegion,
 }
 
-impl HasDefn for GnDecl {
-    type Defn = GnDefn;
-
-    fn defn(self, db: &dyn DefnDb) -> Self::Defn {
-        gn_defn(db, self)
-    }
-}
-
 #[salsa::tracked(jar = DefnJar)]
 pub(crate) fn gn_defn(db: &dyn DefnDb, decl: GnDecl) -> GnDefn {
     todo!()

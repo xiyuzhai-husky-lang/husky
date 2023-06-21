@@ -43,14 +43,14 @@ impl AssociatedItemDefn {
     }
 }
 
-impl HasDefn for AssociatedItemDecl {
+impl HasDefn for AssociatedItemPath {
     type Defn = AssociatedItemDefn;
 
-    fn defn(self, db: &dyn DefnDb) -> Self::Defn {
-        match self {
-            AssociatedItemDecl::TypeItem(decl) => decl.defn(db).into(),
-            AssociatedItemDecl::TraitItem(decl) => decl.defn(db).into(),
-            AssociatedItemDecl::TraitForTypeItem(decl) => decl.defn(db).into(),
-        }
+    fn defn(self, db: &dyn DefnDb) -> DefnResult<Self::Defn> {
+        Ok(match self {
+            AssociatedItemPath::TypeItem(decl) => decl.defn(db)?.into(),
+            AssociatedItemPath::TraitItem(decl) => decl.defn(db)?.into(),
+            AssociatedItemPath::TraitForTypeItem(decl) => decl.defn(db)?.into(),
+        })
     }
 }

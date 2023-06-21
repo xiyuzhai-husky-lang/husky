@@ -26,9 +26,9 @@ impl HasDeclarativeSignatureTemplate for ModuleItemPath {
         db: &dyn DeclarativeSignatureDb,
     ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
         match self {
-            ModuleItemPath::Type(decl) => decl.declarative_signature_template(db).map(Into::into),
-            ModuleItemPath::Fugitive(decl) => {
-                decl.declarative_signature_template(db).map(Into::into)
+            ModuleItemPath::Type(path) => path.declarative_signature_template(db).map(Into::into),
+            ModuleItemPath::Fugitive(path) => {
+                path.declarative_signature_template(db).map(Into::into)
             }
             ModuleItemPath::Trait(decl) => decl.declarative_signature_template(db).map(Into::into),
         }

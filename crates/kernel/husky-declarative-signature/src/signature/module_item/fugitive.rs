@@ -20,32 +20,6 @@ pub enum FugitiveDeclarativeSignatureTemplate {
     Val(ValDeclarativeSignatureTemplate),
 }
 
-impl HasDeclarativeSignatureTemplate for FugitivePath {
-    type DeclarativeSignatureTemplate = FugitiveDeclarativeSignatureTemplate;
-
-    fn declarative_signature_template(
-        self,
-        db: &dyn DeclarativeSignatureDb,
-    ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
-        self.decl(db)?.declarative_signature_template(db)
-    }
-}
-
-impl HasDeclarativeSignatureTemplate for FugitiveDecl {
-    type DeclarativeSignatureTemplate = FugitiveDeclarativeSignatureTemplate;
-
-    fn declarative_signature_template(
-        self,
-        db: &dyn DeclarativeSignatureDb,
-    ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
-        match self {
-            FugitiveDecl::Fn(decl) => decl.declarative_signature_template(db).map(Into::into),
-            FugitiveDecl::Val(decl) => decl.declarative_signature_template(db).map(Into::into),
-            FugitiveDecl::Gn(decl) => decl.declarative_signature_template(db).map(Into::into),
-        }
-    }
-}
-
 impl FugitiveDeclarativeSignatureTemplate {
     pub fn implicit_parameters(
         self,
@@ -57,5 +31,29 @@ impl FugitiveDeclarativeSignatureTemplate {
             FugitiveDeclarativeSignatureTemplate::Gn(decl) => decl.implicit_parameters(db),
             FugitiveDeclarativeSignatureTemplate::AliasType(_) => todo!(),
         }
+    }
+}
+
+impl HasDeclarativeSignatureTemplate for FugitivePath {
+    type DeclarativeSignatureTemplate = FugitiveDeclarativeSignatureTemplate;
+
+    fn declarative_signature_template(
+        self,
+        db: &dyn DeclarativeSignatureDb,
+    ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
+        fugitive_declarative_signature_template(db, self)
+    }
+}
+
+#[salsa::tracked(jar = DeclarativeSignatureJar)]
+pub(crate) fn fugitive_declarative_signature_template(
+    db: &dyn DeclarativeSignatureDb,
+    path: FugitivePath,
+) -> DeclarativeSignatureResult<FugitiveDeclarativeSignatureTemplate> {
+    let decl = path.decl(db)?;
+    match decl {
+        FugitiveDecl::Fn(decl) => decl.declarative_signature_template(db).map(Into::into),
+        FugitiveDecl::Val(decl) => decl.declarative_signature_template(db).map(Into::into),
+        FugitiveDecl::Gn(decl) => decl.declarative_signature_template(db).map(Into::into),
     }
 }
