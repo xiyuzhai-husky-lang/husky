@@ -18,7 +18,7 @@ pub enum FugitiveDefn {
     // Function(FunctionDefn),
     Val(ValDefn),
     Gn(GnDefn),
-    // TypeAlias(TypeAliasDefn)
+    // AliasType(TypeAliasDefn)
 }
 
 impl FugitiveDefn {

@@ -14,7 +14,7 @@ pub enum TypeKind {
 pub enum FugitiveKind {
     Fn,
     Gn,
-    Type,
+    AliasType,
     Val,
 }
 

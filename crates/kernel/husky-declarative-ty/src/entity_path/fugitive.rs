@@ -23,7 +23,7 @@ pub fn form_path_declarative_ty(
         FugitiveDeclarativeSignatureTemplate::Val(signature) => {
             val_path_declarative_ty(db, signature, declarative_term_menu)
         }
-        FugitiveDeclarativeSignatureTemplate::TypeAlias(_) => todo!(),
+        FugitiveDeclarativeSignatureTemplate::AliasType(_) => todo!(),
     }
 }
 
@@ -33,7 +33,7 @@ pub(crate) fn fn_path_declarative_ty(
     signature: FnDeclarativeSignatureTemplate,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
     let param_declarative_tys = signature
-        .parameters(db)
+        .regular_parameters(db)
         .iter()
         .copied()
         .map(ExplicitParameterDeclarativeSignatureTemplate::into_ritchie_parameter_contracted_ty)
@@ -59,7 +59,7 @@ pub(crate) fn gn_path_declarative_ty(
     signature: GnDeclarativeSignatureTemplate,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
     let param_declarative_tys = signature
-        .parameters(db)
+        .regular_parameters(db)
         .iter()
         .copied()
         .map(ExplicitParameterDeclarativeSignatureTemplate::into_ritchie_parameter_contracted_ty)

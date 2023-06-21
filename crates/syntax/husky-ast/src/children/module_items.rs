@@ -22,7 +22,7 @@ impl NormalAstChildren for ModuleItems {
             EntityKindKeywordGroup::Gn(_) => FugitiveKind::Gn.into(),
             EntityKindKeywordGroup::GeneralDef(_) => todo!(),
             EntityKindKeywordGroup::TypeEntity(token) => token.type_kind().into(),
-            EntityKindKeywordGroup::Type(_) => FugitiveKind::Type.into(),
+            EntityKindKeywordGroup::Type(_) => FugitiveKind::AliasType.into(),
             EntityKindKeywordGroup::Trait(_) => ModuleItemKind::Trait,
         };
         Ok(EntityKind::ModuleItem {

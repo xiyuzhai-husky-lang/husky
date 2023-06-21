@@ -1,57 +1,127 @@
 Ok(
-    DeclSheet {
+    NodeDeclSheet {
         [salsa id]: 23,
         decls: [
             (
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Fugitive(
-                        FugitivePath(`quick_sort::quick_sort`, `Fn`),
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Fugitive(
+                        FugitiveNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: FugitivePath(
+                                    Id {
+                                        value: 1,
+                                    },
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Decl::ModuleItem(
-                    ModuleItemDecl::Fugitive(
-                        FugitiveDecl::Fn(
-                            FnDecl {
-                                path: FugitivePath(`quick_sort::quick_sort`, `Fn`),
-                                implicit_parameters: [
-                                    ImplicitParameterDeclPattern {
-                                        annotated_variance_token: None,
-                                        symbol: 0,
-                                        variant: ImplicitParameterDeclPatternVariant::Type {
-                                            ident_token: IdentToken {
-                                                ident: `T`,
-                                                token_idx: TokenIdx(
-                                                    4,
-                                                ),
+                NodeDecl::ModuleItem(
+                    ModuleItemNodeDecl::Fugitive(
+                        FugitiveNodeDecl::Fn(
+                            FnNodeDecl {
+                                node_path: FugitiveNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: FugitivePath(
+                                            Id {
+                                                value: 1,
                                             },
-                                            traits: Some(
-                                                (
-                                                    ColonToken(
-                                                        TokenIdx(
-                                                            5,
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 30,
+                                implicit_parameter_decl_list: Ok(
+                                    Some(
+                                        ImplicitParameterDeclList {
+                                            langle: LeftAngleBracketOrLessThanToken(
+                                                TokenIdx(
+                                                    3,
+                                                ),
+                                            ),
+                                            implicit_parameters: [
+                                                ImplicitParameterDeclPattern {
+                                                    annotated_variance_token: None,
+                                                    symbol: 0,
+                                                    variant: ImplicitParameterDeclPatternVariant::Type {
+                                                        ident_token: IdentToken {
+                                                            ident: `T`,
+                                                            token_idx: TokenIdx(
+                                                                4,
+                                                            ),
+                                                        },
+                                                        traits: Some(
+                                                            (
+                                                                ColonToken(
+                                                                    TokenIdx(
+                                                                        5,
+                                                                    ),
+                                                                ),
+                                                                0,
+                                                            ),
                                                         ),
-                                                    ),
-                                                    0,
+                                                    },
+                                                },
+                                            ],
+                                            commas: [],
+                                            decl_list_result: Ok(
+                                                (),
+                                            ),
+                                            rangle: RightAngleBracketToken(
+                                                TokenIdx(
+                                                    7,
                                                 ),
                                             ),
                                         },
-                                    },
-                                ],
-                                regular_parameters: [
-                                    RegularParameterDeclPattern {
-                                        pattern: 0,
-                                        variables: ArenaIdxRange(
-                                            1..2,
-                                        ),
-                                        colon: ColonToken(
+                                    ),
+                                ),
+                                explicit_parameter_decl_list: Ok(
+                                    ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
                                             TokenIdx(
-                                                11,
+                                                8,
                                             ),
                                         ),
-                                        ty: 3,
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        regular_parameters: [
+                                            RegularParameterDeclPattern {
+                                                pattern: 0,
+                                                variables: ArenaIdxRange(
+                                                    1..2,
+                                                ),
+                                                colon: ColonToken(
+                                                    TokenIdx(
+                                                        11,
+                                                    ),
+                                                ),
+                                                ty: 3,
+                                            },
+                                        ],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                16,
+                                            ),
+                                        ),
                                     },
-                                ],
-                                return_ty: None,
+                                ),
+                                curry_token: Ok(
+                                    None,
+                                ),
+                                return_ty: Ok(
+                                    None,
+                                ),
+                                eol_colon: Ok(
+                                    EolToken::Colon(
+                                        EolColonToken {
+                                            token_idx: TokenIdx(
+                                                17,
+                                            ),
+                                        },
+                                    ),
+                                ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
@@ -267,79 +337,160 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Fugitive(
-                        FugitivePath(`quick_sort::quick_sort_aux`, `Fn`),
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Fugitive(
+                        FugitiveNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: FugitivePath(
+                                    Id {
+                                        value: 2,
+                                    },
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Decl::ModuleItem(
-                    ModuleItemDecl::Fugitive(
-                        FugitiveDecl::Fn(
-                            FnDecl {
-                                path: FugitivePath(`quick_sort::quick_sort_aux`, `Fn`),
-                                implicit_parameters: [
-                                    ImplicitParameterDeclPattern {
-                                        annotated_variance_token: None,
-                                        symbol: 0,
-                                        variant: ImplicitParameterDeclPatternVariant::Type {
-                                            ident_token: IdentToken {
-                                                ident: `T`,
-                                                token_idx: TokenIdx(
-                                                    43,
-                                                ),
+                NodeDecl::ModuleItem(
+                    ModuleItemNodeDecl::Fugitive(
+                        FugitiveNodeDecl::Fn(
+                            FnNodeDecl {
+                                node_path: FugitiveNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: FugitivePath(
+                                            Id {
+                                                value: 2,
                                             },
-                                            traits: Some(
-                                                (
-                                                    ColonToken(
-                                                        TokenIdx(
-                                                            44,
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 31,
+                                implicit_parameter_decl_list: Ok(
+                                    Some(
+                                        ImplicitParameterDeclList {
+                                            langle: LeftAngleBracketOrLessThanToken(
+                                                TokenIdx(
+                                                    42,
+                                                ),
+                                            ),
+                                            implicit_parameters: [
+                                                ImplicitParameterDeclPattern {
+                                                    annotated_variance_token: None,
+                                                    symbol: 0,
+                                                    variant: ImplicitParameterDeclPatternVariant::Type {
+                                                        ident_token: IdentToken {
+                                                            ident: `T`,
+                                                            token_idx: TokenIdx(
+                                                                43,
+                                                            ),
+                                                        },
+                                                        traits: Some(
+                                                            (
+                                                                ColonToken(
+                                                                    TokenIdx(
+                                                                        44,
+                                                                    ),
+                                                                ),
+                                                                0,
+                                                            ),
                                                         ),
-                                                    ),
-                                                    0,
+                                                    },
+                                                },
+                                            ],
+                                            commas: [],
+                                            decl_list_result: Ok(
+                                                (),
+                                            ),
+                                            rangle: RightAngleBracketToken(
+                                                TokenIdx(
+                                                    46,
                                                 ),
                                             ),
                                         },
-                                    },
-                                ],
-                                regular_parameters: [
-                                    RegularParameterDeclPattern {
-                                        pattern: 0,
-                                        variables: ArenaIdxRange(
-                                            1..2,
-                                        ),
-                                        colon: ColonToken(
+                                    ),
+                                ),
+                                explicit_parameter_decl_list: Ok(
+                                    ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
                                             TokenIdx(
-                                                50,
+                                                47,
                                             ),
                                         ),
-                                        ty: 3,
-                                    },
-                                    RegularParameterDeclPattern {
-                                        pattern: 1,
-                                        variables: ArenaIdxRange(
-                                            2..3,
-                                        ),
-                                        colon: ColonToken(
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        regular_parameters: [
+                                            RegularParameterDeclPattern {
+                                                pattern: 0,
+                                                variables: ArenaIdxRange(
+                                                    1..2,
+                                                ),
+                                                colon: ColonToken(
+                                                    TokenIdx(
+                                                        50,
+                                                    ),
+                                                ),
+                                                ty: 3,
+                                            },
+                                            RegularParameterDeclPattern {
+                                                pattern: 1,
+                                                variables: ArenaIdxRange(
+                                                    2..3,
+                                                ),
+                                                colon: ColonToken(
+                                                    TokenIdx(
+                                                        57,
+                                                    ),
+                                                ),
+                                                ty: 4,
+                                            },
+                                            RegularParameterDeclPattern {
+                                                pattern: 2,
+                                                variables: ArenaIdxRange(
+                                                    3..4,
+                                                ),
+                                                colon: ColonToken(
+                                                    TokenIdx(
+                                                        61,
+                                                    ),
+                                                ),
+                                                ty: 5,
+                                            },
+                                        ],
+                                        commas: [
+                                            CommaToken(
+                                                TokenIdx(
+                                                    55,
+                                                ),
+                                            ),
+                                            CommaToken(
+                                                TokenIdx(
+                                                    59,
+                                                ),
+                                            ),
+                                        ],
+                                        rpar: RightParenthesisToken(
                                             TokenIdx(
-                                                57,
+                                                63,
                                             ),
                                         ),
-                                        ty: 4,
                                     },
-                                    RegularParameterDeclPattern {
-                                        pattern: 2,
-                                        variables: ArenaIdxRange(
-                                            3..4,
-                                        ),
-                                        colon: ColonToken(
-                                            TokenIdx(
-                                                61,
+                                ),
+                                curry_token: Ok(
+                                    None,
+                                ),
+                                return_ty: Ok(
+                                    None,
+                                ),
+                                eol_colon: Ok(
+                                    EolToken::Colon(
+                                        EolColonToken {
+                                            token_idx: TokenIdx(
+                                                64,
                                             ),
-                                        ),
-                                        ty: 5,
-                                    },
-                                ],
-                                return_ty: None,
+                                        },
+                                    ),
+                                ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
@@ -695,82 +846,169 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Fugitive(
-                        FugitivePath(`quick_sort::partition`, `Fn`),
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Fugitive(
+                        FugitiveNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: FugitivePath(
+                                    Id {
+                                        value: 3,
+                                    },
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Decl::ModuleItem(
-                    ModuleItemDecl::Fugitive(
-                        FugitiveDecl::Fn(
-                            FnDecl {
-                                path: FugitivePath(`quick_sort::partition`, `Fn`),
-                                implicit_parameters: [
-                                    ImplicitParameterDeclPattern {
-                                        annotated_variance_token: None,
-                                        symbol: 0,
-                                        variant: ImplicitParameterDeclPatternVariant::Type {
-                                            ident_token: IdentToken {
-                                                ident: `T`,
-                                                token_idx: TokenIdx(
-                                                    104,
-                                                ),
+                NodeDecl::ModuleItem(
+                    ModuleItemNodeDecl::Fugitive(
+                        FugitiveNodeDecl::Fn(
+                            FnNodeDecl {
+                                node_path: FugitiveNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: FugitivePath(
+                                            Id {
+                                                value: 3,
                                             },
-                                            traits: Some(
-                                                (
-                                                    ColonToken(
-                                                        TokenIdx(
-                                                            105,
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 32,
+                                implicit_parameter_decl_list: Ok(
+                                    Some(
+                                        ImplicitParameterDeclList {
+                                            langle: LeftAngleBracketOrLessThanToken(
+                                                TokenIdx(
+                                                    103,
+                                                ),
+                                            ),
+                                            implicit_parameters: [
+                                                ImplicitParameterDeclPattern {
+                                                    annotated_variance_token: None,
+                                                    symbol: 0,
+                                                    variant: ImplicitParameterDeclPatternVariant::Type {
+                                                        ident_token: IdentToken {
+                                                            ident: `T`,
+                                                            token_idx: TokenIdx(
+                                                                104,
+                                                            ),
+                                                        },
+                                                        traits: Some(
+                                                            (
+                                                                ColonToken(
+                                                                    TokenIdx(
+                                                                        105,
+                                                                    ),
+                                                                ),
+                                                                0,
+                                                            ),
                                                         ),
-                                                    ),
-                                                    0,
+                                                    },
+                                                },
+                                            ],
+                                            commas: [],
+                                            decl_list_result: Ok(
+                                                (),
+                                            ),
+                                            rangle: RightAngleBracketToken(
+                                                TokenIdx(
+                                                    107,
                                                 ),
                                             ),
                                         },
-                                    },
-                                ],
-                                regular_parameters: [
-                                    RegularParameterDeclPattern {
-                                        pattern: 0,
-                                        variables: ArenaIdxRange(
-                                            1..2,
-                                        ),
-                                        colon: ColonToken(
+                                    ),
+                                ),
+                                explicit_parameter_decl_list: Ok(
+                                    ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
                                             TokenIdx(
-                                                111,
+                                                108,
                                             ),
                                         ),
-                                        ty: 3,
-                                    },
-                                    RegularParameterDeclPattern {
-                                        pattern: 1,
-                                        variables: ArenaIdxRange(
-                                            2..3,
-                                        ),
-                                        colon: ColonToken(
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        regular_parameters: [
+                                            RegularParameterDeclPattern {
+                                                pattern: 0,
+                                                variables: ArenaIdxRange(
+                                                    1..2,
+                                                ),
+                                                colon: ColonToken(
+                                                    TokenIdx(
+                                                        111,
+                                                    ),
+                                                ),
+                                                ty: 3,
+                                            },
+                                            RegularParameterDeclPattern {
+                                                pattern: 1,
+                                                variables: ArenaIdxRange(
+                                                    2..3,
+                                                ),
+                                                colon: ColonToken(
+                                                    TokenIdx(
+                                                        118,
+                                                    ),
+                                                ),
+                                                ty: 4,
+                                            },
+                                            RegularParameterDeclPattern {
+                                                pattern: 2,
+                                                variables: ArenaIdxRange(
+                                                    3..4,
+                                                ),
+                                                colon: ColonToken(
+                                                    TokenIdx(
+                                                        122,
+                                                    ),
+                                                ),
+                                                ty: 5,
+                                            },
+                                        ],
+                                        commas: [
+                                            CommaToken(
+                                                TokenIdx(
+                                                    116,
+                                                ),
+                                            ),
+                                            CommaToken(
+                                                TokenIdx(
+                                                    120,
+                                                ),
+                                            ),
+                                        ],
+                                        rpar: RightParenthesisToken(
                                             TokenIdx(
-                                                118,
+                                                124,
                                             ),
                                         ),
-                                        ty: 4,
                                     },
-                                    RegularParameterDeclPattern {
-                                        pattern: 2,
-                                        variables: ArenaIdxRange(
-                                            3..4,
-                                        ),
-                                        colon: ColonToken(
+                                ),
+                                curry_token: Ok(
+                                    Some(
+                                        CurryToken(
                                             TokenIdx(
-                                                122,
+                                                125,
                                             ),
                                         ),
-                                        ty: 5,
-                                    },
-                                ],
-                                return_ty: Some(
-                                    ReturnTypeExpr {
-                                        expr: 6,
-                                    },
+                                    ),
+                                ),
+                                return_ty: Ok(
+                                    Some(
+                                        ReturnTypeExpr {
+                                            expr: 6,
+                                        },
+                                    ),
+                                ),
+                                eol_colon: Ok(
+                                    EolToken::Colon(
+                                        EolColonToken {
+                                            token_idx: TokenIdx(
+                                                127,
+                                            ),
+                                        },
+                                    ),
                                 ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -1148,6 +1386,252 @@ Ok(
                                                 expr_idx: 6,
                                             },
                                         ],
+                                    },
+                                },
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            (
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Fugitive(
+                        FugitiveNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: FugitivePath(
+                                    Id {
+                                        value: 4,
+                                    },
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                ),
+                NodeDecl::ModuleItem(
+                    ModuleItemNodeDecl::Fugitive(
+                        FugitiveNodeDecl::Fn(
+                            FnNodeDecl {
+                                node_path: FugitiveNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: FugitivePath(
+                                            Id {
+                                                value: 4,
+                                            },
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 34,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
+                                explicit_parameter_decl_list: Err(
+                                    DeclExprError::Original(
+                                        OriginalDeclExprError::ExpectedParameterDeclList(
+                                            TokenStreamState {
+                                                next_token_idx: TokenIdx(
+                                                    228,
+                                                ),
+                                                drained: false,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                curry_token: Ok(
+                                    None,
+                                ),
+                                return_ty: Ok(
+                                    None,
+                                ),
+                                eol_colon: Ok(
+                                    EolToken::Colon(
+                                        EolColonToken {
+                                            token_idx: TokenIdx(
+                                                228,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: None,
+                                        path: RegionPath::Decl(
+                                            EntityNodePath::ModuleItem(
+                                                ModuleItemNodePath::Fugitive(
+                                                    FugitiveNodePath {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: FugitivePath(
+                                                                Id {
+                                                                    value: 4,
+                                                                },
+                                                            ),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_contracts: ArenaMap {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_modifiers: ArenaMap {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: False,
+                                            allow_self_value: False,
+                                            pattern_ty_constraints: [],
+                                        },
+                                        roots: [],
+                                    },
+                                },
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            (
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Fugitive(
+                        FugitiveNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: FugitivePath(
+                                    Id {
+                                        value: 5,
+                                    },
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                ),
+                NodeDecl::ModuleItem(
+                    ModuleItemNodeDecl::Fugitive(
+                        FugitiveNodeDecl::Fn(
+                            FnNodeDecl {
+                                node_path: FugitiveNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: FugitivePath(
+                                            Id {
+                                                value: 5,
+                                            },
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 36,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
+                                explicit_parameter_decl_list: Err(
+                                    DeclExprError::Original(
+                                        OriginalDeclExprError::ExpectedParameterDeclList(
+                                            TokenStreamState {
+                                                next_token_idx: TokenIdx(
+                                                    288,
+                                                ),
+                                                drained: false,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                curry_token: Ok(
+                                    None,
+                                ),
+                                return_ty: Ok(
+                                    None,
+                                ),
+                                eol_colon: Ok(
+                                    EolToken::Colon(
+                                        EolColonToken {
+                                            token_idx: TokenIdx(
+                                                288,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: None,
+                                        path: RegionPath::Decl(
+                                            EntityNodePath::ModuleItem(
+                                                ModuleItemNodePath::Fugitive(
+                                                    FugitiveNodePath {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: FugitivePath(
+                                                                Id {
+                                                                    value: 5,
+                                                                },
+                                                            ),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_contracts: ArenaMap {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_modifiers: ArenaMap {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: False,
+                                            allow_self_value: False,
+                                            pattern_ty_constraints: [],
+                                        },
+                                        roots: [],
                                     },
                                 },
                             },

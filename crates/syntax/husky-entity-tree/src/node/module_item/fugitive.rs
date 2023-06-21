@@ -1,3 +1,5 @@
+use husky_entity_taxonomy::FugitiveKind;
+
 use super::*;
 
 #[salsa::interned(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
@@ -30,6 +32,10 @@ impl FugitiveNodePath {
 
     pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
         self.maybe_ambiguous_path(db).path.module_path(db)
+    }
+
+    pub fn fugitive_kind(self, db: &dyn EntityTreeDb) -> FugitiveKind {
+        self.maybe_ambiguous_path(db).path.fugitive_kind(db)
     }
 
     pub fn node(self, db: &dyn EntityTreeDb) -> ModuleItemNode {

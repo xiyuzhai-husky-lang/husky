@@ -8,6 +8,8 @@ pub struct TraitForTypeAssociatedValNodeDecl {
     pub expr_region: ExprRegion,
 }
 
+impl<'a> DeclParser<'a> {}
+
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TraitForTypeAssociatedValDecl {
     #[id]
@@ -16,5 +18,3 @@ pub struct TraitForTypeAssociatedValDecl {
     pub implicit_parameters: ImplicitParameterDeclPatterns,
     pub expr_region: ExprRegion,
 }
-
-impl<'a> DeclParser<'a> {}

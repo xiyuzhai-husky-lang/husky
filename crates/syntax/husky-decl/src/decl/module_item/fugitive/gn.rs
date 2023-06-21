@@ -28,39 +28,14 @@ impl GnNodeDecl {
     }
 }
 
-#[salsa::tracked(db = DeclDb, jar = DeclJar)]
-pub struct GnDecl {
-    #[id]
-    pub path: FugitivePath,
-    #[return_ref]
-    implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
-    #[return_ref]
-    parameter_decl_list: ExplicitParameterDeclList,
-    pub return_ty: Option<ReturnTypeExpr>,
-    pub expr_region: ExprRegion,
-}
-
-impl GnDecl {
-    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDeclPattern] {
-        self.implicit_parameter_decl_list(db)
-            .as_ref()
-            .map(ImplicitParameterDeclList::implicit_parameters)
-            .unwrap_or(&[])
-    }
-
-    pub fn parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [RegularParameterDeclPattern] {
-        self.parameter_decl_list(db).regular_parameters()
-    }
-}
-
 impl<'a> DeclParser<'a> {
-    pub(super) fn parse_gn_decl(
+    pub(super) fn parse_gn_node_decl(
         &self,
+        node_path: FugitiveNodePath,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
         saved_stream_state: TokenStreamState,
-        id: FugitiveNodePath,
-    ) -> DeclResult<FugitiveDecl> {
+    ) -> GnNodeDecl {
         todo!()
         // let mut parser = self.expr_parser(id, None, AllowSelfType::False, AllowSelfValue::False);
         // let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
@@ -87,5 +62,27 @@ impl<'a> DeclParser<'a> {
         //     eol_colon,
         // )
         // .into())
+    }
+}
+
+#[salsa::tracked(db = DeclDb, jar = DeclJar)]
+pub struct GnDecl {
+    #[id]
+    pub path: FugitivePath,
+    #[return_ref]
+    pub implicit_parameters: ImplicitParameterDeclPatterns,
+    #[return_ref]
+    pub regular_parameters: RegularParameterDeclPatterns,
+    pub return_ty: Option<ReturnTypeExpr>,
+    pub expr_region: ExprRegion,
+}
+
+impl GnDecl {
+    pub(super) fn from_node_decl(
+        db: &dyn DeclDb,
+        path: FugitivePath,
+        node_decl: GnNodeDecl,
+    ) -> DeclResult<Self> {
+        todo!()
     }
 }

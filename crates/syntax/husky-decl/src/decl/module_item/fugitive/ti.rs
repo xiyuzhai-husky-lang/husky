@@ -8,11 +8,11 @@ pub struct TypeAliasNodeDecl {
     pub expr_region: ExprRegion,
 }
 
+impl<'a> DeclParser<'a> {}
+
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TypeAliasDecl {
     #[id]
     pub path: FugitivePath,
     pub expr_region: ExprRegion,
 }
-
-impl<'a> DeclParser<'a> {}

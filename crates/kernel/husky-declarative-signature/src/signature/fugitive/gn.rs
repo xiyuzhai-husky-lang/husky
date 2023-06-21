@@ -5,7 +5,7 @@ pub struct GnDeclarativeSignatureTemplate {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterDeclarativeSignatures,
     #[return_ref]
-    pub parameters: ExplicitParameterDeclarativeSignatureTemplates,
+    pub regular_parameters: ExplicitParameterDeclarativeSignatureTemplates,
     pub return_ty: DeclarativeTerm,
 }
 
@@ -34,8 +34,8 @@ pub fn gn_declarative_signature(
         &declarative_term_region,
         declarative_term_menu,
     );
-    let parameters = ExplicitParameterDeclarativeSignatureTemplates::from_decl(
-        decl.parameters(db),
+    let regular_parameters = ExplicitParameterDeclarativeSignatureTemplates::from_decl(
+        decl.regular_parameters(db),
         expr_region_data,
         declarative_term_region,
     )?;
@@ -46,7 +46,7 @@ pub fn gn_declarative_signature(
     Ok(GnDeclarativeSignatureTemplate::new(
         db,
         implicit_parameters,
-        parameters,
+        regular_parameters,
         return_ty,
     ))
 }

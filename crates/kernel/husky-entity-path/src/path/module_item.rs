@@ -58,7 +58,7 @@ impl ModuleItemPath {
                 connection: path.connection(db).kind(),
             },
             ModuleItemPath::Fugitive(path) => EntityKind::ModuleItem {
-                module_item_kind: ModuleItemKind::Fugitive(path.form_kind(db)),
+                module_item_kind: ModuleItemKind::Fugitive(path.fugitive_kind(db)),
                 connection: path.connection(db).kind(),
             },
         }

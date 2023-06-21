@@ -13,23 +13,14 @@ pub struct ValNodeDecl {
     pub expr_region: ExprRegion,
 }
 
-#[salsa::tracked(db = DeclDb, jar = DeclJar)]
-pub struct ValDecl {
-    #[id]
-    pub path: FugitivePath,
-    pub var_ty: Option<FormTypeExpr>,
-    pub expr: Option<ExprIdx>,
-    pub expr_region: ExprRegion,
-}
-
 impl<'a> DeclParser<'a> {
-    pub(super) fn parse_feature_decl(
+    pub(super) fn parse_val_node_decl(
         &self,
+        node_path: FugitiveNodePath,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
         saved_stream_state: TokenStreamState,
-        id: FugitiveNodePath,
-    ) -> Result<FugitiveDecl, DeclError> {
+    ) -> ValNodeDecl {
         todo!()
         // let mut parser = self.expr_parser(id, None, AllowSelfType::False, AllowSelfValue::False);
         // let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
@@ -53,4 +44,13 @@ impl<'a> DeclParser<'a> {
         // )
         // .into())
     }
+}
+
+#[salsa::tracked(db = DeclDb, jar = DeclJar)]
+pub struct ValDecl {
+    #[id]
+    pub path: FugitivePath,
+    pub var_ty: Option<FormTypeExpr>,
+    pub expr: Option<ExprIdx>,
+    pub expr_region: ExprRegion,
 }

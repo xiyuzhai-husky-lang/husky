@@ -43,7 +43,7 @@ impl<'a> DeclParser<'a> {
         let curry_token = ctx.try_parse_optional();
         let return_ty = if let Ok(Some(_)) = curry_token {
             ctx.parse_expected(OriginalDeclExprError::ExpectedOutputType)
-                .map(|return_ty| Some(return_ty))
+                .map(Some)
         } else {
             Ok(None)
         };
