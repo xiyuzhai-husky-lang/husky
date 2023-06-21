@@ -1,0 +1,26 @@
+[
+    (
+        EntityPath::Module(
+            `std::prelude`,
+        ),
+        Ok(
+            DeclarativeTerm(`core::basic::Module`),
+        ),
+    ),
+    (
+        EntityPath::Module(
+            `std::logic`,
+        ),
+        Ok(
+            DeclarativeTerm(`core::basic::Module`),
+        ),
+    ),
+    (
+        EntityPath::Module(
+            `std::ops`,
+        ),
+        Ok(
+            DeclarativeTerm(`core::basic::Module`),
+        ),
+    ),
+]
