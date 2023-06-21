@@ -1,9 +1,17 @@
 use super::*;
 
 #[salsa::tracked(db = DefnDb, jar = DefnJar)]
-pub struct TypeAssociatedValDefn {
+pub struct TypeAssociatedValNodeDefn {
     #[id]
     pub node_path: TypeItemNodePath,
+    pub node_decl: TypeAssociatedValNodeDecl,
+    pub expr_region: ExprRegion,
+}
+
+#[salsa::tracked(db = DefnDb, jar = DefnJar)]
+pub struct TypeAssociatedValDefn {
+    #[id]
+    pub path: TypeItemPath,
     pub decl: TypeAssociatedValDecl,
     pub expr_region: ExprRegion,
 }

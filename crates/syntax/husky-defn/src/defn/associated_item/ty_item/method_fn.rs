@@ -3,9 +3,18 @@ use husky_ast::Ast;
 use salsa::DebugWithDb;
 
 #[salsa::tracked(db = DefnDb, jar = DefnJar)]
-pub struct TypeMethodFnDefn {
+pub struct TypeMethodFnNodeDefn {
     #[id]
     pub node_path: TypeItemNodePath,
+    pub node_decl: TypeMethodFnNodeDecl,
+    pub body: Option<ExprIdx>,
+    pub expr_region: ExprRegion,
+}
+
+#[salsa::tracked(db = DefnDb, jar = DefnJar)]
+pub struct TypeMethodFnDefn {
+    #[id]
+    pub path: TypeItemPath,
     pub decl: TypeMethodFnDecl,
     pub body: Option<ExprIdx>,
     pub expr_region: ExprRegion,

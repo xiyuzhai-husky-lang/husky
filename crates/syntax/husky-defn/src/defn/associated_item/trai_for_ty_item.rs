@@ -13,6 +13,16 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DefnDb)]
 #[enum_class::from_variants]
+pub enum TraitForTypeItemNodeDefn {
+    AssociatedFn(TraitForTypeAssociatedFnNodeDefn),
+    MethodFn(TraitForTypeMethodFnNodeDefn),
+    AssociatedType(TraitForTypeAssociatedTypeNodeDefn),
+    AssociatedVal(TraitForTypeAssociatedValNodeDefn),
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::derive_debug_with_db(db = DefnDb)]
+#[enum_class::from_variants]
 pub enum TraitForTypeItemDefn {
     AssociatedFn(TraitForTypeAssociatedFnDefn),
     MethodFn(TraitForTypeMethodFnDefn),

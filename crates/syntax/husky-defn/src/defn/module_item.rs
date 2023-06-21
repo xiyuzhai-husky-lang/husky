@@ -11,6 +11,23 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = DefnDb)]
 #[enum_class::from_variants]
+pub enum ModuleItemNodeDefn {
+    Type(TypeNodeDefn),
+    Trait(TraitNodeDefn),
+    Fugitive(FugitiveNodeDefn),
+}
+
+impl HasNodeDefn for ModuleItemNodePath {
+    type NodeDefn = ModuleItemNodeDefn;
+
+    fn node_defn(self, db: &dyn DefnDb) -> Self::NodeDefn {
+        todo!()
+    }
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[salsa::derive_debug_with_db(db = DefnDb)]
+#[enum_class::from_variants]
 pub enum ModuleItemDefn {
     Type(TypeDefn),
     Trait(TraitDefn),
