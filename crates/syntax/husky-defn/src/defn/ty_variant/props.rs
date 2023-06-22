@@ -13,8 +13,3 @@ pub struct PropsVariantDefn {
     pub path: TypeVariantPath,
     pub decl: PropsVariantDecl,
 }
-
-#[salsa::tracked(jar = DefnJar)]
-pub(crate) fn props_variant_defn(_db: &dyn DefnDb, _decl: PropsVariantDecl) -> PropsVariantDefn {
-    todo!()
-}

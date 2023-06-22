@@ -13,8 +13,3 @@ pub struct UnitVariantDefn {
     pub path: TypeVariantPath,
     pub decl: UnitVariantDecl,
 }
-
-#[salsa::tracked(jar = DefnJar)]
-pub(crate) fn unit_variant_defn(_db: &dyn DefnDb, _decl: UnitVariantDecl) -> UnitVariantDefn {
-    todo!()
-}

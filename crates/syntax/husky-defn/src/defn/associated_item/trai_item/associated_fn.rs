@@ -15,11 +15,3 @@ pub struct TraitAssociatedFnDefn {
     pub decl: TraitAssociatedFnDecl,
     pub expr_region: ExprRegion,
 }
-
-#[salsa::tracked(jar = DefnJar)]
-pub(crate) fn trai_associated_fn_defn(
-    _db: &dyn DefnDb,
-    _decl: TraitAssociatedFnDecl,
-) -> TraitAssociatedFnDefn {
-    todo!()
-}
