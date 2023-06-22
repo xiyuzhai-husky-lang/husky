@@ -1656,7 +1656,7 @@ Ok(
                                     current_symbol_arena: Arena {
                                         data: [],
                                     },
-                                    allow_self_type: False,
+                                    allow_self_type: True,
                                     allow_self_value: False,
                                     pattern_ty_constraints: [],
                                 },

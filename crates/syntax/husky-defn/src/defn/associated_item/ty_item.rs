@@ -35,7 +35,9 @@ impl HasNodeDefn for TypeItemNodePath {
 #[salsa::tracked(jar = DefnJar)]
 pub(crate) fn ty_item_node_defn(db: &dyn DefnDb, node_path: TypeItemNodePath) -> TypeItemNodeDefn {
     match node_path.node_decl(db) {
-        TypeItemNodeDecl::AssociatedFn(_) => todo!(),
+        TypeItemNodeDecl::AssociatedFn(node_decl) => {
+            TypeAssociatedFnNodeDefn::new(db, node_path, node_decl).into()
+        }
         TypeItemNodeDecl::MethodFn(node_decl) => {
             TypeMethodFnNodeDefn::new(db, node_path, node_decl).into()
         }
