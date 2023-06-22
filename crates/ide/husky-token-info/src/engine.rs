@@ -310,7 +310,8 @@ impl<'a> InferContext<'a> {
                 self.sheet.add(ident_token.token_idx(), TokenInfo::Method)
             }
             Expr::Literal(_, _)
-            | Expr::EntityPath { .. }
+            | Expr::NonAssociatedEntityPath { .. }
+            | Expr::AssociatedItemPath { .. }
             | Expr::Binary { .. }
             | Expr::Prefix { .. }
             | Expr::Suffix { .. }

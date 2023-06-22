@@ -31,7 +31,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         &mut self,
         path_name_token: PathNameToken,
         entity_path: EntityPath,
-    ) -> (EntityPathExprIdx, Option<EntityPath>) {
+    ) -> Expr {
         let root = self.alloc_entity_path_expr(EntityPathExpr::Root {
             path_name_token,
             entity_path,
@@ -40,7 +40,10 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             Some(scope_resolution_token) => {
                 self.parse_subentity_path_expr(root, Some(entity_path), scope_resolution_token)
             }
-            None => (root, Some(entity_path)),
+            None => Expr::NonAssociatedEntityPath {
+                entity_path_expr: root,
+                path: Some(entity_path),
+            },
         }
     }
 
@@ -49,7 +52,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         parent: EntityPathExprIdx,
         parent_path: Option<EntityPath>,
         scope_resolution_token: ScopeResolutionToken,
-    ) -> (EntityPathExprIdx, Option<EntityPath>) {
+    ) -> Expr {
         let ident_token: EntityPathExprResult<IdentToken> =
             self.try_parse_expected(OriginalEntityPathExprError::ExpectIdentAfterScopeResolution);
         let path: EntityPathExprResult<EntityPath> = match parent_path {
@@ -57,7 +60,19 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 Ok(ident_token) => {
                     let ident = ident_token.ident();
                     match self.db().subentity_path(parent_path, ident) {
-                        Ok(path) => Ok(path),
+                        Ok(subentity_path) => match subentity_path {
+                            SubentityPath::NonAssociated(path) => Ok(path),
+                            SubentityPath::Associated => {
+                                return Expr::AssociatedItemPath {
+                                    parent: self.alloc_expr(Expr::NonAssociatedEntityPath {
+                                        entity_path_expr: parent,
+                                        path: Some(parent_path),
+                                    }),
+                                    scope_resolution_token,
+                                    ident_token,
+                                }
+                            }
+                        },
                         Err(error) => Err(OriginalEntityPathExprError::EntityTree {
                             token_idx: ident_token.token_idx(),
                             error,
@@ -84,7 +99,10 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             Some(scope_resolution_token) => {
                 self.parse_subentity_path_expr(expr, parent_path, scope_resolution_token)
             }
-            None => (expr, parent_path),
+            None => Expr::NonAssociatedEntityPath {
+                entity_path_expr: expr,
+                path: parent_path,
+            },
         }
     }
 }

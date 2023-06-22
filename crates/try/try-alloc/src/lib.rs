@@ -7,3 +7,19 @@ fn arc_stack_overflow() {
         let a: std::sync::Arc<T> = a.into();
     }
 }
+
+struct V<T> {
+    t: T,
+}
+
+impl<T> V<std::sync::Arc<T>> {
+    fn a() {}
+}
+
+impl<T> V<Vec<T>> {
+    fn a() {}
+}
+
+impl<T> V<[T; 2]> {
+    fn a() {}
+}

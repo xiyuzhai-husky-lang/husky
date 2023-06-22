@@ -137,7 +137,7 @@ Ok(
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            Expr::EntityPath {
+                                            Expr::NonAssociatedEntityPath {
                                                 entity_path_expr: 0,
                                                 path: Some(
                                                     EntityPath::ModuleItem(
@@ -147,7 +147,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            Expr::EntityPath {
+                                            Expr::NonAssociatedEntityPath {
                                                 entity_path_expr: 1,
                                                 path: Some(
                                                     EntityPath::ModuleItem(
@@ -358,7 +358,7 @@ Ok(
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            Expr::EntityPath {
+                                            Expr::NonAssociatedEntityPath {
                                                 entity_path_expr: 0,
                                                 path: Some(
                                                     EntityPath::ModuleItem(
@@ -368,7 +368,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            Expr::EntityPath {
+                                            Expr::NonAssociatedEntityPath {
                                                 entity_path_expr: 1,
                                                 path: Some(
                                                     EntityPath::ModuleItem(

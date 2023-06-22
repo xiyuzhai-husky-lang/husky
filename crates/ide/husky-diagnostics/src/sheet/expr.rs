@@ -26,7 +26,9 @@ pub(crate) fn expr_diagnostic_sheet(
         let _token_sheet_data = ranged_token_sheet.token_sheet_data(db);
         for defn in defns.iter().copied() {
             let decl = defn.decl(db);
-            sheet_collector.collect_expr_diagnostics(decl.expr_region(db));
+            if let Some(expr_region) = decl.expr_region(db) {
+                sheet_collector.collect_expr_diagnostics(expr_region);
+            }
             if let Some(expr_region) = defn.expr_region(db) {
                 sheet_collector.collect_expr_diagnostics(expr_region);
             }
