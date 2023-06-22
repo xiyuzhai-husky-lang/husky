@@ -11,7 +11,19 @@
                     TypeDeclarativeSignatureTemplate::Extern(
                         ExternDeclarativeSignatureTemplate {
                             implicit_parameters: ImplicitParameterDeclarativeSignatures {
-                                data: [],
+                                data: [
+                                    ImplicitParameterDeclarativeSignature {
+                                        annotated_variance: Some(
+                                            Covariant,
+                                        ),
+                                        symbol: DeclarativeTermSymbol(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
+                                        traits: [],
+                                    },
+                                ],
                             },
                         },
                     ),

@@ -1,1 +1,1 @@
-pub extern Slice;
+pub extern Slice<covariant E>;

@@ -13,7 +13,29 @@ Ok(
                         TypeDecl::Extern(
                             ExternTypeDecl {
                                 path: TypePath(`core::slice::Slice`, `Extern`),
-                                implicit_parameters: [],
+                                implicit_parameters: [
+                                    ImplicitParameterDeclPattern {
+                                        annotated_variance_token: Some(
+                                            VarianceToken::Covariant(
+                                                CovariantToken {
+                                                    token_idx: TokenIdx(
+                                                        4,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                        symbol: 0,
+                                        variant: ImplicitParameterDeclPatternVariant::Type {
+                                            ident_token: IdentToken {
+                                                ident: `E`,
+                                                token_idx: TokenIdx(
+                                                    5,
+                                                ),
+                                            },
+                                            traits: None,
+                                        },
+                                    },
+                                ],
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
@@ -59,11 +81,36 @@ Ok(
                                                 data: [],
                                             },
                                             current_symbol_arena: Arena {
-                                                data: [],
+                                                data: [
+                                                    CurrentSymbol {
+                                                        modifier: Const,
+                                                        access_start: TokenIdx(
+                                                            6,
+                                                        ),
+                                                        access_end: None,
+                                                        variant: CurrentSymbolVariant::ImplicitParameter {
+                                                            implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                                ident_token: IdentToken {
+                                                                    ident: `E`,
+                                                                    token_idx: TokenIdx(
+                                                                        5,
+                                                                    ),
+                                                                },
+                                                            },
+                                                        },
+                                                    },
+                                                ],
                                             },
                                             allow_self_type: True,
                                             allow_self_value: False,
-                                            pattern_ty_constraints: [],
+                                            pattern_ty_constraints: [
+                                                (
+                                                    ImplicitTypeParameter,
+                                                    ArenaIdxRange(
+                                                        0..1,
+                                                    ),
+                                                ),
+                                            ],
                                         },
                                         roots: [],
                                     },
