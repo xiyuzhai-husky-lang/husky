@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::tracked(db = DefnDb, jar = DefnJar)]
+#[salsa::tracked(db = DefnDb, jar = DefnJar, constructor = new_inner)]
 pub struct TraitForTypeAssociatedValNodeDefn {
     #[id]
     pub node_path: TraitForTypeItemNodePath,
@@ -8,7 +8,7 @@ pub struct TraitForTypeAssociatedValNodeDefn {
     pub expr_region: ExprRegion,
 }
 
-#[salsa::tracked(db = DefnDb, jar = DefnJar)]
+#[salsa::tracked(db = DefnDb, jar = DefnJar, constructor = new_inner)]
 pub struct TraitForTypeAssociatedValDefn {
     #[id]
     pub path: TraitForTypeItemPath,
@@ -16,10 +16,12 @@ pub struct TraitForTypeAssociatedValDefn {
     pub expr_region: ExprRegion,
 }
 
-#[salsa::tracked(jar = DefnJar)]
-pub(crate) fn trai_for_ty_associated_val_defn(
-    _db: &dyn DefnDb,
-    _decl: TraitForTypeAssociatedValDecl,
-) -> TraitForTypeAssociatedValDefn {
-    todo!()
+impl TraitForTypeAssociatedValDefn {
+    pub(super) fn new(
+        db: &dyn DefnDb,
+        path: TraitForTypeItemPath,
+        decl: TraitForTypeAssociatedValDecl,
+    ) -> DefnResult<Self> {
+        todo!()
+    }
 }

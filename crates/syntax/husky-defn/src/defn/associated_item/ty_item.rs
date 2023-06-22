@@ -24,6 +24,27 @@ pub enum TypeItemNodeDefn {
     MemoizedField(TypeMemoizedFieldNodeDefn),
 }
 
+impl HasNodeDefn for TypeItemNodePath {
+    type NodeDefn = TypeItemNodeDefn;
+
+    fn node_defn(self, db: &dyn DefnDb) -> Self::NodeDefn {
+        ty_item_node_defn(db, self)
+    }
+}
+
+#[salsa::tracked(jar = DefnJar)]
+pub(crate) fn ty_item_node_defn(db: &dyn DefnDb, node_path: TypeItemNodePath) -> TypeItemNodeDefn {
+    match node_path.node_decl(db) {
+        TypeItemNodeDecl::AssociatedFn(_) => todo!(),
+        TypeItemNodeDecl::MethodFn(node_decl) => {
+            TypeMethodFnNodeDefn::new(db, node_path, node_decl).into()
+        }
+        TypeItemNodeDecl::AssociatedType(_) => todo!(),
+        TypeItemNodeDecl::AssociatedVal(_) => todo!(),
+        TypeItemNodeDecl::MemoizedField(_) => todo!(),
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DefnDb)]
 #[enum_class::from_variants]
@@ -72,10 +93,10 @@ impl HasDefn for TypeItemPath {
 pub(crate) fn ty_item_defn(db: &dyn DefnDb, path: TypeItemPath) -> DefnResult<TypeItemDefn> {
     let decl = path.decl(db)?;
     Ok(match decl {
-        TypeItemDecl::AssociatedFn(decl) => ty_associated_fn_defn(db, decl).into(),
-        TypeItemDecl::MethodFn(decl) => ty_method_fn_defn(db, decl).into(),
+        TypeItemDecl::AssociatedFn(decl) => TypeAssociatedFnDefn::new(db, path, decl)?.into(),
+        TypeItemDecl::MethodFn(decl) => TypeMethodFnDefn::new(db, path, decl)?.into(),
         TypeItemDecl::AssociatedType(_) => todo!(),
         TypeItemDecl::AssociatedVal(_) => todo!(),
-        TypeItemDecl::MemoizedField(decl) => ty_memo_defn(db, decl).into(),
+        TypeItemDecl::MemoizedField(decl) => TypeMemoizedFieldDefn::new(db, path, decl)?.into(),
     })
 }

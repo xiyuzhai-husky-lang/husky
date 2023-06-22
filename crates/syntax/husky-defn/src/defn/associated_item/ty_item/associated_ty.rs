@@ -8,7 +8,7 @@ pub struct TypeAssociatedTypeNodeDefn {
     pub expr_region: ExprRegion,
 }
 
-#[salsa::tracked(db = DefnDb, jar = DefnJar)]
+#[salsa::tracked(db = DefnDb, jar = DefnJar, constructor = new_inner)]
 pub struct TypeAssociatedTypeDefn {
     #[id]
     pub path: TypeItemPath,
@@ -16,10 +16,12 @@ pub struct TypeAssociatedTypeDefn {
     pub expr_region: ExprRegion,
 }
 
-#[salsa::tracked(jar = DefnJar)]
-pub(crate) fn ty_associated_ty_defn(
-    _db: &dyn DefnDb,
-    _decl: TypeAssociatedTypeDecl,
-) -> TypeAssociatedTypeDefn {
-    todo!()
+impl TypeAssociatedTypeDefn {
+    pub(super) fn new(
+        db: &dyn DefnDb,
+        path: TypeItemPath,
+        decl: TypeAssociatedTypeDecl,
+    ) -> DefnResult<Self> {
+        todo!()
+    }
 }

@@ -1,376 +1,339 @@
 Ok(
-    DefnSheet {
-        defns: [
-            (
-                DefnRegionPath::Entity(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::basic::bool`, `Extern`),
-                        ),
-                    ),
-                ),
-                Ok(
-                    Defn::Type(
-                        TypeDefn::Extern(
-                            ExternTypeDefn {
-                                path: TypePath(`core::basic::bool`, `Extern`),
-                                decl: ExternTypeDecl {
-                                    path: TypePath(`core::basic::bool`, `Extern`),
-                                    ast_idx: 0,
-                                    expr_region: ExprRegion {
-                                        data: ExprRegionData {
-                                            parent: None,
-                                            path: RegionPath::Decl(
-                                                DeclRegionPath::Entity(
-                                                    EntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
-                                                            TypePath(`core::basic::bool`, `Extern`),
-                                                        ),
-                                                    ),
-                                                ),
+    [
+        Defn::ModuleItem(
+            ModuleItemDefn::Type(
+                TypeDefn::Extern(
+                    ExternTypeDefn {
+                        path: TypePath(`core::basic::bool`, `Extern`),
+                        decl: ExternTypeDecl {
+                            path: TypePath(`core::basic::bool`, `Extern`),
+                            implicit_parameters: [],
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: None,
+                                    path: RegionPath::Decl(
+                                        EntityNodePath::ModuleItem(
+                                            ModuleItemNodePath::Type(
+                                                TypeNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::basic::bool`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
-                                            expr_arena: Arena {
-                                                data: [],
-                                            },
-                                            entity_path_expr_arena: Arena {
-                                                data: [],
-                                            },
-                                            stmt_arena: Arena {
-                                                data: [],
-                                            },
-                                            pattern_expr_region: PatternExprRegion {
-                                                pattern_expr_arena: Arena {
-                                                    data: [],
-                                                },
-                                                pattern_expr_contracts: ArenaMap {
-                                                    data: [],
-                                                },
-                                                pattern_infos: [],
-                                                pattern_symbol_arena: Arena {
-                                                    data: [],
-                                                },
-                                                pattern_symbol_maps: [],
-                                                pattern_symbol_modifiers: ArenaMap {
-                                                    data: [],
-                                                },
-                                            },
-                                            symbol_region: SymbolRegion {
-                                                inherited_symbol_arena: Arena {
-                                                    data: [],
-                                                },
-                                                current_symbol_arena: Arena {
-                                                    data: [],
-                                                },
-                                                allow_self_type: True,
-                                                allow_self_value: False,
-                                                pattern_ty_constraints: [],
-                                            },
-                                            roots: [],
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_contracts: ArenaMap {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_modifiers: ArenaMap {
+                                            data: [],
                                         },
                                     },
-                                    implicit_parameter_decl_list: None,
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: False,
+                                        pattern_ty_constraints: [],
+                                    },
+                                    roots: [],
                                 },
                             },
-                        ),
-                    ),
+                        },
+                    },
                 ),
             ),
-            (
-                DefnRegionPath::Entity(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::basic::never`, `Extern`),
-                        ),
-                    ),
-                ),
-                Ok(
-                    Defn::Type(
-                        TypeDefn::Extern(
-                            ExternTypeDefn {
-                                path: TypePath(`core::basic::never`, `Extern`),
-                                decl: ExternTypeDecl {
-                                    path: TypePath(`core::basic::never`, `Extern`),
-                                    ast_idx: 1,
-                                    expr_region: ExprRegion {
-                                        data: ExprRegionData {
-                                            parent: None,
-                                            path: RegionPath::Decl(
-                                                DeclRegionPath::Entity(
-                                                    EntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
-                                                            TypePath(`core::basic::never`, `Extern`),
-                                                        ),
-                                                    ),
-                                                ),
+        ),
+        Defn::ModuleItem(
+            ModuleItemDefn::Type(
+                TypeDefn::Extern(
+                    ExternTypeDefn {
+                        path: TypePath(`core::basic::never`, `Extern`),
+                        decl: ExternTypeDecl {
+                            path: TypePath(`core::basic::never`, `Extern`),
+                            implicit_parameters: [],
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: None,
+                                    path: RegionPath::Decl(
+                                        EntityNodePath::ModuleItem(
+                                            ModuleItemNodePath::Type(
+                                                TypeNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::basic::never`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
-                                            expr_arena: Arena {
-                                                data: [],
-                                            },
-                                            entity_path_expr_arena: Arena {
-                                                data: [],
-                                            },
-                                            stmt_arena: Arena {
-                                                data: [],
-                                            },
-                                            pattern_expr_region: PatternExprRegion {
-                                                pattern_expr_arena: Arena {
-                                                    data: [],
-                                                },
-                                                pattern_expr_contracts: ArenaMap {
-                                                    data: [],
-                                                },
-                                                pattern_infos: [],
-                                                pattern_symbol_arena: Arena {
-                                                    data: [],
-                                                },
-                                                pattern_symbol_maps: [],
-                                                pattern_symbol_modifiers: ArenaMap {
-                                                    data: [],
-                                                },
-                                            },
-                                            symbol_region: SymbolRegion {
-                                                inherited_symbol_arena: Arena {
-                                                    data: [],
-                                                },
-                                                current_symbol_arena: Arena {
-                                                    data: [],
-                                                },
-                                                allow_self_type: True,
-                                                allow_self_value: False,
-                                                pattern_ty_constraints: [],
-                                            },
-                                            roots: [],
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_contracts: ArenaMap {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_modifiers: ArenaMap {
+                                            data: [],
                                         },
                                     },
-                                    implicit_parameter_decl_list: None,
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: False,
+                                        pattern_ty_constraints: [],
+                                    },
+                                    roots: [],
                                 },
                             },
-                        ),
-                    ),
+                        },
+                    },
                 ),
             ),
-            (
-                DefnRegionPath::Entity(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::basic::unit`, `Extern`),
-                        ),
-                    ),
-                ),
-                Ok(
-                    Defn::Type(
-                        TypeDefn::Extern(
-                            ExternTypeDefn {
-                                path: TypePath(`core::basic::unit`, `Extern`),
-                                decl: ExternTypeDecl {
-                                    path: TypePath(`core::basic::unit`, `Extern`),
-                                    ast_idx: 2,
-                                    expr_region: ExprRegion {
-                                        data: ExprRegionData {
-                                            parent: None,
-                                            path: RegionPath::Decl(
-                                                DeclRegionPath::Entity(
-                                                    EntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
-                                                            TypePath(`core::basic::unit`, `Extern`),
-                                                        ),
-                                                    ),
-                                                ),
+        ),
+        Defn::ModuleItem(
+            ModuleItemDefn::Type(
+                TypeDefn::Extern(
+                    ExternTypeDefn {
+                        path: TypePath(`core::basic::unit`, `Extern`),
+                        decl: ExternTypeDecl {
+                            path: TypePath(`core::basic::unit`, `Extern`),
+                            implicit_parameters: [],
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: None,
+                                    path: RegionPath::Decl(
+                                        EntityNodePath::ModuleItem(
+                                            ModuleItemNodePath::Type(
+                                                TypeNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::basic::unit`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
-                                            expr_arena: Arena {
-                                                data: [],
-                                            },
-                                            entity_path_expr_arena: Arena {
-                                                data: [],
-                                            },
-                                            stmt_arena: Arena {
-                                                data: [],
-                                            },
-                                            pattern_expr_region: PatternExprRegion {
-                                                pattern_expr_arena: Arena {
-                                                    data: [],
-                                                },
-                                                pattern_expr_contracts: ArenaMap {
-                                                    data: [],
-                                                },
-                                                pattern_infos: [],
-                                                pattern_symbol_arena: Arena {
-                                                    data: [],
-                                                },
-                                                pattern_symbol_maps: [],
-                                                pattern_symbol_modifiers: ArenaMap {
-                                                    data: [],
-                                                },
-                                            },
-                                            symbol_region: SymbolRegion {
-                                                inherited_symbol_arena: Arena {
-                                                    data: [],
-                                                },
-                                                current_symbol_arena: Arena {
-                                                    data: [],
-                                                },
-                                                allow_self_type: True,
-                                                allow_self_value: False,
-                                                pattern_ty_constraints: [],
-                                            },
-                                            roots: [],
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_contracts: ArenaMap {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_modifiers: ArenaMap {
+                                            data: [],
                                         },
                                     },
-                                    implicit_parameter_decl_list: None,
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: False,
+                                        pattern_ty_constraints: [],
+                                    },
+                                    roots: [],
                                 },
                             },
-                        ),
-                    ),
+                        },
+                    },
                 ),
             ),
-            (
-                DefnRegionPath::Entity(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::basic::Trait`, `Structure`),
-                        ),
-                    ),
-                ),
-                Ok(
-                    Defn::Type(
-                        TypeDefn::Structure(
-                            StructureTypeDefn {
-                                path: TypePath(`core::basic::Trait`, `Structure`),
-                                decl: StructureTypeDecl {
-                                    path: TypePath(`core::basic::Trait`, `Structure`),
-                                    ast_idx: 3,
-                                    expr_region: ExprRegion {
-                                        data: ExprRegionData {
-                                            parent: None,
-                                            path: RegionPath::Decl(
-                                                DeclRegionPath::Entity(
-                                                    EntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
-                                                            TypePath(`core::basic::Trait`, `Structure`),
-                                                        ),
-                                                    ),
-                                                ),
+        ),
+        Defn::ModuleItem(
+            ModuleItemDefn::Type(
+                TypeDefn::Extern(
+                    ExternTypeDefn {
+                        path: TypePath(`core::basic::Trait`, `Extern`),
+                        decl: ExternTypeDecl {
+                            path: TypePath(`core::basic::Trait`, `Extern`),
+                            implicit_parameters: [],
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: None,
+                                    path: RegionPath::Decl(
+                                        EntityNodePath::ModuleItem(
+                                            ModuleItemNodePath::Type(
+                                                TypeNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::basic::Trait`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
-                                            expr_arena: Arena {
-                                                data: [],
-                                            },
-                                            entity_path_expr_arena: Arena {
-                                                data: [],
-                                            },
-                                            stmt_arena: Arena {
-                                                data: [],
-                                            },
-                                            pattern_expr_region: PatternExprRegion {
-                                                pattern_expr_arena: Arena {
-                                                    data: [],
-                                                },
-                                                pattern_expr_contracts: ArenaMap {
-                                                    data: [],
-                                                },
-                                                pattern_infos: [],
-                                                pattern_symbol_arena: Arena {
-                                                    data: [],
-                                                },
-                                                pattern_symbol_maps: [],
-                                                pattern_symbol_modifiers: ArenaMap {
-                                                    data: [],
-                                                },
-                                            },
-                                            symbol_region: SymbolRegion {
-                                                inherited_symbol_arena: Arena {
-                                                    data: [],
-                                                },
-                                                current_symbol_arena: Arena {
-                                                    data: [],
-                                                },
-                                                allow_self_type: True,
-                                                allow_self_value: True,
-                                                pattern_ty_constraints: [],
-                                            },
-                                            roots: [],
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_contracts: ArenaMap {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_modifiers: ArenaMap {
+                                            data: [],
                                         },
                                     },
-                                    implicit_parameter_decl_list: None,
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: False,
+                                        pattern_ty_constraints: [],
+                                    },
+                                    roots: [],
                                 },
                             },
-                        ),
-                    ),
+                        },
+                    },
                 ),
             ),
-            (
-                DefnRegionPath::Entity(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::basic::Module`, `Structure`),
-                        ),
-                    ),
-                ),
-                Ok(
-                    Defn::Type(
-                        TypeDefn::Structure(
-                            StructureTypeDefn {
-                                path: TypePath(`core::basic::Module`, `Structure`),
-                                decl: StructureTypeDecl {
-                                    path: TypePath(`core::basic::Module`, `Structure`),
-                                    ast_idx: 4,
-                                    expr_region: ExprRegion {
-                                        data: ExprRegionData {
-                                            parent: None,
-                                            path: RegionPath::Decl(
-                                                DeclRegionPath::Entity(
-                                                    EntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
-                                                            TypePath(`core::basic::Module`, `Structure`),
-                                                        ),
-                                                    ),
-                                                ),
+        ),
+        Defn::ModuleItem(
+            ModuleItemDefn::Type(
+                TypeDefn::Extern(
+                    ExternTypeDefn {
+                        path: TypePath(`core::basic::Module`, `Extern`),
+                        decl: ExternTypeDecl {
+                            path: TypePath(`core::basic::Module`, `Extern`),
+                            implicit_parameters: [],
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: None,
+                                    path: RegionPath::Decl(
+                                        EntityNodePath::ModuleItem(
+                                            ModuleItemNodePath::Type(
+                                                TypeNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::basic::Module`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
-                                            expr_arena: Arena {
-                                                data: [],
-                                            },
-                                            entity_path_expr_arena: Arena {
-                                                data: [],
-                                            },
-                                            stmt_arena: Arena {
-                                                data: [],
-                                            },
-                                            pattern_expr_region: PatternExprRegion {
-                                                pattern_expr_arena: Arena {
-                                                    data: [],
-                                                },
-                                                pattern_expr_contracts: ArenaMap {
-                                                    data: [],
-                                                },
-                                                pattern_infos: [],
-                                                pattern_symbol_arena: Arena {
-                                                    data: [],
-                                                },
-                                                pattern_symbol_maps: [],
-                                                pattern_symbol_modifiers: ArenaMap {
-                                                    data: [],
-                                                },
-                                            },
-                                            symbol_region: SymbolRegion {
-                                                inherited_symbol_arena: Arena {
-                                                    data: [],
-                                                },
-                                                current_symbol_arena: Arena {
-                                                    data: [],
-                                                },
-                                                allow_self_type: True,
-                                                allow_self_value: True,
-                                                pattern_ty_constraints: [],
-                                            },
-                                            roots: [],
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_contracts: ArenaMap {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_modifiers: ArenaMap {
+                                            data: [],
                                         },
                                     },
-                                    implicit_parameter_decl_list: None,
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: False,
+                                        pattern_ty_constraints: [],
+                                    },
+                                    roots: [],
                                 },
                             },
-                        ),
-                    ),
+                        },
+                    },
                 ),
             ),
-        ],
-    },
+        ),
+    ],
 )

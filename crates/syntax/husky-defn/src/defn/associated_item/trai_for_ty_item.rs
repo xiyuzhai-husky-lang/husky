@@ -68,12 +68,14 @@ pub(crate) fn trai_for_ty_item_defn(
 ) -> DefnResult<TraitForTypeItemDefn> {
     Ok(match path.decl(db)? {
         TraitForTypeItemDecl::AssociatedFn(_) => todo!(),
-        TraitForTypeItemDecl::MethodFn(decl) => trai_for_ty_method_defn(db, decl).into(),
+        TraitForTypeItemDecl::MethodFn(decl) => {
+            TraitForTypeMethodFnDefn::new(db, path, decl)?.into()
+        }
         TraitForTypeItemDecl::AssociatedType(decl) => {
-            trai_for_ty_associated_ty_defn(db, decl).into()
+            TraitForTypeAssociatedTypeDefn::new(db, path, decl)?.into()
         }
         TraitForTypeItemDecl::AssociatedVal(decl) => {
-            trai_for_ty_associated_val_defn(db, decl).into()
+            TraitForTypeAssociatedValDefn::new(db, path, decl)?.into()
         }
     })
 }
