@@ -82,9 +82,9 @@ impl Decl {
         }
     }
 
-    pub fn expr_region(self, db: &dyn DeclDb) -> ExprRegion {
+    pub fn expr_region(self, db: &dyn DeclDb) -> Option<ExprRegion> {
         match self {
-            Decl::Submodule(_) => todo!(),
+            Decl::Submodule(_) => None,
             Decl::ModuleItem(decl) => decl.expr_region(db).into(),
             Decl::ImplBlock(decl) => decl.expr_region(db).into(),
             Decl::AssociatedItem(decl) => decl.expr_region(db).into(),

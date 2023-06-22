@@ -23,14 +23,10 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 Keyword::Pronoun(pronoun) => match pronoun {
                     PronounKeyword::Crate => {
                         let crate_root_path = self.parser.crate_root_path;
-                        let (entity_path_expr, path) = self.parse_entity_path_expr(
+                        DisambiguatedToken::AtomicExpr(self.parse_entity_path_expr(
                             CrateToken::new(token_idx).into(),
                             crate_root_path.into(),
-                        );
-                        DisambiguatedToken::AtomicExpr(Expr::EntityPath {
-                            entity_path_expr,
-                            path,
-                        })
+                        ))
                     }
                     PronounKeyword::SelfType => match self.allow_self_ty() {
                         AllowSelfType::True => {
@@ -335,16 +331,10 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     //     token_idx,
                     //     symbol_idx: variable_idx,
                     // },
-                    Symbol::Entity(entity_path) => {
-                        let (entity_path_expr, entity_path) = self.parse_entity_path_expr(
-                            IdentToken::new(ident, token_idx).into(),
-                            entity_path,
-                        );
-                        Expr::EntityPath {
-                            entity_path_expr,
-                            path: entity_path,
-                        }
-                    }
+                    Symbol::Entity(entity_path) => self.parse_entity_path_expr(
+                        IdentToken::new(ident, token_idx).into(),
+                        entity_path,
+                    ),
                     Symbol::Inherited(inherited_symbol_idx, inherited_symbol_kind) => {
                         Expr::InheritedSymbol {
                             ident,

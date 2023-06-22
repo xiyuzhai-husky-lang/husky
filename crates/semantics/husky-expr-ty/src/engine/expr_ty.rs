@@ -98,10 +98,15 @@ impl<'a> ExprTypeEngine<'a> {
                 ExprDisambiguation::Trivial,
                 self.calc_literal_expr_ty(expr_idx, literal_token_idx, expr_ty_expectation),
             )),
-            Expr::EntityPath {
+            Expr::NonAssociatedEntityPath {
                 entity_path_expr,
                 path,
             } => self.calc_entity_path_expr_ty(path, expr_ty_expectation),
+            Expr::AssociatedItemPath {
+                parent,
+                scope_resolution_token,
+                ident_token,
+            } => todo!(),
             Expr::InheritedSymbol {
                 ident,
                 inherited_symbol_idx,

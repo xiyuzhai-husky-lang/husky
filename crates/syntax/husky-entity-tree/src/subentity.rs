@@ -12,11 +12,19 @@ pub(crate) fn module_subentity_path(
     todo!()
 }
 
+#[enum_class::from_variants]
+pub enum SubentityPath {
+    // submodules, module items, type variants
+    NonAssociated(EntityPath),
+    // associated items
+    Associated,
+}
+
 pub(crate) fn subentity_path(
     db: &dyn EntityTreeDb,
     parent: EntityPath,
     ident: Ident,
-) -> EntityTreeResult<EntityPath> {
+) -> EntityTreeResult<SubentityPath> {
     match parent {
         EntityPath::Module(module_path) => {
             match db
@@ -24,7 +32,7 @@ pub(crate) fn subentity_path(
                 .module_symbols()
                 .resolve_ident(db, ReferenceModulePath::Generic, ident)
             {
-                Some(entity_symbol) => Ok(entity_symbol.path(db)),
+                Some(entity_symbol) => Ok(entity_symbol.path(db).into()),
                 None => Err(OriginalEntityTreeError::NoVisibleSubentity)?,
             }
         }
@@ -34,17 +42,9 @@ pub(crate) fn subentity_path(
             match module_item_path {
                 ModuleItemPath::Type(path) => {
                     if let Some((_, variant)) = path.variants(db)?.get_entry(ident) {
-                        Ok(variant.path(db).into())
+                        Ok(SubentityPath::NonAssociated(variant.path(db).into()))
                     } else if let Some((_, node)) = path.items(db)?.get_entry(ident) {
-                        todo!();
-                        // Ok(TypeItemPath::new(db, path, ident, node.kind(db)).into())
-                        // Ok(match associated_item.associated_item_kind(db) {
-                        //     AssociatedItemKind::TypeItem(ty_item_kind) => {
-                        //         TypeItemPath::new(db, path, ident, ty_item_kind).into()
-                        //     }
-                        //     AssociatedItemKind::TraitItem(_) => todo!(),
-                        //     AssociatedItemKind::TraitForTypeItem(_) => todo!(),
-                        // })
+                        Ok(SubentityPath::Associated)
                     } else {
                         // todo: check trait impls
                         Err(OriginalEntityTreeError::NoVisibleSubentity)?

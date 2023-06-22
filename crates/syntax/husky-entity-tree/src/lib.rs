@@ -29,12 +29,12 @@ pub use self::prelude::*;
 pub use self::presheet::*;
 pub use self::region_path::*;
 pub use self::sheet::*;
+pub use self::subentity::*;
 pub use self::symbol::*;
 pub use self::table::*;
 
 use self::collector::*;
 use self::context::*;
-use self::subentity::*;
 use self::submodule::*;
 #[cfg(test)]
 use self::tests::*;

@@ -34,7 +34,7 @@ pub(crate) fn fugitive_node_defn(db: &dyn DefnDb, node_path: FugitiveNodePath) -
     match node_path.node_decl(db) {
         FugitiveNodeDecl::Fn(node_decl) => FnNodeDefn::new(db, node_path, node_decl).into(),
         FugitiveNodeDecl::Val(node_decl) => ValNodeDefn::new(db, node_path, node_decl).into(),
-        FugitiveNodeDecl::Gn(_) => todo!(),
+        FugitiveNodeDecl::Gn(node_decl) => GnNodeDefn::new(db, node_path, node_decl).into(),
     }
 }
 
@@ -88,6 +88,6 @@ pub(crate) fn fugitive_defn(db: &dyn DefnDb, path: FugitivePath) -> DefnResult<F
     Ok(match path.decl(db)? {
         FugitiveDecl::Fn(decl) => FnDefn::new(db, path, decl).into(),
         FugitiveDecl::Val(decl) => ValDefn::new(db, path, decl).into(),
-        FugitiveDecl::Gn(decl) => todo!(),
+        FugitiveDecl::Gn(decl) => GnDefn::new(db, path, decl).into(),
     })
 }

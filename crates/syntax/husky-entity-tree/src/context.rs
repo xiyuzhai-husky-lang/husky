@@ -53,6 +53,7 @@ where
         self.db
     }
 
+    // associated items not included
     pub(crate) fn resolve_subentity(
         &self,
         parent: EntityPath,
@@ -81,10 +82,12 @@ where
                 EntityPath::ImplBlock(_) => todo!(),
             }
         } else {
-            self.db
-                .subentity_path(parent, ident)
-                .ok()
-                .map(|entity_path| EntitySymbol::PackageDependency { entity_path })
+            match self.db.subentity_path(parent, ident).ok()? {
+                SubentityPath::NonAssociated(entity_path) => {
+                    Some(EntitySymbol::PackageDependency { entity_path })
+                }
+                SubentityPath::Associated => todo!(),
+            }
         }
     }
 
