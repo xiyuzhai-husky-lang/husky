@@ -35,6 +35,14 @@ pub enum ModuleItemDefn {
 }
 
 impl ModuleItemDefn {
+    pub fn decl(self, db: &dyn DefnDb) -> ModuleItemDecl {
+        match self {
+            ModuleItemDefn::Type(defn) => defn.decl(db).into(),
+            ModuleItemDefn::Trait(defn) => defn.decl(db).into(),
+            ModuleItemDefn::Fugitive(defn) => defn.decl(db).into(),
+        }
+    }
+
     pub fn expr_region(self, db: &dyn DefnDb) -> Option<ExprRegion> {
         match self {
             ModuleItemDefn::Type(_) | ModuleItemDefn::Trait(_) => None,

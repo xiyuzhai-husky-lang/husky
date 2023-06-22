@@ -1,6 +1,6 @@
 Ok(
     DeclSheet {
-        [salsa id]: 45,
+        [salsa id]: 46,
         decls: [
             (
                 EntityPath::ModuleItem(
@@ -182,7 +182,7 @@ Ok(
                                                         ident: Ident(
                                                             Word(
                                                                 Id {
-                                                                    value: 266,
+                                                                    value: 267,
                                                                 },
                                                             ),
                                                         ),
@@ -199,7 +199,7 @@ Ok(
                                                         ident: Ident(
                                                             Word(
                                                                 Id {
-                                                                    value: 237,
+                                                                    value: 238,
                                                                 },
                                                             ),
                                                         ),
@@ -2385,7 +2385,7 @@ Ok(
                                                         ident: Ident(
                                                             Word(
                                                                 Id {
-                                                                    value: 314,
+                                                                    value: 315,
                                                                 },
                                                             ),
                                                         ),
@@ -2402,7 +2402,7 @@ Ok(
                                                         ident: Ident(
                                                             Word(
                                                                 Id {
-                                                                    value: 315,
+                                                                    value: 316,
                                                                 },
                                                             ),
                                                         ),

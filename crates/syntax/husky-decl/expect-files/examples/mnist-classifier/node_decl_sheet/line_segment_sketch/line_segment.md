@@ -1,6 +1,6 @@
 Ok(
     NodeDeclSheet {
-        [salsa id]: 42,
+        [salsa id]: 43,
         decls: [
             (
                 EntityNodePath::ModuleItem(
@@ -46,7 +46,7 @@ Ok(
                                                     ident: Ident(
                                                         Word(
                                                             Id {
-                                                                value: 283,
+                                                                value: 284,
                                                             },
                                                         ),
                                                     ),
@@ -69,7 +69,7 @@ Ok(
                                                     ident: Ident(
                                                         Word(
                                                             Id {
-                                                                value: 284,
+                                                                value: 285,
                                                             },
                                                         ),
                                                     ),
@@ -220,7 +220,7 @@ Ok(
                                                         ident: Ident(
                                                             Word(
                                                                 Id {
-                                                                    value: 283,
+                                                                    value: 284,
                                                                 },
                                                             ),
                                                         ),
@@ -237,7 +237,7 @@ Ok(
                                                         ident: Ident(
                                                             Word(
                                                                 Id {
-                                                                    value: 284,
+                                                                    value: 285,
                                                                 },
                                                             ),
                                                         ),

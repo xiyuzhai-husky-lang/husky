@@ -1,6 +1,6 @@
 Ok(
     NodeDeclSheet {
-        [salsa id]: 46,
+        [salsa id]: 47,
         decls: [
             (
                 EntityNodePath::ModuleItem(

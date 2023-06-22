@@ -129,6 +129,14 @@
     ),
     (
         EntityPath::Module(
+            `core::slice`,
+        ),
+        Ok(
+            DeclarativeTerm(`core::basic::Module`),
+        ),
+    ),
+    (
+        EntityPath::Module(
             `core::str`,
         ),
         Ok(

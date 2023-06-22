@@ -342,6 +342,27 @@ Ok(
                 EntityNodePath::Submodule(
                     SubmoduleNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: `core::slice`,
+                            disambiguator: 0,
+                        },
+                    },
+                ),
+                NodeDecl::Submodule(
+                    SubmoduleNodeDecl {
+                        node_path: SubmoduleNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: `core::slice`,
+                                disambiguator: 0,
+                            },
+                        },
+                        ast_idx: 16,
+                    },
+                ),
+            ),
+            (
+                EntityNodePath::Submodule(
+                    SubmoduleNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `core::str`,
                             disambiguator: 0,
                         },
@@ -355,7 +376,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 16,
+                        ast_idx: 17,
                     },
                 ),
             ),
@@ -376,7 +397,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 17,
+                        ast_idx: 18,
                     },
                 ),
             ),

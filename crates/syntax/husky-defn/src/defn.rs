@@ -59,10 +59,7 @@ impl Defn {
     pub fn decl(self, db: &dyn DefnDb) -> Decl {
         match self {
             Defn::Submodule(defn) => Decl::Submodule(defn.decl()),
-            Defn::ModuleItem(defn) => todo!(),
-            // Defn::Type(defn) => defn.decl(db).into(),
-            // Defn::Trait(defn) => defn.decl(db).into(),
-            // Defn::Fugitive(defn) => defn.decl(db).into(),
+            Defn::ModuleItem(defn) => defn.decl(db).into(),
             Defn::TypeVariant(defn) => defn.decl(db).into(),
             Defn::ImplBlock(decl) => decl.into(),
             Defn::AssociatedItem(defn) => defn.decl(db).into(),

@@ -1,6 +1,6 @@
 Ok(
     DeclSheet {
-        [salsa id]: 43,
+        [salsa id]: 44,
         decls: [
             (
                 EntityPath::Module(
@@ -440,7 +440,7 @@ Ok(
                                                         ident: Ident(
                                                             Word(
                                                                 Id {
-                                                                    value: 237,
+                                                                    value: 238,
                                                                 },
                                                             ),
                                                         ),
@@ -457,7 +457,7 @@ Ok(
                                                         ident: Ident(
                                                             Word(
                                                                 Id {
-                                                                    value: 285,
+                                                                    value: 286,
                                                                 },
                                                             ),
                                                         ),
@@ -480,7 +480,7 @@ Ok(
                                                         ident: Ident(
                                                             Word(
                                                                 Id {
-                                                                    value: 286,
+                                                                    value: 287,
                                                                 },
                                                             ),
                                                         ),
@@ -685,7 +685,7 @@ Ok(
                                                         ident: Ident(
                                                             Word(
                                                                 Id {
-                                                                    value: 325,
+                                                                    value: 326,
                                                                 },
                                                             ),
                                                         ),
@@ -702,7 +702,7 @@ Ok(
                                                         ident: Ident(
                                                             Word(
                                                                 Id {
-                                                                    value: 366,
+                                                                    value: 367,
                                                                 },
                                                             ),
                                                         ),

@@ -1,6 +1,6 @@
 Ok(
     DeclSheet {
-        [salsa id]: 18,
+        [salsa id]: 19,
         decls: [
             (
                 EntityPath::ModuleItem(

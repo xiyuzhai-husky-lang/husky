@@ -594,7 +594,7 @@ Ok(
                     },
                     entity_kind: Module,
                     ident_token: IdentToken {
-                        ident: `str`,
+                        ident: `slice`,
                         token_idx: TokenIdx(
                             50,
                         ),
@@ -630,7 +630,7 @@ Ok(
                     },
                     entity_kind: Module,
                     ident_token: IdentToken {
-                        ident: `visual`,
+                        ident: `str`,
                         token_idx: TokenIdx(
                             53,
                         ),
@@ -650,14 +650,50 @@ Ok(
                         ),
                     },
                 },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        18,
+                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    54,
+                                ),
+                            },
+                        },
+                    },
+                    entity_kind: Module,
+                    ident_token: IdentToken {
+                        ident: `visual`,
+                        token_idx: TokenIdx(
+                            56,
+                        ),
+                    },
+                    is_generic: false,
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            57,
+                        ),
+                        drained: true,
+                    },
+                    block: Submodule {
+                        path: ModulePath(
+                            Id {
+                                value: 20,
+                            },
+                        ),
+                    },
+                },
             ],
         },
         top_level_asts: ArenaIdxRange(
-            0..18,
+            0..19,
         ),
         siblings: [
             ArenaIdxRange(
-                0..18,
+                0..19,
             ),
         ],
     },
