@@ -8,7 +8,7 @@ pub struct TraitAssociatedTypeNodeDefn {
     pub expr_region: ExprRegion,
 }
 
-#[salsa::tracked(db = DefnDb, jar = DefnJar)]
+#[salsa::tracked(db = DefnDb, jar = DefnJar, constructor = new_inner)]
 pub struct TraitAssociatedTypeDefn {
     #[id]
     pub path: TraitItemPath,
