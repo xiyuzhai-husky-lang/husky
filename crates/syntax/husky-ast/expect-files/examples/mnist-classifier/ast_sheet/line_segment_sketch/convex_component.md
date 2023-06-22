@@ -42,7 +42,7 @@ Ok(
                     },
                     block: AssociatedItem {
                         body: Some(
-                            FormBody {
+                            FugitiveBody {
                                 ast_idx_range: ArenaIdxRange(
                                     0..1,
                                 ),

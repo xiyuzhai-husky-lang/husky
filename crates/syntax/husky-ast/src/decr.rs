@@ -76,7 +76,7 @@ impl AstSheet {
     ) -> Result<Vec<D>, E> {
         let decr_parent = match self.ast_arena[target] {
             Ast::Defn { block, .. } => DecrParent::Defn(match block {
-                DefnBlock::Form { path, body } => todo!(),
+                DefnBlock::Fugitive { path, body } => todo!(),
                 DefnBlock::Submodule { path } => todo!(),
                 DefnBlock::Type { path, variants } => path.into(),
                 DefnBlock::Trait { path, items } => todo!(),

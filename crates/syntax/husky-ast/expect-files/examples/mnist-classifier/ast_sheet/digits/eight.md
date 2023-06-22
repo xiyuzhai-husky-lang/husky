@@ -19,7 +19,7 @@ Ok(
                         10,
                     ),
                     body: Some(
-                        FormBody {
+                        FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
                                 1..2,
                             ),
@@ -44,7 +44,7 @@ Ok(
                         9,
                     ),
                     body: Some(
-                        FormBody {
+                        FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
                                 3..5,
                             ),
@@ -105,7 +105,7 @@ Ok(
                         15,
                     ),
                     body: Some(
-                        FormBody {
+                        FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
                                 13..14,
                             ),
@@ -174,14 +174,14 @@ Ok(
                         ),
                         drained: false,
                     },
-                    block: Form {
+                    block: Fugitive {
                         path: FugitivePath(
                             Id {
                                 value: 10,
                             },
                         ),
                         body: Some(
-                            FormBody {
+                            FugitiveBody {
                                 ast_idx_range: ArenaIdxRange(
                                     0..1,
                                 ),
@@ -245,14 +245,14 @@ Ok(
                         ),
                         drained: false,
                     },
-                    block: Form {
+                    block: Fugitive {
                         path: FugitivePath(
                             Id {
                                 value: 11,
                             },
                         ),
                         body: Some(
-                            FormBody {
+                            FugitiveBody {
                                 ast_idx_range: ArenaIdxRange(
                                     6..13,
                                 ),
@@ -293,14 +293,14 @@ Ok(
                         ),
                         drained: false,
                     },
-                    block: Form {
+                    block: Fugitive {
                         path: FugitivePath(
                             Id {
                                 value: 12,
                             },
                         ),
                         body: Some(
-                            FormBody {
+                            FugitiveBody {
                                 ast_idx_range: ArenaIdxRange(
                                     15..17,
                                 ),

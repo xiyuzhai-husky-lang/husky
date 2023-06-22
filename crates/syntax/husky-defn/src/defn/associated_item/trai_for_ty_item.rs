@@ -24,7 +24,25 @@ impl HasNodeDefn for TraitForTypeItemNodePath {
     type NodeDefn = TraitForTypeItemNodeDefn;
 
     fn node_defn(self, db: &dyn DefnDb) -> Self::NodeDefn {
-        todo!()
+        trai_for_ty_item_node_defn(db, self)
+    }
+}
+
+#[salsa::tracked(jar = DefnJar)]
+pub(crate) fn trai_for_ty_item_node_defn(
+    db: &dyn DefnDb,
+    node_path: TraitForTypeItemNodePath,
+) -> TraitForTypeItemNodeDefn {
+    match node_path.node_decl(db) {
+        TraitForTypeItemNodeDecl::AssociatedFn(_) => todo!(),
+        TraitForTypeItemNodeDecl::MethodFn(node_decl) => {
+            TraitForTypeMethodFnNodeDefn::new(db, node_path, node_decl).into()
+        }
+        TraitForTypeItemNodeDecl::AssociatedType(node_decl) => {
+            TraitForTypeAssociatedTypeNodeDefn::new(db, node_path, node_decl).into()
+        }
+        TraitForTypeItemNodeDecl::AssociatedVal(_) => todo!(),
+        // TraitForTypeItemNodeDecl::MemoizedField(_) => todo!(),
     }
 }
 
@@ -77,10 +95,10 @@ pub(crate) fn trai_for_ty_item_defn(
     Ok(match path.decl(db)? {
         TraitForTypeItemDecl::AssociatedFn(_) => todo!(),
         TraitForTypeItemDecl::MethodFn(decl) => {
-            TraitForTypeMethodFnDefn::new(db, path, decl)?.into()
+            TraitForTypeMethodFnDefn::new(db, path, decl).into()
         }
         TraitForTypeItemDecl::AssociatedType(decl) => {
-            TraitForTypeAssociatedTypeDefn::new(db, path, decl)?.into()
+            TraitForTypeAssociatedTypeDefn::new(db, path, decl).into()
         }
         TraitForTypeItemDecl::AssociatedVal(decl) => {
             TraitForTypeAssociatedValDefn::new(db, path, decl)?.into()

@@ -25,7 +25,16 @@ impl HasNodeDefn for FugitiveNodePath {
     type NodeDefn = FugitiveNodeDefn;
 
     fn node_defn(self, db: &dyn DefnDb) -> Self::NodeDefn {
-        todo!()
+        fugitive_node_defn(db, self)
+    }
+}
+
+#[salsa::tracked(jar = DefnJar)]
+pub(crate) fn fugitive_node_defn(db: &dyn DefnDb, node_path: FugitiveNodePath) -> FugitiveNodeDefn {
+    match node_path.node_decl(db) {
+        FugitiveNodeDecl::Fn(node_decl) => FnNodeDefn::new(db, node_path, node_decl).into(),
+        FugitiveNodeDecl::Val(node_decl) => ValNodeDefn::new(db, node_path, node_decl).into(),
+        FugitiveNodeDecl::Gn(_) => todo!(),
     }
 }
 
@@ -76,10 +85,9 @@ impl HasDefn for FugitivePath {
 
 #[salsa::tracked(jar= DefnJar)]
 pub(crate) fn fugitive_defn(db: &dyn DefnDb, path: FugitivePath) -> DefnResult<FugitiveDefn> {
-    todo!()
-    // match self {
-    //     FugitivePath::Fn(path) => path.defn(db).into(),
-    //     FugitivePath::Val(decl) => decl.defn(db).into(),
-    //     FugitivePath::Gn(decl) => decl.defn(db).into(),
-    // }
+    Ok(match path.decl(db)? {
+        FugitiveDecl::Fn(decl) => FnDefn::new(db, path, decl).into(),
+        FugitiveDecl::Val(decl) => ValDefn::new(db, path, decl).into(),
+        FugitiveDecl::Gn(decl) => todo!(),
+    })
 }

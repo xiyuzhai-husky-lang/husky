@@ -59,7 +59,7 @@ pub enum Ast {
     },
     BasicStmtOrBranch {
         token_group_idx: TokenGroupIdx,
-        body: Option<FormBody>,
+        body: Option<FugitiveBody>,
     },
     IfElseStmts {
         if_branch: AstIdx,
@@ -93,11 +93,11 @@ pub enum Ast {
     },
     Main {
         token_group_idx: TokenGroupIdx,
-        body: FormBody,
+        body: FugitiveBody,
     },
     Config {
         token_group_idx: TokenGroupIdx,
-        body: FormBody,
+        body: FugitiveBody,
     },
 }
 

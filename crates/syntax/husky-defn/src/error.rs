@@ -19,12 +19,15 @@ pub enum OriginalDefnError {
 
 impl From<DeclError> for DefnError {
     fn from(value: DeclError) -> Self {
-        todo!()
+        DefnError::Derived(DerivedDefnError::Decl)
     }
 }
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
 // #[salsa::derive_debug_with_db(db = DefnDb)]
-pub enum DerivedDefnError {}
+pub enum DerivedDefnError {
+    #[error("decl")]
+    Decl,
+}
 
 pub type DefnResult<T> = Result<T, DefnError>;

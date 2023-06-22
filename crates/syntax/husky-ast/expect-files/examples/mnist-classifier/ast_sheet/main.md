@@ -452,7 +452,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         15,
                     ),
-                    body: FormBody {
+                    body: FugitiveBody {
                         ast_idx_range: ArenaIdxRange(
                             0..1,
                         ),
@@ -462,7 +462,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         17,
                     ),
-                    body: FormBody {
+                    body: FugitiveBody {
                         ast_idx_range: ArenaIdxRange(
                             1..11,
                         ),

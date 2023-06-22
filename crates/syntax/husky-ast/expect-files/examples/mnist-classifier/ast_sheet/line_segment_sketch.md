@@ -42,7 +42,7 @@ Ok(
                     },
                     block: AssociatedItem {
                         body: Some(
-                            FormBody {
+                            FugitiveBody {
                                 ast_idx_range: ArenaIdxRange(
                                     0..1,
                                 ),
@@ -102,7 +102,7 @@ Ok(
                     },
                     block: AssociatedItem {
                         body: Some(
-                            FormBody {
+                            FugitiveBody {
                                 ast_idx_range: ArenaIdxRange(
                                     2..4,
                                 ),
@@ -144,7 +144,7 @@ Ok(
                     },
                     block: AssociatedItem {
                         body: Some(
-                            FormBody {
+                            FugitiveBody {
                                 ast_idx_range: ArenaIdxRange(
                                     4..5,
                                 ),
@@ -192,7 +192,7 @@ Ok(
                     },
                     block: AssociatedItem {
                         body: Some(
-                            FormBody {
+                            FugitiveBody {
                                 ast_idx_range: ArenaIdxRange(
                                     7..8,
                                 ),
@@ -271,7 +271,7 @@ Ok(
                         33,
                     ),
                     body: Some(
-                        FormBody {
+                        FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
                                 10..15,
                             ),
@@ -324,7 +324,7 @@ Ok(
                     },
                     block: AssociatedItem {
                         body: Some(
-                            FormBody {
+                            FugitiveBody {
                                 ast_idx_range: ArenaIdxRange(
                                     9..10,
                                 ),
@@ -366,7 +366,7 @@ Ok(
                     },
                     block: AssociatedItem {
                         body: Some(
-                            FormBody {
+                            FugitiveBody {
                                 ast_idx_range: ArenaIdxRange(
                                     15..22,
                                 ),
@@ -408,7 +408,7 @@ Ok(
                     },
                     block: AssociatedItem {
                         body: Some(
-                            FormBody {
+                            FugitiveBody {
                                 ast_idx_range: ArenaIdxRange(
                                     22..23,
                                 ),
@@ -511,7 +511,7 @@ Ok(
                         64,
                     ),
                     body: Some(
-                        FormBody {
+                        FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
                                 40..41,
                             ),
@@ -529,7 +529,7 @@ Ok(
                         71,
                     ),
                     body: Some(
-                        FormBody {
+                        FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
                                 42..43,
                             ),
@@ -547,7 +547,7 @@ Ok(
                         73,
                     ),
                     body: Some(
-                        FormBody {
+                        FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
                                 44..45,
                             ),
@@ -565,7 +565,7 @@ Ok(
                         78,
                     ),
                     body: Some(
-                        FormBody {
+                        FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
                                 46..47,
                             ),
@@ -583,7 +583,7 @@ Ok(
                         80,
                     ),
                     body: Some(
-                        FormBody {
+                        FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
                                 48..49,
                             ),
@@ -621,7 +621,7 @@ Ok(
                         75,
                     ),
                     body: Some(
-                        FormBody {
+                        FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
                                 50..54,
                             ),
@@ -689,7 +689,7 @@ Ok(
                         61,
                     ),
                     body: Some(
-                        FormBody {
+                        FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
                                 38..40,
                             ),
@@ -726,7 +726,7 @@ Ok(
                         69,
                     ),
                     body: Some(
-                        FormBody {
+                        FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
                                 55..60,
                             ),
@@ -768,7 +768,7 @@ Ok(
                         93,
                     ),
                     body: Some(
-                        FormBody {
+                        FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
                                 74..75,
                             ),
@@ -786,7 +786,7 @@ Ok(
                         101,
                     ),
                     body: Some(
-                        FormBody {
+                        FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
                                 76..77,
                             ),
@@ -804,7 +804,7 @@ Ok(
                         103,
                     ),
                     body: Some(
-                        FormBody {
+                        FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
                                 78..79,
                             ),
@@ -822,7 +822,7 @@ Ok(
                         108,
                     ),
                     body: Some(
-                        FormBody {
+                        FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
                                 80..81,
                             ),
@@ -840,7 +840,7 @@ Ok(
                         110,
                     ),
                     body: Some(
-                        FormBody {
+                        FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
                                 82..83,
                             ),
@@ -878,7 +878,7 @@ Ok(
                         105,
                     ),
                     body: Some(
-                        FormBody {
+                        FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
                                 84..88,
                             ),
@@ -896,7 +896,7 @@ Ok(
                         113,
                     ),
                     body: Some(
-                        FormBody {
+                        FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
                                 89..90,
                             ),
@@ -921,7 +921,7 @@ Ok(
                         112,
                     ),
                     body: Some(
-                        FormBody {
+                        FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
                                 91..93,
                             ),
@@ -939,7 +939,7 @@ Ok(
                         116,
                     ),
                     body: Some(
-                        FormBody {
+                        FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
                                 94..95,
                             ),
@@ -992,7 +992,7 @@ Ok(
                         118,
                     ),
                     body: Some(
-                        FormBody {
+                        FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
                                 101..102,
                             ),
@@ -1010,7 +1010,7 @@ Ok(
                         120,
                     ),
                     body: Some(
-                        FormBody {
+                        FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
                                 103..104,
                             ),
@@ -1040,7 +1040,7 @@ Ok(
                         90,
                     ),
                     body: Some(
-                        FormBody {
+                        FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
                                 72..74,
                             ),
@@ -1077,7 +1077,7 @@ Ok(
                         98,
                     ),
                     body: Some(
-                        FormBody {
+                        FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
                                 96..101,
                             ),
@@ -1116,7 +1116,7 @@ Ok(
                         134,
                     ),
                     body: Some(
-                        FormBody {
+                        FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
                                 115..118,
                             ),
@@ -1147,7 +1147,7 @@ Ok(
                         131,
                     ),
                     body: Some(
-                        FormBody {
+                        FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
                                 119..122,
                             ),
@@ -1171,7 +1171,7 @@ Ok(
                         146,
                     ),
                     body: Some(
-                        FormBody {
+                        FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
                                 123..125,
                             ),
@@ -1214,7 +1214,7 @@ Ok(
                         141,
                     ),
                     body: Some(
-                        FormBody {
+                        FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
                                 126..131,
                             ),
@@ -1232,7 +1232,7 @@ Ok(
                         149,
                     ),
                     body: Some(
-                        FormBody {
+                        FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
                                 132..133,
                             ),
@@ -1271,7 +1271,7 @@ Ok(
                         138,
                     ),
                     body: Some(
-                        FormBody {
+                        FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
                                 134..138,
                             ),
@@ -1339,7 +1339,7 @@ Ok(
                         157,
                     ),
                     body: Some(
-                        FormBody {
+                        FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
                                 146..148,
                             ),
@@ -1375,7 +1375,7 @@ Ok(
                         127,
                     ),
                     body: Some(
-                        FormBody {
+                        FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
                                 139..146,
                             ),
@@ -1847,14 +1847,14 @@ Ok(
                         ),
                         drained: false,
                     },
-                    block: Form {
+                    block: Fugitive {
                         path: FugitivePath(
                             Id {
                                 value: 58,
                             },
                         ),
                         body: Some(
-                            FormBody {
+                            FugitiveBody {
                                 ast_idx_range: ArenaIdxRange(
                                     26..32,
                                 ),
@@ -1895,14 +1895,14 @@ Ok(
                         ),
                         drained: false,
                     },
-                    block: Form {
+                    block: Fugitive {
                         path: FugitivePath(
                             Id {
                                 value: 59,
                             },
                         ),
                         body: Some(
-                            FormBody {
+                            FugitiveBody {
                                 ast_idx_range: ArenaIdxRange(
                                     32..38,
                                 ),
@@ -1943,14 +1943,14 @@ Ok(
                         ),
                         drained: false,
                     },
-                    block: Form {
+                    block: Fugitive {
                         path: FugitivePath(
                             Id {
                                 value: 60,
                             },
                         ),
                         body: Some(
-                            FormBody {
+                            FugitiveBody {
                                 ast_idx_range: ArenaIdxRange(
                                     60..72,
                                 ),
@@ -1991,14 +1991,14 @@ Ok(
                         ),
                         drained: false,
                     },
-                    block: Form {
+                    block: Fugitive {
                         path: FugitivePath(
                             Id {
                                 value: 61,
                             },
                         ),
                         body: Some(
-                            FormBody {
+                            FugitiveBody {
                                 ast_idx_range: ArenaIdxRange(
                                     105..115,
                                 ),
@@ -2039,14 +2039,14 @@ Ok(
                         ),
                         drained: false,
                     },
-                    block: Form {
+                    block: Fugitive {
                         path: FugitivePath(
                             Id {
                                 value: 62,
                             },
                         ),
                         body: Some(
-                            FormBody {
+                            FugitiveBody {
                                 ast_idx_range: ArenaIdxRange(
                                     149..159,
                                 ),

@@ -44,6 +44,7 @@ pub struct DefnJar(
     UnionTypeNodeDefn,
     UnionTypeDefn,
     // fugitive
+    fugitive_node_defn,
     fugitive_defn,
     ValNodeDefn,
     ValDefn,
@@ -91,6 +92,7 @@ pub struct DefnJar(
     TraitAssociatedValNodeDefn,
     TraitAssociatedValDefn,
     // trait for type item
+    trai_for_ty_item_node_defn,
     trai_for_ty_item_defn,
     TraitForTypeAssociatedFnNodeDefn,
     TraitForTypeAssociatedFnDefn,
