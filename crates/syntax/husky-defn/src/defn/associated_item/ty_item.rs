@@ -41,7 +41,9 @@ pub(crate) fn ty_item_node_defn(db: &dyn DefnDb, node_path: TypeItemNodePath) ->
         }
         TypeItemNodeDecl::AssociatedType(_) => todo!(),
         TypeItemNodeDecl::AssociatedVal(_) => todo!(),
-        TypeItemNodeDecl::MemoizedField(_) => todo!(),
+        TypeItemNodeDecl::MemoizedField(node_decl) => {
+            TypeMemoizedFieldNodeDefn::new(db, node_path, node_decl).into()
+        }
     }
 }
 

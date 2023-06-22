@@ -67,7 +67,7 @@ impl<'a> AstParser<'a> {
                             },
                         }
                     }
-                    ModuleItemKind::Fugitive(form_kind) => DefnBlock::Form {
+                    ModuleItemKind::Fugitive(form_kind) => DefnBlock::Fugitive {
                         path: FugitivePath::new(
                             self.db,
                             self.module_path,

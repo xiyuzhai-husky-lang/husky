@@ -1,5 +1,3 @@
 Ok(
-    DefnSheet {
-        defns: [],
-    },
+    [],
 )

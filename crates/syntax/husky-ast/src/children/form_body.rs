@@ -1,17 +1,17 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct FormBody {
+pub struct FugitiveBody {
     ast_idx_range: AstIdxRange,
 }
 
-impl FormBody {
+impl FugitiveBody {
     pub fn ast_idx_range(&self) -> AstIdxRange {
         self.ast_idx_range
     }
 }
 
-impl NormalAstChildren for FormBody {
+impl NormalAstChildren for FugitiveBody {
     const ALLOW_STMT: AstResult<()> = Ok(());
 
     #[inline(always)]
@@ -38,7 +38,7 @@ impl NormalAstChildren for FormBody {
     }
 }
 
-impl<'a> TryParseOptionalFromStream<AstParser<'a>> for FormBody {
+impl<'a> TryParseOptionalFromStream<AstParser<'a>> for FugitiveBody {
     type Error = AstError;
 
     fn try_parse_stream_optional_from_without_guaranteed_rollback(

@@ -1,5 +1,5 @@
 use super::*;
-use husky_ast::{AstIdx, AstTokenIdxRangeSheet, FormBody};
+use husky_ast::{AstIdx, AstTokenIdxRangeSheet, FugitiveBody};
 
 pub struct BlockExprParser<'a> {
     expr_parser: ExprParser<'a>,
@@ -51,7 +51,7 @@ impl<'a> BlockExprParser<'a> {
 
     pub fn parse_block_stmts_expected(
         &mut self,
-        body: FormBody,
+        body: FugitiveBody,
         token_group_idx: TokenGroupIdx,
     ) -> ExprResult<StmtIdxRange> {
         match self.parse_block_stmts(body) {
@@ -60,7 +60,7 @@ impl<'a> BlockExprParser<'a> {
         }
     }
 
-    pub fn parse_block_stmts(&mut self, body: FormBody) -> Option<StmtIdxRange> {
+    pub fn parse_block_stmts(&mut self, body: FugitiveBody) -> Option<StmtIdxRange> {
         let block_end = self.form_body_end(body);
         let body = body.ast_idx_range();
         if body.len() == 0 {
@@ -76,7 +76,7 @@ impl<'a> BlockExprParser<'a> {
         Some(self.alloc_stmts(stmts))
     }
 
-    pub fn parse_block_expr(&mut self, body: FormBody) -> ExprIdx {
+    pub fn parse_block_expr(&mut self, body: FugitiveBody) -> ExprIdx {
         let stmts = self
             .parse_block_stmts(body)
             .expect("husky-ast should guarantee that this not empty");
@@ -135,7 +135,7 @@ impl<'a> BlockExprParser<'a> {
         &mut self,
         token_group_idx: TokenGroupIdx,
         block_end: TokenIdxRangeEnd,
-        body: Option<FormBody>,
+        body: Option<FugitiveBody>,
     ) -> Option<Stmt> {
         let token_stream = self
             .token_sheet_data
@@ -254,7 +254,7 @@ impl<'a> BlockExprParser<'a> {
         for_token: StmtForToken,
         expr: ExprIdx,
         eol_colon: ExprResult<EolToken>,
-        body: FormBody,
+        body: FugitiveBody,
     ) -> StmtResult<Stmt> {
         match self.expr_arena[expr] {
             Expr::Binary {
@@ -382,7 +382,7 @@ impl<'a> BlockExprParser<'a> {
         forext_token: ForextToken,
         expr: ExprIdx,
         eol_colon: ExprResult<EolToken>,
-        body: FormBody,
+        body: FugitiveBody,
     ) -> StmtResult<Stmt> {
         Ok(Stmt::ForExt {
             forext_token,
@@ -419,7 +419,7 @@ impl<'a> BlockExprParser<'a> {
             _ => unreachable!(),
         }
     }
-    fn form_body_end(&self, body: FormBody) -> TokenIdxRangeEnd {
+    fn form_body_end(&self, body: FugitiveBody) -> TokenIdxRangeEnd {
         self.ast_token_idx_range_sheet[body.ast_idx_range().end() - 1].end()
     }
 
