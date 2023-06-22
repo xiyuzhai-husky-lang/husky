@@ -128,8 +128,7 @@ impl EntityTreeSheet {
             .copied()
             .filter_map(|(node_path, _)| match node_path {
                 ImplBlockNodePath::TypeImplBlock(node_path) => Some(node_path),
-                ImplBlockNodePath::TraitForTypeImplBlock(_) => todo!(),
-                ImplBlockNodePath::IllFormedImplBlock(_) => todo!(),
+                _ => None,
             })
     }
 
@@ -139,8 +138,7 @@ impl EntityTreeSheet {
             .copied()
             .filter_map(|(_, impl_block)| match impl_block {
                 ImplBlockNode::TypeImplBlock(impl_block) => Some(impl_block),
-                ImplBlockNode::TraitForTypeImplBlock(_) => None,
-                ImplBlockNode::IllFormedImplBlock(_) => None,
+                _ => None,
             })
     }
 
