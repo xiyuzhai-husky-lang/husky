@@ -20,6 +20,14 @@ pub enum TraitForTypeItemNodeDefn {
     AssociatedVal(TraitForTypeAssociatedValNodeDefn),
 }
 
+impl HasNodeDefn for TraitForTypeItemNodePath {
+    type NodeDefn = TraitForTypeItemNodeDefn;
+
+    fn node_defn(self, db: &dyn DefnDb) -> Self::NodeDefn {
+        todo!()
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DefnDb)]
 #[enum_class::from_variants]

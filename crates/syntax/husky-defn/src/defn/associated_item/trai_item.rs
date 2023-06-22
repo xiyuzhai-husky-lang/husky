@@ -21,6 +21,14 @@ pub enum TraitItemNodeDefn {
     AssociatedVal(TraitAssociatedValNodeDefn),
 }
 
+impl HasNodeDefn for TraitItemNodePath {
+    type NodeDefn = TraitItemNodeDefn;
+
+    fn node_defn(self, db: &dyn DefnDb) -> Self::NodeDefn {
+        todo!()
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DefnDb)]
 #[enum_class::from_variants]
@@ -56,8 +64,8 @@ impl HasDefn for TraitItemPath {
 pub(crate) fn trai_item_defn(db: &dyn DefnDb, path: TraitItemPath) -> DefnResult<TraitItemDefn> {
     let decl = path.decl(db)?;
     Ok(match decl {
-        TraitItemDecl::AssociatedFn(decl) => trai_associated_fn_defn(db, decl).into(),
-        TraitItemDecl::MethodFn(decl) => trai_method_defn(db, decl).into(),
+        TraitItemDecl::AssociatedFn(decl) => TraitAssociatedFnDefn::new(db, path, decl)?.into(),
+        TraitItemDecl::MethodFn(decl) => TraitMethodFnDefn::new(db, path, decl)?.into(),
         TraitItemDecl::AssociatedType(_decl) => todo!(),
         TraitItemDecl::AssociatedVal(_decl) => todo!(),
     })
