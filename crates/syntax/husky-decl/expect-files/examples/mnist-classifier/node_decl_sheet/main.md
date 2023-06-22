@@ -1,6 +1,6 @@
 Ok(
     NodeDeclSheet {
-        [salsa id]: 24,
+        [salsa id]: 25,
         decls: [
             (
                 EntityNodePath::Submodule(

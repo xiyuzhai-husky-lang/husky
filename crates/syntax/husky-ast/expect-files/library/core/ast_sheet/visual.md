@@ -10,7 +10,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 19,
+                                    value: 20,
                                 },
                             ),
                         ),
@@ -120,7 +120,7 @@ Ok(
                     block: Type {
                         path: TypePath(
                             Id {
-                                value: 34,
+                                value: 35,
                             },
                         ),
                         variants: None,

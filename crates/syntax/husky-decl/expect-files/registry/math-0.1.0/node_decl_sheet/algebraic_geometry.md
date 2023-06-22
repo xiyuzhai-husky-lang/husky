@@ -1,6 +1,6 @@
 Ok(
     NodeDeclSheet {
-        [salsa id]: 50,
+        [salsa id]: 51,
         decls: [],
     },
 )

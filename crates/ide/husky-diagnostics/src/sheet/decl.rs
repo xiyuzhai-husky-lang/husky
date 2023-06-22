@@ -20,11 +20,14 @@ pub(crate) fn decl_diagnostic_sheet(
     ) {
         let _token_sheet_data = ranged_token_sheet.token_sheet_data(db);
         for (node_path, node_decl) in node_decl_sheet.decls(db).iter().copied() {
-            todo!()
-            // match decl {
-            //     Err(DeclError::Original(error)) => sheet_collector.visit_atom(error),
-            //     _ => (),
-            // }
+            // ad hoc
+            match node_decl {
+                NodeDecl::Submodule(_) => (),
+                NodeDecl::ModuleItem(_) => (),
+                NodeDecl::ImplBlock(_) => (),
+                NodeDecl::AssociatedItem(_) => (),
+                NodeDecl::TypeVariant(_) => (),
+            }
         }
     }
     // todo

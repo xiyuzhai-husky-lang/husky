@@ -14,5 +14,6 @@ pub mod option
 pub mod prelude
 pub mod raw_bits
 pub mod result
+pub mod slice
 pub mod str
 pub mod visual

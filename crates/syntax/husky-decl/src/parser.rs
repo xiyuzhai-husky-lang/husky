@@ -19,7 +19,11 @@ pub(crate) struct DeclParser<'a> {
 
 impl<'a> DeclParser<'a> {
     pub(crate) fn new(db: &'a dyn DeclDb, path: ModulePath) -> Self {
-        let module_symbol_context = db.module_symbol_context(path).expect("valid module");
+        let Ok(module_symbol_context) = db.module_symbol_context(path) else {
+            use salsa::DebugWithDb;
+            p!(path.debug(db));
+            unreachable!("valid module")
+        };
         Self {
             db,
             module_symbol_context,

@@ -1,6 +1,6 @@
 Ok(
     DeclSheet {
-        [salsa id]: 39,
+        [salsa id]: 40,
         decls: [
             (
                 EntityPath::ModuleItem(
@@ -210,7 +210,7 @@ Ok(
                                                         ident: Ident(
                                                             Word(
                                                                 Id {
-                                                                    value: 194,
+                                                                    value: 195,
                                                                 },
                                                             ),
                                                         ),
@@ -227,7 +227,7 @@ Ok(
                                                         ident: Ident(
                                                             Word(
                                                                 Id {
-                                                                    value: 366,
+                                                                    value: 367,
                                                                 },
                                                             ),
                                                         ),

@@ -131,7 +131,7 @@ Ok(
         Defn::Submodule(
             SubmoduleDefn {
                 decl: SubmoduleDecl {
-                    path: `core::str`,
+                    path: `core::slice`,
                     ast_idx: 16,
                 },
             },
@@ -139,8 +139,16 @@ Ok(
         Defn::Submodule(
             SubmoduleDefn {
                 decl: SubmoduleDecl {
-                    path: `core::visual`,
+                    path: `core::str`,
                     ast_idx: 17,
+                },
+            },
+        ),
+        Defn::Submodule(
+            SubmoduleDefn {
+                decl: SubmoduleDecl {
+                    path: `core::visual`,
+                    ast_idx: 18,
                 },
             },
         ),

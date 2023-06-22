@@ -133,6 +133,7 @@ pub(crate) fn ethereal_term_from_declarative_term_application(
 }
 
 /// argument is `DeclarativeTerm` instead of `EtherealTerm` is because we need to read function type to get expectation for argument
+///
 pub(crate) fn term_uncheck_from_declarative_term_application_aux(
     db: &dyn EtherealTermDb,
     function: EtherealTerm,

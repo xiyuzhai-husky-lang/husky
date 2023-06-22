@@ -1,6 +1,6 @@
 Ok(
     DeclSheet {
-        [salsa id]: 51,
+        [salsa id]: 52,
         decls: [],
     },
 )

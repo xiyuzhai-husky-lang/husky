@@ -180,12 +180,23 @@ Ok(
             ),
             (
                 EntityPath::Module(
+                    `core::slice`,
+                ),
+                Decl::Submodule(
+                    SubmoduleDecl {
+                        path: `core::slice`,
+                        ast_idx: 16,
+                    },
+                ),
+            ),
+            (
+                EntityPath::Module(
                     `core::str`,
                 ),
                 Decl::Submodule(
                     SubmoduleDecl {
                         path: `core::str`,
-                        ast_idx: 16,
+                        ast_idx: 17,
                     },
                 ),
             ),
@@ -196,7 +207,7 @@ Ok(
                 Decl::Submodule(
                     SubmoduleDecl {
                         path: `core::visual`,
-                        ast_idx: 17,
+                        ast_idx: 18,
                     },
                 ),
             ),
