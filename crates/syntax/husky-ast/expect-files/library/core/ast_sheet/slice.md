@@ -28,7 +28,7 @@ Ok(
                             2,
                         ),
                     },
-                    is_generic: false,
+                    is_generic: true,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
                             3,
