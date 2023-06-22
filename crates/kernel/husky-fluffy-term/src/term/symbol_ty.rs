@@ -145,6 +145,7 @@ impl SymbolType {
                         hole_kind,
                         hole,
                     } => todo!(),
+                    FluffyTermData::Variable { ty } => todo!(),
                 };
                 HollowTerm::new(engine, data).into()
             }

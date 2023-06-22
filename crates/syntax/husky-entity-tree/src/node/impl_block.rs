@@ -269,28 +269,28 @@ pub(crate) fn ty_impl_blocks(
         .collect())
 }
 
-pub trait HasItemNodes: Copy {
+pub trait HasItemNodePaths: Copy {
     type ItemNodePath;
 
-    fn items<'a>(
+    fn item_node_paths<'a>(
         self,
         db: &'a dyn EntityTreeDb,
     ) -> EntityTreeBundleResultRef<'a, &'a [(Ident, Self::ItemNodePath)]>;
 }
 
-impl HasItemNodes for TypePath {
+impl HasItemNodePaths for TypePath {
     type ItemNodePath = TypeItemNodePath;
 
-    fn items<'a>(
+    fn item_node_paths<'a>(
         self,
         db: &'a dyn EntityTreeDb,
     ) -> EntityTreeBundleResultRef<'a, &'a [(Ident, TypeItemNodePath)]> {
-        all_ty_items(db, self).as_ref().map(|v| v as &[_])
+        ty_item_node_paths(db, self).as_ref().map(|v| v as &[_])
     }
 }
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
-pub(crate) fn all_ty_items(
+pub(crate) fn ty_item_node_paths(
     db: &dyn EntityTreeDb,
     path: TypePath,
 ) -> EntityTreeBundleResult<Vec<(Ident, TypeItemNodePath)>> {
@@ -310,5 +310,38 @@ pub(crate) fn all_ty_items(
             })
         })
         .flatten()
+        .collect())
+}
+
+pub trait HasItemPaths: Copy {
+    type ItemPath;
+
+    fn item_paths<'a>(
+        self,
+        db: &'a dyn EntityTreeDb,
+    ) -> EntityTreeBundleResultRef<'a, &'a [(Ident, Self::ItemPath)]>;
+}
+
+impl HasItemPaths for TypePath {
+    type ItemPath = TypeItemPath;
+
+    fn item_paths<'a>(
+        self,
+        db: &'a dyn EntityTreeDb,
+    ) -> EntityTreeBundleResultRef<'a, &'a [(Ident, TypeItemPath)]> {
+        ty_item_paths(db, self).as_ref().map(|v| v as &[_])
+    }
+}
+
+#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+pub(crate) fn ty_item_paths(
+    db: &dyn EntityTreeDb,
+    path: TypePath,
+) -> EntityTreeBundleResult<Vec<(Ident, TypeItemPath)>> {
+    Ok(path
+        .item_node_paths(db)?
+        .iter()
+        .copied()
+        .filter_map(|(ident, node_path)| Some((ident, node_path.path(db)?)))
         .collect())
 }

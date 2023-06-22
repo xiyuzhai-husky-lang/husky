@@ -136,6 +136,7 @@ impl ExpectEqsFunctionType {
                 hole_kind,
                 hole,
             } => todo!(),
+            FluffyTermData::Variable { ty } => todo!(),
         }
     }
 
@@ -224,6 +225,7 @@ impl ExpectEqsFunctionType {
                 hole_kind,
                 hole,
             } => todo!(),
+            FluffyTermData::Variable { ty } => todo!(),
         }
     }
 }

@@ -19,6 +19,7 @@ impl FluffyTerm {
                 hole_kind,
                 hole,
             } => todo!(),
+            FluffyTermData::Variable { ty } => todo!(),
         }
     }
 
@@ -49,6 +50,7 @@ impl FluffyTerm {
                 hole_kind,
                 hole,
             } => todo!(),
+            FluffyTermData::Variable { ty } => todo!(),
         }
     }
 
@@ -95,6 +97,7 @@ impl FluffyTerm {
                 hole_kind,
                 hole,
             } => todo!(),
+            FluffyTermData::Variable { ty } => todo!(),
         }
     }
 }

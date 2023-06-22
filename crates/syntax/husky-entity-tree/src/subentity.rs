@@ -43,7 +43,7 @@ pub(crate) fn subentity_path(
                 ModuleItemPath::Type(path) => {
                     if let Some((_, variant)) = path.variants(db)?.get_entry(ident) {
                         Ok(SubentityPath::NonAssociated(variant.path(db).into()))
-                    } else if let Some((_, node)) = path.items(db)?.get_entry(ident) {
+                    } else if let Some((_, node)) = path.item_node_paths(db)?.get_entry(ident) {
                         Ok(SubentityPath::Associated)
                     } else {
                         // todo: check trait impls

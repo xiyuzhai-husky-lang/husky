@@ -48,6 +48,7 @@ impl<'a> ExprTypeEngine<'a> {
                 hole_kind,
                 hole,
             } => todo!(),
+            FluffyTermData::Variable { ty } => todo!(),
         }
     }
 
@@ -82,6 +83,7 @@ impl<'a> ExprTypeEngine<'a> {
                 hole_kind,
                 hole,
             } => todo!(),
+            FluffyTermData::Variable { ty } => todo!(),
         }
     }
 }

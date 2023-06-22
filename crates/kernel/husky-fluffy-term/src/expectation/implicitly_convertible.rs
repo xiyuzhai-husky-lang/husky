@@ -219,7 +219,8 @@ impl ExpectImplicitlyConvertible {
                 hole_kind,
                 hole,
             } => None, // adhoc
-                       // todo!(),
+            // todo!(),
+            FluffyTermData::Variable { ty } => todo!(),
         }
     }
 

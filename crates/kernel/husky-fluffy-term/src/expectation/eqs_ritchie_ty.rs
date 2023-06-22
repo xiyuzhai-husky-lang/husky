@@ -119,6 +119,7 @@ impl ExpectEqsRitchieType {
                 hole_kind,
                 hole,
             } => todo!(),
+            FluffyTermData::Variable { ty } => todo!(),
         }
     }
 
@@ -194,6 +195,7 @@ impl ExpectEqsRitchieType {
                 hole_kind,
                 hole,
             } => todo!(),
+            FluffyTermData::Variable { ty } => todo!(),
         }
     }
 }

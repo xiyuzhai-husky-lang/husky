@@ -77,6 +77,7 @@ impl<'a> ExprTypeEngine<'a> {
                 hole_kind,
                 hole,
             } => todo!(),
+            FluffyTermData::Variable { ty } => todo!(),
         }
         Ok(self.term_menu.unit_ty_ontology().into())
     }
@@ -121,6 +122,7 @@ impl<'a> ExprTypeEngine<'a> {
                 hole_kind,
                 hole,
             } => todo!(),
+            FluffyTermData::Variable { ty } => todo!(),
         }
         Ok(self.term_menu.unit_ty_ontology().into())
     }
@@ -163,6 +165,7 @@ impl<'a> ExprTypeEngine<'a> {
                     hole_kind,
                     hole,
                 } => todo!(),
+                FluffyTermData::Variable { ty } => todo!(),
             },
             None => Err(DerivedExprTypeError::UnableToInferSuffixOperandType.into()),
         }
@@ -215,6 +218,7 @@ impl<'a> ExprTypeEngine<'a> {
                 hole_kind,
                 hole,
             } => todo!(),
+            FluffyTermData::Variable { ty } => todo!(),
         }
     }
 }

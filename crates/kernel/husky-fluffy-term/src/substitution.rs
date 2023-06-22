@@ -63,6 +63,7 @@ impl FluffyTerms {
                 hole_kind,
                 hole,
             } => todo!(),
+            FluffyTermData::Variable { ty } => todo!(),
         }
     }
 }
