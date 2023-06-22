@@ -46,6 +46,9 @@ pub enum FluffyTermData<'a> {
         hole_kind: HoleKind,
         hole: Hole,
     },
+    Variable {
+        ty: FluffyTerm,
+    },
 }
 
 impl FluffyTerm {
@@ -316,6 +319,7 @@ impl<'a, _Db: EtherealTermDb + ?Sized> ::salsa::DebugWithDb<_Db> for FluffyTermD
                 hole_kind,
                 hole,
             } => todo!(),
+            FluffyTermData::Variable { ty } => todo!(),
         }
     }
 }

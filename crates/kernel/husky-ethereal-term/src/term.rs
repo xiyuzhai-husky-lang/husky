@@ -97,7 +97,9 @@ impl EtherealTerm {
             DeclarativeTerm::Symbol(declarative_term) => {
                 EtherealTermSymbol::from_declarative(db, declarative_term)?.into()
             }
-            DeclarativeTerm::Variable(_) => todo!(),
+            DeclarativeTerm::Variable(declarative_term) => {
+                EtherealTermVariable::from_declarative(db, declarative_term)?.into()
+            }
             DeclarativeTerm::EntityPath(declarative_term) => match declarative_term {
                 DeclarativeTermEntityPath::Form(path) => TermEntityPath::Form(path).into(),
                 DeclarativeTermEntityPath::Trait(path) => TermEntityPath::Trait(path).into(),

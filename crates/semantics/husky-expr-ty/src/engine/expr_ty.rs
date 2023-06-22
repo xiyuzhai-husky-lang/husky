@@ -317,6 +317,7 @@ impl<'a> ExprTypeEngine<'a> {
                                     hole_kind,
                                     hole,
                                 } => todo!(),
+                                FluffyTermData::Variable { ty } => todo!(),
                             },
                             None => self.new_hole(expr_idx, HoleKind::ImplicitType).into(),
                         };

@@ -60,6 +60,7 @@ impl FluffyTerm {
                         hole_kind,
                         hole,
                     } => todo!(),
+                    FluffyTermData::Variable { ty } => todo!(),
                 };
                 Ok(HollowTerm::new(engine, data).into())
             }

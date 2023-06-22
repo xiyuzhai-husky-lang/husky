@@ -53,6 +53,7 @@ impl<'a> ExprTypeEngine<'a> {
                         hole_kind,
                         hole,
                     } => todo!(),
+                    FluffyTermData::Variable { ty } => todo!(),
                 }
                 // match opd_ty {
                 //     Some(opd_ty) => match opd_ty {
@@ -160,6 +161,7 @@ impl<'a> ExprTypeEngine<'a> {
                 hole_kind,
                 hole,
             } => todo!(),
+            FluffyTermData::Variable { ty } => todo!(),
         }
     }
 }

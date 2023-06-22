@@ -61,6 +61,7 @@ impl<'a> ExprTypeEngine<'a> {
                 return_ty,
                 ..
             } => todo!(),
+            FluffyTermData::Variable { ty } => todo!(),
         }
     }
 }
