@@ -20,6 +20,7 @@ use smallvec::*;
 #[salsa::jar(db = EtherealSignatureDb)]
 pub struct EtherealSignatureJar(
     // type items
+    TypeAssociatedFnEtherealSignatureTemplate,
     ty_method_ethereal_signature_templates_map,
     TypeMethodFnEtherealSignatureTemplate,
     ty_method_fn_ethereal_signature_template,

@@ -12,50 +12,11 @@ impl<'a> ExprTypeEngine<'a> {
         let parent_term = self
             .infer_new_expr_term(parent_expr_idx)
             .ok_or(DerivedExprTypeError::UnableToInferAssociatedItemParentTerm)?;
-        match parent_term.data(self) {
-            FluffyTermData::Literal(_) => todo!(),
-            FluffyTermData::TypeOntology {
-                ty_path,
-                refined_ty_path,
-                arguments,
-                ty_ethereal_term,
-            } => {
-                let associated_item_disambiguation = parent_term.disambiguate_associated_item(
-                    self,
-                    ident_token.ident(),
-                    /*ad hoc */ &[],
-                );
-                todo!()
-            }
-            FluffyTermData::PlaceTypeOntology {
-                place,
-                ty_path,
-                refined_ty_path,
-                arguments,
-                base_ty_ethereal_term,
-            } => todo!(),
-            FluffyTermData::Curry {
-                curry_kind,
-                variance,
-                parameter_variable,
-                parameter_ty,
-                return_ty,
-                ty_ethereal_term,
-            } => todo!(),
-            FluffyTermData::Hole(_, _) => todo!(),
-            FluffyTermData::Category(_) => todo!(),
-            FluffyTermData::Ritchie {
-                ritchie_kind,
-                parameter_contracted_tys,
-                return_ty,
-            } => todo!(),
-            FluffyTermData::PlaceHole {
-                place,
-                hole_kind,
-                hole,
-            } => todo!(),
-            FluffyTermData::Symbol { ty } => todo!(),
-            FluffyTermData::Variable { ty } => todo!(),
-        }
+        let associated_item_disambiguation = parent_term.disambiguate_associated_item(
+            self,
+            ident_token.ident(),
+            /*ad hoc */ &[],
+        );
+        todo!()
     }
 }
