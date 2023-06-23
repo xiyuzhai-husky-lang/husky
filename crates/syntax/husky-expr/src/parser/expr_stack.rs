@@ -53,14 +53,14 @@ impl Expr {
     pub fn base_entity_path(&self, db: &dyn WordDb, arena: &ExprArena) -> BaseEntityPath {
         match self {
             Expr::Literal(_, _) => BaseEntityPath::None,
-            Expr::NonAssociatedEntityPath {
+            Expr::NonAssociatedEntity {
                 path: entity_path, ..
             } => match entity_path {
                 Some(entity_path) => BaseEntityPath::Some(*entity_path),
                 None => todo!(),
             },
-            Expr::AssociatedItemPath {
-                parent,
+            Expr::AssociatedItem {
+                parent_expr_idx: parent,
                 scope_resolution_token,
                 ident_token,
             } => todo!(),

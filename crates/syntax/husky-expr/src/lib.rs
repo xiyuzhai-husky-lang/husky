@@ -77,12 +77,12 @@ impl BaseEntityPathInclination {
 #[salsa::derive_debug_with_db(db = ExprDb)]
 pub enum Expr {
     Literal(TokenIdx, Literal),
-    NonAssociatedEntityPath {
+    NonAssociatedEntity {
         entity_path_expr: EntityPathExprIdx,
         path: Option<EntityPath>,
     },
-    AssociatedItemPath {
-        parent: ExprIdx,
+    AssociatedItem {
+        parent_expr_idx: ExprIdx,
         scope_resolution_token: ScopeResolutionToken,
         ident_token: IdentToken,
     },
