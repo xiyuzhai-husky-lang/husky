@@ -50,14 +50,14 @@ fn ethereal_ty_method_disambiguation_aux<'a>(
     ty_path: TypePath,
     arguments: &'a [EtherealTerm],
     ident: Ident,
-    mut indirections: SmallVec<[FluffyIndirection; 2]>,
+    mut indirections: SmallVec<[FluffyInstanceIndirection; 2]>,
 ) -> FluffyTermMaybeResult<FluffyMethodDisambiguation> {
     match ty_path.refine(engine.db()) {
         Left(PreludeTypePath::Borrow(borrow_ty_path)) => match borrow_ty_path {
             PreludeBorrowTypePath::Ref => todo!(),
             PreludeBorrowTypePath::RefMut => todo!(),
             PreludeBorrowTypePath::Leash => {
-                indirections.push(FluffyIndirection::Leash);
+                indirections.push(FluffyInstanceIndirection::Leash);
                 if arguments.len() != 1 {
                     p!((&arguments).debug(engine.db()));
                     todo!()
@@ -73,12 +73,12 @@ fn ethereal_ty_method_disambiguation_aux<'a>(
     if let Some(signature) =
         ty_method_fluffy_signature(engine, ty_path, arguments, &[], ident).into_result_option()?
     {
-        return JustOk(FluffyMemberDisambiguation {
+        return JustOk(FluffyInstanceMemberDisambiguation {
             indirections,
             signature,
         });
     };
-    if indirections.contains(&FluffyIndirection::Leash) {
+    if indirections.contains(&FluffyInstanceIndirection::Leash) {
         todo!()
     }
     // ad hoc

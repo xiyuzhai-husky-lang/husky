@@ -18,12 +18,12 @@ use husky_ethereal_signature::EtherealMethodSignature;
 use husky_word::Ident;
 
 impl MemberSignature for FluffyMethodSignature {
-    fn expr_ty(&self, indirections: &[FluffyIndirection]) -> FluffyTermResult<FluffyTerm> {
+    fn expr_ty(&self, indirections: &[FluffyInstanceIndirection]) -> FluffyTermResult<FluffyTerm> {
         todo!()
     }
 }
 
-pub type FluffyMethodDisambiguation = FluffyMemberDisambiguation<FluffyMethodSignature>;
+pub type FluffyMethodDisambiguation = FluffyInstanceMemberDisambiguation<FluffyMethodSignature>;
 
 impl FluffyTerm {
     pub fn method_disambiguation(
@@ -40,7 +40,7 @@ impl FluffyTerm {
         engine: &mut impl FluffyTermEngine,
         ident: Ident,
         available_traits: &[TraitPath],
-        mut indirections: SmallVec<[FluffyIndirection; 2]>,
+        mut indirections: SmallVec<[FluffyInstanceIndirection; 2]>,
     ) -> FluffyTermMaybeResult<FluffyMethodDisambiguation> {
         match self.nested() {
             NestedFluffyTerm::Ethereal(term) => {

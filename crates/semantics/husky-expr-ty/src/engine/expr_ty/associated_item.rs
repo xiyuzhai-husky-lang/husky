@@ -19,7 +19,14 @@ impl<'a> ExprTypeEngine<'a> {
                 refined_ty_path,
                 arguments,
                 ty_ethereal_term,
-            } => todo!(),
+            } => {
+                let associated_item_disambiguation = parent_term.disambiguate_associated_item(
+                    self,
+                    ident_token.ident(),
+                    /*ad hoc */ &[],
+                );
+                todo!()
+            }
             FluffyTermData::PlaceTypeOntology {
                 place,
                 ty_path,

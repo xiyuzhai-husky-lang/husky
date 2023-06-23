@@ -55,14 +55,14 @@ fn ethereal_ty_field_disambiguation_aux<'a>(
     ty_path: TypePath,
     arguments: &'a [EtherealTerm],
     ident: Ident,
-    mut indirections: SmallVec<[FluffyIndirection; 2]>,
+    mut indirections: SmallVec<[FluffyInstanceIndirection; 2]>,
 ) -> FluffyTermMaybeResult<FluffyFieldDisambiguation> {
     match ty_path.refine(db) {
         Left(PreludeTypePath::Borrow(borrow_ty_path)) => match borrow_ty_path {
             PreludeBorrowTypePath::Ref => todo!(),
             PreludeBorrowTypePath::RefMut => todo!(),
             PreludeBorrowTypePath::Leash => {
-                indirections.push(FluffyIndirection::Leash);
+                indirections.push(FluffyInstanceIndirection::Leash);
                 if arguments.len() != 1 {
                     todo!()
                 }

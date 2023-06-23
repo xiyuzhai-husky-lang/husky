@@ -12,7 +12,7 @@ impl<'a> ExprTypeEngine<'a> {
         commas: &[TokenIdx],
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         let Some(self_expr_ty) =
-            self.infer_new_expr_ty( self_argument, ExpectAnyOriginal, )
+            self.infer_new_expr_ty( self_argument, ExpectAnyOriginal)
             else {
                 if let Some(implicit_arguments) = implicit_arguments {
                     todo!()

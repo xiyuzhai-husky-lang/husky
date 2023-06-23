@@ -7,7 +7,7 @@ use self::hollow::*;
 use self::solid::*;
 use super::*;
 
-pub type FluffyIndexDisambiguation = FluffyMemberDisambiguation<FluffyIndexSignature>;
+pub type FluffyIndexDisambiguation = FluffyInstanceMemberDisambiguation<FluffyIndexSignature>;
 
 impl FluffyTerm {
     pub fn disambiguate_index(
