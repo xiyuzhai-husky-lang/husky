@@ -229,10 +229,13 @@ impl<'a> ExprRangeCalculator<'a> {
                 path: entity_path,
             } => self[*entity_path_expr],
             Expr::AssociatedItem {
-                parent_expr_idx: parent,
+                parent_expr_idx,
                 scope_resolution_token,
                 ident_token,
-            } => todo!(),
+            } => {
+                // todo: consider implicit(angular) arguments
+                self[parent_expr_idx].to(TokenIdxRangeEnd::new_after(ident_token.token_idx()))
+            }
             Expr::Be {
                 src,
                 be_token_idx,
