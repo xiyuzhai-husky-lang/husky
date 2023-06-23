@@ -20,6 +20,7 @@ impl DeclarativeTermCurry {
         db: &dyn DeclarativeTermDb,
         curry_kind: CurryKind,
         variance: Variance,
+        // to be converted to variable
         parameter_symbol: DeclarativeTermSymbol,
         parameter_ty: DeclarativeTerm,
         return_ty: DeclarativeTerm,

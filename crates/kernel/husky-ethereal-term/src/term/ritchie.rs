@@ -25,14 +25,14 @@ impl EtherealTermRitchie {
     pub fn new(
         db: &dyn EtherealTermDb,
         ritchie_kind: RitchieKind,
-        parameter_tys: impl IntoIterator<Item = TermRitchieParameterContractedType>,
+        parameter_contracted_tys: impl IntoIterator<Item = TermRitchieParameterContractedType>,
         return_ty: EtherealTerm,
     ) -> EtherealTermResult<EtherealTermRitchie> {
-        todo!("check_application_validity(db, function, argument, shift)?");
+        // todo!("check_application_validity(db, function, argument, shift)?");
         Ok(Self::new_unchecked(
             db,
             ritchie_kind,
-            parameter_tys,
+            parameter_contracted_tys,
             return_ty,
         ))
     }

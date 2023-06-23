@@ -8,6 +8,7 @@ use super::*;
 use thiserror::Error;
 
 /// variables are externalized symbols, derived from symbols, and defined in a bottom-up manner
+///
 #[salsa::interned(db = DeclarativeTermDb, jar = DeclarativeTermJar, constructor = new)]
 pub struct DeclarativeTermVariable {
     pub ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,

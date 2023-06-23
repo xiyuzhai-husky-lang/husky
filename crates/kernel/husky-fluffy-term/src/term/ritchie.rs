@@ -75,6 +75,49 @@ impl FluffyTermRitchieParameterContractedType {
     pub fn ty(self) -> FluffyTerm {
         self.ty
     }
+
+    pub(crate) fn ty_mut(&mut self) -> &mut FluffyTerm {
+        &mut self.ty
+    }
 }
 
 pub struct FluffyTermRitchieVariadics {}
+
+impl FluffyTerm {
+    pub(crate) fn new_richie(
+        db: &dyn FluffyTermDb,
+        fluffy_terms: &mut FluffyTerms,
+        ritchie_kind: RitchieKind,
+        parameter_contracted_tys: Vec<FluffyTermRitchieParameterContractedType>,
+        return_ty: FluffyTerm,
+    ) -> Self {
+        let mut solid_flag = false;
+        let mut hollow_flag = false;
+        for parameter_contracted_ty in &parameter_contracted_tys {
+            match parameter_contracted_ty.ty().nested() {
+                NestedFluffyTerm::Ethereal(_) => (),
+                NestedFluffyTerm::Solid(_) => solid_flag = true,
+                NestedFluffyTerm::Hollow(_) => hollow_flag = true,
+            }
+        }
+        match return_ty.nested() {
+            NestedFluffyTerm::Ethereal(_) => (),
+            NestedFluffyTerm::Solid(_) => solid_flag = true,
+            NestedFluffyTerm::Hollow(_) => hollow_flag = true,
+        }
+        if hollow_flag {
+            fluffy_terms
+                .hollow_terms_mut()
+                .alloc_new(HollowTermData::Ritchie {
+                    ritchie_kind,
+                    parameter_contracted_tys,
+                    return_ty,
+                })
+                .into()
+        } else if solid_flag {
+            todo!()
+        } else {
+            todo!()
+        }
+    }
+}

@@ -37,14 +37,15 @@ pub enum FluffyTermData<'a> {
     Ritchie {
         ritchie_kind: RitchieKind,
         parameter_contracted_tys: &'a [FluffyTermRitchieParameterContractedType],
-        variadics: (),
-        keyed_parameter_contracted_tys: (),
         return_ty: FluffyTerm,
     },
     PlaceHole {
         place: Place,
         hole_kind: HoleKind,
         hole: Hole,
+    },
+    Symbol {
+        ty: FluffyTerm,
     },
     Variable {
         ty: FluffyTerm,
@@ -278,8 +279,6 @@ impl<'a, _Db: EtherealTermDb + ?Sized> ::salsa::DebugWithDb<_Db> for FluffyTermD
                 ref ritchie_kind,
                 ref parameter_contracted_tys,
                 ref return_ty,
-                variadics,
-                keyed_parameter_contracted_tys,
             } => {
                 let mut debug_struct = &mut f.debug_struct("FluffyTermData::Ritchie");
                 debug_struct = debug_struct.field(
@@ -319,6 +318,19 @@ impl<'a, _Db: EtherealTermDb + ?Sized> ::salsa::DebugWithDb<_Db> for FluffyTermD
                 hole_kind,
                 hole,
             } => todo!(),
+            FluffyTermData::Symbol { ty } => {
+                let mut debug_struct = &mut f.debug_struct("FluffyTermData::Symbol");
+                debug_struct = debug_struct.field(
+                    "ty",
+                    &::salsa::debug::helper::SalsaDebug::<RitchieKind, _Db>::salsa_debug(
+                        #[allow(clippy::needless_borrow)]
+                        ty,
+                        _db,
+                        _level.next(),
+                    ),
+                );
+                debug_struct.finish()
+            }
             FluffyTermData::Variable { ty } => todo!(),
         }
     }
@@ -338,8 +350,6 @@ impl TermRitchieFluffyData {
         FluffyTermData::Ritchie {
             ritchie_kind: self.ritchie_kind,
             parameter_contracted_tys: &self.parameter_contracted_tys,
-            variadics: (),
-            keyed_parameter_contracted_tys: (),
             return_ty: self.return_ty.into(),
         }
     }

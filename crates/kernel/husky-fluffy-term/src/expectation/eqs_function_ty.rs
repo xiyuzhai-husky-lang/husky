@@ -136,6 +136,7 @@ impl ExpectEqsFunctionType {
                 hole_kind,
                 hole,
             } => todo!(),
+            FluffyTermData::Symbol { ty } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
         }
     }
@@ -218,13 +219,30 @@ impl ExpectEqsFunctionType {
             } => todo!(),
             FluffyTermData::Hole(_, _) => todo!(),
             FluffyTermData::Category(_) => todo!(),
-            FluffyTermData::Ritchie { .. } => todo!(),
+            FluffyTermData::Ritchie {
+                ritchie_kind,
+                parameter_contracted_tys,
+                return_ty,
+            } => Some(FluffyTermExpectationEffect {
+                result: Ok(ExpectEqsFunctionTypeOutcome {
+                    // todo: is this really correct?
+                    implicit_parameter_substitutions: substitution_rules,
+                    return_ty,
+                    variant: ExpectEqsFunctionTypeOutcomeVariant::Ritchie {
+                        ritchie_kind,
+                        parameter_contracted_tys: parameter_contracted_tys.to_vec(),
+                    },
+                }
+                .into()),
+                actions: smallvec![],
+            }),
             FluffyTermData::PlaceTypeOntology { .. } => todo!(),
             FluffyTermData::PlaceHole {
                 place,
                 hole_kind,
                 hole,
             } => todo!(),
+            FluffyTermData::Symbol { ty } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
         }
     }

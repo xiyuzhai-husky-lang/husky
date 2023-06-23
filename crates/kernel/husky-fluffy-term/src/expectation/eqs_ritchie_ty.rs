@@ -119,6 +119,7 @@ impl ExpectEqsRitchieType {
                 hole_kind,
                 hole,
             } => todo!(),
+            FluffyTermData::Symbol { ty } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
         }
     }
@@ -130,22 +131,22 @@ impl ExpectEqsRitchieType {
         idx: FluffyTermExpectationIdx,
         curry_kind: CurryKind,
         variance: Variance,
-        parameter_symbol: Option<FluffyTerm>,
+        parameter_variable: Option<FluffyTerm>,
         parameter_ty: FluffyTerm,
         return_ty: FluffyTerm,
     ) -> Option<FluffyTermExpectationEffect> {
         match curry_kind {
             CurryKind::Explicit => todo!(),
-            CurryKind::Implicit => match parameter_symbol {
-                Some(parameter_symbol) => {
+            CurryKind::Implicit => match parameter_variable {
+                Some(parameter_variable) => {
                     let implicit_symbol = terms.new_hole_from_parameter_symbol(
                         db,
                         HoleSource::Expectation(idx),
-                        parameter_symbol,
+                        parameter_variable,
                     );
                     let mut implicit_parameter_substitutions =
                         smallvec![ImplicitParameterSubstitution::new(
-                            parameter_symbol,
+                            parameter_variable,
                             implicit_symbol,
                         )];
                     let expectee = return_ty;
@@ -195,6 +196,7 @@ impl ExpectEqsRitchieType {
                 hole_kind,
                 hole,
             } => todo!(),
+            FluffyTermData::Symbol { ty } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
         }
     }

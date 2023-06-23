@@ -153,7 +153,7 @@ impl EtherealTerm {
                 RawType::Declarative(variable.ty(db).into_declarative(db))
             }
             EtherealTerm::EntityPath(path) => match path {
-                TermEntityPath::Form(_) => todo!(),
+                TermEntityPath::Fugitive(_) => todo!(),
                 TermEntityPath::Trait(path) => {
                     RawType::Declarative(trai_path_declarative_ty(db, path)?)
                 }

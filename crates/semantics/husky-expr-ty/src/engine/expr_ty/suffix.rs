@@ -77,6 +77,7 @@ impl<'a> ExprTypeEngine<'a> {
                 hole_kind,
                 hole,
             } => todo!(),
+            FluffyTermData::Symbol { ty } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
         }
         Ok(self.term_menu.unit_ty_ontology().into())
@@ -122,6 +123,7 @@ impl<'a> ExprTypeEngine<'a> {
                 hole_kind,
                 hole,
             } => todo!(),
+            FluffyTermData::Symbol { ty } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
         }
         Ok(self.term_menu.unit_ty_ontology().into())
@@ -156,8 +158,6 @@ impl<'a> ExprTypeEngine<'a> {
                 FluffyTermData::Ritchie {
                     ritchie_kind,
                     parameter_contracted_tys,
-                    variadics,
-                    keyed_parameter_contracted_tys,
                     return_ty,
                 } => todo!(),
                 FluffyTermData::PlaceHole {
@@ -165,6 +165,7 @@ impl<'a> ExprTypeEngine<'a> {
                     hole_kind,
                     hole,
                 } => todo!(),
+                FluffyTermData::Symbol { ty } => todo!(),
                 FluffyTermData::Variable { ty } => todo!(),
             },
             None => Err(DerivedExprTypeError::UnableToInferSuffixOperandType.into()),
@@ -218,6 +219,7 @@ impl<'a> ExprTypeEngine<'a> {
                 hole_kind,
                 hole,
             } => todo!(),
+            FluffyTermData::Symbol { ty } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
         }
     }

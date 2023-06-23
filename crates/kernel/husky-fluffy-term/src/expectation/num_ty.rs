@@ -62,6 +62,7 @@ impl ExpectNumType {
                 }
                 HoleKind::ImplicitType => todo!(),
             },
+            FluffyTermData::Symbol { ty } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
         }
     }
