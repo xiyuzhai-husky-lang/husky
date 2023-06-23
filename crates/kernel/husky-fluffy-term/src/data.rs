@@ -12,8 +12,8 @@ use crate::*;
 pub enum FluffyTermData<'a> {
     Literal(TermLiteral),
     TypeOntology {
-        path: TypePath,
-        refined_path: Either<PreludeTypePath, CustomTypePath>,
+        ty_path: TypePath,
+        refined_ty_path: Either<PreludeTypePath, CustomTypePath>,
         arguments: &'a [FluffyTerm],
         ty_ethereal_term: Option<EtherealTerm>,
     },
@@ -98,8 +98,8 @@ impl<'a, _Db: EtherealTermDb + ?Sized> ::salsa::DebugWithDb<_Db> for FluffyTermD
                 debug_tuple.finish()
             }
             FluffyTermData::TypeOntology {
-                ref path,
-                ref refined_path,
+                ty_path: ref path,
+                refined_ty_path: ref refined_path,
                 ref arguments,
                 ..
             } => {
@@ -417,8 +417,8 @@ impl TermApplicationFluffyData {
                 arguments,
                 ty_ethereal_term,
             } => FluffyTermData::TypeOntology {
-                path: *path,
-                refined_path: *refined_path,
+                ty_path: *path,
+                refined_ty_path: *refined_path,
                 arguments,
                 ty_ethereal_term: Some(*ty_ethereal_term),
             },

@@ -31,18 +31,18 @@ fn list_index_signature(
 ) -> FluffyTermMaybeResult<FluffyIndexSignature> {
     match index_ty.data(engine) {
         FluffyTermData::Literal(_) => todo!(),
+        // todo: is this correct?
         FluffyTermData::TypeOntology {
-            path,
-            refined_path,
-            arguments,
-            ty_ethereal_term,
-        } => todo!(),
-        FluffyTermData::PlaceTypeOntology {
-            place,
             ty_path,
             refined_ty_path,
             arguments,
-            base_ty_ethereal_term,
+            ..
+        }
+        | FluffyTermData::PlaceTypeOntology {
+            ty_path,
+            refined_ty_path,
+            arguments,
+            ..
         } => match refined_ty_path {
             Left(prelude_ty_path) => match prelude_ty_path {
                 PreludeTypePath::Basic(_) => todo!(),
@@ -61,7 +61,7 @@ fn list_index_signature(
                         PreludeIntTypePath::U32 => todo!(),
                         PreludeIntTypePath::U64 => todo!(),
                         PreludeIntTypePath::U128 => todo!(),
-                        PreludeIntTypePath::USize => todo!(),
+                        PreludeIntTypePath::USize => JustOk(FluffyIndexSignature { element_ty }),
                         PreludeIntTypePath::R8 => todo!(),
                         PreludeIntTypePath::R16 => todo!(),
                         PreludeIntTypePath::R32 => todo!(),

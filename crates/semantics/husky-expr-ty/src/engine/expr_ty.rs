@@ -283,8 +283,8 @@ impl<'a> ExprTypeEngine<'a> {
                             Some(ty_pattern) => match ty_pattern {
                                 FluffyTermData::Literal(_) => todo!(),
                                 FluffyTermData::TypeOntology {
-                                    path,
-                                    refined_path,
+                                    ty_path: path,
+                                    refined_ty_path: refined_path,
                                     arguments,
                                     ..
                                 } => match refined_path {

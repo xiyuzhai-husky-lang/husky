@@ -15,8 +15,8 @@ impl ExpectNumType {
         match expectee.data_inner(db, fluffy_terms) {
             FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology {
-                path,
-                refined_path,
+                ty_path: path,
+                refined_ty_path: refined_path,
                 arguments,
                 ..
             } => todo!(),

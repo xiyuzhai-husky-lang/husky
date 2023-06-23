@@ -31,8 +31,8 @@ impl FluffyTerms {
         let hole_kind = match parameter_symbol.data_inner(db, self) {
             FluffyTermData::Variable { ty } => match ty.data_inner(db, self) {
                 FluffyTermData::TypeOntology {
-                    path,
-                    refined_path,
+                    ty_path: path,
+                    refined_ty_path: refined_path,
                     arguments,
                     ty_ethereal_term,
                 } => todo!(),
