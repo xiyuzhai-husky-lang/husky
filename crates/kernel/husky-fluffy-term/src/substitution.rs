@@ -41,8 +41,8 @@ impl FluffyTerms {
         match term.data_inner(db, self) {
             FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology {
-                path,
-                refined_path,
+                ty_path: path,
+                refined_ty_path: refined_path,
                 arguments,
                 ..
             } => {

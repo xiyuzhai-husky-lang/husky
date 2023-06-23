@@ -157,8 +157,8 @@ impl ExpectImplicitlyConvertible {
         match self.ty().data_inner(db, terms) {
             FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology {
-                path,
-                refined_path,
+                ty_path: path,
+                refined_ty_path: refined_path,
                 arguments,
                 ..
             } => self.resolve_convertible_to_ty_ontology(
@@ -238,14 +238,14 @@ impl ExpectImplicitlyConvertible {
     ) -> Option<FluffyTermExpectationEffect> {
         match expectee.data_inner(db, fluffy_terms) {
             FluffyTermData::TypeOntology {
-                refined_path: Left(PreludeTypePath::NEVER),
+                refined_ty_path: Left(PreludeTypePath::NEVER),
                 ..
             } => Some(FluffyTermExpectationEffect {
                 result: Ok(ImplicitConversion::Never.into()),
                 actions: smallvec![],
             }),
             FluffyTermData::TypeOntology {
-                refined_path: src_path,
+                refined_ty_path: src_path,
                 arguments: src_argument_tys,
                 ..
             } if dst_refined_path == src_path => {
@@ -275,8 +275,8 @@ impl ExpectImplicitlyConvertible {
                 Some(FluffyTermExpectationEffect { result, actions })
             }
             FluffyTermData::TypeOntology {
-                path: src_path,
-                refined_path: src_refined_path,
+                ty_path: src_path,
+                refined_ty_path: src_refined_path,
                 arguments: src_arguments,
                 ..
             } => Some(FluffyTermExpectationEffect {

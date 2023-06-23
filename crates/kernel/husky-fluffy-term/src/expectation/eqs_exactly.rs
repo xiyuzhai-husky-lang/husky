@@ -67,12 +67,12 @@ impl ExpectSubtype {
         match self.expected.data_inner(db, fluffy_terms) {
             FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology {
-                path: expected_path,
+                ty_path: expected_path,
                 arguments: argument_tys,
                 ..
             } => match expectee.data_inner(db, fluffy_terms) {
                 FluffyTermData::TypeOntology {
-                    path: expectee_path,
+                    ty_path: expectee_path,
                     arguments: argument_tys,
                     ..
                 } => {

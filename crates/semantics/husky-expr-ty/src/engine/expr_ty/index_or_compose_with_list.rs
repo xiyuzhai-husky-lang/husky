@@ -50,7 +50,7 @@ impl<'a> ExprTypeEngine<'a> {
             _ => todo!(),
         };
         let index_disambiguation = self_expr_ty
-            .index_disambiguation(self, expr_idx, index_ty)
+            .disambiguate_index(self, expr_idx, index_ty)
             .into_result_or(OriginalExprTypeError::CannotIndexIntoType { self_expr_ty })?;
         let expr_ty_result: ExprTypeResult<FluffyTerm> =
             index_disambiguation.expr_ty_result().map_err(Into::into);

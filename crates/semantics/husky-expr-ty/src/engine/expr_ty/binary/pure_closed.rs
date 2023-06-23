@@ -22,8 +22,8 @@ impl<'a> ExprTypeEngine<'a> {
         match lopd_ty.data(self) {
             FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology {
-                path,
-                refined_path: Left(PreludeTypePath::Num(_)),
+                ty_path: path,
+                refined_ty_path: Left(PreludeTypePath::Num(_)),
                 ..
             }
             | FluffyTermData::PlaceTypeOntology {
@@ -32,8 +32,8 @@ impl<'a> ExprTypeEngine<'a> {
                 ..
             } => Ok(TermEntityPath::TypeOntology(path).into()),
             FluffyTermData::TypeOntology {
-                path,
-                refined_path,
+                ty_path: path,
+                refined_ty_path: refined_path,
                 arguments,
                 ..
             } => todo!(),

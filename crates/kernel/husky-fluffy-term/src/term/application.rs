@@ -25,8 +25,8 @@ impl FluffyTerm {
                 let data = match function.data(engine) {
                     FluffyTermData::Literal(_) => todo!(),
                     FluffyTermData::TypeOntology {
-                        path,
-                        refined_path,
+                        ty_path: path,
+                        refined_ty_path: refined_path,
                         arguments,
                         ..
                     } => {

@@ -41,8 +41,8 @@ impl<'a> From<&'a SolidTermData> for FluffyTermData<'a> {
                 refined_path,
                 arguments: argument_tys,
             } => FluffyTermData::TypeOntology {
-                path: *path,
-                refined_path: *refined_path,
+                ty_path: *path,
+                refined_ty_path: *refined_path,
                 arguments: argument_tys,
                 ty_ethereal_term: None,
             },

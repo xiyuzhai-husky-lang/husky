@@ -44,8 +44,8 @@ impl<'a> ExprTypeEngine<'a> {
         match opd_ty.data(self) {
             FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology {
-                path,
-                refined_path,
+                ty_path: path,
+                refined_ty_path: refined_path,
                 arguments,
                 ty_ethereal_term,
             } => todo!(),
@@ -90,8 +90,8 @@ impl<'a> ExprTypeEngine<'a> {
         match opd_ty.data(self) {
             FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology {
-                path,
-                refined_path,
+                ty_path: path,
+                refined_ty_path: refined_path,
                 arguments,
                 ty_ethereal_term,
             } => todo!(),
@@ -186,8 +186,8 @@ impl<'a> ExprTypeEngine<'a> {
         match opd_ty.data(self) {
             FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology {
-                path,
-                refined_path,
+                ty_path: path,
+                refined_ty_path: refined_path,
                 arguments,
                 ty_ethereal_term,
             } => todo!(),

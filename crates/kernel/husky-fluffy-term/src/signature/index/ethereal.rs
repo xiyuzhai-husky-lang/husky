@@ -42,7 +42,7 @@ fn common_ethereal_owner_ty_index_signature(
         PreludeTypePath::Lifetime => todo!(),
         PreludeTypePath::Module => todo!(),
         PreludeTypePath::Trait => todo!(),
-        PreludeTypePath::List => {
+        PreludeTypePath::List | PreludeTypePath::Slice => {
             if owner_ty_arguments.len() != 1 {
                 todo!()
             }
@@ -59,7 +59,6 @@ fn common_ethereal_owner_ty_index_signature(
         PreludeTypePath::Array3d => todo!(),
         PreludeTypePath::Array4d => todo!(),
         PreludeTypePath::Array5d => todo!(),
-        PreludeTypePath::Slice => todo!(),
         PreludeTypePath::StringLiteral => todo!(),
         PreludeTypePath::Str => todo!(),
     }

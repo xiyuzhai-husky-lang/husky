@@ -22,7 +22,7 @@ impl<'a> ExprTypeEngine<'a> {
                             .map(|destination| destination.data(self))
                         {
                             Some(FluffyTermData::TypeOntology {
-                                refined_path:
+                                refined_ty_path:
                                     Left(PreludeTypePath::Num(PreludeNumTypePath::Int(path))),
                                 ..
                             }) => match path {
@@ -83,7 +83,7 @@ impl<'a> ExprTypeEngine<'a> {
                             .map(|destination| destination.data(self))
                         {
                             Some(FluffyTermData::TypeOntology {
-                                refined_path:
+                                refined_ty_path:
                                     Left(PreludeTypePath::Num(PreludeNumTypePath::Float(path))),
                                 ..
                             }) => match path {

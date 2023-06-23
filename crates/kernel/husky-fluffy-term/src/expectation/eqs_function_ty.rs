@@ -83,8 +83,8 @@ impl ExpectEqsFunctionType {
         match expectee.data_inner(db, terms) {
             FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology {
-                path,
-                refined_path,
+                ty_path: path,
+                refined_ty_path: refined_path,
                 arguments,
                 ..
             } => Some(FluffyTermExpectationEffect {
@@ -204,8 +204,8 @@ impl ExpectEqsFunctionType {
         match expectee.data_inner(db, terms) {
             FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology {
-                path,
-                refined_path,
+                ty_path: path,
+                refined_ty_path: refined_path,
                 arguments,
                 ..
             } => todo!(),
