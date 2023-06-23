@@ -62,8 +62,6 @@ impl FluffyTerms {
                 FluffyTermData::Ritchie {
                     ritchie_kind,
                     parameter_contracted_tys,
-                    variadics,
-                    keyed_parameter_contracted_tys,
                     return_ty,
                 } => todo!(),
                 FluffyTermData::PlaceHole {
@@ -71,6 +69,7 @@ impl FluffyTerms {
                     hole_kind,
                     hole,
                 } => todo!(),
+                FluffyTermData::Symbol { ty } => todo!(),
                 FluffyTermData::Variable { ty } => todo!(),
                 _ => unreachable!(),
             },

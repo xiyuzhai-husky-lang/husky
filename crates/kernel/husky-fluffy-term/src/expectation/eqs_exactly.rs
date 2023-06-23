@@ -20,7 +20,7 @@ impl ExpectFluffyTerm for ExpectSubtype {
     #[inline(always)]
     fn retrieve_outcome(outcome: &FluffyTermExpectationOutcome) -> &Self::Outcome {
         match outcome {
-            FluffyTermExpectationOutcome::EqsExactly(outcome) => outcome,
+            FluffyTermExpectationOutcome::Subtype(outcome) => outcome,
             _ => unreachable!(),
         }
     }
@@ -103,7 +103,17 @@ impl ExpectSubtype {
                 return_ty,
                 ty_ethereal_term,
             } => todo!(),
-            FluffyTermData::Hole(_, _) => todo!(),
+            FluffyTermData::Hole(_, hole) => {
+                Some(FluffyTermExpectationEffect {
+                    result: Ok(ExpectSubtypeOutcome {}.into()),
+                    actions: smallvec![FluffyTermResolveAction::FillHole {
+                        // todo: check hole kind
+                        hole,
+                        // todo: check subtype
+                        term: expectee
+                    }],
+                })
+            }
             FluffyTermData::Category(_) => Some(FluffyTermExpectationEffect {
                 result: Err(
                     OriginalFluffyTermExpectationError::ExpectedSubtype { expectee }.into(),
@@ -122,6 +132,7 @@ impl ExpectSubtype {
                 hole_kind,
                 hole,
             } => todo!(),
+            FluffyTermData::Symbol { ty } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
         }
     }

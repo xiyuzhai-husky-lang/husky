@@ -73,7 +73,7 @@ impl HollowTerm {
         fluffy_terms: &'a FluffyTerms,
     ) -> FluffyTermData<'a> {
         match fluffy_terms.hollow_terms().resolve_progress(self) {
-            HollowTermResolveProgress::Unresolved => self.fluffy_data_aux(db, fluffy_terms),
+            HollowTermResolveProgress::UnresolvedHollow => self.fluffy_data_aux(db, fluffy_terms),
             HollowTermResolveProgress::ResolvedEthereal(term) => ethereal_term_data(db, term),
             HollowTermResolveProgress::ResolvedSolid(_) => todo!(),
             HollowTermResolveProgress::Err => todo!(),
@@ -122,7 +122,11 @@ impl HollowTerm {
                 ritchie_kind,
                 parameter_contracted_tys,
                 return_ty,
-            } => todo!(),
+            } => FluffyTermData::Ritchie {
+                ritchie_kind: *ritchie_kind,
+                parameter_contracted_tys,
+                return_ty: *return_ty,
+            },
             HollowTermData::PlaceTypeOntology {
                 place,
                 path,

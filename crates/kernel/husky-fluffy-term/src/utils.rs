@@ -19,6 +19,7 @@ impl FluffyTerm {
                 hole_kind,
                 hole,
             } => todo!(),
+            FluffyTermData::Symbol { ty } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
         }
     }
@@ -28,6 +29,7 @@ impl FluffyTerm {
     }
 
     /// this term as ty, what's its final destination?
+    ///
     pub(crate) fn final_destination_inner(
         self,
         db: &dyn FluffyTermDb,
@@ -50,6 +52,7 @@ impl FluffyTerm {
                 hole_kind,
                 hole,
             } => todo!(),
+            FluffyTermData::Symbol { ty } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
         }
     }
@@ -88,8 +91,6 @@ impl FluffyTerm {
             FluffyTermData::Ritchie {
                 ritchie_kind,
                 parameter_contracted_tys,
-                variadics,
-                keyed_parameter_contracted_tys,
                 return_ty,
             } => todo!(),
             FluffyTermData::PlaceHole {
@@ -97,6 +98,7 @@ impl FluffyTerm {
                 hole_kind,
                 hole,
             } => todo!(),
+            FluffyTermData::Symbol { ty } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
         }
     }
@@ -108,7 +110,7 @@ fn curry_destination(db: &dyn EtherealTermDb, term: EtherealTerm) -> EtherealTer
         EtherealTerm::Symbol(_) => todo!(),
         EtherealTerm::Variable(_) => todo!(),
         EtherealTerm::EntityPath(path) => match path {
-            TermEntityPath::Form(_) => todo!(),
+            TermEntityPath::Fugitive(_) => todo!(),
             TermEntityPath::Trait(_)
             | TermEntityPath::TypeOntology(_)
             | TermEntityPath::TypeInstance(_) => term,

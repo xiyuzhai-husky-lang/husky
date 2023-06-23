@@ -1,16 +1,16 @@
 use crate::*;
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = FluffyTermDb)]
 pub struct ImplicitParameterSubstitution {
-    symbol: FluffyTerm,
+    variable: FluffyTerm,
     substitute: FluffyTerm,
 }
 
 impl ImplicitParameterSubstitution {
-    pub(crate) fn new(symbol: FluffyTerm, substitute: impl Into<FluffyTerm>) -> Self {
+    pub(crate) fn new(variable: FluffyTerm, substitute: impl Into<FluffyTerm>) -> Self {
         Self {
-            symbol,
+            variable,
             substitute: substitute.into(),
         }
     }
@@ -45,7 +45,13 @@ impl FluffyTerms {
                 refined_path,
                 arguments,
                 ..
-            } => todo!(),
+            } => {
+                let mut arguments = arguments.to_smallvec();
+                for argument in &mut arguments {
+                    *argument = self.substitute_into_term(db, src, *argument, substitution_rules)
+                }
+                FluffyTerm::new_ty_ontology(db, self, path, refined_path, arguments)
+            }
             FluffyTermData::Curry {
                 curry_kind,
                 variance,
@@ -56,14 +62,35 @@ impl FluffyTerms {
             } => todo!(),
             FluffyTermData::Hole(_, _) => todo!(),
             FluffyTermData::Category(_) => todo!(),
-            FluffyTermData::Ritchie { .. } => todo!(),
+            FluffyTermData::Ritchie {
+                ritchie_kind,
+                parameter_contracted_tys,
+                return_ty,
+            } => {
+                let mut parameter_contracted_tys = parameter_contracted_tys.to_vec();
+                for parameter_contracted_ty in &mut parameter_contracted_tys {
+                    *parameter_contracted_ty.ty_mut() = self.substitute_into_term(
+                        db,
+                        src,
+                        parameter_contracted_ty.ty(),
+                        substitution_rules,
+                    );
+                }
+                let return_ty = self.substitute_into_term(db, src, return_ty, substitution_rules);
+                FluffyTerm::new_richie(db, self, ritchie_kind, parameter_contracted_tys, return_ty)
+            }
             FluffyTermData::PlaceTypeOntology { .. } => todo!(),
             FluffyTermData::PlaceHole {
                 place,
                 hole_kind,
                 hole,
             } => todo!(),
-            FluffyTermData::Variable { ty } => todo!(),
+            FluffyTermData::Symbol { ty } => todo!(),
+            FluffyTermData::Variable { ty } => substitution_rules
+                .iter()
+                .copied()
+                .find_map(|rule| (rule.variable == term).then_some(rule.substitute))
+                .unwrap_or(term),
         }
     }
 }

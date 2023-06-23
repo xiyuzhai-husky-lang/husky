@@ -5,7 +5,7 @@ impl EtherealTerm {
         match self {
             EtherealTerm::Application(term) => term.application_expansion(db),
             EtherealTerm::EntityPath(path) => match path {
-                TermEntityPath::Form(_) => todo!(),
+                TermEntityPath::Fugitive(_) => todo!(),
                 TermEntityPath::Trait(path) => ApplicationExpansion {
                     function: TermFunctionReduced::Trait(path),
                     arguments: None,

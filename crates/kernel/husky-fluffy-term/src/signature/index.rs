@@ -124,6 +124,7 @@ fn list_index_signature(
             hole_kind,
             hole,
         } => todo!(),
+        FluffyTermData::Symbol { ty } => todo!(),
         FluffyTermData::Variable { ty } => todo!(),
     }
 }

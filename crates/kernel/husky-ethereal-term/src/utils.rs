@@ -83,6 +83,18 @@ impl EtherealTerm {
             _ => unreachable!(),
         }
     }
+
+    pub fn new_ty_ontology(
+        db: &dyn EtherealTermDb,
+        path: TypePath,
+        arguments: impl Iterator<Item = EtherealTerm>,
+    ) -> EtherealTermResult<Self> {
+        let mut term: Self = TermEntityPath::TypeOntology(path).into();
+        for argument in arguments {
+            term = EtherealTermApplication::new(db, term, argument)?
+        }
+        Ok(term)
+    }
 }
 
 impl EtherealTermSymbol {

@@ -60,7 +60,8 @@ impl FluffyTerm {
                         hole_kind,
                         hole,
                     } => todo!(),
-                    FluffyTermData::Variable { ty } => todo!(),
+                    FluffyTermData::Symbol { ty } => todo!(),
+FluffyTermData::Variable { ty } => todo!(),
                 };
                 Ok(HollowTerm::new(engine, data).into())
             }
@@ -100,5 +101,41 @@ impl FluffyTerm {
     ) -> EtherealTermResult<Self> {
         let function: FluffyTerm = engine.term_menu().leash_ty_ontology().into();
         Self::new_application(engine, expr_idx, function, ty)
+    }
+
+    pub(crate) fn new_ty_ontology(
+        db: &dyn FluffyTermDb,
+        fluffy_terms: &mut FluffyTerms,
+        path: TypePath,
+        refined_path: Either<PreludeTypePath, CustomTypePath>,
+        arguments: SmallVec<[FluffyTerm; 2]>,
+    ) -> Self {
+        if arguments.len() == 0 {
+            TermEntityPath::TypeOntology(path).into()
+        } else {
+            let mut solid_flag = false;
+            let mut hollow_flag = false;
+            for argument in &arguments {
+                match argument.nested() {
+                    NestedFluffyTerm::Ethereal(_) => (),
+                    NestedFluffyTerm::Solid(_) => solid_flag = true,
+                    NestedFluffyTerm::Hollow(_) => hollow_flag = true,
+                }
+            }
+            if hollow_flag {
+                fluffy_terms
+                    .hollow_terms_mut()
+                    .alloc_new(HollowTermData::TypeOntology {
+                        path,
+                        refined_path,
+                        arguments,
+                    })
+                    .into()
+            } else if solid_flag {
+                todo!()
+            } else {
+                todo!()
+            }
+        }
     }
 }

@@ -55,7 +55,7 @@ impl SymbolType {
             .into(),
             FluffyTerm::Variable(_) => todo!(),
             FluffyTerm::EntityPath(path) => match path {
-                TermEntityPath::Form(_) => todo!(),
+                TermEntityPath::Fugitive(_) => todo!(),
                 TermEntityPath::Trait(_) => todo!(),
                 TermEntityPath::TypeOntology(path) => {
                     let data = SolidTermData::PlaceTypeOntology {
@@ -145,6 +145,7 @@ impl SymbolType {
                         hole_kind,
                         hole,
                     } => todo!(),
+                    FluffyTermData::Symbol { ty } => todo!(),
                     FluffyTermData::Variable { ty } => todo!(),
                 };
                 HollowTerm::new(engine, data).into()

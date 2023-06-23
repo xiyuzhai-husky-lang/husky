@@ -6,12 +6,14 @@ pub(super) fn ethereal_term_data<'a>(
 ) -> FluffyTermData<'a> {
     match term {
         EtherealTerm::Literal(_) => todo!(),
-        EtherealTerm::Symbol(_) => todo!(),
+        EtherealTerm::Symbol(term) => FluffyTermData::Symbol {
+            ty: term.ty(db).into(),
+        },
         EtherealTerm::Variable(term) => FluffyTermData::Variable {
             ty: term.ty(db).into(),
         },
         EtherealTerm::EntityPath(path) => match path {
-            TermEntityPath::Form(_) => todo!(),
+            TermEntityPath::Fugitive(_) => todo!(),
             TermEntityPath::Trait(_) => todo!(),
             TermEntityPath::TypeOntology(ty_path) => FluffyTermData::TypeOntology {
                 path: ty_path,

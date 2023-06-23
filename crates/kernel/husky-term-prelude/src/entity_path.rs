@@ -8,7 +8,7 @@ use super::*;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::derive_debug_with_db(db = TermPreludeDb, jar = EtherealTermJar)]
 pub enum TermEntityPath {
-    Form(FugitivePath),
+    Fugitive(FugitivePath),
     Trait(TraitPath),
     TypeOntology(TypePath),
     TypeInstance(TypePath),
@@ -26,7 +26,7 @@ impl TermEntityPath {
     pub fn ty_ontology(self) -> Option<TypePath> {
         match self {
             TermEntityPath::TypeOntology(path) => Some(path),
-            TermEntityPath::Form(_)
+            TermEntityPath::Fugitive(_)
             | TermEntityPath::Trait(_)
             | TermEntityPath::TypeInstance(_) => None,
         }
@@ -34,7 +34,7 @@ impl TermEntityPath {
 
     pub fn toolchain(self, db: &dyn TermPreludeDb) -> Toolchain {
         match self {
-            TermEntityPath::Form(path) => path.toolchain(db),
+            TermEntityPath::Fugitive(path) => path.toolchain(db),
             TermEntityPath::Trait(path) => path.toolchain(db),
             TermEntityPath::TypeOntology(path) => path.toolchain(db),
             TermEntityPath::TypeInstance(path) => path.toolchain(db),
@@ -44,7 +44,7 @@ impl TermEntityPath {
 
 impl From<FugitivePath> for TermEntityPath {
     fn from(value: FugitivePath) -> Self {
-        TermEntityPath::Form(value)
+        TermEntityPath::Fugitive(value)
     }
 }
 
@@ -72,7 +72,7 @@ impl<Db: ?Sized + TermPreludeDb> DisplayWithDb<Db> for TermEntityPath {
         _level: salsa::DisplayFormatLevel,
     ) -> std::fmt::Result {
         match self {
-            TermEntityPath::Form(path) => {
+            TermEntityPath::Fugitive(path) => {
                 f.write_str("Form(")?;
                 path.display_with_db_fmt(f, db, salsa::DisplayFormatLevel::root())?;
                 f.write_str(")")

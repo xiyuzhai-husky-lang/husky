@@ -220,6 +220,7 @@ impl ExpectImplicitlyConvertible {
                 hole,
             } => None, // adhoc
             // todo!(),
+            FluffyTermData::Symbol { ty } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
         }
     }
