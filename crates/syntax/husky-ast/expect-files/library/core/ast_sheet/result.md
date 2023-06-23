@@ -6,7 +6,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
-                    path: TypeVariantPath {
+                    variant_path: TypeVariantPath {
                         ty_path: TypePath(`core::result::Result`, `Enum`),
                         ident: `Ok`,
                     },
@@ -32,7 +32,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         2,
                     ),
-                    path: TypeVariantPath {
+                    variant_path: TypeVariantPath {
                         ty_path: TypePath(`core::result::Result`, `Enum`),
                         ident: `Err`,
                     },

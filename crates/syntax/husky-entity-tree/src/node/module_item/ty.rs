@@ -1,5 +1,5 @@
+use husky_entity_taxonomy::TypeKind;
 use husky_print_utils::p;
-
 use super::*;
 
 #[salsa::interned(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
@@ -22,6 +22,10 @@ impl TypeNodePath {
 
     pub fn path(self, db: &dyn EntityTreeDb) -> Option<TypePath> {
         self.maybe_ambiguous_path(db).unambiguous_path()
+    }
+
+    pub fn ty_kind(self,db:&dyn EntityTreeDb) -> TypeKind {
+        self.maybe_ambiguous_path(db).path.ty_kind(db)
     }
 
     pub fn node<'a>(self, db: &'a dyn EntityTreeDb) -> ModuleItemNode {

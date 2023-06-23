@@ -6,7 +6,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         3,
                     ),
-                    path: TypeVariantPath {
+                    variant_path: TypeVariantPath {
                         ty_path: TypePath(`core::logic::LogicOr`, `Inductive`),
                         ident: `Left`,
                     },
@@ -32,7 +32,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         4,
                     ),
-                    path: TypeVariantPath {
+                    variant_path: TypeVariantPath {
                         ty_path: TypePath(`core::logic::LogicOr`, `Inductive`),
                         ident: `Right`,
                     },

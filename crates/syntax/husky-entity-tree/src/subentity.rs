@@ -41,8 +41,8 @@ pub(crate) fn subentity_path(
             let _entity_tree_crate_bundle = db.entity_tree_bundle(crate_path)?;
             match module_item_path {
                 ModuleItemPath::Type(path) => {
-                    if let Some((_, variant)) = path.variants(db)?.get_entry(ident) {
-                        Ok(SubentityPath::NonAssociated(variant.path(db).into()))
+                    if let Some((_, path)) = path.ty_variant_paths(db).get_entry(ident).copied() {
+                        Ok(SubentityPath::NonAssociated(path.into()))
                     } else if let Some((_, node)) = path.item_node_paths(db)?.get_entry(ident) {
                         Ok(SubentityPath::Associated)
                     } else {

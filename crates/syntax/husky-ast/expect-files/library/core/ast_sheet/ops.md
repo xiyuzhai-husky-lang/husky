@@ -978,7 +978,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         59,
                     ),
-                    path: TypeVariantPath {
+                    variant_path: TypeVariantPath {
                         ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
                         ident: `Return`,
                     },
@@ -1004,7 +1004,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         60,
                     ),
-                    path: TypeVariantPath {
+                    variant_path: TypeVariantPath {
                         ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
                         ident: `Continue`,
                     },

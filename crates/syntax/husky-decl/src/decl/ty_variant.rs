@@ -79,25 +79,26 @@ impl HasDecl for TypeVariantPath {
 }
 
 impl<'a> DeclParser<'a> {
-    fn parse_ty_variant_decl(&self, id: TypeVariantNodePath) -> DeclResult<TypeVariantDecl> {
-        let (
-            ast_idx,
-            Ast::TypeVariant {
-                token_group_idx,
-                vertical_token,
-                ident_token,
-                state_after,
-                ..
-            }
-        ) = self.resolve_ty_variant_indexed_ast(id) else {
+    fn parse_ty_variant_decl(&self, node_path: TypeVariantNodePath) -> DeclResult<TypeVariantDecl> {
+        let db = self.db();
+        let node = node_path.node(db);
+        let ast_idx = node.ast_idx(db);
+        let Ast::TypeVariant {
+            token_group_idx,
+            vertical_token,
+            ident_token,
+            state_after,
+            ..
+        } = self.ast_sheet()[ast_idx] else {
             unreachable!()
         };
-        let mut parser = self.expr_parser(id, None, AllowSelfType::True, AllowSelfValue::False);
-        let mut ctx = parser.ctx(None, *token_group_idx, Some(*state_after));
+        let mut parser =
+            self.expr_parser(node_path, None, AllowSelfType::True, AllowSelfValue::False);
+        let mut ctx = parser.ctx(None, token_group_idx, Some(state_after));
         Ok(match ctx.next() {
             Some(Token::Punctuation(Punctuation::LPAR)) => todo!(),
             Some(Token::Punctuation(Punctuation::LCURL)) => todo!(),
-            None => UnitVariantDecl::new(self.db(), id, parser.finish()).into(),
+            None => UnitVariantDecl::new(self.db(), node_path, parser.finish()).into(),
             _ => todo!(),
         })
     }

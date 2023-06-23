@@ -82,7 +82,7 @@ pub enum Ast {
     },
     TypeVariant {
         token_group_idx: TokenGroupIdx,
-        path: TypeVariantPath,
+        variant_path: TypeVariantPath,
         vertical_token: VerticalToken,
         ident_token: IdentToken,
         state_after: TokenStreamState,
