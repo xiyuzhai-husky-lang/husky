@@ -57,6 +57,24 @@ where
     }
 }
 
+impl<K, M, T> AsVecMapEntry for (K, M, T)
+where
+    K: PartialEq + Eq + std::fmt::Debug,
+{
+    type K = K;
+
+    fn key(&self) -> K
+    where
+        K: Copy,
+    {
+        self.0
+    }
+
+    fn key_ref(&self) -> &K {
+        &self.0
+    }
+}
+
 impl<K, T> AsVecMapEntry for Arc<T>
 where
     T: AsVecMapEntry<K = K>,

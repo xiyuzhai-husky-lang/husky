@@ -33,36 +33,6 @@ impl<'a> DeclParser<'a> {
     }
 
     #[inline(always)]
-    pub(crate) fn resolve_module_item_indexed_ast(
-        &self,
-        path: ModuleItemPath,
-    ) -> (AstIdx, &'a Ast) {
-        let path = path.into();
-        self.ast_sheet
-            .all_ast_indexed_iter()
-            .find(|(_, ast)| match ast {
-                Ast::Defn { block, .. } => block.entity_path() == Some(path),
-                _ => false,
-            })
-            .expect("should be guaranteed to exists by the construction of path")
-    }
-
-    #[inline(always)]
-    pub(crate) fn resolve_ty_variant_indexed_ast(
-        &self,
-        node_path: TypeVariantNodePath,
-    ) -> (AstIdx, &'a Ast) {
-        todo!()
-        // self.ast_sheet
-        //     .all_ast_indexed_iter()
-        //     .find(|(_, ast)| match ast {
-        //         Ast::TypeVariant { path, .. } => node_path == *path,
-        //         _ => false,
-        //     })
-        //     .expect("should be guaranteed to exists by the construction of path")
-    }
-
-    #[inline(always)]
     pub(crate) fn expr_parser(
         &self,
         node_path: impl Into<EntityNodePath>,

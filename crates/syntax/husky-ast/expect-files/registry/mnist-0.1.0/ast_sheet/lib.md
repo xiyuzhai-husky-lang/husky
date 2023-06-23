@@ -6,7 +6,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
-                    path: TypeVariantPath {
+                    variant_path: TypeVariantPath {
                         ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                         ident: `Zero`,
                     },
@@ -32,7 +32,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         2,
                     ),
-                    path: TypeVariantPath {
+                    variant_path: TypeVariantPath {
                         ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                         ident: `One`,
                     },
@@ -58,7 +58,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         3,
                     ),
-                    path: TypeVariantPath {
+                    variant_path: TypeVariantPath {
                         ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                         ident: `Two`,
                     },
@@ -84,7 +84,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         4,
                     ),
-                    path: TypeVariantPath {
+                    variant_path: TypeVariantPath {
                         ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                         ident: `Three`,
                     },
@@ -110,7 +110,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         5,
                     ),
-                    path: TypeVariantPath {
+                    variant_path: TypeVariantPath {
                         ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                         ident: `Four`,
                     },
@@ -136,7 +136,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         6,
                     ),
-                    path: TypeVariantPath {
+                    variant_path: TypeVariantPath {
                         ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                         ident: `Five`,
                     },
@@ -162,7 +162,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         7,
                     ),
-                    path: TypeVariantPath {
+                    variant_path: TypeVariantPath {
                         ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                         ident: `Six`,
                     },
@@ -188,7 +188,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         8,
                     ),
-                    path: TypeVariantPath {
+                    variant_path: TypeVariantPath {
                         ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                         ident: `Seven`,
                     },
@@ -214,7 +214,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         9,
                     ),
-                    path: TypeVariantPath {
+                    variant_path: TypeVariantPath {
                         ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                         ident: `Eight`,
                     },
@@ -240,7 +240,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         10,
                     ),
-                    path: TypeVariantPath {
+                    variant_path: TypeVariantPath {
                         ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                         ident: `Nine`,
                     },

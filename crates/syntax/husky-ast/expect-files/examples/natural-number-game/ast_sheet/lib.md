@@ -6,7 +6,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
-                    path: TypeVariantPath {
+                    variant_path: TypeVariantPath {
                         ty_path: TypePath(`natural_number_game::Nat`, `Inductive`),
                         ident: `Zero`,
                     },
@@ -32,7 +32,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         2,
                     ),
-                    path: TypeVariantPath {
+                    variant_path: TypeVariantPath {
                         ty_path: TypePath(`natural_number_game::Nat`, `Inductive`),
                         ident: `Succ`,
                     },
