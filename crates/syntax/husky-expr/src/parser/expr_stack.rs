@@ -60,7 +60,7 @@ impl Expr {
                 None => todo!(),
             },
             Expr::AssociatedItem {
-                parent_expr_idx: parent,
+                parent_expr_idx,
                 scope_resolution_token,
                 ident_token,
             } => todo!(),

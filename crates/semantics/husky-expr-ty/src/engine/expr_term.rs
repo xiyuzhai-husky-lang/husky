@@ -30,7 +30,7 @@ impl<'a> ExprTypeEngine<'a> {
                 path,
             } => self.calc_entity_path_term(expr_idx, path),
             Expr::AssociatedItem {
-                parent_expr_idx: parent,
+                parent_expr_idx,
                 scope_resolution_token,
                 ident_token,
             } => todo!(),
