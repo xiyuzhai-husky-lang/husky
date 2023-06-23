@@ -224,12 +224,12 @@ impl<'a> ExprRangeCalculator<'a> {
             | Expr::SelfType(token_idx)
             | Expr::SelfValue(token_idx) => TokenIdxRange::new_single(*token_idx),
             Expr::Binary { lopd, ropd, .. } => self[lopd].join(self[ropd]),
-            Expr::NonAssociatedEntityPath {
+            Expr::NonAssociatedEntity {
                 entity_path_expr,
                 path: entity_path,
             } => self[*entity_path_expr],
-            Expr::AssociatedItemPath {
-                parent,
+            Expr::AssociatedItem {
+                parent_expr_idx: parent,
                 scope_resolution_token,
                 ident_token,
             } => todo!(),

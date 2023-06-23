@@ -1,3 +1,4 @@
+mod associated_item;
 mod binary;
 mod box_list;
 mod current_symbol;
@@ -98,15 +99,15 @@ impl<'a> ExprTypeEngine<'a> {
                 ExprDisambiguation::Trivial,
                 self.calc_literal_expr_ty(expr_idx, literal_token_idx, expr_ty_expectation),
             )),
-            Expr::NonAssociatedEntityPath {
+            Expr::NonAssociatedEntity {
                 entity_path_expr,
                 path,
             } => self.calc_entity_path_expr_ty(path, expr_ty_expectation),
-            Expr::AssociatedItemPath {
-                parent,
+            Expr::AssociatedItem {
+                parent_expr_idx,
                 scope_resolution_token,
                 ident_token,
-            } => todo!(),
+            } => self.calc_associated_item_ty(expr_idx, parent_expr_idx, ident_token),
             Expr::InheritedSymbol {
                 ident,
                 inherited_symbol_idx,

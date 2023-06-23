@@ -61,7 +61,7 @@ Ok(
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            Expr::NonAssociatedEntityPath {
+                                            Expr::NonAssociatedEntity {
                                                 entity_path_expr: 0,
                                                 path: Some(
                                                     EntityPath::ModuleItem(
@@ -89,7 +89,7 @@ Ok(
                                                     34,
                                                 ),
                                             },
-                                            Expr::NonAssociatedEntityPath {
+                                            Expr::NonAssociatedEntity {
                                                 entity_path_expr: 1,
                                                 path: Some(
                                                     EntityPath::ModuleItem(
@@ -335,7 +335,7 @@ Ok(
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            Expr::NonAssociatedEntityPath {
+                                            Expr::NonAssociatedEntity {
                                                 entity_path_expr: 0,
                                                 path: Some(
                                                     EntityPath::ModuleItem(
@@ -345,7 +345,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            Expr::NonAssociatedEntityPath {
+                                            Expr::NonAssociatedEntity {
                                                 entity_path_expr: 1,
                                                 path: Some(
                                                     EntityPath::ModuleItem(
@@ -355,7 +355,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            Expr::NonAssociatedEntityPath {
+                                            Expr::NonAssociatedEntity {
                                                 entity_path_expr: 2,
                                                 path: Some(
                                                     EntityPath::ModuleItem(
@@ -576,7 +576,7 @@ Ok(
                                             ),
                                             expr_arena: Arena {
                                                 data: [
-                                                    Expr::NonAssociatedEntityPath {
+                                                    Expr::NonAssociatedEntity {
                                                         entity_path_expr: 0,
                                                         path: Some(
                                                             EntityPath::ModuleItem(
@@ -586,7 +586,7 @@ Ok(
                                                             ),
                                                         ),
                                                     },
-                                                    Expr::NonAssociatedEntityPath {
+                                                    Expr::NonAssociatedEntity {
                                                         entity_path_expr: 1,
                                                         path: Some(
                                                             EntityPath::ModuleItem(
@@ -596,7 +596,7 @@ Ok(
                                                             ),
                                                         ),
                                                     },
-                                                    Expr::NonAssociatedEntityPath {
+                                                    Expr::NonAssociatedEntity {
                                                         entity_path_expr: 2,
                                                         path: Some(
                                                             EntityPath::ModuleItem(
@@ -1029,7 +1029,7 @@ Ok(
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            Expr::NonAssociatedEntityPath {
+                                            Expr::NonAssociatedEntity {
                                                 entity_path_expr: 0,
                                                 path: Some(
                                                     EntityPath::ModuleItem(
@@ -1039,7 +1039,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            Expr::NonAssociatedEntityPath {
+                                            Expr::NonAssociatedEntity {
                                                 entity_path_expr: 1,
                                                 path: Some(
                                                     EntityPath::ModuleItem(
@@ -1049,7 +1049,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            Expr::NonAssociatedEntityPath {
+                                            Expr::NonAssociatedEntity {
                                                 entity_path_expr: 2,
                                                 path: Some(
                                                     EntityPath::ModuleItem(
@@ -1270,7 +1270,7 @@ Ok(
                                             ),
                                             expr_arena: Arena {
                                                 data: [
-                                                    Expr::NonAssociatedEntityPath {
+                                                    Expr::NonAssociatedEntity {
                                                         entity_path_expr: 0,
                                                         path: Some(
                                                             EntityPath::ModuleItem(
@@ -1280,7 +1280,7 @@ Ok(
                                                             ),
                                                         ),
                                                     },
-                                                    Expr::NonAssociatedEntityPath {
+                                                    Expr::NonAssociatedEntity {
                                                         entity_path_expr: 1,
                                                         path: Some(
                                                             EntityPath::ModuleItem(
@@ -1290,7 +1290,7 @@ Ok(
                                                             ),
                                                         ),
                                                     },
-                                                    Expr::NonAssociatedEntityPath {
+                                                    Expr::NonAssociatedEntity {
                                                         entity_path_expr: 2,
                                                         path: Some(
                                                             EntityPath::ModuleItem(
@@ -1696,7 +1696,7 @@ Ok(
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            Expr::NonAssociatedEntityPath {
+                                            Expr::NonAssociatedEntity {
                                                 entity_path_expr: 0,
                                                 path: Some(
                                                     EntityPath::ModuleItem(
@@ -1706,7 +1706,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            Expr::NonAssociatedEntityPath {
+                                            Expr::NonAssociatedEntity {
                                                 entity_path_expr: 1,
                                                 path: Some(
                                                     EntityPath::ModuleItem(
@@ -1716,7 +1716,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            Expr::NonAssociatedEntityPath {
+                                            Expr::NonAssociatedEntity {
                                                 entity_path_expr: 2,
                                                 path: Some(
                                                     EntityPath::ModuleItem(
@@ -1937,7 +1937,7 @@ Ok(
                                             ),
                                             expr_arena: Arena {
                                                 data: [
-                                                    Expr::NonAssociatedEntityPath {
+                                                    Expr::NonAssociatedEntity {
                                                         entity_path_expr: 0,
                                                         path: Some(
                                                             EntityPath::ModuleItem(
@@ -1947,7 +1947,7 @@ Ok(
                                                             ),
                                                         ),
                                                     },
-                                                    Expr::NonAssociatedEntityPath {
+                                                    Expr::NonAssociatedEntity {
                                                         entity_path_expr: 1,
                                                         path: Some(
                                                             EntityPath::ModuleItem(
@@ -1957,7 +1957,7 @@ Ok(
                                                             ),
                                                         ),
                                                     },
-                                                    Expr::NonAssociatedEntityPath {
+                                                    Expr::NonAssociatedEntity {
                                                         entity_path_expr: 2,
                                                         path: Some(
                                                             EntityPath::ModuleItem(
@@ -2402,7 +2402,7 @@ Ok(
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            Expr::NonAssociatedEntityPath {
+                                            Expr::NonAssociatedEntity {
                                                 entity_path_expr: 0,
                                                 path: Some(
                                                     EntityPath::ModuleItem(
@@ -2412,7 +2412,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            Expr::NonAssociatedEntityPath {
+                                            Expr::NonAssociatedEntity {
                                                 entity_path_expr: 1,
                                                 path: Some(
                                                     EntityPath::ModuleItem(
@@ -2422,7 +2422,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            Expr::NonAssociatedEntityPath {
+                                            Expr::NonAssociatedEntity {
                                                 entity_path_expr: 2,
                                                 path: Some(
                                                     EntityPath::ModuleItem(
@@ -2432,7 +2432,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            Expr::NonAssociatedEntityPath {
+                                            Expr::NonAssociatedEntity {
                                                 entity_path_expr: 3,
                                                 path: Some(
                                                     EntityPath::ModuleItem(
@@ -2713,7 +2713,7 @@ Ok(
                                             ),
                                             expr_arena: Arena {
                                                 data: [
-                                                    Expr::NonAssociatedEntityPath {
+                                                    Expr::NonAssociatedEntity {
                                                         entity_path_expr: 0,
                                                         path: Some(
                                                             EntityPath::ModuleItem(
@@ -2723,7 +2723,7 @@ Ok(
                                                             ),
                                                         ),
                                                     },
-                                                    Expr::NonAssociatedEntityPath {
+                                                    Expr::NonAssociatedEntity {
                                                         entity_path_expr: 1,
                                                         path: Some(
                                                             EntityPath::ModuleItem(
@@ -2733,7 +2733,7 @@ Ok(
                                                             ),
                                                         ),
                                                     },
-                                                    Expr::NonAssociatedEntityPath {
+                                                    Expr::NonAssociatedEntity {
                                                         entity_path_expr: 2,
                                                         path: Some(
                                                             EntityPath::ModuleItem(
@@ -2743,7 +2743,7 @@ Ok(
                                                             ),
                                                         ),
                                                     },
-                                                    Expr::NonAssociatedEntityPath {
+                                                    Expr::NonAssociatedEntity {
                                                         entity_path_expr: 3,
                                                         path: Some(
                                                             EntityPath::ModuleItem(
@@ -3015,7 +3015,7 @@ Ok(
                                 ),
                                 expr_arena: Arena {
                                     data: [
-                                        Expr::NonAssociatedEntityPath {
+                                        Expr::NonAssociatedEntity {
                                             entity_path_expr: 0,
                                             path: Some(
                                                 EntityPath::ModuleItem(
@@ -3063,7 +3063,7 @@ Ok(
                                                 508,
                                             ),
                                         },
-                                        Expr::NonAssociatedEntityPath {
+                                        Expr::NonAssociatedEntity {
                                             entity_path_expr: 1,
                                             path: Some(
                                                 EntityPath::ModuleItem(
@@ -3431,7 +3431,7 @@ Ok(
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            Expr::NonAssociatedEntityPath {
+                                            Expr::NonAssociatedEntity {
                                                 entity_path_expr: 0,
                                                 path: Some(
                                                     EntityPath::ModuleItem(
@@ -3441,7 +3441,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            Expr::NonAssociatedEntityPath {
+                                            Expr::NonAssociatedEntity {
                                                 entity_path_expr: 1,
                                                 path: Some(
                                                     EntityPath::ModuleItem(
@@ -3451,7 +3451,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            Expr::NonAssociatedEntityPath {
+                                            Expr::NonAssociatedEntity {
                                                 entity_path_expr: 2,
                                                 path: Some(
                                                     EntityPath::ModuleItem(
@@ -3672,7 +3672,7 @@ Ok(
                                             ),
                                             expr_arena: Arena {
                                                 data: [
-                                                    Expr::NonAssociatedEntityPath {
+                                                    Expr::NonAssociatedEntity {
                                                         entity_path_expr: 0,
                                                         path: Some(
                                                             EntityPath::ModuleItem(
@@ -3682,7 +3682,7 @@ Ok(
                                                             ),
                                                         ),
                                                     },
-                                                    Expr::NonAssociatedEntityPath {
+                                                    Expr::NonAssociatedEntity {
                                                         entity_path_expr: 1,
                                                         path: Some(
                                                             EntityPath::ModuleItem(
@@ -3692,7 +3692,7 @@ Ok(
                                                             ),
                                                         ),
                                                     },
-                                                    Expr::NonAssociatedEntityPath {
+                                                    Expr::NonAssociatedEntity {
                                                         entity_path_expr: 2,
                                                         path: Some(
                                                             EntityPath::ModuleItem(
@@ -3914,7 +3914,7 @@ Ok(
                                                 ident: `outward`,
                                             },
                                         },
-                                        Expr::NonAssociatedEntityPath {
+                                        Expr::NonAssociatedEntity {
                                             entity_path_expr: 0,
                                             path: Some(
                                                 EntityPath::ModuleItem(
@@ -3942,7 +3942,7 @@ Ok(
                                                 ident: `inward`,
                                             },
                                         },
-                                        Expr::NonAssociatedEntityPath {
+                                        Expr::NonAssociatedEntity {
                                             entity_path_expr: 1,
                                             path: Some(
                                                 EntityPath::ModuleItem(
@@ -3997,7 +3997,7 @@ Ok(
                                                 642,
                                             ),
                                         },
-                                        Expr::NonAssociatedEntityPath {
+                                        Expr::NonAssociatedEntity {
                                             entity_path_expr: 2,
                                             path: Some(
                                                 EntityPath::ModuleItem(
@@ -4336,7 +4336,7 @@ Ok(
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            Expr::NonAssociatedEntityPath {
+                                            Expr::NonAssociatedEntity {
                                                 entity_path_expr: 0,
                                                 path: Some(
                                                     EntityPath::ModuleItem(
@@ -4346,7 +4346,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            Expr::NonAssociatedEntityPath {
+                                            Expr::NonAssociatedEntity {
                                                 entity_path_expr: 1,
                                                 path: Some(
                                                     EntityPath::ModuleItem(
@@ -4356,7 +4356,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            Expr::NonAssociatedEntityPath {
+                                            Expr::NonAssociatedEntity {
                                                 entity_path_expr: 2,
                                                 path: Some(
                                                     EntityPath::ModuleItem(
@@ -4366,7 +4366,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            Expr::NonAssociatedEntityPath {
+                                            Expr::NonAssociatedEntity {
                                                 entity_path_expr: 3,
                                                 path: Some(
                                                     EntityPath::ModuleItem(
@@ -4376,7 +4376,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            Expr::NonAssociatedEntityPath {
+                                            Expr::NonAssociatedEntity {
                                                 entity_path_expr: 4,
                                                 path: Some(
                                                     EntityPath::ModuleItem(
@@ -4717,7 +4717,7 @@ Ok(
                                             ),
                                             expr_arena: Arena {
                                                 data: [
-                                                    Expr::NonAssociatedEntityPath {
+                                                    Expr::NonAssociatedEntity {
                                                         entity_path_expr: 0,
                                                         path: Some(
                                                             EntityPath::ModuleItem(
@@ -4727,7 +4727,7 @@ Ok(
                                                             ),
                                                         ),
                                                     },
-                                                    Expr::NonAssociatedEntityPath {
+                                                    Expr::NonAssociatedEntity {
                                                         entity_path_expr: 1,
                                                         path: Some(
                                                             EntityPath::ModuleItem(
@@ -4737,7 +4737,7 @@ Ok(
                                                             ),
                                                         ),
                                                     },
-                                                    Expr::NonAssociatedEntityPath {
+                                                    Expr::NonAssociatedEntity {
                                                         entity_path_expr: 2,
                                                         path: Some(
                                                             EntityPath::ModuleItem(
@@ -4747,7 +4747,7 @@ Ok(
                                                             ),
                                                         ),
                                                     },
-                                                    Expr::NonAssociatedEntityPath {
+                                                    Expr::NonAssociatedEntity {
                                                         entity_path_expr: 3,
                                                         path: Some(
                                                             EntityPath::ModuleItem(
@@ -4757,7 +4757,7 @@ Ok(
                                                             ),
                                                         ),
                                                     },
-                                                    Expr::NonAssociatedEntityPath {
+                                                    Expr::NonAssociatedEntity {
                                                         entity_path_expr: 4,
                                                         path: Some(
                                                             EntityPath::ModuleItem(
@@ -5089,7 +5089,7 @@ Ok(
                                 ),
                                 expr_arena: Arena {
                                     data: [
-                                        Expr::NonAssociatedEntityPath {
+                                        Expr::NonAssociatedEntity {
                                             entity_path_expr: 0,
                                             path: Some(
                                                 EntityPath::ModuleItem(
@@ -5137,7 +5137,7 @@ Ok(
                                                 704,
                                             ),
                                         },
-                                        Expr::NonAssociatedEntityPath {
+                                        Expr::NonAssociatedEntity {
                                             entity_path_expr: 1,
                                             path: Some(
                                                 EntityPath::ModuleItem(
@@ -5519,7 +5519,7 @@ Ok(
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            Expr::NonAssociatedEntityPath {
+                                            Expr::NonAssociatedEntity {
                                                 entity_path_expr: 0,
                                                 path: Some(
                                                     EntityPath::ModuleItem(
@@ -5529,7 +5529,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            Expr::NonAssociatedEntityPath {
+                                            Expr::NonAssociatedEntity {
                                                 entity_path_expr: 1,
                                                 path: Some(
                                                     EntityPath::ModuleItem(
@@ -5703,7 +5703,7 @@ Ok(
                                                     893,
                                                 ),
                                             },
-                                            Expr::NonAssociatedEntityPath {
+                                            Expr::NonAssociatedEntity {
                                                 entity_path_expr: 0,
                                                 path: Some(
                                                     EntityPath::ModuleItem(
@@ -5717,7 +5717,7 @@ Ok(
                                                 function: 0,
                                                 argument: 1,
                                             },
-                                            Expr::NonAssociatedEntityPath {
+                                            Expr::NonAssociatedEntity {
                                                 entity_path_expr: 1,
                                                 path: Some(
                                                     EntityPath::ModuleItem(
@@ -5889,7 +5889,7 @@ Ok(
                                                             893,
                                                         ),
                                                     },
-                                                    Expr::NonAssociatedEntityPath {
+                                                    Expr::NonAssociatedEntity {
                                                         entity_path_expr: 0,
                                                         path: Some(
                                                             EntityPath::ModuleItem(
@@ -5903,7 +5903,7 @@ Ok(
                                                         function: 0,
                                                         argument: 1,
                                                     },
-                                                    Expr::NonAssociatedEntityPath {
+                                                    Expr::NonAssociatedEntity {
                                                         entity_path_expr: 1,
                                                         path: Some(
                                                             EntityPath::ModuleItem(
@@ -6188,7 +6188,7 @@ Ok(
                                                 924,
                                             ),
                                         },
-                                        Expr::NonAssociatedEntityPath {
+                                        Expr::NonAssociatedEntity {
                                             entity_path_expr: 0,
                                             path: Some(
                                                 EntityPath::ModuleItem(
@@ -6725,7 +6725,7 @@ Ok(
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            Expr::NonAssociatedEntityPath {
+                                            Expr::NonAssociatedEntity {
                                                 entity_path_expr: 0,
                                                 path: Some(
                                                     EntityPath::ModuleItem(
@@ -6753,7 +6753,7 @@ Ok(
                                                     963,
                                                 ),
                                             },
-                                            Expr::NonAssociatedEntityPath {
+                                            Expr::NonAssociatedEntity {
                                                 entity_path_expr: 1,
                                                 path: Some(
                                                     EntityPath::ModuleItem(
@@ -6918,7 +6918,7 @@ Ok(
                                             ),
                                             expr_arena: Arena {
                                                 data: [
-                                                    Expr::NonAssociatedEntityPath {
+                                                    Expr::NonAssociatedEntity {
                                                         entity_path_expr: 0,
                                                         path: Some(
                                                             EntityPath::ModuleItem(
@@ -6946,7 +6946,7 @@ Ok(
                                                             963,
                                                         ),
                                                     },
-                                                    Expr::NonAssociatedEntityPath {
+                                                    Expr::NonAssociatedEntity {
                                                         entity_path_expr: 1,
                                                         path: Some(
                                                             EntityPath::ModuleItem(
@@ -7113,7 +7113,7 @@ Ok(
                                                 971,
                                             ),
                                         },
-                                        Expr::NonAssociatedEntityPath {
+                                        Expr::NonAssociatedEntity {
                                             entity_path_expr: 0,
                                             path: Some(
                                                 EntityPath::ModuleItem(
@@ -7689,7 +7689,7 @@ Ok(
                                                 1067,
                                             ),
                                         },
-                                        Expr::NonAssociatedEntityPath {
+                                        Expr::NonAssociatedEntity {
                                             entity_path_expr: 1,
                                             path: Some(
                                                 EntityPath::ModuleItem(
@@ -7885,7 +7885,7 @@ Ok(
                                                 1110,
                                             ),
                                         },
-                                        Expr::NonAssociatedEntityPath {
+                                        Expr::NonAssociatedEntity {
                                             entity_path_expr: 2,
                                             path: Some(
                                                 EntityPath::ModuleItem(
@@ -8171,7 +8171,7 @@ Ok(
                                             ),
                                             opd: 105,
                                         },
-                                        Expr::NonAssociatedEntityPath {
+                                        Expr::NonAssociatedEntity {
                                             entity_path_expr: 3,
                                             path: Some(
                                                 EntityPath::ModuleItem(
@@ -8245,7 +8245,7 @@ Ok(
                                                 1197,
                                             ),
                                         },
-                                        Expr::NonAssociatedEntityPath {
+                                        Expr::NonAssociatedEntity {
                                             entity_path_expr: 4,
                                             path: Some(
                                                 EntityPath::ModuleItem(
@@ -8674,7 +8674,7 @@ Ok(
                                                 1256,
                                             ),
                                         },
-                                        Expr::NonAssociatedEntityPath {
+                                        Expr::NonAssociatedEntity {
                                             entity_path_expr: 5,
                                             path: Some(
                                                 EntityPath::ModuleItem(
@@ -8733,7 +8733,7 @@ Ok(
                                                 pattern_symbol_idx: 6,
                                             },
                                         },
-                                        Expr::NonAssociatedEntityPath {
+                                        Expr::NonAssociatedEntity {
                                             entity_path_expr: 6,
                                             path: Some(
                                                 EntityPath::ModuleItem(
@@ -8743,8 +8743,8 @@ Ok(
                                                 ),
                                             ),
                                         },
-                                        Expr::AssociatedItemPath {
-                                            parent: 162,
+                                        Expr::AssociatedItem {
+                                            parent_expr_idx: 162,
                                             scope_resolution_token: ScopeResolutionToken(
                                                 TokenIdx(
                                                     1268,
@@ -9028,7 +9028,7 @@ Ok(
                                                 1302,
                                             ),
                                         },
-                                        Expr::NonAssociatedEntityPath {
+                                        Expr::NonAssociatedEntity {
                                             entity_path_expr: 7,
                                             path: Some(
                                                 EntityPath::ModuleItem(
@@ -9038,8 +9038,8 @@ Ok(
                                                 ),
                                             ),
                                         },
-                                        Expr::AssociatedItemPath {
-                                            parent: 190,
+                                        Expr::AssociatedItem {
+                                            parent_expr_idx: 190,
                                             scope_resolution_token: ScopeResolutionToken(
                                                 TokenIdx(
                                                     1306,
@@ -9343,7 +9343,7 @@ Ok(
                                                 1341,
                                             ),
                                         },
-                                        Expr::NonAssociatedEntityPath {
+                                        Expr::NonAssociatedEntity {
                                             entity_path_expr: 8,
                                             path: Some(
                                                 EntityPath::ModuleItem(
@@ -9353,8 +9353,8 @@ Ok(
                                                 ),
                                             ),
                                         },
-                                        Expr::AssociatedItemPath {
-                                            parent: 221,
+                                        Expr::AssociatedItem {
+                                            parent_expr_idx: 221,
                                             scope_resolution_token: ScopeResolutionToken(
                                                 TokenIdx(
                                                     1345,
@@ -9496,7 +9496,7 @@ Ok(
                                                 pattern_symbol_idx: 6,
                                             },
                                         },
-                                        Expr::NonAssociatedEntityPath {
+                                        Expr::NonAssociatedEntity {
                                             entity_path_expr: 9,
                                             path: Some(
                                                 EntityPath::ModuleItem(
@@ -9506,8 +9506,8 @@ Ok(
                                                 ),
                                             ),
                                         },
-                                        Expr::AssociatedItemPath {
-                                            parent: 237,
+                                        Expr::AssociatedItem {
+                                            parent_expr_idx: 237,
                                             scope_resolution_token: ScopeResolutionToken(
                                                 TokenIdx(
                                                     1367,
@@ -9953,7 +9953,7 @@ Ok(
                                                 pattern_symbol_idx: 0,
                                             },
                                         },
-                                        Expr::NonAssociatedEntityPath {
+                                        Expr::NonAssociatedEntity {
                                             entity_path_expr: 10,
                                             path: Some(
                                                 EntityPath::ModuleItem(
@@ -12594,7 +12594,7 @@ Ok(
                             ),
                             expr_arena: Arena {
                                 data: [
-                                    Expr::NonAssociatedEntityPath {
+                                    Expr::NonAssociatedEntity {
                                         entity_path_expr: 0,
                                         path: Some(
                                             EntityPath::ModuleItem(
@@ -12604,7 +12604,7 @@ Ok(
                                             ),
                                         ),
                                     },
-                                    Expr::NonAssociatedEntityPath {
+                                    Expr::NonAssociatedEntity {
                                         entity_path_expr: 1,
                                         path: Some(
                                             EntityPath::ModuleItem(
@@ -12750,7 +12750,7 @@ Ok(
                                                 ),
                                                 expr_arena: Arena {
                                                     data: [
-                                                        Expr::NonAssociatedEntityPath {
+                                                        Expr::NonAssociatedEntity {
                                                             entity_path_expr: 0,
                                                             path: Some(
                                                                 EntityPath::ModuleItem(
@@ -12760,7 +12760,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         },
-                                                        Expr::NonAssociatedEntityPath {
+                                                        Expr::NonAssociatedEntity {
                                                             entity_path_expr: 1,
                                                             path: Some(
                                                                 EntityPath::ModuleItem(
@@ -12872,7 +12872,7 @@ Ok(
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            Expr::NonAssociatedEntityPath {
+                                            Expr::NonAssociatedEntity {
                                                 entity_path_expr: 0,
                                                 path: Some(
                                                     EntityPath::ModuleItem(
@@ -12970,7 +12970,7 @@ Ok(
                                                         ),
                                                         expr_arena: Arena {
                                                             data: [
-                                                                Expr::NonAssociatedEntityPath {
+                                                                Expr::NonAssociatedEntity {
                                                                     entity_path_expr: 0,
                                                                     path: Some(
                                                                         EntityPath::ModuleItem(
@@ -12980,7 +12980,7 @@ Ok(
                                                                         ),
                                                                     ),
                                                                 },
-                                                                Expr::NonAssociatedEntityPath {
+                                                                Expr::NonAssociatedEntity {
                                                                     entity_path_expr: 1,
                                                                     path: Some(
                                                                         EntityPath::ModuleItem(
@@ -13092,7 +13092,7 @@ Ok(
                                             ),
                                             expr_arena: Arena {
                                                 data: [
-                                                    Expr::NonAssociatedEntityPath {
+                                                    Expr::NonAssociatedEntity {
                                                         entity_path_expr: 0,
                                                         path: Some(
                                                             EntityPath::ModuleItem(
@@ -13344,7 +13344,7 @@ Ok(
                             ),
                             expr_arena: Arena {
                                 data: [
-                                    Expr::NonAssociatedEntityPath {
+                                    Expr::NonAssociatedEntity {
                                         entity_path_expr: 0,
                                         path: Some(
                                             EntityPath::ModuleItem(
@@ -13466,7 +13466,7 @@ Ok(
                                                 ),
                                                 expr_arena: Arena {
                                                     data: [
-                                                        Expr::NonAssociatedEntityPath {
+                                                        Expr::NonAssociatedEntity {
                                                             entity_path_expr: 0,
                                                             path: Some(
                                                                 EntityPath::ModuleItem(
@@ -13558,7 +13558,7 @@ Ok(
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            Expr::NonAssociatedEntityPath {
+                                            Expr::NonAssociatedEntity {
                                                 entity_path_expr: 0,
                                                 path: Some(
                                                     EntityPath::ModuleItem(
@@ -13655,7 +13655,7 @@ Ok(
                                                         ),
                                                         expr_arena: Arena {
                                                             data: [
-                                                                Expr::NonAssociatedEntityPath {
+                                                                Expr::NonAssociatedEntity {
                                                                     entity_path_expr: 0,
                                                                     path: Some(
                                                                         EntityPath::ModuleItem(
@@ -13747,7 +13747,7 @@ Ok(
                                             ),
                                             expr_arena: Arena {
                                                 data: [
-                                                    Expr::NonAssociatedEntityPath {
+                                                    Expr::NonAssociatedEntity {
                                                         entity_path_expr: 0,
                                                         path: Some(
                                                             EntityPath::ModuleItem(
@@ -13839,7 +13839,7 @@ Ok(
                                 ),
                                 expr_arena: Arena {
                                     data: [
-                                        Expr::NonAssociatedEntityPath {
+                                        Expr::NonAssociatedEntity {
                                             entity_path_expr: 0,
                                             path: Some(
                                                 EntityPath::ModuleItem(
@@ -13849,8 +13849,8 @@ Ok(
                                                 ),
                                             ),
                                         },
-                                        Expr::AssociatedItemPath {
-                                            parent: 0,
+                                        Expr::AssociatedItem {
+                                            parent_expr_idx: 0,
                                             scope_resolution_token: ScopeResolutionToken(
                                                 TokenIdx(
                                                     69,
@@ -14020,7 +14020,7 @@ Ok(
                                                 ),
                                                 expr_arena: Arena {
                                                     data: [
-                                                        Expr::NonAssociatedEntityPath {
+                                                        Expr::NonAssociatedEntity {
                                                             entity_path_expr: 0,
                                                             path: Some(
                                                                 EntityPath::ModuleItem(
@@ -14112,7 +14112,7 @@ Ok(
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            Expr::NonAssociatedEntityPath {
+                                            Expr::NonAssociatedEntity {
                                                 entity_path_expr: 0,
                                                 path: Some(
                                                     EntityPath::ModuleItem(
@@ -14209,7 +14209,7 @@ Ok(
                                                         ),
                                                         expr_arena: Arena {
                                                             data: [
-                                                                Expr::NonAssociatedEntityPath {
+                                                                Expr::NonAssociatedEntity {
                                                                     entity_path_expr: 0,
                                                                     path: Some(
                                                                         EntityPath::ModuleItem(
@@ -14301,7 +14301,7 @@ Ok(
                                             ),
                                             expr_arena: Arena {
                                                 data: [
-                                                    Expr::NonAssociatedEntityPath {
+                                                    Expr::NonAssociatedEntity {
                                                         entity_path_expr: 0,
                                                         path: Some(
                                                             EntityPath::ModuleItem(
@@ -14909,7 +14909,7 @@ Ok(
                                             ),
                                             ropd: 43,
                                         },
-                                        Expr::NonAssociatedEntityPath {
+                                        Expr::NonAssociatedEntity {
                                             entity_path_expr: 0,
                                             path: Some(
                                                 EntityPath::ModuleItem(
@@ -14919,7 +14919,7 @@ Ok(
                                                 ),
                                             ),
                                         },
-                                        Expr::NonAssociatedEntityPath {
+                                        Expr::NonAssociatedEntity {
                                             entity_path_expr: 1,
                                             path: Some(
                                                 EntityPath::ModuleItem(
@@ -14949,7 +14949,7 @@ Ok(
                                                 pattern_symbol_idx: 2,
                                             },
                                         },
-                                        Expr::NonAssociatedEntityPath {
+                                        Expr::NonAssociatedEntity {
                                             entity_path_expr: 2,
                                             path: Some(
                                                 EntityPath::ModuleItem(
@@ -15746,7 +15746,7 @@ Ok(
                                                 ),
                                                 expr_arena: Arena {
                                                     data: [
-                                                        Expr::NonAssociatedEntityPath {
+                                                        Expr::NonAssociatedEntity {
                                                             entity_path_expr: 0,
                                                             path: Some(
                                                                 EntityPath::ModuleItem(
@@ -15838,7 +15838,7 @@ Ok(
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            Expr::NonAssociatedEntityPath {
+                                            Expr::NonAssociatedEntity {
                                                 entity_path_expr: 0,
                                                 path: Some(
                                                     EntityPath::ModuleItem(
@@ -15935,7 +15935,7 @@ Ok(
                                                         ),
                                                         expr_arena: Arena {
                                                             data: [
-                                                                Expr::NonAssociatedEntityPath {
+                                                                Expr::NonAssociatedEntity {
                                                                     entity_path_expr: 0,
                                                                     path: Some(
                                                                         EntityPath::ModuleItem(
@@ -16027,7 +16027,7 @@ Ok(
                                             ),
                                             expr_arena: Arena {
                                                 data: [
-                                                    Expr::NonAssociatedEntityPath {
+                                                    Expr::NonAssociatedEntity {
                                                         entity_path_expr: 0,
                                                         path: Some(
                                                             EntityPath::ModuleItem(
@@ -16330,7 +16330,7 @@ Ok(
                                                 ),
                                                 expr_arena: Arena {
                                                     data: [
-                                                        Expr::NonAssociatedEntityPath {
+                                                        Expr::NonAssociatedEntity {
                                                             entity_path_expr: 0,
                                                             path: Some(
                                                                 EntityPath::ModuleItem(
@@ -16422,7 +16422,7 @@ Ok(
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            Expr::NonAssociatedEntityPath {
+                                            Expr::NonAssociatedEntity {
                                                 entity_path_expr: 0,
                                                 path: Some(
                                                     EntityPath::ModuleItem(
@@ -16519,7 +16519,7 @@ Ok(
                                                         ),
                                                         expr_arena: Arena {
                                                             data: [
-                                                                Expr::NonAssociatedEntityPath {
+                                                                Expr::NonAssociatedEntity {
                                                                     entity_path_expr: 0,
                                                                     path: Some(
                                                                         EntityPath::ModuleItem(
@@ -16611,7 +16611,7 @@ Ok(
                                             ),
                                             expr_arena: Arena {
                                                 data: [
-                                                    Expr::NonAssociatedEntityPath {
+                                                    Expr::NonAssociatedEntity {
                                                         entity_path_expr: 0,
                                                         path: Some(
                                                             EntityPath::ModuleItem(
@@ -18009,7 +18009,7 @@ Ok(
                                                 ),
                                                 expr_arena: Arena {
                                                     data: [
-                                                        Expr::NonAssociatedEntityPath {
+                                                        Expr::NonAssociatedEntity {
                                                             entity_path_expr: 0,
                                                             path: Some(
                                                                 EntityPath::ModuleItem(
@@ -18101,7 +18101,7 @@ Ok(
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            Expr::NonAssociatedEntityPath {
+                                            Expr::NonAssociatedEntity {
                                                 entity_path_expr: 0,
                                                 path: Some(
                                                     EntityPath::ModuleItem(
@@ -18111,7 +18111,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            Expr::NonAssociatedEntityPath {
+                                            Expr::NonAssociatedEntity {
                                                 entity_path_expr: 1,
                                                 path: Some(
                                                     EntityPath::ModuleItem(
@@ -18121,7 +18121,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            Expr::NonAssociatedEntityPath {
+                                            Expr::NonAssociatedEntity {
                                                 entity_path_expr: 2,
                                                 path: Some(
                                                     EntityPath::ModuleItem(
@@ -18346,7 +18346,7 @@ Ok(
                                                         ),
                                                         expr_arena: Arena {
                                                             data: [
-                                                                Expr::NonAssociatedEntityPath {
+                                                                Expr::NonAssociatedEntity {
                                                                     entity_path_expr: 0,
                                                                     path: Some(
                                                                         EntityPath::ModuleItem(
@@ -18438,7 +18438,7 @@ Ok(
                                             ),
                                             expr_arena: Arena {
                                                 data: [
-                                                    Expr::NonAssociatedEntityPath {
+                                                    Expr::NonAssociatedEntity {
                                                         entity_path_expr: 0,
                                                         path: Some(
                                                             EntityPath::ModuleItem(
@@ -18448,7 +18448,7 @@ Ok(
                                                             ),
                                                         ),
                                                     },
-                                                    Expr::NonAssociatedEntityPath {
+                                                    Expr::NonAssociatedEntity {
                                                         entity_path_expr: 1,
                                                         path: Some(
                                                             EntityPath::ModuleItem(
@@ -18458,7 +18458,7 @@ Ok(
                                                             ),
                                                         ),
                                                     },
-                                                    Expr::NonAssociatedEntityPath {
+                                                    Expr::NonAssociatedEntity {
                                                         entity_path_expr: 2,
                                                         path: Some(
                                                             EntityPath::ModuleItem(

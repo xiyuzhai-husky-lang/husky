@@ -15,6 +15,7 @@ pub enum ExprDisambiguation {
     Tilde(TildeDisambiguation),
     Field(FluffyFieldDisambiguation),
     Method(FluffyMethodDisambiguation),
+    AssociatedItem(FluffyAssociatedItemDisambiguation),
 }
 
 impl ExprDisambiguation {
@@ -82,29 +83,5 @@ pub enum TildeDisambiguation {
     Leash,
 }
 
-// #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-// pub struct MethodCallDisambiguation(MethodCard);
-
-// impl From<MethodCard> for MethodCallDisambiguation {
-//     fn from(value: MethodCard) -> Self {
-//         MethodCallDisambiguation(value)
-//     }
-// }
-
-// impl From<TypeMethodFnCard> for MethodCallDisambiguation {
-//     fn from(value: TypeMethodFnCard) -> Self {
-//         MethodCallDisambiguation(value.into())
-//     }
-// }
-
-// impl From<TraitForTypeMethodFnCard> for MethodCallDisambiguation {
-//     fn from(value: TraitForTypeMethodFnCard) -> Self {
-//         MethodCallDisambiguation(value.into())
-//     }
-// }
-
-// #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-// pub enum FieldOrMemoDisambiguation {
-//     Field,
-//     Memo,
-// }
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub struct FluffyAssociatedItemDisambiguation {}
