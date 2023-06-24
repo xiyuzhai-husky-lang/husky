@@ -6,6 +6,7 @@ use self::ethereal::*;
 use self::hollow::*;
 use self::solid::*;
 use super::*;
+use husky_ethereal_signature::HasTypeItemSignatureTemplates;
 use husky_word::Ident;
 
 pub enum AssociatedItemDisambiguation {
@@ -19,6 +20,7 @@ impl FluffyTerm {
         ident: Ident,
         all_available_traits: &[()],
     ) -> AssociatedItemDisambiguation {
+        let db = engine.db();
         match self.data(engine) {
             FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology {
@@ -28,7 +30,7 @@ impl FluffyTerm {
                 ty_ethereal_term,
             } => {
                 let signature_templates =
-                    ty_path.associated_item_signature_templates(ident, all_available_traits);
+                    ty_path.ty_item_signature_templates(db, ident, all_available_traits);
                 todo!()
             }
             FluffyTermData::PlaceTypeOntology {
