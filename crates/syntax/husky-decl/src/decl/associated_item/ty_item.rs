@@ -302,60 +302,60 @@ pub(crate) fn ty_item_decl(db: &dyn DeclDb, path: TypeItemPath) -> DeclResult<Ty
 //     }
 // }
 
-#[salsa::tracked(jar = DeclJar, return_ref)]
-pub(crate) fn ty_item_decls_map(
-    db: &dyn DeclDb,
-    path: TypePath,
-) -> EntityTreeBundleResult<IdentPairMap<Result<TypeItemDecls, ()>>> {
-    let mut map = IdentPairMap::default();
-    for (ident, path) in path.item_paths(db)?.iter().copied() {
-        let ty_item_kind = path.item_kind(db);
-        let result = map.get_mut_or_insert_with(ident, || {
-            Ok(match ty_item_kind {
-                TypeItemKind::MethodFn => TypeItemDecls::MethodFn(Default::default()),
-                TypeItemKind::AssociatedFn => TypeItemDecls::AssociatedFn(Default::default()),
-                TypeItemKind::AssociatedVal => TypeItemDecls::AssociatedVal(Default::default()),
-                TypeItemKind::AssociatedType => TypeItemDecls::AssociatedType(Default::default()),
-                TypeItemKind::MemoizedField => TypeItemDecls::MemoizedField(Default::default()),
-            })
-        });
-        let Ok(decl) = path.decl(db) else {
-            *result = Err(());
-            continue
-        };
-        match result {
-            Ok(decls) => match (decls, decl) {
-                (TypeItemDecls::AssociatedFn(decls), TypeItemDecl::AssociatedFn(decl)) => {
-                    decls.push(decl)
-                }
-                (TypeItemDecls::MethodFn(decls), TypeItemDecl::MethodFn(decl)) => decls.push(decl),
-                (TypeItemDecls::AssociatedType(decls), TypeItemDecl::AssociatedType(decl)) => {
-                    decls.push(decl)
-                }
-                (TypeItemDecls::AssociatedVal(decls), TypeItemDecl::AssociatedVal(decl)) => {
-                    decls.push(decl)
-                }
-                (TypeItemDecls::MemoizedField(decls), TypeItemDecl::MemoizedField(decl)) => {
-                    decls.push(decl)
-                }
-                _ => *result = Err(()), // error because of inconsistent type item kind
-            },
-            Err(_) => continue,
-        }
-    }
-    Ok(map)
-}
+// #[salsa::tracked(jar = DeclJar, return_ref)]
+// pub(crate) fn ty_item_decls_map(
+//     db: &dyn DeclDb,
+//     path: TypePath,
+// ) -> EntityTreeBundleResult<IdentPairMap<Result<TypeItemDecls, ()>>> {
+//     let mut map = IdentPairMap::default();
+//     for (ident, path) in path.item_paths(db)?.iter().copied() {
+//         let ty_item_kind = path.item_kind(db);
+//         let result = map.get_value_mut_or_insert_with(ident, || {
+//             Ok(match ty_item_kind {
+//                 TypeItemKind::MethodFn => TypeItemDecls::MethodFn(Default::default()),
+//                 TypeItemKind::AssociatedFn => TypeItemDecls::AssociatedFn(Default::default()),
+//                 TypeItemKind::AssociatedVal => TypeItemDecls::AssociatedVal(Default::default()),
+//                 TypeItemKind::AssociatedType => TypeItemDecls::AssociatedType(Default::default()),
+//                 TypeItemKind::MemoizedField => TypeItemDecls::MemoizedField(Default::default()),
+//             })
+//         });
+//         let Ok(decl) = path.decl(db) else {
+//             *result = Err(());
+//             continue
+//         };
+//         match result {
+//             Ok(decls) => match (decls, decl) {
+//                 (TypeItemDecls::AssociatedFn(decls), TypeItemDecl::AssociatedFn(decl)) => {
+//                     decls.push(decl)
+//                 }
+//                 (TypeItemDecls::MethodFn(decls), TypeItemDecl::MethodFn(decl)) => decls.push(decl),
+//                 (TypeItemDecls::AssociatedType(decls), TypeItemDecl::AssociatedType(decl)) => {
+//                     decls.push(decl)
+//                 }
+//                 (TypeItemDecls::AssociatedVal(decls), TypeItemDecl::AssociatedVal(decl)) => {
+//                     decls.push(decl)
+//                 }
+//                 (TypeItemDecls::MemoizedField(decls), TypeItemDecl::MemoizedField(decl)) => {
+//                     decls.push(decl)
+//                 }
+//                 _ => *result = Err(()), // error because of inconsistent type item kind
+//             },
+//             Err(_) => continue,
+//         }
+//     }
+//     Ok(map)
+// }
 
-impl HasItemDeclsMap for TypePath {
-    type ItemDecls = TypeItemDecls;
+// impl HasItemDeclsMap for TypePath {
+//     type ItemDecls = TypeItemDecls;
 
-    fn item_decls_map<'a>(
-        self,
-        db: &'a dyn DeclDb,
-    ) -> EntityTreeBundleResultRef<'a, &'a [(Ident, Result<Self::ItemDecls, ()>)]> {
-        match ty_item_decls_map(db, self) {
-            Ok(ty_item_decls_map) => Ok(ty_item_decls_map),
-            Err(e) => Err(e),
-        }
-    }
-}
+//     fn item_decls_map<'a>(
+//         self,
+//         db: &'a dyn DeclDb,
+//     ) -> EntityTreeBundleResultRef<'a, &'a [(Ident, Result<Self::ItemDecls, ()>)]> {
+//         match ty_item_decls_map(db, self) {
+//             Ok(ty_item_decls_map) => Ok(ty_item_decls_map),
+//             Err(e) => Err(e),
+//         }
+//     }
+// }

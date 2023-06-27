@@ -21,12 +21,9 @@ use smallvec::*;
 pub struct EtherealSignatureJar(
     // type items
     ty_item_ethereal_signature_templates_map,
-    TypeAssociatedFnEtherealSignatureTemplate,
-    ty_method_ethereal_signature_templates_map,
     TypeMethodFnEtherealSignatureTemplate,
     ty_method_fn_ethereal_signature_template,
     TypeMethodFunctionEtherealSignatureTemplate,
-    ty_memoized_field_ethereal_signature_templates_map,
     TypeMemoizedFieldEtherealSignatureTemplate,
     ty_memoized_field_ethereal_signature_template,
     // ty

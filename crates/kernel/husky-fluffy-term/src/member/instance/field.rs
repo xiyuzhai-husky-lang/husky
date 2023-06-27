@@ -7,10 +7,7 @@ pub(crate) use self::hollow::*;
 pub(crate) use self::solid::*;
 
 use super::*;
-use husky_ethereal_signature::{
-    HasTypeMemoizedFieldEtherealSignature, HasTypeMemoizedFieldEtherealSignatureTemplates,
-    RegularFieldEtherealSignature, TypeMemoizedFieldEtherealSignature,
-};
+use husky_ethereal_signature::{RegularFieldEtherealSignature, TypeMemoizedFieldEtherealSignature};
 use husky_word::Ident;
 
 #[derive(Debug, PartialEq, Eq)]

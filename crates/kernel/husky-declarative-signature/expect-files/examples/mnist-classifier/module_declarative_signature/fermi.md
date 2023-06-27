@@ -45,7 +45,7 @@
                             },
                             regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [
-                                    ExplicitParameterDeclarativeSignatureTemplate {
+                                    ExplicitParameterDeclarativeSignature {
                                         contract: Pure,
                                         ty: ExplicitApplication(
                                             DeclarativeTermExplicitApplication(
@@ -55,7 +55,7 @@
                                             ),
                                         ),
                                     },
-                                    ExplicitParameterDeclarativeSignatureTemplate {
+                                    ExplicitParameterDeclarativeSignature {
                                         contract: Pure,
                                         ty: ExplicitApplicationOrRitchieCall(
                                             DeclarativeTermExplicitApplicationOrRitchieCall(

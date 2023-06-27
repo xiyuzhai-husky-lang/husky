@@ -88,74 +88,74 @@ pub trait HasTypeMemoizedFieldEtherealSignatureTemplates: Copy {
     }
 }
 
-impl HasTypeMemoizedFieldEtherealSignatureTemplates for TypePath {
-    fn ty_memoized_field_ethereal_signature_templates_map<'a>(
-        self,
-        db: &'a dyn EtherealSignatureDb,
-    ) -> EtherealSignatureResult<
-        &'a [(
-            Ident,
-            EtherealSignatureResult<SmallVecImpl<TypeMemoizedFieldEtherealSignatureTemplate>>,
-        )],
-    > {
-        ty_memoized_field_ethereal_signature_templates_map(db, self)
-            .as_ref()
-            .map(|v| v as &[_])
-            .map_err(|e| *e)
-    }
-}
+// impl HasTypeMemoizedFieldEtherealSignatureTemplates for TypePath {
+//     fn ty_memoized_field_ethereal_signature_templates_map<'a>(
+//         self,
+//         db: &'a dyn EtherealSignatureDb,
+//     ) -> EtherealSignatureResult<
+//         &'a [(
+//             Ident,
+//             EtherealSignatureResult<SmallVecImpl<TypeMemoizedFieldEtherealSignatureTemplate>>,
+//         )],
+//     > {
+//         ty_memoized_field_ethereal_signature_templates_map(db, self)
+//             .as_ref()
+//             .map(|v| v as &[_])
+//             .map_err(|e| *e)
+//     }
+// }
 
-#[salsa::tracked(jar = EtherealSignatureJar, return_ref)]
-pub(crate) fn ty_memoized_field_ethereal_signature_templates_map(
-    db: &dyn EtherealSignatureDb,
-    ty_path: TypePath,
-) -> EtherealSignatureResult<
-    IdentPairMap<EtherealSignatureResult<SmallVecImpl<TypeMemoizedFieldEtherealSignatureTemplate>>>,
-> {
-    Ok(IdentPairMap::from_iter_assuming_no_repetitions(
-        ty_path
-            .ty_memoized_field_declarative_signature_templates_map(db)?
-            .iter()
-            .map(|(ident, result)| {
-                let result = match result {
-                    Ok(templates) => templates
-                        .iter()
-                        .copied()
-                        .map(|template| template.ethereal_signature_template(db))
-                        .collect::<EtherealSignatureResult<SmallVecImpl<_>>>(),
-                    Err(e) => Err(todo!()),
-                };
-                (*ident, result)
-            }),
-    )
-    .expect("no repetition"))
-}
+// #[salsa::tracked(jar = EtherealSignatureJar, return_ref)]
+// pub(crate) fn ty_memoized_field_ethereal_signature_templates_map(
+//     db: &dyn EtherealSignatureDb,
+//     ty_path: TypePath,
+// ) -> EtherealSignatureResult<
+//     IdentPairMap<EtherealSignatureResult<SmallVecImpl<TypeMemoizedFieldEtherealSignatureTemplate>>>,
+// > {
+//     Ok(IdentPairMap::from_iter_assuming_no_repetitions(
+//         ty_path
+//             .ty_memoized_field_declarative_signature_templates_map(db)?
+//             .iter()
+//             .map(|(ident, result)| {
+//                 let result = match result {
+//                     Ok(templates) => templates
+//                         .iter()
+//                         .copied()
+//                         .map(|template| template.ethereal_signature_template(db))
+//                         .collect::<EtherealSignatureResult<SmallVecImpl<_>>>(),
+//                     Err(e) => Err(todo!()),
+//                 };
+//                 (*ident, result)
+//             }),
+//     )
+//     .expect("no repetition"))
+// }
 
-pub trait HasTypeMemoizedFieldEtherealSignature: Copy {
-    fn ty_memoized_field_ethereal_signature<'a>(
-        self,
-        db: &'a dyn EtherealSignatureDb,
-        arguments: &[EtherealTerm],
-        ident: Ident,
-    ) -> EtherealSignatureMaybeResult<TypeMemoizedFieldEtherealSignature>;
-}
+// pub trait HasTypeMemoizedFieldEtherealSignature: Copy {
+//     fn ty_memoized_field_ethereal_signature<'a>(
+//         self,
+//         db: &'a dyn EtherealSignatureDb,
+//         arguments: &[EtherealTerm],
+//         ident: Ident,
+//     ) -> EtherealSignatureMaybeResult<TypeMemoizedFieldEtherealSignature>;
+// }
 
-impl HasTypeMemoizedFieldEtherealSignature for TypePath {
-    fn ty_memoized_field_ethereal_signature<'a>(
-        self,
-        db: &'a dyn EtherealSignatureDb,
-        arguments: &[EtherealTerm],
-        ident: Ident,
-    ) -> EtherealSignatureMaybeResult<TypeMemoizedFieldEtherealSignature> {
-        let templates = self.ty_memoized_field_ethereal_signature_templates(db, ident)?;
-        for template in templates {
-            if let Some(signature) = template
-                .try_instantiate(db, arguments)
-                .into_result_option()?
-            {
-                return JustOk(signature);
-            }
-        }
-        Nothing
-    }
-}
+// impl HasTypeMemoizedFieldEtherealSignature for TypePath {
+//     fn ty_memoized_field_ethereal_signature<'a>(
+//         self,
+//         db: &'a dyn EtherealSignatureDb,
+//         arguments: &[EtherealTerm],
+//         ident: Ident,
+//     ) -> EtherealSignatureMaybeResult<TypeMemoizedFieldEtherealSignature> {
+//         let templates = self.ty_memoized_field_ethereal_signature_templates(db, ident)?;
+//         for template in templates {
+//             if let Some(signature) = template
+//                 .try_instantiate(db, arguments)
+//                 .into_result_option()?
+//             {
+//                 return JustOk(signature);
+//             }
+//         }
+//         Nothing
+//     }
+// }

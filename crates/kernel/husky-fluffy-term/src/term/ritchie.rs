@@ -1,7 +1,5 @@
 use super::*;
-use husky_ethereal_signature::{
-    ExplicitParameterEtherealSignatureTemplate, ExplicitParameterKindTemplate,
-};
+use husky_ethereal_signature::{ExplicitParameterEtherealSignature, ExplicitParameterKind};
 use husky_word::Ident;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -31,7 +29,7 @@ impl Instantiator {
     pub(crate) fn instantiate_ritchie_parameter(
         &self,
         engine: &mut impl FluffyTermEngine,
-        explicit_parameter: &ExplicitParameterEtherealSignatureTemplate,
+        explicit_parameter: &ExplicitParameterEtherealSignature,
     ) -> FluffyTermRitchieParameterContractedType {
         FluffyTermRitchieParameterContractedType {
             contract: explicit_parameter.contract(),
@@ -43,13 +41,11 @@ impl Instantiator {
     #[inline(always)]
     fn instantiate_explicit_parameter_kind(
         &self,
-        kind: ExplicitParameterKindTemplate,
+        kind: ExplicitParameterKind,
     ) -> FluffyExplicitParameterKind {
         match kind {
-            ExplicitParameterKindTemplate::Regular => FluffyExplicitParameterKind::Regular,
-            ExplicitParameterKindTemplate::Keyed { ident } => {
-                FluffyExplicitParameterKind::Keyed { ident }
-            }
+            ExplicitParameterKind::Regular => FluffyExplicitParameterKind::Regular,
+            ExplicitParameterKind::Keyed { ident } => FluffyExplicitParameterKind::Keyed { ident },
         }
     }
 }

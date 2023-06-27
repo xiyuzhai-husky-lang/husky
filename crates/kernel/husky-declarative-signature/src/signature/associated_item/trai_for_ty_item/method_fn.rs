@@ -7,7 +7,7 @@ pub(crate) fn trai_for_ty_method_fn_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
     decl: TraitForTypeMethodFnDecl,
 ) -> DeclarativeSignatureResult<TraitForTypeMethodFnDeclarativeSignatureTemplateTemplate> {
-    let self_parameter = ExplicitParameterDeclarativeSignatureTemplate::new(
+    let self_parameter = ExplicitParameterDeclarativeSignature::new(
         match decl.self_parameter(db) {
             Some(self_parameter) => todo!(),
             None => Contract::Pure,
@@ -51,7 +51,7 @@ pub struct TraitForTypeMethodFnDeclarativeSignatureTemplateTemplate {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterDeclarativeSignatures,
     #[return_ref]
-    pub self_parameter: ExplicitParameterDeclarativeSignatureTemplate,
+    pub self_parameter: ExplicitParameterDeclarativeSignature,
     #[return_ref]
     pub nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates,
     pub return_ty: DeclarativeTerm,

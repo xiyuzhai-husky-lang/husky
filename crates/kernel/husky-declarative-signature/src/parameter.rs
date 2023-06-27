@@ -124,12 +124,12 @@ impl std::ops::Deref for ImplicitParameterDeclarativeSignatures {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub struct ExplicitParameterDeclarativeSignatureTemplate {
+pub struct ExplicitParameterDeclarativeSignature {
     contract: Contract,
     ty: DeclarativeTerm,
 }
 
-impl ExplicitParameterDeclarativeSignatureTemplate {
+impl ExplicitParameterDeclarativeSignature {
     pub fn into_ritchie_parameter_contracted_ty(
         self,
     ) -> DeclarativeTermRitchieParameterContractedType {
@@ -137,7 +137,7 @@ impl ExplicitParameterDeclarativeSignatureTemplate {
     }
 }
 
-impl ExplicitParameterDeclarativeSignatureTemplate {
+impl ExplicitParameterDeclarativeSignature {
     pub(crate) fn new(contract: Contract, ty: DeclarativeTerm) -> Self {
         Self { contract, ty }
     }
@@ -153,11 +153,11 @@ impl ExplicitParameterDeclarativeSignatureTemplate {
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct ExplicitParameterDeclarativeSignatureTemplates {
-    data: SmallVec<[ExplicitParameterDeclarativeSignatureTemplate; 4]>,
+    data: SmallVec<[ExplicitParameterDeclarativeSignature; 4]>,
 }
 
 impl std::ops::Deref for ExplicitParameterDeclarativeSignatureTemplates {
-    type Target = [ExplicitParameterDeclarativeSignatureTemplate];
+    type Target = [ExplicitParameterDeclarativeSignature];
 
     fn deref(&self) -> &Self::Target {
         &self.data
@@ -187,7 +187,7 @@ impl ExplicitParameterDeclarativeSignatureTemplates {
                             )
                         }
                     };
-                    Ok(ExplicitParameterDeclarativeSignatureTemplate::new(
+                    Ok(ExplicitParameterDeclarativeSignature::new(
                         expr_region_data.pattern_contract(parameter.pattern()),
                         ty,
                     ))

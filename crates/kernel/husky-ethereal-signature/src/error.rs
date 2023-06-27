@@ -1,5 +1,6 @@
 use crate::*;
 use husky_declarative_signature::DeclarativeSignatureError;
+use husky_entity_tree::EntityTreeBundleError;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum EtherealSignatureError {
@@ -12,8 +13,15 @@ impl From<DeclarativeSignatureError> for EtherealSignatureError {
         todo!()
     }
 }
+
 impl From<EtherealTermError> for EtherealSignatureError {
     fn from(e: EtherealTermError) -> Self {
+        EtherealSignatureError::TermError
+    }
+}
+
+impl From<&EntityTreeBundleError> for EtherealSignatureError {
+    fn from(e: &EntityTreeBundleError) -> Self {
         EtherealSignatureError::TermError
     }
 }

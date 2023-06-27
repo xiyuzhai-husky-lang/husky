@@ -2,18 +2,25 @@ mod associated_fn;
 mod associated_val;
 mod memoized_field;
 mod method;
+mod method_fn;
+mod method_function;
+
+use husky_entity_tree::HasItemPaths;
 
 pub use self::associated_fn::*;
 pub use self::associated_val::*;
 pub use self::memoized_field::*;
 pub use self::method::*;
+pub use self::method_fn::*;
+pub use self::method_function::*;
 
 use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum TypeItemEtherealSignatureTemplates {
     AssociatedFn(SmallVecImpl<TypeAssociatedFnEtherealSignatureTemplate>),
-    Method(TypeMethodEtherealSignatureTemplates),
+    MethodFn(SmallVecImpl<TypeMethodFnEtherealSignatureTemplate>),
+    MethodFunction(SmallVecImpl<TypeMethodFunctionEtherealSignatureTemplate>),
 }
 
 pub trait HasTypeItemSignatureTemplates: Copy {
@@ -66,6 +73,7 @@ pub(crate) fn ty_item_ethereal_signature_templates_map(
 ) -> EtherealSignatureResult<
     IdentPairMap<EtherealSignatureResult<TypeItemEtherealSignatureTemplates>>,
 > {
+    let _ = ty_path.item_paths(db)?;
     todo!()
     // Ok(IdentPairMap::from_iter_assuming_no_repetitions(
     //     ty_path

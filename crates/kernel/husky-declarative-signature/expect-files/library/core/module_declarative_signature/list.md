@@ -103,7 +103,7 @@
                             implicit_parameters: ImplicitParameterDeclarativeSignatures {
                                 data: [],
                             },
-                            self_parameter: ExplicitParameterDeclarativeSignatureTemplate {
+                            self_parameter: ExplicitParameterDeclarativeSignature {
                                 contract: Pure,
                                 ty: ExplicitApplication(
                                     DeclarativeTermExplicitApplication(
@@ -162,7 +162,7 @@
                             implicit_parameters: ImplicitParameterDeclarativeSignatures {
                                 data: [],
                             },
-                            self_parameter: ExplicitParameterDeclarativeSignatureTemplate {
+                            self_parameter: ExplicitParameterDeclarativeSignature {
                                 contract: BorrowMut,
                                 ty: ExplicitApplication(
                                     DeclarativeTermExplicitApplication(
@@ -174,7 +174,7 @@
                             },
                             nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [
-                                    ExplicitParameterDeclarativeSignatureTemplate {
+                                    ExplicitParameterDeclarativeSignature {
                                         contract: Pure,
                                         ty: Symbol(
                                             DeclarativeTermSymbol(
@@ -232,7 +232,7 @@
                             implicit_parameters: ImplicitParameterDeclarativeSignatures {
                                 data: [],
                             },
-                            self_parameter: ExplicitParameterDeclarativeSignatureTemplate {
+                            self_parameter: ExplicitParameterDeclarativeSignature {
                                 contract: Pure,
                                 ty: ExplicitApplication(
                                     DeclarativeTermExplicitApplication(

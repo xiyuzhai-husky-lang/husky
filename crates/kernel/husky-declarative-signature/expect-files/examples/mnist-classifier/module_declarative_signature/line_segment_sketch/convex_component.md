@@ -58,7 +58,7 @@
                             implicit_parameters: ImplicitParameterDeclarativeSignatures {
                                 data: [],
                             },
-                            self_parameter: ExplicitParameterDeclarativeSignatureTemplate {
+                            self_parameter: ExplicitParameterDeclarativeSignature {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(

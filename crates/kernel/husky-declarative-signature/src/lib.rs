@@ -79,7 +79,6 @@ pub struct DeclarativeSignatureJar(
     TypeAssociatedFnDeclarativeSignatureTemplate,
     ty_method_fn_declarative_signature_template,
     TypeMethodFnDeclarativeSignatureTemplate,
-    ty_method_declarative_signature_templates_map,
     TypeMethodFunctionDeclarativeSignatureTemplate,
     ty_method_function_declarative_signature_template,
     TypeAssociatedTypeDeclarativeSignatureTemplate,
@@ -88,7 +87,6 @@ pub struct DeclarativeSignatureJar(
     ty_associated_val_declarative_signature_template,
     TypeMemoizedFieldDeclarativeSignatureTemplate,
     ty_memoized_field_declarative_signature_template,
-    ty_memoized_field_declarative_signature_templates_map,
     // trait item
     trai_item_declarative_signature_template,
     TraitAssociatedFnDeclarativeSignatureTemplate,
