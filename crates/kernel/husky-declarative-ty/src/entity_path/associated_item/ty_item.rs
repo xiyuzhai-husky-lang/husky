@@ -29,7 +29,7 @@ fn ty_associated_fn_path_declarative_ty(
     signature: TypeAssociatedFnDeclarativeSignatureTemplate,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
     let param_declarative_tys = signature
-        .parameters(db)
+        .regular_parameters(db)
         .iter()
         .copied()
         .map(ExplicitParameterDeclarativeSignature::into_ritchie_parameter_contracted_ty)

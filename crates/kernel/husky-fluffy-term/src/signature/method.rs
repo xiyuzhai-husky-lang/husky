@@ -35,9 +35,8 @@ pub(crate) fn ty_method_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
     method_template_arguments: &[FluffyTerm],
     ident: Ident,
 ) -> FluffyTermMaybeResult<FluffyMethodSignature> {
-    let templates = ty_path.ty_method_ethereal_signature_templates(engine.db(), ident)?;
-    match templates {
-        TypeMethodEtherealSignatureTemplates::MethodFn(templates) => {
+    match ty_path.ty_item_ethereal_signature_templates(engine.db(), ident)? {
+        TypeItemEtherealSignatureTemplates::MethodFn(templates) => {
             for template in templates {
                 if let JustOk(signature) = ty_method_fn_fluffy_signature(
                     engine,
@@ -50,7 +49,7 @@ pub(crate) fn ty_method_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
             }
             Nothing
         }
-        TypeMethodEtherealSignatureTemplates::MethodFunction(templates) => {
+        TypeItemEtherealSignatureTemplates::MethodFunction(templates) => {
             for template in templates {
                 if let JustOk(signature) = ty_method_function_fluffy_signature(
                     engine,
@@ -63,6 +62,8 @@ pub(crate) fn ty_method_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
             }
             Nothing
         }
+        TypeItemEtherealSignatureTemplates::AssociatedFn(_) => todo!(),
+        TypeItemEtherealSignatureTemplates::MemoizedField(_) => todo!(),
     }
 }
 

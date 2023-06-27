@@ -1,32 +1,38 @@
 use super::*;
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[salsa::tracked(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
 pub struct TypeAssociatedFnEtherealSignatureTemplate {
-    path: TypeItemPath,
-    self_ty: EtherealTerm,
-    implicit_parameters: ImplicitParameterEtherealSignatures,
-    regular_parameters: ExplicitParameterEtherealSignatures,
-    return_ty: EtherealTerm,
+    #[id]
+    pub path: TypeItemPath,
+    pub self_ty: EtherealTerm,
+    pub implicit_parameters: ImplicitParameterEtherealSignatures,
+    pub regular_parameters: ExplicitParameterEtherealSignatures,
+    pub return_ty: EtherealTerm,
 }
 
 impl TypeAssociatedFnEtherealSignatureTemplate {
-    pub fn path(&self) -> TypeItemPath {
-        self.path
-    }
-
-    pub fn self_ty(&self) -> EtherealTerm {
-        self.self_ty
-    }
-
-    pub fn implicit_parameters(&self) -> &[ImplicitParameterEtherealSignature] {
-        &self.implicit_parameters
-    }
-
-    pub fn regular_parameters(&self) -> &[ExplicitParameterEtherealSignature] {
-        &self.regular_parameters
-    }
-
-    pub fn return_ty(&self) -> EtherealTerm {
-        self.return_ty
+    pub(super) fn from_declarative(
+        db: &dyn EtherealSignatureDb,
+        path: TypeItemPath,
+        declarative_signature: TypeAssociatedFnDeclarativeSignatureTemplate,
+    ) -> EtherealSignatureResult<Self> {
+        let self_ty = EtherealTerm::ty_from_declarative(db, declarative_signature.self_ty(db))?;
+        let implicit_parameters = ImplicitParameterEtherealSignatures::from_declarative(
+            db,
+            declarative_signature.implicit_parameters(db),
+        )?;
+        let regular_parameters = ExplicitParameterEtherealSignatures::from_declarative(
+            db,
+            declarative_signature.regular_parameters(db),
+        )?;
+        let return_ty = EtherealTerm::ty_from_declarative(db, declarative_signature.return_ty(db))?;
+        Ok(Self::new(
+            db,
+            path,
+            self_ty,
+            implicit_parameters,
+            regular_parameters,
+            return_ty,
+        ))
     }
 }

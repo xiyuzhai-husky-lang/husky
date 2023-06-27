@@ -17,5 +17,6 @@ husky-word = { path = "../../kernel/husky-word" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-declarative-signature = { path = "../../kernel/husky-declarative-signature" }
 husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
+husky-entity-taxonomy = {path = "../../kernel/husky-entity-taxonomy"}
 # syntax
 husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
