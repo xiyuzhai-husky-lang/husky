@@ -22,7 +22,7 @@ use husky_declarative_signature::*;
 pub trait HasEtherealSignatureTemplate {
     type EtherealSignatureTemplate;
 
-    fn ethereal_signature_template(
+    fn ethereal_signature_template<'a>(
         self,
         db: &dyn EtherealSignatureDb,
     ) -> EtherealSignatureResult<Self::EtherealSignatureTemplate>;

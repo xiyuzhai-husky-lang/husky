@@ -22,10 +22,10 @@ pub struct EtherealSignatureJar(
     // type items
     ty_item_ethereal_signature_templates_map,
     TypeMethodFnEtherealSignatureTemplate,
-    ty_method_fn_ethereal_signature_template,
     TypeMethodFunctionEtherealSignatureTemplate,
     TypeMemoizedFieldEtherealSignatureTemplate,
-    ty_memoized_field_ethereal_signature_template,
+    TypeAssociatedFnEtherealSignatureTemplate,
+    ty_item_ethereal_signature_template,
     // ty
     EnumEtherealSignatureTemplate,
     enum_ethereal_signature_template,

@@ -6,7 +6,21 @@ pub struct TypeMemoizedFieldEtherealSignatureTemplate {
     pub return_ty: EtherealTerm,
 }
 
-impl TypeMemoizedFieldEtherealSignatureTemplate {
+impl TypeMemoizedFieldEtherealSignatureTemplate { 
+    pub(super) fn from_declarative(
+        db: &dyn EtherealSignatureDb,
+        declarative_signature: TypeMemoizedFieldDeclarativeSignatureTemplate,
+    ) -> EtherealSignatureResult<TypeMemoizedFieldEtherealSignatureTemplate> {
+        let impl_block = declarative_signature
+            .impl_block(db)
+            .ethereal_signature_template(db)?;
+        let return_ty = EtherealTerm::ty_from_declarative(db, declarative_signature.return_ty(db))?;
+        Ok(TypeMemoizedFieldEtherealSignatureTemplate::new(
+            db, impl_block, return_ty,
+        ))
+    }
+    
+
     fn try_instantiate(
         self,
         db: &dyn EtherealSignatureDb,
@@ -23,32 +37,8 @@ impl TypeMemoizedFieldEtherealSignatureTemplate {
         todo!()
     }
 }
-
-impl HasEtherealSignatureTemplate for TypeMemoizedFieldDeclarativeSignatureTemplate {
-    type EtherealSignatureTemplate = TypeMemoizedFieldEtherealSignatureTemplate;
-
-    fn ethereal_signature_template(
-        self,
-        db: &dyn EtherealSignatureDb,
-    ) -> EtherealSignatureResult<Self::EtherealSignatureTemplate> {
-        ty_memoized_field_ethereal_signature_template(db, self)
-    }
-}
-
-#[salsa::tracked(jar = EtherealSignatureJar)]
-pub(crate) fn ty_memoized_field_ethereal_signature_template(
-    db: &dyn EtherealSignatureDb,
-    declarative_signature: TypeMemoizedFieldDeclarativeSignatureTemplate,
-) -> EtherealSignatureResult<TypeMemoizedFieldEtherealSignatureTemplate> {
-    let impl_block = declarative_signature
-        .impl_block(db)
-        .ethereal_signature_template(db)?;
-    let return_ty = EtherealTerm::ty_from_declarative(db, declarative_signature.return_ty(db))?;
-    Ok(TypeMemoizedFieldEtherealSignatureTemplate::new(
-        db, impl_block, return_ty,
-    ))
-}
-
+ 
+ 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct TypeMemoizedFieldEtherealSignature {
     return_ty: EtherealTerm,
@@ -131,31 +121,36 @@ pub trait HasTypeMemoizedFieldEtherealSignatureTemplates: Copy {
 //     .expect("no repetition"))
 // }
 
-// pub trait HasTypeMemoizedFieldEtherealSignature: Copy {
-//     fn ty_memoized_field_ethereal_signature<'a>(
-//         self,
-//         db: &'a dyn EtherealSignatureDb,
-//         arguments: &[EtherealTerm],
-//         ident: Ident,
-//     ) -> EtherealSignatureMaybeResult<TypeMemoizedFieldEtherealSignature>;
-// }
+pub trait HasTypeMemoizedFieldEtherealSignature: Copy {
+    fn ty_memoized_field_ethereal_signature<'a>(
+        self,
+        db: &'a dyn EtherealSignatureDb,
+        arguments: &[EtherealTerm],
+        ident: Ident,
+    ) -> EtherealSignatureMaybeResult<TypeMemoizedFieldEtherealSignature>;
+}
 
-// impl HasTypeMemoizedFieldEtherealSignature for TypePath {
-//     fn ty_memoized_field_ethereal_signature<'a>(
-//         self,
-//         db: &'a dyn EtherealSignatureDb,
-//         arguments: &[EtherealTerm],
-//         ident: Ident,
-//     ) -> EtherealSignatureMaybeResult<TypeMemoizedFieldEtherealSignature> {
-//         let templates = self.ty_memoized_field_ethereal_signature_templates(db, ident)?;
-//         for template in templates {
-//             if let Some(signature) = template
-//                 .try_instantiate(db, arguments)
-//                 .into_result_option()?
-//             {
-//                 return JustOk(signature);
-//             }
-//         }
-//         Nothing
-//     }
-// }
+impl HasTypeMemoizedFieldEtherealSignature for TypePath {
+    fn ty_memoized_field_ethereal_signature<'a>(
+        self,
+        db: &'a dyn EtherealSignatureDb,
+        arguments: &[EtherealTerm],
+        ident: Ident,
+    ) -> EtherealSignatureMaybeResult<TypeMemoizedFieldEtherealSignature> {
+        let TypeItemEtherealSignatureTemplates::MemoizedField(templates) = 
+            self.ty_item_ethereal_signature_templates(db, ident)? else {
+            return Nothing
+        };
+        for template in templates {
+            if let template = template {
+                if let Some(signature) = template
+                    .try_instantiate(db, arguments)
+                    .into_result_option()?
+                {
+                    return JustOk(signature);
+                }
+            }
+        }
+        Nothing
+    }
+}

@@ -221,10 +221,11 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::AssociatedFn(
                         TypeAssociatedFnDeclarativeSignatureTemplate {
+                            self_ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
                             implicit_parameters: ImplicitParameterDeclarativeSignatures {
                                 data: [],
                             },
-                            parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [
                                     ExplicitParameterDeclarativeSignature {
                                         contract: Pure,

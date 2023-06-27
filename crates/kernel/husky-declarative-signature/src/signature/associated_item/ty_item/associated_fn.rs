@@ -2,10 +2,15 @@ use crate::*;
 
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 pub struct TypeAssociatedFnDeclarativeSignatureTemplate {
+    /// the term for `Self`
+    /// not necessarily equal to the type of `self`
+    ///
+    /// we don't use self_ty_arguments because it's not determined for declarative terms
+    pub self_ty: DeclarativeTerm,
     #[return_ref]
     pub implicit_parameters: ImplicitParameterDeclarativeSignatures,
     #[return_ref]
-    pub parameters: ExplicitParameterDeclarativeSignatureTemplates,
+    pub regular_parameters: ExplicitParameterDeclarativeSignatureTemplates,
     pub return_ty: DeclarativeTerm,
 }
 
@@ -29,12 +34,17 @@ pub(crate) fn ty_associated_fn_declarative_signature_template(
     let expr_region_data = expr_region.data(db);
     let declarative_term_region = declarative_term_region(db, expr_region);
     let declarative_term_menu = db.declarative_term_menu(expr_region.toolchain(db)).unwrap();
+    let impl_block = decl
+        .path(db)
+        .impl_block(db)
+        .declarative_signature_template(db)?;
+    let self_ty = impl_block.ty(db);
     let implicit_parameters = ImplicitParameterDeclarativeSignatures::from_decl(
         decl.implicit_parameters(db),
         declarative_term_region,
         declarative_term_menu,
     );
-    let parameters = ExplicitParameterDeclarativeSignatureTemplates::from_decl(
+    let regular_parameters = ExplicitParameterDeclarativeSignatureTemplates::from_decl(
         decl.regular_parameters(db),
         expr_region_data,
         declarative_term_region,
@@ -45,8 +55,9 @@ pub(crate) fn ty_associated_fn_declarative_signature_template(
     };
     Ok(TypeAssociatedFnDeclarativeSignatureTemplate::new(
         db,
+        self_ty,
         implicit_parameters,
-        parameters,
+        regular_parameters,
         return_ty,
     ))
 }

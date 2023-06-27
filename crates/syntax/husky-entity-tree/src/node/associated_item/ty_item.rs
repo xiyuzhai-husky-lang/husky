@@ -196,7 +196,7 @@ pub trait HasItemPaths: Copy {
 
     type ItemPath;
 
-    fn item_paths<'a>(
+    fn item_paths_map<'a>(
         self,
         db: &'a dyn EntityTreeDb,
     ) -> EntityTreeBundleResultRef<
@@ -216,7 +216,7 @@ impl HasItemPaths for TypePath {
 
     type ItemPath = TypeItemPath;
 
-    fn item_paths<'a>(
+    fn item_paths_map<'a>(
         self,
         db: &'a dyn EntityTreeDb,
     ) -> EntityTreeBundleResultRef<
@@ -226,12 +226,12 @@ impl HasItemPaths for TypePath {
             (TypeItemKind, EntityTreeResult<SmallVec<[TypeItemPath; 1]>>),
         )],
     > {
-        ty_item_paths(db, self).as_ref().map(|v| v as &[_])
+        ty_item_paths_map(db, self).as_ref().map(|v| v as &[_])
     }
 }
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
-pub(crate) fn ty_item_paths(
+pub(crate) fn ty_item_paths_map(
     db: &dyn EntityTreeDb,
     path: TypePath,
 ) -> EntityTreeBundleResult<
