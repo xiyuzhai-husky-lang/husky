@@ -7,10 +7,12 @@ pub use self::trai_for_ty_impl_block::*;
 pub use self::ty_impl_block::*;
 
 use crate::*;
+use husky_entity_taxonomy::TypeItemKind;
 use husky_print_utils::p;
 use husky_token::*;
 use husky_word::IdentPairMap;
 use parsec::{HasStreamState, StreamParser};
+use smallvec::SmallVec;
 use thiserror::Error;
 use vec_like::VecPairMap;
 
@@ -266,82 +268,5 @@ pub(crate) fn ty_impl_blocks(
     Ok(entity_tree_crate_bundle
         .all_ty_impl_block_nodes()
         .filter_map(|impl_block| (impl_block.ty_path(db) == ty).then_some(impl_block))
-        .collect())
-}
-
-pub trait HasItemNodePaths: Copy {
-    type ItemNodePath;
-
-    fn item_node_paths<'a>(
-        self,
-        db: &'a dyn EntityTreeDb,
-    ) -> EntityTreeBundleResultRef<'a, &'a [(Ident, Self::ItemNodePath)]>;
-}
-
-impl HasItemNodePaths for TypePath {
-    type ItemNodePath = TypeItemNodePath;
-
-    fn item_node_paths<'a>(
-        self,
-        db: &'a dyn EntityTreeDb,
-    ) -> EntityTreeBundleResultRef<'a, &'a [(Ident, TypeItemNodePath)]> {
-        ty_item_node_paths(db, self).as_ref().map(|v| v as &[_])
-    }
-}
-
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
-pub(crate) fn ty_item_node_paths(
-    db: &dyn EntityTreeDb,
-    path: TypePath,
-) -> EntityTreeBundleResult<Vec<(Ident, TypeItemNodePath)>> {
-    let crate_path = path.module_path(db).crate_path(db);
-    let entity_tree_crate_bundle = db.entity_tree_bundle(crate_path)?;
-    Ok(entity_tree_crate_bundle
-        .all_ty_impl_block_node_paths()
-        .filter_map(|node_path| {
-            // ad hoc
-            // todo: guard against two methods with the same ident
-            (node_path.ty_path(db) == path).then(|| {
-                node_path
-                    .items(db)
-                    .iter()
-                    .copied()
-                    .map(|(ident, node_path, node)| (ident, node_path))
-            })
-        })
-        .flatten()
-        .collect())
-}
-
-pub trait HasItemPaths: Copy {
-    type ItemPath;
-
-    fn item_paths<'a>(
-        self,
-        db: &'a dyn EntityTreeDb,
-    ) -> EntityTreeBundleResultRef<'a, &'a [(Ident, Self::ItemPath)]>;
-}
-
-impl HasItemPaths for TypePath {
-    type ItemPath = TypeItemPath;
-
-    fn item_paths<'a>(
-        self,
-        db: &'a dyn EntityTreeDb,
-    ) -> EntityTreeBundleResultRef<'a, &'a [(Ident, TypeItemPath)]> {
-        ty_item_paths(db, self).as_ref().map(|v| v as &[_])
-    }
-}
-
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
-pub(crate) fn ty_item_paths(
-    db: &dyn EntityTreeDb,
-    path: TypePath,
-) -> EntityTreeBundleResult<Vec<(Ident, TypeItemPath)>> {
-    Ok(path
-        .item_node_paths(db)?
-        .iter()
-        .copied()
-        .filter_map(|(ident, node_path)| Some((ident, node_path.path(db)?)))
         .collect())
 }

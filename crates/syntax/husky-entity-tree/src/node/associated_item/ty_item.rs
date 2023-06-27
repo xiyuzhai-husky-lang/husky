@@ -1,3 +1,5 @@
+use smallvec::SmallVec;
+
 use super::*;
 
 #[salsa::interned(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
@@ -143,4 +145,115 @@ pub(crate) fn ty_impl_block_items(
             }
         })
         .collect()
+}
+
+pub trait HasItemNodePaths: Copy {
+    type ItemNodePath;
+
+    fn item_node_paths<'a>(
+        self,
+        db: &'a dyn EntityTreeDb,
+    ) -> EntityTreeBundleResultRef<'a, &'a [(Ident, Self::ItemNodePath)]>;
+}
+
+impl HasItemNodePaths for TypePath {
+    type ItemNodePath = TypeItemNodePath;
+
+    fn item_node_paths<'a>(
+        self,
+        db: &'a dyn EntityTreeDb,
+    ) -> EntityTreeBundleResultRef<'a, &'a [(Ident, TypeItemNodePath)]> {
+        ty_item_node_paths(db, self).as_ref().map(|v| v as &[_])
+    }
+}
+
+#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+pub(crate) fn ty_item_node_paths(
+    db: &dyn EntityTreeDb,
+    path: TypePath,
+) -> EntityTreeBundleResult<Vec<(Ident, TypeItemNodePath)>> {
+    let crate_path = path.module_path(db).crate_path(db);
+    let entity_tree_crate_bundle = db.entity_tree_bundle(crate_path)?;
+    Ok(entity_tree_crate_bundle
+        .all_ty_impl_block_node_paths()
+        .filter_map(|node_path| {
+            // ad hoc
+            // todo: guard against two methods with the same ident
+            (node_path.ty_path(db) == path).then(|| {
+                node_path
+                    .items(db)
+                    .iter()
+                    .copied()
+                    .map(|(ident, node_path, node)| (ident, node_path))
+            })
+        })
+        .flatten()
+        .collect())
+}
+
+pub trait HasItemPaths: Copy {
+    type ItemKind;
+
+    type ItemPath;
+
+    fn item_paths<'a>(
+        self,
+        db: &'a dyn EntityTreeDb,
+    ) -> EntityTreeBundleResultRef<
+        'a,
+        &'a [(
+            Ident,
+            (
+                Self::ItemKind,
+                EntityTreeResult<SmallVec<[Self::ItemPath; 1]>>,
+            ),
+        )],
+    >;
+}
+
+impl HasItemPaths for TypePath {
+    type ItemKind = TypeItemKind;
+
+    type ItemPath = TypeItemPath;
+
+    fn item_paths<'a>(
+        self,
+        db: &'a dyn EntityTreeDb,
+    ) -> EntityTreeBundleResultRef<
+        'a,
+        &'a [(
+            Ident,
+            (TypeItemKind, EntityTreeResult<SmallVec<[TypeItemPath; 1]>>),
+        )],
+    > {
+        ty_item_paths(db, self).as_ref().map(|v| v as &[_])
+    }
+}
+
+#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+pub(crate) fn ty_item_paths(
+    db: &dyn EntityTreeDb,
+    path: TypePath,
+) -> EntityTreeBundleResult<
+    IdentPairMap<(TypeItemKind, EntityTreeResult<SmallVec<[TypeItemPath; 1]>>)>,
+> {
+    let mut paths: IdentPairMap<(TypeItemKind, EntityTreeResult<SmallVec<[TypeItemPath; 1]>>)> =
+        Default::default();
+    for (ident, node_path) in path.item_node_paths(db)?.iter().copied() {
+        if let Some(path) = node_path.path(db) {
+            let ty_item_kind = path.item_kind(db);
+            paths.modify_value_or_insert(
+                ident,
+                |(ty_item_kind0, result)| match result {
+                    Ok(ref mut same_name_paths) => match *ty_item_kind0 == ty_item_kind {
+                        true => todo!(),
+                        false => todo!(),
+                    },
+                    Err(_) => (),
+                },
+                (ty_item_kind, Ok(smallvec::smallvec![path])),
+            )
+        }
+    }
+    Ok(paths)
 }

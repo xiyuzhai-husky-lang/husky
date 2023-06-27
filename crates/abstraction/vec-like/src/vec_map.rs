@@ -365,7 +365,20 @@ impl<K, V> VecPairMap<K, V> {
         }
     }
 
-    pub fn get_mut_or_insert_with(&mut self, key: K, f: impl FnOnce() -> V) -> &mut V
+    pub fn get_value_mut_or_insert(&mut self, key: K, v: V) -> &mut V
+    where
+        K: Copy + PartialEq,
+    {
+        match self.entries.iter_mut().find(|(key1, _)| *key1 == key) {
+            Some(entry) => unsafe { wild_utils::arb_ref(&mut entry.1) },
+            None => {
+                self.entries.push((key, v));
+                &mut unsafe { self.entries.last_mut().unwrap_unchecked() }.1
+            }
+        }
+    }
+
+    pub fn get_value_mut_or_insert_with(&mut self, key: K, f: impl FnOnce() -> V) -> &mut V
     where
         K: Copy + PartialEq,
     {
@@ -375,6 +388,30 @@ impl<K, V> VecPairMap<K, V> {
                 self.entries.push((key, f()));
                 &mut unsafe { self.entries.last_mut().unwrap_unchecked() }.1
             }
+        }
+    }
+
+    pub fn modify_value_or_insert(&mut self, key: K, m: impl FnOnce(&mut V), v: V)
+    where
+        K: Copy + PartialEq,
+    {
+        match self.entries.iter_mut().find(|(key1, _)| *key1 == key) {
+            Some(entry) => unsafe { m(&mut entry.1) },
+            None => self.entries.push((key, v)),
+        }
+    }
+
+    pub fn modify_value_or_insert_with(
+        &mut self,
+        key: K,
+        m: impl FnOnce(&mut V),
+        f: impl FnOnce() -> V,
+    ) where
+        K: Copy + PartialEq,
+    {
+        match self.entries.iter_mut().find(|(key1, _)| *key1 == key) {
+            Some(entry) => unsafe { m(&mut entry.1) },
+            None => self.entries.push((key, f())),
         }
     }
 }

@@ -25,7 +25,7 @@
                             },
                             regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [
-                                    ExplicitParameterDeclarativeSignatureTemplate {
+                                    ExplicitParameterDeclarativeSignature {
                                         contract: Move,
                                         ty: ExplicitApplication(
                                             DeclarativeTermExplicitApplication(
@@ -70,7 +70,7 @@
                             },
                             regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [
-                                    ExplicitParameterDeclarativeSignatureTemplate {
+                                    ExplicitParameterDeclarativeSignature {
                                         contract: Move,
                                         ty: ExplicitApplication(
                                             DeclarativeTermExplicitApplication(
@@ -80,7 +80,7 @@
                                             ),
                                         ),
                                     },
-                                    ExplicitParameterDeclarativeSignatureTemplate {
+                                    ExplicitParameterDeclarativeSignature {
                                         contract: Pure,
                                         ty: EntityPath(
                                             Type(
@@ -92,7 +92,7 @@
                                             ),
                                         ),
                                     },
-                                    ExplicitParameterDeclarativeSignatureTemplate {
+                                    ExplicitParameterDeclarativeSignature {
                                         contract: Pure,
                                         ty: EntityPath(
                                             Type(
@@ -139,7 +139,7 @@
                             },
                             regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [
-                                    ExplicitParameterDeclarativeSignatureTemplate {
+                                    ExplicitParameterDeclarativeSignature {
                                         contract: Move,
                                         ty: ExplicitApplication(
                                             DeclarativeTermExplicitApplication(
@@ -149,7 +149,7 @@
                                             ),
                                         ),
                                     },
-                                    ExplicitParameterDeclarativeSignatureTemplate {
+                                    ExplicitParameterDeclarativeSignature {
                                         contract: Pure,
                                         ty: EntityPath(
                                             Type(
@@ -161,7 +161,7 @@
                                             ),
                                         ),
                                     },
-                                    ExplicitParameterDeclarativeSignatureTemplate {
+                                    ExplicitParameterDeclarativeSignature {
                                         contract: Pure,
                                         ty: EntityPath(
                                             Type(

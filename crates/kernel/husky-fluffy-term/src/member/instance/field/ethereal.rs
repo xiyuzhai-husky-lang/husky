@@ -1,7 +1,4 @@
-use husky_ethereal_signature::{
-    HasRegularFieldEtherealSignature, HasTypeMemoizedFieldEtherealSignature,
-    HasTypeMethodEtherealSignatureTemplates,
-};
+use husky_ethereal_signature::HasRegularFieldEtherealSignature;
 
 use super::*;
 

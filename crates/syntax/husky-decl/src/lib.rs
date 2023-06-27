@@ -95,7 +95,6 @@ pub struct DeclJar(
     // - - type item
     ty_item_node_decl,
     ty_item_decl,
-    ty_item_decls_map,
     TypeAssociatedFnNodeDecl,
     TypeAssociatedFnDecl,
     TypeMethodFnNodeDecl,

@@ -22,6 +22,7 @@ impl ImplicitParameterEtherealSignatures {
         })
     }
 
+    #[inline(always)]
     pub fn data(&self) -> &[ImplicitParameterEtherealSignature] {
         &self.data
     }

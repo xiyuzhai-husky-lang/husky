@@ -130,50 +130,50 @@ pub trait HasTypeMethodDeclarativeSignatureTemplates: Copy {
     }
 }
 
-impl HasTypeMethodDeclarativeSignatureTemplates for TypePath {
-    fn ty_method_declarative_signature_templates_map<'a>(
-        self,
-        db: &'a dyn DeclarativeSignatureDb,
-    ) -> DeclarativeSignatureResult<
-        &'a [(
-            Ident,
-            DeclarativeSignatureResult<TypeMethodDeclarativeSignatureTemplates>,
-        )],
-    > {
-        ty_method_declarative_signature_templates_map(db, self)
-            .as_ref()
-            .map(|v| v as &[_])
-            .map_err(|e| *e)
-    }
-}
+// impl HasTypeMethodDeclarativeSignatureTemplates for TypePath {
+//     fn ty_method_declarative_signature_templates_map<'a>(
+//         self,
+//         db: &'a dyn DeclarativeSignatureDb,
+//     ) -> DeclarativeSignatureResult<
+//         &'a [(
+//             Ident,
+//             DeclarativeSignatureResult<TypeMethodDeclarativeSignatureTemplates>,
+//         )],
+//     > {
+//         ty_method_declarative_signature_templates_map(db, self)
+//             .as_ref()
+//             .map(|v| v as &[_])
+//             .map_err(|e| *e)
+//     }
+// }
 
-#[salsa::tracked(jar = DeclarativeSignatureJar, return_ref)]
-pub(crate) fn ty_method_declarative_signature_templates_map(
-    db: &dyn DeclarativeSignatureDb,
-    ty_path: TypePath,
-) -> DeclarativeSignatureResult<
-    IdentPairMap<DeclarativeSignatureResult<TypeMethodDeclarativeSignatureTemplates>>,
-> {
-    let item_decls_map = ty_path.item_decls_map(db)?;
-    Ok(
-        IdentPairMap::from_iter_assuming_no_repetitions(item_decls_map.iter().filter_map(
-            |(ident, decls)| {
-                match decls {
-                    Ok(TypeItemDecls::MethodFn(decls)) => Some((
-                        *ident,
-                        decls
-                            .iter()
-                            .copied()
-                            .map(|decl| decl.declarative_signature_template(db))
-                            .collect::<DeclarativeSignatureResult<SmallVecImpl<_>>>()
-                            .map(TypeMethodDeclarativeSignatureTemplates::MethodFn),
-                    )),
-                    Ok(TypeItemDecls::MethodFunction()) => todo!(),
-                    Ok(_) => None,
-                    Err(_) => Some((*ident, Err(DeclarativeSignatureError::DeclError))),
-                }
-            },
-        ))
-        .expect("no repetitions"),
-    )
-}
+// #[salsa::tracked(jar = DeclarativeSignatureJar, return_ref)]
+// pub(crate) fn ty_method_declarative_signature_templates_map(
+//     db: &dyn DeclarativeSignatureDb,
+//     ty_path: TypePath,
+// ) -> DeclarativeSignatureResult<
+//     IdentPairMap<DeclarativeSignatureResult<TypeMethodDeclarativeSignatureTemplates>>,
+// > {
+//     let item_decls_map = ty_path.item_decls_map(db)?;
+//     Ok(
+//         IdentPairMap::from_iter_assuming_no_repetitions(item_decls_map.iter().filter_map(
+//             |(ident, decls)| {
+//                 match decls {
+//                     Ok(TypeItemDecls::MethodFn(decls)) => Some((
+//                         *ident,
+//                         decls
+//                             .iter()
+//                             .copied()
+//                             .map(|decl| decl.declarative_signature_template(db))
+//                             .collect::<DeclarativeSignatureResult<SmallVecImpl<_>>>()
+//                             .map(TypeMethodDeclarativeSignatureTemplates::MethodFn),
+//                     )),
+//                     Ok(TypeItemDecls::MethodFunction()) => todo!(),
+//                     Ok(_) => None,
+//                     Err(_) => Some((*ident, Err(DeclarativeSignatureError::DeclError))),
+//                 }
+//             },
+//         ))
+//         .expect("no repetitions"),
+//     )
+// }
