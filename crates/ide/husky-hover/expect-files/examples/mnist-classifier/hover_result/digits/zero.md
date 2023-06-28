@@ -190,7 +190,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 72;\n\ntoken_line_group_idx = 9\n\ntoken = Token::Ident(\n    `open_one_match`,\n);\n\ntoken_info = TokenInfo::Entity(\n    Some(\n        EntityPath::ModuleItem(\n            ModuleItemPath::Form(\n                FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),\n            ),\n        ),\n    ),\n    None,\n);\n\n\n",
+                                value: "\ntoken_idx = 72;\n\ntoken_line_group_idx = 9\n\ntoken = Token::Ident(\n    `open_one_match`,\n);\n\ntoken_info = TokenInfo::Entity(\n    EntityPath::ModuleItem(\n        ModuleItemPath::Fugitive(\n            FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),\n        ),\n    ),\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -310,7 +310,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 120;\n\ntoken_line_group_idx = 15\n\ntoken = Token::Ident(\n    `Zero`,\n);\n\ntoken_info = TokenInfo::Entity(\n    Some(\n        EntityPath::TypeVariant(\n            TypeVariantPath {\n                ty_path: TypePath(`mnist::MnistLabel`, `Enum`),\n                ident: `Zero`,\n            },\n        ),\n    ),\n    None,\n);\n\n\n",
+                                value: "\ntoken_idx = 120;\n\ntoken_line_group_idx = 15\n\ntoken = Token::Ident(\n    `Zero`,\n);\n\ntoken_info = TokenInfo::Entity(\n    EntityPath::TypeVariant(\n        TypeVariantPath {\n            ty_path: TypePath(`mnist::MnistLabel`, `Enum`),\n            ident: `Zero`,\n        },\n    ),\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -430,7 +430,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 168;\n\ntoken_line_group_idx = 20\n\ntoken = Token::Ident(\n    `major_connected_component`,\n);\n\ntoken_info = TokenInfo::Entity(\n    Some(\n        EntityPath::ModuleItem(\n            ModuleItemPath::Form(\n                FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),\n            ),\n        ),\n    ),\n    None,\n);\n\n\n",
+                                value: "\ntoken_idx = 168;\n\ntoken_line_group_idx = 20\n\ntoken = Token::Ident(\n    `major_connected_component`,\n);\n\ntoken_info = TokenInfo::Entity(\n    EntityPath::ModuleItem(\n        ModuleItemPath::Fugitive(\n            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),\n        ),\n    ),\n);\n\n\n",
                             },
                         ),
                         range: Some(

@@ -48,8 +48,3 @@ fn partition<T: Ord>(arr: &mut [T], low: isize, high: isize) -> isize {
     arr.swap(store_index as usize, pivot as usize);
     store_index
 }
-
-#[test]
-fn test_envs() {
-    println!("LD_LIBRARY_PATH: {:#?}", std::env::var("LD_LIBRARY_PATH"))
-}

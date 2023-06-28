@@ -2,13 +2,53 @@ Ok(
     TokenInfoSheet {
         token_infos: [
             TokenInfo::None,
-            TokenInfo::SubmoduleIdent,
+            TokenInfo::EntityNode(
+                EntityNodePath::Submodule(
+                    SubmoduleNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: `mnist_classifier::line_segment_sketch::concave_component`,
+                            disambiguator: 0,
+                        },
+                    },
+                ),
+                Module,
+            ),
             TokenInfo::None,
-            TokenInfo::SubmoduleIdent,
+            TokenInfo::EntityNode(
+                EntityNodePath::Submodule(
+                    SubmoduleNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: `mnist_classifier::line_segment_sketch::convex_component`,
+                            disambiguator: 0,
+                        },
+                    },
+                ),
+                Module,
+            ),
             TokenInfo::None,
-            TokenInfo::SubmoduleIdent,
+            TokenInfo::EntityNode(
+                EntityNodePath::Submodule(
+                    SubmoduleNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: `mnist_classifier::line_segment_sketch::convexity`,
+                            disambiguator: 0,
+                        },
+                    },
+                ),
+                Module,
+            ),
             TokenInfo::None,
-            TokenInfo::SubmoduleIdent,
+            TokenInfo::EntityNode(
+                EntityNodePath::Submodule(
+                    SubmoduleNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: `mnist_classifier::line_segment_sketch::line_segment`,
+                            disambiguator: 0,
+                        },
+                    },
+                ),
+                Module,
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::UseExpr {
@@ -17,9 +57,15 @@ Ok(
                     0,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `mnist_classifier::line_segment_sketch::concave_component`,
+                    original_symbol: EntitySymbol::Submodule {
+                        submodule_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                        node: SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
@@ -31,7 +77,7 @@ Ok(
                                 ),
                             },
                         },
-                    ),
+                    },
                 },
             },
             TokenInfo::None,
@@ -44,9 +90,15 @@ Ok(
                     1,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `mnist_classifier::line_segment_sketch::convex_component`,
+                    original_symbol: EntitySymbol::Submodule {
+                        submodule_path: `mnist_classifier::line_segment_sketch::convex_component`,
+                        node: SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `mnist_classifier::line_segment_sketch::convex_component`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
@@ -58,7 +110,7 @@ Ok(
                                 ),
                             },
                         },
-                    ),
+                    },
                 },
             },
             TokenInfo::None,
@@ -71,9 +123,15 @@ Ok(
                     2,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `mnist_classifier::line_segment_sketch::line_segment`,
+                    original_symbol: EntitySymbol::Submodule {
+                        submodule_path: `mnist_classifier::line_segment_sketch::line_segment`,
+                        node: SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `mnist_classifier::line_segment_sketch::line_segment`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
@@ -85,7 +143,7 @@ Ok(
                                 ),
                             },
                         },
-                    ),
+                    },
                 },
             },
             TokenInfo::None,
@@ -109,9 +167,15 @@ Ok(
                     6,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `mnist_classifier::geom2d`,
+                    original_symbol: EntitySymbol::Submodule {
+                        submodule_path: `mnist_classifier::geom2d`,
+                        node: SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `mnist_classifier::geom2d`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::PubUnder(
                                 `mnist_classifier`,
                             ),
@@ -123,7 +187,7 @@ Ok(
                                 ),
                             },
                         },
-                    ),
+                    },
                 },
             },
             TokenInfo::None,
@@ -147,9 +211,15 @@ Ok(
                     7,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `mnist_classifier::raw_contour`,
+                    original_symbol: EntitySymbol::Submodule {
+                        submodule_path: `mnist_classifier::raw_contour`,
+                        node: SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `mnist_classifier::raw_contour`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::PubUnder(
                                 `mnist_classifier`,
                             ),
@@ -161,7 +231,7 @@ Ok(
                                 ),
                             },
                         },
-                    ),
+                    },
                 },
             },
             TokenInfo::None,
@@ -171,10 +241,18 @@ Ok(
                     8,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Type(
-                                TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                    original_symbol: EntitySymbol::ModuleItem {
+                        module_item_path: ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                        ),
+                        node: ModuleItemNode {
+                            node_path: ModuleItemNodePath::Type(
+                                TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::Pub,
                             ast_idx: 203,
@@ -185,7 +263,7 @@ Ok(
                                 ),
                             },
                         },
-                    ),
+                    },
                 },
             },
             TokenInfo::None,
@@ -195,9 +273,15 @@ Ok(
                     5,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `mnist_classifier::line_segment_sketch::line_segment`,
+                    original_symbol: EntitySymbol::Submodule {
+                        submodule_path: `mnist_classifier::line_segment_sketch::line_segment`,
+                        node: SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `mnist_classifier::line_segment_sketch::line_segment`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
@@ -209,144 +293,123 @@ Ok(
                                 ),
                             },
                         },
-                    ),
+                    },
                 },
             },
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                        ),
-                    ),
-                ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Type(
-                            Struct,
-                        ),
-                        connection: Connected,
-                    },
-                ),
-            ),
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::BoxPrefix,
-            TokenInfo::None,
-            TokenInfo::BoxPrefix,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::SelfValue,
-            TokenInfo::None,
-            TokenInfo::Field,
-            TokenInfo::None,
-            TokenInfo::Method,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Method,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::SelfValue,
-            TokenInfo::None,
-            TokenInfo::Field,
-            TokenInfo::None,
-            TokenInfo::Method,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Method,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Trait(
-                            TraitPath(`core::visual::Visualize`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TraitForTypeItem(
-                            TraitForTypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                trai: TraitPath(`core::visual::Visualize`),
-                                ident: `visualize`,
-                                item_kind: MethodFn,
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Type(
+                        TypeNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TraitForTypeItem(
-                            MethodFn,
-                        ),
-                    },
+                ModuleItem {
+                    module_item_kind: Type(
+                        Struct,
+                    ),
+                    connection: Connected,
+                },
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::BoxPrefix,
+            TokenInfo::None,
+            TokenInfo::BoxPrefix,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                    ),
                 ),
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::SelfValue,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::SelfValue,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TraitForTypeItem(
+                        TraitForTypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitForTypeItemPath {
+                                    impl_block: TraitForTypeImplBlockPath {
+                                        module_path: `mnist_classifier::line_segment_sketch`,
+                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `visualize`,
+                                    item_kind: MethodFn,
+                                },
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                ),
+                AssociatedItem {
+                    associated_item_kind: TraitForTypeItem(
+                        MethodFn,
+                    ),
+                },
             ),
             TokenInfo::None,
             TokenInfo::None,
@@ -369,38 +432,34 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                ident: `new`,
-                                item_kind: AssociatedFn,
+            TokenInfo::None,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::line_segment_sketch`,
+                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `new`,
+                                    item_kind: AssociatedFn,
+                                },
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            AssociatedFn,
-                        ),
-                    },
-                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        AssociatedFn,
+                    ),
+                },
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -413,14 +472,11 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -432,14 +488,11 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::i32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::i32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -451,26 +504,20 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::i32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::i32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
@@ -490,14 +537,11 @@ Ok(
                 expr_region: ExprRegionLeash(_),
             },
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
@@ -532,38 +576,40 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                ident: `displacement`,
-                                item_kind: MethodFn,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::line_segment_sketch`,
+                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `displacement`,
+                                    item_kind: MethodFn,
+                                },
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MethodFn,
-                        ),
-                    },
-                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
+                    ),
+                },
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::SelfValue,
@@ -578,111 +624,90 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                        ),
-                    ),
-                ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Type(
-                            Struct,
-                        ),
-                        connection: Connected,
-                    },
-                ),
-            ),
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::BoxPrefix,
-            TokenInfo::BoxPrefix,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Trait(
-                            TraitPath(`core::visual::Visualize`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TraitForTypeItem(
-                            TraitForTypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                trai: TraitPath(`core::visual::Visualize`),
-                                ident: `visualize`,
-                                item_kind: MethodFn,
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Type(
+                        TypeNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TraitForTypeItem(
-                            MethodFn,
-                        ),
-                    },
+                ModuleItem {
+                    module_item_kind: Type(
+                        Struct,
+                    ),
+                    connection: Connected,
+                },
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                    ),
                 ),
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::BoxPrefix,
+            TokenInfo::BoxPrefix,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::visual::Html`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                     ),
                 ),
-                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TraitForTypeItem(
+                        TraitForTypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitForTypeItemPath {
+                                    impl_block: TraitForTypeImplBlockPath {
+                                        module_path: `mnist_classifier::line_segment_sketch`,
+                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `visualize`,
+                                    item_kind: MethodFn,
+                                },
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                ),
+                AssociatedItem {
+                    associated_item_kind: TraitForTypeItem(
+                        MethodFn,
+                    ),
+                },
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::visual::Html`, `Extern`),
+                    ),
+                ),
             ),
             TokenInfo::None,
             TokenInfo::SelfValue,
@@ -693,96 +718,88 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                ident: `concave_components`,
-                                item_kind: MemoizedField,
+            TokenInfo::None,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::line_segment_sketch`,
+                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `concave_components`,
+                                    item_kind: MemoizedField,
+                                },
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MemoizedField,
-                        ),
-                    },
-                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MemoizedField,
+                    ),
+                },
             ),
             TokenInfo::None,
             TokenInfo::BoxPrefix,
             TokenInfo::BoxPrefix,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::SelfValue,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                ident: `bounding_box`,
-                                item_kind: MemoizedField,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::line_segment_sketch`,
+                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `bounding_box`,
+                                    item_kind: MemoizedField,
+                                },
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MemoizedField,
-                        ),
-                    },
-                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MemoizedField,
+                    ),
+                },
             ),
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
@@ -1032,25 +1049,19 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -1071,14 +1082,11 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -1101,25 +1109,30 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                ident: `new`,
-                                item_kind: AssociatedFn,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::line_segment_sketch`,
+                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `new`,
+                                    item_kind: AssociatedFn,
+                                },
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            AssociatedFn,
-                        ),
-                    },
-                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        AssociatedFn,
+                    ),
+                },
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -1132,14 +1145,11 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -1151,37 +1161,28 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
@@ -1193,14 +1194,11 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
@@ -1221,22 +1219,23 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
-                        ),
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Fugitive(
+                        FugitiveNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Fugitive(
-                            Fn,
-                        ),
-                        connection: Connected,
-                    },
-                ),
+                ModuleItem {
+                    module_item_kind: Fugitive(
+                        Fn,
+                    ),
+                    connection: Connected,
+                },
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -1248,14 +1247,11 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -1267,26 +1263,20 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
@@ -1491,14 +1481,11 @@ Ok(
                 expr_region: ExprRegionLeash(_),
             },
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
@@ -1538,22 +1525,23 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
-                        ),
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Fugitive(
+                        FugitiveNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Fugitive(
-                            Fn,
-                        ),
-                        connection: Connected,
-                    },
-                ),
+                ModuleItem {
+                    module_item_kind: Fugitive(
+                        Fn,
+                    ),
+                    connection: Connected,
+                },
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -1565,14 +1553,11 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -1584,26 +1569,20 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
@@ -1808,14 +1787,11 @@ Ok(
                 expr_region: ExprRegionLeash(_),
             },
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
@@ -1855,22 +1831,23 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
-                        ),
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Fugitive(
+                        FugitiveNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Fugitive(
-                            Fn,
-                        ),
-                        connection: Connected,
-                    },
-                ),
+                ModuleItem {
+                    module_item_kind: Fugitive(
+                        Fn,
+                    ),
+                    connection: Connected,
+                },
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -1883,14 +1860,11 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -1902,14 +1876,11 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::i32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::i32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -1921,26 +1892,20 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::i32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::i32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
@@ -2165,14 +2130,11 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -2202,14 +2164,11 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -2403,14 +2362,11 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -2439,14 +2395,11 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -2608,22 +2561,23 @@ Ok(
                 expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
-                        ),
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Fugitive(
+                        FugitiveNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Fugitive(
-                            Fn,
-                        ),
-                        connection: Connected,
-                    },
-                ),
+                ModuleItem {
+                    module_item_kind: Fugitive(
+                        Fn,
+                    ),
+                    connection: Connected,
+                },
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -2636,14 +2590,11 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -2655,14 +2606,11 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::i32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::i32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -2674,14 +2622,11 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::i32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::i32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -2693,26 +2638,20 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::i32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::i32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
@@ -2932,14 +2871,11 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -2969,14 +2905,11 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -3165,14 +3098,11 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -3201,14 +3131,11 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -3433,22 +3360,23 @@ Ok(
                 expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
-                        ),
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Fugitive(
+                        FugitiveNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Fugitive(
-                            Fn,
-                        ),
-                        connection: Connected,
-                    },
-                ),
+                ModuleItem {
+                    module_item_kind: Fugitive(
+                        Fn,
+                    ),
+                    connection: Connected,
+                },
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -3461,14 +3389,11 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -3480,28 +3405,22 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::BoxPrefix,
             TokenInfo::BoxPrefix,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
@@ -3517,14 +3436,11 @@ Ok(
             TokenInfo::BoxPrefix,
             TokenInfo::BoxPrefix,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
@@ -3600,14 +3516,11 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
@@ -3644,30 +3557,14 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                ident: `new`,
-                                item_kind: AssociatedFn,
-                            },
-                        ),
-                    ),
-                ),
-                None,
-            ),
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
@@ -3847,30 +3744,14 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                ident: `new`,
-                                item_kind: AssociatedFn,
-                            },
-                        ),
-                    ),
-                ),
-                None,
-            ),
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
@@ -3932,14 +3813,11 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
@@ -3985,30 +3863,14 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                ident: `new`,
-                                item_kind: AssociatedFn,
-                            },
-                        ),
-                    ),
-                ),
-                None,
-            ),
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
@@ -4263,30 +4125,14 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                ident: `new`,
-                                item_kind: AssociatedFn,
-                            },
-                        ),
-                    ),
-                ),
-                None,
-            ),
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
@@ -4532,30 +4378,14 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                ident: `new`,
-                                item_kind: AssociatedFn,
-                            },
-                        ),
-                    ),
-                ),
-                None,
-            ),
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,

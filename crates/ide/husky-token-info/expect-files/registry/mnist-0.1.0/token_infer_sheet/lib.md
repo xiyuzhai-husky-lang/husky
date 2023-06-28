@@ -3,22 +3,23 @@ Ok(
         token_infos: [
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist::MnistLabel`, `Enum`),
-                        ),
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Type(
+                        TypeNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Type(
-                            Enum,
-                        ),
-                        connection: Connected,
-                    },
-                ),
+                ModuleItem {
+                    module_item_kind: Type(
+                        Enum,
+                    ),
+                    connection: Connected,
+                },
             ),
             TokenInfo::None,
             TokenInfo::None,
@@ -42,36 +43,34 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist::BinaryImage28`, `Struct`),
-                        ),
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Type(
+                        TypeNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Type(
-                            Struct,
-                        ),
-                        connection: Connected,
-                    },
-                ),
+                ModuleItem {
+                    module_item_kind: Type(
+                        Struct,
+                    ),
+                    connection: Connected,
+                },
             ),
             TokenInfo::None,
             TokenInfo::BoxPrefix,
             TokenInfo::None,
             TokenInfo::BoxPrefix,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::raw_bits::r32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::raw_bits::r32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
         ],

@@ -3,22 +3,23 @@ Ok(
         token_infos: [
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`malamute::narrow_down`, `Gn`),
-                        ),
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Fugitive(
+                        FugitiveNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: FugitivePath(`malamute::narrow_down`, `Gn`),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Fugitive(
-                            Gn,
-                        ),
-                        connection: Connected,
-                    },
-                ),
+                ModuleItem {
+                    module_item_kind: Fugitive(
+                        Gn,
+                    ),
+                    connection: Connected,
+                },
             ),
             TokenInfo::None,
             TokenInfo::None,

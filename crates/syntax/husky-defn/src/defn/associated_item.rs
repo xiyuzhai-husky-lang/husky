@@ -17,11 +17,41 @@ pub enum AssociatedItemNodeDefn {
     TraitForTypeItem(TraitForTypeItemNodeDefn),
 }
 
+impl AssociatedItemNodeDefn {
+    pub fn node_path(self, _db: &dyn DefnDb) -> AssociatedItemNodePath {
+        match self {
+            AssociatedItemNodeDefn::TypeItem(_) => todo!(),
+            AssociatedItemNodeDefn::TraitItem(_) => todo!(),
+            AssociatedItemNodeDefn::TraitForTypeItem(_) => todo!(),
+        }
+    }
+
+    pub fn node_decl(self, db: &dyn DefnDb) -> AssociatedItemNodeDecl {
+        match self {
+            AssociatedItemNodeDefn::TypeItem(node_defn) => node_defn.node_decl(db).into(),
+            AssociatedItemNodeDefn::TraitItem(_) => todo!(),
+            AssociatedItemNodeDefn::TraitForTypeItem(node_defn) => node_defn.node_decl(db).into(),
+        }
+    }
+
+    pub fn expr_region(self, db: &dyn DefnDb) -> Option<ExprRegion> {
+        match self {
+            AssociatedItemNodeDefn::TypeItem(node_defn) => node_defn.expr_region(db),
+            AssociatedItemNodeDefn::TraitItem(_) => todo!(),
+            AssociatedItemNodeDefn::TraitForTypeItem(node_defn) => Some(node_defn.expr_region(db)),
+        }
+    }
+}
+
 impl HasNodeDefn for AssociatedItemNodePath {
     type NodeDefn = AssociatedItemNodeDefn;
 
     fn node_defn(self, db: &dyn DefnDb) -> Self::NodeDefn {
-        todo!()
+        match self {
+            AssociatedItemNodePath::TypeItem(node_path) => node_path.node_defn(db).into(),
+            AssociatedItemNodePath::TraitItem(node_path) => node_path.node_defn(db).into(),
+            AssociatedItemNodePath::TraitForTypeItem(node_path) => node_path.node_defn(db).into(),
+        }
     }
 }
 

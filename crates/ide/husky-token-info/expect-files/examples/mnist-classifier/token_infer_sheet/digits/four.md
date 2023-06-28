@@ -17,98 +17,85 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
-                        ),
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Fugitive(
+                        FugitiveNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Fugitive(
-                            Val,
-                        ),
-                        connection: Connected,
-                    },
+                ModuleItem {
+                    module_item_kind: Fugitive(
+                        Val,
+                    ),
+                    connection: Connected,
+                },
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                    ),
                 ),
             ),
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                     ),
                 ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
-                        ),
-                    ),
-                ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
-                        ),
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Fugitive(
+                        FugitiveNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Fugitive(
-                            Fn,
-                        ),
-                        connection: Connected,
-                    },
-                ),
+                ModuleItem {
+                    module_item_kind: Fugitive(
+                        Fn,
+                    ),
+                    connection: Connected,
+                },
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -121,27 +108,21 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
@@ -158,176 +139,149 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
-                        ),
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Fugitive(
+                        FugitiveNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Fugitive(
-                            Val,
-                        ),
-                        connection: Connected,
-                    },
+                ModuleItem {
+                    module_item_kind: Fugitive(
+                        Val,
+                    ),
+                    connection: Connected,
+                },
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                    ),
                 ),
             ),
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                     ),
-                ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `Fn`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
-                        ),
-                    ),
-                ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Fugitive(
-                            Val,
-                        ),
-                        connection: Connected,
-                    },
                 ),
             ),
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                     ),
-                ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `Fn`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::digits::four::is_four`, `Val`),
-                        ),
-                    ),
-                ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Fugitive(
-                            Val,
-                        ),
-                        connection: Connected,
-                    },
                 ),
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist::MnistLabel`, `Enum`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `Fn`),
                     ),
                 ),
-                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Fugitive(
+                        FugitiveNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                ),
+                ModuleItem {
+                    module_item_kind: Fugitive(
+                        Val,
+                    ),
+                    connection: Connected,
+                },
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                    ),
+                ),
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `Fn`),
                     ),
                 ),
-                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Fugitive(
+                        FugitiveNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: FugitivePath(`mnist_classifier::digits::four::is_four`, `Val`),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                ),
+                ModuleItem {
+                    module_item_kind: Fugitive(
+                        Val,
+                    ),
+                    connection: Connected,
+                },
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist::MnistLabel`, `Enum`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
+                    ),
+                ),
             ),
             TokenInfo::None,
             TokenInfo::Field,
@@ -344,14 +298,11 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::Field,
@@ -376,14 +327,11 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::Field,
@@ -418,14 +366,11 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::Field,
@@ -480,27 +425,21 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::Field,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::Field,
@@ -538,14 +477,11 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::Method,
@@ -563,14 +499,11 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::Field,
@@ -595,14 +528,11 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::Field,
@@ -618,27 +548,21 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::Field,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::Field,
@@ -652,14 +576,11 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::Field,
@@ -713,14 +634,11 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::Field,
@@ -736,14 +654,11 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::Method,
@@ -772,66 +687,55 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist::MnistLabel`, `Enum`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist::MnistLabel`, `Enum`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::TypeVariant(
-                        TypeVariantPath {
-                            ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                            ident: `Four`,
-                        },
-                    ),
-                ),
-                None,
-            ),
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist::MnistLabel`, `Enum`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::TypeVariant(
-                        TypeVariantPath {
-                            ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                            ident: `Four`,
-                        },
-                    ),
-                ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `Fn`),
-                        ),
-                    ),
-                ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Fugitive(
-                            Fn,
-                        ),
-                        connection: Connected,
+                EntityPath::TypeVariant(
+                    TypeVariantPath {
+                        ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                        ident: `Four`,
                     },
                 ),
+            ),
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist::MnistLabel`, `Enum`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::TypeVariant(
+                    TypeVariantPath {
+                        ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                        ident: `Four`,
+                    },
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Fugitive(
+                        FugitiveNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `Fn`),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                ),
+                ModuleItem {
+                    module_item_kind: Fugitive(
+                        Fn,
+                    ),
+                    connection: Connected,
+                },
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -844,27 +748,21 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
@@ -909,22 +807,23 @@ Ok(
             TokenInfo::None,
             TokenInfo::Field,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `Fn`),
-                        ),
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Fugitive(
+                        FugitiveNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `Fn`),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Fugitive(
-                            Fn,
-                        ),
-                        connection: Connected,
-                    },
-                ),
+                ModuleItem {
+                    module_item_kind: Fugitive(
+                        Fn,
+                    ),
+                    connection: Connected,
+                },
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -937,27 +836,21 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,

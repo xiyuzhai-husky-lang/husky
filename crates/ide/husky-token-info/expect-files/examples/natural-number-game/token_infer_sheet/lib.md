@@ -2,40 +2,23 @@ Ok(
     TokenInfoSheet {
         token_infos: [
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`natural_number_game::Nat`, `Inductive`),
-                        ),
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Type(
+                        TypeNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(`natural_number_game::Nat`, `Inductive`),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Type(
-                            Inductive,
-                        ),
-                        connection: Connected,
-                    },
-                ),
-            ),
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`natural_number_game::Nat`, `Inductive`),
-                        ),
+                ModuleItem {
+                    module_item_kind: Type(
+                        Inductive,
                     ),
-                ),
-                None,
+                    connection: Connected,
+                },
             ),
             TokenInfo::None,
             TokenInfo::None,
@@ -109,22 +92,32 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`natural_number_game::OddNat`, `Structure`),
-                        ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Type(
+                        TypeNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(`natural_number_game::OddNat`, `Structure`),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Type(
-                            Structure,
-                        ),
-                        connection: Connected,
-                    },
-                ),
+                ModuleItem {
+                    module_item_kind: Type(
+                        Structure,
+                    ),
+                    connection: Connected,
+                },
             ),
             TokenInfo::None,
             TokenInfo::None,
@@ -154,22 +147,23 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`natural_number_game::EvenNat`, `Structure`),
-                        ),
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Type(
+                        TypeNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(`natural_number_game::EvenNat`, `Structure`),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Type(
-                            Structure,
-                        ),
-                        connection: Connected,
-                    },
-                ),
+                ModuleItem {
+                    module_item_kind: Type(
+                        Structure,
+                    ),
+                    connection: Connected,
+                },
             ),
             TokenInfo::None,
             TokenInfo::None,

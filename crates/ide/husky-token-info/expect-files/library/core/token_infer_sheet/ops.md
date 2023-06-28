@@ -10,20 +10,21 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Trait(
-                            TraitPath(`core::ops::Add`),
-                        ),
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Trait(
+                        TraitNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitPath(`core::ops::Add`),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Trait,
-                        connection: Connected,
-                    },
-                ),
+                ModuleItem {
+                    module_item_kind: Trait,
+                    connection: Connected,
+                },
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -66,20 +67,21 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Trait(
-                            TraitPath(`core::ops::AddAssign`),
-                        ),
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Trait(
+                        TraitNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitPath(`core::ops::AddAssign`),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Trait,
-                        connection: Connected,
-                    },
-                ),
+                ModuleItem {
+                    module_item_kind: Trait,
+                    connection: Connected,
+                },
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -122,20 +124,21 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Trait(
-                            TraitPath(`core::ops::BitAnd`),
-                        ),
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Trait(
+                        TraitNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitPath(`core::ops::BitAnd`),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Trait,
-                        connection: Connected,
-                    },
-                ),
+                ModuleItem {
+                    module_item_kind: Trait,
+                    connection: Connected,
+                },
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -178,20 +181,21 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Trait(
-                            TraitPath(`core::ops::BitAndAssign`),
-                        ),
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Trait(
+                        TraitNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitPath(`core::ops::BitAndAssign`),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Trait,
-                        connection: Connected,
-                    },
-                ),
+                ModuleItem {
+                    module_item_kind: Trait,
+                    connection: Connected,
+                },
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -230,20 +234,21 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Trait(
-                            TraitPath(`core::ops::BitOr`),
-                        ),
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Trait(
+                        TraitNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitPath(`core::ops::BitOr`),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Trait,
-                        connection: Connected,
-                    },
-                ),
+                ModuleItem {
+                    module_item_kind: Trait,
+                    connection: Connected,
+                },
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -286,20 +291,21 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Trait(
-                            TraitPath(`core::ops::BitOrAssign`),
-                        ),
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Trait(
+                        TraitNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitPath(`core::ops::BitOrAssign`),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Trait,
-                        connection: Connected,
-                    },
-                ),
+                ModuleItem {
+                    module_item_kind: Trait,
+                    connection: Connected,
+                },
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -338,20 +344,21 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Trait(
-                            TraitPath(`core::ops::BitXor`),
-                        ),
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Trait(
+                        TraitNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitPath(`core::ops::BitXor`),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Trait,
-                        connection: Connected,
-                    },
-                ),
+                ModuleItem {
+                    module_item_kind: Trait,
+                    connection: Connected,
+                },
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -394,20 +401,21 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Trait(
-                            TraitPath(`core::ops::BitXorAssign`),
-                        ),
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Trait(
+                        TraitNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitPath(`core::ops::BitXorAssign`),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Trait,
-                        connection: Connected,
-                    },
-                ),
+                ModuleItem {
+                    module_item_kind: Trait,
+                    connection: Connected,
+                },
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -446,20 +454,21 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Trait(
-                            TraitPath(`core::ops::Div`),
-                        ),
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Trait(
+                        TraitNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitPath(`core::ops::Div`),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Trait,
-                        connection: Connected,
-                    },
-                ),
+                ModuleItem {
+                    module_item_kind: Trait,
+                    connection: Connected,
+                },
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -502,20 +511,21 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Trait(
-                            TraitPath(`core::ops::DivAssign`),
-                        ),
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Trait(
+                        TraitNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitPath(`core::ops::DivAssign`),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Trait,
-                        connection: Connected,
-                    },
-                ),
+                ModuleItem {
+                    module_item_kind: Trait,
+                    connection: Connected,
+                },
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -554,20 +564,21 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Trait(
-                            TraitPath(`core::ops::Mul`),
-                        ),
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Trait(
+                        TraitNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitPath(`core::ops::Mul`),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Trait,
-                        connection: Connected,
-                    },
-                ),
+                ModuleItem {
+                    module_item_kind: Trait,
+                    connection: Connected,
+                },
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -610,20 +621,21 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Trait(
-                            TraitPath(`core::ops::MulAssign`),
-                        ),
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Trait(
+                        TraitNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitPath(`core::ops::MulAssign`),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Trait,
-                        connection: Connected,
-                    },
-                ),
+                ModuleItem {
+                    module_item_kind: Trait,
+                    connection: Connected,
+                },
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -662,20 +674,21 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Trait(
-                            TraitPath(`core::ops::Neg`),
-                        ),
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Trait(
+                        TraitNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitPath(`core::ops::Neg`),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Trait,
-                        connection: Connected,
-                    },
-                ),
+                ModuleItem {
+                    module_item_kind: Trait,
+                    connection: Connected,
+                },
             ),
             TokenInfo::None,
             TokenInfo::None,
@@ -700,20 +713,21 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Trait(
-                            TraitPath(`core::ops::Not`),
-                        ),
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Trait(
+                        TraitNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitPath(`core::ops::Not`),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Trait,
-                        connection: Connected,
-                    },
-                ),
+                ModuleItem {
+                    module_item_kind: Trait,
+                    connection: Connected,
+                },
             ),
             TokenInfo::None,
             TokenInfo::None,
@@ -738,20 +752,21 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Trait(
-                            TraitPath(`core::ops::Sub`),
-                        ),
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Trait(
+                        TraitNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitPath(`core::ops::Sub`),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Trait,
-                        connection: Connected,
-                    },
-                ),
+                ModuleItem {
+                    module_item_kind: Trait,
+                    connection: Connected,
+                },
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -787,20 +802,21 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Trait(
-                            TraitPath(`core::ops::Unveil`),
-                        ),
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Trait(
+                        TraitNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitPath(`core::ops::Unveil`),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Trait,
-                        connection: Connected,
-                    },
-                ),
+                ModuleItem {
+                    module_item_kind: Trait,
+                    connection: Connected,
+                },
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -843,22 +859,23 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::ops::ControlFlow`, `Enum`),
-                        ),
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Type(
+                        TypeNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(`core::ops::ControlFlow`, `Enum`),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Type(
-                            Enum,
-                        ),
-                        connection: Connected,
-                    },
-                ),
+                ModuleItem {
+                    module_item_kind: Type(
+                        Enum,
+                    ),
+                    connection: Connected,
+                },
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {

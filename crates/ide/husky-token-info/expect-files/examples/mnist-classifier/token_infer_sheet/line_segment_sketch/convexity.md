@@ -20,9 +20,15 @@ Ok(
                     3,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `mnist_classifier::line_segment_sketch`,
+                    original_symbol: EntitySymbol::Submodule {
+                        submodule_path: `mnist_classifier::line_segment_sketch`,
+                        node: SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `mnist_classifier::line_segment_sketch`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::PubUnder(
                                 `mnist_classifier`,
                             ),
@@ -34,7 +40,7 @@ Ok(
                                 ),
                             },
                         },
-                    ),
+                    },
                 },
             },
             TokenInfo::None,
@@ -58,9 +64,15 @@ Ok(
                     4,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `mnist_classifier::raw_contour`,
+                    original_symbol: EntitySymbol::Submodule {
+                        submodule_path: `mnist_classifier::raw_contour`,
+                        node: SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `mnist_classifier::raw_contour`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::PubUnder(
                                 `mnist_classifier`,
                             ),
@@ -72,7 +84,7 @@ Ok(
                                 ),
                             },
                         },
-                    ),
+                    },
                 },
             },
             TokenInfo::None,
@@ -96,9 +108,15 @@ Ok(
                     5,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `mnist_classifier::geom2d`,
+                    original_symbol: EntitySymbol::Submodule {
+                        submodule_path: `mnist_classifier::geom2d`,
+                        node: SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `mnist_classifier::geom2d`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::PubUnder(
                                 `mnist_classifier`,
                             ),
@@ -110,29 +128,30 @@ Ok(
                                 ),
                             },
                         },
-                    ),
+                    },
                 },
             },
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
-                        ),
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Fugitive(
+                        FugitiveNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Fugitive(
-                            Fn,
-                        ),
-                        connection: Connected,
-                    },
-                ),
+                ModuleItem {
+                    module_item_kind: Fugitive(
+                        Fn,
+                    ),
+                    connection: Connected,
+                },
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -144,14 +163,11 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -163,26 +179,20 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::i32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::i32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::basic::bool`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::basic::bool`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,

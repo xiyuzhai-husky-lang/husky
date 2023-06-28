@@ -40,7 +40,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 1;\n\ntoken_line_group_idx = 0\n\ntoken = Token::Ident(\n    `algebra`,\n);\n\ntoken_info = TokenInfo::SubmoduleIdent;\n\nsubmodule ident\n",
+                                value: "\ntoken_idx = 1;\n\ntoken_line_group_idx = 0\n\ntoken = Token::Ident(\n    `algebra`,\n);\n\ntoken_info = TokenInfo::EntityNode(\n    EntityNodePath::Submodule(\n        SubmoduleNodePath {\n            maybe_ambiguous_path: MaybeAmbiguousPath {\n                path: `math::algebra`,\n                disambiguator: 0,\n            },\n        },\n    ),\n    Module,\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -100,7 +100,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 3;\n\ntoken_line_group_idx = 1\n\ntoken = Token::Ident(\n    `algebraic_geometry`,\n);\n\ntoken_info = TokenInfo::SubmoduleIdent;\n\nsubmodule ident\n",
+                                value: "\ntoken_idx = 3;\n\ntoken_line_group_idx = 1\n\ntoken = Token::Ident(\n    `algebraic_geometry`,\n);\n\ntoken_info = TokenInfo::EntityNode(\n    EntityNodePath::Submodule(\n        SubmoduleNodePath {\n            maybe_ambiguous_path: MaybeAmbiguousPath {\n                path: `math::algebraic_geometry`,\n                disambiguator: 0,\n            },\n        },\n    ),\n    Module,\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -160,7 +160,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 5;\n\ntoken_line_group_idx = 2\n\ntoken = Token::Ident(\n    `algebraic_topology`,\n);\n\ntoken_info = TokenInfo::SubmoduleIdent;\n\nsubmodule ident\n",
+                                value: "\ntoken_idx = 5;\n\ntoken_line_group_idx = 2\n\ntoken = Token::Ident(\n    `algebraic_topology`,\n);\n\ntoken_info = TokenInfo::EntityNode(\n    EntityNodePath::Submodule(\n        SubmoduleNodePath {\n            maybe_ambiguous_path: MaybeAmbiguousPath {\n                path: `math::algebraic_topology`,\n                disambiguator: 0,\n            },\n        },\n    ),\n    Module,\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -220,7 +220,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 7;\n\ntoken_line_group_idx = 3\n\ntoken = Token::Ident(\n    `category_theory`,\n);\n\ntoken_info = TokenInfo::SubmoduleIdent;\n\nsubmodule ident\n",
+                                value: "\ntoken_idx = 7;\n\ntoken_line_group_idx = 3\n\ntoken = Token::Ident(\n    `category_theory`,\n);\n\ntoken_info = TokenInfo::EntityNode(\n    EntityNodePath::Submodule(\n        SubmoduleNodePath {\n            maybe_ambiguous_path: MaybeAmbiguousPath {\n                path: `math::category_theory`,\n                disambiguator: 0,\n            },\n        },\n    ),\n    Module,\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -280,7 +280,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 9;\n\ntoken_line_group_idx = 4\n\ntoken = Token::Ident(\n    `probability`,\n);\n\ntoken_info = TokenInfo::SubmoduleIdent;\n\nsubmodule ident\n",
+                                value: "\ntoken_idx = 9;\n\ntoken_line_group_idx = 4\n\ntoken = Token::Ident(\n    `probability`,\n);\n\ntoken_info = TokenInfo::EntityNode(\n    EntityNodePath::Submodule(\n        SubmoduleNodePath {\n            maybe_ambiguous_path: MaybeAmbiguousPath {\n                path: `math::probability`,\n                disambiguator: 0,\n            },\n        },\n    ),\n    Module,\n);\n\n\n",
                             },
                         ),
                         range: Some(

@@ -17,203 +17,89 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                        ),
-                    ),
-                ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Type(
-                            Struct,
-                        ),
-                        connection: Connected,
-                    },
-                ),
-            ),
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::BoxPrefix,
-            TokenInfo::BoxPrefix,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::BoxPrefix,
-            TokenInfo::BoxPrefix,
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                ident: `norm`,
-                                item_kind: MemoizedField,
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Type(
+                        TypeNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MemoizedField,
-                        ),
-                    },
-                ),
-            ),
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                ModuleItem {
+                    module_item_kind: Type(
+                        Struct,
                     ),
-                ),
-                None,
+                    connection: Connected,
+                },
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::CurrentSymbol {
-                current_symbol_idx: 0,
-                current_symbol_kind: CurrentSymbolKind::LetVariable {
-                    pattern_symbol_idx: 0,
-                },
-                expr_region: ExprRegionLeash(_),
-            },
+            TokenInfo::BoxPrefix,
+            TokenInfo::BoxPrefix,
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::CurrentSymbol {
-                current_symbol_idx: 1,
-                current_symbol_kind: CurrentSymbolKind::FrameVariable(
-                    3,
-                ),
-                expr_region: ExprRegionLeash(_),
-            },
-            TokenInfo::None,
-            TokenInfo::SelfValue,
-            TokenInfo::None,
-            TokenInfo::Field,
-            TokenInfo::None,
-            TokenInfo::Method,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::CurrentSymbol {
-                current_symbol_idx: 0,
-                current_symbol_kind: CurrentSymbolKind::LetVariable {
-                    pattern_symbol_idx: 0,
-                },
-                expr_region: ExprRegionLeash(_),
-            },
-            TokenInfo::None,
-            TokenInfo::CurrentSymbol {
-                current_symbol_idx: 0,
-                current_symbol_kind: CurrentSymbolKind::LetVariable {
-                    pattern_symbol_idx: 0,
-                },
-                expr_region: ExprRegionLeash(_),
-            },
-            TokenInfo::None,
-            TokenInfo::Method,
-            TokenInfo::None,
-            TokenInfo::SelfValue,
-            TokenInfo::None,
-            TokenInfo::Field,
-            TokenInfo::None,
-            TokenInfo::CurrentSymbol {
-                current_symbol_idx: 1,
-                current_symbol_kind: CurrentSymbolKind::FrameVariable(
-                    3,
-                ),
-                expr_region: ExprRegionLeash(_),
-            },
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Field,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::CurrentSymbol {
-                current_symbol_idx: 0,
-                current_symbol_kind: CurrentSymbolKind::LetVariable {
-                    pattern_symbol_idx: 0,
-                },
-                expr_region: ExprRegionLeash(_),
-            },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                ident: `rel_norm`,
-                                item_kind: MemoizedField,
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::BoxPrefix,
+            TokenInfo::BoxPrefix,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::fermi`,
+                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `norm`,
+                                    item_kind: MemoizedField,
+                                },
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MemoizedField,
-                        ),
-                    },
-                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MemoizedField,
+                    ),
+                },
             ),
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
@@ -286,36 +172,142 @@ Ok(
                 expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                ident: `angle_change_norm`,
-                                item_kind: MemoizedField,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::fermi`,
+                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `rel_norm`,
+                                    item_kind: MemoizedField,
+                                },
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MemoizedField,
-                        ),
-                    },
-                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MemoizedField,
+                    ),
+                },
             ),
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: CurrentSymbolKind::FrameVariable(
+                    3,
+                ),
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::SelfValue,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::SelfValue,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: CurrentSymbolKind::FrameVariable(
+                    3,
+                ),
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::fermi`,
+                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `angle_change_norm`,
+                                    item_kind: MemoizedField,
+                                },
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MemoizedField,
+                    ),
+                },
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
+                    ),
+                ),
             ),
             TokenInfo::None,
             TokenInfo::None,
@@ -393,22 +385,23 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
-                        ),
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Fugitive(
+                        FugitiveNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Fugitive(
-                            Fn,
-                        ),
-                        connection: Connected,
-                    },
-                ),
+                ModuleItem {
+                    module_item_kind: Fugitive(
+                        Fn,
+                    ),
+                    connection: Connected,
+                },
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -423,14 +416,11 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -448,40 +438,31 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
@@ -520,14 +501,11 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
@@ -609,14 +587,11 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {

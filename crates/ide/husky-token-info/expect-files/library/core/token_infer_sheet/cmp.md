@@ -3,74 +3,78 @@ Ok(
         token_infos: [
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Trait(
-                            TraitPath(`core::cmp::PartialEq`),
-                        ),
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Trait(
+                        TraitNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitPath(`core::cmp::PartialEq`),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Trait,
-                        connection: Connected,
-                    },
-                ),
+                ModuleItem {
+                    module_item_kind: Trait,
+                    connection: Connected,
+                },
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Trait(
-                            TraitPath(`core::cmp::Eq`),
-                        ),
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Trait(
+                        TraitNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitPath(`core::cmp::Eq`),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Trait,
-                        connection: Connected,
-                    },
-                ),
+                ModuleItem {
+                    module_item_kind: Trait,
+                    connection: Connected,
+                },
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Trait(
-                            TraitPath(`core::cmp::PartialOrd`),
-                        ),
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Trait(
+                        TraitNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitPath(`core::cmp::PartialOrd`),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Trait,
-                        connection: Connected,
-                    },
-                ),
+                ModuleItem {
+                    module_item_kind: Trait,
+                    connection: Connected,
+                },
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Trait(
-                            TraitPath(`core::cmp::Ord`),
-                        ),
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Trait(
+                        TraitNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitPath(`core::cmp::Ord`),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Trait,
-                        connection: Connected,
-                    },
-                ),
+                ModuleItem {
+                    module_item_kind: Trait,
+                    connection: Connected,
+                },
             ),
             TokenInfo::None,
         ],

@@ -27,30 +27,25 @@ pub enum NodeDefn {
 impl NodeDefn {
     pub fn node_decl(self, db: &dyn DefnDb) -> NodeDecl {
         match self {
-            NodeDefn::Submodule(node_defn) => NodeDecl::Submodule(node_defn.decl()),
-            NodeDefn::ModuleItem(node_defn) => node_defn.decl(db).into(),
-            NodeDefn::TypeVariant(node_defn) => node_defn.decl(db).into(),
-            NodeDefn::ImplBlock(node_defn) => node_defn.into(),
-            NodeDefn::AssociatedItem(node_defn) => node_defn.decl(db).into(),
+            NodeDefn::Submodule(node_defn) => node_defn.node_decl().into(),
+            NodeDefn::ModuleItem(node_defn) => node_defn.node_decl(db).into(),
+            NodeDefn::TypeVariant(node_defn) => node_defn.node_decl(db).into(),
+            NodeDefn::ImplBlock(node_decl) => node_decl.into(),
+            NodeDefn::AssociatedItem(node_defn) => node_defn.node_decl(db).into(),
         }
     }
 
     pub fn ast_idx(self, db: &dyn DefnDb) -> AstIdx {
-        todo!()
-        // self.decl(db).ast_idx(db)
-    }
-
-    pub fn implicit_parameters<'a>(self, db: &'a dyn DefnDb) -> &'a [ImplicitParameterDeclPattern] {
-        self.decl(db).implicit_parameters(db)
+        self.node_decl(db).ast_idx(db)
     }
 
     pub fn expr_region(self, db: &dyn DefnDb) -> Option<ExprRegion> {
         match self {
-            Defn::Submodule(_) => None,
-            Defn::ModuleItem(defn) => defn.expr_region(db),
-            Defn::AssociatedItem(defn) => defn.expr_region(db),
-            Defn::TypeVariant(_defn) => None,
-            Defn::ImplBlock(_) => None,
+            NodeDefn::Submodule(_) => None,
+            NodeDefn::ModuleItem(defn) => defn.expr_region(db),
+            NodeDefn::AssociatedItem(defn) => defn.expr_region(db),
+            NodeDefn::TypeVariant(_defn) => None,
+            NodeDefn::ImplBlock(_) => None,
         }
     }
 }

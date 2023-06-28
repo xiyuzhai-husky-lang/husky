@@ -17,6 +17,12 @@ pub enum TypeVariantNodeDefn {
     Props(PropsVariantNodeDefn),
 }
 
+impl TypeVariantNodeDefn {
+    pub fn node_decl(self, db: &dyn DefnDb) -> TypeVariantNodeDecl {
+        todo!()
+    }
+}
+
 impl HasNodeDefn for TypeVariantNodePath {
     type NodeDefn = TypeVariantNodeDefn;
 

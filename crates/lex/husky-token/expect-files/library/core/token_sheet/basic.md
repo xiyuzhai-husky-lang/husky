@@ -54,7 +54,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::TypeEntity(
-                    Structure,
+                    Extern,
                 ),
             ),
             Token::Ident(
@@ -70,7 +70,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::TypeEntity(
-                    Structure,
+                    Extern,
                 ),
             ),
             Token::Ident(

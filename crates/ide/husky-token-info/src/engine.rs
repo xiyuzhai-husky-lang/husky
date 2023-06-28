@@ -34,31 +34,14 @@ impl<'a> InferEngine<'a> {
     }
 
     pub(crate) fn visit_all(mut self) -> EntityTreeResult<TokenInfoSheet> {
-        self.visit_other_asts()?;
-        self.visit_node_decl_and_defns()?;
+        self.visit_nodes()?;
         self.visit_use_expr_rules();
         Ok(self.sheet)
     }
 
-    fn visit_other_asts(&mut self) -> EntityTreeResult<()> {
-        for ast in self.ast_sheet.iter() {
-            match ast {
-                Ast::Defn {
-                    entity_kind: EntityKind::Module,
-                    ident_token,
-                    ..
-                } => self
-                    .sheet
-                    .add(ident_token.token_idx(), TokenInfo::SubmoduleIdent),
-                _ => (),
-            }
-        }
-        Ok(())
-    }
-
-    fn visit_node_decl_and_defns(&mut self) -> EntityTreeResult<()> {
+    fn visit_nodes(&mut self) -> EntityTreeResult<()> {
         for node_defn in self.module_path.node_defns(self.db)?.iter().copied() {
-            self.visit_node_decl_and_defn(node_defn)
+            self.visit_node(node_defn)
         }
         Ok(())
     }
@@ -99,12 +82,14 @@ impl<'a> InferEngine<'a> {
         }
     }
 
-    fn visit_node_decl_and_defn(&mut self, node_defn: NodeDefn) {
+    fn visit_node(&mut self, node_defn: NodeDefn) {
         let node_decl = node_defn.node_decl(self.db);
-        self.visit_expr_region(node_decl.expr_region(self.db).into());
-        node_defn
-            .expr_region(self.db)
-            .map(|expr_region| self.visit_expr_region(expr_region.into()));
+        if let Some(expr_region) = node_decl.expr_region(self.db) {
+            self.visit_expr_region(expr_region)
+        }
+        if let Some(expr_region) = node_defn.expr_region(self.db) {
+            self.visit_expr_region(expr_region)
+        }
         let ast_idx = node_defn.ast_idx(self.db);
         match self.ast_sheet[ast_idx] {
             Ast::Defn {
@@ -119,10 +104,11 @@ impl<'a> InferEngine<'a> {
             _ => unreachable!(),
         }
         match node_defn {
-            Defn::ModuleItem(defn) => self.visit_module_item(defn),
-            Defn::AssociatedItem(defn) => self.visit_associated_item(defn),
-            Defn::TypeVariant(_) => todo!(),
-            Defn::ImplBlock(_) => (),
+            NodeDefn::ModuleItem(defn) => self.visit_module_item_node(defn),
+            NodeDefn::AssociatedItem(defn) => self.visit_associated_item(defn),
+            NodeDefn::TypeVariant(_) => todo!(),
+            NodeDefn::ImplBlock(_) => (),
+            NodeDefn::Submodule(_) => (),
         }
     }
 
@@ -139,103 +125,105 @@ impl<'a> InferEngine<'a> {
         .visit_all()
     }
 
-    fn visit_module_item(&mut self, defn: ModuleItemDefn) {
+    fn visit_module_item_node(&mut self, defn: ModuleItemNodeDefn) {
         match defn {
-            ModuleItemDefn::Type(defn) => self.visit_ty(defn),
-            ModuleItemDefn::Trait(defn) => self.visit_trai(defn),
-            ModuleItemDefn::Fugitive(defn) => self.visit_form(defn),
+            ModuleItemNodeDefn::Type(defn) => self.visit_ty(defn),
+            ModuleItemNodeDefn::Trait(defn) => self.visit_trai(defn),
+            ModuleItemNodeDefn::Fugitive(defn) => self.visit_fugitive_node(defn),
         }
     }
 
-    fn visit_ty(&mut self, defn: TypeDefn) {
+    fn visit_ty(&mut self, defn: TypeNodeDefn) {
         match defn {
-            TypeDefn::Enum(defn) => self.visit_enum_ty(defn),
-            TypeDefn::Inductive(defn) => self.visit_inductive_ty(defn),
-            TypeDefn::Record(defn) => self.visit_record_ty(defn),
-            TypeDefn::UnitStruct(defn) => self.visit_unit_struct_ty(defn),
-            TypeDefn::TupleStruct(defn) => self.visit_tuple_struct_ty(defn),
-            TypeDefn::RegularStruct(defn) => self.visit_props_struct_ty(defn),
-            TypeDefn::Structure(defn) => self.visit_structure_ty(defn),
-            TypeDefn::Extern(defn) => self.visit_alias_ty(defn),
-            TypeDefn::Union(_) => todo!(),
+            TypeNodeDefn::Enum(defn) => self.visit_enum_ty(defn),
+            TypeNodeDefn::Inductive(defn) => self.visit_inductive_ty(defn),
+            TypeNodeDefn::Record(defn) => self.visit_record_ty(defn),
+            TypeNodeDefn::UnitStruct(defn) => self.visit_unit_struct_ty(defn),
+            TypeNodeDefn::TupleStruct(defn) => self.visit_tuple_struct_ty(defn),
+            TypeNodeDefn::RegularStruct(defn) => self.visit_props_struct_ty(defn),
+            TypeNodeDefn::Structure(defn) => self.visit_structure_ty(defn),
+            TypeNodeDefn::Extern(defn) => self.visit_alias_ty(defn),
+            TypeNodeDefn::Union(_) => todo!(),
         }
     }
 
-    fn visit_enum_ty(&mut self, _defn: EnumTypeDefn) {
+    fn visit_enum_ty(&mut self, _defn: EnumTypeNodeDefn) {
         // todo!()
     }
 
-    fn visit_inductive_ty(&mut self, _defn: InductiveTypeDefn) {
+    fn visit_inductive_ty(&mut self, _defn: InductiveTypeNodeDefn) {
         // todo!()
     }
 
-    fn visit_record_ty(&mut self, _defn: RecordTypeDefn) {
+    fn visit_record_ty(&mut self, _defn: RecordTypeNodeDefn) {
         // todo!()
     }
 
-    fn visit_unit_struct_ty(&mut self, _defn: UnitStructTypeDefn) {
+    fn visit_unit_struct_ty(&mut self, _defn: UnitStructTypeNodeDefn) {
         // todo!()
     }
 
-    fn visit_tuple_struct_ty(&mut self, _defn: TupleStructTypeDefn) {
+    fn visit_tuple_struct_ty(&mut self, _defn: TupleStructTypeNodeDefn) {
         // todo!()
     }
 
-    fn visit_props_struct_ty(&mut self, _defn: RegularStructTypeDefn) {
+    fn visit_props_struct_ty(&mut self, _defn: RegularStructTypeNodeDefn) {
         // todo!()
     }
 
-    fn visit_structure_ty(&mut self, _defn: StructureTypeDefn) {
+    fn visit_structure_ty(&mut self, _defn: StructureTypeNodeDefn) {
         // todo!()
     }
 
-    fn visit_alias_ty(&mut self, _defn: ExternTypeDefn) {
+    fn visit_alias_ty(&mut self, _defn: ExternTypeNodeDefn) {
         // todo!()
     }
 
-    fn visit_trai(&mut self, _defn: TraitDefn) {
+    fn visit_trai(&mut self, _defn: TraitNodeDefn) {
         //todo!()
     }
 
-    fn visit_form(&mut self, defn: FugitiveDefn) {
+    fn visit_fugitive_node(&mut self, defn: FugitiveNodeDefn) {
         match defn {
-            FugitiveDefn::Fn(defn) => self.visit_function(defn),
-            FugitiveDefn::Val(defn) => self.visit_feature(defn),
-            FugitiveDefn::Gn(defn) => self.visit_morphism(defn),
+            FugitiveNodeDefn::Fn(defn) => self.visit_fn_node(defn),
+            FugitiveNodeDefn::Val(defn) => self.visit_val_node(defn),
+            FugitiveNodeDefn::Gn(defn) => self.visit_gn_node(defn),
         }
     }
 
-    fn visit_function(&mut self, _defn: FnDefn) {}
+    fn visit_fn_node(&mut self, node_defn: FnNodeDefn) {}
 
-    fn visit_feature(&mut self, _defn: ValDefn) {}
+    fn visit_val_node(&mut self, node_defn: ValNodeDefn) {}
 
-    fn visit_morphism(&mut self, defn: GnDefn) {
-        let _decl = defn.decl(self.db);
+    fn visit_gn_node(&mut self, node_defn: GnNodeDefn) {
+        let node_decl = node_defn.node_decl(self.db);
         // todo!()
     }
 
-    fn visit_value(&mut self, defn: ValDefn) {
-        let _decl = defn.decl(self.db);
+    fn visit_value(&mut self, node_defn: ValNodeDefn) {
+        let node_decl = node_defn.node_decl(self.db);
         // todo!()
     }
 
-    fn visit_associated_item(&mut self, defn: AssociatedItemDefn) {
-        match defn {
-            AssociatedItemDefn::TypeItem(defn) => self.visit_ty_item(defn),
-            AssociatedItemDefn::TraitItem(defn) => self.visit_trai_item(defn),
-            AssociatedItemDefn::TraitForTypeItem(defn) => self.visit_trai_for_ty_item(defn),
+    fn visit_associated_item(&mut self, node_defn: AssociatedItemNodeDefn) {
+        match node_defn {
+            AssociatedItemNodeDefn::TypeItem(node_defn) => self.visit_ty_item_node(node_defn),
+            AssociatedItemNodeDefn::TraitItem(node_defn) => self.visit_trai_item_node(node_defn),
+            AssociatedItemNodeDefn::TraitForTypeItem(node_defn) => {
+                self.visit_trai_for_ty_item_node(node_defn)
+            }
         }
     }
 
-    fn visit_ty_item(&self, _defn: TypeItemDefn) {
+    fn visit_ty_item_node(&self, node_defn: TypeItemNodeDefn) {
         // todo!()
     }
 
-    fn visit_trai_item(&self, _defn: TraitItemDefn) {
+    fn visit_trai_item_node(&self, node_defn: TraitItemNodeDefn) {
         // todo!()
     }
 
-    fn visit_trai_for_ty_item(&self, _defn: TraitForTypeItemDefn) {
+    fn visit_trai_for_ty_item_node(&self, node_defn: TraitForTypeItemNodeDefn) {
         // todo!()
     }
 }

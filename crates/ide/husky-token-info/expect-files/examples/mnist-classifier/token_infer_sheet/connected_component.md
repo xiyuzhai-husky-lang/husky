@@ -20,9 +20,15 @@ Ok(
                     2,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `mnist_classifier::raw_contour`,
+                    original_symbol: EntitySymbol::Submodule {
+                        submodule_path: `mnist_classifier::raw_contour`,
+                        node: SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `mnist_classifier::raw_contour`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::PubUnder(
                                 `mnist_classifier`,
                             ),
@@ -34,7 +40,7 @@ Ok(
                                 ),
                             },
                         },
-                    ),
+                    },
                 },
             },
             TokenInfo::None,
@@ -55,95 +61,85 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
-                        ),
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Type(
+                        TypeNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Type(
-                            Struct,
-                        ),
-                        connection: Connected,
-                    },
+                ModuleItem {
+                    module_item_kind: Type(
+                        Struct,
+                    ),
+                    connection: Connected,
+                },
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::i32`, `Extern`),
+                    ),
                 ),
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::i32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::i32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::i32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::i32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::i32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::i32`, `Extern`),
                     ),
                 ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::i32`, `Extern`),
-                        ),
-                    ),
-                ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                        ),
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Type(
+                        TypeNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Type(
-                            Struct,
-                        ),
-                        connection: Connected,
-                    },
-                ),
+                ModuleItem {
+                    module_item_kind: Type(
+                        Struct,
+                    ),
+                    connection: Connected,
+                },
             ),
             TokenInfo::None,
             TokenInfo::None,
@@ -153,34 +149,32 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
-                        ),
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Fugitive(
+                        FugitiveNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Fugitive(
-                            Fn,
-                        ),
-                        connection: Connected,
-                    },
-                ),
+                ModuleItem {
+                    module_item_kind: Fugitive(
+                        Fn,
+                    ),
+                    connection: Connected,
+                },
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -193,27 +187,21 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
@@ -255,94 +243,76 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                        ),
-                    ),
-                ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Type(
-                            Struct,
-                        ),
-                        connection: Connected,
-                    },
-                ),
-            ),
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist::BinaryImage28`, `Struct`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Trait(
-                            TraitPath(`core::visual::Visualize`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TraitForTypeItem(
-                            TraitForTypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                trai: TraitPath(`core::visual::Visualize`),
-                                ident: `visualize`,
-                                item_kind: MethodFn,
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Type(
+                        TypeNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TraitForTypeItem(
-                            MethodFn,
-                        ),
-                    },
-                ),
+                ModuleItem {
+                    module_item_kind: Type(
+                        Struct,
+                    ),
+                    connection: Connected,
+                },
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::visual::Html`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist::BinaryImage28`, `Struct`),
                     ),
                 ),
-                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TraitForTypeItem(
+                        TraitForTypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitForTypeItemPath {
+                                    impl_block: TraitForTypeImplBlockPath {
+                                        module_path: `mnist_classifier::connected_component`,
+                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `visualize`,
+                                    item_kind: MethodFn,
+                                },
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                ),
+                AssociatedItem {
+                    associated_item_kind: TraitForTypeItem(
+                        MethodFn,
+                    ),
+                },
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::visual::Html`, `Extern`),
+                    ),
+                ),
             ),
             TokenInfo::None,
             TokenInfo::SelfValue,
@@ -353,96 +323,88 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                ident: `raw_contours`,
-                                item_kind: MemoizedField,
+            TokenInfo::None,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::connected_component`,
+                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `raw_contours`,
+                                    item_kind: MemoizedField,
+                                },
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MemoizedField,
-                        ),
-                    },
-                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MemoizedField,
+                    ),
+                },
             ),
             TokenInfo::None,
             TokenInfo::BoxPrefix,
             TokenInfo::BoxPrefix,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::SelfValue,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                ident: `eff_holes`,
-                                item_kind: MemoizedField,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::connected_component`,
+                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `eff_holes`,
+                                    item_kind: MemoizedField,
+                                },
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MemoizedField,
-                        ),
-                    },
-                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MemoizedField,
+                    ),
+                },
             ),
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
@@ -477,14 +439,11 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
@@ -500,14 +459,11 @@ Ok(
             TokenInfo::Method,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
@@ -532,14 +488,11 @@ Ok(
             TokenInfo::Method,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
@@ -564,27 +517,21 @@ Ok(
             TokenInfo::Method,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -596,36 +543,38 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                ident: `max_hole_ilen`,
-                                item_kind: MemoizedField,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::connected_component`,
+                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `max_hole_ilen`,
+                                    item_kind: MemoizedField,
+                                },
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MemoizedField,
-                        ),
-                    },
-                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MemoizedField,
+                    ),
+                },
             ),
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
@@ -747,46 +696,45 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                ident: `max_row_span`,
-                                item_kind: MemoizedField,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::connected_component`,
+                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `max_row_span`,
+                                    item_kind: MemoizedField,
+                                },
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MemoizedField,
-                        ),
-                    },
-                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MemoizedField,
+                    ),
+                },
             ),
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
@@ -858,46 +806,45 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                ident: `row_span_sum`,
-                                item_kind: MemoizedField,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::connected_component`,
+                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `row_span_sum`,
+                                    item_kind: MemoizedField,
+                                },
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MemoizedField,
-                        ),
-                    },
-                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MemoizedField,
+                    ),
+                },
             ),
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
@@ -958,46 +905,45 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                ident: `distribution`,
-                                item_kind: MemoizedField,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::connected_component`,
+                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `distribution`,
+                                    item_kind: MemoizedField,
+                                },
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MemoizedField,
-                        ),
-                    },
-                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MemoizedField,
+                    ),
+                },
             ),
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
@@ -1263,14 +1209,11 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -1307,36 +1250,38 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                ident: `upper_mass`,
-                                item_kind: MemoizedField,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::connected_component`,
+                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `upper_mass`,
+                                    item_kind: MemoizedField,
+                                },
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MemoizedField,
-                        ),
-                    },
-                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MemoizedField,
+                    ),
+                },
             ),
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::SelfValue,
@@ -1346,46 +1291,45 @@ Ok(
             TokenInfo::Field,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                ident: `lower_mass`,
-                                item_kind: MemoizedField,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::connected_component`,
+                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `lower_mass`,
+                                    item_kind: MemoizedField,
+                                },
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MemoizedField,
-                        ),
-                    },
-                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MemoizedField,
+                    ),
+                },
             ),
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::SelfValue,
@@ -1395,35 +1339,37 @@ Ok(
             TokenInfo::Field,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                ident: `top_k_row_span_sum`,
-                                item_kind: MethodFn,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::connected_component`,
+                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `top_k_row_span_sum`,
+                                    item_kind: MethodFn,
+                                },
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MethodFn,
-                        ),
-                    },
-                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
+                    ),
+                },
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -1435,26 +1381,20 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::i32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::i32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
@@ -1582,35 +1522,37 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                ident: `top_k_row_right_mass_sum`,
-                                item_kind: MethodFn,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::connected_component`,
+                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `top_k_row_right_mass_sum`,
+                                    item_kind: MethodFn,
+                                },
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MethodFn,
-                        ),
-                    },
-                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
+                    ),
+                },
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -1622,26 +1564,20 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::i32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::i32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
@@ -1769,32 +1705,30 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
-                        ),
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Fugitive(
+                        FugitiveNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Fugitive(
-                            Fn,
-                        ),
-                        connection: Connected,
-                    },
-                ),
+                ModuleItem {
+                    module_item_kind: Fugitive(
+                        Fn,
+                    ),
+                    connection: Connected,
+                },
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -1806,14 +1740,11 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::raw_bits::r32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::raw_bits::r32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -1825,26 +1756,20 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::raw_bits::r32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::raw_bits::r32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::raw_bits::r32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::raw_bits::r32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
@@ -2040,22 +1965,23 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
-                        ),
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Fugitive(
+                        FugitiveNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Fugitive(
-                            Fn,
-                        ),
-                        connection: Connected,
-                    },
-                ),
+                ModuleItem {
+                    module_item_kind: Fugitive(
+                        Fn,
+                    ),
+                    connection: Connected,
+                },
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -2067,28 +1993,22 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist::BinaryImage28`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist::BinaryImage28`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::BoxPrefix,
             TokenInfo::BoxPrefix,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
@@ -2104,14 +2024,11 @@ Ok(
             TokenInfo::BoxPrefix,
             TokenInfo::BoxPrefix,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
@@ -2222,14 +2139,11 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist::BinaryImage28`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist::BinaryImage28`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
@@ -2251,14 +2165,11 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -2384,14 +2295,11 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
@@ -2553,14 +2461,11 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
@@ -2715,14 +2620,11 @@ Ok(
             TokenInfo::Method,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {

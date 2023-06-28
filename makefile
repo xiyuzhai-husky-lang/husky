@@ -16,7 +16,7 @@ vscode: install-toolchain
 	# scripts/vscode_prepublish.sh
 	rsync -a extensions/husky-analyzer/language-configuration.json ~/.vscode/extensions/husky-analyzer/language-configuration.json
 	cargo install --path crates/apps/husky-analyzer --bin husky-analyzer-server
-	spd-say "vscode is done"
+	# spd-say "vscode is done"
 
 install-compiler:
 	cargo install --path crates/apps/husky-compiler --bin husky-compiler
@@ -28,7 +28,7 @@ count-todo:
 update-expect:
 	UPDATE_EXPECT=1 cargo test --features "allow-print" -- --test-threads 1 --nocapture\
 		|| scripts/play_update_expect_failure_music.sh
-	scripts/play_update_expect_success_music.sh
+	# scripts/play_update_expect_success_music.sh
 
 ubuntu-setup:
 	scripts/ubuntu_setup.sh

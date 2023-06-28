@@ -3,84 +3,75 @@ Ok(
         token_infos: [
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                        ),
-                    ),
-                ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Type(
-                            Struct,
-                        ),
-                        connection: Connected,
-                    },
-                ),
-            ),
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                ident: `from_i_shift28`,
-                                item_kind: AssociatedFn,
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Type(
+                        TypeNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            AssociatedFn,
-                        ),
-                    },
+                ModuleItem {
+                    module_item_kind: Type(
+                        Struct,
+                    ),
+                    connection: Connected,
+                },
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
+                    ),
                 ),
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::geom2d`,
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `from_i_shift28`,
+                                    item_kind: AssociatedFn,
+                                },
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        AssociatedFn,
+                    ),
+                },
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -92,14 +83,11 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::i32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::i32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -111,37 +99,28 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::i32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::i32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
@@ -157,14 +136,11 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
@@ -180,60 +156,56 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                ident: `vector`,
-                                item_kind: MethodFn,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::geom2d`,
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `vector`,
+                                    item_kind: MethodFn,
+                                },
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MethodFn,
-                        ),
-                    },
-                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
+                    ),
+                },
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::SelfValue,
@@ -245,25 +217,30 @@ Ok(
             TokenInfo::Field,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                ident: `to`,
-                                item_kind: MethodFn,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::geom2d`,
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `to`,
+                                    item_kind: MethodFn,
+                                },
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MethodFn,
-                        ),
-                    },
-                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
+                    ),
+                },
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -275,37 +252,28 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
@@ -337,38 +305,40 @@ Ok(
             TokenInfo::Field,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                ident: `norm`,
-                                item_kind: MethodFn,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::geom2d`,
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `norm`,
+                                    item_kind: MethodFn,
+                                },
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MethodFn,
-                        ),
-                    },
-                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
+                    ),
+                },
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
@@ -393,25 +363,30 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                ident: `dist`,
-                                item_kind: MethodFn,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::geom2d`,
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `dist`,
+                                    item_kind: MethodFn,
+                                },
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MethodFn,
-                        ),
-                    },
-                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
+                    ),
+                },
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -423,26 +398,20 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::SelfValue,
@@ -463,155 +432,135 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
-                        ),
-                    ),
-                ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Type(
-                            Struct,
-                        ),
-                        connection: Connected,
-                    },
-                ),
-            ),
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                        ),
-                    ),
-                ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Type(
-                            Struct,
-                        ),
-                        connection: Connected,
-                    },
-                ),
-            ),
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                ident: `point`,
-                                item_kind: MethodFn,
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Type(
+                        TypeNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MethodFn,
-                        ),
-                    },
+                ModuleItem {
+                    module_item_kind: Type(
+                        Struct,
+                    ),
+                    connection: Connected,
+                },
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
+                    ),
                 ),
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Type(
+                        TypeNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                ),
+                ModuleItem {
+                    module_item_kind: Type(
+                        Struct,
+                    ),
+                    connection: Connected,
+                },
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::geom2d`,
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `point`,
+                                    item_kind: MethodFn,
+                                },
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
+                    ),
+                },
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                    ),
+                ),
             ),
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::SelfValue,
@@ -624,25 +573,30 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                ident: `to`,
-                                item_kind: MethodFn,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::geom2d`,
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `to`,
+                                    item_kind: MethodFn,
+                                },
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MethodFn,
-                        ),
-                    },
-                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
+                    ),
+                },
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -654,37 +608,28 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
@@ -716,38 +661,40 @@ Ok(
             TokenInfo::Field,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                ident: `norm`,
-                                item_kind: MethodFn,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::geom2d`,
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `norm`,
+                                    item_kind: MethodFn,
+                                },
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MethodFn,
-                        ),
-                    },
-                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
+                    ),
+                },
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
@@ -772,25 +719,30 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                ident: `dot`,
-                                item_kind: MethodFn,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::geom2d`,
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `dot`,
+                                    item_kind: MethodFn,
+                                },
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MethodFn,
-                        ),
-                    },
-                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
+                    ),
+                },
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -802,26 +754,20 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::SelfValue,
@@ -852,25 +798,30 @@ Ok(
             TokenInfo::None,
             TokenInfo::Field,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                ident: `cross`,
-                                item_kind: MethodFn,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::geom2d`,
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `cross`,
+                                    item_kind: MethodFn,
+                                },
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MethodFn,
-                        ),
-                    },
-                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
+                    ),
+                },
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -882,26 +833,20 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::SelfValue,
@@ -932,25 +877,30 @@ Ok(
             TokenInfo::None,
             TokenInfo::Field,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                ident: `angle`,
-                                item_kind: MethodFn,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::geom2d`,
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `angle`,
+                                    item_kind: MethodFn,
+                                },
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MethodFn,
-                        ),
-                    },
-                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
+                    ),
+                },
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -962,26 +912,20 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::basic::bool`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::basic::bool`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
@@ -1048,14 +992,11 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
@@ -1071,25 +1012,30 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                ident: `rotation_direction_to`,
-                                item_kind: MethodFn,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::geom2d`,
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `rotation_direction_to`,
+                                    item_kind: MethodFn,
+                                },
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MethodFn,
-                        ),
-                    },
-                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
+                    ),
+                },
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -1101,26 +1047,20 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::i32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::i32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::SelfValue,
@@ -1140,25 +1080,30 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                ident: `angle_to`,
-                                item_kind: MethodFn,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::geom2d`,
+                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `angle_to`,
+                                    item_kind: MethodFn,
+                                },
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MethodFn,
-                        ),
-                    },
-                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
+                    ),
+                },
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -1170,14 +1115,11 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -1189,26 +1131,20 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::basic::bool`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::basic::bool`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
@@ -1364,14 +1300,11 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
@@ -1399,83 +1332,74 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                        ),
-                    ),
-                ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Type(
-                            Struct,
-                        ),
-                        connection: Connected,
-                    },
-                ),
-            ),
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                                ident: `relative_range`,
-                                item_kind: MethodFn,
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Type(
+                        TypeNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MethodFn,
-                        ),
-                    },
+                ModuleItem {
+                    module_item_kind: Type(
+                        Struct,
+                    ),
+                    connection: Connected,
+                },
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
+                    ),
                 ),
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::geom2d`,
+                                        ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `relative_range`,
+                                    item_kind: MethodFn,
+                                },
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
+                    ),
+                },
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -1487,26 +1411,20 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
@@ -1598,14 +1516,11 @@ Ok(
                 expr_region: ExprRegionLeash(_),
             },
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -1626,25 +1541,30 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                                ident: `relative_point`,
-                                item_kind: MethodFn,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::geom2d`,
+                                        ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `relative_point`,
+                                    item_kind: MethodFn,
+                                },
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MethodFn,
-                        ),
-                    },
-                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
+                    ),
+                },
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -1656,26 +1576,20 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
@@ -1717,85 +1631,76 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                        ),
-                    ),
-                ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Type(
-                            Struct,
-                        ),
-                        connection: Connected,
-                    },
-                ),
-            ),
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                ident: `relative_bounding_box`,
-                                item_kind: MethodFn,
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Type(
+                        TypeNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MethodFn,
-                        ),
-                    },
+                ModuleItem {
+                    module_item_kind: Type(
+                        Struct,
+                    ),
+                    connection: Connected,
+                },
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                    ),
                 ),
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::geom2d`,
+                                        ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `relative_bounding_box`,
+                                    item_kind: MethodFn,
+                                },
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
+                    ),
+                },
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -1807,37 +1712,28 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::SelfValue,
@@ -1876,25 +1772,30 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                ident: `relative_point`,
-                                item_kind: MethodFn,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::geom2d`,
+                                        ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `relative_point`,
+                                    item_kind: MethodFn,
+                                },
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MethodFn,
-                        ),
-                    },
-                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
+                    ),
+                },
             ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -1906,37 +1807,28 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::SelfValue,
@@ -1975,38 +1867,40 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                ident: `xmin`,
-                                item_kind: MethodFn,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::geom2d`,
+                                        ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `xmin`,
+                                    item_kind: MethodFn,
+                                },
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MethodFn,
-                        ),
-                    },
-                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
+                    ),
+                },
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::SelfValue,
@@ -2015,38 +1909,40 @@ Ok(
             TokenInfo::None,
             TokenInfo::Field,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                ident: `xmax`,
-                                item_kind: MethodFn,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::geom2d`,
+                                        ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `xmax`,
+                                    item_kind: MethodFn,
+                                },
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MethodFn,
-                        ),
-                    },
-                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
+                    ),
+                },
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::SelfValue,
@@ -2055,38 +1951,40 @@ Ok(
             TokenInfo::None,
             TokenInfo::Field,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                ident: `ymin`,
-                                item_kind: MethodFn,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::geom2d`,
+                                        ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `ymin`,
+                                    item_kind: MethodFn,
+                                },
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MethodFn,
-                        ),
-                    },
-                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
+                    ),
+                },
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::SelfValue,
@@ -2095,38 +1993,40 @@ Ok(
             TokenInfo::None,
             TokenInfo::Field,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                ident: `ymax`,
-                                item_kind: MethodFn,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::geom2d`,
+                                        ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `ymax`,
+                                    item_kind: MethodFn,
+                                },
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MethodFn,
-                        ),
-                    },
-                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
+                    ),
+                },
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::SelfValue,
@@ -2136,96 +2036,84 @@ Ok(
             TokenInfo::Field,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                        ),
-                    ),
-                ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Type(
-                            Struct,
-                        ),
-                        connection: Connected,
-                    },
-                ),
-            ),
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                ident: `xmin`,
-                                item_kind: MethodFn,
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Type(
+                        TypeNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MethodFn,
-                        ),
-                    },
+                ModuleItem {
+                    module_item_kind: Type(
+                        Struct,
+                    ),
+                    connection: Connected,
+                },
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                    ),
                 ),
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                     ),
                 ),
-                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::geom2d`,
+                                        ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `xmin`,
+                                    item_kind: MethodFn,
+                                },
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
+                    ),
+                },
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
+                    ),
+                ),
             ),
             TokenInfo::None,
             TokenInfo::SelfValue,
@@ -2234,38 +2122,40 @@ Ok(
             TokenInfo::None,
             TokenInfo::Field,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                ident: `xmax`,
-                                item_kind: MethodFn,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::geom2d`,
+                                        ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `xmax`,
+                                    item_kind: MethodFn,
+                                },
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MethodFn,
-                        ),
-                    },
-                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
+                    ),
+                },
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::SelfValue,
@@ -2274,38 +2164,40 @@ Ok(
             TokenInfo::None,
             TokenInfo::Field,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                ident: `ymin`,
-                                item_kind: MethodFn,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::geom2d`,
+                                        ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `ymin`,
+                                    item_kind: MethodFn,
+                                },
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MethodFn,
-                        ),
-                    },
-                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
+                    ),
+                },
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::SelfValue,
@@ -2314,38 +2206,40 @@ Ok(
             TokenInfo::None,
             TokenInfo::Field,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                parent_ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                ident: `ymax`,
-                                item_kind: MethodFn,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist_classifier::geom2d`,
+                                        ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `ymax`,
+                                    item_kind: MethodFn,
+                                },
+                                disambiguator: 0,
                             },
-                        ),
+                        },
                     ),
                 ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MethodFn,
-                        ),
-                    },
-                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
+                    ),
+                },
             ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                None,
             ),
             TokenInfo::None,
             TokenInfo::SelfValue,

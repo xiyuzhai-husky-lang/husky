@@ -310,7 +310,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 70;\n\ntoken_line_group_idx = 12\n\ntoken = Token::Ident(\n    `ignored_connected_components_row_span_sum_sum`,\n);\n\ntoken_info = TokenInfo::Entity(\n    Some(\n        EntityPath::ModuleItem(\n            ModuleItemPath::Form(\n                FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),\n            ),\n        ),\n    ),\n    Some(\n        ModuleItem {\n            module_item_kind: Fugitive(\n                Val,\n            ),\n            connection: Connected,\n        },\n    ),\n);\n\n\n",
+                                value: "\ntoken_idx = 70;\n\ntoken_line_group_idx = 12\n\ntoken = Token::Ident(\n    `ignored_connected_components_row_span_sum_sum`,\n);\n\ntoken_info = TokenInfo::EntityNode(\n    EntityNodePath::ModuleItem(\n        ModuleItemNodePath::Fugitive(\n            FugitiveNodePath {\n                maybe_ambiguous_path: MaybeAmbiguousPath {\n                    path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),\n                    disambiguator: 0,\n                },\n            },\n        ),\n    ),\n    ModuleItem {\n        module_item_kind: Fugitive(\n            Val,\n        ),\n        connection: Connected,\n    },\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -520,7 +520,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 119;\n\ntoken_line_group_idx = 19\n\ntoken = Token::Ident(\n    `RawContour`,\n);\n\ntoken_info = TokenInfo::Entity(\n    Some(\n        EntityPath::ModuleItem(\n            ModuleItemPath::Type(\n                TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),\n            ),\n        ),\n    ),\n    None,\n);\n\n\n",
+                                value: "\ntoken_idx = 119;\n\ntoken_line_group_idx = 19\n\ntoken = Token::Ident(\n    `RawContour`,\n);\n\ntoken_info = TokenInfo::Entity(\n    EntityPath::ModuleItem(\n        ModuleItemPath::Type(\n            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),\n        ),\n    ),\n);\n\n\n",
                             },
                         ),
                         range: Some(

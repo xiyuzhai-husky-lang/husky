@@ -30,7 +30,7 @@ pub enum NodeDecl {
 impl NodeDecl {
     pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
         match self {
-            NodeDecl::Submodule(_) => todo!(),
+            NodeDecl::Submodule(decl) => decl.ast_idx(db),
             NodeDecl::ModuleItem(decl) => decl.ast_idx(db),
             NodeDecl::ImplBlock(decl) => decl.ast_idx(db),
             NodeDecl::AssociatedItem(decl) => decl.ast_idx(db),
@@ -50,7 +50,7 @@ impl NodeDecl {
 
     pub fn node_path(self, db: &dyn DeclDb) -> EntityNodePath {
         match self {
-            NodeDecl::Submodule(_) => todo!(),
+            NodeDecl::Submodule(decl) => decl.node_path(db).into(),
             NodeDecl::ModuleItem(decl) => decl.node_path(db).into(),
             NodeDecl::ImplBlock(decl) => decl.node_path(db).into(),
             NodeDecl::AssociatedItem(decl) => decl.node_path(db).into(),

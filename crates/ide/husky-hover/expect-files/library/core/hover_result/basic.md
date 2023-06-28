@@ -70,7 +70,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 2;\n\ntoken_line_group_idx = 0\n\ntoken = Token::Ident(\n    `bool`,\n);\n\ntoken_info = TokenInfo::Entity(\n    Some(\n        EntityPath::ModuleItem(\n            ModuleItemPath::Type(\n                TypePath(`core::basic::bool`, `Extern`),\n            ),\n        ),\n    ),\n    Some(\n        ModuleItem {\n            module_item_kind: Type(\n                Extern,\n            ),\n            connection: Connected,\n        },\n    ),\n);\n\n\n",
+                                value: "\ntoken_idx = 2;\n\ntoken_line_group_idx = 0\n\ntoken = Token::Ident(\n    `bool`,\n);\n\ntoken_info = TokenInfo::EntityNode(\n    EntityNodePath::ModuleItem(\n        ModuleItemNodePath::Type(\n            TypeNodePath {\n                maybe_ambiguous_path: MaybeAmbiguousPath {\n                    path: TypePath(`core::basic::bool`, `Extern`),\n                    disambiguator: 0,\n                },\n            },\n        ),\n    ),\n    ModuleItem {\n        module_item_kind: Type(\n            Extern,\n        ),\n        connection: Connected,\n    },\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -190,7 +190,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 6;\n\ntoken_line_group_idx = 1\n\ntoken = Token::Ident(\n    `never`,\n);\n\ntoken_info = TokenInfo::Entity(\n    Some(\n        EntityPath::ModuleItem(\n            ModuleItemPath::Type(\n                TypePath(`core::basic::never`, `Extern`),\n            ),\n        ),\n    ),\n    Some(\n        ModuleItem {\n            module_item_kind: Type(\n                Extern,\n            ),\n            connection: Connected,\n        },\n    ),\n);\n\n\n",
+                                value: "\ntoken_idx = 6;\n\ntoken_line_group_idx = 1\n\ntoken = Token::Ident(\n    `never`,\n);\n\ntoken_info = TokenInfo::EntityNode(\n    EntityNodePath::ModuleItem(\n        ModuleItemNodePath::Type(\n            TypeNodePath {\n                maybe_ambiguous_path: MaybeAmbiguousPath {\n                    path: TypePath(`core::basic::never`, `Extern`),\n                    disambiguator: 0,\n                },\n            },\n        ),\n    ),\n    ModuleItem {\n        module_item_kind: Type(\n            Extern,\n        ),\n        connection: Connected,\n    },\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -310,7 +310,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 10;\n\ntoken_line_group_idx = 2\n\ntoken = Token::Ident(\n    `unit`,\n);\n\ntoken_info = TokenInfo::Entity(\n    Some(\n        EntityPath::ModuleItem(\n            ModuleItemPath::Type(\n                TypePath(`core::basic::unit`, `Extern`),\n            ),\n        ),\n    ),\n    Some(\n        ModuleItem {\n            module_item_kind: Type(\n                Extern,\n            ),\n            connection: Connected,\n        },\n    ),\n);\n\n\n",
+                                value: "\ntoken_idx = 10;\n\ntoken_line_group_idx = 2\n\ntoken = Token::Ident(\n    `unit`,\n);\n\ntoken_info = TokenInfo::EntityNode(\n    EntityNodePath::ModuleItem(\n        ModuleItemNodePath::Type(\n            TypeNodePath {\n                maybe_ambiguous_path: MaybeAmbiguousPath {\n                    path: TypePath(`core::basic::unit`, `Extern`),\n                    disambiguator: 0,\n                },\n            },\n        ),\n    ),\n    ModuleItem {\n        module_item_kind: Type(\n            Extern,\n        ),\n        connection: Connected,\n    },\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -400,7 +400,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 13;\n\ntoken_line_group_idx = 3\n\ntoken = Token::Keyword(\n    Keyword::TypeEntity(\n        Structure,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "Other\ntoken_idx = 13;\n\ntoken_line_group_idx = 3\n\ntoken = Token::Keyword(\n    Keyword::TypeEntity(\n        Extern,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -411,7 +411,7 @@ Ok(
                                 },
                                 end: Position {
                                     line: 6,
-                                    character: 13,
+                                    character: 10,
                                 },
                             },
                         ),
@@ -430,18 +430,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 14;\n\ntoken_line_group_idx = 3\n\ntoken = Token::Ident(\n    `Trait`,\n);\n\ntoken_info = TokenInfo::Entity(\n    Some(\n        EntityPath::ModuleItem(\n            ModuleItemPath::Type(\n                TypePath(`core::basic::Trait`, `Structure`),\n            ),\n        ),\n    ),\n    Some(\n        ModuleItem {\n            module_item_kind: Type(\n                Structure,\n            ),\n            connection: Connected,\n        },\n    ),\n);\n\n\n",
+                                value: "\ntoken_idx = 14;\n\ntoken_line_group_idx = 3\n\ntoken = Token::Ident(\n    `Trait`,\n);\n\ntoken_info = TokenInfo::EntityNode(\n    EntityNodePath::ModuleItem(\n        ModuleItemNodePath::Type(\n            TypeNodePath {\n                maybe_ambiguous_path: MaybeAmbiguousPath {\n                    path: TypePath(`core::basic::Trait`, `Extern`),\n                    disambiguator: 0,\n                },\n            },\n        ),\n    ),\n    ModuleItem {\n        module_item_kind: Type(\n            Extern,\n        ),\n        connection: Connected,\n    },\n);\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 6,
-                                    character: 14,
+                                    character: 11,
                                 },
                                 end: Position {
                                     line: 6,
-                                    character: 19,
+                                    character: 16,
                                 },
                             },
                         ),
@@ -467,11 +467,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 6,
-                                    character: 19,
+                                    character: 16,
                                 },
                                 end: Position {
                                     line: 6,
-                                    character: 20,
+                                    character: 17,
                                 },
                             },
                         ),
@@ -520,7 +520,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 17;\n\ntoken_line_group_idx = 4\n\ntoken = Token::Keyword(\n    Keyword::TypeEntity(\n        Structure,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "Other\ntoken_idx = 17;\n\ntoken_line_group_idx = 4\n\ntoken = Token::Keyword(\n    Keyword::TypeEntity(\n        Extern,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -531,7 +531,7 @@ Ok(
                                 },
                                 end: Position {
                                     line: 8,
-                                    character: 13,
+                                    character: 10,
                                 },
                             },
                         ),
@@ -550,18 +550,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 18;\n\ntoken_line_group_idx = 4\n\ntoken = Token::Ident(\n    `Module`,\n);\n\ntoken_info = TokenInfo::Entity(\n    Some(\n        EntityPath::ModuleItem(\n            ModuleItemPath::Type(\n                TypePath(`core::basic::Module`, `Structure`),\n            ),\n        ),\n    ),\n    Some(\n        ModuleItem {\n            module_item_kind: Type(\n                Structure,\n            ),\n            connection: Connected,\n        },\n    ),\n);\n\n\n",
+                                value: "\ntoken_idx = 18;\n\ntoken_line_group_idx = 4\n\ntoken = Token::Ident(\n    `Module`,\n);\n\ntoken_info = TokenInfo::EntityNode(\n    EntityNodePath::ModuleItem(\n        ModuleItemNodePath::Type(\n            TypeNodePath {\n                maybe_ambiguous_path: MaybeAmbiguousPath {\n                    path: TypePath(`core::basic::Module`, `Extern`),\n                    disambiguator: 0,\n                },\n            },\n        ),\n    ),\n    ModuleItem {\n        module_item_kind: Type(\n            Extern,\n        ),\n        connection: Connected,\n    },\n);\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 8,
-                                    character: 14,
+                                    character: 11,
                                 },
                                 end: Position {
                                     line: 8,
-                                    character: 20,
+                                    character: 17,
                                 },
                             },
                         ),
@@ -587,11 +587,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 8,
-                                    character: 20,
+                                    character: 17,
                                 },
                                 end: Position {
                                     line: 8,
-                                    character: 21,
+                                    character: 18,
                                 },
                             },
                         ),

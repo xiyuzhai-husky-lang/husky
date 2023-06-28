@@ -21,6 +21,33 @@ pub enum FugitiveNodeDefn {
     // AliasType(TypeAliasDefn)
 }
 
+impl FugitiveNodeDefn {
+    pub fn node_decl(self, db: &dyn DefnDb) -> FugitiveNodeDecl {
+        match self {
+            FugitiveNodeDefn::Fn(node_defn) => node_defn.node_decl(db).into(),
+            FugitiveNodeDefn::Val(node_defn) => node_defn.node_decl(db).into(),
+            FugitiveNodeDefn::Gn(node_defn) => node_defn.node_decl(db).into(),
+        }
+    }
+
+    pub fn node_path(self, db: &dyn DefnDb) -> FugitiveNodePath {
+        todo!()
+        // match self {
+        //     FugitiveDefn::Fn(defn) => defn.path(db),
+        //     FugitiveDefn::Val(defn) => defn.path(db),
+        //     FugitiveDefn::Gn(defn) => defn.path(db),
+        // }
+    }
+
+    pub fn expr_region(self, db: &dyn DefnDb) -> ExprRegion {
+        match self {
+            FugitiveNodeDefn::Fn(defn) => defn.expr_region(db),
+            FugitiveNodeDefn::Val(defn) => defn.expr_region(db),
+            FugitiveNodeDefn::Gn(defn) => defn.expr_region(db),
+        }
+    }
+}
+
 impl HasNodeDefn for FugitiveNodePath {
     type NodeDefn = FugitiveNodeDefn;
 

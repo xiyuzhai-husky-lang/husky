@@ -40,7 +40,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 2;\n\ntoken_line_group_idx = 0\n\ntoken = Token::Ident(\n    `array`,\n);\n\ntoken_info = TokenInfo::SubmoduleIdent;\n\nsubmodule ident\n",
+                                value: "\ntoken_idx = 2;\n\ntoken_line_group_idx = 0\n\ntoken = Token::Ident(\n    `array`,\n);\n\ntoken_info = TokenInfo::EntityNode(\n    EntityNodePath::Submodule(\n        SubmoduleNodePath {\n            maybe_ambiguous_path: MaybeAmbiguousPath {\n                path: `core::array`,\n                disambiguator: 0,\n            },\n        },\n    ),\n    Module,\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -130,7 +130,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 8;\n\ntoken_line_group_idx = 2\n\ntoken = Token::Ident(\n    `clone`,\n);\n\ntoken_info = TokenInfo::SubmoduleIdent;\n\nsubmodule ident\n",
+                                value: "\ntoken_idx = 8;\n\ntoken_line_group_idx = 2\n\ntoken = Token::Ident(\n    `clone`,\n);\n\ntoken_info = TokenInfo::EntityNode(\n    EntityNodePath::Submodule(\n        SubmoduleNodePath {\n            maybe_ambiguous_path: MaybeAmbiguousPath {\n                path: `core::clone`,\n                disambiguator: 0,\n            },\n        },\n    ),\n    Module,\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -220,7 +220,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 14;\n\ntoken_line_group_idx = 4\n\ntoken = Token::Ident(\n    `default`,\n);\n\ntoken_info = TokenInfo::SubmoduleIdent;\n\nsubmodule ident\n",
+                                value: "\ntoken_idx = 14;\n\ntoken_line_group_idx = 4\n\ntoken = Token::Ident(\n    `default`,\n);\n\ntoken_info = TokenInfo::EntityNode(\n    EntityNodePath::Submodule(\n        SubmoduleNodePath {\n            maybe_ambiguous_path: MaybeAmbiguousPath {\n                path: `core::default`,\n                disambiguator: 0,\n            },\n        },\n    ),\n    Module,\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -310,7 +310,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 20;\n\ntoken_line_group_idx = 6\n\ntoken = Token::Ident(\n    `list`,\n);\n\ntoken_info = TokenInfo::SubmoduleIdent;\n\nsubmodule ident\n",
+                                value: "\ntoken_idx = 20;\n\ntoken_line_group_idx = 6\n\ntoken = Token::Ident(\n    `list`,\n);\n\ntoken_info = TokenInfo::EntityNode(\n    EntityNodePath::Submodule(\n        SubmoduleNodePath {\n            maybe_ambiguous_path: MaybeAmbiguousPath {\n                path: `core::list`,\n                disambiguator: 0,\n            },\n        },\n    ),\n    Module,\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -400,7 +400,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 26;\n\ntoken_line_group_idx = 8\n\ntoken = Token::Ident(\n    `marker`,\n);\n\ntoken_info = TokenInfo::SubmoduleIdent;\n\nsubmodule ident\n",
+                                value: "\ntoken_idx = 26;\n\ntoken_line_group_idx = 8\n\ntoken = Token::Ident(\n    `marker`,\n);\n\ntoken_info = TokenInfo::EntityNode(\n    EntityNodePath::Submodule(\n        SubmoduleNodePath {\n            maybe_ambiguous_path: MaybeAmbiguousPath {\n                path: `core::marker`,\n                disambiguator: 0,\n            },\n        },\n    ),\n    Module,\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -490,7 +490,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 32;\n\ntoken_line_group_idx = 10\n\ntoken = Token::Ident(\n    `num`,\n);\n\ntoken_info = TokenInfo::SubmoduleIdent;\n\nsubmodule ident\n",
+                                value: "\ntoken_idx = 32;\n\ntoken_line_group_idx = 10\n\ntoken = Token::Ident(\n    `num`,\n);\n\ntoken_info = TokenInfo::EntityNode(\n    EntityNodePath::Submodule(\n        SubmoduleNodePath {\n            maybe_ambiguous_path: MaybeAmbiguousPath {\n                path: `core::num`,\n                disambiguator: 0,\n            },\n        },\n    ),\n    Module,\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -580,7 +580,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 38;\n\ntoken_line_group_idx = 12\n\ntoken = Token::Ident(\n    `option`,\n);\n\ntoken_info = TokenInfo::SubmoduleIdent;\n\nsubmodule ident\n",
+                                value: "\ntoken_idx = 38;\n\ntoken_line_group_idx = 12\n\ntoken = Token::Ident(\n    `option`,\n);\n\ntoken_info = TokenInfo::EntityNode(\n    EntityNodePath::Submodule(\n        SubmoduleNodePath {\n            maybe_ambiguous_path: MaybeAmbiguousPath {\n                path: `core::option`,\n                disambiguator: 0,\n            },\n        },\n    ),\n    Module,\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -670,7 +670,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 44;\n\ntoken_line_group_idx = 14\n\ntoken = Token::Ident(\n    `raw_bits`,\n);\n\ntoken_info = TokenInfo::SubmoduleIdent;\n\nsubmodule ident\n",
+                                value: "\ntoken_idx = 44;\n\ntoken_line_group_idx = 14\n\ntoken = Token::Ident(\n    `raw_bits`,\n);\n\ntoken_info = TokenInfo::EntityNode(\n    EntityNodePath::Submodule(\n        SubmoduleNodePath {\n            maybe_ambiguous_path: MaybeAmbiguousPath {\n                path: `core::raw_bits`,\n                disambiguator: 0,\n            },\n        },\n    ),\n    Module,\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -760,7 +760,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 50;\n\ntoken_line_group_idx = 16\n\ntoken = Token::Ident(\n    `str`,\n);\n\ntoken_info = TokenInfo::SubmoduleIdent;\n\nsubmodule ident\n",
+                                value: "\ntoken_idx = 50;\n\ntoken_line_group_idx = 16\n\ntoken = Token::Ident(\n    `slice`,\n);\n\ntoken_info = TokenInfo::EntityNode(\n    EntityNodePath::Submodule(\n        SubmoduleNodePath {\n            maybe_ambiguous_path: MaybeAmbiguousPath {\n                path: `core::slice`,\n                disambiguator: 0,\n            },\n        },\n    ),\n    Module,\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -771,7 +771,7 @@ Ok(
                                 },
                                 end: Position {
                                     line: 16,
-                                    character: 11,
+                                    character: 13,
                                 },
                             },
                         ),
@@ -802,6 +802,66 @@ Ok(
                                 end: Position {
                                     line: 17,
                                     character: 7,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                54,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "Other\ntoken_idx = 54;\n\ntoken_line_group_idx = 18\n\ntoken = Token::Keyword(\n    Keyword::Pub,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 18,
+                                    character: 0,
+                                },
+                                end: Position {
+                                    line: 18,
+                                    character: 3,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                56,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "\ntoken_idx = 56;\n\ntoken_line_group_idx = 18\n\ntoken = Token::Ident(\n    `visual`,\n);\n\ntoken_info = TokenInfo::EntityNode(\n    EntityNodePath::Submodule(\n        SubmoduleNodePath {\n            maybe_ambiguous_path: MaybeAmbiguousPath {\n                path: `core::visual`,\n                disambiguator: 0,\n            },\n        },\n    ),\n    Module,\n);\n\n\n",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 18,
+                                    character: 8,
+                                },
+                                end: Position {
+                                    line: 18,
+                                    character: 14,
                                 },
                             },
                         ),

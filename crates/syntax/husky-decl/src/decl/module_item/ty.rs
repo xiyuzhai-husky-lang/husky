@@ -40,44 +40,43 @@ pub enum TypeNodeDecl {
 impl TypeNodeDecl {
     pub fn node_path(self, db: &dyn DeclDb) -> TypeNodePath {
         match self {
-            TypeNodeDecl::Enum(decl) => decl.node_path(db),
-            TypeNodeDecl::Inductive(decl) => decl.node_path(db),
-            TypeNodeDecl::Record(decl) => decl.node_path(db),
-            TypeNodeDecl::UnitStruct(decl) => decl.node_path(db),
-            TypeNodeDecl::RegularStruct(decl) => decl.node_path(db),
-            TypeNodeDecl::TupleStruct(decl) => decl.node_path(db),
-            TypeNodeDecl::Structure(decl) => decl.node_path(db),
-            TypeNodeDecl::Extern(decl) => decl.node_path(db),
-            TypeNodeDecl::Union(decl) => decl.node_path(db),
+            TypeNodeDecl::Enum(node_decl) => node_decl.node_path(db),
+            TypeNodeDecl::Inductive(node_decl) => node_decl.node_path(db),
+            TypeNodeDecl::Record(node_decl) => node_decl.node_path(db),
+            TypeNodeDecl::UnitStruct(node_decl) => node_decl.node_path(db),
+            TypeNodeDecl::RegularStruct(node_decl) => node_decl.node_path(db),
+            TypeNodeDecl::TupleStruct(node_decl) => node_decl.node_path(db),
+            TypeNodeDecl::Structure(node_decl) => node_decl.node_path(db),
+            TypeNodeDecl::Extern(node_decl) => node_decl.node_path(db),
+            TypeNodeDecl::Union(node_decl) => node_decl.node_path(db),
         }
     }
 
     pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
-        todo!()
-        // match self {
-        //     TypeNodeDecl::Enum(decl) => decl.ast_idx(db),
-        //     TypeNodeDecl::UnitStruct(decl) => decl.ast_idx(db),
-        //     TypeNodeDecl::TupleStruct(decl) => decl.ast_idx(db),
-        //     TypeNodeDecl::RegularStruct(decl) => decl.ast_idx(db),
-        //     TypeNodeDecl::Record(decl) => decl.ast_idx(db),
-        //     TypeNodeDecl::Inductive(decl) => decl.ast_idx(db),
-        //     TypeNodeDecl::Structure(decl) => decl.ast_idx(db),
-        //     TypeNodeDecl::Extern(decl) => decl.ast_idx(db),
-        //     TypeNodeDecl::Union(decl) => decl.ast_idx(db),
-        // }
+        match self {
+            TypeNodeDecl::Enum(node_decl) => node_decl.ast_idx(db),
+            TypeNodeDecl::UnitStruct(node_decl) => node_decl.ast_idx(db),
+            TypeNodeDecl::TupleStruct(node_decl) => node_decl.ast_idx(db),
+            TypeNodeDecl::RegularStruct(node_decl) => node_decl.ast_idx(db),
+            TypeNodeDecl::Record(node_decl) => node_decl.ast_idx(db),
+            TypeNodeDecl::Inductive(node_decl) => node_decl.ast_idx(db),
+            TypeNodeDecl::Structure(node_decl) => node_decl.ast_idx(db),
+            TypeNodeDecl::Extern(node_decl) => node_decl.ast_idx(db),
+            TypeNodeDecl::Union(node_decl) => node_decl.ast_idx(db),
+        }
     }
 
     pub fn expr_region(self, db: &dyn DeclDb) -> ExprRegion {
         match self {
-            TypeNodeDecl::Enum(decl) => decl.expr_region(db),
-            TypeNodeDecl::UnitStruct(decl) => decl.expr_region(db),
-            TypeNodeDecl::TupleStruct(decl) => decl.expr_region(db),
-            TypeNodeDecl::RegularStruct(decl) => decl.expr_region(db),
-            TypeNodeDecl::Record(decl) => decl.expr_region(db),
-            TypeNodeDecl::Inductive(decl) => decl.expr_region(db),
-            TypeNodeDecl::Structure(decl) => decl.expr_region(db),
-            TypeNodeDecl::Extern(decl) => decl.expr_region(db),
-            TypeNodeDecl::Union(decl) => decl.expr_region(db),
+            TypeNodeDecl::Enum(node_decl) => node_decl.expr_region(db),
+            TypeNodeDecl::UnitStruct(node_decl) => node_decl.expr_region(db),
+            TypeNodeDecl::TupleStruct(node_decl) => node_decl.expr_region(db),
+            TypeNodeDecl::RegularStruct(node_decl) => node_decl.expr_region(db),
+            TypeNodeDecl::Record(node_decl) => node_decl.expr_region(db),
+            TypeNodeDecl::Inductive(node_decl) => node_decl.expr_region(db),
+            TypeNodeDecl::Structure(node_decl) => node_decl.expr_region(db),
+            TypeNodeDecl::Extern(node_decl) => node_decl.expr_region(db),
+            TypeNodeDecl::Union(node_decl) => node_decl.expr_region(db),
         }
     }
 }

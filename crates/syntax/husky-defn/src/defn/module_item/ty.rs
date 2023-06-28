@@ -35,6 +35,37 @@ pub enum TypeNodeDefn {
     Union(UnionTypeNodeDefn),
 }
 
+impl TypeNodeDefn {
+    pub fn node_decl(self, db: &dyn DefnDb) -> TypeNodeDecl {
+        match self {
+            TypeNodeDefn::Enum(node_defn) => node_defn.node_decl(db).into(),
+            TypeNodeDefn::Inductive(node_defn) => node_defn.node_decl(db).into(),
+            TypeNodeDefn::Record(node_defn) => node_defn.node_decl(db).into(),
+            TypeNodeDefn::UnitStruct(node_defn) => node_defn.node_decl(db).into(),
+            TypeNodeDefn::TupleStruct(node_defn) => node_defn.node_decl(db).into(),
+            TypeNodeDefn::RegularStruct(node_defn) => node_defn.node_decl(db).into(),
+            TypeNodeDefn::Structure(node_defn) => node_defn.node_decl(db).into(),
+            TypeNodeDefn::Extern(node_defn) => node_defn.node_decl(db).into(),
+            TypeNodeDefn::Union(node_defn) => node_defn.node_decl(db).into(),
+        }
+    }
+
+    pub fn path(self, db: &dyn DefnDb) -> TypePath {
+        todo!()
+        // match self {
+        //     TypeDefn::Enum(defn) => defn.path(db),
+        //     TypeDefn::Inductive(defn) => defn.path(db),
+        //     TypeDefn::Record(defn) => defn.path(db),
+        //     TypeDefn::UnitStruct(defn) => defn.path(db),
+        //     TypeDefn::TupleStruct(defn) => defn.path(db),
+        //     TypeDefn::RegularStruct(defn) => defn.path(db),
+        //     TypeDefn::Structure(defn) => defn.path(db),
+        //     TypeDefn::Extern(defn) => defn.path(db),
+        //     TypeDefn::Union(defn) => defn.path(db),
+        // }
+    }
+}
+
 impl HasNodeDefn for TypeNodePath {
     type NodeDefn = TypeNodeDefn;
 

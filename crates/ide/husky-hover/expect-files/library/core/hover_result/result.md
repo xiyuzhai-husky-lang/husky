@@ -250,7 +250,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 24;\n\ntoken_line_group_idx = 3\n\ntoken = Token::Ident(\n    `E1`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 2,\n    current_symbol_kind: CurrentSymbolKind::ImplicitParameter {\n        implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {\n            ident_token: IdentToken {\n                ident: `E1`,\n                token_idx: TokenIdx(\n                    24,\n                ),\n            },\n        },\n    },\n    expr_region: ExprRegionLeash(_),\n};\n\nCurrentSymbol {\n    modifier: Const,\n    access_start: TokenIdx(\n        25,\n    ),\n    access_end: None,\n    variant: CurrentSymbolVariant::ImplicitParameter {\n        implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {\n            ident_token: IdentToken {\n                ident: `E1`,\n                token_idx: TokenIdx(\n                    24,\n                ),\n            },\n        },\n    },\n}\n",
+                                value: "\ntoken_idx = 24;\n\ntoken_line_group_idx = 3\n\ntoken = Token::Ident(\n    `E1`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -310,7 +310,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 30;\n\ntoken_line_group_idx = 3\n\ntoken = Token::Ident(\n    `ops`,\n);\n\ntoken_info = TokenInfo::Entity(\n    Some(\n        EntityPath::Module(\n            `core::ops`,\n        ),\n    ),\n    None,\n);\n\n\n",
+                                value: "\ntoken_idx = 30;\n\ntoken_line_group_idx = 3\n\ntoken = Token::Ident(\n    `ops`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -340,7 +340,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 33;\n\ntoken_line_group_idx = 3\n\ntoken = Token::Ident(\n    `Result`,\n);\n\ntoken_info = TokenInfo::Entity(\n    Some(\n        EntityPath::ModuleItem(\n            ModuleItemPath::Type(\n                TypePath(`core::result::Result`, `Enum`),\n            ),\n        ),\n    ),\n    None,\n);\n\n\n",
+                                value: "\ntoken_idx = 33;\n\ntoken_line_group_idx = 3\n\ntoken = Token::Ident(\n    `Result`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -400,7 +400,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 39;\n\ntoken_line_group_idx = 3\n\ntoken = Token::Ident(\n    `E1`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 2,\n    current_symbol_kind: CurrentSymbolKind::ImplicitParameter {\n        implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {\n            ident_token: IdentToken {\n                ident: `E1`,\n                token_idx: TokenIdx(\n                    24,\n                ),\n            },\n        },\n    },\n    expr_region: ExprRegionLeash(_),\n};\n\nCurrentSymbol {\n    modifier: Const,\n    access_start: TokenIdx(\n        25,\n    ),\n    access_end: None,\n    variant: CurrentSymbolVariant::ImplicitParameter {\n        implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {\n            ident_token: IdentToken {\n                ident: `E1`,\n                token_idx: TokenIdx(\n                    24,\n                ),\n            },\n        },\n    },\n}\n",
+                                value: "\ntoken_idx = 39;\n\ntoken_line_group_idx = 3\n\ntoken = Token::Ident(\n    `E1`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -430,7 +430,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 42;\n\ntoken_line_group_idx = 4\n\ntoken = Token::Ident(\n    `Continue`,\n);\n\ntoken_info = TokenInfo::Entity(\n    Some(\n        EntityPath::AssociatedItem(\n            AssociatedItemPath::TraitForTypeItem(\n                TraitForTypeItemPath {\n                    parent_ty: TypePath(`core::result::Result`, `Enum`),\n                    trai: TraitPath(`core::ops::Unveil`),\n                    ident: `Continue`,\n                    item_kind: AssociatedType,\n                },\n            ),\n        ),\n    ),\n    Some(\n        AssociatedItem {\n            associated_item_kind: TraitForTypeItem(\n                AssociatedType,\n            ),\n        },\n    ),\n);\n\n\n",
+                                value: "\ntoken_idx = 42;\n\ntoken_line_group_idx = 4\n\ntoken = Token::Ident(\n    `Continue`,\n);\n\ntoken_info = TokenInfo::EntityNode(\n    EntityNodePath::AssociatedItem(\n        AssociatedItemNodePath::TraitForTypeItem(\n            TraitForTypeItemNodePath {\n                maybe_ambiguous_path: MaybeAmbiguousPath {\n                    path: TraitForTypeItemPath {\n                        impl_block: TraitForTypeImplBlockPath {\n                            module_path: `core::result`,\n                            trai_path: TraitPath(`core::ops::Unveil`),\n                            ty_path: TypePath(`core::result::Result`, `Enum`),\n                            disambiguator: 0,\n                        },\n                        ident: `Continue`,\n                        item_kind: AssociatedType,\n                    },\n                    disambiguator: 0,\n                },\n            },\n        ),\n    ),\n    AssociatedItem {\n        associated_item_kind: TraitForTypeItem(\n            AssociatedType,\n        ),\n    },\n);\n\n\n",
                             },
                         ),
                         range: Some(

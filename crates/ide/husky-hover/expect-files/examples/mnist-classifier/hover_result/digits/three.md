@@ -400,7 +400,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 156;\n\ntoken_line_group_idx = 21\n\ntoken = Token::Ident(\n    `uparc`,\n);\n\ntoken_info = TokenInfo::Entity(\n    Some(\n        EntityPath::ModuleItem(\n            ModuleItemPath::Form(\n                FugitivePath(`mnist_classifier::digits::three::uparc`, `Fn`),\n            ),\n        ),\n    ),\n    Some(\n        ModuleItem {\n            module_item_kind: Fugitive(\n                Fn,\n            ),\n            connection: Connected,\n        },\n    ),\n);\n\n\n",
+                                value: "\ntoken_idx = 156;\n\ntoken_line_group_idx = 21\n\ntoken = Token::Ident(\n    `uparc`,\n);\n\ntoken_info = TokenInfo::EntityNode(\n    EntityNodePath::ModuleItem(\n        ModuleItemNodePath::Fugitive(\n            FugitiveNodePath {\n                maybe_ambiguous_path: MaybeAmbiguousPath {\n                    path: FugitivePath(`mnist_classifier::digits::three::uparc`, `Fn`),\n                    disambiguator: 0,\n                },\n            },\n        ),\n    ),\n    ModuleItem {\n        module_item_kind: Fugitive(\n            Fn,\n        ),\n        connection: Connected,\n    },\n);\n\n\n",
                             },
                         ),
                         range: Some(

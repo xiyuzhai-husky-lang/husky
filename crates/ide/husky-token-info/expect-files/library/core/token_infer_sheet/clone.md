@@ -3,20 +3,21 @@ Ok(
         token_infos: [
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Trait(
-                            TraitPath(`core::clone::Clone`),
-                        ),
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Trait(
+                        TraitNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitPath(`core::clone::Clone`),
+                                disambiguator: 0,
+                            },
+                        },
                     ),
                 ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Trait,
-                        connection: Connected,
-                    },
-                ),
+                ModuleItem {
+                    module_item_kind: Trait,
+                    connection: Connected,
+                },
             ),
             TokenInfo::None,
             TokenInfo::None,
