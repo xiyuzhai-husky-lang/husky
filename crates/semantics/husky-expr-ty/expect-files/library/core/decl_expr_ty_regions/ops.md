@@ -1,11 +1,14 @@
 [
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Trait(
-                        TraitPath(`core::ops::Add`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Trait(
+                    TraitNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TraitPath(`core::ops::Add`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -52,14 +55,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -74,11 +77,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Trait(
-                        TraitPath(`core::ops::AddAssign`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Trait(
+                    TraitNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TraitPath(`core::ops::AddAssign`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -125,14 +131,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -147,11 +153,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Trait(
-                        TraitPath(`core::ops::BitAnd`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Trait(
+                    TraitNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TraitPath(`core::ops::BitAnd`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -198,14 +207,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -220,11 +229,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Trait(
-                        TraitPath(`core::ops::BitAndAssign`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Trait(
+                    TraitNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TraitPath(`core::ops::BitAndAssign`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -271,14 +283,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -293,11 +305,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Trait(
-                        TraitPath(`core::ops::BitOr`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Trait(
+                    TraitNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TraitPath(`core::ops::BitOr`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -344,14 +359,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -366,11 +381,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Trait(
-                        TraitPath(`core::ops::BitOrAssign`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Trait(
+                    TraitNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TraitPath(`core::ops::BitOrAssign`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -417,14 +435,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -439,11 +457,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Trait(
-                        TraitPath(`core::ops::BitXor`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Trait(
+                    TraitNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TraitPath(`core::ops::BitXor`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -490,14 +511,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -512,11 +533,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Trait(
-                        TraitPath(`core::ops::BitXorAssign`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Trait(
+                    TraitNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TraitPath(`core::ops::BitXorAssign`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -563,14 +587,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -585,11 +609,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Trait(
-                        TraitPath(`core::ops::Div`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Trait(
+                    TraitNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TraitPath(`core::ops::Div`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -636,14 +663,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -658,11 +685,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Trait(
-                        TraitPath(`core::ops::DivAssign`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Trait(
+                    TraitNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TraitPath(`core::ops::DivAssign`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -709,14 +739,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -731,11 +761,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Trait(
-                        TraitPath(`core::ops::Mul`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Trait(
+                    TraitNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TraitPath(`core::ops::Mul`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -782,14 +815,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -804,11 +837,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Trait(
-                        TraitPath(`core::ops::MulAssign`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Trait(
+                    TraitNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TraitPath(`core::ops::MulAssign`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -855,14 +891,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -877,11 +913,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Trait(
-                        TraitPath(`core::ops::Neg`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Trait(
+                    TraitNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TraitPath(`core::ops::Neg`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -906,14 +945,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -928,11 +967,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Trait(
-                        TraitPath(`core::ops::Not`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Trait(
+                    TraitNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TraitPath(`core::ops::Not`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -957,14 +999,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -979,84 +1021,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Trait(
-                        TraitPath(`core::ops::Sub`),
-                    ),
-                ),
-            ),
-        ),
-        expr_ty_infos: [],
-        extra_expr_errors: [],
-        expr_fluffy_terms: [],
-        symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [
-                    Some(
-                        SymbolType(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ],
-            },
-        },
-        symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [
-                    Some(
-                        Symbol(
-                            EtherealTermSymbol(
-                                Id {
-                                    value: 2,
-                                },
-                            ),
-                        ),
-                    ),
-                ],
-            },
-        },
-        fluffy_term_region: FluffyTermRegion {
-            terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
-                solid_terms: SolidTerms {
-                    entries: VecSet {
-                        data: [],
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Trait(
+                    TraitNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TraitPath(`core::ops::Sub`),
+                            disambiguator: 0,
+                        },
                     },
-                },
-            },
-            expectations: Expectations {
-                arena: Arena {
-                    data: [],
-                },
-                first_unresolved_expectation: 0,
-            },
-        },
-        return_ty: None,
-        self_ty: None,
-    },
-    ExprTypeRegion {
-        path: RegionPath::Decl(
-            DeclRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Trait(
-                        TraitPath(`core::ops::Unveil`),
-                    ),
                 ),
             ),
         ),
@@ -1103,14 +1075,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -1125,11 +1097,90 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Type(
-                        TypePath(`core::ops::ControlFlow`, `Enum`),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Trait(
+                    TraitNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TraitPath(`core::ops::Unveil`),
+                            disambiguator: 0,
+                        },
+                    },
+                ),
+            ),
+        ),
+        expr_ty_infos: [],
+        extra_expr_errors: [],
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [
+                    Some(
+                        SymbolType(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        ),
                     ),
+                ],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [
+                    Some(
+                        Symbol(
+                            EtherealTermSymbol(
+                                Id {
+                                    value: 2,
+                                },
+                            ),
+                        ),
+                    ),
+                ],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [],
+                    },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+            },
+            expectations: Expectations {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
+        },
+        return_ty: None,
+        self_ty: None,
+    },
+    ExprTypeRegion {
+        path: RegionPath::Decl(
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Type(
+                    TypeNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypePath(`core::ops::ControlFlow`, `Enum`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -1196,14 +1247,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {

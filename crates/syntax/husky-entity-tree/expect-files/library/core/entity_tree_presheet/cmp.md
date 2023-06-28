@@ -1,15 +1,18 @@
 Ok(
     EntityTreePresheet {
         module_path: `core::cmp`,
-        native_symbol_entries: NativeEntitySymbolTable(
-            [
-                NativeEntitySymbolEntry {
-                    ident: `PartialEq`,
-                    visibility: Scope::Pub,
-                    symbol: NativeEntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Trait(
-                                TraitPath(`core::cmp::PartialEq`),
+        node_table: MajorEntityNodeTable {
+            entries: [
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Trait(
+                                TraitNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitPath(`core::cmp::PartialEq`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::Pub,
                             ast_idx: 0,
@@ -21,14 +24,29 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `Eq`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Trait(
+                            TraitNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TraitPath(`core::cmp::PartialEq`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `PartialEq`,
                     visibility: Scope::Pub,
-                    symbol: NativeEntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Trait(
-                                TraitPath(`core::cmp::Eq`),
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Trait(
+                                TraitNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitPath(`core::cmp::Eq`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::Pub,
                             ast_idx: 1,
@@ -40,14 +58,29 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `PartialOrd`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Trait(
+                            TraitNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TraitPath(`core::cmp::Eq`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `Eq`,
                     visibility: Scope::Pub,
-                    symbol: NativeEntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Trait(
-                                TraitPath(`core::cmp::PartialOrd`),
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Trait(
+                                TraitNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitPath(`core::cmp::PartialOrd`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::Pub,
                             ast_idx: 2,
@@ -59,14 +92,29 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `Ord`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Trait(
+                            TraitNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TraitPath(`core::cmp::PartialOrd`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `PartialOrd`,
                     visibility: Scope::Pub,
-                    symbol: NativeEntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Trait(
-                                TraitPath(`core::cmp::Ord`),
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Trait(
+                                TraitNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitPath(`core::cmp::Ord`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::Pub,
                             ast_idx: 3,
@@ -78,9 +126,21 @@ Ok(
                             },
                         },
                     ),
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Trait(
+                            TraitNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TraitPath(`core::cmp::Ord`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `Ord`,
+                    visibility: Scope::Pub,
                 },
             ],
-        ),
+        },
         use_one_trackers: UseExprRules(
             [],
         ),

@@ -1,11 +1,14 @@
 [
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Form(
-                        FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Fugitive(
+                    FugitiveNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -141,6 +144,11 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [],
+                    },
+                },
                 hollow_terms: HollowTerms {
                     entries: [
                         HollowTermEntry {
@@ -157,7 +165,7 @@
                             data: TypeOntology {
                                 path: TypePath(
                                     Id {
-                                        value: 41,
+                                        value: 42,
                                     },
                                 ),
                                 refined_path: Left(
@@ -175,11 +183,6 @@
                         },
                     ],
                     first_unresolved_term_idx: 0,
-                },
-                solid_terms: SolidTerms {
-                    entries: VecSet {
-                        data: [],
-                    },
                 },
             },
             expectations: Expectations {
@@ -210,11 +213,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Form(
-                        FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Fugitive(
+                    FugitiveNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -267,7 +273,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -327,7 +333,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -349,7 +355,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 22,
+                                        value: 24,
                                     },
                                 ),
                             ),
@@ -405,7 +411,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 22,
+                                        value: 24,
                                     },
                                 ),
                             ),
@@ -461,7 +467,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 22,
+                                        value: 24,
                                     },
                                 ),
                             ),
@@ -529,7 +535,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -588,7 +594,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -622,7 +628,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -664,7 +670,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -770,7 +776,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -791,7 +797,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -812,7 +818,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -939,7 +945,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -961,7 +967,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 22,
+                                        value: 24,
                                     },
                                 ),
                             ),
@@ -1008,7 +1014,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -1084,7 +1090,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -1107,7 +1113,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 96,
+                                            value: 95,
                                         },
                                     ),
                                 ),
@@ -1128,7 +1134,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 96,
+                                            value: 95,
                                         },
                                     ),
                                 ),
@@ -1181,6 +1187,11 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [],
+                    },
+                },
                 hollow_terms: HollowTerms {
                     entries: [
                         HollowTermEntry {
@@ -1296,11 +1307,6 @@
                     ],
                     first_unresolved_term_idx: 0,
                 },
-                solid_terms: SolidTerms {
-                    entries: VecSet {
-                        data: [],
-                    },
-                },
             },
             expectations: Expectations {
                 arena: Arena {
@@ -1329,7 +1335,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -1343,7 +1349,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 36,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -1383,7 +1389,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -1397,7 +1403,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 36,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -1421,7 +1427,7 @@
                             expectee: Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 22,
+                                        value: 24,
                                     },
                                 ),
                             ),
@@ -1453,7 +1459,7 @@
                             expectee: Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 22,
+                                        value: 24,
                                     },
                                 ),
                             ),
@@ -1485,7 +1491,7 @@
                             expectee: Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 22,
+                                        value: 24,
                                     },
                                 ),
                             ),
@@ -1518,7 +1524,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -1532,7 +1538,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 36,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -1572,7 +1578,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -1586,7 +1592,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 36,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -1611,7 +1617,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -1625,7 +1631,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 36,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -1650,7 +1656,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -1684,7 +1690,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -1698,7 +1704,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 36,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -1753,7 +1759,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -1767,7 +1773,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 36,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -1792,7 +1798,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -1806,7 +1812,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 36,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -1846,7 +1852,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -1860,7 +1866,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 36,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -1884,7 +1890,7 @@
                             expectee: Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 22,
+                                        value: 24,
                                     },
                                 ),
                             ),
@@ -1917,7 +1923,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -1931,7 +1937,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 36,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -1986,7 +1992,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -2000,7 +2006,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 36,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -2025,7 +2031,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 96,
+                                            value: 95,
                                         },
                                     ),
                                 ),
@@ -2044,7 +2050,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 96,
+                                            value: 95,
                                         },
                                     ),
                                 ),
@@ -2064,11 +2070,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Form(
-                        FugitivePath(`mnist_classifier::digits::three::uparc`, `Fn`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Fugitive(
+                    FugitiveNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: FugitivePath(`mnist_classifier::digits::three::uparc`, `Fn`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -2141,7 +2150,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -2232,6 +2241,11 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [],
+                    },
+                },
                 hollow_terms: HollowTerms {
                     entries: [
                         HollowTermEntry {
@@ -2246,11 +2260,6 @@
                         },
                     ],
                     first_unresolved_term_idx: 0,
-                },
-                solid_terms: SolidTerms {
-                    entries: VecSet {
-                        data: [],
-                    },
                 },
             },
             expectations: Expectations {
@@ -2280,7 +2289,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -2294,7 +2303,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 36,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -2322,11 +2331,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Form(
-                        FugitivePath(`mnist_classifier::digits::three::downarc`, `Fn`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Fugitive(
+                    FugitiveNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: FugitivePath(`mnist_classifier::digits::three::downarc`, `Fn`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -2399,7 +2411,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -2490,6 +2502,11 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [],
+                    },
+                },
                 hollow_terms: HollowTerms {
                     entries: [
                         HollowTermEntry {
@@ -2504,11 +2521,6 @@
                         },
                     ],
                     first_unresolved_term_idx: 0,
-                },
-                solid_terms: SolidTerms {
-                    entries: VecSet {
-                        data: [],
-                    },
                 },
             },
             expectations: Expectations {
@@ -2538,7 +2550,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -2552,7 +2564,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 36,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -2580,11 +2592,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Form(
-                        FugitivePath(`mnist_classifier::digits::three::back`, `Fn`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Fugitive(
+                    FugitiveNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: FugitivePath(`mnist_classifier::digits::three::back`, `Fn`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -2657,7 +2672,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -2748,6 +2763,11 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [],
+                    },
+                },
                 hollow_terms: HollowTerms {
                     entries: [
                         HollowTermEntry {
@@ -2762,11 +2782,6 @@
                         },
                     ],
                     first_unresolved_term_idx: 0,
-                },
-                solid_terms: SolidTerms {
-                    entries: VecSet {
-                        data: [],
-                    },
                 },
             },
             expectations: Expectations {
@@ -2796,7 +2811,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -2810,7 +2825,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 36,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),

@@ -1,11 +1,14 @@
 [
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Type(
-                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Type(
+                    TypeNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -239,14 +242,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -426,11 +429,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Type(
-                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Type(
+                    TypeNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -546,14 +552,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -675,11 +681,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Form(
-                        FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Fugitive(
+                    FugitiveNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -790,10 +799,6 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [
@@ -807,14 +812,14 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 86,
+                                        value: 85,
                                     },
                                 ),
                                 refined_path: Right(
                                     CustomTypePath(
                                         TypePath(
                                             Id {
-                                                value: 86,
+                                                value: 85,
                                             },
                                         ),
                                     ),
@@ -825,7 +830,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 86,
+                                                    value: 85,
                                                 },
                                             ),
                                         ),
@@ -842,7 +847,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 60,
+                                        value: 61,
                                     },
                                 ),
                                 refined_path: Left(
@@ -858,7 +863,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 60,
+                                                    value: 61,
                                                 },
                                             ),
                                         ),
@@ -867,6 +872,10 @@
                             },
                         ],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -969,11 +978,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Form(
-                        FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Fugitive(
+                    FugitiveNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -1084,10 +1096,6 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [
@@ -1101,14 +1109,14 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 86,
+                                        value: 85,
                                     },
                                 ),
                                 refined_path: Right(
                                     CustomTypePath(
                                         TypePath(
                                             Id {
-                                                value: 86,
+                                                value: 85,
                                             },
                                         ),
                                     ),
@@ -1119,7 +1127,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 86,
+                                                    value: 85,
                                                 },
                                             ),
                                         ),
@@ -1136,7 +1144,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 60,
+                                        value: 61,
                                     },
                                 ),
                                 refined_path: Left(
@@ -1152,7 +1160,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 60,
+                                                    value: 61,
                                                 },
                                             ),
                                         ),
@@ -1161,6 +1169,10 @@
                             },
                         ],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -1263,11 +1275,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Form(
-                        FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Fugitive(
+                    FugitiveNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -1430,10 +1445,6 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [
@@ -1447,7 +1458,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 47,
+                                        value: 48,
                                     },
                                 ),
                                 refined_path: Left(
@@ -1460,7 +1471,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 81,
+                                                    value: 80,
                                                 },
                                             ),
                                         ),
@@ -1470,7 +1481,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 9,
+                                                value: 10,
                                             },
                                         ),
                                     ),
@@ -1486,7 +1497,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 50,
+                                        value: 51,
                                     },
                                 ),
                                 refined_path: Left(
@@ -1502,7 +1513,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 50,
+                                                    value: 51,
                                                 },
                                             ),
                                         ),
@@ -1519,7 +1530,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 60,
+                                        value: 61,
                                     },
                                 ),
                                 refined_path: Left(
@@ -1535,7 +1546,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 60,
+                                                    value: 61,
                                                 },
                                             ),
                                         ),
@@ -1544,6 +1555,10 @@
                             },
                         ],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -1700,11 +1715,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Form(
-                        FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Fugitive(
+                    FugitiveNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -1898,10 +1916,6 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [
@@ -1915,7 +1929,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 47,
+                                        value: 48,
                                     },
                                 ),
                                 refined_path: Left(
@@ -1928,7 +1942,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 81,
+                                                    value: 80,
                                                 },
                                             ),
                                         ),
@@ -1938,7 +1952,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 9,
+                                                value: 10,
                                             },
                                         ),
                                     ),
@@ -1954,7 +1968,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 50,
+                                        value: 51,
                                     },
                                 ),
                                 refined_path: Left(
@@ -1970,7 +1984,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 50,
+                                                    value: 51,
                                                 },
                                             ),
                                         ),
@@ -1987,7 +2001,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 50,
+                                        value: 51,
                                     },
                                 ),
                                 refined_path: Left(
@@ -2003,7 +2017,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 50,
+                                                    value: 51,
                                                 },
                                             ),
                                         ),
@@ -2020,7 +2034,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 60,
+                                        value: 61,
                                     },
                                 ),
                                 refined_path: Left(
@@ -2036,7 +2050,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 60,
+                                                    value: 61,
                                                 },
                                             ),
                                         ),
@@ -2045,6 +2059,10 @@
                             },
                         ],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -2230,11 +2248,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Form(
-                        FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Fugitive(
+                    FugitiveNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -2393,10 +2414,6 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [
@@ -2410,7 +2427,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 47,
+                                        value: 48,
                                     },
                                 ),
                                 refined_path: Left(
@@ -2423,7 +2440,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 81,
+                                                    value: 80,
                                                 },
                                             ),
                                         ),
@@ -2433,7 +2450,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 9,
+                                                value: 10,
                                             },
                                         ),
                                     ),
@@ -2449,7 +2466,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 60,
+                                        value: 61,
                                     },
                                 ),
                                 refined_path: Left(
@@ -2465,7 +2482,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 60,
+                                                    value: 61,
                                                 },
                                             ),
                                         ),
@@ -2474,6 +2491,10 @@
                             },
                         ],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -2624,13 +2645,15 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::ImplBlock(
-                ImplBlockId::TraitForType(
-                    TraitForTypeImplBlockId {
-                        module_path: `mnist_classifier::line_segment_sketch`,
-                        trai_path: TraitPath(`core::visual::Visualize`),
-                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                        disambiguator: 0,
+            EntityNodePath::ImplBlock(
+                ImplBlockNodePath::TraitForTypeImplBlock(
+                    TraitForTypeImplBlockNodePath {
+                        path: TraitForTypeImplBlockPath {
+                            module_path: `mnist_classifier::line_segment_sketch`,
+                            trai_path: TraitPath(`core::visual::Visualize`),
+                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                            disambiguator: 0,
+                        },
                     },
                 ),
             ),
@@ -2647,7 +2670,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 76,
+                                            value: 40,
                                         },
                                     ),
                                 ),
@@ -2694,14 +2717,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -2716,7 +2739,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 76,
+                                            value: 40,
                                         },
                                     ),
                                 ),
@@ -2736,18 +2759,24 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::TraitForType(
-                        TraitForTypeImplBlockId {
-                            module_path: `mnist_classifier::line_segment_sketch`,
-                            trai_path: TraitPath(`core::visual::Visualize`),
-                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TraitForTypeItem(
+                    TraitForTypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TraitForTypeItemPath {
+                                impl_block: TraitForTypeImplBlockPath {
+                                    module_path: `mnist_classifier::line_segment_sketch`,
+                                    trai_path: TraitPath(`core::visual::Visualize`),
+                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `visualize`,
+                                item_kind: MethodFn,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `visualize`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [],
@@ -2771,14 +2800,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -2795,12 +2824,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::ImplBlock(
-                ImplBlockId::Type(
-                    TypeImplBlockId {
-                        module_path: `mnist_classifier::line_segment_sketch`,
-                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                        disambiguator: 0,
+            EntityNodePath::ImplBlock(
+                ImplBlockNodePath::TypeImplBlock(
+                    TypeImplBlockNodePath {
+                        path: TypeImplBlockPath {
+                            module_path: `mnist_classifier::line_segment_sketch`,
+                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                            disambiguator: 0,
+                        },
                     },
                 ),
             ),
@@ -2841,14 +2872,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -2863,17 +2894,23 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::line_segment_sketch`,
-                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TypeItem(
+                    TypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist_classifier::line_segment_sketch`,
+                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `new`,
+                                item_kind: AssociatedFn,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `new`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -3028,10 +3065,6 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [
@@ -3045,7 +3078,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 47,
+                                        value: 48,
                                     },
                                 ),
                                 refined_path: Left(
@@ -3058,7 +3091,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 81,
+                                                    value: 80,
                                                 },
                                             ),
                                         ),
@@ -3068,7 +3101,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 9,
+                                                value: 10,
                                             },
                                         ),
                                     ),
@@ -3084,7 +3117,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 50,
+                                        value: 51,
                                     },
                                 ),
                                 refined_path: Left(
@@ -3100,7 +3133,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 50,
+                                                    value: 51,
                                                 },
                                             ),
                                         ),
@@ -3117,7 +3150,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 50,
+                                        value: 51,
                                     },
                                 ),
                                 refined_path: Left(
@@ -3133,7 +3166,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 50,
+                                                    value: 51,
                                                 },
                                             ),
                                         ),
@@ -3142,6 +3175,10 @@
                             },
                         ],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -3271,17 +3308,23 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::line_segment_sketch`,
-                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TypeItem(
+                    TypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist_classifier::line_segment_sketch`,
+                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `displacement`,
+                                item_kind: MethodFn,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `displacement`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -3327,14 +3370,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -3381,13 +3424,15 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::ImplBlock(
-                ImplBlockId::TraitForType(
-                    TraitForTypeImplBlockId {
-                        module_path: `mnist_classifier::line_segment_sketch`,
-                        trai_path: TraitPath(`core::visual::Visualize`),
-                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                        disambiguator: 0,
+            EntityNodePath::ImplBlock(
+                ImplBlockNodePath::TraitForTypeImplBlock(
+                    TraitForTypeImplBlockNodePath {
+                        path: TraitForTypeImplBlockPath {
+                            module_path: `mnist_classifier::line_segment_sketch`,
+                            trai_path: TraitPath(`core::visual::Visualize`),
+                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                            disambiguator: 0,
+                        },
                     },
                 ),
             ),
@@ -3404,7 +3449,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 76,
+                                            value: 40,
                                         },
                                     ),
                                 ),
@@ -3458,14 +3503,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -3480,7 +3525,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 76,
+                                            value: 40,
                                         },
                                     ),
                                 ),
@@ -3529,18 +3574,24 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::TraitForType(
-                        TraitForTypeImplBlockId {
-                            module_path: `mnist_classifier::line_segment_sketch`,
-                            trai_path: TraitPath(`core::visual::Visualize`),
-                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TraitForTypeItem(
+                    TraitForTypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TraitForTypeItemPath {
+                                impl_block: TraitForTypeImplBlockPath {
+                                    module_path: `mnist_classifier::line_segment_sketch`,
+                                    trai_path: TraitPath(`core::visual::Visualize`),
+                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `visualize`,
+                                item_kind: MethodFn,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `visualize`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -3586,14 +3637,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -3640,12 +3691,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::ImplBlock(
-                ImplBlockId::Type(
-                    TypeImplBlockId {
-                        module_path: `mnist_classifier::line_segment_sketch`,
-                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                        disambiguator: 0,
+            EntityNodePath::ImplBlock(
+                ImplBlockNodePath::TypeImplBlock(
+                    TypeImplBlockNodePath {
+                        path: TypeImplBlockPath {
+                            module_path: `mnist_classifier::line_segment_sketch`,
+                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                            disambiguator: 0,
+                        },
                     },
                 ),
             ),
@@ -3693,14 +3746,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -3745,17 +3798,23 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::line_segment_sketch`,
-                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TypeItem(
+                    TypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist_classifier::line_segment_sketch`,
+                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `concave_components`,
+                                item_kind: MemoizedField,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `concave_components`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -3828,14 +3887,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -3905,17 +3964,23 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::line_segment_sketch`,
-                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TypeItem(
+                    TypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist_classifier::line_segment_sketch`,
+                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `bounding_box`,
+                                item_kind: MemoizedField,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `bounding_box`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -3961,14 +4026,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -4015,17 +4080,23 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::line_segment_sketch`,
-                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TypeItem(
+                    TypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist_classifier::line_segment_sketch`,
+                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `new`,
+                                item_kind: AssociatedFn,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `new`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -4156,10 +4227,6 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [
@@ -4173,7 +4240,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 47,
+                                        value: 48,
                                     },
                                 ),
                                 refined_path: Left(
@@ -4186,7 +4253,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 81,
+                                                    value: 80,
                                                 },
                                             ),
                                         ),
@@ -4196,7 +4263,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 9,
+                                                value: 10,
                                             },
                                         ),
                                     ),
@@ -4212,7 +4279,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 60,
+                                        value: 61,
                                     },
                                 ),
                                 refined_path: Left(
@@ -4228,7 +4295,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 60,
+                                                    value: 61,
                                                 },
                                             ),
                                         ),
@@ -4237,6 +4304,10 @@
                             },
                         ],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {

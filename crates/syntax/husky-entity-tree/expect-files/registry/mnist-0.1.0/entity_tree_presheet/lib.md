@@ -1,15 +1,18 @@
 Ok(
     EntityTreePresheet {
         module_path: `mnist`,
-        native_symbol_entries: NativeEntitySymbolTable(
-            [
-                NativeEntitySymbolEntry {
-                    ident: `MnistLabel`,
-                    visibility: Scope::Pub,
-                    symbol: NativeEntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Type(
-                                TypePath(`mnist::MnistLabel`, `Enum`),
+        node_table: MajorEntityNodeTable {
+            entries: [
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Type(
+                                TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::Pub,
                             ast_idx: 10,
@@ -21,14 +24,29 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `BinaryImage28`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Type(
+                            TypeNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `MnistLabel`,
                     visibility: Scope::Pub,
-                    symbol: NativeEntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Type(
-                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Type(
+                                TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::Pub,
                             ast_idx: 11,
@@ -40,9 +58,21 @@ Ok(
                             },
                         },
                     ),
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Type(
+                            TypeNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `BinaryImage28`,
+                    visibility: Scope::Pub,
                 },
             ],
-        ),
+        },
         use_one_trackers: UseExprRules(
             [],
         ),

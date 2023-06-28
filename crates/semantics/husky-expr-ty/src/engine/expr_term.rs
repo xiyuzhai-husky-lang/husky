@@ -25,11 +25,11 @@ impl<'a> ExprTypeEngine<'a> {
     fn calc_expr_term(&mut self, expr_idx: ExprIdx) -> ExprTermResult<FluffyTerm> {
         match self.expr_region_data[expr_idx] {
             Expr::Literal(_, _) => todo!(),
-            Expr::NonAssociatedEntity {
+            Expr::PrincipalEntityPath {
                 entity_path_expr,
                 path,
             } => self.calc_entity_path_term(expr_idx, path),
-            Expr::AssociatedItem {
+            Expr::ScopeResolution {
                 parent_expr_idx,
                 scope_resolution_token,
                 ident_token,

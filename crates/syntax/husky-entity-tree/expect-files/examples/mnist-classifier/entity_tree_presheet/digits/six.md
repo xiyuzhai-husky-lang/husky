@@ -1,17 +1,18 @@
 Ok(
     EntityTreePresheet {
         module_path: `mnist_classifier::digits::six`,
-        native_symbol_entries: NativeEntitySymbolTable(
-            [
-                NativeEntitySymbolEntry {
-                    ident: `six_match`,
-                    visibility: Scope::PubUnder(
-                        `mnist_classifier::digits::six`,
-                    ),
-                    symbol: NativeEntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Form(
-                                FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+        node_table: MajorEntityNodeTable {
+            entries: [
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Fugitive(
+                                FugitiveNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::six`,
@@ -25,16 +26,31 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `six_match_refined1`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Fugitive(
+                            FugitiveNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `six_match`,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::digits::six`,
                     ),
-                    symbol: NativeEntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Form(
-                                FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Fugitive(
+                                FugitiveNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::six`,
@@ -48,16 +64,31 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `is_six`,
-                    visibility: Scope::PubUnder(
-                        `mnist_classifier::digits`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Fugitive(
+                            FugitiveNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
                     ),
-                    symbol: NativeEntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Form(
-                                FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                    ident: `six_match_refined1`,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::digits::six`,
+                    ),
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Fugitive(
+                                FugitiveNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits`,
@@ -71,16 +102,31 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `upmost`,
-                    visibility: Scope::PubUnder(
-                        `mnist_classifier::digits::six`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Fugitive(
+                            FugitiveNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
                     ),
-                    symbol: NativeEntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Form(
-                                FugitivePath(`mnist_classifier::digits::six::upmost`, `Fn`),
+                    ident: `is_six`,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::digits`,
+                    ),
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Fugitive(
+                                FugitiveNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: FugitivePath(`mnist_classifier::digits::six::upmost`, `Fn`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::six`,
@@ -94,16 +140,31 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `bottom1`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Fugitive(
+                            FugitiveNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: FugitivePath(`mnist_classifier::digits::six::upmost`, `Fn`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `upmost`,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::digits::six`,
                     ),
-                    symbol: NativeEntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Form(
-                                FugitivePath(`mnist_classifier::digits::six::bottom1`, `Fn`),
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Fugitive(
+                                FugitiveNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: FugitivePath(`mnist_classifier::digits::six::bottom1`, `Fn`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::six`,
@@ -117,9 +178,23 @@ Ok(
                             },
                         },
                     ),
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Fugitive(
+                            FugitiveNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: FugitivePath(`mnist_classifier::digits::six::bottom1`, `Fn`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `bottom1`,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::digits::six`,
+                    ),
                 },
             ],
-        ),
+        },
         use_one_trackers: UseExprRules(
             [
                 UseExprRule {

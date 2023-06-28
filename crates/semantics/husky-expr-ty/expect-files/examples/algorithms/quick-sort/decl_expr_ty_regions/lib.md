@@ -1,11 +1,14 @@
 [
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Form(
-                        FugitivePath(`quick_sort::quick_sort`, `Fn`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Fugitive(
+                    FugitiveNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: FugitivePath(`quick_sort::quick_sort`, `Fn`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -87,7 +90,15 @@
                             ),
                         ),
                     ),
-                    None,
+                    Some(
+                        SymbolType(
+                            Solid(
+                                SolidTerm(
+                                    0,
+                                ),
+                            ),
+                        ),
+                    ),
                 ],
             },
         },
@@ -112,14 +123,50 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [
+                            PlaceTypeOntology {
+                                place: MutableStackOwned {
+                                    location: StackLocationIdx(
+                                        LocalSymbolIdx(
+                                            1,
+                                        ),
+                                    ),
+                                },
+                                path: TypePath(
+                                    Id {
+                                        value: 67,
+                                    },
+                                ),
+                                refined_path: Left(
+                                    Slice,
+                                ),
+                                arguments: [
+                                    Symbol(
+                                        EtherealTermSymbol(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
+                                    ),
+                                ],
+                                base_ty_term: Some(
+                                    Application(
+                                        EtherealTermApplication(
+                                            Id {
+                                                value: 9,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ],
+                    },
+                },
                 hollow_terms: HollowTerms {
                     entries: [],
                     first_unresolved_term_idx: 0,
-                },
-                solid_terms: SolidTerms {
-                    entries: VecSet {
-                        data: [],
-                    },
                 },
             },
             expectations: Expectations {
@@ -241,11 +288,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Form(
-                        FugitivePath(`quick_sort::quick_sort_aux`, `Fn`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Fugitive(
+                    FugitiveNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: FugitivePath(`quick_sort::quick_sort_aux`, `Fn`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -369,7 +419,6 @@
                             ),
                         ),
                     ),
-                    None,
                     Some(
                         SymbolType(
                             Solid(
@@ -384,6 +433,15 @@
                             Solid(
                                 SolidTerm(
                                     1,
+                                ),
+                            ),
+                        ),
+                    ),
+                    Some(
+                        SymbolType(
+                            Solid(
+                                SolidTerm(
+                                    2,
                                 ),
                             ),
                         ),
@@ -414,13 +472,44 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [
+                            PlaceTypeOntology {
+                                place: MutableStackOwned {
+                                    location: StackLocationIdx(
+                                        LocalSymbolIdx(
+                                            1,
+                                        ),
+                                    ),
+                                },
+                                path: TypePath(
+                                    Id {
+                                        value: 67,
+                                    },
+                                ),
+                                refined_path: Left(
+                                    Slice,
+                                ),
+                                arguments: [
+                                    Symbol(
+                                        EtherealTermSymbol(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
+                                    ),
+                                ],
+                                base_ty_term: Some(
+                                    Application(
+                                        EtherealTermApplication(
+                                            Id {
+                                                value: 9,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
                             PlaceTypeOntology {
                                 place: StackPure {
                                     location: StackLocationIdx(
@@ -431,7 +520,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 53,
+                                        value: 54,
                                     },
                                 ),
                                 refined_path: Left(
@@ -447,7 +536,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 53,
+                                                    value: 54,
                                                 },
                                             ),
                                         ),
@@ -464,7 +553,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 53,
+                                        value: 54,
                                     },
                                 ),
                                 refined_path: Left(
@@ -480,7 +569,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 53,
+                                                    value: 54,
                                                 },
                                             ),
                                         ),
@@ -489,6 +578,10 @@
                             },
                         ],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -668,11 +761,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Form(
-                        FugitivePath(`quick_sort::partition`, `Fn`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Fugitive(
+                    FugitiveNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: FugitivePath(`quick_sort::partition`, `Fn`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -817,7 +913,6 @@
                             ),
                         ),
                     ),
-                    None,
                     Some(
                         SymbolType(
                             Solid(
@@ -832,6 +927,15 @@
                             Solid(
                                 SolidTerm(
                                     1,
+                                ),
+                            ),
+                        ),
+                    ),
+                    Some(
+                        SymbolType(
+                            Solid(
+                                SolidTerm(
+                                    2,
                                 ),
                             ),
                         ),
@@ -862,13 +966,44 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [
+                            PlaceTypeOntology {
+                                place: MutableStackOwned {
+                                    location: StackLocationIdx(
+                                        LocalSymbolIdx(
+                                            1,
+                                        ),
+                                    ),
+                                },
+                                path: TypePath(
+                                    Id {
+                                        value: 67,
+                                    },
+                                ),
+                                refined_path: Left(
+                                    Slice,
+                                ),
+                                arguments: [
+                                    Symbol(
+                                        EtherealTermSymbol(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
+                                    ),
+                                ],
+                                base_ty_term: Some(
+                                    Application(
+                                        EtherealTermApplication(
+                                            Id {
+                                                value: 9,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
                             PlaceTypeOntology {
                                 place: StackPure {
                                     location: StackLocationIdx(
@@ -879,7 +1014,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 53,
+                                        value: 54,
                                     },
                                 ),
                                 refined_path: Left(
@@ -895,7 +1030,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 53,
+                                                    value: 54,
                                                 },
                                             ),
                                         ),
@@ -912,7 +1047,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 53,
+                                        value: 54,
                                     },
                                 ),
                                 refined_path: Left(
@@ -928,7 +1063,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 53,
+                                                    value: 54,
                                                 },
                                             ),
                                         ),
@@ -937,6 +1072,10 @@
                             },
                         ],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -1136,6 +1275,114 @@
                             ),
                         },
                     ],
+                },
+                first_unresolved_expectation: 0,
+            },
+        },
+        return_ty: None,
+        self_ty: None,
+    },
+    ExprTypeRegion {
+        path: RegionPath::Decl(
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Fugitive(
+                    FugitiveNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Fn`),
+                            disambiguator: 0,
+                        },
+                    },
+                ),
+            ),
+        ),
+        expr_ty_infos: [],
+        extra_expr_errors: [],
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [],
+                    },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+            },
+            expectations: Expectations {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
+        },
+        return_ty: None,
+        self_ty: None,
+    },
+    ExprTypeRegion {
+        path: RegionPath::Decl(
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Fugitive(
+                    FugitiveNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Fn`),
+                            disambiguator: 0,
+                        },
+                    },
+                ),
+            ),
+        ),
+        expr_ty_infos: [],
+        extra_expr_errors: [],
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [],
+                    },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+            },
+            expectations: Expectations {
+                arena: Arena {
+                    data: [],
                 },
                 first_unresolved_expectation: 0,
             },

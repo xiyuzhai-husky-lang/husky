@@ -1,15 +1,18 @@
 Ok(
     EntityTreePresheet {
         module_path: `mnist_classifier::connected_component`,
-        native_symbol_entries: NativeEntitySymbolTable(
-            [
-                NativeEntitySymbolEntry {
-                    ident: `ConnectedComponentDistribution`,
-                    visibility: Scope::Pub,
-                    symbol: NativeEntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Type(
-                                TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+        node_table: MajorEntityNodeTable {
+            entries: [
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Type(
+                                TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::Pub,
                             ast_idx: 120,
@@ -21,14 +24,29 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `EffHoles`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Type(
+                            TypeNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `ConnectedComponentDistribution`,
                     visibility: Scope::Pub,
-                    symbol: NativeEntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Type(
-                                TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Type(
+                                TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::Pub,
                             ast_idx: 121,
@@ -40,16 +58,29 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `hole_tmpl`,
-                    visibility: Scope::PubUnder(
-                        `mnist_classifier::connected_component`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Type(
+                            TypeNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
                     ),
-                    symbol: NativeEntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Form(
-                                FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
+                    ident: `EffHoles`,
+                    visibility: Scope::Pub,
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Fugitive(
+                                FugitiveNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::connected_component`,
@@ -63,14 +94,31 @@ Ok(
                             },
                         },
                     ),
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Fugitive(
+                            FugitiveNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `hole_tmpl`,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::connected_component`,
+                    ),
                 },
-                NativeEntitySymbolEntry {
-                    ident: `ConnectedComponent`,
-                    visibility: Scope::Pub,
-                    symbol: NativeEntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Type(
-                                TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Type(
+                                TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::Pub,
                             ast_idx: 123,
@@ -82,16 +130,29 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `horizontal_extend`,
-                    visibility: Scope::PubUnder(
-                        `mnist_classifier::connected_component`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Type(
+                            TypeNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
                     ),
-                    symbol: NativeEntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Form(
-                                FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
+                    ident: `ConnectedComponent`,
+                    visibility: Scope::Pub,
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Fugitive(
+                                FugitiveNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::connected_component`,
@@ -105,14 +166,31 @@ Ok(
                             },
                         },
                     ),
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Fugitive(
+                            FugitiveNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `horizontal_extend`,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::connected_component`,
+                    ),
                 },
-                NativeEntitySymbolEntry {
-                    ident: `find_connected_components`,
-                    visibility: Scope::Pub,
-                    symbol: NativeEntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Form(
-                                FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Fugitive(
+                                FugitiveNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::Pub,
                             ast_idx: 127,
@@ -124,9 +202,21 @@ Ok(
                             },
                         },
                     ),
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Fugitive(
+                            FugitiveNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `find_connected_components`,
+                    visibility: Scope::Pub,
                 },
             ],
-        ),
+        },
         use_one_trackers: UseExprRules(
             [
                 UseExprRule {

@@ -1,17 +1,18 @@
 Ok(
     EntityTreePresheet {
         module_path: `mnist_classifier::digits::three`,
-        native_symbol_entries: NativeEntitySymbolTable(
-            [
-                NativeEntitySymbolEntry {
-                    ident: `three_fermi_match`,
-                    visibility: Scope::PubUnder(
-                        `mnist_classifier::digits::three`,
-                    ),
-                    symbol: NativeEntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Form(
-                                FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+        node_table: MajorEntityNodeTable {
+            entries: [
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Fugitive(
+                                FugitiveNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::three`,
@@ -25,16 +26,31 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `is_three`,
-                    visibility: Scope::PubUnder(
-                        `mnist_classifier::digits`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Fugitive(
+                            FugitiveNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
                     ),
-                    symbol: NativeEntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Form(
-                                FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+                    ident: `three_fermi_match`,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::digits::three`,
+                    ),
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Fugitive(
+                                FugitiveNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits`,
@@ -48,16 +64,31 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `uparc`,
-                    visibility: Scope::PubUnder(
-                        `mnist_classifier::digits::three`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Fugitive(
+                            FugitiveNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
                     ),
-                    symbol: NativeEntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Form(
-                                FugitivePath(`mnist_classifier::digits::three::uparc`, `Fn`),
+                    ident: `is_three`,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::digits`,
+                    ),
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Fugitive(
+                                FugitiveNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: FugitivePath(`mnist_classifier::digits::three::uparc`, `Fn`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::three`,
@@ -71,16 +102,31 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `downarc`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Fugitive(
+                            FugitiveNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: FugitivePath(`mnist_classifier::digits::three::uparc`, `Fn`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `uparc`,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::digits::three`,
                     ),
-                    symbol: NativeEntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Form(
-                                FugitivePath(`mnist_classifier::digits::three::downarc`, `Fn`),
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Fugitive(
+                                FugitiveNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: FugitivePath(`mnist_classifier::digits::three::downarc`, `Fn`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::three`,
@@ -94,16 +140,31 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `back`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Fugitive(
+                            FugitiveNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: FugitivePath(`mnist_classifier::digits::three::downarc`, `Fn`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `downarc`,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::digits::three`,
                     ),
-                    symbol: NativeEntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Form(
-                                FugitivePath(`mnist_classifier::digits::three::back`, `Fn`),
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Fugitive(
+                                FugitiveNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: FugitivePath(`mnist_classifier::digits::three::back`, `Fn`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::three`,
@@ -117,9 +178,23 @@ Ok(
                             },
                         },
                     ),
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Fugitive(
+                            FugitiveNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: FugitivePath(`mnist_classifier::digits::three::back`, `Fn`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `back`,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::digits::three`,
+                    ),
                 },
             ],
-        ),
+        },
         use_one_trackers: UseExprRules(
             [
                 UseExprRule {

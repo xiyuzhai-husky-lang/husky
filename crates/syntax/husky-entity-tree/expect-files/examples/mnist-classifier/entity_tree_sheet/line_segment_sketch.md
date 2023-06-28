@@ -1,16 +1,17 @@
 Ok(
     EntityTreeSheet {
         module_path: `mnist_classifier::line_segment_sketch`,
-        symbols: EntitySymbolTable(
-            [
-                EntitySymbolEntry {
-                    ident: `concave_component`,
-                    visibility: Scope::PubUnder(
-                        `mnist_classifier::line_segment_sketch`,
-                    ),
-                    symbol: EntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `mnist_classifier::line_segment_sketch::concave_component`,
+        major_entity_node_table: MajorEntityNodeTable {
+            entries: [
+                EntityNodeEntry {
+                    node: EntityNode::Submodule(
+                        SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
@@ -23,15 +24,28 @@ Ok(
                             },
                         },
                     ),
-                },
-                EntitySymbolEntry {
-                    ident: `convex_component`,
+                    node_path: EntityNodePath::Submodule(
+                        SubmoduleNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                    ident: `concave_component`,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
-                    symbol: EntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `mnist_classifier::line_segment_sketch::convex_component`,
+                },
+                EntityNodeEntry {
+                    node: EntityNode::Submodule(
+                        SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `mnist_classifier::line_segment_sketch::convex_component`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
@@ -44,15 +58,28 @@ Ok(
                             },
                         },
                     ),
-                },
-                EntitySymbolEntry {
-                    ident: `convexity`,
+                    node_path: EntityNodePath::Submodule(
+                        SubmoduleNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: `mnist_classifier::line_segment_sketch::convex_component`,
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                    ident: `convex_component`,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
-                    symbol: EntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `mnist_classifier::line_segment_sketch::convexity`,
+                },
+                EntityNodeEntry {
+                    node: EntityNode::Submodule(
+                        SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `mnist_classifier::line_segment_sketch::convexity`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
@@ -65,15 +92,28 @@ Ok(
                             },
                         },
                     ),
-                },
-                EntitySymbolEntry {
-                    ident: `line_segment`,
+                    node_path: EntityNodePath::Submodule(
+                        SubmoduleNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: `mnist_classifier::line_segment_sketch::convexity`,
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                    ident: `convexity`,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
-                    symbol: EntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `mnist_classifier::line_segment_sketch::line_segment`,
+                },
+                EntityNodeEntry {
+                    node: EntityNode::Submodule(
+                        SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `mnist_classifier::line_segment_sketch::line_segment`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
@@ -86,14 +126,29 @@ Ok(
                             },
                         },
                     ),
+                    node_path: EntityNodePath::Submodule(
+                        SubmoduleNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: `mnist_classifier::line_segment_sketch::line_segment`,
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                    ident: `line_segment`,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::line_segment_sketch`,
+                    ),
                 },
-                EntitySymbolEntry {
-                    ident: `LineSegmentStroke`,
-                    visibility: Scope::Pub,
-                    symbol: EntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Type(
-                                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Type(
+                                TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::Pub,
                             ast_idx: 169,
@@ -105,14 +160,29 @@ Ok(
                             },
                         },
                     ),
-                },
-                EntitySymbolEntry {
-                    ident: `LineSegmentSketch`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Type(
+                            TypeNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `LineSegmentStroke`,
                     visibility: Scope::Pub,
-                    symbol: EntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Type(
-                                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Type(
+                                TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::Pub,
                             ast_idx: 172,
@@ -124,16 +194,29 @@ Ok(
                             },
                         },
                     ),
-                },
-                EntitySymbolEntry {
-                    ident: `go_right`,
-                    visibility: Scope::PubUnder(
-                        `mnist_classifier::line_segment_sketch`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Type(
+                            TypeNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
                     ),
-                    symbol: EntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Form(
-                                FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                    ident: `LineSegmentSketch`,
+                    visibility: Scope::Pub,
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Fugitive(
+                                FugitiveNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
@@ -147,16 +230,31 @@ Ok(
                             },
                         },
                     ),
-                },
-                EntitySymbolEntry {
-                    ident: `go_left`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Fugitive(
+                            FugitiveNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `go_right`,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
-                    symbol: EntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Form(
-                                FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Fugitive(
+                                FugitiveNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
@@ -170,16 +268,31 @@ Ok(
                             },
                         },
                     ),
-                },
-                EntitySymbolEntry {
-                    ident: `extend_end`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Fugitive(
+                            FugitiveNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `go_left`,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
-                    symbol: EntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Form(
-                                FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Fugitive(
+                                FugitiveNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
@@ -193,16 +306,31 @@ Ok(
                             },
                         },
                     ),
-                },
-                EntitySymbolEntry {
-                    ident: `extend_start`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Fugitive(
+                            FugitiveNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `extend_end`,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
-                    symbol: EntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Form(
-                                FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Fugitive(
+                                FugitiveNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
@@ -216,16 +344,31 @@ Ok(
                             },
                         },
                     ),
-                },
-                EntitySymbolEntry {
-                    ident: `find_line_segments`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Fugitive(
+                            FugitiveNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `extend_start`,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
-                    symbol: EntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Form(
-                                FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Fugitive(
+                                FugitiveNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
@@ -239,16 +382,359 @@ Ok(
                             },
                         },
                     ),
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Fugitive(
+                            FugitiveNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `find_line_segments`,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::line_segment_sketch`,
+                    ),
+                },
+            ],
+        },
+        entity_symbol_table: EntitySymbolTable(
+            [
+                EntitySymbolEntry {
+                    ident: `concave_component`,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::line_segment_sketch`,
+                    ),
+                    symbol: EntitySymbol::Submodule {
+                        submodule_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                        node: SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                    disambiguator: 0,
+                                },
+                            },
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::line_segment_sketch`,
+                            ),
+                            ast_idx: 159,
+                            ident_token: IdentToken {
+                                ident: `concave_component`,
+                                token_idx: TokenIdx(
+                                    1,
+                                ),
+                            },
+                        },
+                    },
+                },
+                EntitySymbolEntry {
+                    ident: `convex_component`,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::line_segment_sketch`,
+                    ),
+                    symbol: EntitySymbol::Submodule {
+                        submodule_path: `mnist_classifier::line_segment_sketch::convex_component`,
+                        node: SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `mnist_classifier::line_segment_sketch::convex_component`,
+                                    disambiguator: 0,
+                                },
+                            },
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::line_segment_sketch`,
+                            ),
+                            ast_idx: 160,
+                            ident_token: IdentToken {
+                                ident: `convex_component`,
+                                token_idx: TokenIdx(
+                                    3,
+                                ),
+                            },
+                        },
+                    },
+                },
+                EntitySymbolEntry {
+                    ident: `convexity`,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::line_segment_sketch`,
+                    ),
+                    symbol: EntitySymbol::Submodule {
+                        submodule_path: `mnist_classifier::line_segment_sketch::convexity`,
+                        node: SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `mnist_classifier::line_segment_sketch::convexity`,
+                                    disambiguator: 0,
+                                },
+                            },
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::line_segment_sketch`,
+                            ),
+                            ast_idx: 161,
+                            ident_token: IdentToken {
+                                ident: `convexity`,
+                                token_idx: TokenIdx(
+                                    5,
+                                ),
+                            },
+                        },
+                    },
+                },
+                EntitySymbolEntry {
+                    ident: `line_segment`,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::line_segment_sketch`,
+                    ),
+                    symbol: EntitySymbol::Submodule {
+                        submodule_path: `mnist_classifier::line_segment_sketch::line_segment`,
+                        node: SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `mnist_classifier::line_segment_sketch::line_segment`,
+                                    disambiguator: 0,
+                                },
+                            },
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::line_segment_sketch`,
+                            ),
+                            ast_idx: 162,
+                            ident_token: IdentToken {
+                                ident: `line_segment`,
+                                token_idx: TokenIdx(
+                                    7,
+                                ),
+                            },
+                        },
+                    },
+                },
+                EntitySymbolEntry {
+                    ident: `LineSegmentStroke`,
+                    visibility: Scope::Pub,
+                    symbol: EntitySymbol::ModuleItem {
+                        module_item_path: ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                        ),
+                        node: ModuleItemNode {
+                            node_path: ModuleItemNodePath::Type(
+                                TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            visibility: Scope::Pub,
+                            ast_idx: 169,
+                            ident_token: IdentToken {
+                                ident: `LineSegmentStroke`,
+                                token_idx: TokenIdx(
+                                    41,
+                                ),
+                            },
+                        },
+                    },
+                },
+                EntitySymbolEntry {
+                    ident: `LineSegmentSketch`,
+                    visibility: Scope::Pub,
+                    symbol: EntitySymbol::ModuleItem {
+                        module_item_path: ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                        ),
+                        node: ModuleItemNode {
+                            node_path: ModuleItemNodePath::Type(
+                                TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            visibility: Scope::Pub,
+                            ast_idx: 172,
+                            ident_token: IdentToken {
+                                ident: `LineSegmentSketch`,
+                                token_idx: TokenIdx(
+                                    173,
+                                ),
+                            },
+                        },
+                    },
+                },
+                EntitySymbolEntry {
+                    ident: `go_right`,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::line_segment_sketch`,
+                    ),
+                    symbol: EntitySymbol::ModuleItem {
+                        module_item_path: ModuleItemPath::Fugitive(
+                            FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                        ),
+                        node: ModuleItemNode {
+                            node_path: ModuleItemNodePath::Fugitive(
+                                FugitiveNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::line_segment_sketch`,
+                            ),
+                            ast_idx: 175,
+                            ident_token: IdentToken {
+                                ident: `go_right`,
+                                token_idx: TokenIdx(
+                                    372,
+                                ),
+                            },
+                        },
+                    },
+                },
+                EntitySymbolEntry {
+                    ident: `go_left`,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::line_segment_sketch`,
+                    ),
+                    symbol: EntitySymbol::ModuleItem {
+                        module_item_path: ModuleItemPath::Fugitive(
+                            FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                        ),
+                        node: ModuleItemNode {
+                            node_path: ModuleItemNodePath::Fugitive(
+                                FugitiveNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::line_segment_sketch`,
+                            ),
+                            ast_idx: 176,
+                            ident_token: IdentToken {
+                                ident: `go_left`,
+                                token_idx: TokenIdx(
+                                    469,
+                                ),
+                            },
+                        },
+                    },
+                },
+                EntitySymbolEntry {
+                    ident: `extend_end`,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::line_segment_sketch`,
+                    ),
+                    symbol: EntitySymbol::ModuleItem {
+                        module_item_path: ModuleItemPath::Fugitive(
+                            FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
+                        ),
+                        node: ModuleItemNode {
+                            node_path: ModuleItemNodePath::Fugitive(
+                                FugitiveNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::line_segment_sketch`,
+                            ),
+                            ast_idx: 177,
+                            ident_token: IdentToken {
+                                ident: `extend_end`,
+                                token_idx: TokenIdx(
+                                    566,
+                                ),
+                            },
+                        },
+                    },
+                },
+                EntitySymbolEntry {
+                    ident: `extend_start`,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::line_segment_sketch`,
+                    ),
+                    symbol: EntitySymbol::ModuleItem {
+                        module_item_path: ModuleItemPath::Fugitive(
+                            FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
+                        ),
+                        node: ModuleItemNode {
+                            node_path: ModuleItemNodePath::Fugitive(
+                                FugitiveNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::line_segment_sketch`,
+                            ),
+                            ast_idx: 178,
+                            ident_token: IdentToken {
+                                ident: `extend_start`,
+                                token_idx: TokenIdx(
+                                    799,
+                                ),
+                            },
+                        },
+                    },
+                },
+                EntitySymbolEntry {
+                    ident: `find_line_segments`,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::line_segment_sketch`,
+                    ),
+                    symbol: EntitySymbol::ModuleItem {
+                        module_item_path: ModuleItemPath::Fugitive(
+                            FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
+                        ),
+                        node: ModuleItemNode {
+                            node_path: ModuleItemNodePath::Fugitive(
+                                FugitiveNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::line_segment_sketch`,
+                            ),
+                            ast_idx: 179,
+                            ident_token: IdentToken {
+                                ident: `find_line_segments`,
+                                token_idx: TokenIdx(
+                                    1065,
+                                ),
+                            },
+                        },
+                    },
                 },
                 EntitySymbolEntry {
                     ident: `ConcaveComponent`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::Use(
                         UseSymbol {
-                            original_symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Type(
-                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                            original_symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 74,
@@ -259,7 +745,7 @@ Ok(
                                         ),
                                     },
                                 },
-                            ),
+                            },
                             path: EntityPath::ModuleItem(
                                 ModuleItemPath::Type(
                                     TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -276,10 +762,18 @@ Ok(
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::Use(
                         UseSymbol {
-                            original_symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Form(
-                                        FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                            original_symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Fugitive(
+                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Fugitive(
+                                        FugitiveNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 77,
@@ -290,9 +784,9 @@ Ok(
                                         ),
                                     },
                                 },
-                            ),
+                            },
                             path: EntityPath::ModuleItem(
-                                ModuleItemPath::Form(
+                                ModuleItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                 ),
                             ),
@@ -307,10 +801,18 @@ Ok(
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::Use(
                         UseSymbol {
-                            original_symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Type(
-                                        TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                            original_symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 16,
@@ -321,7 +823,7 @@ Ok(
                                         ),
                                     },
                                 },
-                            ),
+                            },
                             path: EntityPath::ModuleItem(
                                 ModuleItemPath::Type(
                                     TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
@@ -340,10 +842,18 @@ Ok(
                     ),
                     symbol: EntitySymbol::Use(
                         UseSymbol {
-                            original_symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Type(
-                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                            original_symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 203,
@@ -354,7 +864,7 @@ Ok(
                                         ),
                                     },
                                 },
-                            ),
+                            },
                             path: EntityPath::ModuleItem(
                                 ModuleItemPath::Type(
                                     TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -375,10 +885,18 @@ Ok(
                     ),
                     symbol: EntitySymbol::Use(
                         UseSymbol {
-                            original_symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Type(
-                                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                            original_symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 78,
@@ -389,7 +907,7 @@ Ok(
                                         ),
                                     },
                                 },
-                            ),
+                            },
                             path: EntityPath::ModuleItem(
                                 ModuleItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -410,10 +928,18 @@ Ok(
                     ),
                     symbol: EntitySymbol::Use(
                         UseSymbol {
-                            original_symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Type(
-                                        TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                            original_symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 80,
@@ -424,7 +950,7 @@ Ok(
                                         ),
                                     },
                                 },
-                            ),
+                            },
                             path: EntityPath::ModuleItem(
                                 ModuleItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
@@ -445,10 +971,18 @@ Ok(
                     ),
                     symbol: EntitySymbol::Use(
                         UseSymbol {
-                            original_symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Type(
-                                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                            original_symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 81,
@@ -459,7 +993,7 @@ Ok(
                                         ),
                                     },
                                 },
-                            ),
+                            },
                             path: EntityPath::ModuleItem(
                                 ModuleItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -480,10 +1014,18 @@ Ok(
                     ),
                     symbol: EntitySymbol::Use(
                         UseSymbol {
-                            original_symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Type(
-                                        TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                            original_symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 83,
@@ -494,7 +1036,7 @@ Ok(
                                         ),
                                     },
                                 },
-                            ),
+                            },
                             path: EntityPath::ModuleItem(
                                 ModuleItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -515,10 +1057,18 @@ Ok(
                     ),
                     symbol: EntitySymbol::Use(
                         UseSymbol {
-                            original_symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Type(
-                                        TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                            original_symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 85,
@@ -529,7 +1079,7 @@ Ok(
                                         ),
                                     },
                                 },
-                            ),
+                            },
                             path: EntityPath::ModuleItem(
                                 ModuleItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -550,10 +1100,18 @@ Ok(
                     ),
                     symbol: EntitySymbol::Use(
                         UseSymbol {
-                            original_symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Type(
-                                        TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                            original_symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 87,
@@ -564,7 +1122,7 @@ Ok(
                                         ),
                                     },
                                 },
-                            ),
+                            },
                             path: EntityPath::ModuleItem(
                                 ModuleItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
@@ -580,112 +1138,162 @@ Ok(
                 },
             ],
         ),
-        impl_blocks: [
-            ImplBlock::TraitForType(
-                TraitForTypeImplBlock {
-                    id: TraitForTypeImplBlockId {
-                        module_path: `mnist_classifier::line_segment_sketch`,
-                        trai_path: TraitPath(`core::visual::Visualize`),
-                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                        disambiguator: 0,
+        impl_block_node_table: [
+            (
+                ImplBlockNodePath::TraitForTypeImplBlock(
+                    TraitForTypeImplBlockNodePath {
+                        path: TraitForTypeImplBlockPath {
+                            module_path: `mnist_classifier::line_segment_sketch`,
+                            trai_path: TraitPath(`core::visual::Visualize`),
+                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                            disambiguator: 0,
+                        },
                     },
-                    ast_idx: 170,
-                    impl_token: ImplToken {
-                        token_idx: TokenIdx(
-                            85,
-                        ),
-                    },
-                    trai_expr: 11,
-                    for_token: TokenIdx(
-                        87,
-                    ),
-                    ty_expr: 12,
-                    items: Some(
-                        TraitForType(
-                            TraitForTypeItems {
-                                ast_idx_range: ArenaIdxRange(
-                                    1..2,
-                                ),
+                ),
+                ImplBlockNode::TraitForTypeImplBlock(
+                    TraitForTypeImplBlockNode {
+                        node_path: TraitForTypeImplBlockNodePath {
+                            path: TraitForTypeImplBlockPath {
+                                module_path: `mnist_classifier::line_segment_sketch`,
+                                trai_path: TraitPath(`core::visual::Visualize`),
+                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                disambiguator: 0,
                             },
+                        },
+                        ast_idx: 170,
+                        impl_token: ImplToken {
+                            token_idx: TokenIdx(
+                                85,
+                            ),
+                        },
+                        trai_expr: 11,
+                        for_token: TokenIdx(
+                            87,
                         ),
-                    ),
-                },
+                        ty_expr: 12,
+                        items: Some(
+                            TraitForType(
+                                TraitForTypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        1..2,
+                                    ),
+                                },
+                            ),
+                        ),
+                    },
+                ),
             ),
-            ImplBlock::Type(
-                TypeImplBlock {
-                    id: TypeImplBlockId {
-                        module_path: `mnist_classifier::line_segment_sketch`,
-                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                        disambiguator: 0,
+            (
+                ImplBlockNodePath::TypeImplBlock(
+                    TypeImplBlockNodePath {
+                        path: TypeImplBlockPath {
+                            module_path: `mnist_classifier::line_segment_sketch`,
+                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                            disambiguator: 0,
+                        },
                     },
-                    ast_idx: 171,
-                    impl_token: ImplToken {
-                        token_idx: TokenIdx(
-                            112,
-                        ),
-                    },
-                    ty_expr: 13,
-                    body: Type(
-                        TypeItems {
+                ),
+                ImplBlockNode::TypeImplBlock(
+                    TypeImplBlockNode {
+                        node_path: TypeImplBlockNodePath {
+                            path: TypeImplBlockPath {
+                                module_path: `mnist_classifier::line_segment_sketch`,
+                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                disambiguator: 0,
+                            },
+                        },
+                        ast_idx: 171,
+                        impl_token: ImplToken {
+                            token_idx: TokenIdx(
+                                112,
+                            ),
+                        },
+                        ty_expr: 13,
+                        items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
                                 5..7,
                             ),
                         },
-                    ),
-                },
+                    },
+                ),
             ),
-            ImplBlock::TraitForType(
-                TraitForTypeImplBlock {
-                    id: TraitForTypeImplBlockId {
-                        module_path: `mnist_classifier::line_segment_sketch`,
-                        trai_path: TraitPath(`core::visual::Visualize`),
-                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                        disambiguator: 0,
+            (
+                ImplBlockNodePath::TraitForTypeImplBlock(
+                    TraitForTypeImplBlockNodePath {
+                        path: TraitForTypeImplBlockPath {
+                            module_path: `mnist_classifier::line_segment_sketch`,
+                            trai_path: TraitPath(`core::visual::Visualize`),
+                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                            disambiguator: 0,
+                        },
                     },
-                    ast_idx: 173,
-                    impl_token: ImplToken {
-                        token_idx: TokenIdx(
-                            187,
-                        ),
-                    },
-                    trai_expr: 14,
-                    for_token: TokenIdx(
-                        189,
-                    ),
-                    ty_expr: 15,
-                    items: Some(
-                        TraitForType(
-                            TraitForTypeItems {
-                                ast_idx_range: ArenaIdxRange(
-                                    8..9,
-                                ),
+                ),
+                ImplBlockNode::TraitForTypeImplBlock(
+                    TraitForTypeImplBlockNode {
+                        node_path: TraitForTypeImplBlockNodePath {
+                            path: TraitForTypeImplBlockPath {
+                                module_path: `mnist_classifier::line_segment_sketch`,
+                                trai_path: TraitPath(`core::visual::Visualize`),
+                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                disambiguator: 0,
                             },
+                        },
+                        ast_idx: 173,
+                        impl_token: ImplToken {
+                            token_idx: TokenIdx(
+                                187,
+                            ),
+                        },
+                        trai_expr: 14,
+                        for_token: TokenIdx(
+                            189,
                         ),
-                    ),
-                },
+                        ty_expr: 15,
+                        items: Some(
+                            TraitForType(
+                                TraitForTypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        8..9,
+                                    ),
+                                },
+                            ),
+                        ),
+                    },
+                ),
             ),
-            ImplBlock::Type(
-                TypeImplBlock {
-                    id: TypeImplBlockId {
-                        module_path: `mnist_classifier::line_segment_sketch`,
-                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                        disambiguator: 0,
+            (
+                ImplBlockNodePath::TypeImplBlock(
+                    TypeImplBlockNodePath {
+                        path: TypeImplBlockPath {
+                            module_path: `mnist_classifier::line_segment_sketch`,
+                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                            disambiguator: 0,
+                        },
                     },
-                    ast_idx: 174,
-                    impl_token: ImplToken {
-                        token_idx: TokenIdx(
-                            206,
-                        ),
-                    },
-                    ty_expr: 16,
-                    body: Type(
-                        TypeItems {
+                ),
+                ImplBlockNode::TypeImplBlock(
+                    TypeImplBlockNode {
+                        node_path: TypeImplBlockNodePath {
+                            path: TypeImplBlockPath {
+                                module_path: `mnist_classifier::line_segment_sketch`,
+                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                disambiguator: 0,
+                            },
+                        },
+                        ast_idx: 174,
+                        impl_token: ImplToken {
+                            token_idx: TokenIdx(
+                                206,
+                            ),
+                        },
+                        ty_expr: 16,
+                        items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
                                 23..26,
                             ),
                         },
-                    ),
-                },
+                    },
+                ),
             ),
         ],
         use_expr_rules: UseExprRules(
@@ -709,9 +1317,15 @@ Ok(
                     },
                     parent: None,
                     state: UseExprRuleState::Resolved {
-                        original_symbol: EntitySymbol::Submodule(
-                            SubmoduleSymbol {
-                                path: `mnist_classifier::line_segment_sketch::concave_component`,
+                        original_symbol: EntitySymbol::Submodule {
+                            submodule_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                            node: SubmoduleNode {
+                                node_path: SubmoduleNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                        disambiguator: 0,
+                                    },
+                                },
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::line_segment_sketch`,
                                 ),
@@ -723,7 +1337,7 @@ Ok(
                                     ),
                                 },
                             },
-                        ),
+                        },
                     },
                 },
                 UseExprRule {
@@ -745,9 +1359,15 @@ Ok(
                     },
                     parent: None,
                     state: UseExprRuleState::Resolved {
-                        original_symbol: EntitySymbol::Submodule(
-                            SubmoduleSymbol {
-                                path: `mnist_classifier::line_segment_sketch::convex_component`,
+                        original_symbol: EntitySymbol::Submodule {
+                            submodule_path: `mnist_classifier::line_segment_sketch::convex_component`,
+                            node: SubmoduleNode {
+                                node_path: SubmoduleNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: `mnist_classifier::line_segment_sketch::convex_component`,
+                                        disambiguator: 0,
+                                    },
+                                },
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::line_segment_sketch`,
                                 ),
@@ -759,7 +1379,7 @@ Ok(
                                     ),
                                 },
                             },
-                        ),
+                        },
                     },
                 },
                 UseExprRule {
@@ -781,9 +1401,15 @@ Ok(
                     },
                     parent: None,
                     state: UseExprRuleState::Resolved {
-                        original_symbol: EntitySymbol::Submodule(
-                            SubmoduleSymbol {
-                                path: `mnist_classifier::line_segment_sketch::line_segment`,
+                        original_symbol: EntitySymbol::Submodule {
+                            submodule_path: `mnist_classifier::line_segment_sketch::line_segment`,
+                            node: SubmoduleNode {
+                                node_path: SubmoduleNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: `mnist_classifier::line_segment_sketch::line_segment`,
+                                        disambiguator: 0,
+                                    },
+                                },
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::line_segment_sketch`,
                                 ),
@@ -795,7 +1421,7 @@ Ok(
                                     ),
                                 },
                             },
-                        ),
+                        },
                     },
                 },
                 UseExprRule {
@@ -869,9 +1495,15 @@ Ok(
                     },
                     parent: None,
                     state: UseExprRuleState::Resolved {
-                        original_symbol: EntitySymbol::Submodule(
-                            SubmoduleSymbol {
-                                path: `mnist_classifier::line_segment_sketch::line_segment`,
+                        original_symbol: EntitySymbol::Submodule {
+                            submodule_path: `mnist_classifier::line_segment_sketch::line_segment`,
+                            node: SubmoduleNode {
+                                node_path: SubmoduleNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: `mnist_classifier::line_segment_sketch::line_segment`,
+                                        disambiguator: 0,
+                                    },
+                                },
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::line_segment_sketch`,
                                 ),
@@ -883,7 +1515,7 @@ Ok(
                                     ),
                                 },
                             },
-                        ),
+                        },
                     },
                 },
                 UseExprRule {
@@ -911,9 +1543,15 @@ Ok(
                         ),
                     ),
                     state: UseExprRuleState::Resolved {
-                        original_symbol: EntitySymbol::Submodule(
-                            SubmoduleSymbol {
-                                path: `mnist_classifier::geom2d`,
+                        original_symbol: EntitySymbol::Submodule {
+                            submodule_path: `mnist_classifier::geom2d`,
+                            node: SubmoduleNode {
+                                node_path: SubmoduleNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: `mnist_classifier::geom2d`,
+                                        disambiguator: 0,
+                                    },
+                                },
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier`,
                                 ),
@@ -925,7 +1563,7 @@ Ok(
                                     ),
                                 },
                             },
-                        ),
+                        },
                     },
                 },
                 UseExprRule {
@@ -953,9 +1591,15 @@ Ok(
                         ),
                     ),
                     state: UseExprRuleState::Resolved {
-                        original_symbol: EntitySymbol::Submodule(
-                            SubmoduleSymbol {
-                                path: `mnist_classifier::raw_contour`,
+                        original_symbol: EntitySymbol::Submodule {
+                            submodule_path: `mnist_classifier::raw_contour`,
+                            node: SubmoduleNode {
+                                node_path: SubmoduleNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: `mnist_classifier::raw_contour`,
+                                        disambiguator: 0,
+                                    },
+                                },
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier`,
                                 ),
@@ -967,7 +1611,7 @@ Ok(
                                     ),
                                 },
                             },
-                        ),
+                        },
                     },
                 },
                 UseExprRule {
@@ -990,10 +1634,18 @@ Ok(
                         ),
                     ),
                     state: UseExprRuleState::Resolved {
-                        original_symbol: EntitySymbol::ModuleItem(
-                            ModuleItemSymbol {
-                                path: ModuleItemPath::Type(
-                                    TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                        original_symbol: EntitySymbol::ModuleItem {
+                            module_item_path: ModuleItemPath::Type(
+                                TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                            ),
+                            node: ModuleItemNode {
+                                node_path: ModuleItemNodePath::Type(
+                                    TypeNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                            disambiguator: 0,
+                                        },
+                                    },
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 203,
@@ -1004,7 +1656,7 @@ Ok(
                                     ),
                                 },
                             },
-                        ),
+                        },
                     },
                 },
             ],

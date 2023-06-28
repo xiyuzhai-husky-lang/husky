@@ -1,15 +1,18 @@
 Ok(
     EntityTreeSheet {
         module_path: `mnist_classifier::geom2d`,
-        symbols: EntitySymbolTable(
-            [
-                EntitySymbolEntry {
-                    ident: `Point2d`,
-                    visibility: Scope::Pub,
-                    symbol: EntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Type(
-                                TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+        major_entity_node_table: MajorEntityNodeTable {
+            entries: [
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Type(
+                                TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::Pub,
                             ast_idx: 78,
@@ -21,14 +24,29 @@ Ok(
                             },
                         },
                     ),
-                },
-                EntitySymbolEntry {
-                    ident: `RelativePoint2d`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Type(
+                            TypeNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `Point2d`,
                     visibility: Scope::Pub,
-                    symbol: EntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Type(
-                                TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Type(
+                                TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::Pub,
                             ast_idx: 80,
@@ -40,14 +58,29 @@ Ok(
                             },
                         },
                     ),
-                },
-                EntitySymbolEntry {
-                    ident: `Vector2d`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Type(
+                            TypeNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `RelativePoint2d`,
                     visibility: Scope::Pub,
-                    symbol: EntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Type(
-                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Type(
+                                TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::Pub,
                             ast_idx: 81,
@@ -59,14 +92,29 @@ Ok(
                             },
                         },
                     ),
-                },
-                EntitySymbolEntry {
-                    ident: `ClosedRange`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Type(
+                            TypeNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `Vector2d`,
                     visibility: Scope::Pub,
-                    symbol: EntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Type(
-                                TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Type(
+                                TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::Pub,
                             ast_idx: 83,
@@ -78,14 +126,29 @@ Ok(
                             },
                         },
                     ),
-                },
-                EntitySymbolEntry {
-                    ident: `BoundingBox`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Type(
+                            TypeNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `ClosedRange`,
                     visibility: Scope::Pub,
-                    symbol: EntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Type(
-                                TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Type(
+                                TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::Pub,
                             ast_idx: 85,
@@ -97,14 +160,29 @@ Ok(
                             },
                         },
                     ),
-                },
-                EntitySymbolEntry {
-                    ident: `RelativeBoundingBox`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Type(
+                            TypeNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `BoundingBox`,
                     visibility: Scope::Pub,
-                    symbol: EntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Type(
-                                TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Type(
+                                TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::Pub,
                             ast_idx: 87,
@@ -116,124 +194,357 @@ Ok(
                             },
                         },
                     ),
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Type(
+                            TypeNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `RelativeBoundingBox`,
+                    visibility: Scope::Pub,
+                },
+            ],
+        },
+        entity_symbol_table: EntitySymbolTable(
+            [
+                EntitySymbolEntry {
+                    ident: `Point2d`,
+                    visibility: Scope::Pub,
+                    symbol: EntitySymbol::ModuleItem {
+                        module_item_path: ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                        ),
+                        node: ModuleItemNode {
+                            node_path: ModuleItemNodePath::Type(
+                                TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            visibility: Scope::Pub,
+                            ast_idx: 78,
+                            ident_token: IdentToken {
+                                ident: `Point2d`,
+                                token_idx: TokenIdx(
+                                    2,
+                                ),
+                            },
+                        },
+                    },
+                },
+                EntitySymbolEntry {
+                    ident: `RelativePoint2d`,
+                    visibility: Scope::Pub,
+                    symbol: EntitySymbol::ModuleItem {
+                        module_item_path: ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                        ),
+                        node: ModuleItemNode {
+                            node_path: ModuleItemNodePath::Type(
+                                TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            visibility: Scope::Pub,
+                            ast_idx: 80,
+                            ident_token: IdentToken {
+                                ident: `RelativePoint2d`,
+                                token_idx: TokenIdx(
+                                    144,
+                                ),
+                            },
+                        },
+                    },
+                },
+                EntitySymbolEntry {
+                    ident: `Vector2d`,
+                    visibility: Scope::Pub,
+                    symbol: EntitySymbol::ModuleItem {
+                        module_item_path: ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                        ),
+                        node: ModuleItemNode {
+                            node_path: ModuleItemNodePath::Type(
+                                TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            visibility: Scope::Pub,
+                            ast_idx: 81,
+                            ident_token: IdentToken {
+                                ident: `Vector2d`,
+                                token_idx: TokenIdx(
+                                    157,
+                                ),
+                            },
+                        },
+                    },
+                },
+                EntitySymbolEntry {
+                    ident: `ClosedRange`,
+                    visibility: Scope::Pub,
+                    symbol: EntitySymbol::ModuleItem {
+                        module_item_path: ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                        ),
+                        node: ModuleItemNode {
+                            node_path: ModuleItemNodePath::Type(
+                                TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            visibility: Scope::Pub,
+                            ast_idx: 83,
+                            ident_token: IdentToken {
+                                ident: `ClosedRange`,
+                                token_idx: TokenIdx(
+                                    488,
+                                ),
+                            },
+                        },
+                    },
+                },
+                EntitySymbolEntry {
+                    ident: `BoundingBox`,
+                    visibility: Scope::Pub,
+                    symbol: EntitySymbol::ModuleItem {
+                        module_item_path: ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                        ),
+                        node: ModuleItemNode {
+                            node_path: ModuleItemNodePath::Type(
+                                TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            visibility: Scope::Pub,
+                            ast_idx: 85,
+                            ident_token: IdentToken {
+                                ident: `BoundingBox`,
+                                token_idx: TokenIdx(
+                                    596,
+                                ),
+                            },
+                        },
+                    },
+                },
+                EntitySymbolEntry {
+                    ident: `RelativeBoundingBox`,
+                    visibility: Scope::Pub,
+                    symbol: EntitySymbol::ModuleItem {
+                        module_item_path: ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                        ),
+                        node: ModuleItemNode {
+                            node_path: ModuleItemNodePath::Type(
+                                TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            visibility: Scope::Pub,
+                            ast_idx: 87,
+                            ident_token: IdentToken {
+                                ident: `RelativeBoundingBox`,
+                                token_idx: TokenIdx(
+                                    732,
+                                ),
+                            },
+                        },
+                    },
                 },
             ],
         ),
-        impl_blocks: [
-            ImplBlock::Type(
-                TypeImplBlock {
-                    id: TypeImplBlockId {
-                        module_path: `mnist_classifier::geom2d`,
-                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                        disambiguator: 0,
+        impl_block_node_table: [
+            (
+                ImplBlockNodePath::TypeImplBlock(
+                    TypeImplBlockNodePath {
+                        path: TypeImplBlockPath {
+                            module_path: `mnist_classifier::geom2d`,
+                            ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                            disambiguator: 0,
+                        },
                     },
-                    ast_idx: 79,
-                    impl_token: ImplToken {
-                        token_idx: TokenIdx(
-                            13,
-                        ),
-                    },
-                    ty_expr: 6,
-                    body: Type(
-                        TypeItems {
+                ),
+                ImplBlockNode::TypeImplBlock(
+                    TypeImplBlockNode {
+                        node_path: TypeImplBlockNodePath {
+                            path: TypeImplBlockPath {
+                                module_path: `mnist_classifier::geom2d`,
+                                ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                disambiguator: 0,
+                            },
+                        },
+                        ast_idx: 79,
+                        impl_token: ImplToken {
+                            token_idx: TokenIdx(
+                                13,
+                            ),
+                        },
+                        ty_expr: 6,
+                        items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
                                 5..10,
                             ),
                         },
-                    ),
-                },
+                    },
+                ),
             ),
-            ImplBlock::Type(
-                TypeImplBlock {
-                    id: TypeImplBlockId {
-                        module_path: `mnist_classifier::geom2d`,
-                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                        disambiguator: 0,
+            (
+                ImplBlockNodePath::TypeImplBlock(
+                    TypeImplBlockNodePath {
+                        path: TypeImplBlockPath {
+                            module_path: `mnist_classifier::geom2d`,
+                            ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                            disambiguator: 0,
+                        },
                     },
-                    ast_idx: 82,
-                    impl_token: ImplToken {
-                        token_idx: TokenIdx(
-                            168,
-                        ),
-                    },
-                    ty_expr: 7,
-                    body: Type(
-                        TypeItems {
+                ),
+                ImplBlockNode::TypeImplBlock(
+                    TypeImplBlockNode {
+                        node_path: TypeImplBlockNodePath {
+                            path: TypeImplBlockPath {
+                                module_path: `mnist_classifier::geom2d`,
+                                ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                disambiguator: 0,
+                            },
+                        },
+                        ast_idx: 82,
+                        impl_token: ImplToken {
+                            token_idx: TokenIdx(
+                                168,
+                            ),
+                        },
+                        ty_expr: 7,
+                        items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
                                 41..49,
                             ),
                         },
-                    ),
-                },
+                    },
+                ),
             ),
-            ImplBlock::Type(
-                TypeImplBlock {
-                    id: TypeImplBlockId {
-                        module_path: `mnist_classifier::geom2d`,
-                        ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                        disambiguator: 0,
+            (
+                ImplBlockNodePath::TypeImplBlock(
+                    TypeImplBlockNodePath {
+                        path: TypeImplBlockPath {
+                            module_path: `mnist_classifier::geom2d`,
+                            ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                            disambiguator: 0,
+                        },
                     },
-                    ast_idx: 84,
-                    impl_token: ImplToken {
-                        token_idx: TokenIdx(
-                            499,
-                        ),
-                    },
-                    ty_expr: 8,
-                    body: Type(
-                        TypeItems {
+                ),
+                ImplBlockNode::TypeImplBlock(
+                    TypeImplBlockNode {
+                        node_path: TypeImplBlockNodePath {
+                            path: TypeImplBlockPath {
+                                module_path: `mnist_classifier::geom2d`,
+                                ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                disambiguator: 0,
+                            },
+                        },
+                        ast_idx: 84,
+                        impl_token: ImplToken {
+                            token_idx: TokenIdx(
+                                499,
+                            ),
+                        },
+                        ty_expr: 8,
+                        items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
                                 56..58,
                             ),
                         },
-                    ),
-                },
+                    },
+                ),
             ),
-            ImplBlock::Type(
-                TypeImplBlock {
-                    id: TypeImplBlockId {
-                        module_path: `mnist_classifier::geom2d`,
-                        ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                        disambiguator: 0,
+            (
+                ImplBlockNodePath::TypeImplBlock(
+                    TypeImplBlockNodePath {
+                        path: TypeImplBlockPath {
+                            module_path: `mnist_classifier::geom2d`,
+                            ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                            disambiguator: 0,
+                        },
                     },
-                    ast_idx: 86,
-                    impl_token: ImplToken {
-                        token_idx: TokenIdx(
-                            609,
-                        ),
-                    },
-                    ty_expr: 9,
-                    body: Type(
-                        TypeItems {
+                ),
+                ImplBlockNode::TypeImplBlock(
+                    TypeImplBlockNode {
+                        node_path: TypeImplBlockNodePath {
+                            path: TypeImplBlockPath {
+                                module_path: `mnist_classifier::geom2d`,
+                                ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                disambiguator: 0,
+                            },
+                        },
+                        ast_idx: 86,
+                        impl_token: ImplToken {
+                            token_idx: TokenIdx(
+                                609,
+                            ),
+                        },
+                        ty_expr: 9,
+                        items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
                                 64..70,
                             ),
                         },
-                    ),
-                },
+                    },
+                ),
             ),
-            ImplBlock::Type(
-                TypeImplBlock {
-                    id: TypeImplBlockId {
-                        module_path: `mnist_classifier::geom2d`,
-                        ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                        disambiguator: 0,
+            (
+                ImplBlockNodePath::TypeImplBlock(
+                    TypeImplBlockNodePath {
+                        path: TypeImplBlockPath {
+                            module_path: `mnist_classifier::geom2d`,
+                            ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                            disambiguator: 0,
+                        },
                     },
-                    ast_idx: 88,
-                    impl_token: ImplToken {
-                        token_idx: TokenIdx(
-                            743,
-                        ),
-                    },
-                    ty_expr: 10,
-                    body: Type(
-                        TypeItems {
+                ),
+                ImplBlockNode::TypeImplBlock(
+                    TypeImplBlockNode {
+                        node_path: TypeImplBlockNodePath {
+                            path: TypeImplBlockPath {
+                                module_path: `mnist_classifier::geom2d`,
+                                ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                disambiguator: 0,
+                            },
+                        },
+                        ast_idx: 88,
+                        impl_token: ImplToken {
+                            token_idx: TokenIdx(
+                                743,
+                            ),
+                        },
+                        ty_expr: 10,
+                        items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
                                 74..78,
                             ),
                         },
-                    ),
-                },
+                    },
+                ),
             ),
         ],
         use_expr_rules: UseExprRules(

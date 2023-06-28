@@ -1,11 +1,14 @@
 [
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Form(
-                        FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Fugitive(
+                    FugitiveNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -20,7 +23,7 @@
                             Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 18,
+                                        value: 22,
                                     },
                                 ),
                             ),
@@ -49,7 +52,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 11,
+                                        value: 13,
                                     },
                                 ),
                             ),
@@ -68,7 +71,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 11,
+                                        value: 13,
                                     },
                                 ),
                             ),
@@ -100,14 +103,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -121,7 +124,7 @@
                             expectee: Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 18,
+                                        value: 22,
                                     },
                                 ),
                             ),
@@ -138,7 +141,7 @@
                                             return_ty: Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 11,
+                                                        value: 13,
                                                     },
                                                 ),
                                             ),
@@ -152,7 +155,7 @@
                                                             TypeOntology(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 97,
+                                                                        value: 96,
                                                                     },
                                                                 ),
                                                             ),
@@ -173,7 +176,7 @@
                             expectee: Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 11,
+                                        value: 13,
                                     },
                                 ),
                             ),
@@ -190,7 +193,7 @@
                             expectee: Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 11,
+                                        value: 13,
                                     },
                                 ),
                             ),
@@ -209,11 +212,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Form(
-                        FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Fugitive(
+                    FugitiveNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -262,7 +268,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 25,
+                                        value: 27,
                                     },
                                 ),
                             ),
@@ -277,18 +283,18 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         Method(
-                            FluffyMemberDisambiguation {
+                            FluffyDotDisambiguation {
                                 indirections: [
                                     Leash,
                                 ],
                                 signature: MethodFn(
-                                    FluffyMethodFnSignature {
-                                        nonself_parameter_contracted_tys: [],
+                                    MethodFnFluffySignature {
+                                        parameter_contracted_tys: [],
                                         return_ty: EntityPath(
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 50,
+                                                        value: 51,
                                                     },
                                                 ),
                                             ),
@@ -302,7 +308,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 50,
+                                            value: 51,
                                         },
                                     ),
                                 ),
@@ -324,7 +330,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 25,
+                                        value: 27,
                                     },
                                 ),
                             ),
@@ -357,14 +363,14 @@
                     (
                         IndexOrComposeWithList(
                             Index(
-                                FluffyMemberDisambiguation {
+                                FluffyDotDisambiguation {
                                     indirections: [],
                                     signature: FluffyIndexSignature {
                                         element_ty: EntityPath(
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 80,
+                                                        value: 79,
                                                     },
                                                 ),
                                             ),
@@ -378,7 +384,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 80,
+                                            value: 79,
                                         },
                                     ),
                                 ),
@@ -398,7 +404,7 @@
                                 indirections: [],
                                 ty_path: TypePath(
                                     Id {
-                                        value: 80,
+                                        value: 79,
                                     },
                                 ),
                                 signature: FluffyFieldSignature {
@@ -406,7 +412,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 60,
+                                                    value: 61,
                                                 },
                                             ),
                                         ),
@@ -419,7 +425,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -466,7 +472,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -513,7 +519,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 38,
+                                            value: 39,
                                         },
                                     ),
                                 ),
@@ -564,7 +570,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 38,
+                                            value: 39,
                                         },
                                     ),
                                 ),
@@ -586,7 +592,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 25,
+                                        value: 27,
                                     },
                                 ),
                             ),
@@ -627,7 +633,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 37,
+                                            value: 38,
                                         },
                                     ),
                                 ),
@@ -678,6 +684,45 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [
+                            PlaceTypeOntology {
+                                place: StackPure {
+                                    location: StackLocationIdx(
+                                        LocalSymbolIdx(
+                                            2,
+                                        ),
+                                    ),
+                                },
+                                path: TypePath(
+                                    Id {
+                                        value: 51,
+                                    },
+                                ),
+                                refined_path: Left(
+                                    Num(
+                                        Int(
+                                            I32,
+                                        ),
+                                    ),
+                                ),
+                                arguments: [],
+                                base_ty_term: Some(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 51,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ],
+                    },
+                },
                 hollow_terms: HollowTerms {
                     entries: [
                         HollowTermEntry {
@@ -702,45 +747,6 @@
                         },
                     ],
                     first_unresolved_term_idx: 0,
-                },
-                solid_terms: SolidTerms {
-                    entries: VecSet {
-                        data: [
-                            PlaceTypeOntology {
-                                place: StackPure {
-                                    location: StackLocationIdx(
-                                        LocalSymbolIdx(
-                                            2,
-                                        ),
-                                    ),
-                                },
-                                path: TypePath(
-                                    Id {
-                                        value: 50,
-                                    },
-                                ),
-                                refined_path: Left(
-                                    Num(
-                                        Int(
-                                            I32,
-                                        ),
-                                    ),
-                                ),
-                                arguments: [],
-                                base_ty_term: Some(
-                                    EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                Id {
-                                                    value: 50,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            },
-                        ],
-                    },
                 },
             },
             expectations: Expectations {
@@ -784,7 +790,7 @@
                             expectee: Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 25,
+                                        value: 27,
                                     },
                                 ),
                             ),
@@ -802,7 +808,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 50,
+                                            value: 51,
                                         },
                                     ),
                                 ),
@@ -820,7 +826,7 @@
                             expectee: Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 25,
+                                        value: 27,
                                     },
                                 ),
                             ),
@@ -853,7 +859,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 80,
+                                            value: 79,
                                         },
                                     ),
                                 ),
@@ -872,7 +878,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -891,7 +897,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -905,7 +911,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 36,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -930,7 +936,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 38,
+                                            value: 39,
                                         },
                                     ),
                                 ),
@@ -944,7 +950,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 38,
+                                                        value: 39,
                                                     },
                                                 ),
                                             ),
@@ -984,7 +990,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 38,
+                                            value: 39,
                                         },
                                     ),
                                 ),
@@ -998,7 +1004,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 38,
+                                                        value: 39,
                                                     },
                                                 ),
                                             ),
@@ -1022,7 +1028,7 @@
                             expectee: Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 25,
+                                        value: 27,
                                     },
                                 ),
                             ),
@@ -1040,7 +1046,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 37,
+                                            value: 38,
                                         },
                                     ),
                                 ),
@@ -1060,11 +1066,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Form(
-                        FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Fugitive(
+                    FugitiveNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -1096,7 +1105,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 25,
+                                        value: 27,
                                     },
                                 ),
                             ),
@@ -1111,18 +1120,18 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         Method(
-                            FluffyMemberDisambiguation {
+                            FluffyDotDisambiguation {
                                 indirections: [
                                     Leash,
                                 ],
                                 signature: MethodFn(
-                                    FluffyMethodFnSignature {
-                                        nonself_parameter_contracted_tys: [],
+                                    MethodFnFluffySignature {
+                                        parameter_contracted_tys: [],
                                         return_ty: EntityPath(
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 50,
+                                                        value: 51,
                                                     },
                                                 ),
                                             ),
@@ -1136,7 +1145,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 50,
+                                            value: 51,
                                         },
                                     ),
                                 ),
@@ -1158,7 +1167,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 25,
+                                        value: 27,
                                     },
                                 ),
                             ),
@@ -1191,14 +1200,14 @@
                     (
                         IndexOrComposeWithList(
                             Index(
-                                FluffyMemberDisambiguation {
+                                FluffyDotDisambiguation {
                                     indirections: [],
                                     signature: FluffyIndexSignature {
                                         element_ty: EntityPath(
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 80,
+                                                        value: 79,
                                                     },
                                                 ),
                                             ),
@@ -1212,7 +1221,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 80,
+                                            value: 79,
                                         },
                                     ),
                                 ),
@@ -1245,7 +1254,7 @@
                                 indirections: [],
                                 ty_path: TypePath(
                                     Id {
-                                        value: 80,
+                                        value: 79,
                                     },
                                 ),
                                 signature: FluffyFieldSignature {
@@ -1253,7 +1262,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 60,
+                                                    value: 61,
                                                 },
                                             ),
                                         ),
@@ -1266,7 +1275,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -1287,7 +1296,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 38,
+                                            value: 39,
                                         },
                                     ),
                                 ),
@@ -1309,7 +1318,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 21,
+                                        value: 23,
                                     },
                                 ),
                             ),
@@ -1343,7 +1352,7 @@
                                 ],
                                 ty_path: TypePath(
                                     Id {
-                                        value: 80,
+                                        value: 79,
                                     },
                                 ),
                                 signature: FluffyFieldSignature {
@@ -1351,7 +1360,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 60,
+                                                    value: 61,
                                                 },
                                             ),
                                         ),
@@ -1364,7 +1373,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -1398,7 +1407,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 37,
+                                            value: 38,
                                         },
                                     ),
                                 ),
@@ -1445,21 +1454,6 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [
-                        HollowTermEntry {
-                            data: Hole {
-                                hole_source: Expr(
-                                    0,
-                                ),
-                                hole_kind: UnspecifiedFloatType,
-                                fill: None,
-                            },
-                            resolve_progress: Unresolved,
-                        },
-                    ],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [
@@ -1473,7 +1467,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 50,
+                                        value: 51,
                                     },
                                 ),
                                 refined_path: Left(
@@ -1489,7 +1483,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 50,
+                                                    value: 51,
                                                 },
                                             ),
                                         ),
@@ -1498,6 +1492,21 @@
                             },
                         ],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [
+                        HollowTermEntry {
+                            data: Hole {
+                                hole_source: Expr(
+                                    0,
+                                ),
+                                hole_kind: UnspecifiedFloatType,
+                                fill: None,
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                    ],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -1526,7 +1535,7 @@
                             expectee: Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 25,
+                                        value: 27,
                                     },
                                 ),
                             ),
@@ -1544,7 +1553,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 50,
+                                            value: 51,
                                         },
                                     ),
                                 ),
@@ -1562,7 +1571,7 @@
                             expectee: Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 25,
+                                        value: 27,
                                     },
                                 ),
                             ),
@@ -1595,7 +1604,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 80,
+                                            value: 79,
                                         },
                                     ),
                                 ),
@@ -1614,7 +1623,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -1633,7 +1642,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 38,
+                                            value: 39,
                                         },
                                     ),
                                 ),
@@ -1647,7 +1656,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 38,
+                                                        value: 39,
                                                     },
                                                 ),
                                             ),
@@ -1671,7 +1680,7 @@
                             expectee: Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 21,
+                                        value: 23,
                                     },
                                 ),
                             ),
@@ -1689,7 +1698,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -1708,7 +1717,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 37,
+                                            value: 38,
                                         },
                                     ),
                                 ),
@@ -1728,11 +1737,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Form(
-                        FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Fugitive(
+                    FugitiveNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -1747,7 +1759,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 21,
+                                        value: 23,
                                     },
                                 ),
                             ),
@@ -1768,14 +1780,14 @@
                                 ],
                                 ty_path: TypePath(
                                     Id {
-                                        value: 80,
+                                        value: 79,
                                     },
                                 ),
                                 signature: FluffyFieldSignature {
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 13,
+                                                value: 15,
                                             },
                                         ),
                                     ),
@@ -1786,7 +1798,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 13,
+                                        value: 15,
                                     },
                                 ),
                             ),
@@ -1805,7 +1817,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 13,
+                                        value: 15,
                                     },
                                 ),
                             ),
@@ -1837,14 +1849,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -1858,7 +1870,7 @@
                             expectee: Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 21,
+                                        value: 23,
                                     },
                                 ),
                             ),
@@ -1875,7 +1887,7 @@
                             expectee: Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 13,
+                                        value: 15,
                                     },
                                 ),
                             ),
@@ -1892,7 +1904,7 @@
                             expectee: Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 13,
+                                        value: 15,
                                     },
                                 ),
                             ),
@@ -1911,11 +1923,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Form(
-                        FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Fugitive(
+                    FugitiveNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -1930,7 +1945,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 21,
+                                        value: 23,
                                     },
                                 ),
                             ),
@@ -1951,14 +1966,14 @@
                                 ],
                                 ty_path: TypePath(
                                     Id {
-                                        value: 80,
+                                        value: 79,
                                     },
                                 ),
                                 signature: FluffyFieldSignature {
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 13,
+                                                value: 15,
                                             },
                                         ),
                                     ),
@@ -1969,7 +1984,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 13,
+                                        value: 15,
                                     },
                                 ),
                             ),
@@ -2002,14 +2017,14 @@
                     (
                         IndexOrComposeWithList(
                             Index(
-                                FluffyMemberDisambiguation {
+                                FluffyDotDisambiguation {
                                     indirections: [],
                                     signature: FluffyIndexSignature {
                                         element_ty: EntityPath(
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 81,
+                                                        value: 80,
                                                     },
                                                 ),
                                             ),
@@ -2023,7 +2038,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 81,
+                                            value: 80,
                                         },
                                     ),
                                 ),
@@ -2044,7 +2059,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 81,
+                                            value: 80,
                                         },
                                     ),
                                 ),
@@ -2077,6 +2092,11 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [],
+                    },
+                },
                 hollow_terms: HollowTerms {
                     entries: [
                         HollowTermEntry {
@@ -2090,7 +2110,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 59,
+                                                    value: 60,
                                                 },
                                             ),
                                         ),
@@ -2102,7 +2122,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 59,
+                                                value: 60,
                                             },
                                         ),
                                     ),
@@ -2111,11 +2131,6 @@
                         },
                     ],
                     first_unresolved_term_idx: 1,
-                },
-                solid_terms: SolidTerms {
-                    entries: VecSet {
-                        data: [],
-                    },
                 },
             },
             expectations: Expectations {
@@ -2129,7 +2144,7 @@
                             expectee: Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 21,
+                                        value: 23,
                                     },
                                 ),
                             ),
@@ -2146,7 +2161,7 @@
                             expectee: Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 13,
+                                        value: 15,
                                     },
                                 ),
                             ),
@@ -2189,7 +2204,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 59,
+                                                        value: 60,
                                                     },
                                                 ),
                                             ),
@@ -2214,7 +2229,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 81,
+                                            value: 80,
                                         },
                                     ),
                                 ),
@@ -2233,7 +2248,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 81,
+                                            value: 80,
                                         },
                                     ),
                                 ),
@@ -2253,11 +2268,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Form(
-                        FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Fugitive(
+                    FugitiveNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -2272,7 +2290,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 10,
+                                        value: 12,
                                     },
                                 ),
                             ),
@@ -2327,14 +2345,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -2348,7 +2366,7 @@
                             expectee: Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 10,
+                                        value: 12,
                                     },
                                 ),
                             ),
@@ -2367,11 +2385,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Form(
-                        FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Fugitive(
+                    FugitiveNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -2386,7 +2407,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 23,
+                                        value: 25,
                                     },
                                 ),
                             ),
@@ -2441,14 +2462,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -2462,7 +2483,7 @@
                             expectee: Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 23,
+                                        value: 25,
                                     },
                                 ),
                             ),

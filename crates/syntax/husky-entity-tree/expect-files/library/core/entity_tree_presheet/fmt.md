@@ -1,15 +1,18 @@
 Ok(
     EntityTreePresheet {
         module_path: `core::fmt`,
-        native_symbol_entries: NativeEntitySymbolTable(
-            [
-                NativeEntitySymbolEntry {
-                    ident: `Debug`,
-                    visibility: Scope::Pub,
-                    symbol: NativeEntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Trait(
-                                TraitPath(`core::fmt::Debug`),
+        node_table: MajorEntityNodeTable {
+            entries: [
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Trait(
+                                TraitNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitPath(`core::fmt::Debug`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::Pub,
                             ast_idx: 0,
@@ -21,9 +24,21 @@ Ok(
                             },
                         },
                     ),
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Trait(
+                            TraitNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TraitPath(`core::fmt::Debug`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `Debug`,
+                    visibility: Scope::Pub,
                 },
             ],
-        ),
+        },
         use_one_trackers: UseExprRules(
             [],
         ),

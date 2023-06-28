@@ -40,7 +40,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             Some(scope_resolution_token) => {
                 self.parse_subentity_path_expr(root, Some(entity_path), scope_resolution_token)
             }
-            None => Expr::NonAssociatedEntity {
+            None => Expr::PrincipalEntityPath {
                 entity_path_expr: root,
                 path: Some(entity_path),
             },
@@ -63,8 +63,8 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         Ok(subentity_path) => match subentity_path {
                             SubentityPath::NonAssociated(path) => Ok(path),
                             SubentityPath::Associated => {
-                                return Expr::AssociatedItem {
-                                    parent_expr_idx: self.alloc_expr(Expr::NonAssociatedEntity {
+                                return Expr::ScopeResolution {
+                                    parent_expr_idx: self.alloc_expr(Expr::PrincipalEntityPath {
                                         entity_path_expr: parent,
                                         path: Some(parent_path),
                                     }),
@@ -99,7 +99,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             Some(scope_resolution_token) => {
                 self.parse_subentity_path_expr(expr, parent_path, scope_resolution_token)
             }
-            None => Expr::NonAssociatedEntity {
+            None => Expr::PrincipalEntityPath {
                 entity_path_expr: expr,
                 path: parent_path,
             },

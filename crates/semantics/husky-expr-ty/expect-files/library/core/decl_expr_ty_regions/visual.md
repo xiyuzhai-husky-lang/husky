@@ -1,11 +1,14 @@
 [
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Trait(
-                        TraitPath(`core::visual::Visualize`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Trait(
+                    TraitNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TraitPath(`core::visual::Visualize`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -30,14 +33,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -52,11 +55,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Type(
-                        TypePath(`core::visual::Html`, `Extern`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Type(
+                    TypeNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypePath(`core::visual::Html`, `Extern`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -81,14 +87,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {

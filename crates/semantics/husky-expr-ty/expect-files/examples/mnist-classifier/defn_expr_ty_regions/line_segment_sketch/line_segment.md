@@ -1,17 +1,23 @@
 [
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::line_segment_sketch::line_segment`,
-                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TypeItem(
+                    TypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist_classifier::line_segment_sketch::line_segment`,
+                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `displacement`,
+                                item_kind: MethodFn,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `displacement`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -99,14 +105,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -123,17 +129,23 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::line_segment_sketch::line_segment`,
-                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TypeItem(
+                    TypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist_classifier::line_segment_sketch::line_segment`,
+                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `dist_to_point`,
+                                item_kind: MethodFn,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `dist_to_point`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -264,7 +276,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -403,7 +415,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -566,6 +578,47 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [
+                            PlaceTypeOntology {
+                                place: StackPure {
+                                    location: StackLocationIdx(
+                                        LocalSymbolIdx(
+                                            0,
+                                        ),
+                                    ),
+                                },
+                                path: TypePath(
+                                    Id {
+                                        value: 83,
+                                    },
+                                ),
+                                refined_path: Right(
+                                    CustomTypePath(
+                                        TypePath(
+                                            Id {
+                                                value: 83,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                arguments: [],
+                                base_ty_term: Some(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 83,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ],
+                    },
+                },
                 hollow_terms: HollowTerms {
                     entries: [
                         HollowTermEntry {
@@ -590,47 +643,6 @@
                         },
                     ],
                     first_unresolved_term_idx: 0,
-                },
-                solid_terms: SolidTerms {
-                    entries: VecSet {
-                        data: [
-                            PlaceTypeOntology {
-                                place: StackPure {
-                                    location: StackLocationIdx(
-                                        LocalSymbolIdx(
-                                            0,
-                                        ),
-                                    ),
-                                },
-                                path: TypePath(
-                                    Id {
-                                        value: 84,
-                                    },
-                                ),
-                                refined_path: Right(
-                                    CustomTypePath(
-                                        TypePath(
-                                            Id {
-                                                value: 84,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                                arguments: [],
-                                base_ty_term: Some(
-                                    EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                Id {
-                                                    value: 84,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            },
-                        ],
-                    },
                 },
             },
             expectations: Expectations {
@@ -675,7 +687,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -689,7 +701,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 36,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -744,7 +756,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -758,7 +770,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 36,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),

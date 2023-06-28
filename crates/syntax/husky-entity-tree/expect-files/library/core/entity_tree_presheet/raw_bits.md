@@ -1,15 +1,18 @@
 Ok(
     EntityTreePresheet {
         module_path: `core::raw_bits`,
-        native_symbol_entries: NativeEntitySymbolTable(
-            [
-                NativeEntitySymbolEntry {
-                    ident: `r32`,
-                    visibility: Scope::Pub,
-                    symbol: NativeEntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Type(
-                                TypePath(`core::raw_bits::r32`, `Extern`),
+        node_table: MajorEntityNodeTable {
+            entries: [
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Type(
+                                TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::Pub,
                             ast_idx: 2,
@@ -21,9 +24,21 @@ Ok(
                             },
                         },
                     ),
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Type(
+                            TypeNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `r32`,
+                    visibility: Scope::Pub,
                 },
             ],
-        ),
+        },
         use_one_trackers: UseExprRules(
             [],
         ),

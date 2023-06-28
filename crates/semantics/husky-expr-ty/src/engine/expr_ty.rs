@@ -99,15 +99,15 @@ impl<'a> ExprTypeEngine<'a> {
                 ExprDisambiguation::Trivial,
                 self.calc_literal_expr_ty(expr_idx, literal_token_idx, expr_ty_expectation),
             )),
-            Expr::NonAssociatedEntity {
+            Expr::PrincipalEntityPath {
                 entity_path_expr,
                 path,
             } => self.calc_entity_path_expr_ty(path, expr_ty_expectation),
-            Expr::AssociatedItem {
+            Expr::ScopeResolution {
                 parent_expr_idx,
                 scope_resolution_token,
                 ident_token,
-            } => self.calc_associated_item_ty(expr_idx, parent_expr_idx, ident_token),
+            } => self.calc_scope_resolution_ty(expr_idx, parent_expr_idx, ident_token),
             Expr::InheritedSymbol {
                 ident,
                 inherited_symbol_idx,

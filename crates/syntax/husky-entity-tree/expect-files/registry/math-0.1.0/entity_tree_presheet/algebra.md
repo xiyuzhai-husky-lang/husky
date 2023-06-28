@@ -1,9 +1,9 @@
 Ok(
     EntityTreePresheet {
         module_path: `math::algebra`,
-        native_symbol_entries: NativeEntitySymbolTable(
-            [],
-        ),
+        node_table: MajorEntityNodeTable {
+            entries: [],
+        },
         use_one_trackers: UseExprRules(
             [],
         ),

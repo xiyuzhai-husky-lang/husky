@@ -1,11 +1,14 @@
 [
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Type(
-                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Type(
+                    TypeNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -142,14 +145,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -296,11 +299,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Form(
-                        FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Fugitive(
+                    FugitiveNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -418,14 +424,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -456,7 +462,7 @@
                             ),
                             resolve_progress: Resolved(
                                 Ok(
-                                    EqsExactly(
+                                    Subtype(
                                         ExpectSubtypeOutcome,
                                     ),
                                 ),
@@ -553,13 +559,15 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::ImplBlock(
-                ImplBlockId::TraitForType(
-                    TraitForTypeImplBlockId {
-                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                        trai_path: TraitPath(`core::visual::Visualize`),
-                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                        disambiguator: 0,
+            EntityNodePath::ImplBlock(
+                ImplBlockNodePath::TraitForTypeImplBlock(
+                    TraitForTypeImplBlockNodePath {
+                        path: TraitForTypeImplBlockPath {
+                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                            trai_path: TraitPath(`core::visual::Visualize`),
+                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                            disambiguator: 0,
+                        },
                     },
                 ),
             ),
@@ -576,7 +584,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 76,
+                                            value: 40,
                                         },
                                     ),
                                 ),
@@ -623,14 +631,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -645,7 +653,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 76,
+                                            value: 40,
                                         },
                                     ),
                                 ),
@@ -665,18 +673,24 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::TraitForType(
-                        TraitForTypeImplBlockId {
-                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                            trai_path: TraitPath(`core::visual::Visualize`),
-                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TraitForTypeItem(
+                    TraitForTypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TraitForTypeItemPath {
+                                impl_block: TraitForTypeImplBlockPath {
+                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                    trai_path: TraitPath(`core::visual::Visualize`),
+                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `visualize`,
+                                item_kind: MethodFn,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `visualize`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -722,14 +736,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -776,12 +790,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::ImplBlock(
-                ImplBlockId::Type(
-                    TypeImplBlockId {
-                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                        disambiguator: 0,
+            EntityNodePath::ImplBlock(
+                ImplBlockNodePath::TypeImplBlock(
+                    TypeImplBlockNodePath {
+                        path: TypeImplBlockPath {
+                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                            disambiguator: 0,
+                        },
                     },
                 ),
             ),
@@ -822,14 +838,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -844,17 +860,23 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TypeItem(
+                    TypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `norm`,
+                                item_kind: MemoizedField,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `norm`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -900,14 +922,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -954,17 +976,23 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TypeItem(
+                    TypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `rel_norm`,
+                                item_kind: MemoizedField,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `rel_norm`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -1010,14 +1038,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -1064,17 +1092,23 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TypeItem(
+                    TypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `hausdorff_norm`,
+                                item_kind: MemoizedField,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `hausdorff_norm`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -1120,14 +1154,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -1174,17 +1208,23 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TypeItem(
+                    TypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `angle_change`,
+                                item_kind: MemoizedField,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `angle_change`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -1230,14 +1270,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -1284,17 +1324,23 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TypeItem(
+                    TypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `bounding_box`,
+                                item_kind: MemoizedField,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `bounding_box`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -1340,14 +1386,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -1394,17 +1440,23 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TypeItem(
+                    TypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `relative_bounding_box`,
+                                item_kind: MemoizedField,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `relative_bounding_box`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -1450,14 +1502,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -1504,17 +1556,23 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TypeItem(
+                    TypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `line_segment`,
+                                item_kind: MethodFn,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `line_segment`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -1560,14 +1618,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -1614,17 +1672,23 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TypeItem(
+                    TypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `start`,
+                                item_kind: MethodFn,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `start`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -1670,14 +1734,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -1724,17 +1788,23 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TypeItem(
+                    TypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `end`,
+                                item_kind: MethodFn,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `end`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -1780,14 +1850,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -1834,17 +1904,23 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TypeItem(
+                    TypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `displacement`,
+                                item_kind: MethodFn,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `displacement`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -1890,14 +1966,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -1944,17 +2020,23 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TypeItem(
+                    TypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `start_tangent`,
+                                item_kind: MethodFn,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `start_tangent`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -2000,14 +2082,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -2054,17 +2136,23 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TypeItem(
+                    TypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `end_tangent`,
+                                item_kind: MethodFn,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `end_tangent`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -2110,14 +2198,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {

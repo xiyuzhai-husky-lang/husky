@@ -1,15 +1,18 @@
 Ok(
     EntityTreePresheet {
         module_path: `core::ops`,
-        native_symbol_entries: NativeEntitySymbolTable(
-            [
-                NativeEntitySymbolEntry {
-                    ident: `Add`,
-                    visibility: Scope::Pub,
-                    symbol: NativeEntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Trait(
-                                TraitPath(`core::ops::Add`),
+        node_table: MajorEntityNodeTable {
+            entries: [
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Trait(
+                                TraitNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitPath(`core::ops::Add`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::Pub,
                             ast_idx: 30,
@@ -21,14 +24,29 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `AddAssign`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Trait(
+                            TraitNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TraitPath(`core::ops::Add`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `Add`,
                     visibility: Scope::Pub,
-                    symbol: NativeEntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Trait(
-                                TraitPath(`core::ops::AddAssign`),
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Trait(
+                                TraitNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitPath(`core::ops::AddAssign`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::Pub,
                             ast_idx: 32,
@@ -40,14 +58,29 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `BitAnd`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Trait(
+                            TraitNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TraitPath(`core::ops::AddAssign`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `AddAssign`,
                     visibility: Scope::Pub,
-                    symbol: NativeEntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Trait(
-                                TraitPath(`core::ops::BitAnd`),
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Trait(
+                                TraitNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitPath(`core::ops::BitAnd`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::Pub,
                             ast_idx: 34,
@@ -59,14 +92,29 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `BitAndAssign`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Trait(
+                            TraitNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TraitPath(`core::ops::BitAnd`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `BitAnd`,
                     visibility: Scope::Pub,
-                    symbol: NativeEntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Trait(
-                                TraitPath(`core::ops::BitAndAssign`),
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Trait(
+                                TraitNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitPath(`core::ops::BitAndAssign`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::Pub,
                             ast_idx: 36,
@@ -78,14 +126,29 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `BitOr`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Trait(
+                            TraitNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TraitPath(`core::ops::BitAndAssign`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `BitAndAssign`,
                     visibility: Scope::Pub,
-                    symbol: NativeEntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Trait(
-                                TraitPath(`core::ops::BitOr`),
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Trait(
+                                TraitNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitPath(`core::ops::BitOr`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::Pub,
                             ast_idx: 38,
@@ -97,14 +160,29 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `BitOrAssign`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Trait(
+                            TraitNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TraitPath(`core::ops::BitOr`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `BitOr`,
                     visibility: Scope::Pub,
-                    symbol: NativeEntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Trait(
-                                TraitPath(`core::ops::BitOrAssign`),
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Trait(
+                                TraitNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitPath(`core::ops::BitOrAssign`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::Pub,
                             ast_idx: 40,
@@ -116,14 +194,29 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `BitXor`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Trait(
+                            TraitNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TraitPath(`core::ops::BitOrAssign`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `BitOrAssign`,
                     visibility: Scope::Pub,
-                    symbol: NativeEntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Trait(
-                                TraitPath(`core::ops::BitXor`),
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Trait(
+                                TraitNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitPath(`core::ops::BitXor`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::Pub,
                             ast_idx: 42,
@@ -135,14 +228,29 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `BitXorAssign`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Trait(
+                            TraitNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TraitPath(`core::ops::BitXor`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `BitXor`,
                     visibility: Scope::Pub,
-                    symbol: NativeEntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Trait(
-                                TraitPath(`core::ops::BitXorAssign`),
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Trait(
+                                TraitNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitPath(`core::ops::BitXorAssign`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::Pub,
                             ast_idx: 44,
@@ -154,14 +262,29 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `Div`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Trait(
+                            TraitNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TraitPath(`core::ops::BitXorAssign`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `BitXorAssign`,
                     visibility: Scope::Pub,
-                    symbol: NativeEntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Trait(
-                                TraitPath(`core::ops::Div`),
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Trait(
+                                TraitNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitPath(`core::ops::Div`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::Pub,
                             ast_idx: 46,
@@ -173,14 +296,29 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `DivAssign`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Trait(
+                            TraitNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TraitPath(`core::ops::Div`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `Div`,
                     visibility: Scope::Pub,
-                    symbol: NativeEntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Trait(
-                                TraitPath(`core::ops::DivAssign`),
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Trait(
+                                TraitNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitPath(`core::ops::DivAssign`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::Pub,
                             ast_idx: 48,
@@ -192,14 +330,29 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `Mul`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Trait(
+                            TraitNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TraitPath(`core::ops::DivAssign`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `DivAssign`,
                     visibility: Scope::Pub,
-                    symbol: NativeEntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Trait(
-                                TraitPath(`core::ops::Mul`),
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Trait(
+                                TraitNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitPath(`core::ops::Mul`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::Pub,
                             ast_idx: 50,
@@ -211,14 +364,29 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `MulAssign`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Trait(
+                            TraitNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TraitPath(`core::ops::Mul`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `Mul`,
                     visibility: Scope::Pub,
-                    symbol: NativeEntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Trait(
-                                TraitPath(`core::ops::MulAssign`),
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Trait(
+                                TraitNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitPath(`core::ops::MulAssign`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::Pub,
                             ast_idx: 52,
@@ -230,14 +398,29 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `Neg`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Trait(
+                            TraitNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TraitPath(`core::ops::MulAssign`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `MulAssign`,
                     visibility: Scope::Pub,
-                    symbol: NativeEntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Trait(
-                                TraitPath(`core::ops::Neg`),
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Trait(
+                                TraitNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitPath(`core::ops::Neg`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::Pub,
                             ast_idx: 54,
@@ -249,14 +432,29 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `Not`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Trait(
+                            TraitNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TraitPath(`core::ops::Neg`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `Neg`,
                     visibility: Scope::Pub,
-                    symbol: NativeEntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Trait(
-                                TraitPath(`core::ops::Not`),
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Trait(
+                                TraitNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitPath(`core::ops::Not`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::Pub,
                             ast_idx: 56,
@@ -268,14 +466,29 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `Sub`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Trait(
+                            TraitNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TraitPath(`core::ops::Not`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `Not`,
                     visibility: Scope::Pub,
-                    symbol: NativeEntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Trait(
-                                TraitPath(`core::ops::Sub`),
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Trait(
+                                TraitNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitPath(`core::ops::Sub`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::Pub,
                             ast_idx: 58,
@@ -287,14 +500,29 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `Unveil`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Trait(
+                            TraitNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TraitPath(`core::ops::Sub`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `Sub`,
                     visibility: Scope::Pub,
-                    symbol: NativeEntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Trait(
-                                TraitPath(`core::ops::Unveil`),
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Trait(
+                                TraitNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitPath(`core::ops::Unveil`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::Pub,
                             ast_idx: 59,
@@ -306,14 +534,29 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `ControlFlow`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Trait(
+                            TraitNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TraitPath(`core::ops::Unveil`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `Unveil`,
                     visibility: Scope::Pub,
-                    symbol: NativeEntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Type(
-                                TypePath(`core::ops::ControlFlow`, `Enum`),
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Type(
+                                TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`core::ops::ControlFlow`, `Enum`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::Pub,
                             ast_idx: 60,
@@ -325,9 +568,21 @@ Ok(
                             },
                         },
                     ),
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Type(
+                            TypeNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TypePath(`core::ops::ControlFlow`, `Enum`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `ControlFlow`,
+                    visibility: Scope::Pub,
                 },
             ],
-        ),
+        },
         use_one_trackers: UseExprRules(
             [],
         ),

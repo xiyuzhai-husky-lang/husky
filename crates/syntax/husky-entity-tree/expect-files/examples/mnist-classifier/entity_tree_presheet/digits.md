@@ -1,16 +1,17 @@
 Ok(
     EntityTreePresheet {
         module_path: `mnist_classifier::digits`,
-        native_symbol_entries: NativeEntitySymbolTable(
-            [
-                NativeEntitySymbolEntry {
-                    ident: `zero`,
-                    visibility: Scope::PubUnder(
-                        `mnist_classifier::digits`,
-                    ),
-                    symbol: NativeEntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `mnist_classifier::digits::zero`,
+        node_table: MajorEntityNodeTable {
+            entries: [
+                EntityNodeEntry {
+                    node: EntityNode::Submodule(
+                        SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `mnist_classifier::digits::zero`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
@@ -23,15 +24,28 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `one`,
+                    node_path: EntityNodePath::Submodule(
+                        SubmoduleNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: `mnist_classifier::digits::zero`,
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                    ident: `zero`,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::digits`,
                     ),
-                    symbol: NativeEntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `mnist_classifier::digits::one`,
+                },
+                EntityNodeEntry {
+                    node: EntityNode::Submodule(
+                        SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `mnist_classifier::digits::one`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
@@ -44,15 +58,28 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `six`,
+                    node_path: EntityNodePath::Submodule(
+                        SubmoduleNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: `mnist_classifier::digits::one`,
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                    ident: `one`,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::digits`,
                     ),
-                    symbol: NativeEntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `mnist_classifier::digits::six`,
+                },
+                EntityNodeEntry {
+                    node: EntityNode::Submodule(
+                        SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `mnist_classifier::digits::six`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
@@ -65,15 +92,28 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `three`,
+                    node_path: EntityNodePath::Submodule(
+                        SubmoduleNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: `mnist_classifier::digits::six`,
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                    ident: `six`,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::digits`,
                     ),
-                    symbol: NativeEntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `mnist_classifier::digits::three`,
+                },
+                EntityNodeEntry {
+                    node: EntityNode::Submodule(
+                        SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `mnist_classifier::digits::three`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
@@ -86,15 +126,28 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `four`,
+                    node_path: EntityNodePath::Submodule(
+                        SubmoduleNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: `mnist_classifier::digits::three`,
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                    ident: `three`,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::digits`,
                     ),
-                    symbol: NativeEntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `mnist_classifier::digits::four`,
+                },
+                EntityNodeEntry {
+                    node: EntityNode::Submodule(
+                        SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `mnist_classifier::digits::four`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
@@ -107,15 +160,28 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `five`,
+                    node_path: EntityNodePath::Submodule(
+                        SubmoduleNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: `mnist_classifier::digits::four`,
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                    ident: `four`,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::digits`,
                     ),
-                    symbol: NativeEntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `mnist_classifier::digits::five`,
+                },
+                EntityNodeEntry {
+                    node: EntityNode::Submodule(
+                        SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `mnist_classifier::digits::five`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
@@ -128,15 +194,28 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `seven`,
+                    node_path: EntityNodePath::Submodule(
+                        SubmoduleNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: `mnist_classifier::digits::five`,
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                    ident: `five`,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::digits`,
                     ),
-                    symbol: NativeEntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `mnist_classifier::digits::seven`,
+                },
+                EntityNodeEntry {
+                    node: EntityNode::Submodule(
+                        SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `mnist_classifier::digits::seven`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
@@ -149,15 +228,28 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `eight`,
+                    node_path: EntityNodePath::Submodule(
+                        SubmoduleNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: `mnist_classifier::digits::seven`,
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                    ident: `seven`,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::digits`,
                     ),
-                    symbol: NativeEntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `mnist_classifier::digits::eight`,
+                },
+                EntityNodeEntry {
+                    node: EntityNode::Submodule(
+                        SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `mnist_classifier::digits::eight`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
@@ -170,15 +262,28 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `nine`,
+                    node_path: EntityNodePath::Submodule(
+                        SubmoduleNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: `mnist_classifier::digits::eight`,
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                    ident: `eight`,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::digits`,
                     ),
-                    symbol: NativeEntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `mnist_classifier::digits::nine`,
+                },
+                EntityNodeEntry {
+                    node: EntityNode::Submodule(
+                        SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `mnist_classifier::digits::nine`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
@@ -191,15 +296,28 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `two`,
+                    node_path: EntityNodePath::Submodule(
+                        SubmoduleNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: `mnist_classifier::digits::nine`,
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                    ident: `nine`,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::digits`,
                     ),
-                    symbol: NativeEntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `mnist_classifier::digits::two`,
+                },
+                EntityNodeEntry {
+                    node: EntityNode::Submodule(
+                        SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `mnist_classifier::digits::two`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
@@ -212,9 +330,21 @@ Ok(
                             },
                         },
                     ),
+                    node_path: EntityNodePath::Submodule(
+                        SubmoduleNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: `mnist_classifier::digits::two`,
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                    ident: `two`,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::digits`,
+                    ),
                 },
             ],
-        ),
+        },
         use_one_trackers: UseExprRules(
             [
                 UseExprRule {

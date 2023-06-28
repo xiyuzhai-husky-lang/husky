@@ -47,7 +47,7 @@ pub(super) fn ethereal_owner_ty_index_disambiguation_aux(
                 PreludeBorrowTypePath::Ref => todo!(),
                 PreludeBorrowTypePath::RefMut => todo!(),
                 PreludeBorrowTypePath::Leash => {
-                    indirections.push(FluffyInstanceIndirection::Leash);
+                    indirections.push(FluffyDotIndirection::Leash);
                     if owner_ty_arguments.len() != 1 {
                         todo!()
                     }

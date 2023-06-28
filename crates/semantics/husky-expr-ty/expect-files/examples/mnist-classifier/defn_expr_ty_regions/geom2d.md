@@ -1,17 +1,23 @@
 [
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::geom2d`,
-                            ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TypeItem(
+                    TypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist_classifier::geom2d`,
+                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `from_i_shift28`,
+                                item_kind: AssociatedFn,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `from_i_shift28`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -25,7 +31,7 @@
                             Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 7,
+                                        value: 11,
                                     },
                                 ),
                             ),
@@ -223,7 +229,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -244,7 +250,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -267,7 +273,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 84,
+                                            value: 83,
                                         },
                                     ),
                                 ),
@@ -288,7 +294,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 84,
+                                            value: 83,
                                         },
                                     ),
                                 ),
@@ -358,6 +364,78 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [
+                            PlaceTypeOntology {
+                                place: StackPure {
+                                    location: StackLocationIdx(
+                                        LocalSymbolIdx(
+                                            0,
+                                        ),
+                                    ),
+                                },
+                                path: TypePath(
+                                    Id {
+                                        value: 51,
+                                    },
+                                ),
+                                refined_path: Left(
+                                    Num(
+                                        Int(
+                                            I32,
+                                        ),
+                                    ),
+                                ),
+                                arguments: [],
+                                base_ty_term: Some(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 51,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                            PlaceTypeOntology {
+                                place: StackPure {
+                                    location: StackLocationIdx(
+                                        LocalSymbolIdx(
+                                            1,
+                                        ),
+                                    ),
+                                },
+                                path: TypePath(
+                                    Id {
+                                        value: 51,
+                                    },
+                                ),
+                                refined_path: Left(
+                                    Num(
+                                        Int(
+                                            I32,
+                                        ),
+                                    ),
+                                ),
+                                arguments: [],
+                                base_ty_term: Some(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 51,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ],
+                    },
+                },
                 hollow_terms: HollowTerms {
                     entries: [
                         HollowTermEntry {
@@ -403,78 +481,6 @@
                     ],
                     first_unresolved_term_idx: 2,
                 },
-                solid_terms: SolidTerms {
-                    entries: VecSet {
-                        data: [
-                            PlaceTypeOntology {
-                                place: StackPure {
-                                    location: StackLocationIdx(
-                                        LocalSymbolIdx(
-                                            0,
-                                        ),
-                                    ),
-                                },
-                                path: TypePath(
-                                    Id {
-                                        value: 50,
-                                    },
-                                ),
-                                refined_path: Left(
-                                    Num(
-                                        Int(
-                                            I32,
-                                        ),
-                                    ),
-                                ),
-                                arguments: [],
-                                base_ty_term: Some(
-                                    EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                Id {
-                                                    value: 50,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            },
-                            PlaceTypeOntology {
-                                place: StackPure {
-                                    location: StackLocationIdx(
-                                        LocalSymbolIdx(
-                                            1,
-                                        ),
-                                    ),
-                                },
-                                path: TypePath(
-                                    Id {
-                                        value: 50,
-                                    },
-                                ),
-                                refined_path: Left(
-                                    Num(
-                                        Int(
-                                            I32,
-                                        ),
-                                    ),
-                                ),
-                                arguments: [],
-                                base_ty_term: Some(
-                                    EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                Id {
-                                                    value: 50,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            },
-                        ],
-                    },
-                },
             },
             expectations: Expectations {
                 arena: Arena {
@@ -487,7 +493,7 @@
                             expectee: Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 7,
+                                        value: 11,
                                     },
                                 ),
                             ),
@@ -505,7 +511,7 @@
                                                 TypeOntology(
                                                     TypePath(
                                                         Id {
-                                                            value: 84,
+                                                            value: 83,
                                                         },
                                                     ),
                                                 ),
@@ -520,7 +526,7 @@
                                                             TypeOntology(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 60,
+                                                                        value: 61,
                                                                     },
                                                                 ),
                                                             ),
@@ -533,7 +539,7 @@
                                                             TypeOntology(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 60,
+                                                                        value: 61,
                                                                     },
                                                                 ),
                                                             ),
@@ -637,7 +643,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 60,
+                                                    value: 61,
                                                 },
                                             ),
                                         ),
@@ -662,7 +668,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 60,
+                                                    value: 61,
                                                 },
                                             ),
                                         ),
@@ -680,7 +686,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -694,7 +700,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 60,
+                                                        value: 61,
                                                     },
                                                 ),
                                             ),
@@ -801,7 +807,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 60,
+                                                    value: 61,
                                                 },
                                             ),
                                         ),
@@ -826,7 +832,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 60,
+                                                    value: 61,
                                                 },
                                             ),
                                         ),
@@ -844,7 +850,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -858,7 +864,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 60,
+                                                        value: 61,
                                                     },
                                                 ),
                                             ),
@@ -883,7 +889,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 84,
+                                            value: 83,
                                         },
                                     ),
                                 ),
@@ -897,7 +903,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 84,
+                                                        value: 83,
                                                     },
                                                 ),
                                             ),
@@ -922,7 +928,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 84,
+                                            value: 83,
                                         },
                                     ),
                                 ),
@@ -936,7 +942,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 84,
+                                                        value: 83,
                                                     },
                                                 ),
                                             ),
@@ -964,17 +970,23 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::geom2d`,
-                            ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TypeItem(
+                    TypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist_classifier::geom2d`,
+                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `vector`,
+                                item_kind: MethodFn,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `vector`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -988,7 +1000,7 @@
                             Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 8,
+                                        value: 12,
                                     },
                                 ),
                             ),
@@ -1052,7 +1064,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 86,
+                                            value: 85,
                                         },
                                     ),
                                 ),
@@ -1073,7 +1085,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 86,
+                                            value: 85,
                                         },
                                     ),
                                 ),
@@ -1106,14 +1118,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -1127,7 +1139,7 @@
                             expectee: Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 8,
+                                        value: 12,
                                     },
                                 ),
                             ),
@@ -1145,7 +1157,7 @@
                                                 TypeOntology(
                                                     TypePath(
                                                         Id {
-                                                            value: 86,
+                                                            value: 85,
                                                         },
                                                     ),
                                                 ),
@@ -1160,7 +1172,7 @@
                                                             TypeOntology(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 60,
+                                                                        value: 61,
                                                                     },
                                                                 ),
                                                             ),
@@ -1173,7 +1185,7 @@
                                                             TypeOntology(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 60,
+                                                                        value: 61,
                                                                     },
                                                                 ),
                                                             ),
@@ -1195,7 +1207,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 86,
+                                            value: 85,
                                         },
                                     ),
                                 ),
@@ -1209,7 +1221,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 86,
+                                                        value: 85,
                                                     },
                                                 ),
                                             ),
@@ -1234,7 +1246,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 86,
+                                            value: 85,
                                         },
                                     ),
                                 ),
@@ -1248,7 +1260,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 86,
+                                                        value: 85,
                                                     },
                                                 ),
                                             ),
@@ -1276,17 +1288,23 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::geom2d`,
-                            ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TypeItem(
+                    TypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist_classifier::geom2d`,
+                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `to`,
+                                item_kind: MethodFn,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `to`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -1300,7 +1318,7 @@
                             Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 8,
+                                        value: 12,
                                     },
                                 ),
                             ),
@@ -1359,7 +1377,7 @@
                                 ],
                                 ty_path: TypePath(
                                     Id {
-                                        value: 84,
+                                        value: 83,
                                     },
                                 ),
                                 signature: FluffyFieldSignature {
@@ -1367,7 +1385,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 60,
+                                                    value: 61,
                                                 },
                                             ),
                                         ),
@@ -1380,7 +1398,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -1448,7 +1466,7 @@
                                 ],
                                 ty_path: TypePath(
                                     Id {
-                                        value: 84,
+                                        value: 83,
                                     },
                                 ),
                                 signature: FluffyFieldSignature {
@@ -1456,7 +1474,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 60,
+                                                    value: 61,
                                                 },
                                             ),
                                         ),
@@ -1469,7 +1487,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -1498,7 +1516,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -1519,7 +1537,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -1542,7 +1560,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 86,
+                                            value: 85,
                                         },
                                     ),
                                 ),
@@ -1563,7 +1581,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 86,
+                                            value: 85,
                                         },
                                     ),
                                 ),
@@ -1608,10 +1626,6 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [
@@ -1625,14 +1639,14 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 84,
+                                        value: 83,
                                     },
                                 ),
                                 refined_path: Right(
                                     CustomTypePath(
                                         TypePath(
                                             Id {
-                                                value: 84,
+                                                value: 83,
                                             },
                                         ),
                                     ),
@@ -1643,7 +1657,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 84,
+                                                    value: 83,
                                                 },
                                             ),
                                         ),
@@ -1652,6 +1666,10 @@
                             },
                         ],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -1665,7 +1683,7 @@
                             expectee: Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 8,
+                                        value: 12,
                                     },
                                 ),
                             ),
@@ -1683,7 +1701,7 @@
                                                 TypeOntology(
                                                     TypePath(
                                                         Id {
-                                                            value: 86,
+                                                            value: 85,
                                                         },
                                                     ),
                                                 ),
@@ -1698,7 +1716,7 @@
                                                             TypeOntology(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 60,
+                                                                        value: 61,
                                                                     },
                                                                 ),
                                                             ),
@@ -1711,7 +1729,7 @@
                                                             TypeOntology(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 60,
+                                                                        value: 61,
                                                                     },
                                                                 ),
                                                             ),
@@ -1748,7 +1766,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -1767,7 +1785,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -1781,7 +1799,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 60,
+                                                        value: 61,
                                                     },
                                                 ),
                                             ),
@@ -1821,7 +1839,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -1840,7 +1858,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -1854,7 +1872,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 60,
+                                                        value: 61,
                                                     },
                                                 ),
                                             ),
@@ -1879,7 +1897,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 86,
+                                            value: 85,
                                         },
                                     ),
                                 ),
@@ -1893,7 +1911,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 86,
+                                                        value: 85,
                                                     },
                                                 ),
                                             ),
@@ -1918,7 +1936,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 86,
+                                            value: 85,
                                         },
                                     ),
                                 ),
@@ -1932,7 +1950,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 86,
+                                                        value: 85,
                                                     },
                                                 ),
                                             ),
@@ -1960,17 +1978,23 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::geom2d`,
-                            ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TypeItem(
+                    TypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist_classifier::geom2d`,
+                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `norm`,
+                                item_kind: MethodFn,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `norm`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -2152,14 +2176,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -2176,17 +2200,23 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::geom2d`,
-                            ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TypeItem(
+                    TypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist_classifier::geom2d`,
+                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `dist`,
+                                item_kind: MethodFn,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `dist`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -2282,10 +2312,6 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [
@@ -2299,14 +2325,14 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 84,
+                                        value: 83,
                                     },
                                 ),
                                 refined_path: Right(
                                     CustomTypePath(
                                         TypePath(
                                             Id {
-                                                value: 84,
+                                                value: 83,
                                             },
                                         ),
                                     ),
@@ -2317,7 +2343,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 84,
+                                                    value: 83,
                                                 },
                                             ),
                                         ),
@@ -2326,6 +2352,10 @@
                             },
                         ],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -2358,17 +2388,23 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::geom2d`,
-                            ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TypeItem(
+                    TypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist_classifier::geom2d`,
+                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `point`,
+                                item_kind: MethodFn,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `point`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -2382,7 +2418,7 @@
                             Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 7,
+                                        value: 11,
                                     },
                                 ),
                             ),
@@ -2446,7 +2482,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 84,
+                                            value: 83,
                                         },
                                     ),
                                 ),
@@ -2467,7 +2503,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 84,
+                                            value: 83,
                                         },
                                     ),
                                 ),
@@ -2500,14 +2536,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -2521,7 +2557,7 @@
                             expectee: Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 7,
+                                        value: 11,
                                     },
                                 ),
                             ),
@@ -2539,7 +2575,7 @@
                                                 TypeOntology(
                                                     TypePath(
                                                         Id {
-                                                            value: 84,
+                                                            value: 83,
                                                         },
                                                     ),
                                                 ),
@@ -2554,7 +2590,7 @@
                                                             TypeOntology(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 60,
+                                                                        value: 61,
                                                                     },
                                                                 ),
                                                             ),
@@ -2567,7 +2603,7 @@
                                                             TypeOntology(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 60,
+                                                                        value: 61,
                                                                     },
                                                                 ),
                                                             ),
@@ -2589,7 +2625,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 84,
+                                            value: 83,
                                         },
                                     ),
                                 ),
@@ -2603,7 +2639,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 84,
+                                                        value: 83,
                                                     },
                                                 ),
                                             ),
@@ -2628,7 +2664,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 84,
+                                            value: 83,
                                         },
                                     ),
                                 ),
@@ -2642,7 +2678,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 84,
+                                                        value: 83,
                                                     },
                                                 ),
                                             ),
@@ -2670,17 +2706,23 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::geom2d`,
-                            ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TypeItem(
+                    TypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist_classifier::geom2d`,
+                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `to`,
+                                item_kind: MethodFn,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `to`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -2694,7 +2736,7 @@
                             Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 8,
+                                        value: 12,
                                     },
                                 ),
                             ),
@@ -2753,7 +2795,7 @@
                                 ],
                                 ty_path: TypePath(
                                     Id {
-                                        value: 86,
+                                        value: 85,
                                     },
                                 ),
                                 signature: FluffyFieldSignature {
@@ -2761,7 +2803,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 60,
+                                                    value: 61,
                                                 },
                                             ),
                                         ),
@@ -2774,7 +2816,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -2842,7 +2884,7 @@
                                 ],
                                 ty_path: TypePath(
                                     Id {
-                                        value: 86,
+                                        value: 85,
                                     },
                                 ),
                                 signature: FluffyFieldSignature {
@@ -2850,7 +2892,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 60,
+                                                    value: 61,
                                                 },
                                             ),
                                         ),
@@ -2863,7 +2905,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -2892,7 +2934,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -2913,7 +2955,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -2936,7 +2978,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 86,
+                                            value: 85,
                                         },
                                     ),
                                 ),
@@ -2957,7 +2999,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 86,
+                                            value: 85,
                                         },
                                     ),
                                 ),
@@ -3002,10 +3044,6 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [
@@ -3019,14 +3057,14 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 86,
+                                        value: 85,
                                     },
                                 ),
                                 refined_path: Right(
                                     CustomTypePath(
                                         TypePath(
                                             Id {
-                                                value: 86,
+                                                value: 85,
                                             },
                                         ),
                                     ),
@@ -3037,7 +3075,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 86,
+                                                    value: 85,
                                                 },
                                             ),
                                         ),
@@ -3046,6 +3084,10 @@
                             },
                         ],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -3059,7 +3101,7 @@
                             expectee: Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 8,
+                                        value: 12,
                                     },
                                 ),
                             ),
@@ -3077,7 +3119,7 @@
                                                 TypeOntology(
                                                     TypePath(
                                                         Id {
-                                                            value: 86,
+                                                            value: 85,
                                                         },
                                                     ),
                                                 ),
@@ -3092,7 +3134,7 @@
                                                             TypeOntology(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 60,
+                                                                        value: 61,
                                                                     },
                                                                 ),
                                                             ),
@@ -3105,7 +3147,7 @@
                                                             TypeOntology(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 60,
+                                                                        value: 61,
                                                                     },
                                                                 ),
                                                             ),
@@ -3142,7 +3184,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -3161,7 +3203,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -3175,7 +3217,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 60,
+                                                        value: 61,
                                                     },
                                                 ),
                                             ),
@@ -3215,7 +3257,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -3234,7 +3276,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -3248,7 +3290,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 60,
+                                                        value: 61,
                                                     },
                                                 ),
                                             ),
@@ -3273,7 +3315,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 86,
+                                            value: 85,
                                         },
                                     ),
                                 ),
@@ -3287,7 +3329,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 86,
+                                                        value: 85,
                                                     },
                                                 ),
                                             ),
@@ -3312,7 +3354,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 86,
+                                            value: 85,
                                         },
                                     ),
                                 ),
@@ -3326,7 +3368,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 86,
+                                                        value: 85,
                                                     },
                                                 ),
                                             ),
@@ -3354,17 +3396,23 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::geom2d`,
-                            ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TypeItem(
+                    TypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist_classifier::geom2d`,
+                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `norm`,
+                                item_kind: MethodFn,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `norm`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -3546,14 +3594,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -3570,17 +3618,23 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::geom2d`,
-                            ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TypeItem(
+                    TypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist_classifier::geom2d`,
+                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `dot`,
+                                item_kind: MethodFn,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `dot`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -3640,7 +3694,7 @@
                                 ],
                                 ty_path: TypePath(
                                     Id {
-                                        value: 86,
+                                        value: 85,
                                     },
                                 ),
                                 signature: FluffyFieldSignature {
@@ -3648,7 +3702,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 60,
+                                                    value: 61,
                                                 },
                                             ),
                                         ),
@@ -3661,7 +3715,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -3729,7 +3783,7 @@
                                 ],
                                 ty_path: TypePath(
                                     Id {
-                                        value: 86,
+                                        value: 85,
                                     },
                                 ),
                                 signature: FluffyFieldSignature {
@@ -3737,7 +3791,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 60,
+                                                    value: 61,
                                                 },
                                             ),
                                         ),
@@ -3750,7 +3804,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -3847,10 +3901,6 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [
@@ -3864,14 +3914,14 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 86,
+                                        value: 85,
                                     },
                                 ),
                                 refined_path: Right(
                                     CustomTypePath(
                                         TypePath(
                                             Id {
-                                                value: 86,
+                                                value: 85,
                                             },
                                         ),
                                     ),
@@ -3882,7 +3932,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 86,
+                                                    value: 85,
                                                 },
                                             ),
                                         ),
@@ -3891,6 +3941,10 @@
                             },
                         ],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -3920,7 +3974,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -3954,7 +4008,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -3976,17 +4030,23 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::geom2d`,
-                            ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TypeItem(
+                    TypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist_classifier::geom2d`,
+                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `cross`,
+                                item_kind: MethodFn,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `cross`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -4046,7 +4106,7 @@
                                 ],
                                 ty_path: TypePath(
                                     Id {
-                                        value: 86,
+                                        value: 85,
                                     },
                                 ),
                                 signature: FluffyFieldSignature {
@@ -4054,7 +4114,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 60,
+                                                    value: 61,
                                                 },
                                             ),
                                         ),
@@ -4067,7 +4127,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -4135,7 +4195,7 @@
                                 ],
                                 ty_path: TypePath(
                                     Id {
-                                        value: 86,
+                                        value: 85,
                                     },
                                 ),
                                 signature: FluffyFieldSignature {
@@ -4143,7 +4203,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 60,
+                                                    value: 61,
                                                 },
                                             ),
                                         ),
@@ -4156,7 +4216,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -4253,10 +4313,6 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [
@@ -4270,14 +4326,14 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 86,
+                                        value: 85,
                                     },
                                 ),
                                 refined_path: Right(
                                     CustomTypePath(
                                         TypePath(
                                             Id {
-                                                value: 86,
+                                                value: 85,
                                             },
                                         ),
                                     ),
@@ -4288,7 +4344,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 86,
+                                                    value: 85,
                                                 },
                                             ),
                                         ),
@@ -4297,6 +4353,10 @@
                             },
                         ],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -4326,7 +4386,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -4360,7 +4420,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -4382,17 +4442,23 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::geom2d`,
-                            ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TypeItem(
+                    TypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist_classifier::geom2d`,
+                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `angle`,
+                                item_kind: MethodFn,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `angle`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -4558,7 +4624,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -4596,7 +4662,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -4701,7 +4767,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -4743,7 +4809,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -4772,7 +4838,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -4793,7 +4859,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -4814,7 +4880,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -4835,7 +4901,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -4856,7 +4922,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -4877,7 +4943,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -4934,6 +5000,43 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [
+                            PlaceTypeOntology {
+                                place: StackPure {
+                                    location: StackLocationIdx(
+                                        LocalSymbolIdx(
+                                            0,
+                                        ),
+                                    ),
+                                },
+                                path: TypePath(
+                                    Id {
+                                        value: 37,
+                                    },
+                                ),
+                                refined_path: Left(
+                                    Basic(
+                                        Bool,
+                                    ),
+                                ),
+                                arguments: [],
+                                base_ty_term: Some(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 37,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ],
+                    },
+                },
                 hollow_terms: HollowTerms {
                     entries: [
                         HollowTermEntry {
@@ -4977,7 +5080,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 60,
+                                                    value: 61,
                                                 },
                                             ),
                                         ),
@@ -4989,7 +5092,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 60,
+                                                value: 61,
                                             },
                                         ),
                                     ),
@@ -4998,43 +5101,6 @@
                         },
                     ],
                     first_unresolved_term_idx: 0,
-                },
-                solid_terms: SolidTerms {
-                    entries: VecSet {
-                        data: [
-                            PlaceTypeOntology {
-                                place: StackPure {
-                                    location: StackLocationIdx(
-                                        LocalSymbolIdx(
-                                            0,
-                                        ),
-                                    ),
-                                },
-                                path: TypePath(
-                                    Id {
-                                        value: 36,
-                                    },
-                                ),
-                                refined_path: Left(
-                                    Basic(
-                                        Bool,
-                                    ),
-                                ),
-                                arguments: [],
-                                base_ty_term: Some(
-                                    EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                Id {
-                                                    value: 36,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            },
-                        ],
-                    },
                 },
             },
             expectations: Expectations {
@@ -5094,7 +5160,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -5108,7 +5174,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 36,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -5143,7 +5209,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 36,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -5168,7 +5234,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -5182,7 +5248,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 60,
+                                                        value: 61,
                                                     },
                                                 ),
                                             ),
@@ -5232,7 +5298,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 60,
+                                                        value: 61,
                                                     },
                                                 ),
                                             ),
@@ -5286,7 +5352,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -5305,7 +5371,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -5324,7 +5390,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -5343,7 +5409,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -5357,7 +5423,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 60,
+                                                        value: 61,
                                                     },
                                                 ),
                                             ),
@@ -5382,7 +5448,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -5401,7 +5467,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -5415,7 +5481,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 60,
+                                                        value: 61,
                                                     },
                                                 ),
                                             ),
@@ -5440,7 +5506,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -5454,7 +5520,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 60,
+                                                        value: 61,
                                                     },
                                                 ),
                                             ),
@@ -5479,7 +5545,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -5493,7 +5559,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 60,
+                                                        value: 61,
                                                     },
                                                 ),
                                             ),
@@ -5521,17 +5587,23 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::geom2d`,
-                            ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TypeItem(
+                    TypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist_classifier::geom2d`,
+                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `rotation_direction_to`,
+                                item_kind: MethodFn,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `rotation_direction_to`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -5627,10 +5699,6 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [
@@ -5644,14 +5712,14 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 86,
+                                        value: 85,
                                     },
                                 ),
                                 refined_path: Right(
                                     CustomTypePath(
                                         TypePath(
                                             Id {
-                                                value: 86,
+                                                value: 85,
                                             },
                                         ),
                                     ),
@@ -5662,7 +5730,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 86,
+                                                    value: 85,
                                                 },
                                             ),
                                         ),
@@ -5671,6 +5739,10 @@
                             },
                         ],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -5703,17 +5775,23 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::geom2d`,
-                            ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TypeItem(
+                    TypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist_classifier::geom2d`,
+                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `angle_to`,
+                                item_kind: MethodFn,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `angle_to`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -5777,7 +5855,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -5810,7 +5888,7 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         Method(
-                            FluffyMemberDisambiguation {
+                            FluffyDotDisambiguation {
                                 indirections: [
                                     Place(
                                         StackPure {
@@ -5823,13 +5901,13 @@
                                     ),
                                 ],
                                 signature: MethodFn(
-                                    FluffyMethodFnSignature {
-                                        nonself_parameter_contracted_tys: [],
+                                    MethodFnFluffySignature {
+                                        parameter_contracted_tys: [],
                                         return_ty: EntityPath(
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 60,
+                                                        value: 61,
                                                     },
                                                 ),
                                             ),
@@ -5843,7 +5921,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -5894,7 +5972,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -6116,7 +6194,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -6154,7 +6232,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -6268,7 +6346,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -6302,7 +6380,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -6331,7 +6409,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -6425,7 +6503,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -6498,6 +6576,78 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [
+                            PlaceTypeOntology {
+                                place: StackPure {
+                                    location: StackLocationIdx(
+                                        LocalSymbolIdx(
+                                            0,
+                                        ),
+                                    ),
+                                },
+                                path: TypePath(
+                                    Id {
+                                        value: 85,
+                                    },
+                                ),
+                                refined_path: Right(
+                                    CustomTypePath(
+                                        TypePath(
+                                            Id {
+                                                value: 85,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                arguments: [],
+                                base_ty_term: Some(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 85,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                            PlaceTypeOntology {
+                                place: StackPure {
+                                    location: StackLocationIdx(
+                                        LocalSymbolIdx(
+                                            1,
+                                        ),
+                                    ),
+                                },
+                                path: TypePath(
+                                    Id {
+                                        value: 37,
+                                    },
+                                ),
+                                refined_path: Left(
+                                    Basic(
+                                        Bool,
+                                    ),
+                                ),
+                                arguments: [],
+                                base_ty_term: Some(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 37,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ],
+                    },
+                },
                 hollow_terms: HollowTerms {
                     entries: [
                         HollowTermEntry {
@@ -6561,7 +6711,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 60,
+                                                    value: 61,
                                                 },
                                             ),
                                         ),
@@ -6573,7 +6723,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 60,
+                                                value: 61,
                                             },
                                         ),
                                     ),
@@ -6603,78 +6753,6 @@
                     ],
                     first_unresolved_term_idx: 0,
                 },
-                solid_terms: SolidTerms {
-                    entries: VecSet {
-                        data: [
-                            PlaceTypeOntology {
-                                place: StackPure {
-                                    location: StackLocationIdx(
-                                        LocalSymbolIdx(
-                                            0,
-                                        ),
-                                    ),
-                                },
-                                path: TypePath(
-                                    Id {
-                                        value: 86,
-                                    },
-                                ),
-                                refined_path: Right(
-                                    CustomTypePath(
-                                        TypePath(
-                                            Id {
-                                                value: 86,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                                arguments: [],
-                                base_ty_term: Some(
-                                    EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                Id {
-                                                    value: 86,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            },
-                            PlaceTypeOntology {
-                                place: StackPure {
-                                    location: StackLocationIdx(
-                                        LocalSymbolIdx(
-                                            1,
-                                        ),
-                                    ),
-                                },
-                                path: TypePath(
-                                    Id {
-                                        value: 36,
-                                    },
-                                ),
-                                refined_path: Left(
-                                    Basic(
-                                        Bool,
-                                    ),
-                                ),
-                                arguments: [],
-                                base_ty_term: Some(
-                                    EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                Id {
-                                                    value: 36,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            },
-                        ],
-                    },
-                },
             },
             expectations: Expectations {
                 arena: Arena {
@@ -6703,7 +6781,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -6717,7 +6795,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 36,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -6757,7 +6835,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -6791,7 +6869,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -6805,7 +6883,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 36,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -6890,7 +6968,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -6904,7 +6982,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 36,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -6939,7 +7017,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 36,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -6964,7 +7042,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -6978,7 +7056,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 60,
+                                                        value: 61,
                                                     },
                                                 ),
                                             ),
@@ -7028,7 +7106,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 60,
+                                                        value: 61,
                                                     },
                                                 ),
                                             ),
@@ -7097,7 +7175,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -7116,7 +7194,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -7135,7 +7213,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -7184,7 +7262,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -7198,7 +7276,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 60,
+                                                        value: 61,
                                                     },
                                                 ),
                                             ),
@@ -7226,17 +7304,23 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::geom2d`,
-                            ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TypeItem(
+                    TypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist_classifier::geom2d`,
+                                    ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `relative_range`,
+                                item_kind: MethodFn,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `relative_range`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -7291,7 +7375,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -7406,7 +7490,7 @@
                                 ],
                                 ty_path: TypePath(
                                     Id {
-                                        value: 87,
+                                        value: 86,
                                     },
                                 ),
                                 signature: FluffyFieldSignature {
@@ -7414,7 +7498,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 60,
+                                                    value: 61,
                                                 },
                                             ),
                                         ),
@@ -7427,7 +7511,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -7456,7 +7540,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -7477,7 +7561,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -7511,7 +7595,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -7571,7 +7655,7 @@
                                 ],
                                 ty_path: TypePath(
                                     Id {
-                                        value: 87,
+                                        value: 86,
                                     },
                                 ),
                                 signature: FluffyFieldSignature {
@@ -7579,7 +7663,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 60,
+                                                    value: 61,
                                                 },
                                             ),
                                         ),
@@ -7592,7 +7676,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -7621,7 +7705,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -7642,7 +7726,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -7676,7 +7760,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -7698,7 +7782,7 @@
                             Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 9,
+                                        value: 13,
                                     },
                                 ),
                             ),
@@ -7746,7 +7830,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 87,
+                                            value: 86,
                                         },
                                     ),
                                 ),
@@ -7767,7 +7851,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 87,
+                                            value: 86,
                                         },
                                     ),
                                 ),
@@ -7820,10 +7904,6 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [
@@ -7837,14 +7917,14 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 87,
+                                        value: 86,
                                     },
                                 ),
                                 refined_path: Right(
                                     CustomTypePath(
                                         TypePath(
                                             Id {
-                                                value: 87,
+                                                value: 86,
                                             },
                                         ),
                                     ),
@@ -7855,7 +7935,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 87,
+                                                    value: 86,
                                                 },
                                             ),
                                         ),
@@ -7864,6 +7944,10 @@
                             },
                         ],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -7878,7 +7962,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -7892,7 +7976,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 36,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -7932,7 +8016,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -7951,7 +8035,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -7970,7 +8054,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -7989,7 +8073,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -8023,7 +8107,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -8042,7 +8126,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -8061,7 +8145,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -8080,7 +8164,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -8098,7 +8182,7 @@
                             expectee: Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 9,
+                                        value: 13,
                                     },
                                 ),
                             ),
@@ -8116,7 +8200,7 @@
                                                 TypeOntology(
                                                     TypePath(
                                                         Id {
-                                                            value: 87,
+                                                            value: 86,
                                                         },
                                                     ),
                                                 ),
@@ -8131,7 +8215,7 @@
                                                             TypeOntology(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 60,
+                                                                        value: 61,
                                                                     },
                                                                 ),
                                                             ),
@@ -8144,7 +8228,7 @@
                                                             TypeOntology(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 60,
+                                                                        value: 61,
                                                                     },
                                                                 ),
                                                             ),
@@ -8166,7 +8250,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 87,
+                                            value: 86,
                                         },
                                     ),
                                 ),
@@ -8180,7 +8264,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 87,
+                                                        value: 86,
                                                     },
                                                 ),
                                             ),
@@ -8205,7 +8289,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 87,
+                                            value: 86,
                                         },
                                     ),
                                 ),
@@ -8219,7 +8303,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 87,
+                                                        value: 86,
                                                     },
                                                 ),
                                             ),
@@ -8247,17 +8331,23 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::geom2d`,
-                            ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TypeItem(
+                    TypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist_classifier::geom2d`,
+                                    ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `relative_point`,
+                                item_kind: MethodFn,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `relative_point`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -8363,7 +8453,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -8384,7 +8474,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -8418,7 +8508,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -8439,7 +8529,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -8488,10 +8578,6 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [
@@ -8505,7 +8591,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 60,
+                                        value: 61,
                                     },
                                 ),
                                 refined_path: Left(
@@ -8521,7 +8607,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 60,
+                                                    value: 61,
                                                 },
                                             ),
                                         ),
@@ -8530,6 +8616,10 @@
                             },
                         ],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -8559,7 +8649,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -8578,7 +8668,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -8597,7 +8687,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -8611,7 +8701,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 60,
+                                                        value: 61,
                                                     },
                                                 ),
                                             ),
@@ -8636,7 +8726,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -8650,7 +8740,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 60,
+                                                        value: 61,
                                                     },
                                                 ),
                                             ),
@@ -8678,17 +8768,23 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::geom2d`,
-                            ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TypeItem(
+                    TypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist_classifier::geom2d`,
+                                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `relative_bounding_box`,
+                                item_kind: MethodFn,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `relative_bounding_box`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -8702,7 +8798,7 @@
                             Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 10,
+                                        value: 14,
                                     },
                                 ),
                             ),
@@ -8769,7 +8865,7 @@
                                 ],
                                 ty_path: TypePath(
                                     Id {
-                                        value: 88,
+                                        value: 87,
                                     },
                                 ),
                                 signature: FluffyFieldSignature {
@@ -8777,7 +8873,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 87,
+                                                    value: 86,
                                                 },
                                             ),
                                         ),
@@ -8790,7 +8886,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 87,
+                                            value: 86,
                                         },
                                     ),
                                 ),
@@ -8858,7 +8954,7 @@
                                 ],
                                 ty_path: TypePath(
                                     Id {
-                                        value: 88,
+                                        value: 87,
                                     },
                                 ),
                                 signature: FluffyFieldSignature {
@@ -8866,7 +8962,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 87,
+                                                    value: 86,
                                                 },
                                             ),
                                         ),
@@ -8879,7 +8975,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 87,
+                                            value: 86,
                                         },
                                     ),
                                 ),
@@ -8918,7 +9014,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 89,
+                                            value: 88,
                                         },
                                     ),
                                 ),
@@ -8939,7 +9035,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 89,
+                                            value: 88,
                                         },
                                     ),
                                 ),
@@ -8984,10 +9080,6 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [
@@ -9001,14 +9093,14 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 88,
+                                        value: 87,
                                     },
                                 ),
                                 refined_path: Right(
                                     CustomTypePath(
                                         TypePath(
                                             Id {
-                                                value: 88,
+                                                value: 87,
                                             },
                                         ),
                                     ),
@@ -9019,7 +9111,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 88,
+                                                    value: 87,
                                                 },
                                             ),
                                         ),
@@ -9028,6 +9120,10 @@
                             },
                         ],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -9041,7 +9137,7 @@
                             expectee: Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 10,
+                                        value: 14,
                                     },
                                 ),
                             ),
@@ -9059,7 +9155,7 @@
                                                 TypeOntology(
                                                     TypePath(
                                                         Id {
-                                                            value: 89,
+                                                            value: 88,
                                                         },
                                                     ),
                                                 ),
@@ -9074,7 +9170,7 @@
                                                             TypeOntology(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 87,
+                                                                        value: 86,
                                                                     },
                                                                 ),
                                                             ),
@@ -9087,7 +9183,7 @@
                                                             TypeOntology(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 87,
+                                                                        value: 86,
                                                                     },
                                                                 ),
                                                             ),
@@ -9124,7 +9220,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 87,
+                                            value: 86,
                                         },
                                     ),
                                 ),
@@ -9158,7 +9254,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 87,
+                                            value: 86,
                                         },
                                     ),
                                 ),
@@ -9177,7 +9273,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 89,
+                                            value: 88,
                                         },
                                     ),
                                 ),
@@ -9191,7 +9287,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 89,
+                                                        value: 88,
                                                     },
                                                 ),
                                             ),
@@ -9216,7 +9312,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 89,
+                                            value: 88,
                                         },
                                     ),
                                 ),
@@ -9230,7 +9326,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 89,
+                                                        value: 88,
                                                     },
                                                 ),
                                             ),
@@ -9258,17 +9354,23 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::geom2d`,
-                            ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TypeItem(
+                    TypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist_classifier::geom2d`,
+                                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `relative_point`,
+                                item_kind: MethodFn,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `relative_point`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -9282,7 +9384,7 @@
                             Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 11,
+                                        value: 15,
                                     },
                                 ),
                             ),
@@ -9349,7 +9451,7 @@
                                 ],
                                 ty_path: TypePath(
                                     Id {
-                                        value: 84,
+                                        value: 83,
                                     },
                                 ),
                                 signature: FluffyFieldSignature {
@@ -9357,7 +9459,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 60,
+                                                    value: 61,
                                                 },
                                             ),
                                         ),
@@ -9370,7 +9472,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -9438,7 +9540,7 @@
                                 ],
                                 ty_path: TypePath(
                                     Id {
-                                        value: 84,
+                                        value: 83,
                                     },
                                 ),
                                 signature: FluffyFieldSignature {
@@ -9446,7 +9548,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 60,
+                                                    value: 61,
                                                 },
                                             ),
                                         ),
@@ -9459,7 +9561,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -9498,7 +9600,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 85,
+                                            value: 84,
                                         },
                                     ),
                                 ),
@@ -9519,7 +9621,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 85,
+                                            value: 84,
                                         },
                                     ),
                                 ),
@@ -9564,10 +9666,6 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [
@@ -9581,14 +9679,14 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 84,
+                                        value: 83,
                                     },
                                 ),
                                 refined_path: Right(
                                     CustomTypePath(
                                         TypePath(
                                             Id {
-                                                value: 84,
+                                                value: 83,
                                             },
                                         ),
                                     ),
@@ -9599,7 +9697,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 84,
+                                                    value: 83,
                                                 },
                                             ),
                                         ),
@@ -9608,6 +9706,10 @@
                             },
                         ],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -9621,7 +9723,7 @@
                             expectee: Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 11,
+                                        value: 15,
                                     },
                                 ),
                             ),
@@ -9639,7 +9741,7 @@
                                                 TypeOntology(
                                                     TypePath(
                                                         Id {
-                                                            value: 85,
+                                                            value: 84,
                                                         },
                                                     ),
                                                 ),
@@ -9654,7 +9756,7 @@
                                                             TypeOntology(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 60,
+                                                                        value: 61,
                                                                     },
                                                                 ),
                                                             ),
@@ -9667,7 +9769,7 @@
                                                             TypeOntology(
                                                                 TypePath(
                                                                     Id {
-                                                                        value: 60,
+                                                                        value: 61,
                                                                     },
                                                                 ),
                                                             ),
@@ -9704,7 +9806,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -9738,7 +9840,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -9757,7 +9859,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 85,
+                                            value: 84,
                                         },
                                     ),
                                 ),
@@ -9771,7 +9873,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 85,
+                                                        value: 84,
                                                     },
                                                 ),
                                             ),
@@ -9796,7 +9898,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 85,
+                                            value: 84,
                                         },
                                     ),
                                 ),
@@ -9810,7 +9912,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 85,
+                                                        value: 84,
                                                     },
                                                 ),
                                             ),
@@ -9838,17 +9940,23 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::geom2d`,
-                            ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TypeItem(
+                    TypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist_classifier::geom2d`,
+                                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `xmin`,
+                                item_kind: MethodFn,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `xmin`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -9915,14 +10023,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -9939,17 +10047,23 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::geom2d`,
-                            ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TypeItem(
+                    TypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist_classifier::geom2d`,
+                                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `xmax`,
+                                item_kind: MethodFn,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `xmax`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -10016,14 +10130,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -10040,17 +10154,23 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::geom2d`,
-                            ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TypeItem(
+                    TypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist_classifier::geom2d`,
+                                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `ymin`,
+                                item_kind: MethodFn,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `ymin`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -10117,14 +10237,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -10141,17 +10261,23 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::geom2d`,
-                            ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TypeItem(
+                    TypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist_classifier::geom2d`,
+                                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `ymax`,
+                                item_kind: MethodFn,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `ymax`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -10218,14 +10344,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -10242,17 +10368,23 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::geom2d`,
-                            ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TypeItem(
+                    TypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist_classifier::geom2d`,
+                                    ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `xmin`,
+                                item_kind: MethodFn,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `xmin`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -10319,14 +10451,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -10343,17 +10475,23 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::geom2d`,
-                            ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TypeItem(
+                    TypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist_classifier::geom2d`,
+                                    ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `xmax`,
+                                item_kind: MethodFn,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `xmax`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -10420,14 +10558,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -10444,17 +10582,23 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::geom2d`,
-                            ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TypeItem(
+                    TypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist_classifier::geom2d`,
+                                    ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `ymin`,
+                                item_kind: MethodFn,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `ymin`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -10521,14 +10665,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -10545,17 +10689,23 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::Type(
-                        TypeImplBlockId {
-                            module_path: `mnist_classifier::geom2d`,
-                            ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TypeItem(
+                    TypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist_classifier::geom2d`,
+                                    ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `ymax`,
+                                item_kind: MethodFn,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `ymax`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -10622,14 +10772,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {

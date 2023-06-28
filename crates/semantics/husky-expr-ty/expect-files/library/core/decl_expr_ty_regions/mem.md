@@ -1,11 +1,14 @@
 [
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Type(
-                        TypePath(`core::mem::Ref`, `Extern`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Type(
+                    TypeNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypePath(`core::mem::Ref`, `Extern`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -70,10 +73,6 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [
@@ -81,7 +80,7 @@
                                 place: Const,
                                 path: TypePath(
                                     Id {
-                                        value: 74,
+                                        value: 76,
                                     },
                                 ),
                                 refined_path: Left(
@@ -93,7 +92,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 74,
+                                                    value: 76,
                                                 },
                                             ),
                                         ),
@@ -102,6 +101,10 @@
                             },
                         ],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -116,11 +119,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Type(
-                        TypePath(`core::mem::RefMut`, `Extern`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Type(
+                    TypeNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypePath(`core::mem::RefMut`, `Extern`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -185,10 +191,6 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [
@@ -196,7 +198,7 @@
                                 place: Const,
                                 path: TypePath(
                                     Id {
-                                        value: 74,
+                                        value: 76,
                                     },
                                 ),
                                 refined_path: Left(
@@ -208,7 +210,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 74,
+                                                    value: 76,
                                                 },
                                             ),
                                         ),
@@ -217,6 +219,10 @@
                             },
                         ],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -231,11 +237,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Type(
-                        TypePath(`core::mem::Leash`, `Extern`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Type(
+                    TypeNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypePath(`core::mem::Leash`, `Extern`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -282,15 +291,15 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
                 },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
             },
             expectations: Expectations {
                 arena: Arena {
@@ -304,13 +313,15 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::ImplBlock(
-                ImplBlockId::TraitForType(
-                    TraitForTypeImplBlockId {
-                        module_path: `core::mem`,
-                        trai_path: TraitPath(`core::marker::Copy`),
-                        ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                        disambiguator: 0,
+            EntityNodePath::ImplBlock(
+                ImplBlockNodePath::TraitForTypeImplBlock(
+                    TraitForTypeImplBlockNodePath {
+                        path: TraitForTypeImplBlockPath {
+                            module_path: `core::mem`,
+                            trai_path: TraitPath(`core::marker::Copy`),
+                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                            disambiguator: 0,
+                        },
                     },
                 ),
             ),
@@ -327,7 +338,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 76,
+                                            value: 40,
                                         },
                                     ),
                                 ),
@@ -441,14 +452,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -463,7 +474,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 76,
+                                            value: 40,
                                         },
                                     ),
                                 ),

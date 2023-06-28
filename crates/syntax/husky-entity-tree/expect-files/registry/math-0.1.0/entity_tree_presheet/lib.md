@@ -1,16 +1,17 @@
 Ok(
     EntityTreePresheet {
         module_path: `math`,
-        native_symbol_entries: NativeEntitySymbolTable(
-            [
-                NativeEntitySymbolEntry {
-                    ident: `algebra`,
-                    visibility: Scope::PubUnder(
-                        `math`,
-                    ),
-                    symbol: NativeEntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `math::algebra`,
+        node_table: MajorEntityNodeTable {
+            entries: [
+                EntityNodeEntry {
+                    node: EntityNode::Submodule(
+                        SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `math::algebra`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::PubUnder(
                                 `math`,
                             ),
@@ -23,15 +24,28 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `algebraic_geometry`,
+                    node_path: EntityNodePath::Submodule(
+                        SubmoduleNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: `math::algebra`,
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                    ident: `algebra`,
                     visibility: Scope::PubUnder(
                         `math`,
                     ),
-                    symbol: NativeEntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `math::algebraic_geometry`,
+                },
+                EntityNodeEntry {
+                    node: EntityNode::Submodule(
+                        SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `math::algebraic_geometry`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::PubUnder(
                                 `math`,
                             ),
@@ -44,15 +58,28 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `algebraic_topology`,
+                    node_path: EntityNodePath::Submodule(
+                        SubmoduleNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: `math::algebraic_geometry`,
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                    ident: `algebraic_geometry`,
                     visibility: Scope::PubUnder(
                         `math`,
                     ),
-                    symbol: NativeEntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `math::algebraic_topology`,
+                },
+                EntityNodeEntry {
+                    node: EntityNode::Submodule(
+                        SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `math::algebraic_topology`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::PubUnder(
                                 `math`,
                             ),
@@ -65,15 +92,28 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `category_theory`,
+                    node_path: EntityNodePath::Submodule(
+                        SubmoduleNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: `math::algebraic_topology`,
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                    ident: `algebraic_topology`,
                     visibility: Scope::PubUnder(
                         `math`,
                     ),
-                    symbol: NativeEntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `math::category_theory`,
+                },
+                EntityNodeEntry {
+                    node: EntityNode::Submodule(
+                        SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `math::category_theory`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::PubUnder(
                                 `math`,
                             ),
@@ -86,15 +126,28 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `probability`,
+                    node_path: EntityNodePath::Submodule(
+                        SubmoduleNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: `math::category_theory`,
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                    ident: `category_theory`,
                     visibility: Scope::PubUnder(
                         `math`,
                     ),
-                    symbol: NativeEntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `math::probability`,
+                },
+                EntityNodeEntry {
+                    node: EntityNode::Submodule(
+                        SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `math::probability`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::PubUnder(
                                 `math`,
                             ),
@@ -107,9 +160,21 @@ Ok(
                             },
                         },
                     ),
+                    node_path: EntityNodePath::Submodule(
+                        SubmoduleNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: `math::probability`,
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                    ident: `probability`,
+                    visibility: Scope::PubUnder(
+                        `math`,
+                    ),
                 },
             ],
-        ),
+        },
         use_one_trackers: UseExprRules(
             [],
         ),

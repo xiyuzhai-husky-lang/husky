@@ -1,26 +1,26 @@
-// provides support for determining expression type
+mod field;
+mod index;
+mod method;
 
-mod instance;
-mod ontology;
+pub use self::field::*;
+pub use self::index::*;
+pub use self::method::*;
 
-pub use self::instance::*;
-pub use self::ontology::*;
-
-use crate::*;
+use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct FluffyInstanceMemberDisambiguation<S: MemberSignature> {
-    indirections: SmallVec<[FluffyInstanceIndirection; 2]>,
+pub struct FluffyDotDisambiguation<S: MemberSignature> {
+    indirections: SmallVec<[FluffyDotIndirection; 2]>,
     signature: S,
 }
 
-type FluffyIndirections = SmallVec<[FluffyInstanceIndirection; 2]>;
+type FluffyIndirections = SmallVec<[FluffyDotIndirection; 2]>;
 
 pub trait MemberSignature {
-    fn expr_ty(&self, indirections: &[FluffyInstanceIndirection]) -> FluffyTermResult<FluffyTerm>;
+    fn expr_ty(&self, indirections: &[FluffyDotIndirection]) -> FluffyTermResult<FluffyTerm>;
 }
 
-impl<S: MemberSignature> FluffyInstanceMemberDisambiguation<S> {
+impl<S: MemberSignature> FluffyDotDisambiguation<S> {
     pub fn new(signature: S) -> Self {
         Self {
             indirections: smallvec![],
@@ -28,7 +28,7 @@ impl<S: MemberSignature> FluffyInstanceMemberDisambiguation<S> {
         }
     }
 
-    fn merge(&self, mut indirections: SmallVec<[FluffyInstanceIndirection; 2]>) -> Self
+    fn merge(&self, mut indirections: SmallVec<[FluffyDotIndirection; 2]>) -> Self
     where
         S: Clone,
     {
@@ -39,7 +39,7 @@ impl<S: MemberSignature> FluffyInstanceMemberDisambiguation<S> {
         }
     }
 
-    pub fn indirections(&self) -> &[FluffyInstanceIndirection] {
+    pub fn indirections(&self) -> &[FluffyDotIndirection] {
         &self.indirections
     }
 
@@ -53,7 +53,7 @@ impl<S: MemberSignature> FluffyInstanceMemberDisambiguation<S> {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum FluffyInstanceIndirection {
+pub enum FluffyDotIndirection {
     Place(Place),
     Leash,
 }

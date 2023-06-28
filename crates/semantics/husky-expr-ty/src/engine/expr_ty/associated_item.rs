@@ -1,8 +1,9 @@
 use super::*;
 use husky_token::IdentToken;
+use maybe_result::*;
 
 impl<'a> ExprTypeEngine<'a> {
-    pub(super) fn calc_associated_item_ty(
+    pub(super) fn calc_scope_resolution_ty(
         &mut self,
         expr_idx: ExprIdx,
         parent_expr_idx: ExprIdx,
@@ -12,11 +13,19 @@ impl<'a> ExprTypeEngine<'a> {
         let parent_term = self
             .infer_new_expr_term(parent_expr_idx)
             .ok_or(DerivedExprTypeError::UnableToInferAssociatedItemParentTerm)?;
-        let associated_item_disambiguation = parent_term.disambiguate_associated_item(
+        match parent_term.disambiguate_scope_resolution(
             self,
             ident_token.ident(),
             /*ad hoc */ &[],
-        );
-        todo!()
+        ) {
+            JustOk(disambiguation) => match disambiguation {
+                ScopeResolutionDisambiguation::AssociatedFn(ref signature) => {
+                    let ty = signature.ty();
+                    Ok((disambiguation.into(), Ok(ty)))
+                }
+            },
+            JustErr(_) => todo!(),
+            Nothing => todo!(),
+        }
     }
 }

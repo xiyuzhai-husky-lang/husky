@@ -54,7 +54,7 @@ fn parse_expr_works() {
             ExprRegionData {
                 parent: None,
                 path: Snippet(
-                    Toolchain(
+                    ModulePath(
                         Id {
                             value: 1,
                         },
@@ -126,7 +126,7 @@ fn parse_expr_works() {
             ExprRegionData {
                 parent: None,
                 path: Snippet(
-                    Toolchain(
+                    ModulePath(
                         Id {
                             value: 1,
                         },
@@ -205,7 +205,7 @@ fn parse_expr_works() {
             ExprRegionData {
                 parent: None,
                 path: Snippet(
-                    Toolchain(
+                    ModulePath(
                         Id {
                             value: 1,
                         },
@@ -279,7 +279,7 @@ fn parse_expr_works() {
             ExprRegionData {
                 parent: None,
                 path: Snippet(
-                    Toolchain(
+                    ModulePath(
                         Id {
                             value: 1,
                         },
@@ -353,7 +353,7 @@ fn parse_expr_works() {
             ExprRegionData {
                 parent: None,
                 path: Snippet(
-                    Toolchain(
+                    ModulePath(
                         Id {
                             value: 1,
                         },
@@ -424,7 +424,7 @@ fn parse_expr_works() {
             ExprRegionData {
                 parent: None,
                 path: Snippet(
-                    Toolchain(
+                    ModulePath(
                         Id {
                             value: 1,
                         },
@@ -514,7 +514,7 @@ fn parse_expr_works() {
             ExprRegionData {
                 parent: None,
                 path: Snippet(
-                    Toolchain(
+                    ModulePath(
                         Id {
                             value: 1,
                         },
@@ -533,7 +533,7 @@ fn parse_expr_works() {
                                 1,
                             ),
                         },
-                        EntityPath {
+                        PrincipalEntityPath {
                             entity_path_expr: 0,
                             path: Some(
                                 ModuleItem(
@@ -633,7 +633,7 @@ fn parse_expr_works() {
             ExprRegionData {
                 parent: None,
                 path: Snippet(
-                    Toolchain(
+                    ModulePath(
                         Id {
                             value: 1,
                         },
@@ -660,7 +660,7 @@ fn parse_expr_works() {
                                 2,
                             ),
                         },
-                        EntityPath {
+                        PrincipalEntityPath {
                             entity_path_expr: 0,
                             path: Some(
                                 ModuleItem(
@@ -760,7 +760,7 @@ fn parse_expr_works() {
             ExprRegionData {
                 parent: None,
                 path: Snippet(
-                    Toolchain(
+                    ModulePath(
                         Id {
                             value: 1,
                         },
@@ -768,7 +768,7 @@ fn parse_expr_works() {
                 ),
                 expr_arena: Arena {
                     data: [
-                        EntityPath {
+                        PrincipalEntityPath {
                             entity_path_expr: 0,
                             path: Some(
                                 ModuleItem(
@@ -782,7 +782,7 @@ fn parse_expr_works() {
                                 ),
                             ),
                         },
-                        EntityPath {
+                        PrincipalEntityPath {
                             entity_path_expr: 1,
                             path: Some(
                                 ModuleItem(
@@ -977,7 +977,7 @@ fn parse_expr_works() {
             ExprRegionData {
                 parent: None,
                 path: Snippet(
-                    Toolchain(
+                    ModulePath(
                         Id {
                             value: 1,
                         },
@@ -994,7 +994,7 @@ fn parse_expr_works() {
                                     ident: Ident(
                                         Word(
                                             Id {
-                                                value: 157,
+                                                value: 158,
                                             },
                                         ),
                                     ),
@@ -1075,7 +1075,7 @@ fn parse_expr_works() {
             ExprRegionData {
                 parent: None,
                 path: Snippet(
-                    Toolchain(
+                    ModulePath(
                         Id {
                             value: 1,
                         },
@@ -1092,7 +1092,7 @@ fn parse_expr_works() {
                                     ident: Ident(
                                         Word(
                                             Id {
-                                                value: 157,
+                                                value: 158,
                                             },
                                         ),
                                     ),
@@ -1108,7 +1108,7 @@ fn parse_expr_works() {
                                 ident: Ident(
                                     Word(
                                         Id {
-                                            value: 158,
+                                            value: 159,
                                         },
                                     ),
                                 ),
@@ -1189,7 +1189,7 @@ fn parse_application_expr_works() {
             ExprRegionData {
                 parent: None,
                 path: Snippet(
-                    Toolchain(
+                    ModulePath(
                         Id {
                             value: 1,
                         },

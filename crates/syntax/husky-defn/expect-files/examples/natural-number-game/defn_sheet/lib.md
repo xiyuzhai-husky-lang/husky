@@ -231,7 +231,7 @@ Ok(
                             ),
                             expr_arena: Arena {
                                 data: [
-                                    Expr::NonAssociatedEntity {
+                                    Expr::PrincipalEntityPath {
                                         entity_path_expr: 0,
                                         path: Some(
                                             EntityPath::ModuleItem(

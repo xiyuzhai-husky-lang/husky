@@ -1,10 +1,13 @@
 Ok(
     EntityTreeSheet {
         module_path: `std::logic`,
-        symbols: EntitySymbolTable(
+        major_entity_node_table: MajorEntityNodeTable {
+            entries: [],
+        },
+        entity_symbol_table: EntitySymbolTable(
             [],
         ),
-        impl_blocks: [],
+        impl_block_node_table: [],
         use_expr_rules: UseExprRules(
             [
                 UseExprRule {
@@ -34,7 +37,7 @@ Ok(
         ),
         errors: [
             EntityTreeError::Original(
-                OriginalEntityTreeError::UnresolvedIdent(
+                OriginalEntityTreeError::UnresolvedRootIdent(
                     IdentToken {
                         ident: `core`,
                         token_idx: TokenIdx(

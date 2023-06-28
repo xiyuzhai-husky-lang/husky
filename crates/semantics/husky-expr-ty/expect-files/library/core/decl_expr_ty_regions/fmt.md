@@ -1,11 +1,14 @@
 [
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Trait(
-                        TraitPath(`core::fmt::Debug`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Trait(
+                    TraitNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TraitPath(`core::fmt::Debug`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -30,14 +33,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {

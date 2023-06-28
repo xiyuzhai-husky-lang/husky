@@ -16,6 +16,7 @@ Ok(
         `core::prelude`,
         `core::raw_bits`,
         `core::result`,
+        `core::slice`,
         `core::str`,
         `core::visual`,
     ],

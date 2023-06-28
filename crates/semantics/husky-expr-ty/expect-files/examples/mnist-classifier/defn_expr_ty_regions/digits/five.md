@@ -1,11 +1,14 @@
 [
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Form(
-                        FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Fugitive(
+                    FugitiveNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -21,7 +24,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 96,
+                                            value: 95,
                                         },
                                     ),
                                 ),
@@ -42,7 +45,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 96,
+                                            value: 95,
                                         },
                                     ),
                                 ),
@@ -75,14 +78,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -97,7 +100,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 96,
+                                            value: 95,
                                         },
                                     ),
                                 ),
@@ -116,7 +119,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 96,
+                                            value: 95,
                                         },
                                     ),
                                 ),

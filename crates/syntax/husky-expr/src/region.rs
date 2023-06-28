@@ -137,7 +137,7 @@ impl ExprRegion {
     pub fn toolchain(self, db: &dyn ExprDb) -> Toolchain {
         // ad hoc
         match self.data(db).path {
-            RegionPath::Snippet(toolchain) => toolchain,
+            RegionPath::Snippet(module_path) => module_path.toolchain(db),
             RegionPath::Decr(id) => id.toolchain(db),
             RegionPath::Decl(id) | RegionPath::Defn(id) => id.toolchain(db),
         }

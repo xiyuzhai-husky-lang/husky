@@ -1,11 +1,14 @@
 [
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Type(
-                        TypePath(`core::array::Array`, `Extern`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Type(
+                    TypeNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypePath(`core::array::Array`, `Extern`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -92,10 +95,6 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [
@@ -103,7 +102,7 @@
                                 place: Const,
                                 path: TypePath(
                                     Id {
-                                        value: 59,
+                                        value: 60,
                                     },
                                 ),
                                 refined_path: Left(
@@ -119,7 +118,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 59,
+                                                    value: 60,
                                                 },
                                             ),
                                         ),
@@ -128,6 +127,10 @@
                             },
                         ],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {

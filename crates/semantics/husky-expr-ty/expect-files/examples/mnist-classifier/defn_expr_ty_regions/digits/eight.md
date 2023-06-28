@@ -1,11 +1,14 @@
 [
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Form(
-                        FugitivePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Fugitive(
+                    FugitiveNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: FugitivePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -113,6 +116,11 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [],
+                    },
+                },
                 hollow_terms: HollowTerms {
                     entries: [
                         HollowTermEntry {
@@ -129,7 +137,7 @@
                             data: TypeOntology {
                                 path: TypePath(
                                     Id {
-                                        value: 41,
+                                        value: 42,
                                     },
                                 ),
                                 refined_path: Left(
@@ -147,11 +155,6 @@
                         },
                     ],
                     first_unresolved_term_idx: 0,
-                },
-                solid_terms: SolidTerms {
-                    entries: VecSet {
-                        data: [],
-                    },
                 },
             },
             expectations: Expectations {
@@ -182,11 +185,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Form(
-                        FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Fugitive(
+                    FugitiveNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -201,7 +207,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 20,
+                                        value: 22,
                                     },
                                 ),
                             ),
@@ -221,7 +227,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -243,7 +249,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 20,
+                                        value: 22,
                                     },
                                 ),
                             ),
@@ -263,7 +269,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -285,7 +291,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 20,
+                                        value: 22,
                                     },
                                 ),
                             ),
@@ -305,7 +311,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -327,7 +333,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 20,
+                                        value: 22,
                                     },
                                 ),
                             ),
@@ -347,7 +353,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -369,7 +375,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 21,
+                                        value: 23,
                                     },
                                 ),
                             ),
@@ -390,7 +396,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 21,
+                                        value: 23,
                                     },
                                 ),
                             ),
@@ -411,7 +417,7 @@
                                 ],
                                 ty_path: TypePath(
                                     Id {
-                                        value: 80,
+                                        value: 79,
                                     },
                                 ),
                                 signature: FluffyFieldSignature {
@@ -419,7 +425,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 60,
+                                                    value: 61,
                                                 },
                                             ),
                                         ),
@@ -432,7 +438,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -454,7 +460,7 @@
                                 ],
                                 ty_path: TypePath(
                                     Id {
-                                        value: 80,
+                                        value: 79,
                                     },
                                 ),
                                 signature: FluffyFieldSignature {
@@ -462,7 +468,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 60,
+                                                    value: 61,
                                                 },
                                             ),
                                         ),
@@ -475,7 +481,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -496,7 +502,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -518,7 +524,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 21,
+                                        value: 23,
                                     },
                                 ),
                             ),
@@ -539,7 +545,7 @@
                                 ],
                                 ty_path: TypePath(
                                     Id {
-                                        value: 80,
+                                        value: 79,
                                     },
                                 ),
                                 signature: FluffyFieldSignature {
@@ -547,7 +553,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 79,
+                                                    value: 78,
                                                 },
                                             ),
                                         ),
@@ -560,7 +566,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 79,
+                                            value: 78,
                                         },
                                     ),
                                 ),
@@ -580,14 +586,14 @@
                                 indirections: [],
                                 ty_path: TypePath(
                                     Id {
-                                        value: 79,
+                                        value: 78,
                                     },
                                 ),
                                 signature: FluffyFieldSignature {
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 17,
+                                                value: 19,
                                             },
                                         ),
                                     ),
@@ -598,7 +604,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 17,
+                                        value: 19,
                                     },
                                 ),
                             ),
@@ -631,13 +637,13 @@
                     (
                         IndexOrComposeWithList(
                             Index(
-                                FluffyMemberDisambiguation {
+                                FluffyDotDisambiguation {
                                     indirections: [],
                                     signature: FluffyIndexSignature {
                                         element_ty: Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 16,
+                                                    value: 18,
                                                 },
                                             ),
                                         ),
@@ -649,7 +655,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 16,
+                                        value: 18,
                                     },
                                 ),
                             ),
@@ -669,7 +675,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -691,7 +697,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 21,
+                                        value: 23,
                                     },
                                 ),
                             ),
@@ -712,7 +718,7 @@
                                 ],
                                 ty_path: TypePath(
                                     Id {
-                                        value: 80,
+                                        value: 79,
                                     },
                                 ),
                                 signature: FluffyFieldSignature {
@@ -720,7 +726,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 79,
+                                                    value: 78,
                                                 },
                                             ),
                                         ),
@@ -733,7 +739,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 79,
+                                            value: 78,
                                         },
                                     ),
                                 ),
@@ -753,14 +759,14 @@
                                 indirections: [],
                                 ty_path: TypePath(
                                     Id {
-                                        value: 79,
+                                        value: 78,
                                     },
                                 ),
                                 signature: FluffyFieldSignature {
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 17,
+                                                value: 19,
                                             },
                                         ),
                                     ),
@@ -771,7 +777,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 17,
+                                        value: 19,
                                     },
                                 ),
                             ),
@@ -804,13 +810,13 @@
                     (
                         IndexOrComposeWithList(
                             Index(
-                                FluffyMemberDisambiguation {
+                                FluffyDotDisambiguation {
                                     indirections: [],
                                     signature: FluffyIndexSignature {
                                         element_ty: Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 16,
+                                                    value: 18,
                                                 },
                                             ),
                                         ),
@@ -822,7 +828,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 16,
+                                        value: 18,
                                     },
                                 ),
                             ),
@@ -842,7 +848,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -863,7 +869,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -884,7 +890,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -907,7 +913,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 96,
+                                            value: 95,
                                         },
                                     ),
                                 ),
@@ -928,7 +934,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 96,
+                                            value: 95,
                                         },
                                     ),
                                 ),
@@ -1025,6 +1031,242 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [
+                            PlaceTypeOntology {
+                                place: StackPure {
+                                    location: StackLocationIdx(
+                                        LocalSymbolIdx(
+                                            0,
+                                        ),
+                                    ),
+                                },
+                                path: TypePath(
+                                    Id {
+                                        value: 48,
+                                    },
+                                ),
+                                refined_path: Left(
+                                    Borrow(
+                                        Leash,
+                                    ),
+                                ),
+                                arguments: [
+                                    Application(
+                                        EtherealTermApplication(
+                                            Id {
+                                                value: 21,
+                                            },
+                                        ),
+                                    ),
+                                ],
+                                base_ty_term: Some(
+                                    Application(
+                                        EtherealTermApplication(
+                                            Id {
+                                                value: 22,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
+                            PlaceTypeOntology {
+                                place: StackPure {
+                                    location: StackLocationIdx(
+                                        LocalSymbolIdx(
+                                            1,
+                                        ),
+                                    ),
+                                },
+                                path: TypePath(
+                                    Id {
+                                        value: 48,
+                                    },
+                                ),
+                                refined_path: Left(
+                                    Borrow(
+                                        Leash,
+                                    ),
+                                ),
+                                arguments: [
+                                    Application(
+                                        EtherealTermApplication(
+                                            Id {
+                                                value: 21,
+                                            },
+                                        ),
+                                    ),
+                                ],
+                                base_ty_term: Some(
+                                    Application(
+                                        EtherealTermApplication(
+                                            Id {
+                                                value: 22,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
+                            PlaceTypeOntology {
+                                place: StackPure {
+                                    location: StackLocationIdx(
+                                        LocalSymbolIdx(
+                                            2,
+                                        ),
+                                    ),
+                                },
+                                path: TypePath(
+                                    Id {
+                                        value: 48,
+                                    },
+                                ),
+                                refined_path: Left(
+                                    Borrow(
+                                        Leash,
+                                    ),
+                                ),
+                                arguments: [
+                                    Application(
+                                        EtherealTermApplication(
+                                            Id {
+                                                value: 21,
+                                            },
+                                        ),
+                                    ),
+                                ],
+                                base_ty_term: Some(
+                                    Application(
+                                        EtherealTermApplication(
+                                            Id {
+                                                value: 22,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
+                            PlaceTypeOntology {
+                                place: StackPure {
+                                    location: StackLocationIdx(
+                                        LocalSymbolIdx(
+                                            3,
+                                        ),
+                                    ),
+                                },
+                                path: TypePath(
+                                    Id {
+                                        value: 48,
+                                    },
+                                ),
+                                refined_path: Left(
+                                    Borrow(
+                                        Leash,
+                                    ),
+                                ),
+                                arguments: [
+                                    Application(
+                                        EtherealTermApplication(
+                                            Id {
+                                                value: 21,
+                                            },
+                                        ),
+                                    ),
+                                ],
+                                base_ty_term: Some(
+                                    Application(
+                                        EtherealTermApplication(
+                                            Id {
+                                                value: 22,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
+                            PlaceTypeOntology {
+                                place: StackPure {
+                                    location: StackLocationIdx(
+                                        LocalSymbolIdx(
+                                            5,
+                                        ),
+                                    ),
+                                },
+                                path: TypePath(
+                                    Id {
+                                        value: 64,
+                                    },
+                                ),
+                                refined_path: Right(
+                                    CustomTypePath(
+                                        TypePath(
+                                            Id {
+                                                value: 64,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                arguments: [
+                                    Application(
+                                        EtherealTermApplication(
+                                            Id {
+                                                value: 12,
+                                            },
+                                        ),
+                                    ),
+                                ],
+                                base_ty_term: Some(
+                                    Application(
+                                        EtherealTermApplication(
+                                            Id {
+                                                value: 18,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
+                            PlaceTypeOntology {
+                                place: StackPure {
+                                    location: StackLocationIdx(
+                                        LocalSymbolIdx(
+                                            6,
+                                        ),
+                                    ),
+                                },
+                                path: TypePath(
+                                    Id {
+                                        value: 64,
+                                    },
+                                ),
+                                refined_path: Right(
+                                    CustomTypePath(
+                                        TypePath(
+                                            Id {
+                                                value: 64,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                arguments: [
+                                    Application(
+                                        EtherealTermApplication(
+                                            Id {
+                                                value: 12,
+                                            },
+                                        ),
+                                    ),
+                                ],
+                                base_ty_term: Some(
+                                    Application(
+                                        EtherealTermApplication(
+                                            Id {
+                                                value: 18,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ],
+                    },
+                },
                 hollow_terms: HollowTerms {
                     entries: [
                         HollowTermEntry {
@@ -1038,7 +1280,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 59,
+                                                    value: 60,
                                                 },
                                             ),
                                         ),
@@ -1050,7 +1292,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 59,
+                                                value: 60,
                                             },
                                         ),
                                     ),
@@ -1068,7 +1310,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 59,
+                                                    value: 60,
                                                 },
                                             ),
                                         ),
@@ -1080,7 +1322,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 59,
+                                                value: 60,
                                             },
                                         ),
                                     ),
@@ -1089,242 +1331,6 @@
                         },
                     ],
                     first_unresolved_term_idx: 2,
-                },
-                solid_terms: SolidTerms {
-                    entries: VecSet {
-                        data: [
-                            PlaceTypeOntology {
-                                place: StackPure {
-                                    location: StackLocationIdx(
-                                        LocalSymbolIdx(
-                                            0,
-                                        ),
-                                    ),
-                                },
-                                path: TypePath(
-                                    Id {
-                                        value: 47,
-                                    },
-                                ),
-                                refined_path: Left(
-                                    Borrow(
-                                        Leash,
-                                    ),
-                                ),
-                                arguments: [
-                                    Application(
-                                        EtherealTermApplication(
-                                            Id {
-                                                value: 19,
-                                            },
-                                        ),
-                                    ),
-                                ],
-                                base_ty_term: Some(
-                                    Application(
-                                        EtherealTermApplication(
-                                            Id {
-                                                value: 20,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
-                            PlaceTypeOntology {
-                                place: StackPure {
-                                    location: StackLocationIdx(
-                                        LocalSymbolIdx(
-                                            1,
-                                        ),
-                                    ),
-                                },
-                                path: TypePath(
-                                    Id {
-                                        value: 47,
-                                    },
-                                ),
-                                refined_path: Left(
-                                    Borrow(
-                                        Leash,
-                                    ),
-                                ),
-                                arguments: [
-                                    Application(
-                                        EtherealTermApplication(
-                                            Id {
-                                                value: 19,
-                                            },
-                                        ),
-                                    ),
-                                ],
-                                base_ty_term: Some(
-                                    Application(
-                                        EtherealTermApplication(
-                                            Id {
-                                                value: 20,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
-                            PlaceTypeOntology {
-                                place: StackPure {
-                                    location: StackLocationIdx(
-                                        LocalSymbolIdx(
-                                            2,
-                                        ),
-                                    ),
-                                },
-                                path: TypePath(
-                                    Id {
-                                        value: 47,
-                                    },
-                                ),
-                                refined_path: Left(
-                                    Borrow(
-                                        Leash,
-                                    ),
-                                ),
-                                arguments: [
-                                    Application(
-                                        EtherealTermApplication(
-                                            Id {
-                                                value: 19,
-                                            },
-                                        ),
-                                    ),
-                                ],
-                                base_ty_term: Some(
-                                    Application(
-                                        EtherealTermApplication(
-                                            Id {
-                                                value: 20,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
-                            PlaceTypeOntology {
-                                place: StackPure {
-                                    location: StackLocationIdx(
-                                        LocalSymbolIdx(
-                                            3,
-                                        ),
-                                    ),
-                                },
-                                path: TypePath(
-                                    Id {
-                                        value: 47,
-                                    },
-                                ),
-                                refined_path: Left(
-                                    Borrow(
-                                        Leash,
-                                    ),
-                                ),
-                                arguments: [
-                                    Application(
-                                        EtherealTermApplication(
-                                            Id {
-                                                value: 19,
-                                            },
-                                        ),
-                                    ),
-                                ],
-                                base_ty_term: Some(
-                                    Application(
-                                        EtherealTermApplication(
-                                            Id {
-                                                value: 20,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
-                            PlaceTypeOntology {
-                                place: StackPure {
-                                    location: StackLocationIdx(
-                                        LocalSymbolIdx(
-                                            5,
-                                        ),
-                                    ),
-                                },
-                                path: TypePath(
-                                    Id {
-                                        value: 63,
-                                    },
-                                ),
-                                refined_path: Right(
-                                    CustomTypePath(
-                                        TypePath(
-                                            Id {
-                                                value: 63,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                                arguments: [
-                                    Application(
-                                        EtherealTermApplication(
-                                            Id {
-                                                value: 10,
-                                            },
-                                        ),
-                                    ),
-                                ],
-                                base_ty_term: Some(
-                                    Application(
-                                        EtherealTermApplication(
-                                            Id {
-                                                value: 16,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
-                            PlaceTypeOntology {
-                                place: StackPure {
-                                    location: StackLocationIdx(
-                                        LocalSymbolIdx(
-                                            6,
-                                        ),
-                                    ),
-                                },
-                                path: TypePath(
-                                    Id {
-                                        value: 63,
-                                    },
-                                ),
-                                refined_path: Right(
-                                    CustomTypePath(
-                                        TypePath(
-                                            Id {
-                                                value: 63,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                                arguments: [
-                                    Application(
-                                        EtherealTermApplication(
-                                            Id {
-                                                value: 10,
-                                            },
-                                        ),
-                                    ),
-                                ],
-                                base_ty_term: Some(
-                                    Application(
-                                        EtherealTermApplication(
-                                            Id {
-                                                value: 16,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
-                        ],
-                    },
                 },
             },
             expectations: Expectations {
@@ -1338,7 +1344,7 @@
                             expectee: Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 20,
+                                        value: 22,
                                     },
                                 ),
                             ),
@@ -1356,7 +1362,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -1370,7 +1376,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 36,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -1394,7 +1400,7 @@
                             expectee: Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 20,
+                                        value: 22,
                                     },
                                 ),
                             ),
@@ -1412,7 +1418,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -1426,7 +1432,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 36,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -1450,7 +1456,7 @@
                             expectee: Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 20,
+                                        value: 22,
                                     },
                                 ),
                             ),
@@ -1468,7 +1474,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -1482,7 +1488,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 36,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -1506,7 +1512,7 @@
                             expectee: Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 20,
+                                        value: 22,
                                     },
                                 ),
                             ),
@@ -1524,7 +1530,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -1538,7 +1544,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 36,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -1562,7 +1568,7 @@
                             expectee: Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 21,
+                                        value: 23,
                                     },
                                 ),
                             ),
@@ -1580,7 +1586,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -1598,7 +1604,7 @@
                             expectee: Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 21,
+                                        value: 23,
                                     },
                                 ),
                             ),
@@ -1616,7 +1622,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -1630,7 +1636,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 60,
+                                                        value: 61,
                                                     },
                                                 ),
                                             ),
@@ -1655,7 +1661,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 60,
+                                            value: 61,
                                         },
                                     ),
                                 ),
@@ -1673,7 +1679,7 @@
                             expectee: Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 21,
+                                        value: 23,
                                     },
                                 ),
                             ),
@@ -1691,7 +1697,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 79,
+                                            value: 78,
                                         },
                                     ),
                                 ),
@@ -1709,7 +1715,7 @@
                             expectee: Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 17,
+                                        value: 19,
                                     },
                                 ),
                             ),
@@ -1752,7 +1758,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 59,
+                                                        value: 60,
                                                     },
                                                 ),
                                             ),
@@ -1776,7 +1782,7 @@
                             expectee: Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 16,
+                                        value: 18,
                                     },
                                 ),
                             ),
@@ -1794,7 +1800,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -1808,7 +1814,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 36,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -1832,7 +1838,7 @@
                             expectee: Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 21,
+                                        value: 23,
                                     },
                                 ),
                             ),
@@ -1850,7 +1856,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 79,
+                                            value: 78,
                                         },
                                     ),
                                 ),
@@ -1868,7 +1874,7 @@
                             expectee: Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 17,
+                                        value: 19,
                                     },
                                 ),
                             ),
@@ -1911,7 +1917,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 59,
+                                                        value: 60,
                                                     },
                                                 ),
                                             ),
@@ -1935,7 +1941,7 @@
                             expectee: Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 16,
+                                        value: 18,
                                     },
                                 ),
                             ),
@@ -1953,7 +1959,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -1967,7 +1973,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 36,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -1992,7 +1998,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -2006,7 +2012,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 36,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -2031,7 +2037,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -2045,7 +2051,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 36,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -2070,7 +2076,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 96,
+                                            value: 95,
                                         },
                                     ),
                                 ),
@@ -2089,7 +2095,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 96,
+                                            value: 95,
                                         },
                                     ),
                                 ),
@@ -2109,11 +2115,14 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            DefnRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Form(
-                        FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Fugitive(
+                    FugitiveNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -2173,7 +2182,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -2300,7 +2309,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -2379,6 +2388,11 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [],
+                    },
+                },
                 hollow_terms: HollowTerms {
                     entries: [
                         HollowTermEntry {
@@ -2393,11 +2407,6 @@
                         },
                     ],
                     first_unresolved_term_idx: 0,
-                },
-                solid_terms: SolidTerms {
-                    entries: VecSet {
-                        data: [],
-                    },
                 },
             },
             expectations: Expectations {
@@ -2427,7 +2436,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -2441,7 +2450,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 36,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -2466,7 +2475,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 36,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -2480,7 +2489,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 36,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),

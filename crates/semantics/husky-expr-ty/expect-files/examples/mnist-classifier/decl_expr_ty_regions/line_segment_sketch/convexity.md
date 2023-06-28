@@ -1,11 +1,14 @@
 [
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Form(
-                        FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Fugitive(
+                    FugitiveNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -116,10 +119,6 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [
@@ -133,14 +132,14 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 91,
+                                        value: 90,
                                     },
                                 ),
                                 refined_path: Right(
                                     CustomTypePath(
                                         TypePath(
                                             Id {
-                                                value: 91,
+                                                value: 90,
                                             },
                                         ),
                                     ),
@@ -151,7 +150,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 91,
+                                                    value: 90,
                                                 },
                                             ),
                                         ),
@@ -168,7 +167,7 @@
                                 },
                                 path: TypePath(
                                     Id {
-                                        value: 50,
+                                        value: 51,
                                     },
                                 ),
                                 refined_path: Left(
@@ -184,7 +183,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 50,
+                                                    value: 51,
                                                 },
                                             ),
                                         ),
@@ -193,6 +192,10 @@
                             },
                         ],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
