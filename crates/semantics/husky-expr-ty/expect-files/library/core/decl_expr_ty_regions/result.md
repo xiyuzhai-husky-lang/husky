@@ -1,11 +1,14 @@
 [
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Type(
-                        TypePath(`core::result::Result`, `Enum`),
-                    ),
+            EntityNodePath::ModuleItem(
+                ModuleItemNodePath::Type(
+                    TypeNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypePath(`core::result::Result`, `Enum`),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
         ),
@@ -72,14 +75,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -94,13 +97,15 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::ImplBlock(
-                ImplBlockId::TraitForType(
-                    TraitForTypeImplBlockId {
-                        module_path: `core::result`,
-                        trai_path: TraitPath(`core::ops::Unveil`),
-                        ty_path: TypePath(`core::result::Result`, `Enum`),
-                        disambiguator: 0,
+            EntityNodePath::ImplBlock(
+                ImplBlockNodePath::TraitForTypeImplBlock(
+                    TraitForTypeImplBlockNodePath {
+                        path: TraitForTypeImplBlockPath {
+                            module_path: `core::result`,
+                            trai_path: TraitPath(`core::ops::Unveil`),
+                            ty_path: TypePath(`core::result::Result`, `Enum`),
+                            disambiguator: 0,
+                        },
                     },
                 ),
             ),
@@ -233,7 +238,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 76,
+                                            value: 40,
                                         },
                                     ),
                                 ),
@@ -445,14 +450,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -484,7 +489,7 @@
                                                 TypeOntology(
                                                     TypePath(
                                                         Id {
-                                                            value: 76,
+                                                            value: 40,
                                                         },
                                                     ),
                                                 ),
@@ -503,7 +508,7 @@
                                                     TypeOntology(
                                                         TypePath(
                                                             Id {
-                                                                value: 76,
+                                                                value: 40,
                                                             },
                                                         ),
                                                     ),
@@ -642,7 +647,7 @@
                                                 TypeOntology(
                                                     TypePath(
                                                         Id {
-                                                            value: 76,
+                                                            value: 40,
                                                         },
                                                     ),
                                                 ),
@@ -661,7 +666,7 @@
                                                     TypeOntology(
                                                         TypePath(
                                                             Id {
-                                                                value: 76,
+                                                                value: 40,
                                                             },
                                                         ),
                                                     ),
@@ -706,7 +711,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 76,
+                                            value: 40,
                                         },
                                     ),
                                 ),
@@ -909,18 +914,24 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::TraitForType(
-                        TraitForTypeImplBlockId {
-                            module_path: `core::result`,
-                            trai_path: TraitPath(`core::ops::Unveil`),
-                            ty_path: TypePath(`core::result::Result`, `Enum`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TraitForTypeItem(
+                    TraitForTypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TraitForTypeItemPath {
+                                impl_block: TraitForTypeImplBlockPath {
+                                    module_path: `core::result`,
+                                    trai_path: TraitPath(`core::ops::Unveil`),
+                                    ty_path: TypePath(`core::result::Result`, `Enum`),
+                                    disambiguator: 0,
+                                },
+                                ident: `Continue`,
+                                item_kind: AssociatedType,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `Continue`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [],
@@ -1026,14 +1037,14 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {
@@ -1050,18 +1061,24 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::AssociatedItem(
-                AssociatedItemId {
-                    impl_block_id: ImplBlockId::TraitForType(
-                        TraitForTypeImplBlockId {
-                            module_path: `core::result`,
-                            trai_path: TraitPath(`core::ops::Unveil`),
-                            ty_path: TypePath(`core::result::Result`, `Enum`),
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TraitForTypeItem(
+                    TraitForTypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TraitForTypeItemPath {
+                                impl_block: TraitForTypeImplBlockPath {
+                                    module_path: `core::result`,
+                                    trai_path: TraitPath(`core::ops::Unveil`),
+                                    ty_path: TypePath(`core::result::Result`, `Enum`),
+                                    disambiguator: 0,
+                                },
+                                ident: `branch`,
+                                item_kind: MethodFn,
+                            },
                             disambiguator: 0,
                         },
-                    ),
-                    ident: `branch`,
-                },
+                    },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -1374,10 +1391,6 @@
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
-                hollow_terms: HollowTerms {
-                    entries: [],
-                    first_unresolved_term_idx: 0,
-                },
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [
@@ -1431,6 +1444,10 @@
                             },
                         ],
                     },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
                 },
             },
             expectations: Expectations {

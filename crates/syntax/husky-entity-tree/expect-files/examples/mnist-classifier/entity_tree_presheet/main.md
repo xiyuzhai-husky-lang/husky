@@ -1,16 +1,17 @@
 Ok(
     EntityTreePresheet {
         module_path: `mnist_classifier`,
-        native_symbol_entries: NativeEntitySymbolTable(
-            [
-                NativeEntitySymbolEntry {
-                    ident: `connected_component`,
-                    visibility: Scope::PubUnder(
-                        `mnist_classifier`,
-                    ),
-                    symbol: NativeEntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `mnist_classifier::connected_component`,
+        node_table: MajorEntityNodeTable {
+            entries: [
+                EntityNodeEntry {
+                    node: EntityNode::Submodule(
+                        SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `mnist_classifier::connected_component`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::PubUnder(
                                 `mnist_classifier`,
                             ),
@@ -23,15 +24,28 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `raw_contour`,
+                    node_path: EntityNodePath::Submodule(
+                        SubmoduleNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: `mnist_classifier::connected_component`,
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                    ident: `connected_component`,
                     visibility: Scope::PubUnder(
                         `mnist_classifier`,
                     ),
-                    symbol: NativeEntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `mnist_classifier::raw_contour`,
+                },
+                EntityNodeEntry {
+                    node: EntityNode::Submodule(
+                        SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `mnist_classifier::raw_contour`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::PubUnder(
                                 `mnist_classifier`,
                             ),
@@ -44,15 +58,28 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `geom2d`,
+                    node_path: EntityNodePath::Submodule(
+                        SubmoduleNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: `mnist_classifier::raw_contour`,
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                    ident: `raw_contour`,
                     visibility: Scope::PubUnder(
                         `mnist_classifier`,
                     ),
-                    symbol: NativeEntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `mnist_classifier::geom2d`,
+                },
+                EntityNodeEntry {
+                    node: EntityNode::Submodule(
+                        SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `mnist_classifier::geom2d`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::PubUnder(
                                 `mnist_classifier`,
                             ),
@@ -65,15 +92,28 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `line_segment_sketch`,
+                    node_path: EntityNodePath::Submodule(
+                        SubmoduleNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: `mnist_classifier::geom2d`,
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                    ident: `geom2d`,
                     visibility: Scope::PubUnder(
                         `mnist_classifier`,
                     ),
-                    symbol: NativeEntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `mnist_classifier::line_segment_sketch`,
+                },
+                EntityNodeEntry {
+                    node: EntityNode::Submodule(
+                        SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `mnist_classifier::line_segment_sketch`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::PubUnder(
                                 `mnist_classifier`,
                             ),
@@ -86,15 +126,28 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `fermi`,
+                    node_path: EntityNodePath::Submodule(
+                        SubmoduleNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: `mnist_classifier::line_segment_sketch`,
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                    ident: `line_segment_sketch`,
                     visibility: Scope::PubUnder(
                         `mnist_classifier`,
                     ),
-                    symbol: NativeEntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `mnist_classifier::fermi`,
+                },
+                EntityNodeEntry {
+                    node: EntityNode::Submodule(
+                        SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `mnist_classifier::fermi`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::PubUnder(
                                 `mnist_classifier`,
                             ),
@@ -107,15 +160,28 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `digits`,
+                    node_path: EntityNodePath::Submodule(
+                        SubmoduleNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: `mnist_classifier::fermi`,
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                    ident: `fermi`,
                     visibility: Scope::PubUnder(
                         `mnist_classifier`,
                     ),
-                    symbol: NativeEntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `mnist_classifier::digits`,
+                },
+                EntityNodeEntry {
+                    node: EntityNode::Submodule(
+                        SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `mnist_classifier::digits`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::PubUnder(
                                 `mnist_classifier`,
                             ),
@@ -128,15 +194,28 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `major`,
+                    node_path: EntityNodePath::Submodule(
+                        SubmoduleNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: `mnist_classifier::digits`,
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                    ident: `digits`,
                     visibility: Scope::PubUnder(
                         `mnist_classifier`,
                     ),
-                    symbol: NativeEntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `mnist_classifier::major`,
+                },
+                EntityNodeEntry {
+                    node: EntityNode::Submodule(
+                        SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `mnist_classifier::major`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::PubUnder(
                                 `mnist_classifier`,
                             ),
@@ -149,9 +228,21 @@ Ok(
                             },
                         },
                     ),
+                    node_path: EntityNodePath::Submodule(
+                        SubmoduleNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: `mnist_classifier::major`,
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                    ident: `major`,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier`,
+                    ),
                 },
             ],
-        ),
+        },
         use_one_trackers: UseExprRules(
             [
                 UseExprRule {

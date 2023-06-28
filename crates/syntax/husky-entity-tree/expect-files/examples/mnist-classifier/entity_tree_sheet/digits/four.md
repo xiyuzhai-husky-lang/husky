@@ -1,17 +1,18 @@
 Ok(
     EntityTreeSheet {
         module_path: `mnist_classifier::digits::four`,
-        symbols: EntitySymbolTable(
-            [
-                EntitySymbolEntry {
-                    ident: `left_components`,
-                    visibility: Scope::PubUnder(
-                        `mnist_classifier::digits::four`,
-                    ),
-                    symbol: EntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Form(
-                                FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
+        major_entity_node_table: MajorEntityNodeTable {
+            entries: [
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Fugitive(
+                                FugitiveNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
@@ -25,16 +26,31 @@ Ok(
                             },
                         },
                     ),
-                },
-                EntitySymbolEntry {
-                    ident: `left_coordinate_max`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Fugitive(
+                            FugitiveNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `left_components`,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::digits::four`,
                     ),
-                    symbol: EntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Form(
-                                FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Fugitive(
+                                FugitiveNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
@@ -48,16 +64,31 @@ Ok(
                             },
                         },
                     ),
-                },
-                EntitySymbolEntry {
-                    ident: `components_max_downwards`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Fugitive(
+                            FugitiveNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `left_coordinate_max`,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::digits::four`,
                     ),
-                    symbol: EntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Form(
-                                FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Fugitive(
+                                FugitiveNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
@@ -71,16 +102,31 @@ Ok(
                             },
                         },
                     ),
-                },
-                EntitySymbolEntry {
-                    ident: `components_max_heights`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Fugitive(
+                            FugitiveNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `components_max_downwards`,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::digits::four`,
                     ),
-                    symbol: EntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Form(
-                                FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Fugitive(
+                                FugitiveNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
@@ -94,16 +140,31 @@ Ok(
                             },
                         },
                     ),
-                },
-                EntitySymbolEntry {
-                    ident: `is_four`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Fugitive(
+                            FugitiveNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `components_max_heights`,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::digits::four`,
                     ),
-                    symbol: EntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Form(
-                                FugitivePath(`mnist_classifier::digits::four::is_four`, `Val`),
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Fugitive(
+                                FugitiveNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: FugitivePath(`mnist_classifier::digits::four::is_four`, `Val`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
@@ -117,16 +178,31 @@ Ok(
                             },
                         },
                     ),
-                },
-                EntitySymbolEntry {
-                    ident: `displacement_downwards`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Fugitive(
+                            FugitiveNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: FugitivePath(`mnist_classifier::digits::four::is_four`, `Val`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `is_four`,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::digits::four`,
                     ),
-                    symbol: EntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Form(
-                                FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `Fn`),
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Fugitive(
+                                FugitiveNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `Fn`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
@@ -140,16 +216,31 @@ Ok(
                             },
                         },
                     ),
-                },
-                EntitySymbolEntry {
-                    ident: `cc_box_heights`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Fugitive(
+                            FugitiveNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `Fn`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `displacement_downwards`,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::digits::four`,
                     ),
-                    symbol: EntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Form(
-                                FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `Fn`),
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Fugitive(
+                                FugitiveNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `Fn`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
@@ -163,6 +254,241 @@ Ok(
                             },
                         },
                     ),
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Fugitive(
+                            FugitiveNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `Fn`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `cc_box_heights`,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::digits::four`,
+                    ),
+                },
+            ],
+        },
+        entity_symbol_table: EntitySymbolTable(
+            [
+                EntitySymbolEntry {
+                    ident: `left_components`,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::digits::four`,
+                    ),
+                    symbol: EntitySymbol::ModuleItem {
+                        module_item_path: ModuleItemPath::Fugitive(
+                            FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
+                        ),
+                        node: ModuleItemNode {
+                            node_path: ModuleItemNodePath::Fugitive(
+                                FugitiveNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::digits::four`,
+                            ),
+                            ast_idx: 38,
+                            ident_token: IdentToken {
+                                ident: `left_components`,
+                                token_idx: TokenIdx(
+                                    5,
+                                ),
+                            },
+                        },
+                    },
+                },
+                EntitySymbolEntry {
+                    ident: `left_coordinate_max`,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::digits::four`,
+                    ),
+                    symbol: EntitySymbol::ModuleItem {
+                        module_item_path: ModuleItemPath::Fugitive(
+                            FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
+                        ),
+                        node: ModuleItemNode {
+                            node_path: ModuleItemNodePath::Fugitive(
+                                FugitiveNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::digits::four`,
+                            ),
+                            ast_idx: 39,
+                            ident_token: IdentToken {
+                                ident: `left_coordinate_max`,
+                                token_idx: TokenIdx(
+                                    20,
+                                ),
+                            },
+                        },
+                    },
+                },
+                EntitySymbolEntry {
+                    ident: `components_max_downwards`,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::digits::four`,
+                    ),
+                    symbol: EntitySymbol::ModuleItem {
+                        module_item_path: ModuleItemPath::Fugitive(
+                            FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
+                        ),
+                        node: ModuleItemNode {
+                            node_path: ModuleItemNodePath::Fugitive(
+                                FugitiveNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::digits::four`,
+                            ),
+                            ast_idx: 40,
+                            ident_token: IdentToken {
+                                ident: `components_max_downwards`,
+                                token_idx: TokenIdx(
+                                    39,
+                                ),
+                            },
+                        },
+                    },
+                },
+                EntitySymbolEntry {
+                    ident: `components_max_heights`,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::digits::four`,
+                    ),
+                    symbol: EntitySymbol::ModuleItem {
+                        module_item_path: ModuleItemPath::Fugitive(
+                            FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
+                        ),
+                        node: ModuleItemNode {
+                            node_path: ModuleItemNodePath::Fugitive(
+                                FugitiveNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::digits::four`,
+                            ),
+                            ast_idx: 41,
+                            ident_token: IdentToken {
+                                ident: `components_max_heights`,
+                                token_idx: TokenIdx(
+                                    52,
+                                ),
+                            },
+                        },
+                    },
+                },
+                EntitySymbolEntry {
+                    ident: `is_four`,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::digits::four`,
+                    ),
+                    symbol: EntitySymbol::ModuleItem {
+                        module_item_path: ModuleItemPath::Fugitive(
+                            FugitivePath(`mnist_classifier::digits::four::is_four`, `Val`),
+                        ),
+                        node: ModuleItemNode {
+                            node_path: ModuleItemNodePath::Fugitive(
+                                FugitiveNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: FugitivePath(`mnist_classifier::digits::four::is_four`, `Val`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::digits::four`,
+                            ),
+                            ast_idx: 42,
+                            ident_token: IdentToken {
+                                ident: `is_four`,
+                                token_idx: TokenIdx(
+                                    65,
+                                ),
+                            },
+                        },
+                    },
+                },
+                EntitySymbolEntry {
+                    ident: `displacement_downwards`,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::digits::four`,
+                    ),
+                    symbol: EntitySymbol::ModuleItem {
+                        module_item_path: ModuleItemPath::Fugitive(
+                            FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `Fn`),
+                        ),
+                        node: ModuleItemNode {
+                            node_path: ModuleItemNodePath::Fugitive(
+                                FugitiveNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `Fn`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::digits::four`,
+                            ),
+                            ast_idx: 43,
+                            ident_token: IdentToken {
+                                ident: `displacement_downwards`,
+                                token_idx: TokenIdx(
+                                    248,
+                                ),
+                            },
+                        },
+                    },
+                },
+                EntitySymbolEntry {
+                    ident: `cc_box_heights`,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::digits::four`,
+                    ),
+                    symbol: EntitySymbol::ModuleItem {
+                        module_item_path: ModuleItemPath::Fugitive(
+                            FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `Fn`),
+                        ),
+                        node: ModuleItemNode {
+                            node_path: ModuleItemNodePath::Fugitive(
+                                FugitiveNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `Fn`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::digits::four`,
+                            ),
+                            ast_idx: 44,
+                            ident_token: IdentToken {
+                                ident: `cc_box_heights`,
+                                token_idx: TokenIdx(
+                                    277,
+                                ),
+                            },
+                        },
+                    },
                 },
                 EntitySymbolEntry {
                     ident: `zero`,
@@ -171,9 +497,15 @@ Ok(
                     ),
                     symbol: EntitySymbol::Use(
                         UseSymbol {
-                            original_symbol: EntitySymbol::Submodule(
-                                SubmoduleSymbol {
-                                    path: `mnist_classifier::digits::zero`,
+                            original_symbol: EntitySymbol::Submodule {
+                                submodule_path: `mnist_classifier::digits::zero`,
+                                node: SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `mnist_classifier::digits::zero`,
+                                            disambiguator: 0,
+                                        },
+                                    },
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
@@ -185,7 +517,7 @@ Ok(
                                         ),
                                     },
                                 },
-                            ),
+                            },
                             path: EntityPath::Module(
                                 `mnist_classifier::digits::zero`,
                             ),
@@ -204,9 +536,15 @@ Ok(
                     ),
                     symbol: EntitySymbol::Use(
                         UseSymbol {
-                            original_symbol: EntitySymbol::Submodule(
-                                SubmoduleSymbol {
-                                    path: `mnist_classifier::digits::one`,
+                            original_symbol: EntitySymbol::Submodule {
+                                submodule_path: `mnist_classifier::digits::one`,
+                                node: SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `mnist_classifier::digits::one`,
+                                            disambiguator: 0,
+                                        },
+                                    },
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
@@ -218,7 +556,7 @@ Ok(
                                         ),
                                     },
                                 },
-                            ),
+                            },
                             path: EntityPath::Module(
                                 `mnist_classifier::digits::one`,
                             ),
@@ -237,9 +575,15 @@ Ok(
                     ),
                     symbol: EntitySymbol::Use(
                         UseSymbol {
-                            original_symbol: EntitySymbol::Submodule(
-                                SubmoduleSymbol {
-                                    path: `mnist_classifier::digits::six`,
+                            original_symbol: EntitySymbol::Submodule {
+                                submodule_path: `mnist_classifier::digits::six`,
+                                node: SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `mnist_classifier::digits::six`,
+                                            disambiguator: 0,
+                                        },
+                                    },
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
@@ -251,7 +595,7 @@ Ok(
                                         ),
                                     },
                                 },
-                            ),
+                            },
                             path: EntityPath::Module(
                                 `mnist_classifier::digits::six`,
                             ),
@@ -270,9 +614,15 @@ Ok(
                     ),
                     symbol: EntitySymbol::Use(
                         UseSymbol {
-                            original_symbol: EntitySymbol::Submodule(
-                                SubmoduleSymbol {
-                                    path: `mnist_classifier::digits::three`,
+                            original_symbol: EntitySymbol::Submodule {
+                                submodule_path: `mnist_classifier::digits::three`,
+                                node: SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `mnist_classifier::digits::three`,
+                                            disambiguator: 0,
+                                        },
+                                    },
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
@@ -284,7 +634,7 @@ Ok(
                                         ),
                                     },
                                 },
-                            ),
+                            },
                             path: EntityPath::Module(
                                 `mnist_classifier::digits::three`,
                             ),
@@ -303,9 +653,15 @@ Ok(
                     ),
                     symbol: EntitySymbol::Use(
                         UseSymbol {
-                            original_symbol: EntitySymbol::Submodule(
-                                SubmoduleSymbol {
-                                    path: `mnist_classifier::digits::four`,
+                            original_symbol: EntitySymbol::Submodule {
+                                submodule_path: `mnist_classifier::digits::four`,
+                                node: SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `mnist_classifier::digits::four`,
+                                            disambiguator: 0,
+                                        },
+                                    },
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
@@ -317,7 +673,7 @@ Ok(
                                         ),
                                     },
                                 },
-                            ),
+                            },
                             path: EntityPath::Module(
                                 `mnist_classifier::digits::four`,
                             ),
@@ -336,9 +692,15 @@ Ok(
                     ),
                     symbol: EntitySymbol::Use(
                         UseSymbol {
-                            original_symbol: EntitySymbol::Submodule(
-                                SubmoduleSymbol {
-                                    path: `mnist_classifier::digits::five`,
+                            original_symbol: EntitySymbol::Submodule {
+                                submodule_path: `mnist_classifier::digits::five`,
+                                node: SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `mnist_classifier::digits::five`,
+                                            disambiguator: 0,
+                                        },
+                                    },
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
@@ -350,7 +712,7 @@ Ok(
                                         ),
                                     },
                                 },
-                            ),
+                            },
                             path: EntityPath::Module(
                                 `mnist_classifier::digits::five`,
                             ),
@@ -369,9 +731,15 @@ Ok(
                     ),
                     symbol: EntitySymbol::Use(
                         UseSymbol {
-                            original_symbol: EntitySymbol::Submodule(
-                                SubmoduleSymbol {
-                                    path: `mnist_classifier::digits::seven`,
+                            original_symbol: EntitySymbol::Submodule {
+                                submodule_path: `mnist_classifier::digits::seven`,
+                                node: SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `mnist_classifier::digits::seven`,
+                                            disambiguator: 0,
+                                        },
+                                    },
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
@@ -383,7 +751,7 @@ Ok(
                                         ),
                                     },
                                 },
-                            ),
+                            },
                             path: EntityPath::Module(
                                 `mnist_classifier::digits::seven`,
                             ),
@@ -402,9 +770,15 @@ Ok(
                     ),
                     symbol: EntitySymbol::Use(
                         UseSymbol {
-                            original_symbol: EntitySymbol::Submodule(
-                                SubmoduleSymbol {
-                                    path: `mnist_classifier::digits::eight`,
+                            original_symbol: EntitySymbol::Submodule {
+                                submodule_path: `mnist_classifier::digits::eight`,
+                                node: SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `mnist_classifier::digits::eight`,
+                                            disambiguator: 0,
+                                        },
+                                    },
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
@@ -416,7 +790,7 @@ Ok(
                                         ),
                                     },
                                 },
-                            ),
+                            },
                             path: EntityPath::Module(
                                 `mnist_classifier::digits::eight`,
                             ),
@@ -435,9 +809,15 @@ Ok(
                     ),
                     symbol: EntitySymbol::Use(
                         UseSymbol {
-                            original_symbol: EntitySymbol::Submodule(
-                                SubmoduleSymbol {
-                                    path: `mnist_classifier::digits::nine`,
+                            original_symbol: EntitySymbol::Submodule {
+                                submodule_path: `mnist_classifier::digits::nine`,
+                                node: SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `mnist_classifier::digits::nine`,
+                                            disambiguator: 0,
+                                        },
+                                    },
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
@@ -449,7 +829,7 @@ Ok(
                                         ),
                                     },
                                 },
-                            ),
+                            },
                             path: EntityPath::Module(
                                 `mnist_classifier::digits::nine`,
                             ),
@@ -468,9 +848,15 @@ Ok(
                     ),
                     symbol: EntitySymbol::Use(
                         UseSymbol {
-                            original_symbol: EntitySymbol::Submodule(
-                                SubmoduleSymbol {
-                                    path: `mnist_classifier::digits::two`,
+                            original_symbol: EntitySymbol::Submodule {
+                                submodule_path: `mnist_classifier::digits::two`,
+                                node: SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `mnist_classifier::digits::two`,
+                                            disambiguator: 0,
+                                        },
+                                    },
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
@@ -482,7 +868,7 @@ Ok(
                                         ),
                                     },
                                 },
-                            ),
+                            },
                             path: EntityPath::Module(
                                 `mnist_classifier::digits::two`,
                             ),
@@ -503,10 +889,18 @@ Ok(
                         UseSymbol {
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    original_symbol: EntitySymbol::ModuleItem(
-                                        ModuleItemSymbol {
-                                            path: ModuleItemPath::Form(
-                                                FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    original_symbol: EntitySymbol::ModuleItem {
+                                        module_item_path: ModuleItemPath::Fugitive(
+                                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                        ),
+                                        node: ModuleItemNode {
+                                            node_path: ModuleItemNodePath::Fugitive(
+                                                FugitiveNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
                                             visibility: Scope::Pub,
                                             ast_idx: 63,
@@ -517,9 +911,9 @@ Ok(
                                                 ),
                                             },
                                         },
-                                    ),
+                                    },
                                     path: EntityPath::ModuleItem(
-                                        ModuleItemPath::Form(
+                                        ModuleItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                                         ),
                                     ),
@@ -529,7 +923,7 @@ Ok(
                                 },
                             ),
                             path: EntityPath::ModuleItem(
-                                ModuleItemPath::Form(
+                                ModuleItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                             ),
@@ -550,9 +944,15 @@ Ok(
                         UseSymbol {
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    original_symbol: EntitySymbol::Submodule(
-                                        SubmoduleSymbol {
-                                            path: `mnist_classifier::connected_component`,
+                                    original_symbol: EntitySymbol::Submodule {
+                                        submodule_path: `mnist_classifier::connected_component`,
+                                        node: SubmoduleNode {
+                                            node_path: SubmoduleNodePath {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: `mnist_classifier::connected_component`,
+                                                    disambiguator: 0,
+                                                },
+                                            },
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
@@ -564,7 +964,7 @@ Ok(
                                                 ),
                                             },
                                         },
-                                    ),
+                                    },
                                     path: EntityPath::Module(
                                         `mnist_classifier::connected_component`,
                                     ),
@@ -595,9 +995,15 @@ Ok(
                         UseSymbol {
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    original_symbol: EntitySymbol::Submodule(
-                                        SubmoduleSymbol {
-                                            path: `mnist_classifier::raw_contour`,
+                                    original_symbol: EntitySymbol::Submodule {
+                                        submodule_path: `mnist_classifier::raw_contour`,
+                                        node: SubmoduleNode {
+                                            node_path: SubmoduleNodePath {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: `mnist_classifier::raw_contour`,
+                                                    disambiguator: 0,
+                                                },
+                                            },
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
@@ -609,7 +1015,7 @@ Ok(
                                                 ),
                                             },
                                         },
-                                    ),
+                                    },
                                     path: EntityPath::Module(
                                         `mnist_classifier::raw_contour`,
                                     ),
@@ -640,9 +1046,15 @@ Ok(
                         UseSymbol {
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    original_symbol: EntitySymbol::Submodule(
-                                        SubmoduleSymbol {
-                                            path: `mnist_classifier::geom2d`,
+                                    original_symbol: EntitySymbol::Submodule {
+                                        submodule_path: `mnist_classifier::geom2d`,
+                                        node: SubmoduleNode {
+                                            node_path: SubmoduleNodePath {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: `mnist_classifier::geom2d`,
+                                                    disambiguator: 0,
+                                                },
+                                            },
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
@@ -654,7 +1066,7 @@ Ok(
                                                 ),
                                             },
                                         },
-                                    ),
+                                    },
                                     path: EntityPath::Module(
                                         `mnist_classifier::geom2d`,
                                     ),
@@ -685,9 +1097,15 @@ Ok(
                         UseSymbol {
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    original_symbol: EntitySymbol::Submodule(
-                                        SubmoduleSymbol {
-                                            path: `mnist_classifier::line_segment_sketch`,
+                                    original_symbol: EntitySymbol::Submodule {
+                                        submodule_path: `mnist_classifier::line_segment_sketch`,
+                                        node: SubmoduleNode {
+                                            node_path: SubmoduleNodePath {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: `mnist_classifier::line_segment_sketch`,
+                                                    disambiguator: 0,
+                                                },
+                                            },
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
@@ -699,7 +1117,7 @@ Ok(
                                                 ),
                                             },
                                         },
-                                    ),
+                                    },
                                     path: EntityPath::Module(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
@@ -730,9 +1148,15 @@ Ok(
                         UseSymbol {
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    original_symbol: EntitySymbol::Submodule(
-                                        SubmoduleSymbol {
-                                            path: `mnist_classifier::fermi`,
+                                    original_symbol: EntitySymbol::Submodule {
+                                        submodule_path: `mnist_classifier::fermi`,
+                                        node: SubmoduleNode {
+                                            node_path: SubmoduleNodePath {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: `mnist_classifier::fermi`,
+                                                    disambiguator: 0,
+                                                },
+                                            },
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
@@ -744,7 +1168,7 @@ Ok(
                                                 ),
                                             },
                                         },
-                                    ),
+                                    },
                                     path: EntityPath::Module(
                                         `mnist_classifier::fermi`,
                                     ),
@@ -775,9 +1199,15 @@ Ok(
                         UseSymbol {
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    original_symbol: EntitySymbol::Submodule(
-                                        SubmoduleSymbol {
-                                            path: `mnist_classifier::digits`,
+                                    original_symbol: EntitySymbol::Submodule {
+                                        submodule_path: `mnist_classifier::digits`,
+                                        node: SubmoduleNode {
+                                            node_path: SubmoduleNodePath {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: `mnist_classifier::digits`,
+                                                    disambiguator: 0,
+                                                },
+                                            },
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
@@ -789,7 +1219,7 @@ Ok(
                                                 ),
                                             },
                                         },
-                                    ),
+                                    },
                                     path: EntityPath::Module(
                                         `mnist_classifier::digits`,
                                     ),
@@ -820,9 +1250,15 @@ Ok(
                         UseSymbol {
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    original_symbol: EntitySymbol::Submodule(
-                                        SubmoduleSymbol {
-                                            path: `mnist_classifier::major`,
+                                    original_symbol: EntitySymbol::Submodule {
+                                        submodule_path: `mnist_classifier::major`,
+                                        node: SubmoduleNode {
+                                            node_path: SubmoduleNodePath {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: `mnist_classifier::major`,
+                                                    disambiguator: 0,
+                                                },
+                                            },
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
@@ -834,7 +1270,7 @@ Ok(
                                                 ),
                                             },
                                         },
-                                    ),
+                                    },
                                     path: EntityPath::Module(
                                         `mnist_classifier::major`,
                                     ),
@@ -867,10 +1303,18 @@ Ok(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            original_symbol: EntitySymbol::ModuleItem(
-                                                ModuleItemSymbol {
-                                                    path: ModuleItemPath::Form(
-                                                        FugitivePath(`malamute::narrow_down`, `Gn`),
+                                            original_symbol: EntitySymbol::ModuleItem {
+                                                module_item_path: ModuleItemPath::Fugitive(
+                                                    FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                ),
+                                                node: ModuleItemNode {
+                                                    node_path: ModuleItemNodePath::Fugitive(
+                                                        FugitiveNodePath {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: FugitivePath(`malamute::narrow_down`, `Gn`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
                                                     ),
                                                     visibility: Scope::Pub,
                                                     ast_idx: 0,
@@ -881,9 +1325,9 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                            ),
+                                            },
                                             path: EntityPath::ModuleItem(
-                                                ModuleItemPath::Form(
+                                                ModuleItemPath::Fugitive(
                                                     FugitivePath(`malamute::narrow_down`, `Gn`),
                                                 ),
                                             ),
@@ -895,7 +1339,7 @@ Ok(
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
-                                        ModuleItemPath::Form(
+                                        ModuleItemPath::Fugitive(
                                             FugitivePath(`malamute::narrow_down`, `Gn`),
                                         ),
                                     ),
@@ -907,7 +1351,7 @@ Ok(
                                 },
                             ),
                             path: EntityPath::ModuleItem(
-                                ModuleItemPath::Form(
+                                ModuleItemPath::Fugitive(
                                     FugitivePath(`malamute::narrow_down`, `Gn`),
                                 ),
                             ),
@@ -930,10 +1374,18 @@ Ok(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            original_symbol: EntitySymbol::ModuleItem(
-                                                ModuleItemSymbol {
-                                                    path: ModuleItemPath::Type(
-                                                        TypePath(`mnist::MnistLabel`, `Enum`),
+                                            original_symbol: EntitySymbol::ModuleItem {
+                                                module_item_path: ModuleItemPath::Type(
+                                                    TypePath(`mnist::MnistLabel`, `Enum`),
+                                                ),
+                                                node: ModuleItemNode {
+                                                    node_path: ModuleItemNodePath::Type(
+                                                        TypeNodePath {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
                                                     ),
                                                     visibility: Scope::Pub,
                                                     ast_idx: 10,
@@ -944,7 +1396,7 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                            ),
+                                            },
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Type(
                                                     TypePath(`mnist::MnistLabel`, `Enum`),
@@ -993,10 +1445,18 @@ Ok(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            original_symbol: EntitySymbol::ModuleItem(
-                                                ModuleItemSymbol {
-                                                    path: ModuleItemPath::Type(
-                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                            original_symbol: EntitySymbol::ModuleItem {
+                                                module_item_path: ModuleItemPath::Type(
+                                                    TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                ),
+                                                node: ModuleItemNode {
+                                                    node_path: ModuleItemNodePath::Type(
+                                                        TypeNodePath {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
                                                     ),
                                                     visibility: Scope::Pub,
                                                     ast_idx: 11,
@@ -1007,7 +1467,7 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                            ),
+                                            },
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Type(
                                                     TypePath(`mnist::BinaryImage28`, `Struct`),
@@ -1054,10 +1514,18 @@ Ok(
                         UseSymbol {
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    original_symbol: EntitySymbol::ModuleItem(
-                                        ModuleItemSymbol {
-                                            path: ModuleItemPath::Form(
-                                                FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    original_symbol: EntitySymbol::ModuleItem {
+                                        module_item_path: ModuleItemPath::Fugitive(
+                                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                        ),
+                                        node: ModuleItemNode {
+                                            node_path: ModuleItemNodePath::Fugitive(
+                                                FugitiveNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier::digits`,
@@ -1070,9 +1538,9 @@ Ok(
                                                 ),
                                             },
                                         },
-                                    ),
+                                    },
                                     path: EntityPath::ModuleItem(
-                                        ModuleItemPath::Form(
+                                        ModuleItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
                                         ),
                                     ),
@@ -1084,7 +1552,7 @@ Ok(
                                 },
                             ),
                             path: EntityPath::ModuleItem(
-                                ModuleItemPath::Form(
+                                ModuleItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                             ),
@@ -1105,10 +1573,18 @@ Ok(
                         UseSymbol {
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    original_symbol: EntitySymbol::ModuleItem(
-                                        ModuleItemSymbol {
-                                            path: ModuleItemPath::Form(
-                                                FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    original_symbol: EntitySymbol::ModuleItem {
+                                        module_item_path: ModuleItemPath::Fugitive(
+                                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                        ),
+                                        node: ModuleItemNode {
+                                            node_path: ModuleItemNodePath::Fugitive(
+                                                FugitiveNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier::digits`,
@@ -1121,9 +1597,9 @@ Ok(
                                                 ),
                                             },
                                         },
-                                    ),
+                                    },
                                     path: EntityPath::ModuleItem(
-                                        ModuleItemPath::Form(
+                                        ModuleItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                         ),
                                     ),
@@ -1135,7 +1611,7 @@ Ok(
                                 },
                             ),
                             path: EntityPath::ModuleItem(
-                                ModuleItemPath::Form(
+                                ModuleItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                             ),
@@ -1156,10 +1632,18 @@ Ok(
                         UseSymbol {
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    original_symbol: EntitySymbol::ModuleItem(
-                                        ModuleItemSymbol {
-                                            path: ModuleItemPath::Form(
-                                                FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
+                                    original_symbol: EntitySymbol::ModuleItem {
+                                        module_item_path: ModuleItemPath::Fugitive(
+                                            FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
+                                        ),
+                                        node: ModuleItemNode {
+                                            node_path: ModuleItemNodePath::Fugitive(
+                                                FugitiveNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier::digits`,
@@ -1172,9 +1656,9 @@ Ok(
                                                 ),
                                             },
                                         },
-                                    ),
+                                    },
                                     path: EntityPath::ModuleItem(
-                                        ModuleItemPath::Form(
+                                        ModuleItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
                                         ),
                                     ),
@@ -1186,7 +1670,7 @@ Ok(
                                 },
                             ),
                             path: EntityPath::ModuleItem(
-                                ModuleItemPath::Form(
+                                ModuleItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
                                 ),
                             ),
@@ -1207,10 +1691,18 @@ Ok(
                         UseSymbol {
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    original_symbol: EntitySymbol::ModuleItem(
-                                        ModuleItemSymbol {
-                                            path: ModuleItemPath::Form(
-                                                FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+                                    original_symbol: EntitySymbol::ModuleItem {
+                                        module_item_path: ModuleItemPath::Fugitive(
+                                            FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+                                        ),
+                                        node: ModuleItemNode {
+                                            node_path: ModuleItemNodePath::Fugitive(
+                                                FugitiveNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier::digits`,
@@ -1223,9 +1715,9 @@ Ok(
                                                 ),
                                             },
                                         },
-                                    ),
+                                    },
                                     path: EntityPath::ModuleItem(
-                                        ModuleItemPath::Form(
+                                        ModuleItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
                                         ),
                                     ),
@@ -1237,7 +1729,7 @@ Ok(
                                 },
                             ),
                             path: EntityPath::ModuleItem(
-                                ModuleItemPath::Form(
+                                ModuleItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
                                 ),
                             ),
@@ -1258,10 +1750,18 @@ Ok(
                         UseSymbol {
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    original_symbol: EntitySymbol::ModuleItem(
-                                        ModuleItemSymbol {
-                                            path: ModuleItemPath::Form(
-                                                FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+                                    original_symbol: EntitySymbol::ModuleItem {
+                                        module_item_path: ModuleItemPath::Fugitive(
+                                            FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+                                        ),
+                                        node: ModuleItemNode {
+                                            node_path: ModuleItemNodePath::Fugitive(
+                                                FugitiveNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier::digits`,
@@ -1274,9 +1774,9 @@ Ok(
                                                 ),
                                             },
                                         },
-                                    ),
+                                    },
                                     path: EntityPath::ModuleItem(
-                                        ModuleItemPath::Form(
+                                        ModuleItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
                                         ),
                                     ),
@@ -1288,7 +1788,7 @@ Ok(
                                 },
                             ),
                             path: EntityPath::ModuleItem(
-                                ModuleItemPath::Form(
+                                ModuleItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
                                 ),
                             ),
@@ -1309,10 +1809,18 @@ Ok(
                         UseSymbol {
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    original_symbol: EntitySymbol::ModuleItem(
-                                        ModuleItemSymbol {
-                                            path: ModuleItemPath::Form(
-                                                FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                                    original_symbol: EntitySymbol::ModuleItem {
+                                        module_item_path: ModuleItemPath::Fugitive(
+                                            FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                                        ),
+                                        node: ModuleItemNode {
+                                            node_path: ModuleItemNodePath::Fugitive(
+                                                FugitiveNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier::digits`,
@@ -1325,9 +1833,9 @@ Ok(
                                                 ),
                                             },
                                         },
-                                    ),
+                                    },
                                     path: EntityPath::ModuleItem(
-                                        ModuleItemPath::Form(
+                                        ModuleItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                                         ),
                                     ),
@@ -1339,7 +1847,7 @@ Ok(
                                 },
                             ),
                             path: EntityPath::ModuleItem(
-                                ModuleItemPath::Form(
+                                ModuleItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                                 ),
                             ),
@@ -1360,10 +1868,18 @@ Ok(
                         UseSymbol {
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    original_symbol: EntitySymbol::ModuleItem(
-                                        ModuleItemSymbol {
-                                            path: ModuleItemPath::Form(
-                                                FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                                    original_symbol: EntitySymbol::ModuleItem {
+                                        module_item_path: ModuleItemPath::Fugitive(
+                                            FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                                        ),
+                                        node: ModuleItemNode {
+                                            node_path: ModuleItemNodePath::Fugitive(
+                                                FugitiveNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier::digits`,
@@ -1376,9 +1892,9 @@ Ok(
                                                 ),
                                             },
                                         },
-                                    ),
+                                    },
                                     path: EntityPath::ModuleItem(
-                                        ModuleItemPath::Form(
+                                        ModuleItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                                         ),
                                     ),
@@ -1390,7 +1906,7 @@ Ok(
                                 },
                             ),
                             path: EntityPath::ModuleItem(
-                                ModuleItemPath::Form(
+                                ModuleItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                                 ),
                             ),
@@ -1411,10 +1927,18 @@ Ok(
                         UseSymbol {
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    original_symbol: EntitySymbol::ModuleItem(
-                                        ModuleItemSymbol {
-                                            path: ModuleItemPath::Form(
-                                                FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                                    original_symbol: EntitySymbol::ModuleItem {
+                                        module_item_path: ModuleItemPath::Fugitive(
+                                            FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                                        ),
+                                        node: ModuleItemNode {
+                                            node_path: ModuleItemNodePath::Fugitive(
+                                                FugitiveNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier::digits`,
@@ -1427,9 +1951,9 @@ Ok(
                                                 ),
                                             },
                                         },
-                                    ),
+                                    },
                                     path: EntityPath::ModuleItem(
-                                        ModuleItemPath::Form(
+                                        ModuleItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                                         ),
                                     ),
@@ -1441,7 +1965,7 @@ Ok(
                                 },
                             ),
                             path: EntityPath::ModuleItem(
-                                ModuleItemPath::Form(
+                                ModuleItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                                 ),
                             ),
@@ -1464,10 +1988,18 @@ Ok(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            original_symbol: EntitySymbol::ModuleItem(
-                                                ModuleItemSymbol {
-                                                    path: ModuleItemPath::Form(
-                                                        FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                                            original_symbol: EntitySymbol::ModuleItem {
+                                                module_item_path: ModuleItemPath::Fugitive(
+                                                    FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                                                ),
+                                                node: ModuleItemNode {
+                                                    node_path: ModuleItemNodePath::Fugitive(
+                                                        FugitiveNodePath {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
                                                     ),
                                                     visibility: Scope::Pub,
                                                     ast_idx: 19,
@@ -1478,9 +2010,9 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                            ),
+                                            },
                                             path: EntityPath::ModuleItem(
-                                                ModuleItemPath::Form(
+                                                ModuleItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
                                                 ),
                                             ),
@@ -1492,7 +2024,7 @@ Ok(
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
-                                        ModuleItemPath::Form(
+                                        ModuleItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
                                         ),
                                     ),
@@ -1504,7 +2036,7 @@ Ok(
                                 },
                             ),
                             path: EntityPath::ModuleItem(
-                                ModuleItemPath::Form(
+                                ModuleItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
                                 ),
                             ),
@@ -1527,10 +2059,18 @@ Ok(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            original_symbol: EntitySymbol::ModuleItem(
-                                                ModuleItemSymbol {
-                                                    path: ModuleItemPath::Form(
-                                                        FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                            original_symbol: EntitySymbol::ModuleItem {
+                                                module_item_path: ModuleItemPath::Fugitive(
+                                                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                ),
+                                                node: ModuleItemNode {
+                                                    node_path: ModuleItemNodePath::Fugitive(
+                                                        FugitiveNodePath {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
                                                     ),
                                                     visibility: Scope::Pub,
                                                     ast_idx: 20,
@@ -1541,9 +2081,9 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                            ),
+                                            },
                                             path: EntityPath::ModuleItem(
-                                                ModuleItemPath::Form(
+                                                ModuleItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                                 ),
                                             ),
@@ -1555,7 +2095,7 @@ Ok(
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
-                                        ModuleItemPath::Form(
+                                        ModuleItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                         ),
                                     ),
@@ -1567,7 +2107,7 @@ Ok(
                                 },
                             ),
                             path: EntityPath::ModuleItem(
-                                ModuleItemPath::Form(
+                                ModuleItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                 ),
                             ),
@@ -1590,10 +2130,18 @@ Ok(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            original_symbol: EntitySymbol::ModuleItem(
-                                                ModuleItemSymbol {
-                                                    path: ModuleItemPath::Form(
-                                                        FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                                            original_symbol: EntitySymbol::ModuleItem {
+                                                module_item_path: ModuleItemPath::Fugitive(
+                                                    FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                                                ),
+                                                node: ModuleItemNode {
+                                                    node_path: ModuleItemNodePath::Fugitive(
+                                                        FugitiveNodePath {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
                                                     ),
                                                     visibility: Scope::Pub,
                                                     ast_idx: 21,
@@ -1604,9 +2152,9 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                            ),
+                                            },
                                             path: EntityPath::ModuleItem(
-                                                ModuleItemPath::Form(
+                                                ModuleItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                                                 ),
                                             ),
@@ -1618,7 +2166,7 @@ Ok(
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
-                                        ModuleItemPath::Form(
+                                        ModuleItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                                         ),
                                     ),
@@ -1630,7 +2178,7 @@ Ok(
                                 },
                             ),
                             path: EntityPath::ModuleItem(
-                                ModuleItemPath::Form(
+                                ModuleItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                                 ),
                             ),
@@ -1653,10 +2201,18 @@ Ok(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            original_symbol: EntitySymbol::ModuleItem(
-                                                ModuleItemSymbol {
-                                                    path: ModuleItemPath::Form(
-                                                        FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
+                                            original_symbol: EntitySymbol::ModuleItem {
+                                                module_item_path: ModuleItemPath::Fugitive(
+                                                    FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
+                                                ),
+                                                node: ModuleItemNode {
+                                                    node_path: ModuleItemNodePath::Fugitive(
+                                                        FugitiveNodePath {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
                                                     ),
                                                     visibility: Scope::Pub,
                                                     ast_idx: 22,
@@ -1667,9 +2223,9 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                            ),
+                                            },
                                             path: EntityPath::ModuleItem(
-                                                ModuleItemPath::Form(
+                                                ModuleItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
                                                 ),
                                             ),
@@ -1681,7 +2237,7 @@ Ok(
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
-                                        ModuleItemPath::Form(
+                                        ModuleItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
                                         ),
                                     ),
@@ -1693,7 +2249,7 @@ Ok(
                                 },
                             ),
                             path: EntityPath::ModuleItem(
-                                ModuleItemPath::Form(
+                                ModuleItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
                                 ),
                             ),
@@ -1716,10 +2272,18 @@ Ok(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            original_symbol: EntitySymbol::ModuleItem(
-                                                ModuleItemSymbol {
-                                                    path: ModuleItemPath::Form(
-                                                        FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                                            original_symbol: EntitySymbol::ModuleItem {
+                                                module_item_path: ModuleItemPath::Fugitive(
+                                                    FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                                                ),
+                                                node: ModuleItemNode {
+                                                    node_path: ModuleItemNodePath::Fugitive(
+                                                        FugitiveNodePath {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
                                                     ),
                                                     visibility: Scope::Pub,
                                                     ast_idx: 23,
@@ -1730,9 +2294,9 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                            ),
+                                            },
                                             path: EntityPath::ModuleItem(
-                                                ModuleItemPath::Form(
+                                                ModuleItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
                                                 ),
                                             ),
@@ -1744,7 +2308,7 @@ Ok(
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
-                                        ModuleItemPath::Form(
+                                        ModuleItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
                                         ),
                                     ),
@@ -1756,7 +2320,7 @@ Ok(
                                 },
                             ),
                             path: EntityPath::ModuleItem(
-                                ModuleItemPath::Form(
+                                ModuleItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
                                 ),
                             ),
@@ -1779,10 +2343,18 @@ Ok(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            original_symbol: EntitySymbol::ModuleItem(
-                                                ModuleItemSymbol {
-                                                    path: ModuleItemPath::Form(
-                                                        FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                                            original_symbol: EntitySymbol::ModuleItem {
+                                                module_item_path: ModuleItemPath::Fugitive(
+                                                    FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                                                ),
+                                                node: ModuleItemNode {
+                                                    node_path: ModuleItemNodePath::Fugitive(
+                                                        FugitiveNodePath {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
                                                     ),
                                                     visibility: Scope::Pub,
                                                     ast_idx: 24,
@@ -1793,9 +2365,9 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                            ),
+                                            },
                                             path: EntityPath::ModuleItem(
-                                                ModuleItemPath::Form(
+                                                ModuleItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                                 ),
                                             ),
@@ -1807,7 +2379,7 @@ Ok(
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
-                                        ModuleItemPath::Form(
+                                        ModuleItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                         ),
                                     ),
@@ -1819,7 +2391,7 @@ Ok(
                                 },
                             ),
                             path: EntityPath::ModuleItem(
-                                ModuleItemPath::Form(
+                                ModuleItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                 ),
                             ),
@@ -1842,10 +2414,18 @@ Ok(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            original_symbol: EntitySymbol::ModuleItem(
-                                                ModuleItemSymbol {
-                                                    path: ModuleItemPath::Form(
-                                                        FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                            original_symbol: EntitySymbol::ModuleItem {
+                                                module_item_path: ModuleItemPath::Fugitive(
+                                                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                                ),
+                                                node: ModuleItemNode {
+                                                    node_path: ModuleItemNodePath::Fugitive(
+                                                        FugitiveNodePath {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
                                                     ),
                                                     visibility: Scope::Pub,
                                                     ast_idx: 25,
@@ -1856,9 +2436,9 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                            ),
+                                            },
                                             path: EntityPath::ModuleItem(
-                                                ModuleItemPath::Form(
+                                                ModuleItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                                                 ),
                                             ),
@@ -1870,7 +2450,7 @@ Ok(
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
-                                        ModuleItemPath::Form(
+                                        ModuleItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                                         ),
                                     ),
@@ -1882,7 +2462,7 @@ Ok(
                                 },
                             ),
                             path: EntityPath::ModuleItem(
-                                ModuleItemPath::Form(
+                                ModuleItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                                 ),
                             ),
@@ -1905,10 +2485,18 @@ Ok(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            original_symbol: EntitySymbol::ModuleItem(
-                                                ModuleItemSymbol {
-                                                    path: ModuleItemPath::Type(
-                                                        TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                            original_symbol: EntitySymbol::ModuleItem {
+                                                module_item_path: ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                ),
+                                                node: ModuleItemNode {
+                                                    node_path: ModuleItemNodePath::Type(
+                                                        TypeNodePath {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
                                                     ),
                                                     visibility: Scope::Pub,
                                                     ast_idx: 22,
@@ -1919,7 +2507,7 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                            ),
+                                            },
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Type(
                                                     TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
@@ -1968,10 +2556,18 @@ Ok(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            original_symbol: EntitySymbol::ModuleItem(
-                                                ModuleItemSymbol {
-                                                    path: ModuleItemPath::Form(
-                                                        FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                            original_symbol: EntitySymbol::ModuleItem {
+                                                module_item_path: ModuleItemPath::Fugitive(
+                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                ),
+                                                node: ModuleItemNode {
+                                                    node_path: ModuleItemNodePath::Fugitive(
+                                                        FugitiveNodePath {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
                                                     ),
                                                     visibility: Scope::Pub,
                                                     ast_idx: 24,
@@ -1982,9 +2578,9 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                            ),
+                                            },
                                             path: EntityPath::ModuleItem(
-                                                ModuleItemPath::Form(
+                                                ModuleItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                                 ),
                                             ),
@@ -1996,7 +2592,7 @@ Ok(
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
-                                        ModuleItemPath::Form(
+                                        ModuleItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                         ),
                                     ),
@@ -2008,7 +2604,7 @@ Ok(
                                 },
                             ),
                             path: EntityPath::ModuleItem(
-                                ModuleItemPath::Form(
+                                ModuleItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                 ),
                             ),
@@ -2031,10 +2627,18 @@ Ok(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            original_symbol: EntitySymbol::ModuleItem(
-                                                ModuleItemSymbol {
-                                                    path: ModuleItemPath::Type(
-                                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                            original_symbol: EntitySymbol::ModuleItem {
+                                                module_item_path: ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                ),
+                                                node: ModuleItemNode {
+                                                    node_path: ModuleItemNodePath::Type(
+                                                        TypeNodePath {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
                                                     ),
                                                     visibility: Scope::Pub,
                                                     ast_idx: 203,
@@ -2045,7 +2649,7 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                            ),
+                                            },
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Type(
                                                     TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -2094,10 +2698,18 @@ Ok(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            original_symbol: EntitySymbol::ModuleItem(
-                                                ModuleItemSymbol {
-                                                    path: ModuleItemPath::Form(
-                                                        FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                            original_symbol: EntitySymbol::ModuleItem {
+                                                module_item_path: ModuleItemPath::Fugitive(
+                                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                ),
+                                                node: ModuleItemNode {
+                                                    node_path: ModuleItemNodePath::Fugitive(
+                                                        FugitiveNodePath {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
                                                     ),
                                                     visibility: Scope::Pub,
                                                     ast_idx: 215,
@@ -2108,9 +2720,9 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                            ),
+                                            },
                                             path: EntityPath::ModuleItem(
-                                                ModuleItemPath::Form(
+                                                ModuleItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                                                 ),
                                             ),
@@ -2122,7 +2734,7 @@ Ok(
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
-                                        ModuleItemPath::Form(
+                                        ModuleItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                                         ),
                                     ),
@@ -2134,7 +2746,7 @@ Ok(
                                 },
                             ),
                             path: EntityPath::ModuleItem(
-                                ModuleItemPath::Form(
+                                ModuleItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                                 ),
                             ),
@@ -2157,10 +2769,18 @@ Ok(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            original_symbol: EntitySymbol::ModuleItem(
-                                                ModuleItemSymbol {
-                                                    path: ModuleItemPath::Type(
-                                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                            original_symbol: EntitySymbol::ModuleItem {
+                                                module_item_path: ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                ),
+                                                node: ModuleItemNode {
+                                                    node_path: ModuleItemNodePath::Type(
+                                                        TypeNodePath {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
                                                     ),
                                                     visibility: Scope::Pub,
                                                     ast_idx: 169,
@@ -2171,7 +2791,7 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                            ),
+                                            },
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Type(
                                                     TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
@@ -2220,10 +2840,18 @@ Ok(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            original_symbol: EntitySymbol::ModuleItem(
-                                                ModuleItemSymbol {
-                                                    path: ModuleItemPath::Type(
-                                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                            original_symbol: EntitySymbol::ModuleItem {
+                                                module_item_path: ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                ),
+                                                node: ModuleItemNode {
+                                                    node_path: ModuleItemNodePath::Type(
+                                                        TypeNodePath {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
                                                     ),
                                                     visibility: Scope::Pub,
                                                     ast_idx: 172,
@@ -2234,7 +2862,7 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                            ),
+                                            },
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Type(
                                                     TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
@@ -2285,10 +2913,18 @@ Ok(
                                         UseSymbol {
                                             original_symbol: EntitySymbol::Use(
                                                 UseSymbol {
-                                                    original_symbol: EntitySymbol::ModuleItem(
-                                                        ModuleItemSymbol {
-                                                            path: ModuleItemPath::Type(
-                                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    original_symbol: EntitySymbol::ModuleItem {
+                                                        module_item_path: ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        ),
+                                                        node: ModuleItemNode {
+                                                            node_path: ModuleItemNodePath::Type(
+                                                                TypeNodePath {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
                                                             ),
                                                             visibility: Scope::Pub,
                                                             ast_idx: 74,
@@ -2299,7 +2935,7 @@ Ok(
                                                                 ),
                                                             },
                                                         },
-                                                    ),
+                                                    },
                                                     path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -2360,10 +2996,18 @@ Ok(
                                         UseSymbol {
                                             original_symbol: EntitySymbol::Use(
                                                 UseSymbol {
-                                                    original_symbol: EntitySymbol::ModuleItem(
-                                                        ModuleItemSymbol {
-                                                            path: ModuleItemPath::Form(
-                                                                FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                    original_symbol: EntitySymbol::ModuleItem {
+                                                        module_item_path: ModuleItemPath::Fugitive(
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                        ),
+                                                        node: ModuleItemNode {
+                                                            node_path: ModuleItemNodePath::Fugitive(
+                                                                FugitiveNodePath {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
                                                             ),
                                                             visibility: Scope::Pub,
                                                             ast_idx: 77,
@@ -2374,9 +3018,9 @@ Ok(
                                                                 ),
                                                             },
                                                         },
-                                                    ),
+                                                    },
                                                     path: EntityPath::ModuleItem(
-                                                        ModuleItemPath::Form(
+                                                        ModuleItemPath::Fugitive(
                                                             FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                                         ),
                                                     ),
@@ -2386,7 +3030,7 @@ Ok(
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
-                                                ModuleItemPath::Form(
+                                                ModuleItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                                 ),
                                             ),
@@ -2398,7 +3042,7 @@ Ok(
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
-                                        ModuleItemPath::Form(
+                                        ModuleItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                         ),
                                     ),
@@ -2410,7 +3054,7 @@ Ok(
                                 },
                             ),
                             path: EntityPath::ModuleItem(
-                                ModuleItemPath::Form(
+                                ModuleItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                 ),
                             ),
@@ -2435,10 +3079,18 @@ Ok(
                                         UseSymbol {
                                             original_symbol: EntitySymbol::Use(
                                                 UseSymbol {
-                                                    original_symbol: EntitySymbol::ModuleItem(
-                                                        ModuleItemSymbol {
-                                                            path: ModuleItemPath::Type(
-                                                                TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                    original_symbol: EntitySymbol::ModuleItem {
+                                                        module_item_path: ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                        ),
+                                                        node: ModuleItemNode {
+                                                            node_path: ModuleItemNodePath::Type(
+                                                                TypeNodePath {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
                                                             ),
                                                             visibility: Scope::Pub,
                                                             ast_idx: 16,
@@ -2449,7 +3101,7 @@ Ok(
                                                                 ),
                                                             },
                                                         },
-                                                    ),
+                                                    },
                                                     path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
@@ -2508,10 +3160,18 @@ Ok(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            original_symbol: EntitySymbol::ModuleItem(
-                                                ModuleItemSymbol {
-                                                    path: ModuleItemPath::Type(
-                                                        TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                            original_symbol: EntitySymbol::ModuleItem {
+                                                module_item_path: ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                ),
+                                                node: ModuleItemNode {
+                                                    node_path: ModuleItemNodePath::Type(
+                                                        TypeNodePath {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
                                                     ),
                                                     visibility: Scope::Pub,
                                                     ast_idx: 120,
@@ -2522,7 +3182,7 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                            ),
+                                            },
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Type(
                                                     TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
@@ -2571,10 +3231,18 @@ Ok(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            original_symbol: EntitySymbol::ModuleItem(
-                                                ModuleItemSymbol {
-                                                    path: ModuleItemPath::Type(
-                                                        TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                            original_symbol: EntitySymbol::ModuleItem {
+                                                module_item_path: ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                ),
+                                                node: ModuleItemNode {
+                                                    node_path: ModuleItemNodePath::Type(
+                                                        TypeNodePath {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
                                                     ),
                                                     visibility: Scope::Pub,
                                                     ast_idx: 121,
@@ -2585,7 +3253,7 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                            ),
+                                            },
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Type(
                                                     TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
@@ -2634,10 +3302,18 @@ Ok(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            original_symbol: EntitySymbol::ModuleItem(
-                                                ModuleItemSymbol {
-                                                    path: ModuleItemPath::Type(
-                                                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                            original_symbol: EntitySymbol::ModuleItem {
+                                                module_item_path: ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                ),
+                                                node: ModuleItemNode {
+                                                    node_path: ModuleItemNodePath::Type(
+                                                        TypeNodePath {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
                                                     ),
                                                     visibility: Scope::Pub,
                                                     ast_idx: 123,
@@ -2648,7 +3324,7 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                            ),
+                                            },
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Type(
                                                     TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -2697,10 +3373,18 @@ Ok(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            original_symbol: EntitySymbol::ModuleItem(
-                                                ModuleItemSymbol {
-                                                    path: ModuleItemPath::Form(
-                                                        FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                            original_symbol: EntitySymbol::ModuleItem {
+                                                module_item_path: ModuleItemPath::Fugitive(
+                                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                ),
+                                                node: ModuleItemNode {
+                                                    node_path: ModuleItemNodePath::Fugitive(
+                                                        FugitiveNodePath {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
                                                     ),
                                                     visibility: Scope::Pub,
                                                     ast_idx: 127,
@@ -2711,9 +3395,9 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                            ),
+                                            },
                                             path: EntityPath::ModuleItem(
-                                                ModuleItemPath::Form(
+                                                ModuleItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
                                                 ),
                                             ),
@@ -2725,7 +3409,7 @@ Ok(
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
-                                        ModuleItemPath::Form(
+                                        ModuleItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
                                         ),
                                     ),
@@ -2737,7 +3421,7 @@ Ok(
                                 },
                             ),
                             path: EntityPath::ModuleItem(
-                                ModuleItemPath::Form(
+                                ModuleItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
                                 ),
                             ),
@@ -2751,7 +3435,7 @@ Ok(
                 },
             ],
         ),
-        impl_blocks: [],
+        impl_block_node_table: [],
         use_expr_rules: UseExprRules(
             [
                 UseExprRule {

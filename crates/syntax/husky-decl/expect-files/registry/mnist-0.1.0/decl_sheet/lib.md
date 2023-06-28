@@ -128,7 +128,7 @@ Ok(
                                                         29,
                                                     ),
                                                 },
-                                                Expr::NonAssociatedEntity {
+                                                Expr::PrincipalEntityPath {
                                                     entity_path_expr: 0,
                                                     path: Some(
                                                         EntityPath::ModuleItem(

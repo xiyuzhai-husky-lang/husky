@@ -1,9 +1,9 @@
 Ok(
     EntityTreePresheet {
         module_path: `std::logic`,
-        native_symbol_entries: NativeEntitySymbolTable(
-            [],
-        ),
+        node_table: MajorEntityNodeTable {
+            entries: [],
+        },
         use_one_trackers: UseExprRules(
             [
                 UseExprRule {

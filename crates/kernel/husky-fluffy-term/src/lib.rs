@@ -2,11 +2,11 @@
 #![feature(trait_upcasting)]
 mod data;
 mod db;
+mod disambiguation;
 mod engine;
 mod error;
 mod expectation;
 mod instantiator;
-mod member;
 mod nested;
 mod progress;
 mod region;
@@ -20,10 +20,10 @@ mod utils;
 
 pub use self::data::*;
 pub use self::db::*;
+pub use self::disambiguation::*;
 pub use self::engine::*;
 pub use self::error::*;
 pub use self::expectation::*;
-pub use self::member::*;
 pub use self::progress::*;
 pub use self::region::*;
 pub use self::resolve::*;

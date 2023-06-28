@@ -1,14 +1,17 @@
 Ok(
     EntityTreePresheet {
         module_path: `core`,
-        native_symbol_entries: NativeEntitySymbolTable(
-            [
-                NativeEntitySymbolEntry {
-                    ident: `array`,
-                    visibility: Scope::Pub,
-                    symbol: NativeEntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `core::array`,
+        node_table: MajorEntityNodeTable {
+            entries: [
+                EntityNodeEntry {
+                    node: EntityNode::Submodule(
+                        SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `core::array`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::Pub,
                             ast_idx: 0,
                             ident_token: IdentToken {
@@ -19,13 +22,26 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `basic`,
+                    node_path: EntityNodePath::Submodule(
+                        SubmoduleNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: `core::array`,
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                    ident: `array`,
                     visibility: Scope::Pub,
-                    symbol: NativeEntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `core::basic`,
+                },
+                EntityNodeEntry {
+                    node: EntityNode::Submodule(
+                        SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `core::basic`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::Pub,
                             ast_idx: 1,
                             ident_token: IdentToken {
@@ -36,13 +52,26 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `clone`,
+                    node_path: EntityNodePath::Submodule(
+                        SubmoduleNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: `core::basic`,
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                    ident: `basic`,
                     visibility: Scope::Pub,
-                    symbol: NativeEntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `core::clone`,
+                },
+                EntityNodeEntry {
+                    node: EntityNode::Submodule(
+                        SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `core::clone`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::Pub,
                             ast_idx: 2,
                             ident_token: IdentToken {
@@ -53,13 +82,26 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `cmp`,
+                    node_path: EntityNodePath::Submodule(
+                        SubmoduleNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: `core::clone`,
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                    ident: `clone`,
                     visibility: Scope::Pub,
-                    symbol: NativeEntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `core::cmp`,
+                },
+                EntityNodeEntry {
+                    node: EntityNode::Submodule(
+                        SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `core::cmp`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::Pub,
                             ast_idx: 3,
                             ident_token: IdentToken {
@@ -70,13 +112,26 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `default`,
+                    node_path: EntityNodePath::Submodule(
+                        SubmoduleNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: `core::cmp`,
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                    ident: `cmp`,
                     visibility: Scope::Pub,
-                    symbol: NativeEntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `core::default`,
+                },
+                EntityNodeEntry {
+                    node: EntityNode::Submodule(
+                        SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `core::default`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::Pub,
                             ast_idx: 4,
                             ident_token: IdentToken {
@@ -87,13 +142,26 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `fmt`,
+                    node_path: EntityNodePath::Submodule(
+                        SubmoduleNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: `core::default`,
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                    ident: `default`,
                     visibility: Scope::Pub,
-                    symbol: NativeEntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `core::fmt`,
+                },
+                EntityNodeEntry {
+                    node: EntityNode::Submodule(
+                        SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `core::fmt`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::Pub,
                             ast_idx: 5,
                             ident_token: IdentToken {
@@ -104,13 +172,26 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `list`,
+                    node_path: EntityNodePath::Submodule(
+                        SubmoduleNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: `core::fmt`,
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                    ident: `fmt`,
                     visibility: Scope::Pub,
-                    symbol: NativeEntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `core::list`,
+                },
+                EntityNodeEntry {
+                    node: EntityNode::Submodule(
+                        SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `core::list`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::Pub,
                             ast_idx: 6,
                             ident_token: IdentToken {
@@ -121,13 +202,26 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `logic`,
+                    node_path: EntityNodePath::Submodule(
+                        SubmoduleNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: `core::list`,
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                    ident: `list`,
                     visibility: Scope::Pub,
-                    symbol: NativeEntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `core::logic`,
+                },
+                EntityNodeEntry {
+                    node: EntityNode::Submodule(
+                        SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `core::logic`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::Pub,
                             ast_idx: 7,
                             ident_token: IdentToken {
@@ -138,13 +232,26 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `marker`,
+                    node_path: EntityNodePath::Submodule(
+                        SubmoduleNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: `core::logic`,
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                    ident: `logic`,
                     visibility: Scope::Pub,
-                    symbol: NativeEntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `core::marker`,
+                },
+                EntityNodeEntry {
+                    node: EntityNode::Submodule(
+                        SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `core::marker`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::Pub,
                             ast_idx: 8,
                             ident_token: IdentToken {
@@ -155,13 +262,26 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `mem`,
+                    node_path: EntityNodePath::Submodule(
+                        SubmoduleNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: `core::marker`,
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                    ident: `marker`,
                     visibility: Scope::Pub,
-                    symbol: NativeEntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `core::mem`,
+                },
+                EntityNodeEntry {
+                    node: EntityNode::Submodule(
+                        SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `core::mem`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::Pub,
                             ast_idx: 9,
                             ident_token: IdentToken {
@@ -172,13 +292,26 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `num`,
+                    node_path: EntityNodePath::Submodule(
+                        SubmoduleNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: `core::mem`,
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                    ident: `mem`,
                     visibility: Scope::Pub,
-                    symbol: NativeEntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `core::num`,
+                },
+                EntityNodeEntry {
+                    node: EntityNode::Submodule(
+                        SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `core::num`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::Pub,
                             ast_idx: 10,
                             ident_token: IdentToken {
@@ -189,13 +322,26 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `ops`,
+                    node_path: EntityNodePath::Submodule(
+                        SubmoduleNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: `core::num`,
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                    ident: `num`,
                     visibility: Scope::Pub,
-                    symbol: NativeEntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `core::ops`,
+                },
+                EntityNodeEntry {
+                    node: EntityNode::Submodule(
+                        SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `core::ops`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::Pub,
                             ast_idx: 11,
                             ident_token: IdentToken {
@@ -206,13 +352,26 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `option`,
+                    node_path: EntityNodePath::Submodule(
+                        SubmoduleNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: `core::ops`,
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                    ident: `ops`,
                     visibility: Scope::Pub,
-                    symbol: NativeEntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `core::option`,
+                },
+                EntityNodeEntry {
+                    node: EntityNode::Submodule(
+                        SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `core::option`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::Pub,
                             ast_idx: 12,
                             ident_token: IdentToken {
@@ -223,13 +382,26 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `prelude`,
+                    node_path: EntityNodePath::Submodule(
+                        SubmoduleNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: `core::option`,
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                    ident: `option`,
                     visibility: Scope::Pub,
-                    symbol: NativeEntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `core::prelude`,
+                },
+                EntityNodeEntry {
+                    node: EntityNode::Submodule(
+                        SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `core::prelude`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::Pub,
                             ast_idx: 13,
                             ident_token: IdentToken {
@@ -240,13 +412,26 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `raw_bits`,
+                    node_path: EntityNodePath::Submodule(
+                        SubmoduleNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: `core::prelude`,
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                    ident: `prelude`,
                     visibility: Scope::Pub,
-                    symbol: NativeEntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `core::raw_bits`,
+                },
+                EntityNodeEntry {
+                    node: EntityNode::Submodule(
+                        SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `core::raw_bits`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::Pub,
                             ast_idx: 14,
                             ident_token: IdentToken {
@@ -257,13 +442,26 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `result`,
+                    node_path: EntityNodePath::Submodule(
+                        SubmoduleNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: `core::raw_bits`,
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                    ident: `raw_bits`,
                     visibility: Scope::Pub,
-                    symbol: NativeEntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `core::result`,
+                },
+                EntityNodeEntry {
+                    node: EntityNode::Submodule(
+                        SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `core::result`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::Pub,
                             ast_idx: 15,
                             ident_token: IdentToken {
@@ -274,43 +472,109 @@ Ok(
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `str`,
+                    node_path: EntityNodePath::Submodule(
+                        SubmoduleNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: `core::result`,
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                    ident: `result`,
                     visibility: Scope::Pub,
-                    symbol: NativeEntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `core::str`,
+                },
+                EntityNodeEntry {
+                    node: EntityNode::Submodule(
+                        SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `core::slice`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::Pub,
                             ast_idx: 16,
                             ident_token: IdentToken {
-                                ident: `str`,
+                                ident: `slice`,
                                 token_idx: TokenIdx(
                                     50,
                                 ),
                             },
                         },
                     ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: `visual`,
+                    node_path: EntityNodePath::Submodule(
+                        SubmoduleNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: `core::slice`,
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                    ident: `slice`,
                     visibility: Scope::Pub,
-                    symbol: NativeEntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `core::visual`,
+                },
+                EntityNodeEntry {
+                    node: EntityNode::Submodule(
+                        SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `core::str`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::Pub,
                             ast_idx: 17,
                             ident_token: IdentToken {
-                                ident: `visual`,
+                                ident: `str`,
                                 token_idx: TokenIdx(
                                     53,
                                 ),
                             },
                         },
                     ),
+                    node_path: EntityNodePath::Submodule(
+                        SubmoduleNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: `core::str`,
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                    ident: `str`,
+                    visibility: Scope::Pub,
+                },
+                EntityNodeEntry {
+                    node: EntityNode::Submodule(
+                        SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `core::visual`,
+                                    disambiguator: 0,
+                                },
+                            },
+                            visibility: Scope::Pub,
+                            ast_idx: 18,
+                            ident_token: IdentToken {
+                                ident: `visual`,
+                                token_idx: TokenIdx(
+                                    56,
+                                ),
+                            },
+                        },
+                    ),
+                    node_path: EntityNodePath::Submodule(
+                        SubmoduleNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: `core::visual`,
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                    ident: `visual`,
+                    visibility: Scope::Pub,
                 },
             ],
-        ),
+        },
         use_one_trackers: UseExprRules(
             [],
         ),

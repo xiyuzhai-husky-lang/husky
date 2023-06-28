@@ -45,19 +45,19 @@ pub(crate) fn ethereal_term_application_ty_method_disambiguation(
     }
 }
 
-fn ethereal_ty_method_disambiguation_aux<'a>(
+fn ethereal_ty_method_disambiguation_aux(
     engine: &mut impl FluffyTermEngine,
     ty_path: TypePath,
-    arguments: &'a [EtherealTerm],
+    arguments: &[EtherealTerm],
     ident: Ident,
-    mut indirections: SmallVec<[FluffyInstanceIndirection; 2]>,
+    mut indirections: SmallVec<[FluffyDotIndirection; 2]>,
 ) -> FluffyTermMaybeResult<FluffyMethodDisambiguation> {
     match ty_path.refine(engine.db()) {
         Left(PreludeTypePath::Borrow(borrow_ty_path)) => match borrow_ty_path {
             PreludeBorrowTypePath::Ref => todo!(),
             PreludeBorrowTypePath::RefMut => todo!(),
             PreludeBorrowTypePath::Leash => {
-                indirections.push(FluffyInstanceIndirection::Leash);
+                indirections.push(FluffyDotIndirection::Leash);
                 if arguments.len() != 1 {
                     p!((&arguments).debug(engine.db()));
                     todo!()
@@ -71,14 +71,15 @@ fn ethereal_ty_method_disambiguation_aux<'a>(
         _ => (),
     }
     if let Some(signature) =
-        ty_method_fluffy_signature(engine, ty_path, arguments, &[], ident).into_result_option()?
+        ty_method_fluffy_signature(engine, ty_path, arguments, /* ad hoc */ &[], ident)
+            .into_result_option()?
     {
-        return JustOk(FluffyInstanceMemberDisambiguation {
+        return JustOk(FluffyDotDisambiguation {
             indirections,
             signature,
         });
     };
-    if indirections.contains(&FluffyInstanceIndirection::Leash) {
+    if indirections.contains(&FluffyDotIndirection::Leash) {
         todo!()
     }
     // ad hoc

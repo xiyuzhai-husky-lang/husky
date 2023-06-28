@@ -3,21 +3,21 @@ use husky_word::Ident;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[enum_class::from_variants]
-pub enum FluffyMethodSignature {
-    MethodFn(FluffyMethodFnSignature),
-    MethodFunction(FluffyMethodFunctionSignature),
+pub enum MethodFluffySignature {
+    MethodFn(MethodFnFluffySignature),
+    MethodFunction(MethodFunctionFluffySignature),
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct FluffyMethodFnSignature {
+pub struct MethodFnFluffySignature {
     // todo: self_parameter_contracted_ty
-    nonself_parameter_contracted_tys: SmallVec<[FluffyTermRitchieParameterContractedType; 4]>,
+    parameter_contracted_tys: SmallVec<[FluffyTermRitchieParameterContractedType; 4]>,
     return_ty: FluffyTerm,
 }
 
-impl FluffyMethodFnSignature {
+impl MethodFnFluffySignature {
     pub fn nonself_parameter_contracted_tys(&self) -> &[FluffyTermRitchieParameterContractedType] {
-        &self.nonself_parameter_contracted_tys
+        &self.parameter_contracted_tys
     }
 
     pub fn return_ty(&self) -> FluffyTerm {
@@ -26,7 +26,7 @@ impl FluffyMethodFnSignature {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct FluffyMethodFunctionSignature {}
+pub struct MethodFunctionFluffySignature {}
 
 pub(crate) fn ty_method_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
     engine: &mut impl FluffyTermEngine,
@@ -34,10 +34,10 @@ pub(crate) fn ty_method_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
     ty_template_arguments: &[Term],
     method_template_arguments: &[FluffyTerm],
     ident: Ident,
-) -> FluffyTermMaybeResult<FluffyMethodSignature> {
+) -> FluffyTermMaybeResult<MethodFluffySignature> {
     match ty_path.ty_item_ethereal_signature_templates(engine.db(), ident)? {
         TypeItemEtherealSignatureTemplates::MethodFn(templates) => {
-            for template in templates {
+            for template in templates.iter().copied() {
                 if let JustOk(signature) = ty_method_fn_fluffy_signature(
                     engine,
                     template,
@@ -69,10 +69,10 @@ pub(crate) fn ty_method_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
 
 fn ty_method_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
     engine: &mut impl FluffyTermEngine,
-    template: &TypeMethodFnEtherealSignatureTemplate,
+    template: TypeMethodFnEtherealSignatureTemplate,
     ty_template_arguments: &[Term],
     method_template_arguments: &[FluffyTerm],
-) -> FluffyTermMaybeResult<FluffyMethodFnSignature> {
+) -> FluffyTermMaybeResult<MethodFnFluffySignature> {
     let db = engine.db();
     let self_ty_application_expansion = template.self_ty(db).application_expansion(db);
     if self_ty_application_expansion.arguments(db).len() != ty_template_arguments.len() {
@@ -89,8 +89,8 @@ fn ty_method_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
     for _ in template.implicit_parameters(db).iter() {
         todo!()
     }
-    JustOk(FluffyMethodFnSignature {
-        nonself_parameter_contracted_tys: template
+    JustOk(MethodFnFluffySignature {
+        parameter_contracted_tys: template
             .nonself_regular_parameters(db)
             .iter()
             .map(|v| instantiator.instantiate_ritchie_parameter(engine, v))
@@ -104,6 +104,6 @@ fn ty_method_function_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
     template: &TypeMethodFunctionEtherealSignatureTemplate,
     ty_template_arguments: &[Term],
     method_template_arguments: &[FluffyTerm],
-) -> FluffyTermMaybeResult<FluffyMethodFnSignature> {
+) -> FluffyTermMaybeResult<MethodFnFluffySignature> {
     todo!()
 }

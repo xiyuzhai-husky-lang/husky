@@ -13,13 +13,13 @@ use husky_word::Ident;
 #[derive(Debug, PartialEq, Eq)]
 // #[salsa::derive_debug_with_db(db = FluffyTermDb)]
 pub struct FluffyFieldDisambiguation {
-    indirections: SmallVec<[FluffyInstanceIndirection; 2]>,
+    indirections: SmallVec<[FluffyDotIndirection; 2]>,
     ty_path: TypePath,
     signature: FluffyFieldSignature,
 }
 
 impl FluffyFieldDisambiguation {
-    fn merge(&self, mut indirections: SmallVec<[FluffyInstanceIndirection; 2]>) -> Self {
+    fn merge(&self, mut indirections: SmallVec<[FluffyDotIndirection; 2]>) -> Self {
         indirections.extend(self.indirections.iter().copied());
         Self {
             indirections,
@@ -28,7 +28,7 @@ impl FluffyFieldDisambiguation {
         }
     }
 
-    pub fn indirections(&self) -> &SmallVec<[FluffyInstanceIndirection; 2]> {
+    pub fn indirections(&self) -> &SmallVec<[FluffyDotIndirection; 2]> {
         &self.indirections
     }
 
@@ -57,7 +57,7 @@ impl FluffyTerm {
         engine: &mut impl FluffyTermEngine,
         ident: Ident,
         available_traits: &[TraitPath],
-        mut indirections: SmallVec<[FluffyInstanceIndirection; 2]>,
+        mut indirections: SmallVec<[FluffyDotIndirection; 2]>,
     ) -> FluffyTermMaybeResult<FluffyFieldDisambiguation> {
         match self.nested() {
             NestedFluffyTerm::Ethereal(term) => JustOk(

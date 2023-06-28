@@ -1,15 +1,18 @@
 Ok(
     EntityTreeSheet {
         module_path: `core::mem`,
-        symbols: EntitySymbolTable(
-            [
-                EntitySymbolEntry {
-                    ident: `Ref`,
-                    visibility: Scope::Pub,
-                    symbol: EntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Type(
-                                TypePath(`core::mem::Ref`, `Extern`),
+        major_entity_node_table: MajorEntityNodeTable {
+            entries: [
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Type(
+                                TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`core::mem::Ref`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::Pub,
                             ast_idx: 0,
@@ -21,14 +24,29 @@ Ok(
                             },
                         },
                     ),
-                },
-                EntitySymbolEntry {
-                    ident: `RefMut`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Type(
+                            TypeNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TypePath(`core::mem::Ref`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `Ref`,
                     visibility: Scope::Pub,
-                    symbol: EntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Type(
-                                TypePath(`core::mem::RefMut`, `Extern`),
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Type(
+                                TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`core::mem::RefMut`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::Pub,
                             ast_idx: 1,
@@ -40,14 +58,29 @@ Ok(
                             },
                         },
                     ),
-                },
-                EntitySymbolEntry {
-                    ident: `Leash`,
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Type(
+                            TypeNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TypePath(`core::mem::RefMut`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `RefMut`,
                     visibility: Scope::Pub,
-                    symbol: EntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Type(
-                                TypePath(`core::mem::Leash`, `Extern`),
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Type(
+                                TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`core::mem::Leash`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
                             visibility: Scope::Pub,
                             ast_idx: 2,
@@ -59,31 +92,142 @@ Ok(
                             },
                         },
                     ),
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Type(
+                            TypeNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TypePath(`core::mem::Leash`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `Leash`,
+                    visibility: Scope::Pub,
+                },
+            ],
+        },
+        entity_symbol_table: EntitySymbolTable(
+            [
+                EntitySymbolEntry {
+                    ident: `Ref`,
+                    visibility: Scope::Pub,
+                    symbol: EntitySymbol::ModuleItem {
+                        module_item_path: ModuleItemPath::Type(
+                            TypePath(`core::mem::Ref`, `Extern`),
+                        ),
+                        node: ModuleItemNode {
+                            node_path: ModuleItemNodePath::Type(
+                                TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`core::mem::Ref`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            visibility: Scope::Pub,
+                            ast_idx: 0,
+                            ident_token: IdentToken {
+                                ident: `Ref`,
+                                token_idx: TokenIdx(
+                                    2,
+                                ),
+                            },
+                        },
+                    },
+                },
+                EntitySymbolEntry {
+                    ident: `RefMut`,
+                    visibility: Scope::Pub,
+                    symbol: EntitySymbol::ModuleItem {
+                        module_item_path: ModuleItemPath::Type(
+                            TypePath(`core::mem::RefMut`, `Extern`),
+                        ),
+                        node: ModuleItemNode {
+                            node_path: ModuleItemNodePath::Type(
+                                TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`core::mem::RefMut`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            visibility: Scope::Pub,
+                            ast_idx: 1,
+                            ident_token: IdentToken {
+                                ident: `RefMut`,
+                                token_idx: TokenIdx(
+                                    13,
+                                ),
+                            },
+                        },
+                    },
+                },
+                EntitySymbolEntry {
+                    ident: `Leash`,
+                    visibility: Scope::Pub,
+                    symbol: EntitySymbol::ModuleItem {
+                        module_item_path: ModuleItemPath::Type(
+                            TypePath(`core::mem::Leash`, `Extern`),
+                        ),
+                        node: ModuleItemNode {
+                            node_path: ModuleItemNodePath::Type(
+                                TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`core::mem::Leash`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            visibility: Scope::Pub,
+                            ast_idx: 2,
+                            ident_token: IdentToken {
+                                ident: `Leash`,
+                                token_idx: TokenIdx(
+                                    24,
+                                ),
+                            },
+                        },
+                    },
                 },
             ],
         ),
-        impl_blocks: [
-            ImplBlock::TraitForType(
-                TraitForTypeImplBlock {
-                    id: TraitForTypeImplBlockId {
-                        module_path: `core::mem`,
-                        trai_path: TraitPath(`core::marker::Copy`),
-                        ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                        disambiguator: 0,
+        impl_block_node_table: [
+            (
+                ImplBlockNodePath::TraitForTypeImplBlock(
+                    TraitForTypeImplBlockNodePath {
+                        path: TraitForTypeImplBlockPath {
+                            module_path: `core::mem`,
+                            trai_path: TraitPath(`core::marker::Copy`),
+                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                            disambiguator: 0,
+                        },
                     },
-                    ast_idx: 3,
-                    impl_token: ImplToken {
-                        token_idx: TokenIdx(
-                            30,
+                ),
+                ImplBlockNode::TraitForTypeImplBlock(
+                    TraitForTypeImplBlockNode {
+                        node_path: TraitForTypeImplBlockNodePath {
+                            path: TraitForTypeImplBlockPath {
+                                module_path: `core::mem`,
+                                trai_path: TraitPath(`core::marker::Copy`),
+                                ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                disambiguator: 0,
+                            },
+                        },
+                        ast_idx: 3,
+                        impl_token: ImplToken {
+                            token_idx: TokenIdx(
+                                30,
+                            ),
+                        },
+                        trai_expr: 1,
+                        for_token: TokenIdx(
+                            35,
                         ),
+                        ty_expr: 2,
+                        items: None,
                     },
-                    trai_expr: 1,
-                    for_token: TokenIdx(
-                        35,
-                    ),
-                    ty_expr: 2,
-                    items: None,
-                },
+                ),
             ),
         ],
         use_expr_rules: UseExprRules(

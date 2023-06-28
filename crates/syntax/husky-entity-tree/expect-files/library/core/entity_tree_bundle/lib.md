@@ -3,14 +3,17 @@ Ok(
         sheets: [
             EntityTreeSheet {
                 module_path: `core`,
-                symbols: EntitySymbolTable(
-                    [
-                        EntitySymbolEntry {
-                            ident: `array`,
-                            visibility: Scope::Pub,
-                            symbol: EntitySymbol::Submodule(
-                                SubmoduleSymbol {
-                                    path: `core::array`,
+                major_entity_node_table: MajorEntityNodeTable {
+                    entries: [
+                        EntityNodeEntry {
+                            node: EntityNode::Submodule(
+                                SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `core::array`,
+                                            disambiguator: 0,
+                                        },
+                                    },
                                     visibility: Scope::Pub,
                                     ast_idx: 0,
                                     ident_token: IdentToken {
@@ -21,13 +24,26 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `basic`,
+                            node_path: EntityNodePath::Submodule(
+                                SubmoduleNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: `core::array`,
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            ident: `array`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::Submodule(
-                                SubmoduleSymbol {
-                                    path: `core::basic`,
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::Submodule(
+                                SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `core::basic`,
+                                            disambiguator: 0,
+                                        },
+                                    },
                                     visibility: Scope::Pub,
                                     ast_idx: 1,
                                     ident_token: IdentToken {
@@ -38,13 +54,26 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `clone`,
+                            node_path: EntityNodePath::Submodule(
+                                SubmoduleNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: `core::basic`,
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            ident: `basic`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::Submodule(
-                                SubmoduleSymbol {
-                                    path: `core::clone`,
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::Submodule(
+                                SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `core::clone`,
+                                            disambiguator: 0,
+                                        },
+                                    },
                                     visibility: Scope::Pub,
                                     ast_idx: 2,
                                     ident_token: IdentToken {
@@ -55,13 +84,26 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `cmp`,
+                            node_path: EntityNodePath::Submodule(
+                                SubmoduleNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: `core::clone`,
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            ident: `clone`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::Submodule(
-                                SubmoduleSymbol {
-                                    path: `core::cmp`,
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::Submodule(
+                                SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `core::cmp`,
+                                            disambiguator: 0,
+                                        },
+                                    },
                                     visibility: Scope::Pub,
                                     ast_idx: 3,
                                     ident_token: IdentToken {
@@ -72,13 +114,26 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `default`,
+                            node_path: EntityNodePath::Submodule(
+                                SubmoduleNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: `core::cmp`,
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            ident: `cmp`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::Submodule(
-                                SubmoduleSymbol {
-                                    path: `core::default`,
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::Submodule(
+                                SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `core::default`,
+                                            disambiguator: 0,
+                                        },
+                                    },
                                     visibility: Scope::Pub,
                                     ast_idx: 4,
                                     ident_token: IdentToken {
@@ -89,13 +144,26 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `fmt`,
+                            node_path: EntityNodePath::Submodule(
+                                SubmoduleNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: `core::default`,
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            ident: `default`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::Submodule(
-                                SubmoduleSymbol {
-                                    path: `core::fmt`,
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::Submodule(
+                                SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `core::fmt`,
+                                            disambiguator: 0,
+                                        },
+                                    },
                                     visibility: Scope::Pub,
                                     ast_idx: 5,
                                     ident_token: IdentToken {
@@ -106,13 +174,26 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `list`,
+                            node_path: EntityNodePath::Submodule(
+                                SubmoduleNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: `core::fmt`,
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            ident: `fmt`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::Submodule(
-                                SubmoduleSymbol {
-                                    path: `core::list`,
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::Submodule(
+                                SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `core::list`,
+                                            disambiguator: 0,
+                                        },
+                                    },
                                     visibility: Scope::Pub,
                                     ast_idx: 6,
                                     ident_token: IdentToken {
@@ -123,13 +204,26 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `logic`,
+                            node_path: EntityNodePath::Submodule(
+                                SubmoduleNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: `core::list`,
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            ident: `list`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::Submodule(
-                                SubmoduleSymbol {
-                                    path: `core::logic`,
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::Submodule(
+                                SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `core::logic`,
+                                            disambiguator: 0,
+                                        },
+                                    },
                                     visibility: Scope::Pub,
                                     ast_idx: 7,
                                     ident_token: IdentToken {
@@ -140,13 +234,26 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `marker`,
+                            node_path: EntityNodePath::Submodule(
+                                SubmoduleNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: `core::logic`,
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            ident: `logic`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::Submodule(
-                                SubmoduleSymbol {
-                                    path: `core::marker`,
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::Submodule(
+                                SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `core::marker`,
+                                            disambiguator: 0,
+                                        },
+                                    },
                                     visibility: Scope::Pub,
                                     ast_idx: 8,
                                     ident_token: IdentToken {
@@ -157,13 +264,26 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `mem`,
+                            node_path: EntityNodePath::Submodule(
+                                SubmoduleNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: `core::marker`,
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            ident: `marker`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::Submodule(
-                                SubmoduleSymbol {
-                                    path: `core::mem`,
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::Submodule(
+                                SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `core::mem`,
+                                            disambiguator: 0,
+                                        },
+                                    },
                                     visibility: Scope::Pub,
                                     ast_idx: 9,
                                     ident_token: IdentToken {
@@ -174,13 +294,26 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `num`,
+                            node_path: EntityNodePath::Submodule(
+                                SubmoduleNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: `core::mem`,
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            ident: `mem`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::Submodule(
-                                SubmoduleSymbol {
-                                    path: `core::num`,
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::Submodule(
+                                SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `core::num`,
+                                            disambiguator: 0,
+                                        },
+                                    },
                                     visibility: Scope::Pub,
                                     ast_idx: 10,
                                     ident_token: IdentToken {
@@ -191,13 +324,26 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `ops`,
+                            node_path: EntityNodePath::Submodule(
+                                SubmoduleNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: `core::num`,
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            ident: `num`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::Submodule(
-                                SubmoduleSymbol {
-                                    path: `core::ops`,
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::Submodule(
+                                SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `core::ops`,
+                                            disambiguator: 0,
+                                        },
+                                    },
                                     visibility: Scope::Pub,
                                     ast_idx: 11,
                                     ident_token: IdentToken {
@@ -208,13 +354,26 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `option`,
+                            node_path: EntityNodePath::Submodule(
+                                SubmoduleNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: `core::ops`,
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            ident: `ops`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::Submodule(
-                                SubmoduleSymbol {
-                                    path: `core::option`,
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::Submodule(
+                                SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `core::option`,
+                                            disambiguator: 0,
+                                        },
+                                    },
                                     visibility: Scope::Pub,
                                     ast_idx: 12,
                                     ident_token: IdentToken {
@@ -225,13 +384,26 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `prelude`,
+                            node_path: EntityNodePath::Submodule(
+                                SubmoduleNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: `core::option`,
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            ident: `option`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::Submodule(
-                                SubmoduleSymbol {
-                                    path: `core::prelude`,
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::Submodule(
+                                SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `core::prelude`,
+                                            disambiguator: 0,
+                                        },
+                                    },
                                     visibility: Scope::Pub,
                                     ast_idx: 13,
                                     ident_token: IdentToken {
@@ -242,13 +414,26 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `raw_bits`,
+                            node_path: EntityNodePath::Submodule(
+                                SubmoduleNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: `core::prelude`,
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            ident: `prelude`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::Submodule(
-                                SubmoduleSymbol {
-                                    path: `core::raw_bits`,
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::Submodule(
+                                SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `core::raw_bits`,
+                                            disambiguator: 0,
+                                        },
+                                    },
                                     visibility: Scope::Pub,
                                     ast_idx: 14,
                                     ident_token: IdentToken {
@@ -259,13 +444,26 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `result`,
+                            node_path: EntityNodePath::Submodule(
+                                SubmoduleNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: `core::raw_bits`,
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            ident: `raw_bits`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::Submodule(
-                                SubmoduleSymbol {
-                                    path: `core::result`,
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::Submodule(
+                                SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `core::result`,
+                                            disambiguator: 0,
+                                        },
+                                    },
                                     visibility: Scope::Pub,
                                     ast_idx: 15,
                                     ident_token: IdentToken {
@@ -276,44 +474,551 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `str`,
+                            node_path: EntityNodePath::Submodule(
+                                SubmoduleNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: `core::result`,
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            ident: `result`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::Submodule(
-                                SubmoduleSymbol {
-                                    path: `core::str`,
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::Submodule(
+                                SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `core::slice`,
+                                            disambiguator: 0,
+                                        },
+                                    },
                                     visibility: Scope::Pub,
                                     ast_idx: 16,
                                     ident_token: IdentToken {
-                                        ident: `str`,
+                                        ident: `slice`,
                                         token_idx: TokenIdx(
                                             50,
                                         ),
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `visual`,
+                            node_path: EntityNodePath::Submodule(
+                                SubmoduleNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: `core::slice`,
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            ident: `slice`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::Submodule(
-                                SubmoduleSymbol {
-                                    path: `core::visual`,
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::Submodule(
+                                SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `core::str`,
+                                            disambiguator: 0,
+                                        },
+                                    },
                                     visibility: Scope::Pub,
                                     ast_idx: 17,
                                     ident_token: IdentToken {
-                                        ident: `visual`,
+                                        ident: `str`,
                                         token_idx: TokenIdx(
                                             53,
                                         ),
                                     },
                                 },
                             ),
+                            node_path: EntityNodePath::Submodule(
+                                SubmoduleNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: `core::str`,
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            ident: `str`,
+                            visibility: Scope::Pub,
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::Submodule(
+                                SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `core::visual`,
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    visibility: Scope::Pub,
+                                    ast_idx: 18,
+                                    ident_token: IdentToken {
+                                        ident: `visual`,
+                                        token_idx: TokenIdx(
+                                            56,
+                                        ),
+                                    },
+                                },
+                            ),
+                            node_path: EntityNodePath::Submodule(
+                                SubmoduleNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: `core::visual`,
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            ident: `visual`,
+                            visibility: Scope::Pub,
+                        },
+                    ],
+                },
+                entity_symbol_table: EntitySymbolTable(
+                    [
+                        EntitySymbolEntry {
+                            ident: `array`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::Submodule {
+                                submodule_path: `core::array`,
+                                node: SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `core::array`,
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    visibility: Scope::Pub,
+                                    ast_idx: 0,
+                                    ident_token: IdentToken {
+                                        ident: `array`,
+                                        token_idx: TokenIdx(
+                                            2,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `basic`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::Submodule {
+                                submodule_path: `core::basic`,
+                                node: SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `core::basic`,
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    visibility: Scope::Pub,
+                                    ast_idx: 1,
+                                    ident_token: IdentToken {
+                                        ident: `basic`,
+                                        token_idx: TokenIdx(
+                                            5,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `clone`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::Submodule {
+                                submodule_path: `core::clone`,
+                                node: SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `core::clone`,
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    visibility: Scope::Pub,
+                                    ast_idx: 2,
+                                    ident_token: IdentToken {
+                                        ident: `clone`,
+                                        token_idx: TokenIdx(
+                                            8,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `cmp`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::Submodule {
+                                submodule_path: `core::cmp`,
+                                node: SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `core::cmp`,
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    visibility: Scope::Pub,
+                                    ast_idx: 3,
+                                    ident_token: IdentToken {
+                                        ident: `cmp`,
+                                        token_idx: TokenIdx(
+                                            11,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `default`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::Submodule {
+                                submodule_path: `core::default`,
+                                node: SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `core::default`,
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    visibility: Scope::Pub,
+                                    ast_idx: 4,
+                                    ident_token: IdentToken {
+                                        ident: `default`,
+                                        token_idx: TokenIdx(
+                                            14,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `fmt`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::Submodule {
+                                submodule_path: `core::fmt`,
+                                node: SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `core::fmt`,
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    visibility: Scope::Pub,
+                                    ast_idx: 5,
+                                    ident_token: IdentToken {
+                                        ident: `fmt`,
+                                        token_idx: TokenIdx(
+                                            17,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `list`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::Submodule {
+                                submodule_path: `core::list`,
+                                node: SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `core::list`,
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    visibility: Scope::Pub,
+                                    ast_idx: 6,
+                                    ident_token: IdentToken {
+                                        ident: `list`,
+                                        token_idx: TokenIdx(
+                                            20,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `logic`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::Submodule {
+                                submodule_path: `core::logic`,
+                                node: SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `core::logic`,
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    visibility: Scope::Pub,
+                                    ast_idx: 7,
+                                    ident_token: IdentToken {
+                                        ident: `logic`,
+                                        token_idx: TokenIdx(
+                                            23,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `marker`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::Submodule {
+                                submodule_path: `core::marker`,
+                                node: SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `core::marker`,
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    visibility: Scope::Pub,
+                                    ast_idx: 8,
+                                    ident_token: IdentToken {
+                                        ident: `marker`,
+                                        token_idx: TokenIdx(
+                                            26,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `mem`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::Submodule {
+                                submodule_path: `core::mem`,
+                                node: SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `core::mem`,
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    visibility: Scope::Pub,
+                                    ast_idx: 9,
+                                    ident_token: IdentToken {
+                                        ident: `mem`,
+                                        token_idx: TokenIdx(
+                                            29,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `num`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::Submodule {
+                                submodule_path: `core::num`,
+                                node: SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `core::num`,
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    visibility: Scope::Pub,
+                                    ast_idx: 10,
+                                    ident_token: IdentToken {
+                                        ident: `num`,
+                                        token_idx: TokenIdx(
+                                            32,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `ops`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::Submodule {
+                                submodule_path: `core::ops`,
+                                node: SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `core::ops`,
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    visibility: Scope::Pub,
+                                    ast_idx: 11,
+                                    ident_token: IdentToken {
+                                        ident: `ops`,
+                                        token_idx: TokenIdx(
+                                            35,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `option`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::Submodule {
+                                submodule_path: `core::option`,
+                                node: SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `core::option`,
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    visibility: Scope::Pub,
+                                    ast_idx: 12,
+                                    ident_token: IdentToken {
+                                        ident: `option`,
+                                        token_idx: TokenIdx(
+                                            38,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `prelude`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::Submodule {
+                                submodule_path: `core::prelude`,
+                                node: SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `core::prelude`,
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    visibility: Scope::Pub,
+                                    ast_idx: 13,
+                                    ident_token: IdentToken {
+                                        ident: `prelude`,
+                                        token_idx: TokenIdx(
+                                            41,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `raw_bits`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::Submodule {
+                                submodule_path: `core::raw_bits`,
+                                node: SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `core::raw_bits`,
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    visibility: Scope::Pub,
+                                    ast_idx: 14,
+                                    ident_token: IdentToken {
+                                        ident: `raw_bits`,
+                                        token_idx: TokenIdx(
+                                            44,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `result`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::Submodule {
+                                submodule_path: `core::result`,
+                                node: SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `core::result`,
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    visibility: Scope::Pub,
+                                    ast_idx: 15,
+                                    ident_token: IdentToken {
+                                        ident: `result`,
+                                        token_idx: TokenIdx(
+                                            47,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `slice`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::Submodule {
+                                submodule_path: `core::slice`,
+                                node: SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `core::slice`,
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    visibility: Scope::Pub,
+                                    ast_idx: 16,
+                                    ident_token: IdentToken {
+                                        ident: `slice`,
+                                        token_idx: TokenIdx(
+                                            50,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `str`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::Submodule {
+                                submodule_path: `core::str`,
+                                node: SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `core::str`,
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    visibility: Scope::Pub,
+                                    ast_idx: 17,
+                                    ident_token: IdentToken {
+                                        ident: `str`,
+                                        token_idx: TokenIdx(
+                                            53,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `visual`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::Submodule {
+                                submodule_path: `core::visual`,
+                                node: SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `core::visual`,
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    visibility: Scope::Pub,
+                                    ast_idx: 18,
+                                    ident_token: IdentToken {
+                                        ident: `visual`,
+                                        token_idx: TokenIdx(
+                                            56,
+                                        ),
+                                    },
+                                },
+                            },
                         },
                     ],
                 ),
-                impl_blocks: [],
+                impl_block_node_table: [],
                 use_expr_rules: UseExprRules(
                     [],
                 ),
@@ -324,15 +1029,18 @@ Ok(
             },
             EntityTreeSheet {
                 module_path: `core::array`,
-                symbols: EntitySymbolTable(
-                    [
-                        EntitySymbolEntry {
-                            ident: `Array`,
-                            visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Type(
-                                        TypePath(`core::array::Array`, `Extern`),
+                major_entity_node_table: MajorEntityNodeTable {
+                    entries: [
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::array::Array`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 0,
@@ -344,10 +1052,53 @@ Ok(
                                     },
                                 },
                             ),
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Type(
+                                    TypeNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::array::Array`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `Array`,
+                            visibility: Scope::Pub,
+                        },
+                    ],
+                },
+                entity_symbol_table: EntitySymbolTable(
+                    [
+                        EntitySymbolEntry {
+                            ident: `Array`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`core::array::Array`, `Extern`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::array::Array`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 0,
+                                    ident_token: IdentToken {
+                                        ident: `Array`,
+                                        token_idx: TokenIdx(
+                                            2,
+                                        ),
+                                    },
+                                },
+                            },
                         },
                     ],
                 ),
-                impl_blocks: [],
+                impl_block_node_table: [],
                 use_expr_rules: UseExprRules(
                     [],
                 ),
@@ -358,15 +1109,18 @@ Ok(
             },
             EntityTreeSheet {
                 module_path: `core::basic`,
-                symbols: EntitySymbolTable(
-                    [
-                        EntitySymbolEntry {
-                            ident: `bool`,
-                            visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Type(
-                                        TypePath(`core::basic::bool`, `Extern`),
+                major_entity_node_table: MajorEntityNodeTable {
+                    entries: [
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::basic::bool`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 0,
@@ -378,14 +1132,29 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `never`,
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Type(
+                                    TypeNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::basic::bool`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `bool`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Type(
-                                        TypePath(`core::basic::never`, `Extern`),
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::basic::never`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 1,
@@ -397,14 +1166,29 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `unit`,
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Type(
+                                    TypeNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::basic::never`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `never`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Type(
-                                        TypePath(`core::basic::unit`, `Extern`),
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::basic::unit`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 2,
@@ -416,14 +1200,29 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `Trait`,
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Type(
+                                    TypeNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::basic::unit`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `unit`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Type(
-                                        TypePath(`core::basic::Trait`, `Structure`),
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::basic::Trait`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 3,
@@ -435,14 +1234,29 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `Module`,
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Type(
+                                    TypeNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::basic::Trait`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `Trait`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Type(
-                                        TypePath(`core::basic::Module`, `Structure`),
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::basic::Module`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 4,
@@ -454,10 +1268,161 @@ Ok(
                                     },
                                 },
                             ),
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Type(
+                                    TypeNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::basic::Module`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `Module`,
+                            visibility: Scope::Pub,
+                        },
+                    ],
+                },
+                entity_symbol_table: EntitySymbolTable(
+                    [
+                        EntitySymbolEntry {
+                            ident: `bool`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`core::basic::bool`, `Extern`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::basic::bool`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 0,
+                                    ident_token: IdentToken {
+                                        ident: `bool`,
+                                        token_idx: TokenIdx(
+                                            2,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `never`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`core::basic::never`, `Extern`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::basic::never`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 1,
+                                    ident_token: IdentToken {
+                                        ident: `never`,
+                                        token_idx: TokenIdx(
+                                            6,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `unit`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`core::basic::unit`, `Extern`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::basic::unit`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 2,
+                                    ident_token: IdentToken {
+                                        ident: `unit`,
+                                        token_idx: TokenIdx(
+                                            10,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `Trait`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`core::basic::Trait`, `Extern`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::basic::Trait`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 3,
+                                    ident_token: IdentToken {
+                                        ident: `Trait`,
+                                        token_idx: TokenIdx(
+                                            14,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `Module`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`core::basic::Module`, `Extern`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::basic::Module`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 4,
+                                    ident_token: IdentToken {
+                                        ident: `Module`,
+                                        token_idx: TokenIdx(
+                                            18,
+                                        ),
+                                    },
+                                },
+                            },
                         },
                     ],
                 ),
-                impl_blocks: [],
+                impl_block_node_table: [],
                 use_expr_rules: UseExprRules(
                     [],
                 ),
@@ -468,15 +1433,18 @@ Ok(
             },
             EntityTreeSheet {
                 module_path: `core::clone`,
-                symbols: EntitySymbolTable(
-                    [
-                        EntitySymbolEntry {
-                            ident: `Clone`,
-                            visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Trait(
-                                        TraitPath(`core::clone::Clone`),
+                major_entity_node_table: MajorEntityNodeTable {
+                    entries: [
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::clone::Clone`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 1,
@@ -488,10 +1456,53 @@ Ok(
                                     },
                                 },
                             ),
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Trait(
+                                    TraitNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitPath(`core::clone::Clone`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `Clone`,
+                            visibility: Scope::Pub,
+                        },
+                    ],
+                },
+                entity_symbol_table: EntitySymbolTable(
+                    [
+                        EntitySymbolEntry {
+                            ident: `Clone`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Trait(
+                                    TraitPath(`core::clone::Clone`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::clone::Clone`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 1,
+                                    ident_token: IdentToken {
+                                        ident: `Clone`,
+                                        token_idx: TokenIdx(
+                                            2,
+                                        ),
+                                    },
+                                },
+                            },
                         },
                     ],
                 ),
-                impl_blocks: [],
+                impl_block_node_table: [],
                 use_expr_rules: UseExprRules(
                     [],
                 ),
@@ -502,15 +1513,18 @@ Ok(
             },
             EntityTreeSheet {
                 module_path: `core::cmp`,
-                symbols: EntitySymbolTable(
-                    [
-                        EntitySymbolEntry {
-                            ident: `PartialEq`,
-                            visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Trait(
-                                        TraitPath(`core::cmp::PartialEq`),
+                major_entity_node_table: MajorEntityNodeTable {
+                    entries: [
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::cmp::PartialEq`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 0,
@@ -522,14 +1536,29 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `Eq`,
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Trait(
+                                    TraitNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitPath(`core::cmp::PartialEq`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `PartialEq`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Trait(
-                                        TraitPath(`core::cmp::Eq`),
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::cmp::Eq`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 1,
@@ -541,14 +1570,29 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `PartialOrd`,
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Trait(
+                                    TraitNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitPath(`core::cmp::Eq`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `Eq`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Trait(
-                                        TraitPath(`core::cmp::PartialOrd`),
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::cmp::PartialOrd`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 2,
@@ -560,14 +1604,29 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `Ord`,
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Trait(
+                                    TraitNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitPath(`core::cmp::PartialOrd`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `PartialOrd`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Trait(
-                                        TraitPath(`core::cmp::Ord`),
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::cmp::Ord`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 3,
@@ -579,10 +1638,134 @@ Ok(
                                     },
                                 },
                             ),
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Trait(
+                                    TraitNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitPath(`core::cmp::Ord`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `Ord`,
+                            visibility: Scope::Pub,
+                        },
+                    ],
+                },
+                entity_symbol_table: EntitySymbolTable(
+                    [
+                        EntitySymbolEntry {
+                            ident: `PartialEq`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Trait(
+                                    TraitPath(`core::cmp::PartialEq`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::cmp::PartialEq`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 0,
+                                    ident_token: IdentToken {
+                                        ident: `PartialEq`,
+                                        token_idx: TokenIdx(
+                                            2,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `Eq`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Trait(
+                                    TraitPath(`core::cmp::Eq`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::cmp::Eq`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 1,
+                                    ident_token: IdentToken {
+                                        ident: `Eq`,
+                                        token_idx: TokenIdx(
+                                            6,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `PartialOrd`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Trait(
+                                    TraitPath(`core::cmp::PartialOrd`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::cmp::PartialOrd`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 2,
+                                    ident_token: IdentToken {
+                                        ident: `PartialOrd`,
+                                        token_idx: TokenIdx(
+                                            10,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `Ord`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Trait(
+                                    TraitPath(`core::cmp::Ord`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::cmp::Ord`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 3,
+                                    ident_token: IdentToken {
+                                        ident: `Ord`,
+                                        token_idx: TokenIdx(
+                                            14,
+                                        ),
+                                    },
+                                },
+                            },
                         },
                     ],
                 ),
-                impl_blocks: [],
+                impl_block_node_table: [],
                 use_expr_rules: UseExprRules(
                     [],
                 ),
@@ -593,10 +1776,13 @@ Ok(
             },
             EntityTreeSheet {
                 module_path: `core::default`,
-                symbols: EntitySymbolTable(
+                major_entity_node_table: MajorEntityNodeTable {
+                    entries: [],
+                },
+                entity_symbol_table: EntitySymbolTable(
                     [],
                 ),
-                impl_blocks: [],
+                impl_block_node_table: [],
                 use_expr_rules: UseExprRules(
                     [],
                 ),
@@ -607,15 +1793,18 @@ Ok(
             },
             EntityTreeSheet {
                 module_path: `core::fmt`,
-                symbols: EntitySymbolTable(
-                    [
-                        EntitySymbolEntry {
-                            ident: `Debug`,
-                            visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Trait(
-                                        TraitPath(`core::fmt::Debug`),
+                major_entity_node_table: MajorEntityNodeTable {
+                    entries: [
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::fmt::Debug`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 0,
@@ -627,10 +1816,53 @@ Ok(
                                     },
                                 },
                             ),
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Trait(
+                                    TraitNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitPath(`core::fmt::Debug`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `Debug`,
+                            visibility: Scope::Pub,
+                        },
+                    ],
+                },
+                entity_symbol_table: EntitySymbolTable(
+                    [
+                        EntitySymbolEntry {
+                            ident: `Debug`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Trait(
+                                    TraitPath(`core::fmt::Debug`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::fmt::Debug`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 0,
+                                    ident_token: IdentToken {
+                                        ident: `Debug`,
+                                        token_idx: TokenIdx(
+                                            2,
+                                        ),
+                                    },
+                                },
+                            },
                         },
                     ],
                 ),
-                impl_blocks: [],
+                impl_block_node_table: [],
                 use_expr_rules: UseExprRules(
                     [],
                 ),
@@ -641,15 +1873,18 @@ Ok(
             },
             EntityTreeSheet {
                 module_path: `core::list`,
-                symbols: EntitySymbolTable(
-                    [
-                        EntitySymbolEntry {
-                            ident: `List`,
-                            visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Type(
-                                        TypePath(`core::list::List`, `Extern`),
+                major_entity_node_table: MajorEntityNodeTable {
+                    entries: [
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::list::List`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 4,
@@ -661,32 +1896,86 @@ Ok(
                                     },
                                 },
                             ),
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Type(
+                                    TypeNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::list::List`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `List`,
+                            visibility: Scope::Pub,
+                        },
+                    ],
+                },
+                entity_symbol_table: EntitySymbolTable(
+                    [
+                        EntitySymbolEntry {
+                            ident: `List`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`core::list::List`, `Extern`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::list::List`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 4,
+                                    ident_token: IdentToken {
+                                        ident: `List`,
+                                        token_idx: TokenIdx(
+                                            2,
+                                        ),
+                                    },
+                                },
+                            },
                         },
                     ],
                 ),
-                impl_blocks: [
-                    ImplBlock::Type(
-                        TypeImplBlock {
-                            id: TypeImplBlockId {
-                                module_path: `core::list`,
-                                ty_path: TypePath(`core::list::List`, `Extern`),
-                                disambiguator: 0,
+                impl_block_node_table: [
+                    (
+                        ImplBlockNodePath::TypeImplBlock(
+                            TypeImplBlockNodePath {
+                                path: TypeImplBlockPath {
+                                    module_path: `core::list`,
+                                    ty_path: TypePath(`core::list::List`, `Extern`),
+                                    disambiguator: 0,
+                                },
                             },
-                            ast_idx: 5,
-                            impl_token: ImplToken {
-                                token_idx: TokenIdx(
-                                    8,
-                                ),
-                            },
-                            ty_expr: 0,
-                            body: Type(
-                                TypeItems {
+                        ),
+                        ImplBlockNode::TypeImplBlock(
+                            TypeImplBlockNode {
+                                node_path: TypeImplBlockNodePath {
+                                    path: TypeImplBlockPath {
+                                        module_path: `core::list`,
+                                        ty_path: TypePath(`core::list::List`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 5,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        8,
+                                    ),
+                                },
+                                ty_expr: 0,
+                                items: TypeItems {
                                     ast_idx_range: ArenaIdxRange(
                                         0..4,
                                     ),
                                 },
-                            ),
-                        },
+                            },
+                        ),
                     ),
                 ],
                 use_expr_rules: UseExprRules(
@@ -699,15 +1988,18 @@ Ok(
             },
             EntityTreeSheet {
                 module_path: `core::logic`,
-                symbols: EntitySymbolTable(
-                    [
-                        EntitySymbolEntry {
-                            ident: `Prop`,
-                            visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Type(
-                                        TypePath(`core::logic::Prop`, `Extern`),
+                major_entity_node_table: MajorEntityNodeTable {
+                    entries: [
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::logic::Prop`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 2,
@@ -719,14 +2011,29 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `LogicAnd`,
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Type(
+                                    TypeNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::logic::Prop`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `Prop`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Type(
-                                        TypePath(`core::logic::LogicAnd`, `Structure`),
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::logic::LogicAnd`, `Structure`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 3,
@@ -738,14 +2045,29 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `LogicOr`,
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Type(
+                                    TypeNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::logic::LogicAnd`, `Structure`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `LogicAnd`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Type(
-                                        TypePath(`core::logic::LogicOr`, `Inductive`),
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::logic::LogicOr`, `Inductive`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 4,
@@ -757,10 +2079,107 @@ Ok(
                                     },
                                 },
                             ),
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Type(
+                                    TypeNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::logic::LogicOr`, `Inductive`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `LogicOr`,
+                            visibility: Scope::Pub,
+                        },
+                    ],
+                },
+                entity_symbol_table: EntitySymbolTable(
+                    [
+                        EntitySymbolEntry {
+                            ident: `Prop`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`core::logic::Prop`, `Extern`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::logic::Prop`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 2,
+                                    ident_token: IdentToken {
+                                        ident: `Prop`,
+                                        token_idx: TokenIdx(
+                                            2,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `LogicAnd`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`core::logic::LogicAnd`, `Structure`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::logic::LogicAnd`, `Structure`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 3,
+                                    ident_token: IdentToken {
+                                        ident: `LogicAnd`,
+                                        token_idx: TokenIdx(
+                                            6,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `LogicOr`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`core::logic::LogicOr`, `Inductive`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::logic::LogicOr`, `Inductive`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 4,
+                                    ident_token: IdentToken {
+                                        ident: `LogicOr`,
+                                        token_idx: TokenIdx(
+                                            28,
+                                        ),
+                                    },
+                                },
+                            },
                         },
                     ],
                 ),
-                impl_blocks: [],
+                impl_block_node_table: [],
                 use_expr_rules: UseExprRules(
                     [],
                 ),
@@ -771,15 +2190,18 @@ Ok(
             },
             EntityTreeSheet {
                 module_path: `core::marker`,
-                symbols: EntitySymbolTable(
-                    [
-                        EntitySymbolEntry {
-                            ident: `Copy`,
-                            visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Trait(
-                                        TraitPath(`core::marker::Copy`),
+                major_entity_node_table: MajorEntityNodeTable {
+                    entries: [
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::marker::Copy`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 0,
@@ -791,14 +2213,29 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `Sized`,
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Trait(
+                                    TraitNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitPath(`core::marker::Copy`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `Copy`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Trait(
-                                        TraitPath(`core::marker::Sized`),
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::marker::Sized`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 1,
@@ -810,10 +2247,80 @@ Ok(
                                     },
                                 },
                             ),
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Trait(
+                                    TraitNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitPath(`core::marker::Sized`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `Sized`,
+                            visibility: Scope::Pub,
+                        },
+                    ],
+                },
+                entity_symbol_table: EntitySymbolTable(
+                    [
+                        EntitySymbolEntry {
+                            ident: `Copy`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Trait(
+                                    TraitPath(`core::marker::Copy`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::marker::Copy`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 0,
+                                    ident_token: IdentToken {
+                                        ident: `Copy`,
+                                        token_idx: TokenIdx(
+                                            2,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `Sized`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Trait(
+                                    TraitPath(`core::marker::Sized`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::marker::Sized`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 1,
+                                    ident_token: IdentToken {
+                                        ident: `Sized`,
+                                        token_idx: TokenIdx(
+                                            6,
+                                        ),
+                                    },
+                                },
+                            },
                         },
                     ],
                 ),
-                impl_blocks: [],
+                impl_block_node_table: [],
                 use_expr_rules: UseExprRules(
                     [],
                 ),
@@ -824,15 +2331,18 @@ Ok(
             },
             EntityTreeSheet {
                 module_path: `core::mem`,
-                symbols: EntitySymbolTable(
-                    [
-                        EntitySymbolEntry {
-                            ident: `Ref`,
-                            visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Type(
-                                        TypePath(`core::mem::Ref`, `Extern`),
+                major_entity_node_table: MajorEntityNodeTable {
+                    entries: [
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::mem::Ref`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 0,
@@ -844,14 +2354,29 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `RefMut`,
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Type(
+                                    TypeNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::mem::Ref`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `Ref`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Type(
-                                        TypePath(`core::mem::RefMut`, `Extern`),
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::mem::RefMut`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 1,
@@ -863,14 +2388,29 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `Leash`,
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Type(
+                                    TypeNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::mem::RefMut`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `RefMut`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Type(
-                                        TypePath(`core::mem::Leash`, `Extern`),
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::mem::Leash`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 2,
@@ -882,31 +2422,142 @@ Ok(
                                     },
                                 },
                             ),
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Type(
+                                    TypeNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::mem::Leash`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `Leash`,
+                            visibility: Scope::Pub,
+                        },
+                    ],
+                },
+                entity_symbol_table: EntitySymbolTable(
+                    [
+                        EntitySymbolEntry {
+                            ident: `Ref`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`core::mem::Ref`, `Extern`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::mem::Ref`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 0,
+                                    ident_token: IdentToken {
+                                        ident: `Ref`,
+                                        token_idx: TokenIdx(
+                                            2,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `RefMut`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`core::mem::RefMut`, `Extern`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::mem::RefMut`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 1,
+                                    ident_token: IdentToken {
+                                        ident: `RefMut`,
+                                        token_idx: TokenIdx(
+                                            13,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `Leash`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`core::mem::Leash`, `Extern`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::mem::Leash`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 2,
+                                    ident_token: IdentToken {
+                                        ident: `Leash`,
+                                        token_idx: TokenIdx(
+                                            24,
+                                        ),
+                                    },
+                                },
+                            },
                         },
                     ],
                 ),
-                impl_blocks: [
-                    ImplBlock::TraitForType(
-                        TraitForTypeImplBlock {
-                            id: TraitForTypeImplBlockId {
-                                module_path: `core::mem`,
-                                trai_path: TraitPath(`core::marker::Copy`),
-                                ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                                disambiguator: 0,
+                impl_block_node_table: [
+                    (
+                        ImplBlockNodePath::TraitForTypeImplBlock(
+                            TraitForTypeImplBlockNodePath {
+                                path: TraitForTypeImplBlockPath {
+                                    module_path: `core::mem`,
+                                    trai_path: TraitPath(`core::marker::Copy`),
+                                    ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                    disambiguator: 0,
+                                },
                             },
-                            ast_idx: 3,
-                            impl_token: ImplToken {
-                                token_idx: TokenIdx(
-                                    30,
+                        ),
+                        ImplBlockNode::TraitForTypeImplBlock(
+                            TraitForTypeImplBlockNode {
+                                node_path: TraitForTypeImplBlockNodePath {
+                                    path: TraitForTypeImplBlockPath {
+                                        module_path: `core::mem`,
+                                        trai_path: TraitPath(`core::marker::Copy`),
+                                        ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 3,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        30,
+                                    ),
+                                },
+                                trai_expr: 1,
+                                for_token: TokenIdx(
+                                    35,
                                 ),
+                                ty_expr: 2,
+                                items: None,
                             },
-                            trai_expr: 1,
-                            for_token: TokenIdx(
-                                35,
-                            ),
-                            ty_expr: 2,
-                            items: None,
-                        },
+                        ),
                     ),
                 ],
                 use_expr_rules: UseExprRules(
@@ -919,15 +2570,18 @@ Ok(
             },
             EntityTreeSheet {
                 module_path: `core::num`,
-                symbols: EntitySymbolTable(
-                    [
-                        EntitySymbolEntry {
-                            ident: `i8`,
-                            visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Type(
-                                        TypePath(`core::num::i8`, `Extern`),
+                major_entity_node_table: MajorEntityNodeTable {
+                    entries: [
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::num::i8`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 32,
@@ -939,14 +2593,29 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `i16`,
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Type(
+                                    TypeNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::num::i8`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `i8`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Type(
-                                        TypePath(`core::num::i16`, `Extern`),
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::num::i16`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 37,
@@ -958,14 +2627,29 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `i32`,
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Type(
+                                    TypeNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::num::i16`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `i16`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Type(
-                                        TypePath(`core::num::i32`, `Extern`),
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::num::i32`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 42,
@@ -977,14 +2661,29 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `i64`,
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Type(
+                                    TypeNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::num::i32`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `i32`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Type(
-                                        TypePath(`core::num::i64`, `Extern`),
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::num::i64`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 47,
@@ -996,14 +2695,29 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `i128`,
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Type(
+                                    TypeNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::num::i64`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `i64`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Type(
-                                        TypePath(`core::num::i128`, `Extern`),
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::num::i128`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 52,
@@ -1015,14 +2729,29 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `isize`,
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Type(
+                                    TypeNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::num::i128`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `i128`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Type(
-                                        TypePath(`core::num::isize`, `Extern`),
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::num::isize`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 57,
@@ -1034,14 +2763,29 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `u8`,
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Type(
+                                    TypeNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::num::isize`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `isize`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Type(
-                                        TypePath(`core::num::u8`, `Extern`),
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::num::u8`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 62,
@@ -1053,14 +2797,29 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `u16`,
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Type(
+                                    TypeNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::num::u8`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `u8`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Type(
-                                        TypePath(`core::num::u16`, `Extern`),
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::num::u16`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 67,
@@ -1072,14 +2831,29 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `u32`,
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Type(
+                                    TypeNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::num::u16`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `u16`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Type(
-                                        TypePath(`core::num::u32`, `Extern`),
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::num::u32`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 72,
@@ -1091,14 +2865,29 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `u64`,
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Type(
+                                    TypeNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::num::u32`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `u32`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Type(
-                                        TypePath(`core::num::u64`, `Extern`),
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::num::u64`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 77,
@@ -1110,14 +2899,29 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `u128`,
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Type(
+                                    TypeNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::num::u64`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `u64`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Type(
-                                        TypePath(`core::num::u128`, `Extern`),
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::num::u128`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 82,
@@ -1129,14 +2933,29 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `usize`,
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Type(
+                                    TypeNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::num::u128`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `u128`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Type(
-                                        TypePath(`core::num::usize`, `Extern`),
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::num::usize`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 87,
@@ -1148,14 +2967,29 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `f32`,
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Type(
+                                    TypeNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::num::usize`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `usize`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Type(
-                                        TypePath(`core::num::f32`, `Extern`),
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::num::f32`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 92,
@@ -1167,14 +3001,29 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `f64`,
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Type(
+                                    TypeNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::num::f32`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `f32`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Type(
-                                        TypePath(`core::num::f64`, `Extern`),
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::num::f64`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 97,
@@ -1186,6 +3035,400 @@ Ok(
                                     },
                                 },
                             ),
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Type(
+                                    TypeNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::num::f64`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `f64`,
+                            visibility: Scope::Pub,
+                        },
+                    ],
+                },
+                entity_symbol_table: EntitySymbolTable(
+                    [
+                        EntitySymbolEntry {
+                            ident: `i8`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`core::num::i8`, `Extern`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::num::i8`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 32,
+                                    ident_token: IdentToken {
+                                        ident: `i8`,
+                                        token_idx: TokenIdx(
+                                            28,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `i16`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`core::num::i16`, `Extern`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::num::i16`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 37,
+                                    ident_token: IdentToken {
+                                        ident: `i16`,
+                                        token_idx: TokenIdx(
+                                            80,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `i32`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`core::num::i32`, `Extern`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::num::i32`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 42,
+                                    ident_token: IdentToken {
+                                        ident: `i32`,
+                                        token_idx: TokenIdx(
+                                            132,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `i64`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`core::num::i64`, `Extern`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::num::i64`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 47,
+                                    ident_token: IdentToken {
+                                        ident: `i64`,
+                                        token_idx: TokenIdx(
+                                            183,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `i128`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`core::num::i128`, `Extern`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::num::i128`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 52,
+                                    ident_token: IdentToken {
+                                        ident: `i128`,
+                                        token_idx: TokenIdx(
+                                            235,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `isize`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`core::num::isize`, `Extern`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::num::isize`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 57,
+                                    ident_token: IdentToken {
+                                        ident: `isize`,
+                                        token_idx: TokenIdx(
+                                            287,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `u8`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`core::num::u8`, `Extern`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::num::u8`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 62,
+                                    ident_token: IdentToken {
+                                        ident: `u8`,
+                                        token_idx: TokenIdx(
+                                            339,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `u16`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`core::num::u16`, `Extern`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::num::u16`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 67,
+                                    ident_token: IdentToken {
+                                        ident: `u16`,
+                                        token_idx: TokenIdx(
+                                            391,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `u32`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`core::num::u32`, `Extern`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::num::u32`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 72,
+                                    ident_token: IdentToken {
+                                        ident: `u32`,
+                                        token_idx: TokenIdx(
+                                            443,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `u64`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`core::num::u64`, `Extern`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::num::u64`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 77,
+                                    ident_token: IdentToken {
+                                        ident: `u64`,
+                                        token_idx: TokenIdx(
+                                            495,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `u128`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`core::num::u128`, `Extern`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::num::u128`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 82,
+                                    ident_token: IdentToken {
+                                        ident: `u128`,
+                                        token_idx: TokenIdx(
+                                            547,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `usize`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`core::num::usize`, `Extern`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::num::usize`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 87,
+                                    ident_token: IdentToken {
+                                        ident: `usize`,
+                                        token_idx: TokenIdx(
+                                            599,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `f32`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`core::num::f32`, `Extern`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::num::f32`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 92,
+                                    ident_token: IdentToken {
+                                        ident: `f32`,
+                                        token_idx: TokenIdx(
+                                            651,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `f64`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`core::num::f64`, `Extern`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::num::f64`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 97,
+                                    ident_token: IdentToken {
+                                        ident: `f64`,
+                                        token_idx: TokenIdx(
+                                            710,
+                                        ),
+                                    },
+                                },
+                            },
                         },
                         EntitySymbolEntry {
                             ident: `Add`,
@@ -1194,10 +3437,18 @@ Ok(
                             ),
                             symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    original_symbol: EntitySymbol::ModuleItem(
-                                        ModuleItemSymbol {
-                                            path: ModuleItemPath::Trait(
-                                                TraitPath(`core::ops::Add`),
+                                    original_symbol: EntitySymbol::ModuleItem {
+                                        module_item_path: ModuleItemPath::Trait(
+                                            TraitPath(`core::ops::Add`),
+                                        ),
+                                        node: ModuleItemNode {
+                                            node_path: ModuleItemNodePath::Trait(
+                                                TraitNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(`core::ops::Add`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
                                             visibility: Scope::Pub,
                                             ast_idx: 30,
@@ -1208,7 +3459,7 @@ Ok(
                                                 ),
                                             },
                                         },
-                                    ),
+                                    },
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Trait(
                                             TraitPath(`core::ops::Add`),
@@ -1224,748 +3475,1098 @@ Ok(
                         },
                     ],
                 ),
-                impl_blocks: [
-                    ImplBlock::Type(
-                        TypeImplBlock {
-                            id: TypeImplBlockId {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::i8`, `Extern`),
-                                disambiguator: 0,
+                impl_block_node_table: [
+                    (
+                        ImplBlockNodePath::TypeImplBlock(
+                            TypeImplBlockNodePath {
+                                path: TypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::i8`, `Extern`),
+                                    disambiguator: 0,
+                                },
                             },
-                            ast_idx: 33,
-                            impl_token: ImplToken {
-                                token_idx: TokenIdx(
-                                    30,
-                                ),
-                            },
-                            ty_expr: 3,
-                            body: Type(
-                                TypeItems {
+                        ),
+                        ImplBlockNode::TypeImplBlock(
+                            TypeImplBlockNode {
+                                node_path: TypeImplBlockNodePath {
+                                    path: TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::i8`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 33,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        30,
+                                    ),
+                                },
+                                ty_expr: 3,
+                                items: TypeItems {
                                     ast_idx_range: ArenaIdxRange(
                                         0..1,
                                     ),
                                 },
-                            ),
-                        },
+                            },
+                        ),
                     ),
-                    ImplBlock::TraitForType(
-                        TraitForTypeImplBlock {
-                            id: TraitForTypeImplBlockId {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::i8`, `Extern`),
-                                disambiguator: 0,
+                    (
+                        ImplBlockNodePath::TraitForTypeImplBlock(
+                            TraitForTypeImplBlockNodePath {
+                                path: TraitForTypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    trai_path: TraitPath(`core::ops::Add`),
+                                    ty_path: TypePath(`core::num::i8`, `Extern`),
+                                    disambiguator: 0,
+                                },
                             },
-                            ast_idx: 34,
-                            impl_token: ImplToken {
-                                token_idx: TokenIdx(
-                                    41,
-                                ),
-                            },
-                            trai_expr: 4,
-                            for_token: TokenIdx(
-                                44,
-                            ),
-                            ty_expr: 5,
-                            items: Some(
-                                TraitForType(
-                                    TraitForTypeItems {
-                                        ast_idx_range: ArenaIdxRange(
-                                            1..2,
-                                        ),
+                        ),
+                        ImplBlockNode::TraitForTypeImplBlock(
+                            TraitForTypeImplBlockNode {
+                                node_path: TraitForTypeImplBlockNodePath {
+                                    path: TraitForTypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_path: TypePath(`core::num::i8`, `Extern`),
+                                        disambiguator: 0,
                                     },
+                                },
+                                ast_idx: 34,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        41,
+                                    ),
+                                },
+                                trai_expr: 4,
+                                for_token: TokenIdx(
+                                    44,
                                 ),
-                            ),
-                        },
+                                ty_expr: 5,
+                                items: Some(
+                                    TraitForType(
+                                        TraitForTypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                1..2,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
-                    ImplBlock::Type(
-                        TypeImplBlock {
-                            id: TypeImplBlockId {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::i16`, `Extern`),
-                                disambiguator: 0,
+                    (
+                        ImplBlockNodePath::TypeImplBlock(
+                            TypeImplBlockNodePath {
+                                path: TypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::i16`, `Extern`),
+                                    disambiguator: 0,
+                                },
                             },
-                            ast_idx: 38,
-                            impl_token: ImplToken {
-                                token_idx: TokenIdx(
-                                    82,
-                                ),
-                            },
-                            ty_expr: 6,
-                            body: Type(
-                                TypeItems {
+                        ),
+                        ImplBlockNode::TypeImplBlock(
+                            TypeImplBlockNode {
+                                node_path: TypeImplBlockNodePath {
+                                    path: TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::i16`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 38,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        82,
+                                    ),
+                                },
+                                ty_expr: 6,
+                                items: TypeItems {
                                     ast_idx_range: ArenaIdxRange(
                                         2..3,
                                     ),
                                 },
-                            ),
-                        },
+                            },
+                        ),
                     ),
-                    ImplBlock::TraitForType(
-                        TraitForTypeImplBlock {
-                            id: TraitForTypeImplBlockId {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::i16`, `Extern`),
-                                disambiguator: 0,
+                    (
+                        ImplBlockNodePath::TraitForTypeImplBlock(
+                            TraitForTypeImplBlockNodePath {
+                                path: TraitForTypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    trai_path: TraitPath(`core::ops::Add`),
+                                    ty_path: TypePath(`core::num::i16`, `Extern`),
+                                    disambiguator: 0,
+                                },
                             },
-                            ast_idx: 39,
-                            impl_token: ImplToken {
-                                token_idx: TokenIdx(
-                                    93,
-                                ),
-                            },
-                            trai_expr: 7,
-                            for_token: TokenIdx(
-                                96,
-                            ),
-                            ty_expr: 8,
-                            items: Some(
-                                TraitForType(
-                                    TraitForTypeItems {
-                                        ast_idx_range: ArenaIdxRange(
-                                            3..4,
-                                        ),
+                        ),
+                        ImplBlockNode::TraitForTypeImplBlock(
+                            TraitForTypeImplBlockNode {
+                                node_path: TraitForTypeImplBlockNodePath {
+                                    path: TraitForTypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_path: TypePath(`core::num::i16`, `Extern`),
+                                        disambiguator: 0,
                                     },
+                                },
+                                ast_idx: 39,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        93,
+                                    ),
+                                },
+                                trai_expr: 7,
+                                for_token: TokenIdx(
+                                    96,
                                 ),
-                            ),
-                        },
+                                ty_expr: 8,
+                                items: Some(
+                                    TraitForType(
+                                        TraitForTypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                3..4,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
-                    ImplBlock::Type(
-                        TypeImplBlock {
-                            id: TypeImplBlockId {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::i32`, `Extern`),
-                                disambiguator: 0,
+                    (
+                        ImplBlockNodePath::TypeImplBlock(
+                            TypeImplBlockNodePath {
+                                path: TypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::i32`, `Extern`),
+                                    disambiguator: 0,
+                                },
                             },
-                            ast_idx: 43,
-                            impl_token: ImplToken {
-                                token_idx: TokenIdx(
-                                    134,
-                                ),
-                            },
-                            ty_expr: 9,
-                            body: Type(
-                                TypeItems {
+                        ),
+                        ImplBlockNode::TypeImplBlock(
+                            TypeImplBlockNode {
+                                node_path: TypeImplBlockNodePath {
+                                    path: TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::i32`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 43,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        134,
+                                    ),
+                                },
+                                ty_expr: 9,
+                                items: TypeItems {
                                     ast_idx_range: ArenaIdxRange(
                                         4..5,
                                     ),
                                 },
-                            ),
-                        },
+                            },
+                        ),
                     ),
-                    ImplBlock::TraitForType(
-                        TraitForTypeImplBlock {
-                            id: TraitForTypeImplBlockId {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::i32`, `Extern`),
-                                disambiguator: 0,
+                    (
+                        ImplBlockNodePath::TraitForTypeImplBlock(
+                            TraitForTypeImplBlockNodePath {
+                                path: TraitForTypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    trai_path: TraitPath(`core::ops::Add`),
+                                    ty_path: TypePath(`core::num::i32`, `Extern`),
+                                    disambiguator: 0,
+                                },
                             },
-                            ast_idx: 44,
-                            impl_token: ImplToken {
-                                token_idx: TokenIdx(
-                                    145,
-                                ),
-                            },
-                            trai_expr: 10,
-                            for_token: TokenIdx(
-                                148,
-                            ),
-                            ty_expr: 11,
-                            items: Some(
-                                TraitForType(
-                                    TraitForTypeItems {
-                                        ast_idx_range: ArenaIdxRange(
-                                            5..6,
-                                        ),
+                        ),
+                        ImplBlockNode::TraitForTypeImplBlock(
+                            TraitForTypeImplBlockNode {
+                                node_path: TraitForTypeImplBlockNodePath {
+                                    path: TraitForTypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_path: TypePath(`core::num::i32`, `Extern`),
+                                        disambiguator: 0,
                                     },
+                                },
+                                ast_idx: 44,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        145,
+                                    ),
+                                },
+                                trai_expr: 10,
+                                for_token: TokenIdx(
+                                    148,
                                 ),
-                            ),
-                        },
+                                ty_expr: 11,
+                                items: Some(
+                                    TraitForType(
+                                        TraitForTypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                5..6,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
-                    ImplBlock::Type(
-                        TypeImplBlock {
-                            id: TypeImplBlockId {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::i64`, `Extern`),
-                                disambiguator: 0,
+                    (
+                        ImplBlockNodePath::TypeImplBlock(
+                            TypeImplBlockNodePath {
+                                path: TypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::i64`, `Extern`),
+                                    disambiguator: 0,
+                                },
                             },
-                            ast_idx: 48,
-                            impl_token: ImplToken {
-                                token_idx: TokenIdx(
-                                    185,
-                                ),
-                            },
-                            ty_expr: 12,
-                            body: Type(
-                                TypeItems {
+                        ),
+                        ImplBlockNode::TypeImplBlock(
+                            TypeImplBlockNode {
+                                node_path: TypeImplBlockNodePath {
+                                    path: TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::i64`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 48,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        185,
+                                    ),
+                                },
+                                ty_expr: 12,
+                                items: TypeItems {
                                     ast_idx_range: ArenaIdxRange(
                                         6..7,
                                     ),
                                 },
-                            ),
-                        },
+                            },
+                        ),
                     ),
-                    ImplBlock::TraitForType(
-                        TraitForTypeImplBlock {
-                            id: TraitForTypeImplBlockId {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::i64`, `Extern`),
-                                disambiguator: 0,
+                    (
+                        ImplBlockNodePath::TraitForTypeImplBlock(
+                            TraitForTypeImplBlockNodePath {
+                                path: TraitForTypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    trai_path: TraitPath(`core::ops::Add`),
+                                    ty_path: TypePath(`core::num::i64`, `Extern`),
+                                    disambiguator: 0,
+                                },
                             },
-                            ast_idx: 49,
-                            impl_token: ImplToken {
-                                token_idx: TokenIdx(
-                                    196,
-                                ),
-                            },
-                            trai_expr: 13,
-                            for_token: TokenIdx(
-                                199,
-                            ),
-                            ty_expr: 14,
-                            items: Some(
-                                TraitForType(
-                                    TraitForTypeItems {
-                                        ast_idx_range: ArenaIdxRange(
-                                            7..8,
-                                        ),
+                        ),
+                        ImplBlockNode::TraitForTypeImplBlock(
+                            TraitForTypeImplBlockNode {
+                                node_path: TraitForTypeImplBlockNodePath {
+                                    path: TraitForTypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_path: TypePath(`core::num::i64`, `Extern`),
+                                        disambiguator: 0,
                                     },
+                                },
+                                ast_idx: 49,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        196,
+                                    ),
+                                },
+                                trai_expr: 13,
+                                for_token: TokenIdx(
+                                    199,
                                 ),
-                            ),
-                        },
+                                ty_expr: 14,
+                                items: Some(
+                                    TraitForType(
+                                        TraitForTypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                7..8,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
-                    ImplBlock::Type(
-                        TypeImplBlock {
-                            id: TypeImplBlockId {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::i128`, `Extern`),
-                                disambiguator: 0,
+                    (
+                        ImplBlockNodePath::TypeImplBlock(
+                            TypeImplBlockNodePath {
+                                path: TypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::i128`, `Extern`),
+                                    disambiguator: 0,
+                                },
                             },
-                            ast_idx: 53,
-                            impl_token: ImplToken {
-                                token_idx: TokenIdx(
-                                    237,
-                                ),
-                            },
-                            ty_expr: 15,
-                            body: Type(
-                                TypeItems {
+                        ),
+                        ImplBlockNode::TypeImplBlock(
+                            TypeImplBlockNode {
+                                node_path: TypeImplBlockNodePath {
+                                    path: TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::i128`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 53,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        237,
+                                    ),
+                                },
+                                ty_expr: 15,
+                                items: TypeItems {
                                     ast_idx_range: ArenaIdxRange(
                                         8..9,
                                     ),
                                 },
-                            ),
-                        },
+                            },
+                        ),
                     ),
-                    ImplBlock::TraitForType(
-                        TraitForTypeImplBlock {
-                            id: TraitForTypeImplBlockId {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::i128`, `Extern`),
-                                disambiguator: 0,
+                    (
+                        ImplBlockNodePath::TraitForTypeImplBlock(
+                            TraitForTypeImplBlockNodePath {
+                                path: TraitForTypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    trai_path: TraitPath(`core::ops::Add`),
+                                    ty_path: TypePath(`core::num::i128`, `Extern`),
+                                    disambiguator: 0,
+                                },
                             },
-                            ast_idx: 54,
-                            impl_token: ImplToken {
-                                token_idx: TokenIdx(
-                                    248,
-                                ),
-                            },
-                            trai_expr: 16,
-                            for_token: TokenIdx(
-                                251,
-                            ),
-                            ty_expr: 17,
-                            items: Some(
-                                TraitForType(
-                                    TraitForTypeItems {
-                                        ast_idx_range: ArenaIdxRange(
-                                            9..10,
-                                        ),
+                        ),
+                        ImplBlockNode::TraitForTypeImplBlock(
+                            TraitForTypeImplBlockNode {
+                                node_path: TraitForTypeImplBlockNodePath {
+                                    path: TraitForTypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_path: TypePath(`core::num::i128`, `Extern`),
+                                        disambiguator: 0,
                                     },
+                                },
+                                ast_idx: 54,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        248,
+                                    ),
+                                },
+                                trai_expr: 16,
+                                for_token: TokenIdx(
+                                    251,
                                 ),
-                            ),
-                        },
+                                ty_expr: 17,
+                                items: Some(
+                                    TraitForType(
+                                        TraitForTypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                9..10,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
-                    ImplBlock::Type(
-                        TypeImplBlock {
-                            id: TypeImplBlockId {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::isize`, `Extern`),
-                                disambiguator: 0,
+                    (
+                        ImplBlockNodePath::TypeImplBlock(
+                            TypeImplBlockNodePath {
+                                path: TypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::isize`, `Extern`),
+                                    disambiguator: 0,
+                                },
                             },
-                            ast_idx: 58,
-                            impl_token: ImplToken {
-                                token_idx: TokenIdx(
-                                    289,
-                                ),
-                            },
-                            ty_expr: 18,
-                            body: Type(
-                                TypeItems {
+                        ),
+                        ImplBlockNode::TypeImplBlock(
+                            TypeImplBlockNode {
+                                node_path: TypeImplBlockNodePath {
+                                    path: TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::isize`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 58,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        289,
+                                    ),
+                                },
+                                ty_expr: 18,
+                                items: TypeItems {
                                     ast_idx_range: ArenaIdxRange(
                                         10..11,
                                     ),
                                 },
-                            ),
-                        },
+                            },
+                        ),
                     ),
-                    ImplBlock::TraitForType(
-                        TraitForTypeImplBlock {
-                            id: TraitForTypeImplBlockId {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::isize`, `Extern`),
-                                disambiguator: 0,
+                    (
+                        ImplBlockNodePath::TraitForTypeImplBlock(
+                            TraitForTypeImplBlockNodePath {
+                                path: TraitForTypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    trai_path: TraitPath(`core::ops::Add`),
+                                    ty_path: TypePath(`core::num::isize`, `Extern`),
+                                    disambiguator: 0,
+                                },
                             },
-                            ast_idx: 59,
-                            impl_token: ImplToken {
-                                token_idx: TokenIdx(
-                                    300,
-                                ),
-                            },
-                            trai_expr: 19,
-                            for_token: TokenIdx(
-                                303,
-                            ),
-                            ty_expr: 20,
-                            items: Some(
-                                TraitForType(
-                                    TraitForTypeItems {
-                                        ast_idx_range: ArenaIdxRange(
-                                            11..12,
-                                        ),
+                        ),
+                        ImplBlockNode::TraitForTypeImplBlock(
+                            TraitForTypeImplBlockNode {
+                                node_path: TraitForTypeImplBlockNodePath {
+                                    path: TraitForTypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_path: TypePath(`core::num::isize`, `Extern`),
+                                        disambiguator: 0,
                                     },
+                                },
+                                ast_idx: 59,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        300,
+                                    ),
+                                },
+                                trai_expr: 19,
+                                for_token: TokenIdx(
+                                    303,
                                 ),
-                            ),
-                        },
+                                ty_expr: 20,
+                                items: Some(
+                                    TraitForType(
+                                        TraitForTypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                11..12,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
-                    ImplBlock::Type(
-                        TypeImplBlock {
-                            id: TypeImplBlockId {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::u8`, `Extern`),
-                                disambiguator: 0,
+                    (
+                        ImplBlockNodePath::TypeImplBlock(
+                            TypeImplBlockNodePath {
+                                path: TypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::u8`, `Extern`),
+                                    disambiguator: 0,
+                                },
                             },
-                            ast_idx: 63,
-                            impl_token: ImplToken {
-                                token_idx: TokenIdx(
-                                    341,
-                                ),
-                            },
-                            ty_expr: 21,
-                            body: Type(
-                                TypeItems {
+                        ),
+                        ImplBlockNode::TypeImplBlock(
+                            TypeImplBlockNode {
+                                node_path: TypeImplBlockNodePath {
+                                    path: TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::u8`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 63,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        341,
+                                    ),
+                                },
+                                ty_expr: 21,
+                                items: TypeItems {
                                     ast_idx_range: ArenaIdxRange(
                                         12..13,
                                     ),
                                 },
-                            ),
-                        },
+                            },
+                        ),
                     ),
-                    ImplBlock::TraitForType(
-                        TraitForTypeImplBlock {
-                            id: TraitForTypeImplBlockId {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::u8`, `Extern`),
-                                disambiguator: 0,
+                    (
+                        ImplBlockNodePath::TraitForTypeImplBlock(
+                            TraitForTypeImplBlockNodePath {
+                                path: TraitForTypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    trai_path: TraitPath(`core::ops::Add`),
+                                    ty_path: TypePath(`core::num::u8`, `Extern`),
+                                    disambiguator: 0,
+                                },
                             },
-                            ast_idx: 64,
-                            impl_token: ImplToken {
-                                token_idx: TokenIdx(
-                                    352,
-                                ),
-                            },
-                            trai_expr: 22,
-                            for_token: TokenIdx(
-                                355,
-                            ),
-                            ty_expr: 23,
-                            items: Some(
-                                TraitForType(
-                                    TraitForTypeItems {
-                                        ast_idx_range: ArenaIdxRange(
-                                            13..14,
-                                        ),
+                        ),
+                        ImplBlockNode::TraitForTypeImplBlock(
+                            TraitForTypeImplBlockNode {
+                                node_path: TraitForTypeImplBlockNodePath {
+                                    path: TraitForTypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_path: TypePath(`core::num::u8`, `Extern`),
+                                        disambiguator: 0,
                                     },
+                                },
+                                ast_idx: 64,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        352,
+                                    ),
+                                },
+                                trai_expr: 22,
+                                for_token: TokenIdx(
+                                    355,
                                 ),
-                            ),
-                        },
+                                ty_expr: 23,
+                                items: Some(
+                                    TraitForType(
+                                        TraitForTypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                13..14,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
-                    ImplBlock::Type(
-                        TypeImplBlock {
-                            id: TypeImplBlockId {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::u16`, `Extern`),
-                                disambiguator: 0,
+                    (
+                        ImplBlockNodePath::TypeImplBlock(
+                            TypeImplBlockNodePath {
+                                path: TypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::u16`, `Extern`),
+                                    disambiguator: 0,
+                                },
                             },
-                            ast_idx: 68,
-                            impl_token: ImplToken {
-                                token_idx: TokenIdx(
-                                    393,
-                                ),
-                            },
-                            ty_expr: 24,
-                            body: Type(
-                                TypeItems {
+                        ),
+                        ImplBlockNode::TypeImplBlock(
+                            TypeImplBlockNode {
+                                node_path: TypeImplBlockNodePath {
+                                    path: TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::u16`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 68,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        393,
+                                    ),
+                                },
+                                ty_expr: 24,
+                                items: TypeItems {
                                     ast_idx_range: ArenaIdxRange(
                                         14..15,
                                     ),
                                 },
-                            ),
-                        },
+                            },
+                        ),
                     ),
-                    ImplBlock::TraitForType(
-                        TraitForTypeImplBlock {
-                            id: TraitForTypeImplBlockId {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::u16`, `Extern`),
-                                disambiguator: 0,
+                    (
+                        ImplBlockNodePath::TraitForTypeImplBlock(
+                            TraitForTypeImplBlockNodePath {
+                                path: TraitForTypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    trai_path: TraitPath(`core::ops::Add`),
+                                    ty_path: TypePath(`core::num::u16`, `Extern`),
+                                    disambiguator: 0,
+                                },
                             },
-                            ast_idx: 69,
-                            impl_token: ImplToken {
-                                token_idx: TokenIdx(
-                                    404,
-                                ),
-                            },
-                            trai_expr: 25,
-                            for_token: TokenIdx(
-                                407,
-                            ),
-                            ty_expr: 26,
-                            items: Some(
-                                TraitForType(
-                                    TraitForTypeItems {
-                                        ast_idx_range: ArenaIdxRange(
-                                            15..16,
-                                        ),
+                        ),
+                        ImplBlockNode::TraitForTypeImplBlock(
+                            TraitForTypeImplBlockNode {
+                                node_path: TraitForTypeImplBlockNodePath {
+                                    path: TraitForTypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_path: TypePath(`core::num::u16`, `Extern`),
+                                        disambiguator: 0,
                                     },
+                                },
+                                ast_idx: 69,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        404,
+                                    ),
+                                },
+                                trai_expr: 25,
+                                for_token: TokenIdx(
+                                    407,
                                 ),
-                            ),
-                        },
+                                ty_expr: 26,
+                                items: Some(
+                                    TraitForType(
+                                        TraitForTypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                15..16,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
-                    ImplBlock::Type(
-                        TypeImplBlock {
-                            id: TypeImplBlockId {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::u32`, `Extern`),
-                                disambiguator: 0,
+                    (
+                        ImplBlockNodePath::TypeImplBlock(
+                            TypeImplBlockNodePath {
+                                path: TypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::u32`, `Extern`),
+                                    disambiguator: 0,
+                                },
                             },
-                            ast_idx: 73,
-                            impl_token: ImplToken {
-                                token_idx: TokenIdx(
-                                    445,
-                                ),
-                            },
-                            ty_expr: 27,
-                            body: Type(
-                                TypeItems {
+                        ),
+                        ImplBlockNode::TypeImplBlock(
+                            TypeImplBlockNode {
+                                node_path: TypeImplBlockNodePath {
+                                    path: TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::u32`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 73,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        445,
+                                    ),
+                                },
+                                ty_expr: 27,
+                                items: TypeItems {
                                     ast_idx_range: ArenaIdxRange(
                                         16..17,
                                     ),
                                 },
-                            ),
-                        },
+                            },
+                        ),
                     ),
-                    ImplBlock::TraitForType(
-                        TraitForTypeImplBlock {
-                            id: TraitForTypeImplBlockId {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::u32`, `Extern`),
-                                disambiguator: 0,
+                    (
+                        ImplBlockNodePath::TraitForTypeImplBlock(
+                            TraitForTypeImplBlockNodePath {
+                                path: TraitForTypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    trai_path: TraitPath(`core::ops::Add`),
+                                    ty_path: TypePath(`core::num::u32`, `Extern`),
+                                    disambiguator: 0,
+                                },
                             },
-                            ast_idx: 74,
-                            impl_token: ImplToken {
-                                token_idx: TokenIdx(
-                                    456,
-                                ),
-                            },
-                            trai_expr: 28,
-                            for_token: TokenIdx(
-                                459,
-                            ),
-                            ty_expr: 29,
-                            items: Some(
-                                TraitForType(
-                                    TraitForTypeItems {
-                                        ast_idx_range: ArenaIdxRange(
-                                            17..18,
-                                        ),
+                        ),
+                        ImplBlockNode::TraitForTypeImplBlock(
+                            TraitForTypeImplBlockNode {
+                                node_path: TraitForTypeImplBlockNodePath {
+                                    path: TraitForTypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_path: TypePath(`core::num::u32`, `Extern`),
+                                        disambiguator: 0,
                                     },
+                                },
+                                ast_idx: 74,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        456,
+                                    ),
+                                },
+                                trai_expr: 28,
+                                for_token: TokenIdx(
+                                    459,
                                 ),
-                            ),
-                        },
+                                ty_expr: 29,
+                                items: Some(
+                                    TraitForType(
+                                        TraitForTypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                17..18,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
-                    ImplBlock::Type(
-                        TypeImplBlock {
-                            id: TypeImplBlockId {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::u64`, `Extern`),
-                                disambiguator: 0,
+                    (
+                        ImplBlockNodePath::TypeImplBlock(
+                            TypeImplBlockNodePath {
+                                path: TypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::u64`, `Extern`),
+                                    disambiguator: 0,
+                                },
                             },
-                            ast_idx: 78,
-                            impl_token: ImplToken {
-                                token_idx: TokenIdx(
-                                    497,
-                                ),
-                            },
-                            ty_expr: 30,
-                            body: Type(
-                                TypeItems {
+                        ),
+                        ImplBlockNode::TypeImplBlock(
+                            TypeImplBlockNode {
+                                node_path: TypeImplBlockNodePath {
+                                    path: TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::u64`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 78,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        497,
+                                    ),
+                                },
+                                ty_expr: 30,
+                                items: TypeItems {
                                     ast_idx_range: ArenaIdxRange(
                                         18..19,
                                     ),
                                 },
-                            ),
-                        },
+                            },
+                        ),
                     ),
-                    ImplBlock::TraitForType(
-                        TraitForTypeImplBlock {
-                            id: TraitForTypeImplBlockId {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::u64`, `Extern`),
-                                disambiguator: 0,
+                    (
+                        ImplBlockNodePath::TraitForTypeImplBlock(
+                            TraitForTypeImplBlockNodePath {
+                                path: TraitForTypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    trai_path: TraitPath(`core::ops::Add`),
+                                    ty_path: TypePath(`core::num::u64`, `Extern`),
+                                    disambiguator: 0,
+                                },
                             },
-                            ast_idx: 79,
-                            impl_token: ImplToken {
-                                token_idx: TokenIdx(
-                                    508,
-                                ),
-                            },
-                            trai_expr: 31,
-                            for_token: TokenIdx(
-                                511,
-                            ),
-                            ty_expr: 32,
-                            items: Some(
-                                TraitForType(
-                                    TraitForTypeItems {
-                                        ast_idx_range: ArenaIdxRange(
-                                            19..20,
-                                        ),
+                        ),
+                        ImplBlockNode::TraitForTypeImplBlock(
+                            TraitForTypeImplBlockNode {
+                                node_path: TraitForTypeImplBlockNodePath {
+                                    path: TraitForTypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_path: TypePath(`core::num::u64`, `Extern`),
+                                        disambiguator: 0,
                                     },
+                                },
+                                ast_idx: 79,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        508,
+                                    ),
+                                },
+                                trai_expr: 31,
+                                for_token: TokenIdx(
+                                    511,
                                 ),
-                            ),
-                        },
+                                ty_expr: 32,
+                                items: Some(
+                                    TraitForType(
+                                        TraitForTypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                19..20,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
-                    ImplBlock::Type(
-                        TypeImplBlock {
-                            id: TypeImplBlockId {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::u128`, `Extern`),
-                                disambiguator: 0,
+                    (
+                        ImplBlockNodePath::TypeImplBlock(
+                            TypeImplBlockNodePath {
+                                path: TypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::u128`, `Extern`),
+                                    disambiguator: 0,
+                                },
                             },
-                            ast_idx: 83,
-                            impl_token: ImplToken {
-                                token_idx: TokenIdx(
-                                    549,
-                                ),
-                            },
-                            ty_expr: 33,
-                            body: Type(
-                                TypeItems {
+                        ),
+                        ImplBlockNode::TypeImplBlock(
+                            TypeImplBlockNode {
+                                node_path: TypeImplBlockNodePath {
+                                    path: TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::u128`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 83,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        549,
+                                    ),
+                                },
+                                ty_expr: 33,
+                                items: TypeItems {
                                     ast_idx_range: ArenaIdxRange(
                                         20..21,
                                     ),
                                 },
-                            ),
-                        },
+                            },
+                        ),
                     ),
-                    ImplBlock::TraitForType(
-                        TraitForTypeImplBlock {
-                            id: TraitForTypeImplBlockId {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::u128`, `Extern`),
-                                disambiguator: 0,
+                    (
+                        ImplBlockNodePath::TraitForTypeImplBlock(
+                            TraitForTypeImplBlockNodePath {
+                                path: TraitForTypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    trai_path: TraitPath(`core::ops::Add`),
+                                    ty_path: TypePath(`core::num::u128`, `Extern`),
+                                    disambiguator: 0,
+                                },
                             },
-                            ast_idx: 84,
-                            impl_token: ImplToken {
-                                token_idx: TokenIdx(
-                                    560,
-                                ),
-                            },
-                            trai_expr: 34,
-                            for_token: TokenIdx(
-                                563,
-                            ),
-                            ty_expr: 35,
-                            items: Some(
-                                TraitForType(
-                                    TraitForTypeItems {
-                                        ast_idx_range: ArenaIdxRange(
-                                            21..22,
-                                        ),
+                        ),
+                        ImplBlockNode::TraitForTypeImplBlock(
+                            TraitForTypeImplBlockNode {
+                                node_path: TraitForTypeImplBlockNodePath {
+                                    path: TraitForTypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_path: TypePath(`core::num::u128`, `Extern`),
+                                        disambiguator: 0,
                                     },
+                                },
+                                ast_idx: 84,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        560,
+                                    ),
+                                },
+                                trai_expr: 34,
+                                for_token: TokenIdx(
+                                    563,
                                 ),
-                            ),
-                        },
+                                ty_expr: 35,
+                                items: Some(
+                                    TraitForType(
+                                        TraitForTypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                21..22,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
-                    ImplBlock::Type(
-                        TypeImplBlock {
-                            id: TypeImplBlockId {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::usize`, `Extern`),
-                                disambiguator: 0,
+                    (
+                        ImplBlockNodePath::TypeImplBlock(
+                            TypeImplBlockNodePath {
+                                path: TypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::usize`, `Extern`),
+                                    disambiguator: 0,
+                                },
                             },
-                            ast_idx: 88,
-                            impl_token: ImplToken {
-                                token_idx: TokenIdx(
-                                    601,
-                                ),
-                            },
-                            ty_expr: 36,
-                            body: Type(
-                                TypeItems {
+                        ),
+                        ImplBlockNode::TypeImplBlock(
+                            TypeImplBlockNode {
+                                node_path: TypeImplBlockNodePath {
+                                    path: TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::usize`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 88,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        601,
+                                    ),
+                                },
+                                ty_expr: 36,
+                                items: TypeItems {
                                     ast_idx_range: ArenaIdxRange(
                                         22..23,
                                     ),
                                 },
-                            ),
-                        },
+                            },
+                        ),
                     ),
-                    ImplBlock::TraitForType(
-                        TraitForTypeImplBlock {
-                            id: TraitForTypeImplBlockId {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::usize`, `Extern`),
-                                disambiguator: 0,
+                    (
+                        ImplBlockNodePath::TraitForTypeImplBlock(
+                            TraitForTypeImplBlockNodePath {
+                                path: TraitForTypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    trai_path: TraitPath(`core::ops::Add`),
+                                    ty_path: TypePath(`core::num::usize`, `Extern`),
+                                    disambiguator: 0,
+                                },
                             },
-                            ast_idx: 89,
-                            impl_token: ImplToken {
-                                token_idx: TokenIdx(
-                                    612,
-                                ),
-                            },
-                            trai_expr: 37,
-                            for_token: TokenIdx(
-                                615,
-                            ),
-                            ty_expr: 38,
-                            items: Some(
-                                TraitForType(
-                                    TraitForTypeItems {
-                                        ast_idx_range: ArenaIdxRange(
-                                            23..24,
-                                        ),
+                        ),
+                        ImplBlockNode::TraitForTypeImplBlock(
+                            TraitForTypeImplBlockNode {
+                                node_path: TraitForTypeImplBlockNodePath {
+                                    path: TraitForTypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_path: TypePath(`core::num::usize`, `Extern`),
+                                        disambiguator: 0,
                                     },
+                                },
+                                ast_idx: 89,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        612,
+                                    ),
+                                },
+                                trai_expr: 37,
+                                for_token: TokenIdx(
+                                    615,
                                 ),
-                            ),
-                        },
+                                ty_expr: 38,
+                                items: Some(
+                                    TraitForType(
+                                        TraitForTypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                23..24,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
-                    ImplBlock::Type(
-                        TypeImplBlock {
-                            id: TypeImplBlockId {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::f32`, `Extern`),
-                                disambiguator: 0,
+                    (
+                        ImplBlockNodePath::TypeImplBlock(
+                            TypeImplBlockNodePath {
+                                path: TypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::f32`, `Extern`),
+                                    disambiguator: 0,
+                                },
                             },
-                            ast_idx: 93,
-                            impl_token: ImplToken {
-                                token_idx: TokenIdx(
-                                    653,
-                                ),
-                            },
-                            ty_expr: 39,
-                            body: Type(
-                                TypeItems {
+                        ),
+                        ImplBlockNode::TypeImplBlock(
+                            TypeImplBlockNode {
+                                node_path: TypeImplBlockNodePath {
+                                    path: TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 93,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        653,
+                                    ),
+                                },
+                                ty_expr: 39,
+                                items: TypeItems {
                                     ast_idx_range: ArenaIdxRange(
                                         24..26,
                                     ),
                                 },
-                            ),
-                        },
+                            },
+                        ),
                     ),
-                    ImplBlock::TraitForType(
-                        TraitForTypeImplBlock {
-                            id: TraitForTypeImplBlockId {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::f32`, `Extern`),
-                                disambiguator: 0,
+                    (
+                        ImplBlockNodePath::TraitForTypeImplBlock(
+                            TraitForTypeImplBlockNodePath {
+                                path: TraitForTypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    trai_path: TraitPath(`core::ops::Add`),
+                                    ty_path: TypePath(`core::num::f32`, `Extern`),
+                                    disambiguator: 0,
+                                },
                             },
-                            ast_idx: 94,
-                            impl_token: ImplToken {
-                                token_idx: TokenIdx(
-                                    672,
-                                ),
-                            },
-                            trai_expr: 40,
-                            for_token: TokenIdx(
-                                675,
-                            ),
-                            ty_expr: 41,
-                            items: Some(
-                                TraitForType(
-                                    TraitForTypeItems {
-                                        ast_idx_range: ArenaIdxRange(
-                                            26..27,
-                                        ),
+                        ),
+                        ImplBlockNode::TraitForTypeImplBlock(
+                            TraitForTypeImplBlockNode {
+                                node_path: TraitForTypeImplBlockNodePath {
+                                    path: TraitForTypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                        disambiguator: 0,
                                     },
+                                },
+                                ast_idx: 94,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        672,
+                                    ),
+                                },
+                                trai_expr: 40,
+                                for_token: TokenIdx(
+                                    675,
                                 ),
-                            ),
-                        },
+                                ty_expr: 41,
+                                items: Some(
+                                    TraitForType(
+                                        TraitForTypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                26..27,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
-                    ImplBlock::Type(
-                        TypeImplBlock {
-                            id: TypeImplBlockId {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::f64`, `Extern`),
-                                disambiguator: 0,
+                    (
+                        ImplBlockNodePath::TypeImplBlock(
+                            TypeImplBlockNodePath {
+                                path: TypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::f64`, `Extern`),
+                                    disambiguator: 0,
+                                },
                             },
-                            ast_idx: 98,
-                            impl_token: ImplToken {
-                                token_idx: TokenIdx(
-                                    712,
-                                ),
-                            },
-                            ty_expr: 42,
-                            body: Type(
-                                TypeItems {
+                        ),
+                        ImplBlockNode::TypeImplBlock(
+                            TypeImplBlockNode {
+                                node_path: TypeImplBlockNodePath {
+                                    path: TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::f64`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 98,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        712,
+                                    ),
+                                },
+                                ty_expr: 42,
+                                items: TypeItems {
                                     ast_idx_range: ArenaIdxRange(
                                         27..28,
                                     ),
                                 },
-                            ),
-                        },
+                            },
+                        ),
                     ),
-                    ImplBlock::TraitForType(
-                        TraitForTypeImplBlock {
-                            id: TraitForTypeImplBlockId {
-                                module_path: `core::num`,
-                                trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::f64`, `Extern`),
-                                disambiguator: 0,
+                    (
+                        ImplBlockNodePath::TraitForTypeImplBlock(
+                            TraitForTypeImplBlockNodePath {
+                                path: TraitForTypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    trai_path: TraitPath(`core::ops::Add`),
+                                    ty_path: TypePath(`core::num::f64`, `Extern`),
+                                    disambiguator: 0,
+                                },
                             },
-                            ast_idx: 99,
-                            impl_token: ImplToken {
-                                token_idx: TokenIdx(
-                                    723,
-                                ),
-                            },
-                            trai_expr: 43,
-                            for_token: TokenIdx(
-                                726,
-                            ),
-                            ty_expr: 44,
-                            items: Some(
-                                TraitForType(
-                                    TraitForTypeItems {
-                                        ast_idx_range: ArenaIdxRange(
-                                            28..29,
-                                        ),
+                        ),
+                        ImplBlockNode::TraitForTypeImplBlock(
+                            TraitForTypeImplBlockNode {
+                                node_path: TraitForTypeImplBlockNodePath {
+                                    path: TraitForTypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_path: TypePath(`core::num::f64`, `Extern`),
+                                        disambiguator: 0,
                                     },
+                                },
+                                ast_idx: 99,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        723,
+                                    ),
+                                },
+                                trai_expr: 43,
+                                for_token: TokenIdx(
+                                    726,
                                 ),
-                            ),
-                        },
+                                ty_expr: 44,
+                                items: Some(
+                                    TraitForType(
+                                        TraitForTypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                28..29,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
                 ],
                 use_expr_rules: UseExprRules(
@@ -2020,9 +4621,15 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: EntitySymbol::Submodule(
-                                    SubmoduleSymbol {
-                                        path: `core::ops`,
+                                original_symbol: EntitySymbol::Submodule {
+                                    submodule_path: `core::ops`,
+                                    node: SubmoduleNode {
+                                        node_path: SubmoduleNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: `core::ops`,
+                                                disambiguator: 0,
+                                            },
+                                        },
                                         visibility: Scope::Pub,
                                         ast_idx: 11,
                                         ident_token: IdentToken {
@@ -2032,7 +4639,7 @@ Ok(
                                             ),
                                         },
                                     },
-                                ),
+                                },
                             },
                         },
                         UseExprRule {
@@ -2055,10 +4662,18 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: EntitySymbol::ModuleItem(
-                                    ModuleItemSymbol {
-                                        path: ModuleItemPath::Trait(
-                                            TraitPath(`core::ops::Add`),
+                                original_symbol: EntitySymbol::ModuleItem {
+                                    module_item_path: ModuleItemPath::Trait(
+                                        TraitPath(`core::ops::Add`),
+                                    ),
+                                    node: ModuleItemNode {
+                                        node_path: ModuleItemNodePath::Trait(
+                                            TraitNodePath {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TraitPath(`core::ops::Add`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
                                         ),
                                         visibility: Scope::Pub,
                                         ast_idx: 30,
@@ -2069,7 +4684,7 @@ Ok(
                                             ),
                                         },
                                     },
-                                ),
+                                },
                             },
                         },
                     ],
@@ -2081,15 +4696,18 @@ Ok(
             },
             EntityTreeSheet {
                 module_path: `core::ops`,
-                symbols: EntitySymbolTable(
-                    [
-                        EntitySymbolEntry {
-                            ident: `Add`,
-                            visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Trait(
-                                        TraitPath(`core::ops::Add`),
+                major_entity_node_table: MajorEntityNodeTable {
+                    entries: [
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::ops::Add`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 30,
@@ -2101,14 +4719,29 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `AddAssign`,
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Trait(
+                                    TraitNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitPath(`core::ops::Add`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `Add`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Trait(
-                                        TraitPath(`core::ops::AddAssign`),
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::ops::AddAssign`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 32,
@@ -2120,14 +4753,29 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `BitAnd`,
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Trait(
+                                    TraitNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitPath(`core::ops::AddAssign`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `AddAssign`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Trait(
-                                        TraitPath(`core::ops::BitAnd`),
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::ops::BitAnd`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 34,
@@ -2139,14 +4787,29 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `BitAndAssign`,
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Trait(
+                                    TraitNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitPath(`core::ops::BitAnd`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `BitAnd`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Trait(
-                                        TraitPath(`core::ops::BitAndAssign`),
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::ops::BitAndAssign`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 36,
@@ -2158,14 +4821,29 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `BitOr`,
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Trait(
+                                    TraitNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitPath(`core::ops::BitAndAssign`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `BitAndAssign`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Trait(
-                                        TraitPath(`core::ops::BitOr`),
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::ops::BitOr`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 38,
@@ -2177,14 +4855,29 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `BitOrAssign`,
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Trait(
+                                    TraitNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitPath(`core::ops::BitOr`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `BitOr`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Trait(
-                                        TraitPath(`core::ops::BitOrAssign`),
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::ops::BitOrAssign`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 40,
@@ -2196,14 +4889,29 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `BitXor`,
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Trait(
+                                    TraitNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitPath(`core::ops::BitOrAssign`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `BitOrAssign`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Trait(
-                                        TraitPath(`core::ops::BitXor`),
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::ops::BitXor`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 42,
@@ -2215,14 +4923,29 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `BitXorAssign`,
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Trait(
+                                    TraitNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitPath(`core::ops::BitXor`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `BitXor`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Trait(
-                                        TraitPath(`core::ops::BitXorAssign`),
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::ops::BitXorAssign`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 44,
@@ -2234,14 +4957,29 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `Div`,
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Trait(
+                                    TraitNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitPath(`core::ops::BitXorAssign`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `BitXorAssign`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Trait(
-                                        TraitPath(`core::ops::Div`),
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::ops::Div`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 46,
@@ -2253,14 +4991,29 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `DivAssign`,
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Trait(
+                                    TraitNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitPath(`core::ops::Div`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `Div`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Trait(
-                                        TraitPath(`core::ops::DivAssign`),
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::ops::DivAssign`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 48,
@@ -2272,14 +5025,29 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `Mul`,
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Trait(
+                                    TraitNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitPath(`core::ops::DivAssign`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `DivAssign`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Trait(
-                                        TraitPath(`core::ops::Mul`),
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::ops::Mul`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 50,
@@ -2291,14 +5059,29 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `MulAssign`,
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Trait(
+                                    TraitNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitPath(`core::ops::Mul`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `Mul`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Trait(
-                                        TraitPath(`core::ops::MulAssign`),
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::ops::MulAssign`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 52,
@@ -2310,14 +5093,29 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `Neg`,
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Trait(
+                                    TraitNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitPath(`core::ops::MulAssign`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `MulAssign`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Trait(
-                                        TraitPath(`core::ops::Neg`),
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::ops::Neg`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 54,
@@ -2329,14 +5127,29 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `Not`,
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Trait(
+                                    TraitNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitPath(`core::ops::Neg`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `Neg`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Trait(
-                                        TraitPath(`core::ops::Not`),
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::ops::Not`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 56,
@@ -2348,14 +5161,29 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `Sub`,
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Trait(
+                                    TraitNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitPath(`core::ops::Not`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `Not`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Trait(
-                                        TraitPath(`core::ops::Sub`),
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::ops::Sub`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 58,
@@ -2367,14 +5195,29 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `Unveil`,
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Trait(
+                                    TraitNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitPath(`core::ops::Sub`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `Sub`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Trait(
-                                        TraitPath(`core::ops::Unveil`),
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::ops::Unveil`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 59,
@@ -2386,14 +5229,29 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `ControlFlow`,
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Trait(
+                                    TraitNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitPath(`core::ops::Unveil`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `Unveil`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Type(
-                                        TypePath(`core::ops::ControlFlow`, `Enum`),
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::ops::ControlFlow`, `Enum`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 60,
@@ -2405,10 +5263,485 @@ Ok(
                                     },
                                 },
                             ),
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Type(
+                                    TypeNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::ops::ControlFlow`, `Enum`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `ControlFlow`,
+                            visibility: Scope::Pub,
+                        },
+                    ],
+                },
+                entity_symbol_table: EntitySymbolTable(
+                    [
+                        EntitySymbolEntry {
+                            ident: `Add`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Trait(
+                                    TraitPath(`core::ops::Add`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::ops::Add`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 30,
+                                    ident_token: IdentToken {
+                                        ident: `Add`,
+                                        token_idx: TokenIdx(
+                                            9,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `AddAssign`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Trait(
+                                    TraitPath(`core::ops::AddAssign`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::ops::AddAssign`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 32,
+                                    ident_token: IdentToken {
+                                        ident: `AddAssign`,
+                                        token_idx: TokenIdx(
+                                            38,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `BitAnd`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Trait(
+                                    TraitPath(`core::ops::BitAnd`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::ops::BitAnd`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 34,
+                                    ident_token: IdentToken {
+                                        ident: `BitAnd`,
+                                        token_idx: TokenIdx(
+                                            67,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `BitAndAssign`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Trait(
+                                    TraitPath(`core::ops::BitAndAssign`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::ops::BitAndAssign`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 36,
+                                    ident_token: IdentToken {
+                                        ident: `BitAndAssign`,
+                                        token_idx: TokenIdx(
+                                            96,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `BitOr`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Trait(
+                                    TraitPath(`core::ops::BitOr`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::ops::BitOr`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 38,
+                                    ident_token: IdentToken {
+                                        ident: `BitOr`,
+                                        token_idx: TokenIdx(
+                                            121,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `BitOrAssign`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Trait(
+                                    TraitPath(`core::ops::BitOrAssign`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::ops::BitOrAssign`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 40,
+                                    ident_token: IdentToken {
+                                        ident: `BitOrAssign`,
+                                        token_idx: TokenIdx(
+                                            150,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `BitXor`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Trait(
+                                    TraitPath(`core::ops::BitXor`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::ops::BitXor`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 42,
+                                    ident_token: IdentToken {
+                                        ident: `BitXor`,
+                                        token_idx: TokenIdx(
+                                            175,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `BitXorAssign`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Trait(
+                                    TraitPath(`core::ops::BitXorAssign`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::ops::BitXorAssign`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 44,
+                                    ident_token: IdentToken {
+                                        ident: `BitXorAssign`,
+                                        token_idx: TokenIdx(
+                                            204,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `Div`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Trait(
+                                    TraitPath(`core::ops::Div`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::ops::Div`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 46,
+                                    ident_token: IdentToken {
+                                        ident: `Div`,
+                                        token_idx: TokenIdx(
+                                            229,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `DivAssign`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Trait(
+                                    TraitPath(`core::ops::DivAssign`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::ops::DivAssign`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 48,
+                                    ident_token: IdentToken {
+                                        ident: `DivAssign`,
+                                        token_idx: TokenIdx(
+                                            258,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `Mul`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Trait(
+                                    TraitPath(`core::ops::Mul`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::ops::Mul`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 50,
+                                    ident_token: IdentToken {
+                                        ident: `Mul`,
+                                        token_idx: TokenIdx(
+                                            283,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `MulAssign`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Trait(
+                                    TraitPath(`core::ops::MulAssign`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::ops::MulAssign`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 52,
+                                    ident_token: IdentToken {
+                                        ident: `MulAssign`,
+                                        token_idx: TokenIdx(
+                                            312,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `Neg`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Trait(
+                                    TraitPath(`core::ops::Neg`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::ops::Neg`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 54,
+                                    ident_token: IdentToken {
+                                        ident: `Neg`,
+                                        token_idx: TokenIdx(
+                                            337,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `Not`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Trait(
+                                    TraitPath(`core::ops::Not`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::ops::Not`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 56,
+                                    ident_token: IdentToken {
+                                        ident: `Not`,
+                                        token_idx: TokenIdx(
+                                            361,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `Sub`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Trait(
+                                    TraitPath(`core::ops::Sub`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::ops::Sub`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 58,
+                                    ident_token: IdentToken {
+                                        ident: `Sub`,
+                                        token_idx: TokenIdx(
+                                            385,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `Unveil`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Trait(
+                                    TraitPath(`core::ops::Unveil`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::ops::Unveil`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 59,
+                                    ident_token: IdentToken {
+                                        ident: `Unveil`,
+                                        token_idx: TokenIdx(
+                                            407,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `ControlFlow`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`core::ops::ControlFlow`, `Enum`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::ops::ControlFlow`, `Enum`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 60,
+                                    ident_token: IdentToken {
+                                        ident: `ControlFlow`,
+                                        token_idx: TokenIdx(
+                                            436,
+                                        ),
+                                    },
+                                },
+                            },
                         },
                     ],
                 ),
-                impl_blocks: [],
+                impl_block_node_table: [],
                 use_expr_rules: UseExprRules(
                     [],
                 ),
@@ -2419,15 +5752,18 @@ Ok(
             },
             EntityTreeSheet {
                 module_path: `core::option`,
-                symbols: EntitySymbolTable(
-                    [
-                        EntitySymbolEntry {
-                            ident: `Option`,
-                            visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Type(
-                                        TypePath(`core::option::Option`, `Enum`),
+                major_entity_node_table: MajorEntityNodeTable {
+                    entries: [
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::option::Option`, `Enum`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 2,
@@ -2439,10 +5775,53 @@ Ok(
                                     },
                                 },
                             ),
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Type(
+                                    TypeNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::option::Option`, `Enum`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `Option`,
+                            visibility: Scope::Pub,
+                        },
+                    ],
+                },
+                entity_symbol_table: EntitySymbolTable(
+                    [
+                        EntitySymbolEntry {
+                            ident: `Option`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`core::option::Option`, `Enum`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::option::Option`, `Enum`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 2,
+                                    ident_token: IdentToken {
+                                        ident: `Option`,
+                                        token_idx: TokenIdx(
+                                            2,
+                                        ),
+                                    },
+                                },
+                            },
                         },
                     ],
                 ),
-                impl_blocks: [],
+                impl_block_node_table: [],
                 use_expr_rules: UseExprRules(
                     [],
                 ),
@@ -2453,17 +5832,28 @@ Ok(
             },
             EntityTreeSheet {
                 module_path: `core::prelude`,
-                symbols: EntitySymbolTable(
+                major_entity_node_table: MajorEntityNodeTable {
+                    entries: [],
+                },
+                entity_symbol_table: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
                             ident: `bool`,
                             visibility: Scope::Pub,
                             symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    original_symbol: EntitySymbol::ModuleItem(
-                                        ModuleItemSymbol {
-                                            path: ModuleItemPath::Type(
-                                                TypePath(`core::basic::bool`, `Extern`),
+                                    original_symbol: EntitySymbol::ModuleItem {
+                                        module_item_path: ModuleItemPath::Type(
+                                            TypePath(`core::basic::bool`, `Extern`),
+                                        ),
+                                        node: ModuleItemNode {
+                                            node_path: ModuleItemNodePath::Type(
+                                                TypeNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::basic::bool`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
                                             visibility: Scope::Pub,
                                             ast_idx: 0,
@@ -2474,7 +5864,7 @@ Ok(
                                                 ),
                                             },
                                         },
-                                    ),
+                                    },
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Type(
                                             TypePath(`core::basic::bool`, `Extern`),
@@ -2491,10 +5881,18 @@ Ok(
                             visibility: Scope::Pub,
                             symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    original_symbol: EntitySymbol::ModuleItem(
-                                        ModuleItemSymbol {
-                                            path: ModuleItemPath::Type(
-                                                TypePath(`core::basic::never`, `Extern`),
+                                    original_symbol: EntitySymbol::ModuleItem {
+                                        module_item_path: ModuleItemPath::Type(
+                                            TypePath(`core::basic::never`, `Extern`),
+                                        ),
+                                        node: ModuleItemNode {
+                                            node_path: ModuleItemNodePath::Type(
+                                                TypeNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::basic::never`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
                                             visibility: Scope::Pub,
                                             ast_idx: 1,
@@ -2505,7 +5903,7 @@ Ok(
                                                 ),
                                             },
                                         },
-                                    ),
+                                    },
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Type(
                                             TypePath(`core::basic::never`, `Extern`),
@@ -2522,10 +5920,18 @@ Ok(
                             visibility: Scope::Pub,
                             symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    original_symbol: EntitySymbol::ModuleItem(
-                                        ModuleItemSymbol {
-                                            path: ModuleItemPath::Type(
-                                                TypePath(`core::basic::unit`, `Extern`),
+                                    original_symbol: EntitySymbol::ModuleItem {
+                                        module_item_path: ModuleItemPath::Type(
+                                            TypePath(`core::basic::unit`, `Extern`),
+                                        ),
+                                        node: ModuleItemNode {
+                                            node_path: ModuleItemNodePath::Type(
+                                                TypeNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::basic::unit`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
                                             visibility: Scope::Pub,
                                             ast_idx: 2,
@@ -2536,7 +5942,7 @@ Ok(
                                                 ),
                                             },
                                         },
-                                    ),
+                                    },
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Type(
                                             TypePath(`core::basic::unit`, `Extern`),
@@ -2553,10 +5959,18 @@ Ok(
                             visibility: Scope::Pub,
                             symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    original_symbol: EntitySymbol::ModuleItem(
-                                        ModuleItemSymbol {
-                                            path: ModuleItemPath::Type(
-                                                TypePath(`core::basic::Trait`, `Structure`),
+                                    original_symbol: EntitySymbol::ModuleItem {
+                                        module_item_path: ModuleItemPath::Type(
+                                            TypePath(`core::basic::Trait`, `Extern`),
+                                        ),
+                                        node: ModuleItemNode {
+                                            node_path: ModuleItemNodePath::Type(
+                                                TypeNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::basic::Trait`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
                                             visibility: Scope::Pub,
                                             ast_idx: 3,
@@ -2567,10 +5981,10 @@ Ok(
                                                 ),
                                             },
                                         },
-                                    ),
+                                    },
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Type(
-                                            TypePath(`core::basic::Trait`, `Structure`),
+                                            TypePath(`core::basic::Trait`, `Extern`),
                                         ),
                                     ),
                                     visibility: Scope::Pub,
@@ -2584,10 +5998,18 @@ Ok(
                             visibility: Scope::Pub,
                             symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    original_symbol: EntitySymbol::ModuleItem(
-                                        ModuleItemSymbol {
-                                            path: ModuleItemPath::Type(
-                                                TypePath(`core::basic::Module`, `Structure`),
+                                    original_symbol: EntitySymbol::ModuleItem {
+                                        module_item_path: ModuleItemPath::Type(
+                                            TypePath(`core::basic::Module`, `Extern`),
+                                        ),
+                                        node: ModuleItemNode {
+                                            node_path: ModuleItemNodePath::Type(
+                                                TypeNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::basic::Module`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
                                             visibility: Scope::Pub,
                                             ast_idx: 4,
@@ -2598,10 +6020,10 @@ Ok(
                                                 ),
                                             },
                                         },
-                                    ),
+                                    },
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Type(
-                                            TypePath(`core::basic::Module`, `Structure`),
+                                            TypePath(`core::basic::Module`, `Extern`),
                                         ),
                                     ),
                                     visibility: Scope::Pub,
@@ -2615,10 +6037,18 @@ Ok(
                             visibility: Scope::Pub,
                             symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    original_symbol: EntitySymbol::ModuleItem(
-                                        ModuleItemSymbol {
-                                            path: ModuleItemPath::Type(
-                                                TypePath(`core::num::i8`, `Extern`),
+                                    original_symbol: EntitySymbol::ModuleItem {
+                                        module_item_path: ModuleItemPath::Type(
+                                            TypePath(`core::num::i8`, `Extern`),
+                                        ),
+                                        node: ModuleItemNode {
+                                            node_path: ModuleItemNodePath::Type(
+                                                TypeNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::num::i8`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
                                             visibility: Scope::Pub,
                                             ast_idx: 32,
@@ -2629,7 +6059,7 @@ Ok(
                                                 ),
                                             },
                                         },
-                                    ),
+                                    },
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Type(
                                             TypePath(`core::num::i8`, `Extern`),
@@ -2646,10 +6076,18 @@ Ok(
                             visibility: Scope::Pub,
                             symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    original_symbol: EntitySymbol::ModuleItem(
-                                        ModuleItemSymbol {
-                                            path: ModuleItemPath::Type(
-                                                TypePath(`core::num::i16`, `Extern`),
+                                    original_symbol: EntitySymbol::ModuleItem {
+                                        module_item_path: ModuleItemPath::Type(
+                                            TypePath(`core::num::i16`, `Extern`),
+                                        ),
+                                        node: ModuleItemNode {
+                                            node_path: ModuleItemNodePath::Type(
+                                                TypeNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::num::i16`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
                                             visibility: Scope::Pub,
                                             ast_idx: 37,
@@ -2660,7 +6098,7 @@ Ok(
                                                 ),
                                             },
                                         },
-                                    ),
+                                    },
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Type(
                                             TypePath(`core::num::i16`, `Extern`),
@@ -2677,10 +6115,18 @@ Ok(
                             visibility: Scope::Pub,
                             symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    original_symbol: EntitySymbol::ModuleItem(
-                                        ModuleItemSymbol {
-                                            path: ModuleItemPath::Type(
-                                                TypePath(`core::num::i32`, `Extern`),
+                                    original_symbol: EntitySymbol::ModuleItem {
+                                        module_item_path: ModuleItemPath::Type(
+                                            TypePath(`core::num::i32`, `Extern`),
+                                        ),
+                                        node: ModuleItemNode {
+                                            node_path: ModuleItemNodePath::Type(
+                                                TypeNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::num::i32`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
                                             visibility: Scope::Pub,
                                             ast_idx: 42,
@@ -2691,7 +6137,7 @@ Ok(
                                                 ),
                                             },
                                         },
-                                    ),
+                                    },
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Type(
                                             TypePath(`core::num::i32`, `Extern`),
@@ -2708,10 +6154,18 @@ Ok(
                             visibility: Scope::Pub,
                             symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    original_symbol: EntitySymbol::ModuleItem(
-                                        ModuleItemSymbol {
-                                            path: ModuleItemPath::Type(
-                                                TypePath(`core::num::i64`, `Extern`),
+                                    original_symbol: EntitySymbol::ModuleItem {
+                                        module_item_path: ModuleItemPath::Type(
+                                            TypePath(`core::num::i64`, `Extern`),
+                                        ),
+                                        node: ModuleItemNode {
+                                            node_path: ModuleItemNodePath::Type(
+                                                TypeNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::num::i64`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
                                             visibility: Scope::Pub,
                                             ast_idx: 47,
@@ -2722,7 +6176,7 @@ Ok(
                                                 ),
                                             },
                                         },
-                                    ),
+                                    },
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Type(
                                             TypePath(`core::num::i64`, `Extern`),
@@ -2739,10 +6193,18 @@ Ok(
                             visibility: Scope::Pub,
                             symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    original_symbol: EntitySymbol::ModuleItem(
-                                        ModuleItemSymbol {
-                                            path: ModuleItemPath::Type(
-                                                TypePath(`core::num::i128`, `Extern`),
+                                    original_symbol: EntitySymbol::ModuleItem {
+                                        module_item_path: ModuleItemPath::Type(
+                                            TypePath(`core::num::i128`, `Extern`),
+                                        ),
+                                        node: ModuleItemNode {
+                                            node_path: ModuleItemNodePath::Type(
+                                                TypeNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::num::i128`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
                                             visibility: Scope::Pub,
                                             ast_idx: 52,
@@ -2753,7 +6215,7 @@ Ok(
                                                 ),
                                             },
                                         },
-                                    ),
+                                    },
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Type(
                                             TypePath(`core::num::i128`, `Extern`),
@@ -2770,10 +6232,18 @@ Ok(
                             visibility: Scope::Pub,
                             symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    original_symbol: EntitySymbol::ModuleItem(
-                                        ModuleItemSymbol {
-                                            path: ModuleItemPath::Type(
-                                                TypePath(`core::num::isize`, `Extern`),
+                                    original_symbol: EntitySymbol::ModuleItem {
+                                        module_item_path: ModuleItemPath::Type(
+                                            TypePath(`core::num::isize`, `Extern`),
+                                        ),
+                                        node: ModuleItemNode {
+                                            node_path: ModuleItemNodePath::Type(
+                                                TypeNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::num::isize`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
                                             visibility: Scope::Pub,
                                             ast_idx: 57,
@@ -2784,7 +6254,7 @@ Ok(
                                                 ),
                                             },
                                         },
-                                    ),
+                                    },
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Type(
                                             TypePath(`core::num::isize`, `Extern`),
@@ -2801,10 +6271,18 @@ Ok(
                             visibility: Scope::Pub,
                             symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    original_symbol: EntitySymbol::ModuleItem(
-                                        ModuleItemSymbol {
-                                            path: ModuleItemPath::Type(
-                                                TypePath(`core::num::u8`, `Extern`),
+                                    original_symbol: EntitySymbol::ModuleItem {
+                                        module_item_path: ModuleItemPath::Type(
+                                            TypePath(`core::num::u8`, `Extern`),
+                                        ),
+                                        node: ModuleItemNode {
+                                            node_path: ModuleItemNodePath::Type(
+                                                TypeNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::num::u8`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
                                             visibility: Scope::Pub,
                                             ast_idx: 62,
@@ -2815,7 +6293,7 @@ Ok(
                                                 ),
                                             },
                                         },
-                                    ),
+                                    },
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Type(
                                             TypePath(`core::num::u8`, `Extern`),
@@ -2832,10 +6310,18 @@ Ok(
                             visibility: Scope::Pub,
                             symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    original_symbol: EntitySymbol::ModuleItem(
-                                        ModuleItemSymbol {
-                                            path: ModuleItemPath::Type(
-                                                TypePath(`core::num::u16`, `Extern`),
+                                    original_symbol: EntitySymbol::ModuleItem {
+                                        module_item_path: ModuleItemPath::Type(
+                                            TypePath(`core::num::u16`, `Extern`),
+                                        ),
+                                        node: ModuleItemNode {
+                                            node_path: ModuleItemNodePath::Type(
+                                                TypeNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::num::u16`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
                                             visibility: Scope::Pub,
                                             ast_idx: 67,
@@ -2846,7 +6332,7 @@ Ok(
                                                 ),
                                             },
                                         },
-                                    ),
+                                    },
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Type(
                                             TypePath(`core::num::u16`, `Extern`),
@@ -2863,10 +6349,18 @@ Ok(
                             visibility: Scope::Pub,
                             symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    original_symbol: EntitySymbol::ModuleItem(
-                                        ModuleItemSymbol {
-                                            path: ModuleItemPath::Type(
-                                                TypePath(`core::num::u32`, `Extern`),
+                                    original_symbol: EntitySymbol::ModuleItem {
+                                        module_item_path: ModuleItemPath::Type(
+                                            TypePath(`core::num::u32`, `Extern`),
+                                        ),
+                                        node: ModuleItemNode {
+                                            node_path: ModuleItemNodePath::Type(
+                                                TypeNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::num::u32`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
                                             visibility: Scope::Pub,
                                             ast_idx: 72,
@@ -2877,7 +6371,7 @@ Ok(
                                                 ),
                                             },
                                         },
-                                    ),
+                                    },
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Type(
                                             TypePath(`core::num::u32`, `Extern`),
@@ -2894,10 +6388,18 @@ Ok(
                             visibility: Scope::Pub,
                             symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    original_symbol: EntitySymbol::ModuleItem(
-                                        ModuleItemSymbol {
-                                            path: ModuleItemPath::Type(
-                                                TypePath(`core::num::u64`, `Extern`),
+                                    original_symbol: EntitySymbol::ModuleItem {
+                                        module_item_path: ModuleItemPath::Type(
+                                            TypePath(`core::num::u64`, `Extern`),
+                                        ),
+                                        node: ModuleItemNode {
+                                            node_path: ModuleItemNodePath::Type(
+                                                TypeNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::num::u64`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
                                             visibility: Scope::Pub,
                                             ast_idx: 77,
@@ -2908,7 +6410,7 @@ Ok(
                                                 ),
                                             },
                                         },
-                                    ),
+                                    },
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Type(
                                             TypePath(`core::num::u64`, `Extern`),
@@ -2925,10 +6427,18 @@ Ok(
                             visibility: Scope::Pub,
                             symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    original_symbol: EntitySymbol::ModuleItem(
-                                        ModuleItemSymbol {
-                                            path: ModuleItemPath::Type(
-                                                TypePath(`core::num::u128`, `Extern`),
+                                    original_symbol: EntitySymbol::ModuleItem {
+                                        module_item_path: ModuleItemPath::Type(
+                                            TypePath(`core::num::u128`, `Extern`),
+                                        ),
+                                        node: ModuleItemNode {
+                                            node_path: ModuleItemNodePath::Type(
+                                                TypeNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::num::u128`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
                                             visibility: Scope::Pub,
                                             ast_idx: 82,
@@ -2939,7 +6449,7 @@ Ok(
                                                 ),
                                             },
                                         },
-                                    ),
+                                    },
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Type(
                                             TypePath(`core::num::u128`, `Extern`),
@@ -2956,10 +6466,18 @@ Ok(
                             visibility: Scope::Pub,
                             symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    original_symbol: EntitySymbol::ModuleItem(
-                                        ModuleItemSymbol {
-                                            path: ModuleItemPath::Type(
-                                                TypePath(`core::num::usize`, `Extern`),
+                                    original_symbol: EntitySymbol::ModuleItem {
+                                        module_item_path: ModuleItemPath::Type(
+                                            TypePath(`core::num::usize`, `Extern`),
+                                        ),
+                                        node: ModuleItemNode {
+                                            node_path: ModuleItemNodePath::Type(
+                                                TypeNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::num::usize`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
                                             visibility: Scope::Pub,
                                             ast_idx: 87,
@@ -2970,7 +6488,7 @@ Ok(
                                                 ),
                                             },
                                         },
-                                    ),
+                                    },
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Type(
                                             TypePath(`core::num::usize`, `Extern`),
@@ -2987,10 +6505,18 @@ Ok(
                             visibility: Scope::Pub,
                             symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    original_symbol: EntitySymbol::ModuleItem(
-                                        ModuleItemSymbol {
-                                            path: ModuleItemPath::Type(
-                                                TypePath(`core::num::f32`, `Extern`),
+                                    original_symbol: EntitySymbol::ModuleItem {
+                                        module_item_path: ModuleItemPath::Type(
+                                            TypePath(`core::num::f32`, `Extern`),
+                                        ),
+                                        node: ModuleItemNode {
+                                            node_path: ModuleItemNodePath::Type(
+                                                TypeNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::num::f32`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
                                             visibility: Scope::Pub,
                                             ast_idx: 92,
@@ -3001,7 +6527,7 @@ Ok(
                                                 ),
                                             },
                                         },
-                                    ),
+                                    },
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Type(
                                             TypePath(`core::num::f32`, `Extern`),
@@ -3018,10 +6544,18 @@ Ok(
                             visibility: Scope::Pub,
                             symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    original_symbol: EntitySymbol::ModuleItem(
-                                        ModuleItemSymbol {
-                                            path: ModuleItemPath::Type(
-                                                TypePath(`core::num::f64`, `Extern`),
+                                    original_symbol: EntitySymbol::ModuleItem {
+                                        module_item_path: ModuleItemPath::Type(
+                                            TypePath(`core::num::f64`, `Extern`),
+                                        ),
+                                        node: ModuleItemNode {
+                                            node_path: ModuleItemNodePath::Type(
+                                                TypeNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::num::f64`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
                                             visibility: Scope::Pub,
                                             ast_idx: 97,
@@ -3032,7 +6566,7 @@ Ok(
                                                 ),
                                             },
                                         },
-                                    ),
+                                    },
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Type(
                                             TypePath(`core::num::f64`, `Extern`),
@@ -3049,10 +6583,18 @@ Ok(
                             visibility: Scope::Pub,
                             symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    original_symbol: EntitySymbol::ModuleItem(
-                                        ModuleItemSymbol {
-                                            path: ModuleItemPath::Type(
-                                                TypePath(`core::raw_bits::r32`, `Extern`),
+                                    original_symbol: EntitySymbol::ModuleItem {
+                                        module_item_path: ModuleItemPath::Type(
+                                            TypePath(`core::raw_bits::r32`, `Extern`),
+                                        ),
+                                        node: ModuleItemNode {
+                                            node_path: ModuleItemNodePath::Type(
+                                                TypeNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
                                             visibility: Scope::Pub,
                                             ast_idx: 2,
@@ -3063,7 +6605,7 @@ Ok(
                                                 ),
                                             },
                                         },
-                                    ),
+                                    },
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Type(
                                             TypePath(`core::raw_bits::r32`, `Extern`),
@@ -3080,10 +6622,18 @@ Ok(
                             visibility: Scope::Pub,
                             symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    original_symbol: EntitySymbol::ModuleItem(
-                                        ModuleItemSymbol {
-                                            path: ModuleItemPath::Trait(
-                                                TraitPath(`core::fmt::Debug`),
+                                    original_symbol: EntitySymbol::ModuleItem {
+                                        module_item_path: ModuleItemPath::Trait(
+                                            TraitPath(`core::fmt::Debug`),
+                                        ),
+                                        node: ModuleItemNode {
+                                            node_path: ModuleItemNodePath::Trait(
+                                                TraitNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(`core::fmt::Debug`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
                                             visibility: Scope::Pub,
                                             ast_idx: 0,
@@ -3094,7 +6644,7 @@ Ok(
                                                 ),
                                             },
                                         },
-                                    ),
+                                    },
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Trait(
                                             TraitPath(`core::fmt::Debug`),
@@ -3111,10 +6661,18 @@ Ok(
                             visibility: Scope::Pub,
                             symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    original_symbol: EntitySymbol::ModuleItem(
-                                        ModuleItemSymbol {
-                                            path: ModuleItemPath::Trait(
-                                                TraitPath(`core::visual::Visualize`),
+                                    original_symbol: EntitySymbol::ModuleItem {
+                                        module_item_path: ModuleItemPath::Trait(
+                                            TraitPath(`core::visual::Visualize`),
+                                        ),
+                                        node: ModuleItemNode {
+                                            node_path: ModuleItemNodePath::Trait(
+                                                TraitNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(`core::visual::Visualize`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
                                             visibility: Scope::Pub,
                                             ast_idx: 1,
@@ -3125,7 +6683,7 @@ Ok(
                                                 ),
                                             },
                                         },
-                                    ),
+                                    },
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Trait(
                                             TraitPath(`core::visual::Visualize`),
@@ -3142,10 +6700,18 @@ Ok(
                             visibility: Scope::Pub,
                             symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    original_symbol: EntitySymbol::ModuleItem(
-                                        ModuleItemSymbol {
-                                            path: ModuleItemPath::Type(
-                                                TypePath(`core::visual::Html`, `Extern`),
+                                    original_symbol: EntitySymbol::ModuleItem {
+                                        module_item_path: ModuleItemPath::Type(
+                                            TypePath(`core::visual::Html`, `Extern`),
+                                        ),
+                                        node: ModuleItemNode {
+                                            node_path: ModuleItemNodePath::Type(
+                                                TypeNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::visual::Html`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
                                             visibility: Scope::Pub,
                                             ast_idx: 2,
@@ -3156,7 +6722,7 @@ Ok(
                                                 ),
                                             },
                                         },
-                                    ),
+                                    },
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Type(
                                             TypePath(`core::visual::Html`, `Extern`),
@@ -3173,10 +6739,18 @@ Ok(
                             visibility: Scope::Pub,
                             symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    original_symbol: EntitySymbol::ModuleItem(
-                                        ModuleItemSymbol {
-                                            path: ModuleItemPath::Trait(
-                                                TraitPath(`core::marker::Copy`),
+                                    original_symbol: EntitySymbol::ModuleItem {
+                                        module_item_path: ModuleItemPath::Trait(
+                                            TraitPath(`core::marker::Copy`),
+                                        ),
+                                        node: ModuleItemNode {
+                                            node_path: ModuleItemNodePath::Trait(
+                                                TraitNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(`core::marker::Copy`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
                                             visibility: Scope::Pub,
                                             ast_idx: 0,
@@ -3187,7 +6761,7 @@ Ok(
                                                 ),
                                             },
                                         },
-                                    ),
+                                    },
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Trait(
                                             TraitPath(`core::marker::Copy`),
@@ -3204,10 +6778,18 @@ Ok(
                             visibility: Scope::Pub,
                             symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    original_symbol: EntitySymbol::ModuleItem(
-                                        ModuleItemSymbol {
-                                            path: ModuleItemPath::Trait(
-                                                TraitPath(`core::marker::Sized`),
+                                    original_symbol: EntitySymbol::ModuleItem {
+                                        module_item_path: ModuleItemPath::Trait(
+                                            TraitPath(`core::marker::Sized`),
+                                        ),
+                                        node: ModuleItemNode {
+                                            node_path: ModuleItemNodePath::Trait(
+                                                TraitNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(`core::marker::Sized`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
                                             visibility: Scope::Pub,
                                             ast_idx: 1,
@@ -3218,7 +6800,7 @@ Ok(
                                                 ),
                                             },
                                         },
-                                    ),
+                                    },
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Trait(
                                             TraitPath(`core::marker::Sized`),
@@ -3235,10 +6817,18 @@ Ok(
                             visibility: Scope::Pub,
                             symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    original_symbol: EntitySymbol::ModuleItem(
-                                        ModuleItemSymbol {
-                                            path: ModuleItemPath::Trait(
-                                                TraitPath(`core::clone::Clone`),
+                                    original_symbol: EntitySymbol::ModuleItem {
+                                        module_item_path: ModuleItemPath::Trait(
+                                            TraitPath(`core::clone::Clone`),
+                                        ),
+                                        node: ModuleItemNode {
+                                            node_path: ModuleItemNodePath::Trait(
+                                                TraitNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(`core::clone::Clone`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
                                             visibility: Scope::Pub,
                                             ast_idx: 1,
@@ -3249,7 +6839,7 @@ Ok(
                                                 ),
                                             },
                                         },
-                                    ),
+                                    },
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Trait(
                                             TraitPath(`core::clone::Clone`),
@@ -3266,10 +6856,18 @@ Ok(
                             visibility: Scope::Pub,
                             symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    original_symbol: EntitySymbol::ModuleItem(
-                                        ModuleItemSymbol {
-                                            path: ModuleItemPath::Trait(
-                                                TraitPath(`core::cmp::PartialEq`),
+                                    original_symbol: EntitySymbol::ModuleItem {
+                                        module_item_path: ModuleItemPath::Trait(
+                                            TraitPath(`core::cmp::PartialEq`),
+                                        ),
+                                        node: ModuleItemNode {
+                                            node_path: ModuleItemNodePath::Trait(
+                                                TraitNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(`core::cmp::PartialEq`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
                                             visibility: Scope::Pub,
                                             ast_idx: 0,
@@ -3280,7 +6878,7 @@ Ok(
                                                 ),
                                             },
                                         },
-                                    ),
+                                    },
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Trait(
                                             TraitPath(`core::cmp::PartialEq`),
@@ -3297,10 +6895,18 @@ Ok(
                             visibility: Scope::Pub,
                             symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    original_symbol: EntitySymbol::ModuleItem(
-                                        ModuleItemSymbol {
-                                            path: ModuleItemPath::Trait(
-                                                TraitPath(`core::cmp::Eq`),
+                                    original_symbol: EntitySymbol::ModuleItem {
+                                        module_item_path: ModuleItemPath::Trait(
+                                            TraitPath(`core::cmp::Eq`),
+                                        ),
+                                        node: ModuleItemNode {
+                                            node_path: ModuleItemNodePath::Trait(
+                                                TraitNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(`core::cmp::Eq`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
                                             visibility: Scope::Pub,
                                             ast_idx: 1,
@@ -3311,7 +6917,7 @@ Ok(
                                                 ),
                                             },
                                         },
-                                    ),
+                                    },
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Trait(
                                             TraitPath(`core::cmp::Eq`),
@@ -3328,10 +6934,18 @@ Ok(
                             visibility: Scope::Pub,
                             symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    original_symbol: EntitySymbol::ModuleItem(
-                                        ModuleItemSymbol {
-                                            path: ModuleItemPath::Trait(
-                                                TraitPath(`core::cmp::PartialOrd`),
+                                    original_symbol: EntitySymbol::ModuleItem {
+                                        module_item_path: ModuleItemPath::Trait(
+                                            TraitPath(`core::cmp::PartialOrd`),
+                                        ),
+                                        node: ModuleItemNode {
+                                            node_path: ModuleItemNodePath::Trait(
+                                                TraitNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(`core::cmp::PartialOrd`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
                                             visibility: Scope::Pub,
                                             ast_idx: 2,
@@ -3342,7 +6956,7 @@ Ok(
                                                 ),
                                             },
                                         },
-                                    ),
+                                    },
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Trait(
                                             TraitPath(`core::cmp::PartialOrd`),
@@ -3359,10 +6973,18 @@ Ok(
                             visibility: Scope::Pub,
                             symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    original_symbol: EntitySymbol::ModuleItem(
-                                        ModuleItemSymbol {
-                                            path: ModuleItemPath::Trait(
-                                                TraitPath(`core::cmp::Ord`),
+                                    original_symbol: EntitySymbol::ModuleItem {
+                                        module_item_path: ModuleItemPath::Trait(
+                                            TraitPath(`core::cmp::Ord`),
+                                        ),
+                                        node: ModuleItemNode {
+                                            node_path: ModuleItemNodePath::Trait(
+                                                TraitNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(`core::cmp::Ord`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
                                             ),
                                             visibility: Scope::Pub,
                                             ast_idx: 3,
@@ -3373,7 +6995,7 @@ Ok(
                                                 ),
                                             },
                                         },
-                                    ),
+                                    },
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Trait(
                                             TraitPath(`core::cmp::Ord`),
@@ -3387,7 +7009,7 @@ Ok(
                         },
                     ],
                 ),
-                impl_blocks: [],
+                impl_block_node_table: [],
                 use_expr_rules: UseExprRules(
                     [
                         UseExprRule {
@@ -3597,9 +7219,15 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: EntitySymbol::Submodule(
-                                    SubmoduleSymbol {
-                                        path: `core::basic`,
+                                original_symbol: EntitySymbol::Submodule {
+                                    submodule_path: `core::basic`,
+                                    node: SubmoduleNode {
+                                        node_path: SubmoduleNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: `core::basic`,
+                                                disambiguator: 0,
+                                            },
+                                        },
                                         visibility: Scope::Pub,
                                         ast_idx: 1,
                                         ident_token: IdentToken {
@@ -3609,7 +7237,7 @@ Ok(
                                             ),
                                         },
                                     },
-                                ),
+                                },
                             },
                         },
                         UseExprRule {
@@ -3635,9 +7263,15 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: EntitySymbol::Submodule(
-                                    SubmoduleSymbol {
-                                        path: `core::num`,
+                                original_symbol: EntitySymbol::Submodule {
+                                    submodule_path: `core::num`,
+                                    node: SubmoduleNode {
+                                        node_path: SubmoduleNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: `core::num`,
+                                                disambiguator: 0,
+                                            },
+                                        },
                                         visibility: Scope::Pub,
                                         ast_idx: 10,
                                         ident_token: IdentToken {
@@ -3647,7 +7281,7 @@ Ok(
                                             ),
                                         },
                                     },
-                                ),
+                                },
                             },
                         },
                         UseExprRule {
@@ -3673,9 +7307,15 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: EntitySymbol::Submodule(
-                                    SubmoduleSymbol {
-                                        path: `core::raw_bits`,
+                                original_symbol: EntitySymbol::Submodule {
+                                    submodule_path: `core::raw_bits`,
+                                    node: SubmoduleNode {
+                                        node_path: SubmoduleNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: `core::raw_bits`,
+                                                disambiguator: 0,
+                                            },
+                                        },
                                         visibility: Scope::Pub,
                                         ast_idx: 14,
                                         ident_token: IdentToken {
@@ -3685,7 +7325,7 @@ Ok(
                                             ),
                                         },
                                     },
-                                ),
+                                },
                             },
                         },
                         UseExprRule {
@@ -3711,9 +7351,15 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: EntitySymbol::Submodule(
-                                    SubmoduleSymbol {
-                                        path: `core::fmt`,
+                                original_symbol: EntitySymbol::Submodule {
+                                    submodule_path: `core::fmt`,
+                                    node: SubmoduleNode {
+                                        node_path: SubmoduleNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: `core::fmt`,
+                                                disambiguator: 0,
+                                            },
+                                        },
                                         visibility: Scope::Pub,
                                         ast_idx: 5,
                                         ident_token: IdentToken {
@@ -3723,7 +7369,7 @@ Ok(
                                             ),
                                         },
                                     },
-                                ),
+                                },
                             },
                         },
                         UseExprRule {
@@ -3749,19 +7395,25 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: EntitySymbol::Submodule(
-                                    SubmoduleSymbol {
-                                        path: `core::visual`,
+                                original_symbol: EntitySymbol::Submodule {
+                                    submodule_path: `core::visual`,
+                                    node: SubmoduleNode {
+                                        node_path: SubmoduleNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: `core::visual`,
+                                                disambiguator: 0,
+                                            },
+                                        },
                                         visibility: Scope::Pub,
-                                        ast_idx: 17,
+                                        ast_idx: 18,
                                         ident_token: IdentToken {
                                             ident: `visual`,
                                             token_idx: TokenIdx(
-                                                53,
+                                                56,
                                             ),
                                         },
                                     },
-                                ),
+                                },
                             },
                         },
                         UseExprRule {
@@ -3787,9 +7439,15 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: EntitySymbol::Submodule(
-                                    SubmoduleSymbol {
-                                        path: `core::marker`,
+                                original_symbol: EntitySymbol::Submodule {
+                                    submodule_path: `core::marker`,
+                                    node: SubmoduleNode {
+                                        node_path: SubmoduleNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: `core::marker`,
+                                                disambiguator: 0,
+                                            },
+                                        },
                                         visibility: Scope::Pub,
                                         ast_idx: 8,
                                         ident_token: IdentToken {
@@ -3799,7 +7457,7 @@ Ok(
                                             ),
                                         },
                                     },
-                                ),
+                                },
                             },
                         },
                         UseExprRule {
@@ -3825,9 +7483,15 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: EntitySymbol::Submodule(
-                                    SubmoduleSymbol {
-                                        path: `core::clone`,
+                                original_symbol: EntitySymbol::Submodule {
+                                    submodule_path: `core::clone`,
+                                    node: SubmoduleNode {
+                                        node_path: SubmoduleNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: `core::clone`,
+                                                disambiguator: 0,
+                                            },
+                                        },
                                         visibility: Scope::Pub,
                                         ast_idx: 2,
                                         ident_token: IdentToken {
@@ -3837,7 +7501,7 @@ Ok(
                                             ),
                                         },
                                     },
-                                ),
+                                },
                             },
                         },
                         UseExprRule {
@@ -3863,9 +7527,15 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: EntitySymbol::Submodule(
-                                    SubmoduleSymbol {
-                                        path: `core::cmp`,
+                                original_symbol: EntitySymbol::Submodule {
+                                    submodule_path: `core::cmp`,
+                                    node: SubmoduleNode {
+                                        node_path: SubmoduleNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: `core::cmp`,
+                                                disambiguator: 0,
+                                            },
+                                        },
                                         visibility: Scope::Pub,
                                         ast_idx: 3,
                                         ident_token: IdentToken {
@@ -3875,7 +7545,7 @@ Ok(
                                             ),
                                         },
                                     },
-                                ),
+                                },
                             },
                         },
                     ],
@@ -3984,15 +7654,18 @@ Ok(
             },
             EntityTreeSheet {
                 module_path: `core::raw_bits`,
-                symbols: EntitySymbolTable(
-                    [
-                        EntitySymbolEntry {
-                            ident: `r32`,
-                            visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Type(
-                                        TypePath(`core::raw_bits::r32`, `Extern`),
+                major_entity_node_table: MajorEntityNodeTable {
+                    entries: [
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 2,
@@ -4004,10 +7677,53 @@ Ok(
                                     },
                                 },
                             ),
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Type(
+                                    TypeNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `r32`,
+                            visibility: Scope::Pub,
+                        },
+                    ],
+                },
+                entity_symbol_table: EntitySymbolTable(
+                    [
+                        EntitySymbolEntry {
+                            ident: `r32`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`core::raw_bits::r32`, `Extern`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 2,
+                                    ident_token: IdentToken {
+                                        ident: `r32`,
+                                        token_idx: TokenIdx(
+                                            22,
+                                        ),
+                                    },
+                                },
+                            },
                         },
                     ],
                 ),
-                impl_blocks: [],
+                impl_block_node_table: [],
                 use_expr_rules: UseExprRules(
                     [],
                 ),
@@ -4018,15 +7734,18 @@ Ok(
             },
             EntityTreeSheet {
                 module_path: `core::result`,
-                symbols: EntitySymbolTable(
-                    [
-                        EntitySymbolEntry {
-                            ident: `Result`,
-                            visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Type(
-                                        TypePath(`core::result::Result`, `Enum`),
+                major_entity_node_table: MajorEntityNodeTable {
+                    entries: [
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::result::Result`, `Enum`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 5,
@@ -4038,39 +7757,96 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                    ],
-                ),
-                impl_blocks: [
-                    ImplBlock::TraitForType(
-                        TraitForTypeImplBlock {
-                            id: TraitForTypeImplBlockId {
-                                module_path: `core::result`,
-                                trai_path: TraitPath(`core::ops::Unveil`),
-                                ty_path: TypePath(`core::result::Result`, `Enum`),
-                                disambiguator: 0,
-                            },
-                            ast_idx: 6,
-                            impl_token: ImplToken {
-                                token_idx: TokenIdx(
-                                    18,
-                                ),
-                            },
-                            trai_expr: 47,
-                            for_token: TokenIdx(
-                                36,
-                            ),
-                            ty_expr: 48,
-                            items: Some(
-                                TraitForType(
-                                    TraitForTypeItems {
-                                        ast_idx_range: ArenaIdxRange(
-                                            3..5,
-                                        ),
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Type(
+                                    TypeNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::result::Result`, `Enum`),
+                                            disambiguator: 0,
+                                        },
                                     },
                                 ),
                             ),
+                            ident: `Result`,
+                            visibility: Scope::Pub,
                         },
+                    ],
+                },
+                entity_symbol_table: EntitySymbolTable(
+                    [
+                        EntitySymbolEntry {
+                            ident: `Result`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`core::result::Result`, `Enum`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::result::Result`, `Enum`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 5,
+                                    ident_token: IdentToken {
+                                        ident: `Result`,
+                                        token_idx: TokenIdx(
+                                            2,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                    ],
+                ),
+                impl_block_node_table: [
+                    (
+                        ImplBlockNodePath::TraitForTypeImplBlock(
+                            TraitForTypeImplBlockNodePath {
+                                path: TraitForTypeImplBlockPath {
+                                    module_path: `core::result`,
+                                    trai_path: TraitPath(`core::ops::Unveil`),
+                                    ty_path: TypePath(`core::result::Result`, `Enum`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                        ImplBlockNode::TraitForTypeImplBlock(
+                            TraitForTypeImplBlockNode {
+                                node_path: TraitForTypeImplBlockNodePath {
+                                    path: TraitForTypeImplBlockPath {
+                                        module_path: `core::result`,
+                                        trai_path: TraitPath(`core::ops::Unveil`),
+                                        ty_path: TypePath(`core::result::Result`, `Enum`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 6,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        18,
+                                    ),
+                                },
+                                trai_expr: 47,
+                                for_token: TokenIdx(
+                                    36,
+                                ),
+                                ty_expr: 48,
+                                items: Some(
+                                    TraitForType(
+                                        TraitForTypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                3..5,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
                 ],
                 use_expr_rules: UseExprRules(
@@ -4082,16 +7858,99 @@ Ok(
                 errors: [],
             },
             EntityTreeSheet {
-                module_path: `core::str`,
-                symbols: EntitySymbolTable(
+                module_path: `core::slice`,
+                major_entity_node_table: MajorEntityNodeTable {
+                    entries: [
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::slice::Slice`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 0,
+                                    ident_token: IdentToken {
+                                        ident: `Slice`,
+                                        token_idx: TokenIdx(
+                                            2,
+                                        ),
+                                    },
+                                },
+                            ),
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Type(
+                                    TypeNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::slice::Slice`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `Slice`,
+                            visibility: Scope::Pub,
+                        },
+                    ],
+                },
+                entity_symbol_table: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
-                            ident: `str`,
+                            ident: `Slice`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Type(
-                                        TypePath(`core::str::str`, `Extern`),
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`core::slice::Slice`, `Extern`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::slice::Slice`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 0,
+                                    ident_token: IdentToken {
+                                        ident: `Slice`,
+                                        token_idx: TokenIdx(
+                                            2,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                    ],
+                ),
+                impl_block_node_table: [],
+                use_expr_rules: UseExprRules(
+                    [],
+                ),
+                use_all_rules: UseAllRules(
+                    [],
+                ),
+                errors: [],
+            },
+            EntityTreeSheet {
+                module_path: `core::str`,
+                major_entity_node_table: MajorEntityNodeTable {
+                    entries: [
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::str::str`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 0,
@@ -4103,14 +7962,29 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `StringLiteral`,
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Type(
+                                    TypeNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::str::str`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `str`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Type(
-                                        TypePath(`core::str::StringLiteral`, `Extern`),
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::str::StringLiteral`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 1,
@@ -4122,10 +7996,80 @@ Ok(
                                     },
                                 },
                             ),
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Type(
+                                    TypeNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::str::StringLiteral`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `StringLiteral`,
+                            visibility: Scope::Pub,
+                        },
+                    ],
+                },
+                entity_symbol_table: EntitySymbolTable(
+                    [
+                        EntitySymbolEntry {
+                            ident: `str`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`core::str::str`, `Extern`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::str::str`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 0,
+                                    ident_token: IdentToken {
+                                        ident: `str`,
+                                        token_idx: TokenIdx(
+                                            2,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `StringLiteral`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`core::str::StringLiteral`, `Extern`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::str::StringLiteral`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 1,
+                                    ident_token: IdentToken {
+                                        ident: `StringLiteral`,
+                                        token_idx: TokenIdx(
+                                            6,
+                                        ),
+                                    },
+                                },
+                            },
                         },
                     ],
                 ),
-                impl_blocks: [],
+                impl_block_node_table: [],
                 use_expr_rules: UseExprRules(
                     [],
                 ),
@@ -4136,15 +8080,18 @@ Ok(
             },
             EntityTreeSheet {
                 module_path: `core::visual`,
-                symbols: EntitySymbolTable(
-                    [
-                        EntitySymbolEntry {
-                            ident: `Visualize`,
-                            visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Trait(
-                                        TraitPath(`core::visual::Visualize`),
+                major_entity_node_table: MajorEntityNodeTable {
+                    entries: [
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::visual::Visualize`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 1,
@@ -4156,14 +8103,29 @@ Ok(
                                     },
                                 },
                             ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `Html`,
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Trait(
+                                    TraitNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitPath(`core::visual::Visualize`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `Visualize`,
                             visibility: Scope::Pub,
-                            symbol: EntitySymbol::ModuleItem(
-                                ModuleItemSymbol {
-                                    path: ModuleItemPath::Type(
-                                        TypePath(`core::visual::Html`, `Extern`),
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::visual::Html`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
                                     visibility: Scope::Pub,
                                     ast_idx: 2,
@@ -4175,10 +8137,80 @@ Ok(
                                     },
                                 },
                             ),
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Type(
+                                    TypeNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::visual::Html`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `Html`,
+                            visibility: Scope::Pub,
+                        },
+                    ],
+                },
+                entity_symbol_table: EntitySymbolTable(
+                    [
+                        EntitySymbolEntry {
+                            ident: `Visualize`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Trait(
+                                    TraitPath(`core::visual::Visualize`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::visual::Visualize`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 1,
+                                    ident_token: IdentToken {
+                                        ident: `Visualize`,
+                                        token_idx: TokenIdx(
+                                            2,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `Html`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`core::visual::Html`, `Extern`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::visual::Html`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 2,
+                                    ident_token: IdentToken {
+                                        ident: `Html`,
+                                        token_idx: TokenIdx(
+                                            13,
+                                        ),
+                                    },
+                                },
+                            },
                         },
                     ],
                 ),
-                impl_blocks: [],
+                impl_block_node_table: [],
                 use_expr_rules: UseExprRules(
                     [],
                 ),

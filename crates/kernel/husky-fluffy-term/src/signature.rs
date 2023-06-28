@@ -1,9 +1,10 @@
-/// a card contains checked information from signature
+mod associated_fn;
 mod error;
 mod field;
 mod index;
 mod method;
 
+pub use self::associated_fn::*;
 pub use self::error::*;
 pub use self::field::*;
 pub use self::index::*;

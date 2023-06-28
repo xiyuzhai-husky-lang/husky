@@ -15,7 +15,7 @@ pub enum ExprDisambiguation {
     Tilde(TildeDisambiguation),
     Field(FluffyFieldDisambiguation),
     Method(FluffyMethodDisambiguation),
-    AssociatedItem(FluffyAssociatedItemDisambiguation),
+    ScopeResolution(ScopeResolutionDisambiguation),
 }
 
 impl ExprDisambiguation {
@@ -82,6 +82,3 @@ pub enum TildeDisambiguation {
     BitNot,
     Leash,
 }
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct FluffyAssociatedItemDisambiguation {}

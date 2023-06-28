@@ -29,7 +29,7 @@ impl<'a> ExprTypeEngine<'a> {
                 ident_token,
             })?;
         let return_ty = match method_disambiguation.signature() {
-            FluffyMethodSignature::MethodFn(signature) => {
+            MethodFluffySignature::MethodFn(signature) => {
                 self.calc_ritchie_call_nonself_arguments_expr_ty(
                     expr_idx,
                     signature.nonself_parameter_contracted_tys(),
@@ -40,7 +40,7 @@ impl<'a> ExprTypeEngine<'a> {
                 );
                 signature.return_ty()
             }
-            FluffyMethodSignature::MethodFunction(signature) => todo!(),
+            MethodFluffySignature::MethodFunction(signature) => todo!(),
         };
         Ok((method_disambiguation.into(), Ok(return_ty)))
     }

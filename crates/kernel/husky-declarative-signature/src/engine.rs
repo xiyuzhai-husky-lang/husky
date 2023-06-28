@@ -273,7 +273,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                 Literal::TupleIndex(_) => todo!(),
                 Literal::Bool(_) => todo!(),
             },
-            Expr::NonAssociatedEntity {
+            Expr::PrincipalEntityPath {
                 entity_path_expr: _,
                 path: entity_path,
             } => match entity_path {
@@ -293,7 +293,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                 })),
                 None => Err(DerivedDeclarativeTermError2::InvalidEntityPath.into()),
             },
-            Expr::AssociatedItem {
+            Expr::ScopeResolution {
                 parent_expr_idx,
                 scope_resolution_token,
                 ident_token,

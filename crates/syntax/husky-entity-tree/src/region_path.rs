@@ -5,7 +5,7 @@ use crate::*;
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub enum RegionPath {
-    Snippet(Toolchain),
+    Snippet(ModulePath),
     Decr(DecrId),
     Decl(EntityNodePath),
     Defn(EntityNodePath),
@@ -14,7 +14,7 @@ pub enum RegionPath {
 impl RegionPath {
     pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
         match self {
-            RegionPath::Snippet(_) => todo!(),
+            RegionPath::Snippet(module_path) => module_path,
             RegionPath::Decr(id) => id.module_path(db),
             RegionPath::Decl(path) => path.module_path(db),
             RegionPath::Defn(path) => path.module_path(db),
