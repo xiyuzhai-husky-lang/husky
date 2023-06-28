@@ -152,6 +152,15 @@ Ok(
                 Keyword::Mod,
             ),
             Token::Ident(
+                `slice`,
+            ),
+            Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
+                Keyword::Mod,
+            ),
+            Token::Ident(
                 `str`,
             ),
             Token::Keyword(
@@ -183,8 +192,10 @@ Ok(
             45,
             48,
             51,
+            54,
         ],
         indents: [
+            0,
             0,
             0,
             0,

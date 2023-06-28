@@ -21,9 +21,15 @@ Ok(
                     8,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `core::basic`,
+                    original_symbol: EntitySymbol::Submodule {
+                        submodule_path: `core::basic`,
+                        node: SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `core::basic`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::Pub,
                             ast_idx: 1,
                             ident_token: IdentToken {
@@ -33,7 +39,7 @@ Ok(
                                 ),
                             },
                         },
-                    ),
+                    },
                 },
             },
             TokenInfo::None,
@@ -58,9 +64,15 @@ Ok(
                     9,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `core::num`,
+                    original_symbol: EntitySymbol::Submodule {
+                        submodule_path: `core::num`,
+                        node: SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `core::num`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::Pub,
                             ast_idx: 10,
                             ident_token: IdentToken {
@@ -70,7 +82,7 @@ Ok(
                                 ),
                             },
                         },
-                    ),
+                    },
                 },
             },
             TokenInfo::None,
@@ -95,9 +107,15 @@ Ok(
                     10,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `core::raw_bits`,
+                    original_symbol: EntitySymbol::Submodule {
+                        submodule_path: `core::raw_bits`,
+                        node: SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `core::raw_bits`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::Pub,
                             ast_idx: 14,
                             ident_token: IdentToken {
@@ -107,7 +125,7 @@ Ok(
                                 ),
                             },
                         },
-                    ),
+                    },
                 },
             },
             TokenInfo::None,
@@ -132,9 +150,15 @@ Ok(
                     11,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `core::fmt`,
+                    original_symbol: EntitySymbol::Submodule {
+                        submodule_path: `core::fmt`,
+                        node: SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `core::fmt`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::Pub,
                             ast_idx: 5,
                             ident_token: IdentToken {
@@ -144,7 +168,7 @@ Ok(
                                 ),
                             },
                         },
-                    ),
+                    },
                 },
             },
             TokenInfo::None,
@@ -169,19 +193,25 @@ Ok(
                     12,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `core::visual`,
+                    original_symbol: EntitySymbol::Submodule {
+                        submodule_path: `core::visual`,
+                        node: SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `core::visual`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::Pub,
-                            ast_idx: 17,
+                            ast_idx: 18,
                             ident_token: IdentToken {
                                 ident: `visual`,
                                 token_idx: TokenIdx(
-                                    53,
+                                    56,
                                 ),
                             },
                         },
-                    ),
+                    },
                 },
             },
             TokenInfo::None,
@@ -206,9 +236,15 @@ Ok(
                     13,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `core::marker`,
+                    original_symbol: EntitySymbol::Submodule {
+                        submodule_path: `core::marker`,
+                        node: SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `core::marker`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::Pub,
                             ast_idx: 8,
                             ident_token: IdentToken {
@@ -218,7 +254,7 @@ Ok(
                                 ),
                             },
                         },
-                    ),
+                    },
                 },
             },
             TokenInfo::None,
@@ -243,9 +279,15 @@ Ok(
                     14,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `core::clone`,
+                    original_symbol: EntitySymbol::Submodule {
+                        submodule_path: `core::clone`,
+                        node: SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `core::clone`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::Pub,
                             ast_idx: 2,
                             ident_token: IdentToken {
@@ -255,7 +297,7 @@ Ok(
                                 ),
                             },
                         },
-                    ),
+                    },
                 },
             },
             TokenInfo::None,
@@ -280,9 +322,15 @@ Ok(
                     15,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `core::cmp`,
+                    original_symbol: EntitySymbol::Submodule {
+                        submodule_path: `core::cmp`,
+                        node: SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `core::cmp`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::Pub,
                             ast_idx: 3,
                             ident_token: IdentToken {
@@ -292,7 +340,7 @@ Ok(
                                 ),
                             },
                         },
-                    ),
+                    },
                 },
             },
             TokenInfo::None,

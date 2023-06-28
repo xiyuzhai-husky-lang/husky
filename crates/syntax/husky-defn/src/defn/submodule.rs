@@ -6,6 +6,12 @@ pub struct SubmoduleNodeDefn {
     node_decl: SubmoduleNodeDecl,
 }
 
+impl SubmoduleNodeDefn {
+    pub fn node_decl(self) -> SubmoduleNodeDecl {
+        self.node_decl
+    }
+}
+
 impl HasNodeDefn for SubmoduleNodePath {
     type NodeDefn = SubmoduleNodeDefn;
 

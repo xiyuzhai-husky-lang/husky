@@ -2,19 +2,89 @@ Ok(
     TokenInfoSheet {
         token_infos: [
             TokenInfo::None,
-            TokenInfo::SubmoduleIdent,
+            TokenInfo::EntityNode(
+                EntityNodePath::Submodule(
+                    SubmoduleNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: `mnist_classifier::connected_component`,
+                            disambiguator: 0,
+                        },
+                    },
+                ),
+                Module,
+            ),
             TokenInfo::None,
-            TokenInfo::SubmoduleIdent,
+            TokenInfo::EntityNode(
+                EntityNodePath::Submodule(
+                    SubmoduleNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: `mnist_classifier::raw_contour`,
+                            disambiguator: 0,
+                        },
+                    },
+                ),
+                Module,
+            ),
             TokenInfo::None,
-            TokenInfo::SubmoduleIdent,
+            TokenInfo::EntityNode(
+                EntityNodePath::Submodule(
+                    SubmoduleNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: `mnist_classifier::geom2d`,
+                            disambiguator: 0,
+                        },
+                    },
+                ),
+                Module,
+            ),
             TokenInfo::None,
-            TokenInfo::SubmoduleIdent,
+            TokenInfo::EntityNode(
+                EntityNodePath::Submodule(
+                    SubmoduleNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: `mnist_classifier::line_segment_sketch`,
+                            disambiguator: 0,
+                        },
+                    },
+                ),
+                Module,
+            ),
             TokenInfo::None,
-            TokenInfo::SubmoduleIdent,
+            TokenInfo::EntityNode(
+                EntityNodePath::Submodule(
+                    SubmoduleNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: `mnist_classifier::fermi`,
+                            disambiguator: 0,
+                        },
+                    },
+                ),
+                Module,
+            ),
             TokenInfo::None,
-            TokenInfo::SubmoduleIdent,
+            TokenInfo::EntityNode(
+                EntityNodePath::Submodule(
+                    SubmoduleNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: `mnist_classifier::digits`,
+                            disambiguator: 0,
+                        },
+                    },
+                ),
+                Module,
+            ),
             TokenInfo::None,
-            TokenInfo::SubmoduleIdent,
+            TokenInfo::EntityNode(
+                EntityNodePath::Submodule(
+                    SubmoduleNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: `mnist_classifier::major`,
+                            disambiguator: 0,
+                        },
+                    },
+                ),
+                Module,
+            ),
             TokenInfo::None,
             TokenInfo::UseExpr {
                 use_expr_idx: 2,
@@ -34,9 +104,15 @@ Ok(
                     8,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `mnist_classifier::major`,
+                    original_symbol: EntitySymbol::Submodule {
+                        submodule_path: `mnist_classifier::major`,
+                        node: SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `mnist_classifier::major`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::PubUnder(
                                 `mnist_classifier`,
                             ),
@@ -48,7 +124,7 @@ Ok(
                                 ),
                             },
                         },
-                    ),
+                    },
                 },
             },
             TokenInfo::None,
@@ -72,9 +148,15 @@ Ok(
                     9,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `mnist_classifier::digits`,
+                    original_symbol: EntitySymbol::Submodule {
+                        submodule_path: `mnist_classifier::digits`,
+                        node: SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `mnist_classifier::digits`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::PubUnder(
                                 `mnist_classifier`,
                             ),
@@ -86,7 +168,7 @@ Ok(
                                 ),
                             },
                         },
-                    ),
+                    },
                 },
             },
             TokenInfo::None,
@@ -110,9 +192,15 @@ Ok(
                     10,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `mnist_classifier::fermi`,
+                    original_symbol: EntitySymbol::Submodule {
+                        submodule_path: `mnist_classifier::fermi`,
+                        node: SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `mnist_classifier::fermi`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::PubUnder(
                                 `mnist_classifier`,
                             ),
@@ -124,7 +212,7 @@ Ok(
                                 ),
                             },
                         },
-                    ),
+                    },
                 },
             },
             TokenInfo::None,
@@ -149,9 +237,15 @@ Ok(
                     11,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `mnist_classifier::raw_contour`,
+                    original_symbol: EntitySymbol::Submodule {
+                        submodule_path: `mnist_classifier::raw_contour`,
+                        node: SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `mnist_classifier::raw_contour`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::PubUnder(
                                 `mnist_classifier`,
                             ),
@@ -163,7 +257,7 @@ Ok(
                                 ),
                             },
                         },
-                    ),
+                    },
                 },
             },
             TokenInfo::None,
@@ -187,9 +281,15 @@ Ok(
                     12,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `mnist_classifier::line_segment_sketch`,
+                    original_symbol: EntitySymbol::Submodule {
+                        submodule_path: `mnist_classifier::line_segment_sketch`,
+                        node: SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `mnist_classifier::line_segment_sketch`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::PubUnder(
                                 `mnist_classifier`,
                             ),
@@ -201,7 +301,7 @@ Ok(
                                 ),
                             },
                         },
-                    ),
+                    },
                 },
             },
             TokenInfo::None,
@@ -225,9 +325,15 @@ Ok(
                     13,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `mnist_classifier::connected_component`,
+                    original_symbol: EntitySymbol::Submodule {
+                        submodule_path: `mnist_classifier::connected_component`,
+                        node: SubmoduleNode {
+                            node_path: SubmoduleNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: `mnist_classifier::connected_component`,
+                                    disambiguator: 0,
+                                },
+                            },
                             visibility: Scope::PubUnder(
                                 `mnist_classifier`,
                             ),
@@ -239,7 +345,7 @@ Ok(
                                 ),
                             },
                         },
-                    ),
+                    },
                 },
             },
             TokenInfo::None,

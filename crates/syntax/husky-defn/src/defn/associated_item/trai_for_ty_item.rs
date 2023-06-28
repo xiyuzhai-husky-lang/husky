@@ -18,6 +18,38 @@ pub enum TraitForTypeItemNodeDefn {
     MethodFn(TraitForTypeMethodFnNodeDefn),
     AssociatedType(TraitForTypeAssociatedTypeNodeDefn),
     AssociatedVal(TraitForTypeAssociatedValNodeDefn),
+    // todo: MemoizedField
+}
+
+impl TraitForTypeItemNodeDefn {
+    pub fn node_path(self, db: &dyn DefnDb) -> TraitForTypeItemNodePath {
+        match self {
+            TraitForTypeItemNodeDefn::AssociatedFn(node_defn) => node_defn.node_path(db),
+            TraitForTypeItemNodeDefn::MethodFn(node_defn) => node_defn.node_path(db),
+            TraitForTypeItemNodeDefn::AssociatedType(node_defn) => node_defn.node_path(db),
+            TraitForTypeItemNodeDefn::AssociatedVal(node_defn) => node_defn.node_path(db),
+            // TraitForTypeItemNodeDefn::MemoizedField(node_defn) => node_defn.node_path(db),
+        }
+    }
+
+    pub fn node_decl(self, db: &dyn DefnDb) -> TraitForTypeItemNodeDecl {
+        match self {
+            TraitForTypeItemNodeDefn::AssociatedFn(node_defn) => node_defn.node_decl(db).into(),
+            TraitForTypeItemNodeDefn::MethodFn(node_defn) => node_defn.node_decl(db).into(),
+            TraitForTypeItemNodeDefn::AssociatedType(node_defn) => node_defn.node_decl(db).into(),
+            TraitForTypeItemNodeDefn::AssociatedVal(node_defn) => node_defn.node_decl(db).into(),
+            // TraitForTypeItemNodeDefn::MemoizedField(node_defn) => node_defn.node_decl(db).into(),
+        }
+    }
+
+    pub fn expr_region(self, db: &dyn DefnDb) -> ExprRegion {
+        match self {
+            TraitForTypeItemNodeDefn::AssociatedFn(node_defn) => node_defn.expr_region(db),
+            TraitForTypeItemNodeDefn::MethodFn(node_defn) => node_defn.expr_region(db),
+            TraitForTypeItemNodeDefn::AssociatedType(node_defn) => node_defn.expr_region(db),
+            TraitForTypeItemNodeDefn::AssociatedVal(node_defn) => node_defn.expr_region(db),
+        }
+    }
 }
 
 impl HasNodeDefn for TraitForTypeItemNodePath {
@@ -69,6 +101,7 @@ impl TraitForTypeItemDefn {
     pub fn path(self, _db: &dyn DefnDb) -> TraitForTypeItemPath {
         todo!()
     }
+
     pub fn expr_region(self, db: &dyn DefnDb) -> ExprRegion {
         match self {
             TraitForTypeItemDefn::AssociatedFn(defn) => defn.expr_region(db),

@@ -149,7 +149,6 @@ fn satisfies_trai_works() {
     let db = DB::default();
     let toolchain = db.dev_toolchain().unwrap();
     let term_menu = db.ethereal_term_menu(toolchain);
-    p!(term_menu.i8_ty_ontology().is_ty_clonable(&db));
     assert!(term_menu.i8_ty_ontology().is_ty_clonable(&db).unwrap());
     assert!(term_menu.i16_ty_ontology().is_ty_clonable(&db).unwrap());
     assert!(term_menu.i32_ty_ontology().is_ty_clonable(&db).unwrap());

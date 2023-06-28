@@ -4,7 +4,7 @@ use super::*;
 pub struct TypeAssociatedTypeNodeDefn {
     #[id]
     pub node_path: TypeItemNodePath,
-    pub decl: TypeAssociatedTypeDecl,
+    pub node_decl: TypeAssociatedTypeNodeDecl,
     pub expr_region: ExprRegion,
 }
 

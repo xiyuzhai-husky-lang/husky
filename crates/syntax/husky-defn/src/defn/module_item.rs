@@ -17,11 +17,32 @@ pub enum ModuleItemNodeDefn {
     Fugitive(FugitiveNodeDefn),
 }
 
+impl ModuleItemNodeDefn {
+    pub fn node_decl(self, db: &dyn DefnDb) -> ModuleItemNodeDecl {
+        match self {
+            ModuleItemNodeDefn::Type(node_defn) => node_defn.node_decl(db).into(),
+            ModuleItemNodeDefn::Trait(node_defn) => node_defn.node_decl(db).into(),
+            ModuleItemNodeDefn::Fugitive(node_defn) => node_defn.node_decl(db).into(),
+        }
+    }
+
+    pub fn expr_region(self, db: &dyn DefnDb) -> Option<ExprRegion> {
+        match self {
+            ModuleItemNodeDefn::Type(_) | ModuleItemNodeDefn::Trait(_) => None,
+            ModuleItemNodeDefn::Fugitive(node_defn) => Some(node_defn.expr_region(db)),
+        }
+    }
+}
+
 impl HasNodeDefn for ModuleItemNodePath {
     type NodeDefn = ModuleItemNodeDefn;
 
     fn node_defn(self, db: &dyn DefnDb) -> Self::NodeDefn {
-        todo!()
+        match self {
+            ModuleItemNodePath::Trait(node_path) => node_path.node_defn(db).into(),
+            ModuleItemNodePath::Type(node_path) => node_path.node_defn(db).into(),
+            ModuleItemNodePath::Fugitive(node_path) => node_path.node_defn(db).into(),
+        }
     }
 }
 

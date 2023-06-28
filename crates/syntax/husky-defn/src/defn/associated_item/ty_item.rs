@@ -24,6 +24,38 @@ pub enum TypeItemNodeDefn {
     MemoizedField(TypeMemoizedFieldNodeDefn),
 }
 
+impl TypeItemNodeDefn {
+    pub fn node_path(self, db: &dyn DefnDb) -> TypeItemNodePath {
+        match self {
+            TypeItemNodeDefn::AssociatedFn(node_defn) => node_defn.node_path(db),
+            TypeItemNodeDefn::MethodFn(node_defn) => node_defn.node_path(db),
+            TypeItemNodeDefn::AssociatedType(node_defn) => node_defn.node_path(db),
+            TypeItemNodeDefn::AssociatedVal(node_defn) => node_defn.node_path(db),
+            TypeItemNodeDefn::MemoizedField(node_defn) => node_defn.node_path(db),
+        }
+    }
+
+    pub fn node_decl(self, db: &dyn DefnDb) -> TypeItemNodeDecl {
+        match self {
+            TypeItemNodeDefn::AssociatedFn(node_defn) => node_defn.node_decl(db).into(),
+            TypeItemNodeDefn::MethodFn(node_defn) => node_defn.node_decl(db).into(),
+            TypeItemNodeDefn::AssociatedType(node_defn) => node_defn.node_decl(db).into(),
+            TypeItemNodeDefn::AssociatedVal(node_defn) => node_defn.node_decl(db).into(),
+            TypeItemNodeDefn::MemoizedField(node_defn) => node_defn.node_decl(db).into(),
+        }
+    }
+
+    pub fn expr_region(self, db: &dyn DefnDb) -> Option<ExprRegion> {
+        match self {
+            TypeItemNodeDefn::AssociatedFn(node_defn) => node_defn.expr_region(db).into(),
+            TypeItemNodeDefn::MethodFn(node_defn) => node_defn.expr_region(db).into(),
+            TypeItemNodeDefn::AssociatedType(node_defn) => node_defn.expr_region(db).into(),
+            TypeItemNodeDefn::AssociatedVal(node_defn) => node_defn.expr_region(db).into(),
+            TypeItemNodeDefn::MemoizedField(node_defn) => node_defn.expr_region(db).into(),
+        }
+    }
+}
+
 impl HasNodeDefn for TypeItemNodePath {
     type NodeDefn = TypeItemNodeDefn;
 
@@ -61,6 +93,10 @@ pub enum TypeItemDefn {
 }
 
 impl TypeItemDefn {
+    pub fn path(self, _db: &dyn DefnDb) -> AssociatedItemPath {
+        todo!()
+    }
+
     pub fn decl(self, db: &dyn DefnDb) -> TypeItemDecl {
         match self {
             TypeItemDefn::AssociatedFn(defn) => defn.decl(db).into(),
@@ -71,9 +107,6 @@ impl TypeItemDefn {
         }
     }
 
-    pub fn path(self, _db: &dyn DefnDb) -> AssociatedItemPath {
-        todo!()
-    }
     pub fn expr_region(self, db: &dyn DefnDb) -> Option<ExprRegion> {
         match self {
             TypeItemDefn::AssociatedFn(defn) => defn.expr_region(db).into(),
