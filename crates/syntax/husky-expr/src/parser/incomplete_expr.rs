@@ -23,6 +23,10 @@ pub(super) enum IncompleteExpr {
         punctuation: PrefixOpr,
         punctuation_token_idx: TokenIdx,
     },
+    /// list separated by commas
+    /// ```husky
+    /// A { a, b, }
+    /// ```
     CommaList {
         opr: IncompleteCommaListOpr,
         // todo: move this into opr
@@ -34,6 +38,7 @@ pub(super) enum IncompleteExpr {
         // todo: use SmallVec
         commas: Commas,
     },
+    /// call list includes more separators like `;`
     CallList {
         opr: IncompleteCallListOpr,
         lpar_token_idx: TokenIdx,
