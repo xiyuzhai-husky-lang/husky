@@ -104,4 +104,5 @@ pub struct DefnJar(
     TraitForTypeAssociatedValDefn,
     // sheet
     module_defns,
+    module_node_defns,
 );
