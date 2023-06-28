@@ -8,7 +8,7 @@ use std::ops::ControlFlow;
 pub type TokenDisambiguationResult<T> = ControlFlow<(), T>;
 
 impl<'a, 'b> ExprParseContext<'a, 'b> {
-    pub(crate) fn resolve_token(
+    pub(crate) fn disambiguate_token(
         &mut self,
         token_idx: TokenIdx,
         token: Token,
@@ -190,7 +190,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     self.reduce(Precedence::ListItem);
                     match self.last_incomplete_expr() {
                         Some(expr) => match expr {
-                            IncompleteExpr::CommaList { .. } => {
+                            IncompleteExpr::CommaList { .. } | IncompleteExpr::CallList { .. } => {
                                 DisambiguatedToken::Comma(token_idx)
                             }
                             _ => return TokenDisambiguationResult::Break(()),
