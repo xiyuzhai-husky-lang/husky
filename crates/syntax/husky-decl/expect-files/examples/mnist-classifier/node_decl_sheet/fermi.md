@@ -148,9 +148,7 @@ Ok(
                                                     lbox_token_idx: TokenIdx(
                                                         10,
                                                     ),
-                                                    items: ArenaIdxRange(
-                                                        0..0,
-                                                    ),
+                                                    items: [],
                                                     rbox_token_idx: TokenIdx(
                                                         11,
                                                     ),
@@ -180,9 +178,7 @@ Ok(
                                                     lbox_token_idx: TokenIdx(
                                                         18,
                                                     ),
-                                                    items: ArenaIdxRange(
-                                                        5..5,
-                                                    ),
+                                                    items: [],
                                                     rbox_token_idx: TokenIdx(
                                                         19,
                                                     ),
@@ -427,9 +423,7 @@ Ok(
                                                     lbox_token_idx: TokenIdx(
                                                         152,
                                                     ),
-                                                    items: ArenaIdxRange(
-                                                        0..0,
-                                                    ),
+                                                    items: [],
                                                     rbox_token_idx: TokenIdx(
                                                         153,
                                                     ),
@@ -459,9 +453,7 @@ Ok(
                                                     lbox_token_idx: TokenIdx(
                                                         158,
                                                     ),
-                                                    items: ArenaIdxRange(
-                                                        4..4,
-                                                    ),
+                                                    items: [],
                                                     rbox_token_idx: TokenIdx(
                                                         159,
                                                     ),
@@ -510,10 +502,12 @@ Ok(
                                                             162,
                                                         ),
                                                     ),
-                                                    parameter_ty_exprs: ArenaIdxRange(
-                                                        6..7,
-                                                    ),
-                                                    commas: [],
+                                                    parameter_ty_items: [
+                                                        CommaListItem {
+                                                            expr_idx: 6,
+                                                            comma_token_idx: None,
+                                                        },
+                                                    ],
                                                     rpar_token_idx: TokenIdx(
                                                         165,
                                                     ),
@@ -534,10 +528,12 @@ Ok(
                                                     lpar_token_idx: TokenIdx(
                                                         160,
                                                     ),
-                                                    items: ArenaIdxRange(
-                                                        9..10,
-                                                    ),
-                                                    commas: [],
+                                                    items: [
+                                                        CommaListItem {
+                                                            expr_idx: 9,
+                                                            comma_token_idx: None,
+                                                        },
+                                                    ],
                                                     rpar_token_idx: TokenIdx(
                                                         169,
                                                     ),

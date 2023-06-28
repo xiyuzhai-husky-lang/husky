@@ -7,15 +7,14 @@ impl<'a> ExprTypeEngine<'a> {
         function: ExprIdx,
         expr_ty_expectation: &impl ExpectFluffyTerm,
         implicit_arguments: Option<&ImplicitArgumentList>,
-        items: ExprIdxRange,
-        commas: &[TokenIdx],
+        items: &[CommaListItem],
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         let Some(outcome) = self.infer_new_expr_ty_for_outcome(
             function,
             ExpectEqsFunctionType::new(expr_ty_expectation.final_destination(self)),
         ) else {
             for item in items {
-                self.infer_new_expr_ty(item, ExpectAnyDerived);
+                self.infer_new_expr_ty(item.expr_idx(), ExpectAnyDerived);
             }
             Err(DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred)?
         };
@@ -30,10 +29,7 @@ impl<'a> ExprTypeEngine<'a> {
                 self.calc_ritchie_call_nonself_arguments_expr_ty(
                     expr_idx,
                     parameter_contracted_tys,
-                    items
-                        .into_iter()
-                        .enumerate()
-                        .map(|(i, item)| CallListItem::new_regular(item, commas.get(i).copied())),
+                    items.iter().copied().map(Into::into),
                 );
                 Ok((
                     ExprDisambiguation::ExplicitApplicationOrFunctionCall(
@@ -51,7 +47,7 @@ impl<'a> ExprTypeEngine<'a> {
                 match items.len() {
                     0 => unreachable!(),
                     1 => self.infer_new_expr_ty_discarded(
-                        items.start(),
+                        items.first().expect("len is 1").expr_idx(),
                         ExpectImplicitlyConvertible::new_const(*parameter_ty),
                     ),
                     // parameter_ty must be a tuple

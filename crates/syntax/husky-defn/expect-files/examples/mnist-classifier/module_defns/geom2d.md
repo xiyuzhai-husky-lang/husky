@@ -2048,6 +2048,14 @@ Ok(
                                                 ),
                                             ),
                                         },
+                                        Expr::Binary {
+                                            lopd: 4,
+                                            opr: As,
+                                            opr_token_idx: TokenIdx(
+                                                38,
+                                            ),
+                                            ropd: 5,
+                                        },
                                         Expr::Literal(
                                             TokenIdx(
                                                 42,
@@ -2067,20 +2075,20 @@ Ok(
                                             },
                                         },
                                         Expr::Binary {
-                                            lopd: 6,
+                                            lopd: 7,
                                             opr: Closed(
                                                 Sub,
                                             ),
                                             opr_token_idx: TokenIdx(
                                                 43,
                                             ),
-                                            ropd: 7,
+                                            ropd: 8,
                                         },
                                         Expr::Bracketed {
                                             lpar_token_idx: TokenIdx(
                                                 41,
                                             ),
-                                            item: 8,
+                                            item: 9,
                                             rpar_token_idx: TokenIdx(
                                                 45,
                                             ),
@@ -2096,20 +2104,12 @@ Ok(
                                             ),
                                         },
                                         Expr::Binary {
-                                            lopd: 4,
-                                            opr: As,
-                                            opr_token_idx: TokenIdx(
-                                                38,
-                                            ),
-                                            ropd: 5,
-                                        },
-                                        Expr::Binary {
-                                            lopd: 9,
+                                            lopd: 10,
                                             opr: As,
                                             opr_token_idx: TokenIdx(
                                                 46,
                                             ),
-                                            ropd: 10,
+                                            ropd: 11,
                                         },
                                         Expr::FunctionApplicationOrCall {
                                             function: 0,
@@ -2117,13 +2117,19 @@ Ok(
                                             lpar_token_idx: TokenIdx(
                                                 32,
                                             ),
-                                            items: ArenaIdxRange(
-                                                11..13,
-                                            ),
-                                            commas: [
-                                                TokenIdx(
-                                                    40,
-                                                ),
+                                            items: [
+                                                CommaListItem {
+                                                    expr_idx: 6,
+                                                    comma_token_idx: Some(
+                                                        TokenIdx(
+                                                            40,
+                                                        ),
+                                                    ),
+                                                },
+                                                CommaListItem {
+                                                    expr_idx: 12,
+                                                    comma_token_idx: None,
+                                                },
                                             ],
                                             rpar_token_idx: TokenIdx(
                                                 48,
@@ -2694,11 +2700,6 @@ Ok(
                                                 58,
                                             ),
                                         ),
-                                        Expr::SelfValue(
-                                            TokenIdx(
-                                                62,
-                                            ),
-                                        ),
                                         Expr::Field {
                                             owner: 1,
                                             dot_token_idx: TokenIdx(
@@ -2711,8 +2712,13 @@ Ok(
                                                 ),
                                             },
                                         },
+                                        Expr::SelfValue(
+                                            TokenIdx(
+                                                62,
+                                            ),
+                                        ),
                                         Expr::Field {
-                                            owner: 2,
+                                            owner: 3,
                                             dot_token_idx: TokenIdx(
                                                 63,
                                             ),
@@ -2729,13 +2735,19 @@ Ok(
                                             lpar_token_idx: TokenIdx(
                                                 57,
                                             ),
-                                            items: ArenaIdxRange(
-                                                3..5,
-                                            ),
-                                            commas: [
-                                                TokenIdx(
-                                                    61,
-                                                ),
+                                            items: [
+                                                CommaListItem {
+                                                    expr_idx: 2,
+                                                    comma_token_idx: Some(
+                                                        TokenIdx(
+                                                            61,
+                                                        ),
+                                                    ),
+                                                },
+                                                CommaListItem {
+                                                    expr_idx: 4,
+                                                    comma_token_idx: None,
+                                                },
                                             ],
                                             rpar_token_idx: TokenIdx(
                                                 65,
@@ -3460,6 +3472,16 @@ Ok(
                                                 ),
                                             },
                                         },
+                                        Expr::Binary {
+                                            lopd: 3,
+                                            opr: Closed(
+                                                Sub,
+                                            ),
+                                            opr_token_idx: TokenIdx(
+                                                81,
+                                            ),
+                                            ropd: 4,
+                                        },
                                         Expr::InheritedSymbol {
                                             ident: `other`,
                                             token_idx: TokenIdx(
@@ -3476,7 +3498,7 @@ Ok(
                                             ),
                                         ),
                                         Expr::Field {
-                                            owner: 5,
+                                            owner: 6,
                                             dot_token_idx: TokenIdx(
                                                 87,
                                             ),
@@ -3488,7 +3510,7 @@ Ok(
                                             },
                                         },
                                         Expr::Field {
-                                            owner: 6,
+                                            owner: 7,
                                             dot_token_idx: TokenIdx(
                                                 91,
                                             ),
@@ -3500,24 +3522,14 @@ Ok(
                                             },
                                         },
                                         Expr::Binary {
-                                            lopd: 3,
-                                            opr: Closed(
-                                                Sub,
-                                            ),
-                                            opr_token_idx: TokenIdx(
-                                                81,
-                                            ),
-                                            ropd: 4,
-                                        },
-                                        Expr::Binary {
-                                            lopd: 7,
+                                            lopd: 8,
                                             opr: Closed(
                                                 Sub,
                                             ),
                                             opr_token_idx: TokenIdx(
                                                 89,
                                             ),
-                                            ropd: 8,
+                                            ropd: 9,
                                         },
                                         Expr::FunctionApplicationOrCall {
                                             function: 0,
@@ -3525,13 +3537,19 @@ Ok(
                                             lpar_token_idx: TokenIdx(
                                                 77,
                                             ),
-                                            items: ArenaIdxRange(
-                                                9..11,
-                                            ),
-                                            commas: [
-                                                TokenIdx(
-                                                    85,
-                                                ),
+                                            items: [
+                                                CommaListItem {
+                                                    expr_idx: 5,
+                                                    comma_token_idx: Some(
+                                                        TokenIdx(
+                                                            85,
+                                                        ),
+                                                    ),
+                                                },
+                                                CommaListItem {
+                                                    expr_idx: 10,
+                                                    comma_token_idx: None,
+                                                },
                                             ],
                                             rpar_token_idx: TokenIdx(
                                                 93,
@@ -4170,10 +4188,7 @@ Ok(
                                             lpar_token_idx: TokenIdx(
                                                 120,
                                             ),
-                                            items: ArenaIdxRange(
-                                                12..12,
-                                            ),
-                                            commas: [],
+                                            items: [],
                                             rpar_token_idx: TokenIdx(
                                                 121,
                                             ),
@@ -4862,10 +4877,12 @@ Ok(
                                             lpar_token_idx: TokenIdx(
                                                 135,
                                             ),
-                                            items: ArenaIdxRange(
-                                                1..2,
-                                            ),
-                                            commas: [],
+                                            items: [
+                                                CommaListItem {
+                                                    expr_idx: 1,
+                                                    comma_token_idx: None,
+                                                },
+                                            ],
                                             rpar_token_idx: TokenIdx(
                                                 137,
                                             ),
@@ -4885,10 +4902,7 @@ Ok(
                                             lpar_token_idx: TokenIdx(
                                                 140,
                                             ),
-                                            items: ArenaIdxRange(
-                                                3..3,
-                                            ),
-                                            commas: [],
+                                            items: [],
                                             rpar_token_idx: TokenIdx(
                                                 141,
                                             ),
@@ -5505,11 +5519,6 @@ Ok(
                                                 181,
                                             ),
                                         ),
-                                        Expr::SelfValue(
-                                            TokenIdx(
-                                                185,
-                                            ),
-                                        ),
                                         Expr::Field {
                                             owner: 1,
                                             dot_token_idx: TokenIdx(
@@ -5522,8 +5531,13 @@ Ok(
                                                 ),
                                             },
                                         },
+                                        Expr::SelfValue(
+                                            TokenIdx(
+                                                185,
+                                            ),
+                                        ),
                                         Expr::Field {
-                                            owner: 2,
+                                            owner: 3,
                                             dot_token_idx: TokenIdx(
                                                 186,
                                             ),
@@ -5540,13 +5554,19 @@ Ok(
                                             lpar_token_idx: TokenIdx(
                                                 180,
                                             ),
-                                            items: ArenaIdxRange(
-                                                3..5,
-                                            ),
-                                            commas: [
-                                                TokenIdx(
-                                                    184,
-                                                ),
+                                            items: [
+                                                CommaListItem {
+                                                    expr_idx: 2,
+                                                    comma_token_idx: Some(
+                                                        TokenIdx(
+                                                            184,
+                                                        ),
+                                                    ),
+                                                },
+                                                CommaListItem {
+                                                    expr_idx: 4,
+                                                    comma_token_idx: None,
+                                                },
                                             ],
                                             rpar_token_idx: TokenIdx(
                                                 188,
@@ -6271,6 +6291,16 @@ Ok(
                                                 ),
                                             },
                                         },
+                                        Expr::Binary {
+                                            lopd: 3,
+                                            opr: Closed(
+                                                Sub,
+                                            ),
+                                            opr_token_idx: TokenIdx(
+                                                205,
+                                            ),
+                                            ropd: 4,
+                                        },
                                         Expr::InheritedSymbol {
                                             ident: `other`,
                                             token_idx: TokenIdx(
@@ -6287,7 +6317,7 @@ Ok(
                                             ),
                                         ),
                                         Expr::Field {
-                                            owner: 5,
+                                            owner: 6,
                                             dot_token_idx: TokenIdx(
                                                 211,
                                             ),
@@ -6299,7 +6329,7 @@ Ok(
                                             },
                                         },
                                         Expr::Field {
-                                            owner: 6,
+                                            owner: 7,
                                             dot_token_idx: TokenIdx(
                                                 215,
                                             ),
@@ -6311,24 +6341,14 @@ Ok(
                                             },
                                         },
                                         Expr::Binary {
-                                            lopd: 3,
-                                            opr: Closed(
-                                                Sub,
-                                            ),
-                                            opr_token_idx: TokenIdx(
-                                                205,
-                                            ),
-                                            ropd: 4,
-                                        },
-                                        Expr::Binary {
-                                            lopd: 7,
+                                            lopd: 8,
                                             opr: Closed(
                                                 Sub,
                                             ),
                                             opr_token_idx: TokenIdx(
                                                 213,
                                             ),
-                                            ropd: 8,
+                                            ropd: 9,
                                         },
                                         Expr::FunctionApplicationOrCall {
                                             function: 0,
@@ -6336,13 +6356,19 @@ Ok(
                                             lpar_token_idx: TokenIdx(
                                                 201,
                                             ),
-                                            items: ArenaIdxRange(
-                                                9..11,
-                                            ),
-                                            commas: [
-                                                TokenIdx(
-                                                    209,
-                                                ),
+                                            items: [
+                                                CommaListItem {
+                                                    expr_idx: 5,
+                                                    comma_token_idx: Some(
+                                                        TokenIdx(
+                                                            209,
+                                                        ),
+                                                    ),
+                                                },
+                                                CommaListItem {
+                                                    expr_idx: 10,
+                                                    comma_token_idx: None,
+                                                },
                                             ],
                                             rpar_token_idx: TokenIdx(
                                                 217,
@@ -6981,10 +7007,7 @@ Ok(
                                             lpar_token_idx: TokenIdx(
                                                 244,
                                             ),
-                                            items: ArenaIdxRange(
-                                                12..12,
-                                            ),
-                                            commas: [],
+                                            items: [],
                                             rpar_token_idx: TokenIdx(
                                                 245,
                                             ),
@@ -9224,10 +9247,7 @@ Ok(
                                             lpar_token_idx: TokenIdx(
                                                 317,
                                             ),
-                                            items: ArenaIdxRange(
-                                                2..2,
-                                            ),
-                                            commas: [],
+                                            items: [],
                                             rpar_token_idx: TokenIdx(
                                                 318,
                                             ),
@@ -9274,10 +9294,12 @@ Ok(
                                             lpar_token_idx: TokenIdx(
                                                 322,
                                             ),
-                                            items: ArenaIdxRange(
-                                                6..7,
-                                            ),
-                                            commas: [],
+                                            items: [
+                                                CommaListItem {
+                                                    expr_idx: 6,
+                                                    comma_token_idx: None,
+                                                },
+                                            ],
                                             rpar_token_idx: TokenIdx(
                                                 324,
                                             ),
@@ -9393,10 +9415,7 @@ Ok(
                                             lpar_token_idx: TokenIdx(
                                                 348,
                                             ),
-                                            items: ArenaIdxRange(
-                                                19..19,
-                                            ),
-                                            commas: [],
+                                            items: [],
                                             rpar_token_idx: TokenIdx(
                                                 349,
                                             ),
@@ -9460,10 +9479,7 @@ Ok(
                                             lpar_token_idx: TokenIdx(
                                                 359,
                                             ),
-                                            items: ArenaIdxRange(
-                                                24..24,
-                                            ),
-                                            commas: [],
+                                            items: [],
                                             rpar_token_idx: TokenIdx(
                                                 360,
                                             ),
@@ -10414,10 +10430,12 @@ Ok(
                                             lpar_token_idx: TokenIdx(
                                                 378,
                                             ),
-                                            items: ArenaIdxRange(
-                                                1..2,
-                                            ),
-                                            commas: [],
+                                            items: [
+                                                CommaListItem {
+                                                    expr_idx: 1,
+                                                    comma_token_idx: None,
+                                                },
+                                            ],
                                             rpar_token_idx: TokenIdx(
                                                 380,
                                             ),
@@ -10437,10 +10455,7 @@ Ok(
                                             lpar_token_idx: TokenIdx(
                                                 383,
                                             ),
-                                            items: ArenaIdxRange(
-                                                3..3,
-                                            ),
-                                            commas: [],
+                                            items: [],
                                             rpar_token_idx: TokenIdx(
                                                 384,
                                             ),
@@ -11281,10 +11296,7 @@ Ok(
                                             lpar_token_idx: TokenIdx(
                                                 405,
                                             ),
-                                            items: ArenaIdxRange(
-                                                1..1,
-                                            ),
-                                            commas: [],
+                                            items: [],
                                             rpar_token_idx: TokenIdx(
                                                 406,
                                             ),
@@ -11342,10 +11354,7 @@ Ok(
                                             lpar_token_idx: TokenIdx(
                                                 417,
                                             ),
-                                            items: ArenaIdxRange(
-                                                6..6,
-                                            ),
-                                            commas: [],
+                                            items: [],
                                             rpar_token_idx: TokenIdx(
                                                 418,
                                             ),
@@ -11438,10 +11447,12 @@ Ok(
                                             lpar_token_idx: TokenIdx(
                                                 430,
                                             ),
-                                            items: ArenaIdxRange(
-                                                11..12,
-                                            ),
-                                            commas: [],
+                                            items: [
+                                                CommaListItem {
+                                                    expr_idx: 11,
+                                                    comma_token_idx: None,
+                                                },
+                                            ],
                                             rpar_token_idx: TokenIdx(
                                                 432,
                                             ),
@@ -11497,10 +11508,12 @@ Ok(
                                             lpar_token_idx: TokenIdx(
                                                 442,
                                             ),
-                                            items: ArenaIdxRange(
-                                                19..20,
-                                            ),
-                                            commas: [],
+                                            items: [
+                                                CommaListItem {
+                                                    expr_idx: 19,
+                                                    comma_token_idx: None,
+                                                },
+                                            ],
                                             rpar_token_idx: TokenIdx(
                                                 444,
                                             ),
@@ -11614,10 +11627,12 @@ Ok(
                                             lpar_token_idx: TokenIdx(
                                                 469,
                                             ),
-                                            items: ArenaIdxRange(
-                                                31..32,
-                                            ),
-                                            commas: [],
+                                            items: [
+                                                CommaListItem {
+                                                    expr_idx: 31,
+                                                    comma_token_idx: None,
+                                                },
+                                            ],
                                             rpar_token_idx: TokenIdx(
                                                 471,
                                             ),
@@ -11674,10 +11689,7 @@ Ok(
                                             lpar_token_idx: TokenIdx(
                                                 479,
                                             ),
-                                            items: ArenaIdxRange(
-                                                36..36,
-                                            ),
-                                            commas: [],
+                                            items: [],
                                             rpar_token_idx: TokenIdx(
                                                 480,
                                             ),
@@ -13230,16 +13242,23 @@ Ok(
                                             lpar_token_idx: TokenIdx(
                                                 559,
                                             ),
-                                            items: ArenaIdxRange(
-                                                27..29,
-                                            ),
-                                            commas: [
-                                                TokenIdx(
-                                                    561,
-                                                ),
-                                                TokenIdx(
-                                                    563,
-                                                ),
+                                            items: [
+                                                CommaListItem {
+                                                    expr_idx: 27,
+                                                    comma_token_idx: Some(
+                                                        TokenIdx(
+                                                            561,
+                                                        ),
+                                                    ),
+                                                },
+                                                CommaListItem {
+                                                    expr_idx: 28,
+                                                    comma_token_idx: Some(
+                                                        TokenIdx(
+                                                            563,
+                                                        ),
+                                                    ),
+                                                },
                                             ],
                                             rpar_token_idx: TokenIdx(
                                                 564,
@@ -15152,13 +15171,38 @@ Ok(
                                                 ),
                                             },
                                         },
+                                        Expr::MethodApplicationOrCall {
+                                            self_argument: 2,
+                                            dot_token_idx: TokenIdx(
+                                                627,
+                                            ),
+                                            ident_token: IdentToken {
+                                                ident: `relative_range`,
+                                                token_idx: TokenIdx(
+                                                    628,
+                                                ),
+                                            },
+                                            implicit_arguments: None,
+                                            lpar_token_idx: TokenIdx(
+                                                629,
+                                            ),
+                                            items: [
+                                                CommaListItem {
+                                                    expr_idx: 4,
+                                                    comma_token_idx: None,
+                                                },
+                                            ],
+                                            rpar_token_idx: TokenIdx(
+                                                633,
+                                            ),
+                                        },
                                         Expr::SelfValue(
                                             TokenIdx(
                                                 635,
                                             ),
                                         ),
                                         Expr::Field {
-                                            owner: 5,
+                                            owner: 6,
                                             dot_token_idx: TokenIdx(
                                                 636,
                                             ),
@@ -15180,7 +15224,7 @@ Ok(
                                             },
                                         },
                                         Expr::Field {
-                                            owner: 7,
+                                            owner: 8,
                                             dot_token_idx: TokenIdx(
                                                 642,
                                             ),
@@ -15192,30 +15236,7 @@ Ok(
                                             },
                                         },
                                         Expr::MethodApplicationOrCall {
-                                            self_argument: 2,
-                                            dot_token_idx: TokenIdx(
-                                                627,
-                                            ),
-                                            ident_token: IdentToken {
-                                                ident: `relative_range`,
-                                                token_idx: TokenIdx(
-                                                    628,
-                                                ),
-                                            },
-                                            implicit_arguments: None,
-                                            lpar_token_idx: TokenIdx(
-                                                629,
-                                            ),
-                                            items: ArenaIdxRange(
-                                                4..5,
-                                            ),
-                                            commas: [],
-                                            rpar_token_idx: TokenIdx(
-                                                633,
-                                            ),
-                                        },
-                                        Expr::MethodApplicationOrCall {
-                                            self_argument: 6,
+                                            self_argument: 7,
                                             dot_token_idx: TokenIdx(
                                                 638,
                                             ),
@@ -15229,10 +15250,12 @@ Ok(
                                             lpar_token_idx: TokenIdx(
                                                 640,
                                             ),
-                                            items: ArenaIdxRange(
-                                                8..9,
-                                            ),
-                                            commas: [],
+                                            items: [
+                                                CommaListItem {
+                                                    expr_idx: 9,
+                                                    comma_token_idx: None,
+                                                },
+                                            ],
                                             rpar_token_idx: TokenIdx(
                                                 644,
                                             ),
@@ -15243,16 +15266,23 @@ Ok(
                                             lpar_token_idx: TokenIdx(
                                                 623,
                                             ),
-                                            items: ArenaIdxRange(
-                                                9..11,
-                                            ),
-                                            commas: [
-                                                TokenIdx(
-                                                    634,
-                                                ),
-                                                TokenIdx(
-                                                    645,
-                                                ),
+                                            items: [
+                                                CommaListItem {
+                                                    expr_idx: 5,
+                                                    comma_token_idx: Some(
+                                                        TokenIdx(
+                                                            634,
+                                                        ),
+                                                    ),
+                                                },
+                                                CommaListItem {
+                                                    expr_idx: 10,
+                                                    comma_token_idx: Some(
+                                                        TokenIdx(
+                                                            645,
+                                                        ),
+                                                    ),
+                                                },
                                             ],
                                             rpar_token_idx: TokenIdx(
                                                 646,
@@ -15987,13 +16017,38 @@ Ok(
                                                 ),
                                             },
                                         },
+                                        Expr::MethodApplicationOrCall {
+                                            self_argument: 2,
+                                            dot_token_idx: TokenIdx(
+                                                662,
+                                            ),
+                                            ident_token: IdentToken {
+                                                ident: `relative_point`,
+                                                token_idx: TokenIdx(
+                                                    663,
+                                                ),
+                                            },
+                                            implicit_arguments: None,
+                                            lpar_token_idx: TokenIdx(
+                                                664,
+                                            ),
+                                            items: [
+                                                CommaListItem {
+                                                    expr_idx: 4,
+                                                    comma_token_idx: None,
+                                                },
+                                            ],
+                                            rpar_token_idx: TokenIdx(
+                                                668,
+                                            ),
+                                        },
                                         Expr::SelfValue(
                                             TokenIdx(
                                                 670,
                                             ),
                                         ),
                                         Expr::Field {
-                                            owner: 5,
+                                            owner: 6,
                                             dot_token_idx: TokenIdx(
                                                 671,
                                             ),
@@ -16015,7 +16070,7 @@ Ok(
                                             },
                                         },
                                         Expr::Field {
-                                            owner: 7,
+                                            owner: 8,
                                             dot_token_idx: TokenIdx(
                                                 677,
                                             ),
@@ -16027,30 +16082,7 @@ Ok(
                                             },
                                         },
                                         Expr::MethodApplicationOrCall {
-                                            self_argument: 2,
-                                            dot_token_idx: TokenIdx(
-                                                662,
-                                            ),
-                                            ident_token: IdentToken {
-                                                ident: `relative_point`,
-                                                token_idx: TokenIdx(
-                                                    663,
-                                                ),
-                                            },
-                                            implicit_arguments: None,
-                                            lpar_token_idx: TokenIdx(
-                                                664,
-                                            ),
-                                            items: ArenaIdxRange(
-                                                4..5,
-                                            ),
-                                            commas: [],
-                                            rpar_token_idx: TokenIdx(
-                                                668,
-                                            ),
-                                        },
-                                        Expr::MethodApplicationOrCall {
-                                            self_argument: 6,
+                                            self_argument: 7,
                                             dot_token_idx: TokenIdx(
                                                 673,
                                             ),
@@ -16064,10 +16096,12 @@ Ok(
                                             lpar_token_idx: TokenIdx(
                                                 675,
                                             ),
-                                            items: ArenaIdxRange(
-                                                8..9,
-                                            ),
-                                            commas: [],
+                                            items: [
+                                                CommaListItem {
+                                                    expr_idx: 9,
+                                                    comma_token_idx: None,
+                                                },
+                                            ],
                                             rpar_token_idx: TokenIdx(
                                                 679,
                                             ),
@@ -16078,16 +16112,23 @@ Ok(
                                             lpar_token_idx: TokenIdx(
                                                 658,
                                             ),
-                                            items: ArenaIdxRange(
-                                                9..11,
-                                            ),
-                                            commas: [
-                                                TokenIdx(
-                                                    669,
-                                                ),
-                                                TokenIdx(
-                                                    680,
-                                                ),
+                                            items: [
+                                                CommaListItem {
+                                                    expr_idx: 5,
+                                                    comma_token_idx: Some(
+                                                        TokenIdx(
+                                                            669,
+                                                        ),
+                                                    ),
+                                                },
+                                                CommaListItem {
+                                                    expr_idx: 10,
+                                                    comma_token_idx: Some(
+                                                        TokenIdx(
+                                                            680,
+                                                        ),
+                                                    ),
+                                                },
                                             ],
                                             rpar_token_idx: TokenIdx(
                                                 681,

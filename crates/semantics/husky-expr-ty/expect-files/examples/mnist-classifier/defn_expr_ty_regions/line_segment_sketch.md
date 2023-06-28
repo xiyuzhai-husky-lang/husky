@@ -1014,6 +1014,27 @@
                     (
                         Trivial,
                         Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 61,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    28,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
                             Solid(
                                 SolidTerm(
                                     0,
@@ -1089,27 +1110,6 @@
                     ),
                 ),
                 expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 61,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    28,
-                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
@@ -1949,7 +1949,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 49,
+                                expr_idx: 46,
                                 kind: Expr,
                             },
                             expectee: EntityPath(
@@ -1988,7 +1988,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 46,
+                                expr_idx: 47,
                                 kind: Expr,
                             },
                             expectee: Solid(
@@ -2003,7 +2003,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 47,
+                                expr_idx: 48,
                                 kind: Expr,
                             },
                             expectee: EntityPath(
@@ -3162,6 +3162,27 @@
                     (
                         Trivial,
                         Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 61,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    28,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
                             Solid(
                                 SolidTerm(
                                     0,
@@ -3237,27 +3258,6 @@
                     ),
                 ),
                 expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 61,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    28,
-                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
@@ -4097,7 +4097,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 49,
+                                expr_idx: 46,
                                 kind: Expr,
                             },
                             expectee: EntityPath(
@@ -4136,7 +4136,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 46,
+                                expr_idx: 47,
                                 kind: Expr,
                             },
                             expectee: Solid(
@@ -4151,7 +4151,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 47,
+                                expr_idx: 48,
                                 kind: Expr,
                             },
                             expectee: EntityPath(
@@ -4347,6 +4347,23 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
+                        Ok(
+                            Solid(
+                                SolidTerm(
+                                    1,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    2,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
                         Err(
                             Derived(
                                 CurrentSymbolTypeError,
@@ -4371,23 +4388,6 @@
                 ),
                 expectation_rule_idx: Some(
                     3,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Solid(
-                                SolidTerm(
-                                    1,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    2,
                 ),
             },
             ExprTypeInfo {
@@ -4740,6 +4740,23 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
+                        Ok(
+                            Solid(
+                                SolidTerm(
+                                    1,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    13,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
                         Err(
                             Derived(
                                 CurrentSymbolTypeError,
@@ -4764,23 +4781,6 @@
                 ),
                 expectation_rule_idx: Some(
                     14,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Solid(
-                                SolidTerm(
-                                    1,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    13,
                 ),
             },
             ExprTypeInfo {
@@ -6053,6 +6053,23 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
+                        Ok(
+                            Solid(
+                                SolidTerm(
+                                    1,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    52,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
                         Err(
                             Derived(
                                 CurrentSymbolTypeError,
@@ -6077,23 +6094,6 @@
                 ),
                 expectation_rule_idx: Some(
                     53,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Solid(
-                                SolidTerm(
-                                    1,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    52,
                 ),
             },
             ExprTypeInfo {
@@ -6496,7 +6496,7 @@
                         HollowTermEntry {
                             data: Hole {
                                 hole_source: Expr(
-                                    3,
+                                    4,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
                                 fill: None,
@@ -6506,7 +6506,7 @@
                         HollowTermEntry {
                             data: Hole {
                                 hole_source: Expr(
-                                    25,
+                                    26,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
                                 fill: None,
@@ -6566,7 +6566,7 @@
                         HollowTermEntry {
                             data: Hole {
                                 hole_source: Expr(
-                                    104,
+                                    105,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
                                 fill: None,
@@ -6612,7 +6612,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 4,
+                                expr_idx: 2,
                                 kind: Expr,
                             },
                             expectee: Solid(
@@ -6647,7 +6647,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 3,
+                                expr_idx: 4,
                                 kind: Expr,
                             },
                             expectee: Hollow(
@@ -6877,7 +6877,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 26,
+                                expr_idx: 24,
                                 kind: Expr,
                             },
                             expectee: Solid(
@@ -6912,7 +6912,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 25,
+                                expr_idx: 26,
                                 kind: Expr,
                             },
                             expectee: Hollow(
@@ -8150,7 +8150,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 105,
+                                expr_idx: 103,
                                 kind: Expr,
                             },
                             expectee: Solid(
@@ -8185,7 +8185,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 104,
+                                expr_idx: 105,
                                 kind: Expr,
                             },
                             expectee: Hollow(
@@ -8411,6 +8411,23 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
+                        Ok(
+                            Solid(
+                                SolidTerm(
+                                    2,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    2,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
                         Err(
                             Derived(
                                 CurrentSymbolTypeError,
@@ -8435,23 +8452,6 @@
                 ),
                 expectation_rule_idx: Some(
                     3,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Solid(
-                                SolidTerm(
-                                    2,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    2,
                 ),
             },
             ExprTypeInfo {
@@ -8791,6 +8791,23 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
+                        Ok(
+                            Solid(
+                                SolidTerm(
+                                    2,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    13,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
                         Err(
                             Derived(
                                 CurrentSymbolTypeError,
@@ -8815,23 +8832,6 @@
                 ),
                 expectation_rule_idx: Some(
                     14,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Solid(
-                                SolidTerm(
-                                    2,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    13,
                 ),
             },
             ExprTypeInfo {
@@ -9288,6 +9288,23 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
+                        Ok(
+                            Solid(
+                                SolidTerm(
+                                    2,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    29,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
                         Err(
                             Derived(
                                 CurrentSymbolTypeError,
@@ -9312,23 +9329,6 @@
                 ),
                 expectation_rule_idx: Some(
                     30,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Solid(
-                                SolidTerm(
-                                    2,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    29,
                 ),
             },
             ExprTypeInfo {
@@ -10763,7 +10763,7 @@
                         HollowTermEntry {
                             data: Hole {
                                 hole_source: Expr(
-                                    3,
+                                    4,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
                                 fill: None,
@@ -10773,7 +10773,7 @@
                         HollowTermEntry {
                             data: Hole {
                                 hole_source: Expr(
-                                    24,
+                                    25,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
                                 fill: None,
@@ -10793,7 +10793,7 @@
                         HollowTermEntry {
                             data: Hole {
                                 hole_source: Expr(
-                                    51,
+                                    52,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
                                 fill: None,
@@ -10889,7 +10889,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 4,
+                                expr_idx: 2,
                                 kind: Expr,
                             },
                             expectee: Solid(
@@ -10924,7 +10924,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 3,
+                                expr_idx: 4,
                                 kind: Expr,
                             },
                             expectee: Hollow(
@@ -11154,7 +11154,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 25,
+                                expr_idx: 23,
                                 kind: Expr,
                             },
                             expectee: Solid(
@@ -11189,7 +11189,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 24,
+                                expr_idx: 25,
                                 kind: Expr,
                             },
                             expectee: Hollow(
@@ -11642,7 +11642,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 52,
+                                expr_idx: 50,
                                 kind: Expr,
                             },
                             expectee: Solid(
@@ -11677,7 +11677,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 51,
+                                expr_idx: 52,
                                 kind: Expr,
                             },
                             expectee: Hollow(
@@ -13621,6 +13621,23 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
+                        Ok(
+                            Solid(
+                                SolidTerm(
+                                    0,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    21,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
                         Err(
                             Derived(
                                 CurrentSymbolTypeError,
@@ -13653,23 +13670,6 @@
                     ),
                 ),
                 expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Solid(
-                                SolidTerm(
-                                    0,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    21,
-                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
@@ -14602,48 +14602,6 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
                         Ok(
                             Solid(
                                 SolidTerm(
@@ -14656,6 +14614,48 @@
                 expectation_rule_idx: Some(
                     44,
                 ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
@@ -15234,6 +15234,23 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
+                        Ok(
+                            Solid(
+                                SolidTerm(
+                                    0,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    53,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
                         Err(
                             Derived(
                                 CurrentSymbolTypeError,
@@ -15266,6 +15283,19 @@
                         Err(
                             Derived(
                                 CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                BinaryOperationLeftOperandTypeNotInferred,
                             ),
                         ),
                     ),
@@ -15333,36 +15363,6 @@
                 expectation_rule_idx: Some(
                     54,
                 ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Solid(
-                                SolidTerm(
-                                    0,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    53,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                BinaryOperationLeftOperandTypeNotInferred,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
@@ -15789,7 +15789,7 @@
                         HollowTermEntry {
                             data: Hole {
                                 hole_source: Expr(
-                                    189,
+                                    191,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
                                 fill: None,
@@ -16410,7 +16410,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 59,
+                                expr_idx: 55,
                                 kind: Expr,
                             },
                             expectee: Solid(
@@ -17141,7 +17141,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 132,
+                                expr_idx: 128,
                                 kind: Expr,
                             },
                             expectee: Solid(
@@ -17396,7 +17396,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 190,
+                                expr_idx: 180,
                                 kind: Expr,
                             },
                             expectee: Solid(
@@ -17411,7 +17411,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 189,
+                                expr_idx: 191,
                                 kind: Expr,
                             },
                             expectee: Hollow(
@@ -17741,6 +17741,23 @@
                         Ok(
                             Solid(
                                 SolidTerm(
+                                    1,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    4,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            Solid(
+                                SolidTerm(
                                     2,
                                 ),
                             ),
@@ -17770,23 +17787,6 @@
                 ),
                 expectation_rule_idx: Some(
                     6,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Solid(
-                                SolidTerm(
-                                    1,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    4,
                 ),
             },
             ExprTypeInfo {
@@ -18117,7 +18117,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 8,
+                                expr_idx: 6,
                                 kind: Expr,
                             },
                             expectee: Solid(
@@ -18132,7 +18132,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 6,
+                                expr_idx: 7,
                                 kind: Expr,
                             },
                             expectee: Solid(
@@ -18147,7 +18147,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 7,
+                                expr_idx: 8,
                                 kind: Expr,
                             },
                             expectee: EntityPath(
@@ -19174,6 +19174,29 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
+                        ExplicitApplicationOrFunctionCall(
+                            RitchieCall,
+                        ),
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 86,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    7,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
                         TypePath(
                             Constructor,
                         ),
@@ -19217,29 +19240,6 @@
                     ),
                 ),
                 expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        ExplicitApplicationOrFunctionCall(
-                            RitchieCall,
-                        ),
-                        Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 86,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    7,
-                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
@@ -19676,7 +19676,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 54,
+                                expr_idx: 51,
                                 kind: Expr,
                             },
                             expectee: EntityPath(
@@ -19715,7 +19715,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 51,
+                                expr_idx: 52,
                                 kind: Expr,
                             },
                             expectee: Ritchie(
@@ -19902,6 +19902,23 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            Solid(
+                                SolidTerm(
+                                    0,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    0,
+                ),
+            },
+            ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
                     Derived(
                         TypeError(
@@ -19947,23 +19964,6 @@
                 ),
                 expectation_rule_idx: Some(
                     2,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Solid(
-                                SolidTerm(
-                                    0,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    0,
                 ),
             },
             ExprTypeInfo {
@@ -20126,22 +20126,7 @@
                     data: [
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 4,
-                                kind: Expr,
-                            },
-                            expectee: Solid(
-                                SolidTerm(
-                                    0,
-                                ),
-                            ),
-                            data: AnyDerived(
-                                ExpectAnyDerived,
-                            ),
-                            resolve_progress: Unresolved,
-                        },
-                        ExpectationEntry {
-                            src: ExpectationSource {
-                                expr_idx: 2,
+                                expr_idx: 1,
                                 kind: Expr,
                             },
                             expectee: Solid(
@@ -20157,6 +20142,21 @@
                         ExpectationEntry {
                             src: ExpectationSource {
                                 expr_idx: 3,
+                                kind: Expr,
+                            },
+                            expectee: Solid(
+                                SolidTerm(
+                                    0,
+                                ),
+                            ),
+                            data: AnyDerived(
+                                ExpectAnyDerived,
+                            ),
+                            resolve_progress: Unresolved,
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 4,
                                 kind: Expr,
                             },
                             expectee: Solid(

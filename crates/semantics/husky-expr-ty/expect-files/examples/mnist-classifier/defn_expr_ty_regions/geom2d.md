@@ -136,6 +136,27 @@
                     (
                         Trivial,
                         Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 61,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    6,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
                             Hollow(
                                 HollowTerm(
                                     1,
@@ -218,27 +239,6 @@
                 ),
                 expectation_rule_idx: Some(
                     7,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 61,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    6,
                 ),
             },
             ExprTypeInfo {
@@ -461,7 +461,7 @@
                         HollowTermEntry {
                             data: Hole {
                                 hole_source: Expr(
-                                    6,
+                                    7,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
                                 fill: Some(
@@ -679,7 +679,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 11,
+                                expr_idx: 6,
                                 kind: Expr,
                             },
                             expectee: EntityPath(
@@ -718,7 +718,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 10,
+                                expr_idx: 11,
                                 kind: Expr,
                             },
                             expectee: Category(
@@ -747,7 +747,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 6,
+                                expr_idx: 7,
                                 kind: Expr,
                             },
                             expectee: Hollow(
@@ -762,7 +762,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 7,
+                                expr_idx: 8,
                                 kind: Expr,
                             },
                             expectee: Solid(
@@ -793,7 +793,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 8,
+                                expr_idx: 9,
                                 kind: Expr,
                             },
                             expectee: Hollow(
@@ -818,7 +818,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 9,
+                                expr_idx: 10,
                                 kind: Expr,
                             },
                             expectee: Hollow(
@@ -1025,6 +1025,14 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
@@ -1033,14 +1041,6 @@
                                 SelfTypeNotInferredForSelfValue,
                             ),
                         ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -1423,6 +1423,27 @@
                     (
                         Trivial,
                         Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 61,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    3,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
                             Solid(
                                 SolidTerm(
                                     0,
@@ -1506,27 +1527,6 @@
                     ),
                 ),
                 expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 61,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    3,
-                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
@@ -1778,7 +1778,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 9,
+                                expr_idx: 5,
                                 kind: Expr,
                             },
                             expectee: EntityPath(
@@ -1817,7 +1817,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 5,
+                                expr_idx: 6,
                                 kind: Expr,
                             },
                             expectee: Solid(
@@ -1832,7 +1832,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 7,
+                                expr_idx: 8,
                                 kind: Expr,
                             },
                             expectee: EntityPath(
@@ -2443,6 +2443,14 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
@@ -2451,14 +2459,6 @@
                                 SelfTypeNotInferredForSelfValue,
                             ),
                         ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -2841,6 +2841,27 @@
                     (
                         Trivial,
                         Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 61,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    3,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
                             Solid(
                                 SolidTerm(
                                     0,
@@ -2924,27 +2945,6 @@
                     ),
                 ),
                 expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 61,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    3,
-                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
@@ -3196,7 +3196,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 9,
+                                expr_idx: 5,
                                 kind: Expr,
                             },
                             expectee: EntityPath(
@@ -3235,7 +3235,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 5,
+                                expr_idx: 6,
                                 kind: Expr,
                             },
                             expectee: Solid(
@@ -3250,7 +3250,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 7,
+                                expr_idx: 8,
                                 kind: Expr,
                             },
                             expectee: EntityPath(
@@ -8899,6 +8899,14 @@
                 ),
             },
             ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    Derived(
+                        MethodOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
@@ -8986,14 +8994,6 @@
                 expectation_rule_idx: Some(
                     4,
                 ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
@@ -9232,7 +9232,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 7,
+                                expr_idx: 8,
                                 kind: Expr,
                             },
                             expectee: Solid(
@@ -9247,7 +9247,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 8,
+                                expr_idx: 9,
                                 kind: Expr,
                             },
                             expectee: EntityPath(
@@ -9485,6 +9485,14 @@
                 ),
             },
             ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    Derived(
+                        MethodOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
@@ -9572,14 +9580,6 @@
                 expectation_rule_idx: Some(
                     4,
                 ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
@@ -9818,7 +9818,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 7,
+                                expr_idx: 8,
                                 kind: Expr,
                             },
                             expectee: Solid(
@@ -9833,7 +9833,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 8,
+                                expr_idx: 9,
                                 kind: Expr,
                             },
                             expectee: EntityPath(

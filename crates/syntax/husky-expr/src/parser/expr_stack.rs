@@ -291,7 +291,6 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     ritchie_kind,
                     lpar_token,
                     argument_tys,
-                    commas,
                     rpar_token_idx,
                     light_arrow_token,
                 } => {
@@ -301,8 +300,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             ritchie_kind_token_idx,
                             ritchie_kind,
                             lpar_token,
-                            parameter_ty_exprs: argument_tys,
-                            commas,
+                            parameter_ty_items: argument_tys,
                             rpar_token_idx,
                             light_arrow_token: Some(light_arrow_token),
                             return_ty_expr: Some(self.alloc_expr(return_ty)),
@@ -329,40 +327,14 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                                 bra,
                                 bra_token_idx,
                                 mut items,
-                                commas,
                             } => {
-                                debug_assert!(commas.len() <= items.len());
-                                debug_assert!(commas.len() + 1 >= items.len());
-                                let last_item_without_separator = if commas.len() < items.len() {
-                                    items.pop()
-                                } else {
-                                    None
-                                };
-                                let mut items: SmallVec<[_; 4]> =
-                                    std::iter::zip(items.into_iter(), commas.into_iter())
-                                        .map(|(item, comma_token_idx)| CallListItem {
-                                            kind: CallListItemKind::Argument,
-                                            separator: CallListSeparator::Comma(comma_token_idx),
-                                            argument_expr_idx: this.alloc_expr(item),
-                                        })
-                                        .collect();
-                                if let Some(last_item_without_separator) =
-                                    last_item_without_separator
-                                {
-                                    items.push(CallListItem {
-                                        kind: CallListItemKind::Argument,
-                                        separator: CallListSeparator::None,
-                                        argument_expr_idx: this
-                                            .alloc_expr(last_item_without_separator),
-                                    })
-                                }
                                 IncompleteExpr::CallList {
                                     opr: IncompleteCallListOpr::FunctionCall {
                                     function,
                                     implicit_arguments: /* ad hoc */ None,
                                 },
                                     lpar_token_idx: bra_token_idx,
-                                    items,
+                                    items: items.into_iter().map(Into::into).collect(),
                                     // function,
                                     // implicit_arguments: /* ad hoc */ None,
                                     // bra,
@@ -388,7 +360,6 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                                 bra,
                                 bra_token_idx,
                                 items,
-                                commas,
                             } => todo!(),
                             IncompleteExpr::CallList { .. } => todo!(),
                             _ => unreachable!(),
@@ -438,7 +409,6 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     bra,
                     bra_token_idx,
                     items,
-                    commas,
                 } => return Some(*bra),
                 IncompleteExpr::CallList { .. } => return Some(Bracket::Par),
                 _ => (),
