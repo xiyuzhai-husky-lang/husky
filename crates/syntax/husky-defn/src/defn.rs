@@ -24,6 +24,37 @@ pub enum NodeDefn {
     AssociatedItem(AssociatedItemNodeDefn),
 }
 
+impl NodeDefn {
+    pub fn node_decl(self, db: &dyn DefnDb) -> NodeDecl {
+        match self {
+            NodeDefn::Submodule(node_defn) => NodeDecl::Submodule(node_defn.decl()),
+            NodeDefn::ModuleItem(node_defn) => node_defn.decl(db).into(),
+            NodeDefn::TypeVariant(node_defn) => node_defn.decl(db).into(),
+            NodeDefn::ImplBlock(node_defn) => node_defn.into(),
+            NodeDefn::AssociatedItem(node_defn) => node_defn.decl(db).into(),
+        }
+    }
+
+    pub fn ast_idx(self, db: &dyn DefnDb) -> AstIdx {
+        todo!()
+        // self.decl(db).ast_idx(db)
+    }
+
+    pub fn implicit_parameters<'a>(self, db: &'a dyn DefnDb) -> &'a [ImplicitParameterDeclPattern] {
+        self.decl(db).implicit_parameters(db)
+    }
+
+    pub fn expr_region(self, db: &dyn DefnDb) -> Option<ExprRegion> {
+        match self {
+            Defn::Submodule(_) => None,
+            Defn::ModuleItem(defn) => defn.expr_region(db),
+            Defn::AssociatedItem(defn) => defn.expr_region(db),
+            Defn::TypeVariant(_defn) => None,
+            Defn::ImplBlock(_) => None,
+        }
+    }
+}
+
 pub trait HasNodeDefn: Copy {
     type NodeDefn;
 
@@ -42,6 +73,39 @@ impl HasNodeDefn for EntityNodePath {
             EntityNodePath::AssociatedItem(path) => path.node_defn(db).into(),
         }
     }
+}
+
+pub trait HasNodeDefns: Copy {
+    fn node_defns(self, db: &dyn DefnDb) -> EntityTreeResult<&[NodeDefn]>;
+}
+
+impl HasNodeDefns for ModulePath {
+    fn node_defns(self, db: &dyn DefnDb) -> EntityTreeResult<&[NodeDefn]> {
+        Ok(module_node_defns(db, self).as_ref()?)
+    }
+}
+
+#[salsa::tracked(jar = DefnJar, return_ref)]
+pub(crate) fn module_node_defns(
+    db: &dyn DefnDb,
+    module_path: ModulePath,
+) -> EntityTreeResult<Vec<NodeDefn>> {
+    Ok(module_entity_node_paths(db, module_path)
+        .as_ref()?
+        .iter()
+        .copied()
+        .map(|node_path| node_path.node_defn(db))
+        .collect())
+}
+
+#[test]
+fn module_node_defns_works() {
+    use tests::*;
+
+    DB::default()
+        .ast_expect_test_debug_with_db("module_node_defns", |db, module_path: ModulePath| {
+            module_path.node_defns(db)
+        });
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -147,7 +211,7 @@ pub(crate) fn module_defns(
 fn module_defns_works() {
     use tests::*;
 
-    DB::default().ast_expect_test_debug_with_db("defn_sheet", |db, module_path: ModulePath| {
+    DB::default().ast_expect_test_debug_with_db("module_defns", |db, module_path: ModulePath| {
         module_path.defns(db)
     });
 }

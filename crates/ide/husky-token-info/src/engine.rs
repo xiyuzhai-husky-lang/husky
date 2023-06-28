@@ -35,7 +35,7 @@ impl<'a> InferEngine<'a> {
 
     pub(crate) fn visit_all(mut self) -> EntityTreeResult<TokenInfoSheet> {
         self.visit_other_asts()?;
-        self.visit_decl_and_defns()?;
+        self.visit_node_decl_and_defns()?;
         self.visit_use_expr_rules();
         Ok(self.sheet)
     }
@@ -56,9 +56,9 @@ impl<'a> InferEngine<'a> {
         Ok(())
     }
 
-    fn visit_decl_and_defns(&mut self) -> EntityTreeResult<()> {
-        for defn in self.module_path.defns(self.db)?.iter().copied() {
-            self.visit_node_decl_and_defn(defn)
+    fn visit_node_decl_and_defns(&mut self) -> EntityTreeResult<()> {
+        for node_defn in self.module_path.node_defns(self.db)?.iter().copied() {
+            self.visit_node_decl_and_defn(node_defn)
         }
         Ok(())
     }
@@ -99,31 +99,31 @@ impl<'a> InferEngine<'a> {
         }
     }
 
-    fn visit_node_decl_and_defn(&mut self, defn: Defn) {
-        todo!()
-        // let decl = defn.decl(self.db);
-        // self.visit_expr_region(decl.expr_region(self.db).into());
-        // defn.expr_region(self.db)
-        //     .map(|expr_region| self.visit_expr_region(expr_region.into()));
-        // let ast_idx = defn.ast_idx(self.db);
-        // match self.ast_sheet[ast_idx] {
-        //     Ast::Defn {
-        //         ident_token,
-        //         entity_kind,
-        //         ..
-        //     } => self.sheet.add(
-        //         ident_token.token_idx(),
-        //         TokenInfo::EntityNode(decl.node_path(self.db), entity_kind),
-        //     ),
-        //     Ast::ImplBlock { .. } => (),
-        //     _ => unreachable!(),
-        // }
-        // match defn {
-        //     Defn::ModuleItem(defn) => self.visit_module_item(defn),
-        //     Defn::AssociatedItem(defn) => self.visit_associated_item(defn),
-        //     Defn::TypeVariant(_) => todo!(),
-        //     Defn::ImplBlock(_) => (),
-        // }
+    fn visit_node_decl_and_defn(&mut self, node_defn: NodeDefn) {
+        let node_decl = node_defn.node_decl(self.db);
+        self.visit_expr_region(node_decl.expr_region(self.db).into());
+        node_defn
+            .expr_region(self.db)
+            .map(|expr_region| self.visit_expr_region(expr_region.into()));
+        let ast_idx = node_defn.ast_idx(self.db);
+        match self.ast_sheet[ast_idx] {
+            Ast::Defn {
+                ident_token,
+                entity_kind,
+                ..
+            } => self.sheet.add(
+                ident_token.token_idx(),
+                TokenInfo::EntityNode(node_decl.node_path(self.db), entity_kind),
+            ),
+            Ast::ImplBlock { .. } => (),
+            _ => unreachable!(),
+        }
+        match node_defn {
+            Defn::ModuleItem(defn) => self.visit_module_item(defn),
+            Defn::AssociatedItem(defn) => self.visit_associated_item(defn),
+            Defn::TypeVariant(_) => todo!(),
+            Defn::ImplBlock(_) => (),
+        }
     }
 
     fn visit_expr_region(&mut self, expr_region: ExprRegion) {
