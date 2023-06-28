@@ -151,8 +151,7 @@ pub enum Expr {
         function: ExprIdx,
         implicit_arguments: Option<ImplicitArgumentList>,
         lpar_token_idx: TokenIdx,
-        items: ExprIdxRange,
-        commas: Commas,
+        items: SmallVec<[CommaListItem; 4]>,
         rpar_token_idx: TokenIdx,
     },
     /// function type or trait
@@ -160,8 +159,7 @@ pub enum Expr {
         ritchie_kind_token_idx: TokenIdx,
         ritchie_kind: RitchieKind,
         lpar_token: LeftParenthesisToken,
-        parameter_ty_exprs: ExprIdxRange,
-        commas: Commas,
+        parameter_ty_items: SmallVec<[CommaListItem; 4]>,
         rpar_token_idx: TokenIdx,
         light_arrow_token: Option<LightArrowToken>,
         /// it's guaranteed that `return_ty_expr` is some if and only if
@@ -186,8 +184,7 @@ pub enum Expr {
         ident_token: IdentToken,
         implicit_arguments: Option<ImplicitArgumentList>,
         lpar_token_idx: TokenIdx,
-        items: ExprIdxRange,
-        commas: Commas,
+        items: SmallVec<[CommaListItem; 4]>,
         rpar_token_idx: TokenIdx,
     },
     TemplateInstantiation {
@@ -211,8 +208,7 @@ pub enum Expr {
     NewTuple {
         lpar_token_idx: TokenIdx,
         /// guaranteed that items.len() > 0
-        items: ExprIdxRange,
-        commas: Commas,
+        items: SmallVec<[CommaListItem; 4]>,
         rpar_token_idx: TokenIdx,
     },
     /// there are two cases
@@ -222,12 +218,12 @@ pub enum Expr {
     IndexOrCompositionWithList {
         owner: ExprIdx,
         lbox_token_idx: TokenIdx,
-        items: ExprIdxRange,
+        items: SmallVec<[CommaListItem; 4]>,
         rbox_token_idx: TokenIdx,
     },
     List {
         lbox_token_idx: TokenIdx,
-        items: ExprIdxRange,
+        items: SmallVec<[CommaListItem; 4]>,
         rbox_token_idx: TokenIdx,
     },
     /// [:] means Slice
@@ -236,7 +232,7 @@ pub enum Expr {
     BoxColonList {
         lbox_token_idx: TokenIdx,
         colon_token_idx: TokenIdx,
-        items: ExprIdxRange,
+        items: SmallVec<[CommaListItem; 4]>,
         rbox_token_idx: TokenIdx,
     },
     Block {
@@ -256,14 +252,43 @@ pub enum Expr {
 pub struct KeyedArgumentExpr {
     key_token_idx: TokenIdx,
     key: Ident,
-    argument: ExprIdx,
+    argument_expr_idx: ExprIdx,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub struct CommaListItem {
+    expr_idx: ExprIdx,
+    comma_token_idx: Option<TokenIdx>,
+}
+
+impl CommaListItem {
+    pub fn expr_idx(self) -> ExprIdx {
+        self.expr_idx
+    }
+
+    pub fn comma_token_idx(self) -> Option<TokenIdx> {
+        self.comma_token_idx
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct CallListItem {
     kind: CallListItemKind,
-    separator: CallListSeparator,
     argument_expr_idx: ExprIdx,
+    separator: CallListSeparator,
+}
+
+impl From<CommaListItem> for CallListItem {
+    fn from(item: CommaListItem) -> Self {
+        CallListItem {
+            kind: CallListItemKind::Argument,
+            argument_expr_idx: item.expr_idx,
+            separator: match item.comma_token_idx {
+                Some(comma_token_idx) => CallListSeparator::Comma(comma_token_idx),
+                None => CallListSeparator::None,
+            },
+        }
+    }
 }
 
 impl CallListItem {
@@ -307,22 +332,19 @@ pub enum CallListSeparator {
 #[derive(Debug, PartialEq, Eq)]
 pub struct ImplicitArgumentList {
     langle: TokenIdx,
-    arguments: ExprIdxRange,
-    commas: Commas,
+    arguments: SmallVec<[CommaListItem; 4]>,
     rangle: TokenIdx,
 }
 
 impl ImplicitArgumentList {
     pub(crate) fn new(
         langle: TokenIdx,
-        arguments: ExprIdxRange,
-        commas: Commas,
+        arguments: SmallVec<[CommaListItem; 4]>,
         rangle: TokenIdx,
     ) -> Self {
         Self {
             langle,
             arguments,
-            commas,
             rangle,
         }
     }
@@ -331,8 +353,8 @@ impl ImplicitArgumentList {
         self.langle
     }
 
-    pub fn arguments(&self) -> ExprIdxRange {
-        self.arguments
+    pub fn arguments(&self) -> &[CommaListItem] {
+        &self.arguments
     }
 
     pub fn rangle(&self) -> TokenIdx {

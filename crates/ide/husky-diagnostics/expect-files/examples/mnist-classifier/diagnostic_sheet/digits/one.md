@@ -12,44 +12,44 @@ DiagnosticSheet {
     expr_diagnostic_sheet: ExprDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "Syntax Error: unterminated function call keyed argument list",
+                message: "Syntax Error: expect item before `,`",
                 severity: Error,
-                range: [7:16, 7:17),
+                range: [10:17, 10:18),
             },
             Diagnostic {
-                message: "Syntax Error: unterminated function call keyed argument list",
+                message: "Syntax Error: expect item before `,`",
                 severity: Error,
-                range: [14:20, 14:21),
+                range: [16:21, 16:22),
             },
             Diagnostic {
-                message: "Syntax Error: unterminated function call keyed argument list",
+                message: "Syntax Error: expect item before `,`",
                 severity: Error,
-                range: [29:24, 29:25),
+                range: [31:25, 31:26),
             },
             Diagnostic {
-                message: "Syntax Error: unterminated function call keyed argument list",
+                message: "Syntax Error: expect item before `,`",
                 severity: Error,
-                range: [37:20, 37:21),
+                range: [42:22, 42:23),
             },
             Diagnostic {
-                message: "Syntax Error: unterminated function call keyed argument list",
+                message: "Syntax Error: expect item before `,`",
                 severity: Error,
-                range: [44:20, 44:21),
+                range: [47:21, 47:22),
             },
             Diagnostic {
-                message: "Syntax Error: unterminated function call keyed argument list",
+                message: "Syntax Error: expect item before `,`",
                 severity: Error,
-                range: [55:24, 55:25),
+                range: [59:25, 59:26),
             },
             Diagnostic {
-                message: "Syntax Error: unterminated function call keyed argument list",
+                message: "Syntax Error: expect item before `,`",
                 severity: Error,
-                range: [61:24, 61:25),
+                range: [64:25, 64:26),
             },
             Diagnostic {
-                message: "Syntax Error: unterminated function call keyed argument list",
+                message: "Syntax Error: expect item before `,`",
                 severity: Error,
-                range: [67:24, 67:25),
+                range: [71:25, 71:26),
             },
         ],
     },
@@ -61,6 +61,46 @@ DiagnosticSheet {
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
+            Diagnostic {
+                message: "Type Error: cannot unveil",
+                severity: Error,
+                range: [7:5, 11:7),
+            },
+            Diagnostic {
+                message: "Type Error: cannot unveil",
+                severity: Error,
+                range: [14:9, 17:11),
+            },
+            Diagnostic {
+                message: "Type Error: cannot unveil",
+                severity: Error,
+                range: [29:13, 32:15),
+            },
+            Diagnostic {
+                message: "Type Error: cannot unveil",
+                severity: Error,
+                range: [37:9, 43:11),
+            },
+            Diagnostic {
+                message: "Type Error: cannot unveil",
+                severity: Error,
+                range: [44:9, 48:11),
+            },
+            Diagnostic {
+                message: "Type Error: cannot unveil",
+                severity: Error,
+                range: [55:13, 60:15),
+            },
+            Diagnostic {
+                message: "Type Error: cannot unveil",
+                severity: Error,
+                range: [61:13, 65:15),
+            },
+            Diagnostic {
+                message: "Type Error: cannot unveil",
+                severity: Error,
+                range: [67:13, 72:15),
+            },
             Diagnostic {
                 message: "Type Error: cannot unveil",
                 severity: Error,

@@ -526,9 +526,7 @@ fn parse_expr_works() {
                             lbox_token_idx: TokenIdx(
                                 0,
                             ),
-                            items: ArenaIdxRange(
-                                0..0,
-                            ),
+                            items: [],
                             rbox_token_idx: TokenIdx(
                                 1,
                             ),
@@ -653,9 +651,12 @@ fn parse_expr_works() {
                             lbox_token_idx: TokenIdx(
                                 0,
                             ),
-                            items: ArenaIdxRange(
-                                0..1,
-                            ),
+                            items: [
+                                CommaListItem {
+                                    expr_idx: 0,
+                                    comma_token_idx: None,
+                                },
+                            ],
                             rbox_token_idx: TokenIdx(
                                 2,
                             ),
@@ -800,13 +801,19 @@ fn parse_expr_works() {
                             lpar_token_idx: TokenIdx(
                                 0,
                             ),
-                            items: ArenaIdxRange(
-                                0..2,
-                            ),
-                            commas: [
-                                TokenIdx(
-                                    2,
-                                ),
+                            items: [
+                                CommaListItem {
+                                    expr_idx: 0,
+                                    comma_token_idx: Some(
+                                        TokenIdx(
+                                            2,
+                                        ),
+                                    ),
+                                },
+                                CommaListItem {
+                                    expr_idx: 1,
+                                    comma_token_idx: None,
+                                },
                             ],
                             rpar_token_idx: TokenIdx(
                                 4,
@@ -1120,10 +1127,7 @@ fn parse_expr_works() {
                             lpar_token_idx: TokenIdx(
                                 3,
                             ),
-                            items: ArenaIdxRange(
-                                1..1,
-                            ),
-                            commas: [],
+                            items: [],
                             rpar_token_idx: TokenIdx(
                                 4,
                             ),

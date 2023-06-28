@@ -148,9 +148,7 @@ Ok(
                                                     colon_token_idx: TokenIdx(
                                                         13,
                                                     ),
-                                                    items: ArenaIdxRange(
-                                                        1..1,
-                                                    ),
+                                                    items: [],
                                                     rbox_token_idx: TokenIdx(
                                                         14,
                                                     ),
@@ -505,9 +503,7 @@ Ok(
                                                     colon_token_idx: TokenIdx(
                                                         52,
                                                     ),
-                                                    items: ArenaIdxRange(
-                                                        1..1,
-                                                    ),
+                                                    items: [],
                                                     rbox_token_idx: TokenIdx(
                                                         53,
                                                     ),
@@ -1012,9 +1008,7 @@ Ok(
                                                     colon_token_idx: TokenIdx(
                                                         113,
                                                     ),
-                                                    items: ArenaIdxRange(
-                                                        1..1,
-                                                    ),
+                                                    items: [],
                                                     rbox_token_idx: TokenIdx(
                                                         114,
                                                     ),

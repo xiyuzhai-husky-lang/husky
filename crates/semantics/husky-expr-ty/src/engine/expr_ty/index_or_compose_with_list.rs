@@ -5,14 +5,14 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         expr_idx: ExprIdx,
         owner: ExprIdx,
-        indices: ExprIdxRange,
+        indices: &[CommaListItem],
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         let Some(owner_ty) = self.infer_new_expr_ty(
             owner,
             ExpectAnyOriginal,
         ) else {
             for index in indices {
-                self.infer_new_expr_ty(index, ExpectAnyDerived);
+                self.infer_new_expr_ty(index.expr_idx(), ExpectAnyDerived);
             }
             Err(DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred)?
         };
@@ -35,12 +35,12 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         expr_idx: ExprIdx,
         self_expr_ty: FluffyTerm,
-        index_exprs: ExprIdxRange,
+        indices: &[CommaListItem],
     ) -> ExprTypeResult<(FluffyIndexDisambiguation, ExprTypeResult<FluffyTerm>)> {
-        let index_tys: SmallVec<[FluffyTerm; 2]> = index_exprs
-            .into_iter()
-            .map(|index_expr| {
-                self.infer_new_expr_ty(index_expr, ExpectAnyOriginal)
+        let index_tys: SmallVec<[FluffyTerm; 2]> = indices
+            .iter()
+            .map(|index| {
+                self.infer_new_expr_ty(index.expr_idx(), ExpectAnyOriginal)
                     .ok_or(DerivedExprTypeError::UnableToInferIndexExprType.into())
             })
             .collect::<ExprTypeResult<SmallVec<[_; 2]>>>()?;

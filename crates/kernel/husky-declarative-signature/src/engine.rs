@@ -395,8 +395,7 @@ impl<'a> DeclarativeTermEngine<'a> {
             Expr::FunctionApplicationOrCall {
                 function,
                 ref implicit_arguments,
-                items,
-                ref commas,
+                ref items,
                 ..
             } => {
                 let Ok(function) = self.infer_new_expr_term(function) else {
@@ -412,12 +411,13 @@ impl<'a> DeclarativeTermEngine<'a> {
                         .collect(),
                     None => vec![],
                 };
-                assert!(items.len() <= commas.len() + 1);
-                assert!(items.len() >= commas.len());
-                let extra_comma = items.len() == commas.len();
+                let extra_comma = match items.last() {
+                    Some(last_item) => last_item.comma_token_idx().is_some(),
+                    None => false,
+                };
                 let items = items
                     .into_iter()
-                    .map(|item| self.infer_new_expr_term(item))
+                    .map(|item| self.infer_new_expr_term(item.expr_idx()))
                     .collect::<DeclarativeTermResult2<_>>()?;
                 Ok(DeclarativeTermExplicitApplicationOrRitchieCall::new(
                     self.db,
@@ -437,15 +437,15 @@ impl<'a> DeclarativeTermEngine<'a> {
                 };
                 Ok(DeclarativeTermExplicitApplication::new(self.db, function, argument).into())
             }
-            Expr::NewTuple { items, .. } => {
+            Expr::NewTuple { ref items, .. } => {
                 p!(self.expr_region_data.region_path().debug(self.db));
                 p!(items.len());
                 todo!()
             }
-            Expr::List { items, .. } => {
+            Expr::List { ref items, .. } => {
                 let items = items
-                    .into_iter()
-                    .map(|item| self.infer_new_expr_term(item))
+                    .iter()
+                    .map(|item| self.infer_new_expr_term(item.expr_idx()))
                     .collect::<DeclarativeTermResult2<Vec<_>>>()?;
                 Ok(DeclarativeTermList::new(
                     self.db,
@@ -454,7 +454,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                 )
                 .into())
             }
-            Expr::BoxColonList { items, .. } => match items.len() {
+            Expr::BoxColonList { ref items, .. } => match items.len() {
                 0 => Ok(self.declarative_term_menu.slice_ty_path()),
                 _ => todo!(),
             },
@@ -463,7 +463,7 @@ impl<'a> DeclarativeTermEngine<'a> {
             Expr::IndexOrCompositionWithList {
                 owner: _,
                 lbox_token_idx: _,
-                items: _indices,
+                ref items,
                 rbox_token_idx: _,
             } => todo!(),
             Expr::Err(_) => Err(DerivedDeclarativeTermError2::ExprError.into()),
@@ -480,17 +480,17 @@ impl<'a> DeclarativeTermEngine<'a> {
             Expr::FunctionCall { .. } => todo!(),
             Expr::Ritchie {
                 ritchie_kind,
-                parameter_ty_exprs,
+                ref parameter_ty_items,
                 return_ty_expr,
                 ..
             } => {
-                let parameter_tys: SmallVec<[_; 2]> = parameter_ty_exprs
+                let parameter_tys: SmallVec<[_; 2]> = parameter_ty_items
                     .into_iter()
-                    .map(|argument_ty_expr| {
+                    .map(|argument_ty_item| {
                         Ok(DeclarativeTermRitchieParameterContractedType::new(
                             // todo: handle &mut !!
                             Contract::Pure,
-                            self.infer_new_expr_term(argument_ty_expr)?,
+                            self.infer_new_expr_term(argument_ty_item.expr_idx())?,
                         ))
                     })
                     .collect::<DeclarativeTermResult2<SmallVec<_>>>()?;

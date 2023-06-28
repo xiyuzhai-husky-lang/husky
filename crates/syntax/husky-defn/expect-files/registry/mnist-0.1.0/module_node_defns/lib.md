@@ -157,9 +157,12 @@ Ok(
                                                 lbox_token_idx: TokenIdx(
                                                     27,
                                                 ),
-                                                items: ArenaIdxRange(
-                                                    0..1,
-                                                ),
+                                                items: [
+                                                    CommaListItem {
+                                                        expr_idx: 0,
+                                                        comma_token_idx: None,
+                                                    },
+                                                ],
                                                 rbox_token_idx: TokenIdx(
                                                     29,
                                                 ),

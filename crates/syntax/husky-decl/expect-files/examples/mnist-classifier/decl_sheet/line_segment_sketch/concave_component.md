@@ -109,9 +109,12 @@ Ok(
                                                     lbox_token_idx: TokenIdx(
                                                         44,
                                                     ),
-                                                    items: ArenaIdxRange(
-                                                        3..4,
-                                                    ),
+                                                    items: [
+                                                        CommaListItem {
+                                                            expr_idx: 3,
+                                                            comma_token_idx: None,
+                                                        },
+                                                    ],
                                                     rbox_token_idx: TokenIdx(
                                                         46,
                                                     ),
@@ -315,9 +318,7 @@ Ok(
                                                     lbox_token_idx: TokenIdx(
                                                         549,
                                                     ),
-                                                    items: ArenaIdxRange(
-                                                        2..2,
-                                                    ),
+                                                    items: [],
                                                     rbox_token_idx: TokenIdx(
                                                         550,
                                                     ),

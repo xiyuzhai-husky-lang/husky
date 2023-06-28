@@ -90,13 +90,13 @@ impl<'a> ExprTypeEngine<'a> {
                 rpar_token_idx,
             } => Err(todo!()),
             Expr::NewTuple { .. } => Err(todo!()),
-            Expr::List { items, .. } => self.calc_list_expr_term(expr_idx, items),
+            Expr::List { ref items, .. } => self.calc_list_expr_term(expr_idx, items),
             Expr::BoxColonList { .. } => Err(todo!()),
             Expr::Block { stmts } => Err(todo!()),
             Expr::IndexOrCompositionWithList {
                 owner,
                 lbox_token_idx,
-                items,
+                ref items,
                 rbox_token_idx,
             } => match self.expr_disambiguation(expr_idx) {
                 Ok(ExprDisambiguation::IndexOrComposeWithList(_)) => todo!(),

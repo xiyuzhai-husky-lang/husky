@@ -193,8 +193,7 @@ impl<'a> ExprTypeEngine<'a> {
             Expr::FunctionApplicationOrCall {
                 function,
                 ref implicit_arguments,
-                items,
-                ref commas,
+                ref items,
                 ..
             } => self.calc_function_application_or_call_expr_ty(
                 expr_idx,
@@ -202,7 +201,6 @@ impl<'a> ExprTypeEngine<'a> {
                 expr_ty_expectation,
                 implicit_arguments.as_ref(),
                 items,
-                commas,
             ),
             Expr::FunctionCall {
                 function,
@@ -223,16 +221,14 @@ impl<'a> ExprTypeEngine<'a> {
                 self_argument,
                 ident_token,
                 ref implicit_arguments,
-                items: nonself_arguments,
-                ref commas,
+                ref items,
                 ..
             } => self.calc_method_application_or_call_ty(
                 expr_idx,
                 self_argument,
                 ident_token,
                 implicit_arguments.as_ref(),
-                nonself_arguments,
-                commas,
+                items,
             ),
             Expr::TemplateInstantiation {
                 template,
@@ -252,13 +248,13 @@ impl<'a> ExprTypeEngine<'a> {
                 ExprDisambiguation::Trivial,
                 Ok(self.term_menu.unit_ty_ontology().into()),
             )),
-            Expr::NewTuple { items, .. } => todo!(),
+            Expr::NewTuple { ref items, .. } => todo!(),
             Expr::IndexOrCompositionWithList {
                 owner,
-                items: indices,
+                items: ref indices,
                 ..
             } => self.calc_index_or_compose_with_list_expr_ty(expr_idx, owner, indices),
-            Expr::List { items, .. } => {
+            Expr::List { ref items, .. } => {
                 Ok(match expr_ty_expectation.disambiguate_ty_path(self) {
                     TypePathDisambiguation::Ontology => {
                         // ad hoc, assume universe is 1
@@ -325,7 +321,7 @@ impl<'a> ExprTypeEngine<'a> {
                         };
                         for item in items {
                             self.infer_new_expr_ty_discarded(
-                                item,
+                                item.expr_idx(),
                                 ExpectImplicitlyConvertible::new_move(element_ty),
                             );
                         }
@@ -342,7 +338,7 @@ impl<'a> ExprTypeEngine<'a> {
                     }
                 })
             }
-            Expr::BoxColonList { items, .. } => match items.len() {
+            Expr::BoxColonList { ref items, .. } => match items.len() {
                 0 => Ok((
                     ExprDisambiguation::Trivial,
                     Ok(self.term_menu.ex_co_ty0_to_ty0().into()),
@@ -359,12 +355,15 @@ impl<'a> ExprTypeEngine<'a> {
                 Ok(self.term_menu.html_ty_ontology().into()),
             )),
             Expr::Ritchie {
-                parameter_ty_exprs,
+                ref parameter_ty_items,
                 return_ty_expr,
                 ..
             } => {
-                for parameter_ty_expr in parameter_ty_exprs {
-                    self.infer_new_expr_ty_discarded(parameter_ty_expr, self.expect_ty0_subtype());
+                for parameter_ty in parameter_ty_items {
+                    self.infer_new_expr_ty_discarded(
+                        parameter_ty.expr_idx(),
+                        self.expect_ty0_subtype(),
+                    );
                 }
                 return_ty_expr.map(|return_ty_expr| {
                     self.infer_new_expr_ty_discarded(return_ty_expr, self.expect_ty0_subtype())

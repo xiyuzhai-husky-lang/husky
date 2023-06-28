@@ -38,33 +38,38 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 bra,
                 bra_token_idx,
                 mut items,
-                commas,
             } => {
                 if bra != ket {
                     todo!()
                 }
                 self.take_complete_and_push_to_top(|this, finished_expr| {
                     if let Some(expr) = finished_expr {
-                        items.push(expr)
+                        items.push(CommaListItem {
+                            expr_idx: this.alloc_expr(expr),
+                            comma_token_idx: None,
+                        })
                     }
-                    let items = this.alloc_expr_batch(items);
                     match opr {
-                        IncompleteCommaListOpr::NewTuple => match (items.len(), commas.len()) {
-                            (0, 0) => Expr::Unit {
+                        IncompleteCommaListOpr::UnitOrBracketedOrNewTuple => match items.last() {
+                            None => Expr::Unit {
                                 lpar_token_idx: bra_token_idx,
                                 rpar_token_idx: ket_token_idx,
                             },
-                            (1, 0) => Expr::Bracketed {
-                                lpar_token_idx: bra_token_idx,
-                                item: items.start(),
-                                rpar_token_idx: ket_token_idx,
-                            },
-                            _ => Expr::NewTuple {
-                                lpar_token_idx: bra_token_idx,
-                                items,
-                                commas,
-                                rpar_token_idx: ket_token_idx,
-                            },
+                            Some(last_item) => {
+                                if items.len() == 1 && last_item.comma_token_idx.is_none() {
+                                    Expr::Bracketed {
+                                        lpar_token_idx: bra_token_idx,
+                                        item: last_item.expr_idx,
+                                        rpar_token_idx: ket_token_idx,
+                                    }
+                                } else {
+                                    Expr::NewTuple {
+                                        lpar_token_idx: bra_token_idx,
+                                        items,
+                                        rpar_token_idx: ket_token_idx,
+                                    }
+                                }
+                            }
                         }
                         .into(),
                         IncompleteCommaListOpr::Index { owner } => {
@@ -100,7 +105,6 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                                 implicit_arguments,
                                 lpar_token_idx: bra_token_idx,
                                 items,
-                                commas,
                                 rpar_token_idx: ket_token_idx,
                             }
                             .into()
@@ -118,7 +122,6 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             implicit_arguments,
                             lpar_token_idx: bra_token_idx,
                             items,
-                            commas,
                             rpar_token_idx: ket_token_idx,
                         }
                         .into(),
@@ -128,7 +131,6 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                                 implicit_arguments: ImplicitArgumentList::new(
                                     bra_token_idx,
                                     items,
-                                    commas,
                                     ket_token_idx,
                                 ),
                             }
@@ -145,7 +147,6 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                                 ritchie_kind,
                                 lpar_token,
                                 argument_tys: items,
-                                commas,
                                 rpar_token_idx: ket_token_idx,
                                 light_arrow_token,
                             }
@@ -257,8 +258,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                                 },
                                 bra: Bracket::Par,
                                 bra_token_idx: lpar.token_idx(),
-                                items: vec![],
-                                commas: smallvec![],
+                                items: smallvec![],
                             }
                             .into(),
                             Ok(None) => {
@@ -271,8 +271,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                                         },
                                         bra: Bracket::TemplateAngle,
                                         bra_token_idx: langle.token_idx(),
-                                        items: vec![],
-                                        commas: smallvec![],
+                                        items: smallvec![],
                                     }
                                     .into(),
                                     Ok(None) => Expr::Field {
@@ -306,6 +305,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         let item = self.take_complete_expr().unwrap_or(Expr::Err(
             OriginalExprError::ExpectedItemBeforeComma { comma_token_idx }.into(),
         ));
+        let item = self.alloc_expr(item);
         match self.last_incomplete_expr_mut() {
             Some(expr) => match expr {
                 IncompleteExpr::CommaList {
@@ -313,20 +313,15 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     bra,
                     bra_token_idx,
                     items,
-                    commas,
-                } => {
-                    items.push(item);
-                    commas.push(comma_token_idx)
-                }
-                IncompleteExpr::CallList { items, .. } => {
-                    todo!()
-                    // let argument_expr_idx = self.alloc_expr(item);
-                    // items.push(CallListItem {
-                    //     kind: CallListItemKind::Argument,
-                    //     separator: CallListSeparator::Comma(comma_token_idx),
-                    //     argument_expr_idx,
-                    // })
-                }
+                } => items.push(CommaListItem {
+                    expr_idx: item,
+                    comma_token_idx: Some(comma_token_idx),
+                }),
+                IncompleteExpr::CallList { items, .. } => items.push(CallListItem {
+                    kind: CallListItemKind::Argument,
+                    separator: CallListSeparator::Comma(comma_token_idx),
+                    argument_expr_idx: item,
+                }),
                 _ => unreachable!(),
             },
             None => unreachable!(),
@@ -378,7 +373,6 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 bra,
                 bra_token_idx,
                 items,
-                commas,
             } => {
                 assert!(items.is_empty());
                 self.push_top_expr(
@@ -387,7 +381,6 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         bra,
                         bra_token_idx,
                         items,
-                        commas,
                     }
                     .into(),
                 )
@@ -405,16 +398,14 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         opr: IncompleteCommaListOpr::FunctionApplicationOrCall { function },
                         bra,
                         bra_token_idx,
-                        items: vec![],
-                        commas: smallvec![],
+                        items: smallvec![],
                     }
                     .into(),
                     None => IncompleteExpr::CommaList {
-                        opr: IncompleteCommaListOpr::NewTuple,
+                        opr: IncompleteCommaListOpr::UnitOrBracketedOrNewTuple,
                         bra,
                         bra_token_idx,
-                        items: vec![],
-                        commas: smallvec![],
+                        items: smallvec![],
                     }
                     .into(),
                 },
@@ -427,8 +418,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     },
                     bra,
                     bra_token_idx,
-                    items: vec![],
-                    commas: smallvec![],
+                    items: smallvec![],
                 }
                 .into(),
                 Bracket::TemplateAngle => match finished_expr {
@@ -436,8 +426,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         opr: IncompleteCommaListOpr::TemplateInstantiation { template },
                         bra,
                         bra_token_idx,
-                        items: vec![],
-                        commas: smallvec![],
+                        items: smallvec![],
                     }
                     .into(),
                     None => todo!(),
@@ -485,8 +474,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     },
                     bra: Bracket::Par,
                     bra_token_idx: lpar_token.token_idx(),
-                    items: vec![],
-                    commas: smallvec![],
+                    items: smallvec![],
                 }
                 .into(),
             ),

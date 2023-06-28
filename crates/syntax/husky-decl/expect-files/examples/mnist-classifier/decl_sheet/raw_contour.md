@@ -88,9 +88,7 @@ Ok(
                                                     lbox_token_idx: TokenIdx(
                                                         33,
                                                     ),
-                                                    items: ArenaIdxRange(
-                                                        2..2,
-                                                    ),
+                                                    items: [],
                                                     rbox_token_idx: TokenIdx(
                                                         34,
                                                     ),
@@ -2473,9 +2471,7 @@ Ok(
                                                     lbox_token_idx: TokenIdx(
                                                         892,
                                                     ),
-                                                    items: ArenaIdxRange(
-                                                        0..0,
-                                                    ),
+                                                    items: [],
                                                     rbox_token_idx: TokenIdx(
                                                         893,
                                                     ),
@@ -2705,9 +2701,7 @@ Ok(
                                                     lbox_token_idx: TokenIdx(
                                                         962,
                                                     ),
-                                                    items: ArenaIdxRange(
-                                                        2..2,
-                                                    ),
+                                                    items: [],
                                                     rbox_token_idx: TokenIdx(
                                                         963,
                                                     ),

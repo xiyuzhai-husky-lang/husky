@@ -30,10 +30,7 @@ pub(super) enum IncompleteExpr {
         bra: Bracket,
         // todo: move this into opr
         bra_token_idx: TokenIdx,
-        // todo: use SmallVec
-        items: Vec<Expr>,
-        // todo: use SmallVec
-        commas: Commas,
+        items: SmallVec<[CommaListItem; 4]>,
     },
     /// call list includes more separators like `;`
     CallList {
@@ -54,10 +51,7 @@ pub(super) enum IncompleteExpr {
         ritchie_kind_token_idx: TokenIdx,
         ritchie_kind: RitchieKind,
         lpar_token: LeftParenthesisToken,
-        // todo: use SmallVec
-        argument_tys: ExprIdxRange,
-        // todo: use SmallVec
-        commas: Commas,
+        argument_tys: SmallVec<[CommaListItem; 4]>,
         rpar_token_idx: TokenIdx,
         light_arrow_token: LightArrowToken,
     },

@@ -131,6 +131,16 @@ Ok(
                                             ),
                                         },
                                         Expr::PrincipalEntityPath {
+                                            entity_path_expr: 1,
+                                            path: Some(
+                                                EntityPath::ModuleItem(
+                                                    ModuleItemPath::Fugitive(
+                                                        FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        Expr::PrincipalEntityPath {
                                             entity_path_expr: 2,
                                             path: Some(
                                                 EntityPath::ModuleItem(
@@ -160,23 +170,32 @@ Ok(
                                                 ),
                                             ),
                                         },
-                                        Expr::PrincipalEntityPath {
-                                            entity_path_expr: 1,
-                                            path: Some(
-                                                EntityPath::ModuleItem(
-                                                    ModuleItemPath::Fugitive(
-                                                        FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
-                                                    ),
-                                                ),
-                                            ),
-                                        },
                                         Expr::List {
                                             lbox_token_idx: TokenIdx(
                                                 13,
                                             ),
-                                            items: ArenaIdxRange(
-                                                1..4,
-                                            ),
+                                            items: [
+                                                CommaListItem {
+                                                    expr_idx: 2,
+                                                    comma_token_idx: Some(
+                                                        TokenIdx(
+                                                            15,
+                                                        ),
+                                                    ),
+                                                },
+                                                CommaListItem {
+                                                    expr_idx: 3,
+                                                    comma_token_idx: Some(
+                                                        TokenIdx(
+                                                            17,
+                                                        ),
+                                                    ),
+                                                },
+                                                CommaListItem {
+                                                    expr_idx: 4,
+                                                    comma_token_idx: None,
+                                                },
+                                            ],
                                             rbox_token_idx: TokenIdx(
                                                 19,
                                             ),
@@ -187,13 +206,19 @@ Ok(
                                             lpar_token_idx: TokenIdx(
                                                 10,
                                             ),
-                                            items: ArenaIdxRange(
-                                                4..6,
-                                            ),
-                                            commas: [
-                                                TokenIdx(
-                                                    12,
-                                                ),
+                                            items: [
+                                                CommaListItem {
+                                                    expr_idx: 1,
+                                                    comma_token_idx: Some(
+                                                        TokenIdx(
+                                                            12,
+                                                        ),
+                                                    ),
+                                                },
+                                                CommaListItem {
+                                                    expr_idx: 5,
+                                                    comma_token_idx: None,
+                                                },
                                             ],
                                             rpar_token_idx: TokenIdx(
                                                 20,
@@ -443,7 +468,7 @@ Ok(
                             },
                         },
                         body: Some(
-                            222,
+                            238,
                         ),
                         expr_region: ExprRegion {
                             data: ExprRegionData {
@@ -482,14 +507,6 @@ Ok(
                                                 ),
                                             ),
                                         },
-                                        Expr::Literal(
-                                            TokenIdx(
-                                                38,
-                                            ),
-                                            Literal::Integer(
-                                                Unspecified,
-                                            ),
-                                        ),
                                         Expr::Field {
                                             owner: 1,
                                             dot_token_idx: TokenIdx(
@@ -512,15 +529,69 @@ Ok(
                                                 ),
                                             ),
                                         },
+                                        Expr::Literal(
+                                            TokenIdx(
+                                                38,
+                                            ),
+                                            Literal::Integer(
+                                                Unspecified,
+                                            ),
+                                        ),
                                         Expr::Err(
                                             ExprError::Original(
-                                                UnterminatedFunctionCallKeyedArgumentList {
-                                                    bra_token_idx: TokenIdx(
-                                                        29,
+                                                ExpectedItemBeforeComma {
+                                                    comma_token_idx: TokenIdx(
+                                                        39,
                                                     ),
                                                 },
                                             ),
                                         ),
+                                        Expr::FunctionCall {
+                                            function: 0,
+                                            implicit_arguments: None,
+                                            lpar_token_idx: TokenIdx(
+                                                29,
+                                            ),
+                                            items: [
+                                                CallListItem {
+                                                    kind: Argument,
+                                                    argument_expr_idx: 2,
+                                                    separator: Comma(
+                                                        TokenIdx(
+                                                            33,
+                                                        ),
+                                                    ),
+                                                },
+                                                CallListItem {
+                                                    kind: Argument,
+                                                    argument_expr_idx: 3,
+                                                    separator: Comma(
+                                                        TokenIdx(
+                                                            35,
+                                                        ),
+                                                    ),
+                                                },
+                                                CallListItem {
+                                                    kind: Argument,
+                                                    argument_expr_idx: 5,
+                                                    separator: Comma(
+                                                        TokenIdx(
+                                                            39,
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                            rpar_token_idx: TokenIdx(
+                                                40,
+                                            ),
+                                        },
+                                        Expr::Suffix {
+                                            opd: 6,
+                                            opr: UnveilOrComposeWithOption,
+                                            opr_token_idx: TokenIdx(
+                                                41,
+                                            ),
+                                        },
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 3,
                                             path: Some(
@@ -545,26 +616,30 @@ Ok(
                                             lbox_token_idx: TokenIdx(
                                                 49,
                                             ),
-                                            items: ArenaIdxRange(
-                                                7..7,
-                                            ),
+                                            items: [],
                                             rbox_token_idx: TokenIdx(
                                                 50,
                                             ),
                                         },
                                         Expr::FunctionApplicationOrCall {
-                                            function: 6,
+                                            function: 8,
                                             implicit_arguments: None,
                                             lpar_token_idx: TokenIdx(
                                                 46,
                                             ),
-                                            items: ArenaIdxRange(
-                                                7..9,
-                                            ),
-                                            commas: [
-                                                TokenIdx(
-                                                    48,
-                                                ),
+                                            items: [
+                                                CommaListItem {
+                                                    expr_idx: 9,
+                                                    comma_token_idx: Some(
+                                                        TokenIdx(
+                                                            48,
+                                                        ),
+                                                    ),
+                                                },
+                                                CommaListItem {
+                                                    expr_idx: 10,
+                                                    comma_token_idx: None,
+                                                },
                                             ],
                                             rpar_token_idx: TokenIdx(
                                                 51,
@@ -581,7 +656,7 @@ Ok(
                                             },
                                         },
                                         Expr::Field {
-                                            owner: 10,
+                                            owner: 12,
                                             dot_token_idx: TokenIdx(
                                                 54,
                                             ),
@@ -601,14 +676,14 @@ Ok(
                                             ),
                                         ),
                                         Expr::Binary {
-                                            lopd: 11,
+                                            lopd: 13,
                                             opr: Comparison(
                                                 Less,
                                             ),
                                             opr_token_idx: TokenIdx(
                                                 56,
                                             ),
-                                            ropd: 12,
+                                            ropd: 14,
                                         },
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 5,
@@ -630,16 +705,8 @@ Ok(
                                                 ),
                                             ),
                                         },
-                                        Expr::Literal(
-                                            TokenIdx(
-                                                67,
-                                            ),
-                                            Literal::Integer(
-                                                Unspecified,
-                                            ),
-                                        ),
                                         Expr::Field {
-                                            owner: 15,
+                                            owner: 17,
                                             dot_token_idx: TokenIdx(
                                                 62,
                                             ),
@@ -650,15 +717,60 @@ Ok(
                                                 ),
                                             },
                                         },
+                                        Expr::Literal(
+                                            TokenIdx(
+                                                67,
+                                            ),
+                                            Literal::Integer(
+                                                Unspecified,
+                                            ),
+                                        ),
                                         Expr::Err(
                                             ExprError::Original(
-                                                UnterminatedFunctionCallKeyedArgumentList {
-                                                    bra_token_idx: TokenIdx(
-                                                        60,
+                                                ExpectedItemBeforeComma {
+                                                    comma_token_idx: TokenIdx(
+                                                        68,
                                                     ),
                                                 },
                                             ),
                                         ),
+                                        Expr::FunctionCall {
+                                            function: 16,
+                                            implicit_arguments: None,
+                                            lpar_token_idx: TokenIdx(
+                                                60,
+                                            ),
+                                            items: [
+                                                CallListItem {
+                                                    kind: Argument,
+                                                    argument_expr_idx: 18,
+                                                    separator: Comma(
+                                                        TokenIdx(
+                                                            64,
+                                                        ),
+                                                    ),
+                                                },
+                                                CallListItem {
+                                                    kind: Argument,
+                                                    argument_expr_idx: 20,
+                                                    separator: Comma(
+                                                        TokenIdx(
+                                                            68,
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                            rpar_token_idx: TokenIdx(
+                                                69,
+                                            ),
+                                        },
+                                        Expr::Suffix {
+                                            opd: 21,
+                                            opr: UnveilOrComposeWithOption,
+                                            opr_token_idx: TokenIdx(
+                                                70,
+                                            ),
+                                        },
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 7,
                                             path: Some(
@@ -670,7 +782,7 @@ Ok(
                                             ),
                                         },
                                         Expr::Field {
-                                            owner: 19,
+                                            owner: 23,
                                             dot_token_idx: TokenIdx(
                                                 73,
                                             ),
@@ -690,14 +802,14 @@ Ok(
                                             ),
                                         ),
                                         Expr::Binary {
-                                            lopd: 20,
+                                            lopd: 24,
                                             opr: Comparison(
                                                 Greater,
                                             ),
                                             opr_token_idx: TokenIdx(
                                                 75,
                                             ),
-                                            ropd: 21,
+                                            ropd: 25,
                                         },
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 8,
@@ -710,7 +822,7 @@ Ok(
                                             ),
                                         },
                                         Expr::Field {
-                                            owner: 23,
+                                            owner: 27,
                                             dot_token_idx: TokenIdx(
                                                 80,
                                             ),
@@ -730,14 +842,14 @@ Ok(
                                             ),
                                         ),
                                         Expr::Binary {
-                                            lopd: 24,
+                                            lopd: 28,
                                             opr: Comparison(
                                                 Eq,
                                             ),
                                             opr_token_idx: TokenIdx(
                                                 82,
                                             ),
-                                            ropd: 25,
+                                            ropd: 29,
                                         },
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 10,
@@ -761,7 +873,7 @@ Ok(
                                             ),
                                         },
                                         Expr::Field {
-                                            owner: 28,
+                                            owner: 32,
                                             dot_token_idx: TokenIdx(
                                                 91,
                                             ),
@@ -781,14 +893,14 @@ Ok(
                                             ),
                                         ),
                                         Expr::Binary {
-                                            lopd: 29,
+                                            lopd: 33,
                                             opr: Comparison(
                                                 Eq,
                                             ),
                                             opr_token_idx: TokenIdx(
                                                 93,
                                             ),
-                                            ropd: 30,
+                                            ropd: 34,
                                         },
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 12,
@@ -809,14 +921,14 @@ Ok(
                                             ),
                                         ),
                                         Expr::Binary {
-                                            lopd: 32,
+                                            lopd: 36,
                                             opr: Comparison(
                                                 Eq,
                                             ),
                                             opr_token_idx: TokenIdx(
                                                 97,
                                             ),
-                                            ropd: 33,
+                                            ropd: 37,
                                         },
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 13,
@@ -829,7 +941,7 @@ Ok(
                                             ),
                                         },
                                         Expr::Field {
-                                            owner: 35,
+                                            owner: 39,
                                             dot_token_idx: TokenIdx(
                                                 103,
                                             ),
@@ -849,13 +961,16 @@ Ok(
                                             ),
                                         ),
                                         Expr::IndexOrCompositionWithList {
-                                            owner: 36,
+                                            owner: 40,
                                             lbox_token_idx: TokenIdx(
                                                 105,
                                             ),
-                                            items: ArenaIdxRange(
-                                                37..38,
-                                            ),
+                                            items: [
+                                                CommaListItem {
+                                                    expr_idx: 41,
+                                                    comma_token_idx: None,
+                                                },
+                                            ],
                                             rbox_token_idx: TokenIdx(
                                                 107,
                                             ),
@@ -871,7 +986,7 @@ Ok(
                                             ),
                                         },
                                         Expr::Field {
-                                            owner: 39,
+                                            owner: 43,
                                             dot_token_idx: TokenIdx(
                                                 112,
                                             ),
@@ -891,13 +1006,16 @@ Ok(
                                             ),
                                         ),
                                         Expr::IndexOrCompositionWithList {
-                                            owner: 40,
+                                            owner: 44,
                                             lbox_token_idx: TokenIdx(
                                                 114,
                                             ),
-                                            items: ArenaIdxRange(
-                                                41..42,
-                                            ),
+                                            items: [
+                                                CommaListItem {
+                                                    expr_idx: 45,
+                                                    comma_token_idx: None,
+                                                },
+                                            ],
                                             rbox_token_idx: TokenIdx(
                                                 116,
                                             ),
@@ -913,7 +1031,7 @@ Ok(
                                             ),
                                         },
                                         Expr::Field {
-                                            owner: 43,
+                                            owner: 47,
                                             dot_token_idx: TokenIdx(
                                                 121,
                                             ),
@@ -933,13 +1051,16 @@ Ok(
                                             ),
                                         ),
                                         Expr::IndexOrCompositionWithList {
-                                            owner: 44,
+                                            owner: 48,
                                             lbox_token_idx: TokenIdx(
                                                 123,
                                             ),
-                                            items: ArenaIdxRange(
-                                                45..46,
-                                            ),
+                                            items: [
+                                                CommaListItem {
+                                                    expr_idx: 49,
+                                                    comma_token_idx: None,
+                                                },
+                                            ],
                                             rbox_token_idx: TokenIdx(
                                                 125,
                                             ),
@@ -955,7 +1076,7 @@ Ok(
                                             },
                                         },
                                         Expr::Be {
-                                            src: 47,
+                                            src: 51,
                                             be_token_idx: TokenIdx(
                                                 128,
                                             ),
@@ -979,7 +1100,7 @@ Ok(
                                             },
                                         },
                                         Expr::Field {
-                                            owner: 49,
+                                            owner: 53,
                                             dot_token_idx: TokenIdx(
                                                 133,
                                             ),
@@ -999,14 +1120,14 @@ Ok(
                                             ),
                                         ),
                                         Expr::Binary {
-                                            lopd: 50,
+                                            lopd: 54,
                                             opr: Comparison(
                                                 Less,
                                             ),
                                             opr_token_idx: TokenIdx(
                                                 135,
                                             ),
-                                            ropd: 51,
+                                            ropd: 55,
                                         },
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 16,
@@ -1029,7 +1150,7 @@ Ok(
                                             },
                                         },
                                         Expr::Field {
-                                            owner: 54,
+                                            owner: 58,
                                             dot_token_idx: TokenIdx(
                                                 140,
                                             ),
@@ -1040,16 +1161,8 @@ Ok(
                                                 ),
                                             },
                                         },
-                                        Expr::Literal(
-                                            TokenIdx(
-                                                149,
-                                            ),
-                                            Literal::Integer(
-                                                Unspecified,
-                                            ),
-                                        ),
                                         Expr::MethodApplicationOrCall {
-                                            self_argument: 55,
+                                            self_argument: 59,
                                             dot_token_idx: TokenIdx(
                                                 142,
                                             ),
@@ -1063,23 +1176,65 @@ Ok(
                                             lpar_token_idx: TokenIdx(
                                                 144,
                                             ),
-                                            items: ArenaIdxRange(
-                                                56..56,
-                                            ),
-                                            commas: [],
+                                            items: [],
                                             rpar_token_idx: TokenIdx(
                                                 145,
                                             ),
                                         },
+                                        Expr::Literal(
+                                            TokenIdx(
+                                                149,
+                                            ),
+                                            Literal::Integer(
+                                                Unspecified,
+                                            ),
+                                        ),
                                         Expr::Err(
                                             ExprError::Original(
-                                                UnterminatedFunctionCallKeyedArgumentList {
-                                                    bra_token_idx: TokenIdx(
-                                                        138,
+                                                ExpectedItemBeforeComma {
+                                                    comma_token_idx: TokenIdx(
+                                                        150,
                                                     ),
                                                 },
                                             ),
                                         ),
+                                        Expr::FunctionCall {
+                                            function: 57,
+                                            implicit_arguments: None,
+                                            lpar_token_idx: TokenIdx(
+                                                138,
+                                            ),
+                                            items: [
+                                                CallListItem {
+                                                    kind: Argument,
+                                                    argument_expr_idx: 60,
+                                                    separator: Comma(
+                                                        TokenIdx(
+                                                            146,
+                                                        ),
+                                                    ),
+                                                },
+                                                CallListItem {
+                                                    kind: Argument,
+                                                    argument_expr_idx: 62,
+                                                    separator: Comma(
+                                                        TokenIdx(
+                                                            150,
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                            rpar_token_idx: TokenIdx(
+                                                151,
+                                            ),
+                                        },
+                                        Expr::Suffix {
+                                            opd: 63,
+                                            opr: UnveilOrComposeWithOption,
+                                            opr_token_idx: TokenIdx(
+                                                152,
+                                            ),
+                                        },
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 17,
                                             path: Some(
@@ -1099,7 +1254,7 @@ Ok(
                                             ),
                                         ),
                                         Expr::Field {
-                                            owner: 59,
+                                            owner: 65,
                                             dot_token_idx: TokenIdx(
                                                 157,
                                             ),
@@ -1121,17 +1276,17 @@ Ok(
                                             ),
                                         },
                                         Expr::Binary {
-                                            lopd: 60,
+                                            lopd: 66,
                                             opr: Closed(
                                                 Mul,
                                             ),
                                             opr_token_idx: TokenIdx(
                                                 155,
                                             ),
-                                            ropd: 61,
+                                            ropd: 67,
                                         },
                                         Expr::Field {
-                                            owner: 62,
+                                            owner: 68,
                                             dot_token_idx: TokenIdx(
                                                 161,
                                             ),
@@ -1143,14 +1298,14 @@ Ok(
                                             },
                                         },
                                         Expr::Binary {
-                                            lopd: 63,
+                                            lopd: 69,
                                             opr: Closed(
                                                 Sub,
                                             ),
                                             opr_token_idx: TokenIdx(
                                                 159,
                                             ),
-                                            ropd: 64,
+                                            ropd: 70,
                                         },
                                         Expr::Literal(
                                             TokenIdx(
@@ -1161,14 +1316,14 @@ Ok(
                                             ),
                                         ),
                                         Expr::Binary {
-                                            lopd: 65,
+                                            lopd: 71,
                                             opr: Comparison(
                                                 Less,
                                             ),
                                             opr_token_idx: TokenIdx(
                                                 163,
                                             ),
-                                            ropd: 66,
+                                            ropd: 72,
                                         },
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 20,
@@ -1192,7 +1347,7 @@ Ok(
                                             },
                                         },
                                         Expr::Field {
-                                            owner: 69,
+                                            owner: 75,
                                             dot_token_idx: TokenIdx(
                                                 173,
                                             ),
@@ -1214,7 +1369,7 @@ Ok(
                                             },
                                         },
                                         Expr::Field {
-                                            owner: 71,
+                                            owner: 77,
                                             dot_token_idx: TokenIdx(
                                                 179,
                                             ),
@@ -1226,7 +1381,7 @@ Ok(
                                             },
                                         },
                                         Expr::Field {
-                                            owner: 70,
+                                            owner: 76,
                                             dot_token_idx: TokenIdx(
                                                 175,
                                             ),
@@ -1238,7 +1393,7 @@ Ok(
                                             },
                                         },
                                         Expr::Field {
-                                            owner: 72,
+                                            owner: 78,
                                             dot_token_idx: TokenIdx(
                                                 181,
                                             ),
@@ -1250,14 +1405,14 @@ Ok(
                                             },
                                         },
                                         Expr::Binary {
-                                            lopd: 73,
+                                            lopd: 79,
                                             opr: Closed(
                                                 Sub,
                                             ),
                                             opr_token_idx: TokenIdx(
                                                 177,
                                             ),
-                                            ropd: 74,
+                                            ropd: 80,
                                         },
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 21,
@@ -1270,7 +1425,7 @@ Ok(
                                             ),
                                         },
                                         Expr::Field {
-                                            owner: 76,
+                                            owner: 82,
                                             dot_token_idx: TokenIdx(
                                                 185,
                                             ),
@@ -1290,14 +1445,14 @@ Ok(
                                             ),
                                         ),
                                         Expr::Binary {
-                                            lopd: 77,
+                                            lopd: 83,
                                             opr: Comparison(
                                                 Less,
                                             ),
                                             opr_token_idx: TokenIdx(
                                                 187,
                                             ),
-                                            ropd: 78,
+                                            ropd: 84,
                                         },
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 22,
@@ -1327,46 +1482,8 @@ Ok(
                                                 Unspecified,
                                             ),
                                         ),
-                                        Expr::PrincipalEntityPath {
-                                            entity_path_expr: 24,
-                                            path: Some(
-                                                EntityPath::ModuleItem(
-                                                    ModuleItemPath::Fugitive(
-                                                        FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                        Expr::PrincipalEntityPath {
-                                            entity_path_expr: 25,
-                                            path: Some(
-                                                EntityPath::ModuleItem(
-                                                    ModuleItemPath::Fugitive(
-                                                        FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                        Expr::PrincipalEntityPath {
-                                            entity_path_expr: 26,
-                                            path: Some(
-                                                EntityPath::ModuleItem(
-                                                    ModuleItemPath::Fugitive(
-                                                        FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                        Expr::Literal(
-                                            TokenIdx(
-                                                212,
-                                            ),
-                                            Literal::Integer(
-                                                Unspecified,
-                                            ),
-                                        ),
                                         Expr::MethodApplicationOrCall {
-                                            self_argument: 81,
+                                            self_argument: 87,
                                             dot_token_idx: TokenIdx(
                                                 192,
                                             ),
@@ -1380,16 +1497,28 @@ Ok(
                                             lpar_token_idx: TokenIdx(
                                                 194,
                                             ),
-                                            items: ArenaIdxRange(
-                                                82..83,
-                                            ),
-                                            commas: [],
+                                            items: [
+                                                CommaListItem {
+                                                    expr_idx: 88,
+                                                    comma_token_idx: None,
+                                                },
+                                            ],
                                             rpar_token_idx: TokenIdx(
                                                 196,
                                             ),
                                         },
+                                        Expr::PrincipalEntityPath {
+                                            entity_path_expr: 24,
+                                            path: Some(
+                                                EntityPath::ModuleItem(
+                                                    ModuleItemPath::Fugitive(
+                                                        FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
                                         Expr::Field {
-                                            owner: 83,
+                                            owner: 90,
                                             dot_token_idx: TokenIdx(
                                                 199,
                                             ),
@@ -1400,8 +1529,18 @@ Ok(
                                                 ),
                                             },
                                         },
+                                        Expr::PrincipalEntityPath {
+                                            entity_path_expr: 25,
+                                            path: Some(
+                                                EntityPath::ModuleItem(
+                                                    ModuleItemPath::Fugitive(
+                                                        FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
                                         Expr::Field {
-                                            owner: 84,
+                                            owner: 92,
                                             dot_token_idx: TokenIdx(
                                                 203,
                                             ),
@@ -1412,8 +1551,18 @@ Ok(
                                                 ),
                                             },
                                         },
+                                        Expr::PrincipalEntityPath {
+                                            entity_path_expr: 26,
+                                            path: Some(
+                                                EntityPath::ModuleItem(
+                                                    ModuleItemPath::Fugitive(
+                                                        FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
                                         Expr::Field {
-                                            owner: 85,
+                                            owner: 94,
                                             dot_token_idx: TokenIdx(
                                                 207,
                                             ),
@@ -1424,15 +1573,87 @@ Ok(
                                                 ),
                                             },
                                         },
+                                        Expr::Literal(
+                                            TokenIdx(
+                                                212,
+                                            ),
+                                            Literal::Integer(
+                                                Unspecified,
+                                            ),
+                                        ),
                                         Expr::Err(
                                             ExprError::Original(
-                                                UnterminatedFunctionCallKeyedArgumentList {
-                                                    bra_token_idx: TokenIdx(
-                                                        190,
+                                                ExpectedItemBeforeComma {
+                                                    comma_token_idx: TokenIdx(
+                                                        213,
                                                     ),
                                                 },
                                             ),
                                         ),
+                                        Expr::FunctionCall {
+                                            function: 86,
+                                            implicit_arguments: None,
+                                            lpar_token_idx: TokenIdx(
+                                                190,
+                                            ),
+                                            items: [
+                                                CallListItem {
+                                                    kind: Argument,
+                                                    argument_expr_idx: 89,
+                                                    separator: Comma(
+                                                        TokenIdx(
+                                                            197,
+                                                        ),
+                                                    ),
+                                                },
+                                                CallListItem {
+                                                    kind: Argument,
+                                                    argument_expr_idx: 91,
+                                                    separator: Comma(
+                                                        TokenIdx(
+                                                            201,
+                                                        ),
+                                                    ),
+                                                },
+                                                CallListItem {
+                                                    kind: Argument,
+                                                    argument_expr_idx: 93,
+                                                    separator: Comma(
+                                                        TokenIdx(
+                                                            205,
+                                                        ),
+                                                    ),
+                                                },
+                                                CallListItem {
+                                                    kind: Argument,
+                                                    argument_expr_idx: 95,
+                                                    separator: Comma(
+                                                        TokenIdx(
+                                                            209,
+                                                        ),
+                                                    ),
+                                                },
+                                                CallListItem {
+                                                    kind: Argument,
+                                                    argument_expr_idx: 97,
+                                                    separator: Comma(
+                                                        TokenIdx(
+                                                            213,
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                            rpar_token_idx: TokenIdx(
+                                                214,
+                                            ),
+                                        },
+                                        Expr::Suffix {
+                                            opd: 98,
+                                            opr: UnveilOrComposeWithOption,
+                                            opr_token_idx: TokenIdx(
+                                                215,
+                                            ),
+                                        },
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 27,
                                             path: Some(
@@ -1454,7 +1675,7 @@ Ok(
                                             ),
                                         },
                                         Expr::Field {
-                                            owner: 93,
+                                            owner: 101,
                                             dot_token_idx: TokenIdx(
                                                 219,
                                             ),
@@ -1474,16 +1695,31 @@ Ok(
                                             ),
                                         ),
                                         Expr::IndexOrCompositionWithList {
-                                            owner: 94,
+                                            owner: 102,
                                             lbox_token_idx: TokenIdx(
                                                 221,
                                             ),
-                                            items: ArenaIdxRange(
-                                                95..96,
-                                            ),
+                                            items: [
+                                                CommaListItem {
+                                                    expr_idx: 103,
+                                                    comma_token_idx: None,
+                                                },
+                                            ],
                                             rbox_token_idx: TokenIdx(
                                                 223,
                                             ),
+                                        },
+                                        Expr::Field {
+                                            owner: 104,
+                                            dot_token_idx: TokenIdx(
+                                                224,
+                                            ),
+                                            ident_token: IdentToken {
+                                                ident: `rel_norm`,
+                                                token_idx: TokenIdx(
+                                                    225,
+                                                ),
+                                            },
                                         },
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 29,
@@ -1496,7 +1732,7 @@ Ok(
                                             ),
                                         },
                                         Expr::Field {
-                                            owner: 97,
+                                            owner: 106,
                                             dot_token_idx: TokenIdx(
                                                 228,
                                             ),
@@ -1516,19 +1752,22 @@ Ok(
                                             ),
                                         ),
                                         Expr::IndexOrCompositionWithList {
-                                            owner: 98,
+                                            owner: 107,
                                             lbox_token_idx: TokenIdx(
                                                 230,
                                             ),
-                                            items: ArenaIdxRange(
-                                                99..100,
-                                            ),
+                                            items: [
+                                                CommaListItem {
+                                                    expr_idx: 108,
+                                                    comma_token_idx: None,
+                                                },
+                                            ],
                                             rbox_token_idx: TokenIdx(
                                                 232,
                                             ),
                                         },
                                         Expr::Field {
-                                            owner: 100,
+                                            owner: 109,
                                             dot_token_idx: TokenIdx(
                                                 233,
                                             ),
@@ -1539,28 +1778,8 @@ Ok(
                                                 ),
                                             },
                                         },
-                                        Expr::Literal(
-                                            TokenIdx(
-                                                242,
-                                            ),
-                                            Literal::Integer(
-                                                Unspecified,
-                                            ),
-                                        ),
-                                        Expr::Field {
-                                            owner: 96,
-                                            dot_token_idx: TokenIdx(
-                                                224,
-                                            ),
-                                            ident_token: IdentToken {
-                                                ident: `rel_norm`,
-                                                token_idx: TokenIdx(
-                                                    225,
-                                                ),
-                                            },
-                                        },
                                         Expr::MethodApplicationOrCall {
-                                            self_argument: 101,
+                                            self_argument: 110,
                                             dot_token_idx: TokenIdx(
                                                 235,
                                             ),
@@ -1574,23 +1793,74 @@ Ok(
                                             lpar_token_idx: TokenIdx(
                                                 237,
                                             ),
-                                            items: ArenaIdxRange(
-                                                102..102,
-                                            ),
-                                            commas: [],
+                                            items: [],
                                             rpar_token_idx: TokenIdx(
                                                 238,
                                             ),
                                         },
+                                        Expr::Literal(
+                                            TokenIdx(
+                                                242,
+                                            ),
+                                            Literal::Integer(
+                                                Unspecified,
+                                            ),
+                                        ),
                                         Expr::Err(
                                             ExprError::Original(
-                                                UnterminatedFunctionCallKeyedArgumentList {
-                                                    bra_token_idx: TokenIdx(
-                                                        217,
+                                                ExpectedItemBeforeComma {
+                                                    comma_token_idx: TokenIdx(
+                                                        243,
                                                     ),
                                                 },
                                             ),
                                         ),
+                                        Expr::FunctionCall {
+                                            function: 100,
+                                            implicit_arguments: None,
+                                            lpar_token_idx: TokenIdx(
+                                                217,
+                                            ),
+                                            items: [
+                                                CallListItem {
+                                                    kind: Argument,
+                                                    argument_expr_idx: 105,
+                                                    separator: Comma(
+                                                        TokenIdx(
+                                                            226,
+                                                        ),
+                                                    ),
+                                                },
+                                                CallListItem {
+                                                    kind: Argument,
+                                                    argument_expr_idx: 111,
+                                                    separator: Comma(
+                                                        TokenIdx(
+                                                            239,
+                                                        ),
+                                                    ),
+                                                },
+                                                CallListItem {
+                                                    kind: Argument,
+                                                    argument_expr_idx: 113,
+                                                    separator: Comma(
+                                                        TokenIdx(
+                                                            243,
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                            rpar_token_idx: TokenIdx(
+                                                244,
+                                            ),
+                                        },
+                                        Expr::Suffix {
+                                            opd: 114,
+                                            opr: UnveilOrComposeWithOption,
+                                            opr_token_idx: TokenIdx(
+                                                245,
+                                            ),
+                                        },
                                         Expr::CurrentSymbol {
                                             ident: `upmost`,
                                             token_idx: TokenIdx(
@@ -1602,7 +1872,7 @@ Ok(
                                             },
                                         },
                                         Expr::Be {
-                                            src: 106,
+                                            src: 116,
                                             be_token_idx: TokenIdx(
                                                 248,
                                             ),
@@ -1626,7 +1896,7 @@ Ok(
                                             },
                                         },
                                         Expr::Field {
-                                            owner: 108,
+                                            owner: 118,
                                             dot_token_idx: TokenIdx(
                                                 253,
                                             ),
@@ -1648,7 +1918,7 @@ Ok(
                                             },
                                         },
                                         Expr::Field {
-                                            owner: 110,
+                                            owner: 120,
                                             dot_token_idx: TokenIdx(
                                                 259,
                                             ),
@@ -1660,7 +1930,7 @@ Ok(
                                             },
                                         },
                                         Expr::Field {
-                                            owner: 109,
+                                            owner: 119,
                                             dot_token_idx: TokenIdx(
                                                 255,
                                             ),
@@ -1672,7 +1942,7 @@ Ok(
                                             },
                                         },
                                         Expr::Field {
-                                            owner: 111,
+                                            owner: 121,
                                             dot_token_idx: TokenIdx(
                                                 261,
                                             ),
@@ -1684,14 +1954,14 @@ Ok(
                                             },
                                         },
                                         Expr::Binary {
-                                            lopd: 112,
+                                            lopd: 122,
                                             opr: Closed(
                                                 Sub,
                                             ),
                                             opr_token_idx: TokenIdx(
                                                 257,
                                             ),
-                                            ropd: 113,
+                                            ropd: 123,
                                         },
                                         Expr::Literal(
                                             TokenIdx(
@@ -1702,14 +1972,14 @@ Ok(
                                             ),
                                         ),
                                         Expr::Binary {
-                                            lopd: 114,
+                                            lopd: 124,
                                             opr: Comparison(
                                                 Eq,
                                             ),
                                             opr_token_idx: TokenIdx(
                                                 263,
                                             ),
-                                            ropd: 115,
+                                            ropd: 125,
                                         },
                                         Expr::CurrentSymbol {
                                             ident: `upmost`,
@@ -1722,7 +1992,7 @@ Ok(
                                             },
                                         },
                                         Expr::Field {
-                                            owner: 117,
+                                            owner: 127,
                                             dot_token_idx: TokenIdx(
                                                 269,
                                             ),
@@ -1744,7 +2014,7 @@ Ok(
                                             },
                                         },
                                         Expr::Field {
-                                            owner: 119,
+                                            owner: 129,
                                             dot_token_idx: TokenIdx(
                                                 273,
                                             ),
@@ -1756,7 +2026,7 @@ Ok(
                                             },
                                         },
                                         Expr::Field {
-                                            owner: 120,
+                                            owner: 130,
                                             dot_token_idx: TokenIdx(
                                                 275,
                                             ),
@@ -1776,23 +2046,26 @@ Ok(
                                             ),
                                         ),
                                         Expr::Binary {
-                                            lopd: 121,
+                                            lopd: 131,
                                             opr: Closed(
                                                 Add,
                                             ),
                                             opr_token_idx: TokenIdx(
                                                 277,
                                             ),
-                                            ropd: 122,
+                                            ropd: 132,
                                         },
                                         Expr::IndexOrCompositionWithList {
-                                            owner: 118,
+                                            owner: 128,
                                             lbox_token_idx: TokenIdx(
                                                 271,
                                             ),
-                                            items: ArenaIdxRange(
-                                                123..124,
-                                            ),
+                                            items: [
+                                                CommaListItem {
+                                                    expr_idx: 133,
+                                                    comma_token_idx: None,
+                                                },
+                                            ],
                                             rbox_token_idx: TokenIdx(
                                                 279,
                                             ),
@@ -1808,7 +2081,7 @@ Ok(
                                             },
                                         },
                                         Expr::MethodApplicationOrCall {
-                                            self_argument: 125,
+                                            self_argument: 135,
                                             dot_token_idx: TokenIdx(
                                                 284,
                                             ),
@@ -1822,10 +2095,7 @@ Ok(
                                             lpar_token_idx: TokenIdx(
                                                 286,
                                             ),
-                                            items: ArenaIdxRange(
-                                                126..126,
-                                            ),
-                                            commas: [],
+                                            items: [],
                                             rpar_token_idx: TokenIdx(
                                                 287,
                                             ),
@@ -1841,7 +2111,7 @@ Ok(
                                             },
                                         },
                                         Expr::Field {
-                                            owner: 127,
+                                            owner: 137,
                                             dot_token_idx: TokenIdx(
                                                 290,
                                             ),
@@ -1861,14 +2131,14 @@ Ok(
                                             ),
                                         ),
                                         Expr::Binary {
-                                            lopd: 128,
+                                            lopd: 138,
                                             opr: Comparison(
                                                 Greater,
                                             ),
                                             opr_token_idx: TokenIdx(
                                                 292,
                                             ),
-                                            ropd: 129,
+                                            ropd: 139,
                                         },
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 30,
@@ -1890,6 +2160,18 @@ Ok(
                                                 pattern_symbol_idx: 2,
                                             },
                                         },
+                                        Expr::Field {
+                                            owner: 142,
+                                            dot_token_idx: TokenIdx(
+                                                297,
+                                            ),
+                                            ident_token: IdentToken {
+                                                ident: `norm`,
+                                                token_idx: TokenIdx(
+                                                    298,
+                                                ),
+                                            },
+                                        },
                                         Expr::CurrentSymbol {
                                             ident: `upmost`,
                                             token_idx: TokenIdx(
@@ -1898,6 +2180,18 @@ Ok(
                                             current_symbol_idx: 2,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol_idx: 2,
+                                            },
+                                        },
+                                        Expr::Field {
+                                            owner: 144,
+                                            dot_token_idx: TokenIdx(
+                                                301,
+                                            ),
+                                            ident_token: IdentToken {
+                                                ident: `rel_norm`,
+                                                token_idx: TokenIdx(
+                                                    302,
+                                                ),
                                             },
                                         },
                                         Expr::CurrentSymbol {
@@ -1911,7 +2205,7 @@ Ok(
                                             },
                                         },
                                         Expr::Field {
-                                            owner: 134,
+                                            owner: 146,
                                             dot_token_idx: TokenIdx(
                                                 305,
                                             ),
@@ -1922,40 +2216,8 @@ Ok(
                                                 ),
                                             },
                                         },
-                                        Expr::Literal(
-                                            TokenIdx(
-                                                314,
-                                            ),
-                                            Literal::Integer(
-                                                Unspecified,
-                                            ),
-                                        ),
-                                        Expr::Field {
-                                            owner: 132,
-                                            dot_token_idx: TokenIdx(
-                                                297,
-                                            ),
-                                            ident_token: IdentToken {
-                                                ident: `norm`,
-                                                token_idx: TokenIdx(
-                                                    298,
-                                                ),
-                                            },
-                                        },
-                                        Expr::Field {
-                                            owner: 133,
-                                            dot_token_idx: TokenIdx(
-                                                301,
-                                            ),
-                                            ident_token: IdentToken {
-                                                ident: `rel_norm`,
-                                                token_idx: TokenIdx(
-                                                    302,
-                                                ),
-                                            },
-                                        },
                                         Expr::MethodApplicationOrCall {
-                                            self_argument: 135,
+                                            self_argument: 147,
                                             dot_token_idx: TokenIdx(
                                                 307,
                                             ),
@@ -1969,23 +2231,83 @@ Ok(
                                             lpar_token_idx: TokenIdx(
                                                 309,
                                             ),
-                                            items: ArenaIdxRange(
-                                                136..136,
-                                            ),
-                                            commas: [],
+                                            items: [],
                                             rpar_token_idx: TokenIdx(
                                                 310,
                                             ),
                                         },
+                                        Expr::Literal(
+                                            TokenIdx(
+                                                314,
+                                            ),
+                                            Literal::Integer(
+                                                Unspecified,
+                                            ),
+                                        ),
                                         Expr::Err(
                                             ExprError::Original(
-                                                UnterminatedFunctionCallKeyedArgumentList {
-                                                    bra_token_idx: TokenIdx(
-                                                        295,
+                                                ExpectedItemBeforeComma {
+                                                    comma_token_idx: TokenIdx(
+                                                        315,
                                                     ),
                                                 },
                                             ),
                                         ),
+                                        Expr::FunctionCall {
+                                            function: 141,
+                                            implicit_arguments: None,
+                                            lpar_token_idx: TokenIdx(
+                                                295,
+                                            ),
+                                            items: [
+                                                CallListItem {
+                                                    kind: Argument,
+                                                    argument_expr_idx: 143,
+                                                    separator: Comma(
+                                                        TokenIdx(
+                                                            299,
+                                                        ),
+                                                    ),
+                                                },
+                                                CallListItem {
+                                                    kind: Argument,
+                                                    argument_expr_idx: 145,
+                                                    separator: Comma(
+                                                        TokenIdx(
+                                                            303,
+                                                        ),
+                                                    ),
+                                                },
+                                                CallListItem {
+                                                    kind: Argument,
+                                                    argument_expr_idx: 148,
+                                                    separator: Comma(
+                                                        TokenIdx(
+                                                            311,
+                                                        ),
+                                                    ),
+                                                },
+                                                CallListItem {
+                                                    kind: Argument,
+                                                    argument_expr_idx: 150,
+                                                    separator: Comma(
+                                                        TokenIdx(
+                                                            315,
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                            rpar_token_idx: TokenIdx(
+                                                316,
+                                            ),
+                                        },
+                                        Expr::Suffix {
+                                            opd: 151,
+                                            opr: UnveilOrComposeWithOption,
+                                            opr_token_idx: TokenIdx(
+                                                317,
+                                            ),
+                                        },
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 31,
                                             path: Some(
@@ -2005,6 +2327,26 @@ Ok(
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                 pattern_symbol_idx: 8,
                                             },
+                                        },
+                                        Expr::MethodApplicationOrCall {
+                                            self_argument: 154,
+                                            dot_token_idx: TokenIdx(
+                                                321,
+                                            ),
+                                            ident_token: IdentToken {
+                                                ident: `norm`,
+                                                token_idx: TokenIdx(
+                                                    322,
+                                                ),
+                                            },
+                                            implicit_arguments: None,
+                                            lpar_token_idx: TokenIdx(
+                                                323,
+                                            ),
+                                            items: [],
+                                            rpar_token_idx: TokenIdx(
+                                                324,
+                                            ),
                                         },
                                         Expr::CurrentSymbol {
                                             ident: `long_vertical_dp`,
@@ -2027,7 +2369,7 @@ Ok(
                                             },
                                         },
                                         Expr::Field {
-                                            owner: 143,
+                                            owner: 156,
                                             dot_token_idx: TokenIdx(
                                                 327,
                                             ),
@@ -2039,7 +2381,7 @@ Ok(
                                             },
                                         },
                                         Expr::Field {
-                                            owner: 144,
+                                            owner: 157,
                                             dot_token_idx: TokenIdx(
                                                 331,
                                             ),
@@ -2050,6 +2392,16 @@ Ok(
                                                 ),
                                             },
                                         },
+                                        Expr::Binary {
+                                            lopd: 158,
+                                            opr: Closed(
+                                                Div,
+                                            ),
+                                            opr_token_idx: TokenIdx(
+                                                329,
+                                            ),
+                                            ropd: 159,
+                                        },
                                         Expr::Literal(
                                             TokenIdx(
                                                 336,
@@ -2058,48 +2410,61 @@ Ok(
                                                 Unspecified,
                                             ),
                                         ),
-                                        Expr::MethodApplicationOrCall {
-                                            self_argument: 142,
-                                            dot_token_idx: TokenIdx(
-                                                321,
-                                            ),
-                                            ident_token: IdentToken {
-                                                ident: `norm`,
-                                                token_idx: TokenIdx(
-                                                    322,
-                                                ),
-                                            },
-                                            implicit_arguments: None,
-                                            lpar_token_idx: TokenIdx(
-                                                323,
-                                            ),
-                                            items: ArenaIdxRange(
-                                                143..143,
-                                            ),
-                                            commas: [],
-                                            rpar_token_idx: TokenIdx(
-                                                324,
-                                            ),
-                                        },
-                                        Expr::Binary {
-                                            lopd: 145,
-                                            opr: Closed(
-                                                Div,
-                                            ),
-                                            opr_token_idx: TokenIdx(
-                                                329,
-                                            ),
-                                            ropd: 146,
-                                        },
                                         Expr::Err(
                                             ExprError::Original(
-                                                UnterminatedFunctionCallKeyedArgumentList {
-                                                    bra_token_idx: TokenIdx(
-                                                        319,
+                                                ExpectedItemBeforeComma {
+                                                    comma_token_idx: TokenIdx(
+                                                        337,
                                                     ),
                                                 },
                                             ),
                                         ),
+                                        Expr::FunctionCall {
+                                            function: 153,
+                                            implicit_arguments: None,
+                                            lpar_token_idx: TokenIdx(
+                                                319,
+                                            ),
+                                            items: [
+                                                CallListItem {
+                                                    kind: Argument,
+                                                    argument_expr_idx: 155,
+                                                    separator: Comma(
+                                                        TokenIdx(
+                                                            325,
+                                                        ),
+                                                    ),
+                                                },
+                                                CallListItem {
+                                                    kind: Argument,
+                                                    argument_expr_idx: 160,
+                                                    separator: Comma(
+                                                        TokenIdx(
+                                                            333,
+                                                        ),
+                                                    ),
+                                                },
+                                                CallListItem {
+                                                    kind: Argument,
+                                                    argument_expr_idx: 162,
+                                                    separator: Comma(
+                                                        TokenIdx(
+                                                            337,
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                            rpar_token_idx: TokenIdx(
+                                                338,
+                                            ),
+                                        },
+                                        Expr::Suffix {
+                                            opd: 163,
+                                            opr: UnveilOrComposeWithOption,
+                                            opr_token_idx: TokenIdx(
+                                                339,
+                                            ),
+                                        },
                                         Expr::CurrentSymbol {
                                             ident: `hat`,
                                             token_idx: TokenIdx(
@@ -2111,7 +2476,7 @@ Ok(
                                             },
                                         },
                                         Expr::Be {
-                                            src: 151,
+                                            src: 165,
                                             be_token_idx: TokenIdx(
                                                 342,
                                             ),
@@ -2145,7 +2510,7 @@ Ok(
                                             ),
                                         },
                                         Expr::Field {
-                                            owner: 154,
+                                            owner: 168,
                                             dot_token_idx: TokenIdx(
                                                 348,
                                             ),
@@ -2165,16 +2530,31 @@ Ok(
                                             ),
                                         ),
                                         Expr::IndexOrCompositionWithList {
-                                            owner: 155,
+                                            owner: 169,
                                             lbox_token_idx: TokenIdx(
                                                 350,
                                             ),
-                                            items: ArenaIdxRange(
-                                                156..157,
-                                            ),
+                                            items: [
+                                                CommaListItem {
+                                                    expr_idx: 170,
+                                                    comma_token_idx: None,
+                                                },
+                                            ],
                                             rbox_token_idx: TokenIdx(
                                                 352,
                                             ),
+                                        },
+                                        Expr::Field {
+                                            owner: 171,
+                                            dot_token_idx: TokenIdx(
+                                                353,
+                                            ),
+                                            ident_token: IdentToken {
+                                                ident: `norm`,
+                                                token_idx: TokenIdx(
+                                                    354,
+                                                ),
+                                            },
                                         },
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 34,
@@ -2187,7 +2567,7 @@ Ok(
                                             ),
                                         },
                                         Expr::Field {
-                                            owner: 158,
+                                            owner: 173,
                                             dot_token_idx: TokenIdx(
                                                 357,
                                             ),
@@ -2207,16 +2587,31 @@ Ok(
                                             ),
                                         ),
                                         Expr::IndexOrCompositionWithList {
-                                            owner: 159,
+                                            owner: 174,
                                             lbox_token_idx: TokenIdx(
                                                 359,
                                             ),
-                                            items: ArenaIdxRange(
-                                                160..161,
-                                            ),
+                                            items: [
+                                                CommaListItem {
+                                                    expr_idx: 175,
+                                                    comma_token_idx: None,
+                                                },
+                                            ],
                                             rbox_token_idx: TokenIdx(
                                                 361,
                                             ),
+                                        },
+                                        Expr::Field {
+                                            owner: 176,
+                                            dot_token_idx: TokenIdx(
+                                                362,
+                                            ),
+                                            ident_token: IdentToken {
+                                                ident: `rel_norm`,
+                                                token_idx: TokenIdx(
+                                                    363,
+                                                ),
+                                            },
                                         },
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 35,
@@ -2229,7 +2624,7 @@ Ok(
                                             ),
                                         },
                                         Expr::Field {
-                                            owner: 162,
+                                            owner: 178,
                                             dot_token_idx: TokenIdx(
                                                 366,
                                             ),
@@ -2249,19 +2644,22 @@ Ok(
                                             ),
                                         ),
                                         Expr::IndexOrCompositionWithList {
-                                            owner: 163,
+                                            owner: 179,
                                             lbox_token_idx: TokenIdx(
                                                 368,
                                             ),
-                                            items: ArenaIdxRange(
-                                                164..165,
-                                            ),
+                                            items: [
+                                                CommaListItem {
+                                                    expr_idx: 180,
+                                                    comma_token_idx: None,
+                                                },
+                                            ],
                                             rbox_token_idx: TokenIdx(
                                                 370,
                                             ),
                                         },
                                         Expr::Field {
-                                            owner: 165,
+                                            owner: 181,
                                             dot_token_idx: TokenIdx(
                                                 371,
                                             ),
@@ -2272,40 +2670,8 @@ Ok(
                                                 ),
                                             },
                                         },
-                                        Expr::Literal(
-                                            TokenIdx(
-                                                380,
-                                            ),
-                                            Literal::Integer(
-                                                Unspecified,
-                                            ),
-                                        ),
-                                        Expr::Field {
-                                            owner: 157,
-                                            dot_token_idx: TokenIdx(
-                                                353,
-                                            ),
-                                            ident_token: IdentToken {
-                                                ident: `norm`,
-                                                token_idx: TokenIdx(
-                                                    354,
-                                                ),
-                                            },
-                                        },
-                                        Expr::Field {
-                                            owner: 161,
-                                            dot_token_idx: TokenIdx(
-                                                362,
-                                            ),
-                                            ident_token: IdentToken {
-                                                ident: `rel_norm`,
-                                                token_idx: TokenIdx(
-                                                    363,
-                                                ),
-                                            },
-                                        },
                                         Expr::MethodApplicationOrCall {
-                                            self_argument: 166,
+                                            self_argument: 182,
                                             dot_token_idx: TokenIdx(
                                                 373,
                                             ),
@@ -2319,23 +2685,83 @@ Ok(
                                             lpar_token_idx: TokenIdx(
                                                 375,
                                             ),
-                                            items: ArenaIdxRange(
-                                                167..167,
-                                            ),
-                                            commas: [],
+                                            items: [],
                                             rpar_token_idx: TokenIdx(
                                                 376,
                                             ),
                                         },
+                                        Expr::Literal(
+                                            TokenIdx(
+                                                380,
+                                            ),
+                                            Literal::Integer(
+                                                Unspecified,
+                                            ),
+                                        ),
                                         Expr::Err(
                                             ExprError::Original(
-                                                UnterminatedFunctionCallKeyedArgumentList {
-                                                    bra_token_idx: TokenIdx(
-                                                        346,
+                                                ExpectedItemBeforeComma {
+                                                    comma_token_idx: TokenIdx(
+                                                        381,
                                                     ),
                                                 },
                                             ),
                                         ),
+                                        Expr::FunctionCall {
+                                            function: 167,
+                                            implicit_arguments: None,
+                                            lpar_token_idx: TokenIdx(
+                                                346,
+                                            ),
+                                            items: [
+                                                CallListItem {
+                                                    kind: Argument,
+                                                    argument_expr_idx: 172,
+                                                    separator: Comma(
+                                                        TokenIdx(
+                                                            355,
+                                                        ),
+                                                    ),
+                                                },
+                                                CallListItem {
+                                                    kind: Argument,
+                                                    argument_expr_idx: 177,
+                                                    separator: Comma(
+                                                        TokenIdx(
+                                                            364,
+                                                        ),
+                                                    ),
+                                                },
+                                                CallListItem {
+                                                    kind: Argument,
+                                                    argument_expr_idx: 183,
+                                                    separator: Comma(
+                                                        TokenIdx(
+                                                            377,
+                                                        ),
+                                                    ),
+                                                },
+                                                CallListItem {
+                                                    kind: Argument,
+                                                    argument_expr_idx: 185,
+                                                    separator: Comma(
+                                                        TokenIdx(
+                                                            381,
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                            rpar_token_idx: TokenIdx(
+                                                382,
+                                            ),
+                                        },
+                                        Expr::Suffix {
+                                            opd: 186,
+                                            opr: UnveilOrComposeWithOption,
+                                            opr_token_idx: TokenIdx(
+                                                383,
+                                            ),
+                                        },
                                         Expr::CurrentSymbol {
                                             ident: `downmost_number_of_strokes`,
                                             token_idx: TokenIdx(
@@ -2355,14 +2781,14 @@ Ok(
                                             ),
                                         ),
                                         Expr::Binary {
-                                            lopd: 172,
+                                            lopd: 188,
                                             opr: Comparison(
                                                 Eq,
                                             ),
                                             opr_token_idx: TokenIdx(
                                                 386,
                                             ),
-                                            ropd: 173,
+                                            ropd: 189,
                                         },
                                         Expr::CurrentSymbol {
                                             ident: `downmost`,
@@ -2375,7 +2801,7 @@ Ok(
                                             },
                                         },
                                         Expr::Field {
-                                            owner: 175,
+                                            owner: 191,
                                             dot_token_idx: TokenIdx(
                                                 392,
                                             ),
@@ -2397,7 +2823,7 @@ Ok(
                                             },
                                         },
                                         Expr::Field {
-                                            owner: 177,
+                                            owner: 193,
                                             dot_token_idx: TokenIdx(
                                                 396,
                                             ),
@@ -2409,7 +2835,7 @@ Ok(
                                             },
                                         },
                                         Expr::Field {
-                                            owner: 178,
+                                            owner: 194,
                                             dot_token_idx: TokenIdx(
                                                 398,
                                             ),
@@ -2421,13 +2847,16 @@ Ok(
                                             },
                                         },
                                         Expr::IndexOrCompositionWithList {
-                                            owner: 176,
+                                            owner: 192,
                                             lbox_token_idx: TokenIdx(
                                                 394,
                                             ),
-                                            items: ArenaIdxRange(
-                                                179..180,
-                                            ),
+                                            items: [
+                                                CommaListItem {
+                                                    expr_idx: 195,
+                                                    comma_token_idx: None,
+                                                },
+                                            ],
                                             rbox_token_idx: TokenIdx(
                                                 400,
                                             ),
@@ -2443,7 +2872,7 @@ Ok(
                                             },
                                         },
                                         Expr::MethodApplicationOrCall {
-                                            self_argument: 181,
+                                            self_argument: 197,
                                             dot_token_idx: TokenIdx(
                                                 405,
                                             ),
@@ -2457,10 +2886,7 @@ Ok(
                                             lpar_token_idx: TokenIdx(
                                                 407,
                                             ),
-                                            items: ArenaIdxRange(
-                                                182..182,
-                                            ),
-                                            commas: [],
+                                            items: [],
                                             rpar_token_idx: TokenIdx(
                                                 408,
                                             ),
@@ -2476,7 +2902,7 @@ Ok(
                                             },
                                         },
                                         Expr::Field {
-                                            owner: 183,
+                                            owner: 199,
                                             dot_token_idx: TokenIdx(
                                                 413,
                                             ),
@@ -2498,7 +2924,7 @@ Ok(
                                             },
                                         },
                                         Expr::Field {
-                                            owner: 185,
+                                            owner: 201,
                                             dot_token_idx: TokenIdx(
                                                 417,
                                             ),
@@ -2510,7 +2936,7 @@ Ok(
                                             },
                                         },
                                         Expr::Field {
-                                            owner: 186,
+                                            owner: 202,
                                             dot_token_idx: TokenIdx(
                                                 419,
                                             ),
@@ -2530,23 +2956,26 @@ Ok(
                                             ),
                                         ),
                                         Expr::Binary {
-                                            lopd: 187,
+                                            lopd: 203,
                                             opr: Closed(
                                                 Add,
                                             ),
                                             opr_token_idx: TokenIdx(
                                                 421,
                                             ),
-                                            ropd: 188,
+                                            ropd: 204,
                                         },
                                         Expr::IndexOrCompositionWithList {
-                                            owner: 184,
+                                            owner: 200,
                                             lbox_token_idx: TokenIdx(
                                                 415,
                                             ),
-                                            items: ArenaIdxRange(
-                                                189..190,
-                                            ),
+                                            items: [
+                                                CommaListItem {
+                                                    expr_idx: 205,
+                                                    comma_token_idx: None,
+                                                },
+                                            ],
                                             rbox_token_idx: TokenIdx(
                                                 423,
                                             ),
@@ -2562,7 +2991,7 @@ Ok(
                                             },
                                         },
                                         Expr::MethodApplicationOrCall {
-                                            self_argument: 191,
+                                            self_argument: 207,
                                             dot_token_idx: TokenIdx(
                                                 428,
                                             ),
@@ -2576,10 +3005,7 @@ Ok(
                                             lpar_token_idx: TokenIdx(
                                                 430,
                                             ),
-                                            items: ArenaIdxRange(
-                                                192..192,
-                                            ),
-                                            commas: [],
+                                            items: [],
                                             rpar_token_idx: TokenIdx(
                                                 431,
                                             ),
@@ -2604,26 +3030,8 @@ Ok(
                                                 pattern_symbol_idx: 11,
                                             },
                                         },
-                                        Expr::CurrentSymbol {
-                                            ident: `downmost_feet_dp`,
-                                            token_idx: TokenIdx(
-                                                438,
-                                            ),
-                                            current_symbol_idx: 13,
-                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                pattern_symbol_idx: 13,
-                                            },
-                                        },
-                                        Expr::Literal(
-                                            TokenIdx(
-                                                444,
-                                            ),
-                                            Literal::Integer(
-                                                Unspecified,
-                                            ),
-                                        ),
                                         Expr::Field {
-                                            owner: 194,
+                                            owner: 210,
                                             dot_token_idx: TokenIdx(
                                                 435,
                                             ),
@@ -2634,8 +3042,18 @@ Ok(
                                                 ),
                                             },
                                         },
+                                        Expr::CurrentSymbol {
+                                            ident: `downmost_feet_dp`,
+                                            token_idx: TokenIdx(
+                                                438,
+                                            ),
+                                            current_symbol_idx: 13,
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                                pattern_symbol_idx: 13,
+                                            },
+                                        },
                                         Expr::Field {
-                                            owner: 195,
+                                            owner: 212,
                                             dot_token_idx: TokenIdx(
                                                 439,
                                             ),
@@ -2646,8 +3064,16 @@ Ok(
                                                 ),
                                             },
                                         },
+                                        Expr::Literal(
+                                            TokenIdx(
+                                                444,
+                                            ),
+                                            Literal::Integer(
+                                                Unspecified,
+                                            ),
+                                        ),
                                         Expr::FunctionCall {
-                                            function: 193,
+                                            function: 209,
                                             implicit_arguments: None,
                                             lpar_token_idx: TokenIdx(
                                                 433,
@@ -2655,21 +3081,21 @@ Ok(
                                             items: [
                                                 CallListItem {
                                                     kind: Argument,
+                                                    argument_expr_idx: 211,
                                                     separator: Comma(
                                                         TokenIdx(
                                                             437,
                                                         ),
                                                     ),
-                                                    argument_expr_idx: 197,
                                                 },
                                                 CallListItem {
                                                     kind: Argument,
+                                                    argument_expr_idx: 213,
                                                     separator: Comma(
                                                         TokenIdx(
                                                             441,
                                                         ),
                                                     ),
-                                                    argument_expr_idx: 198,
                                                 },
                                             ],
                                             rpar_token_idx: TokenIdx(
@@ -2677,7 +3103,7 @@ Ok(
                                             ),
                                         },
                                         Expr::Suffix {
-                                            opd: 199,
+                                            opd: 215,
                                             opr: UnveilOrComposeWithOption,
                                             opr_token_idx: TokenIdx(
                                                 446,
@@ -2702,14 +3128,14 @@ Ok(
                                             ),
                                         ),
                                         Expr::Binary {
-                                            lopd: 201,
+                                            lopd: 217,
                                             opr: Comparison(
                                                 Eq,
                                             ),
                                             opr_token_idx: TokenIdx(
                                                 449,
                                             ),
-                                            ropd: 202,
+                                            ropd: 218,
                                         },
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 37,
@@ -2722,7 +3148,7 @@ Ok(
                                             ),
                                         },
                                         Expr::Field {
-                                            owner: 204,
+                                            owner: 220,
                                             dot_token_idx: TokenIdx(
                                                 455,
                                             ),
@@ -2744,7 +3170,7 @@ Ok(
                                             ),
                                         },
                                         Expr::Field {
-                                            owner: 206,
+                                            owner: 222,
                                             dot_token_idx: TokenIdx(
                                                 461,
                                             ),
@@ -2776,14 +3202,14 @@ Ok(
                                             },
                                         },
                                         Expr::Binary {
-                                            lopd: 208,
+                                            lopd: 224,
                                             opr: Closed(
                                                 Sub,
                                             ),
                                             opr_token_idx: TokenIdx(
                                                 467,
                                             ),
-                                            ropd: 209,
+                                            ropd: 225,
                                         },
                                         Expr::CurrentSymbol {
                                             ident: `c`,
@@ -2806,14 +3232,14 @@ Ok(
                                             },
                                         },
                                         Expr::Binary {
-                                            lopd: 211,
+                                            lopd: 227,
                                             opr: Closed(
                                                 Add,
                                             ),
                                             opr_token_idx: TokenIdx(
                                                 473,
                                             ),
-                                            ropd: 212,
+                                            ropd: 228,
                                         },
                                         Expr::Literal(
                                             TokenIdx(
@@ -2838,17 +3264,17 @@ Ok(
                                             opr_token_idx: TokenIdx(
                                                 478,
                                             ),
-                                            opd: 214,
+                                            opd: 230,
                                         },
                                         Expr::Binary {
-                                            lopd: 215,
+                                            lopd: 231,
                                             opr: Comparison(
                                                 Geq,
                                             ),
                                             opr_token_idx: TokenIdx(
                                                 477,
                                             ),
-                                            ropd: 216,
+                                            ropd: 232,
                                         },
                                         Expr::CurrentSymbol {
                                             ident: `c`,
@@ -2869,14 +3295,14 @@ Ok(
                                             ),
                                         ),
                                         Expr::Binary {
-                                            lopd: 218,
+                                            lopd: 234,
                                             opr: Comparison(
                                                 Leq,
                                             ),
                                             opr_token_idx: TokenIdx(
                                                 482,
                                             ),
-                                            ropd: 219,
+                                            ropd: 235,
                                         },
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 40,
@@ -3550,10 +3976,10 @@ Ok(
                                                     78,
                                                 ),
                                             },
-                                            condition: 26,
+                                            condition: 30,
                                         },
                                         Stmt::Eval {
-                                            expr_idx: 18,
+                                            expr_idx: 22,
                                         },
                                         Stmt::IfElse {
                                             if_branch: IfBranch {
@@ -3563,7 +3989,7 @@ Ok(
                                                     ),
                                                 },
                                                 condition: Ok(
-                                                    22,
+                                                    26,
                                                 ),
                                                 eol_colon: Ok(
                                                     Colon(
@@ -3584,7 +4010,7 @@ Ok(
                                             else_branch: None,
                                         },
                                         Stmt::Eval {
-                                            expr_idx: 27,
+                                            expr_idx: 31,
                                         },
                                         Stmt::Require {
                                             require_token: RequireToken {
@@ -3592,10 +4018,10 @@ Ok(
                                                     131,
                                                 ),
                                             },
-                                            condition: 52,
+                                            condition: 56,
                                         },
                                         Stmt::Eval {
-                                            expr_idx: 58,
+                                            expr_idx: 64,
                                         },
                                         Stmt::Require {
                                             require_token: RequireToken {
@@ -3603,7 +4029,7 @@ Ok(
                                                     153,
                                                 ),
                                             },
-                                            condition: 67,
+                                            condition: 73,
                                         },
                                         Stmt::Return {
                                             return_token: ReturnToken {
@@ -3611,7 +4037,7 @@ Ok(
                                                     165,
                                                 ),
                                             },
-                                            result: 68,
+                                            result: 74,
                                         },
                                         Stmt::Require {
                                             require_token: RequireToken {
@@ -3619,7 +4045,7 @@ Ok(
                                                     251,
                                                 ),
                                             },
-                                            condition: 116,
+                                            condition: 126,
                                         },
                                         Stmt::Let {
                                             let_token: LetToken {
@@ -3646,7 +4072,7 @@ Ok(
                                                     ),
                                                 ),
                                             ),
-                                            initial_value: 124,
+                                            initial_value: 134,
                                         },
                                         Stmt::Let {
                                             let_token: LetToken {
@@ -3673,7 +4099,7 @@ Ok(
                                                     ),
                                                 ),
                                             ),
-                                            initial_value: 126,
+                                            initial_value: 136,
                                         },
                                         Stmt::Require {
                                             require_token: RequireToken {
@@ -3681,16 +4107,16 @@ Ok(
                                                     288,
                                                 ),
                                             },
-                                            condition: 130,
+                                            condition: 140,
                                         },
                                         Stmt::Eval {
-                                            expr_idx: 140,
+                                            expr_idx: 152,
                                         },
                                         Stmt::Eval {
-                                            expr_idx: 150,
+                                            expr_idx: 164,
                                         },
                                         Stmt::Eval {
-                                            expr_idx: 171,
+                                            expr_idx: 187,
                                         },
                                         Stmt::Require {
                                             require_token: RequireToken {
@@ -3698,7 +4124,7 @@ Ok(
                                                     89,
                                                 ),
                                             },
-                                            condition: 31,
+                                            condition: 35,
                                         },
                                         Stmt::Require {
                                             require_token: RequireToken {
@@ -3706,7 +4132,7 @@ Ok(
                                                     95,
                                                 ),
                                             },
-                                            condition: 34,
+                                            condition: 38,
                                         },
                                         Stmt::Let {
                                             let_token: LetToken {
@@ -3733,7 +4159,7 @@ Ok(
                                                     ),
                                                 ),
                                             ),
-                                            initial_value: 38,
+                                            initial_value: 42,
                                         },
                                         Stmt::Let {
                                             let_token: LetToken {
@@ -3760,7 +4186,7 @@ Ok(
                                                     ),
                                                 ),
                                             ),
-                                            initial_value: 42,
+                                            initial_value: 46,
                                         },
                                         Stmt::Let {
                                             let_token: LetToken {
@@ -3787,7 +4213,7 @@ Ok(
                                                     ),
                                                 ),
                                             ),
-                                            initial_value: 46,
+                                            initial_value: 50,
                                         },
                                         Stmt::IfElse {
                                             if_branch: IfBranch {
@@ -3797,7 +4223,7 @@ Ok(
                                                     ),
                                                 },
                                                 condition: Ok(
-                                                    48,
+                                                    52,
                                                 ),
                                                 eol_colon: Ok(
                                                     Colon(
@@ -3842,7 +4268,7 @@ Ok(
                                                     ),
                                                 ),
                                             ),
-                                            initial_value: 75,
+                                            initial_value: 81,
                                         },
                                         Stmt::Require {
                                             require_token: RequireToken {
@@ -3850,13 +4276,13 @@ Ok(
                                                     183,
                                                 ),
                                             },
-                                            condition: 79,
+                                            condition: 85,
                                         },
                                         Stmt::Eval {
-                                            expr_idx: 91,
+                                            expr_idx: 99,
                                         },
                                         Stmt::Eval {
-                                            expr_idx: 105,
+                                            expr_idx: 115,
                                         },
                                         Stmt::IfElse {
                                             if_branch: IfBranch {
@@ -3866,7 +4292,7 @@ Ok(
                                                     ),
                                                 },
                                                 condition: Ok(
-                                                    107,
+                                                    117,
                                                 ),
                                                 eol_colon: Ok(
                                                     Colon(
@@ -3894,7 +4320,7 @@ Ok(
                                                     ),
                                                 },
                                                 condition: Ok(
-                                                    152,
+                                                    166,
                                                 ),
                                                 eol_colon: Ok(
                                                     Colon(
@@ -3920,7 +4346,7 @@ Ok(
                                                     384,
                                                 ),
                                             },
-                                            condition: 174,
+                                            condition: 190,
                                         },
                                         Stmt::Let {
                                             let_token: LetToken {
@@ -3947,7 +4373,7 @@ Ok(
                                                     ),
                                                 ),
                                             ),
-                                            initial_value: 180,
+                                            initial_value: 196,
                                         },
                                         Stmt::Let {
                                             let_token: LetToken {
@@ -3974,7 +4400,7 @@ Ok(
                                                     ),
                                                 ),
                                             ),
-                                            initial_value: 182,
+                                            initial_value: 198,
                                         },
                                         Stmt::Let {
                                             let_token: LetToken {
@@ -4001,7 +4427,7 @@ Ok(
                                                     ),
                                                 ),
                                             ),
-                                            initial_value: 190,
+                                            initial_value: 206,
                                         },
                                         Stmt::Let {
                                             let_token: LetToken {
@@ -4028,10 +4454,10 @@ Ok(
                                                     ),
                                                 ),
                                             ),
-                                            initial_value: 192,
+                                            initial_value: 208,
                                         },
                                         Stmt::Eval {
-                                            expr_idx: 200,
+                                            expr_idx: 216,
                                         },
                                         Stmt::Require {
                                             require_token: RequireToken {
@@ -4039,7 +4465,7 @@ Ok(
                                                     447,
                                                 ),
                                             },
-                                            condition: 203,
+                                            condition: 219,
                                         },
                                         Stmt::Let {
                                             let_token: LetToken {
@@ -4066,7 +4492,7 @@ Ok(
                                                     ),
                                                 ),
                                             ),
-                                            initial_value: 205,
+                                            initial_value: 221,
                                         },
                                         Stmt::Let {
                                             let_token: LetToken {
@@ -4093,7 +4519,7 @@ Ok(
                                                     ),
                                                 ),
                                             ),
-                                            initial_value: 207,
+                                            initial_value: 223,
                                         },
                                         Stmt::Let {
                                             let_token: LetToken {
@@ -4120,7 +4546,7 @@ Ok(
                                                     ),
                                                 ),
                                             ),
-                                            initial_value: 210,
+                                            initial_value: 226,
                                         },
                                         Stmt::Let {
                                             let_token: LetToken {
@@ -4147,7 +4573,7 @@ Ok(
                                                     ),
                                                 ),
                                             ),
-                                            initial_value: 213,
+                                            initial_value: 229,
                                         },
                                         Stmt::Require {
                                             require_token: RequireToken {
@@ -4155,7 +4581,7 @@ Ok(
                                                     475,
                                                 ),
                                             },
-                                            condition: 217,
+                                            condition: 233,
                                         },
                                         Stmt::Require {
                                             require_token: RequireToken {
@@ -4163,13 +4589,13 @@ Ok(
                                                     480,
                                                 ),
                                             },
-                                            condition: 220,
+                                            condition: 236,
                                         },
                                         Stmt::Eval {
-                                            expr_idx: 221,
+                                            expr_idx: 237,
                                         },
                                         Stmt::Eval {
-                                            expr_idx: 5,
+                                            expr_idx: 7,
                                         },
                                         Stmt::Let {
                                             let_token: LetToken {
@@ -4196,7 +4622,7 @@ Ok(
                                                     ),
                                                 ),
                                             ),
-                                            initial_value: 9,
+                                            initial_value: 11,
                                         },
                                         Stmt::IfElse {
                                             if_branch: IfBranch {
@@ -4206,7 +4632,7 @@ Ok(
                                                     ),
                                                 },
                                                 condition: Ok(
-                                                    13,
+                                                    15,
                                                 ),
                                                 eol_colon: Ok(
                                                     Colon(
@@ -4971,34 +5397,30 @@ Ok(
                                 roots: [
                                     ExprRoot {
                                         kind: EvalExpr,
-                                        expr_idx: 5,
+                                        expr_idx: 7,
                                     },
                                     ExprRoot {
                                         kind: LetStmtInitialValue,
-                                        expr_idx: 9,
+                                        expr_idx: 11,
                                     },
                                     ExprRoot {
                                         kind: EvalExpr,
-                                        expr_idx: 18,
+                                        expr_idx: 22,
                                     },
                                     ExprRoot {
                                         kind: Condition,
-                                        expr_idx: 26,
+                                        expr_idx: 30,
                                     },
                                     ExprRoot {
                                         kind: EvalExpr,
-                                        expr_idx: 27,
-                                    },
-                                    ExprRoot {
-                                        kind: Condition,
                                         expr_idx: 31,
                                     },
                                     ExprRoot {
                                         kind: Condition,
-                                        expr_idx: 34,
+                                        expr_idx: 35,
                                     },
                                     ExprRoot {
-                                        kind: LetStmtInitialValue,
+                                        kind: Condition,
                                         expr_idx: 38,
                                     },
                                     ExprRoot {
@@ -5010,124 +5432,128 @@ Ok(
                                         expr_idx: 46,
                                     },
                                     ExprRoot {
+                                        kind: LetStmtInitialValue,
+                                        expr_idx: 50,
+                                    },
+                                    ExprRoot {
                                         kind: Condition,
-                                        expr_idx: 52,
+                                        expr_idx: 56,
                                     },
                                     ExprRoot {
                                         kind: EvalExpr,
-                                        expr_idx: 58,
+                                        expr_idx: 64,
                                     },
                                     ExprRoot {
                                         kind: Condition,
-                                        expr_idx: 67,
+                                        expr_idx: 73,
                                     },
                                     ExprRoot {
                                         kind: ReturnExpr,
-                                        expr_idx: 68,
+                                        expr_idx: 74,
                                     },
                                     ExprRoot {
                                         kind: LetStmtInitialValue,
-                                        expr_idx: 75,
+                                        expr_idx: 81,
                                     },
                                     ExprRoot {
                                         kind: Condition,
-                                        expr_idx: 79,
+                                        expr_idx: 85,
                                     },
                                     ExprRoot {
                                         kind: EvalExpr,
-                                        expr_idx: 91,
+                                        expr_idx: 99,
                                     },
                                     ExprRoot {
                                         kind: EvalExpr,
-                                        expr_idx: 105,
+                                        expr_idx: 115,
                                     },
                                     ExprRoot {
                                         kind: Condition,
-                                        expr_idx: 116,
-                                    },
-                                    ExprRoot {
-                                        kind: LetStmtInitialValue,
-                                        expr_idx: 124,
-                                    },
-                                    ExprRoot {
-                                        kind: LetStmtInitialValue,
                                         expr_idx: 126,
                                     },
                                     ExprRoot {
-                                        kind: Condition,
-                                        expr_idx: 130,
+                                        kind: LetStmtInitialValue,
+                                        expr_idx: 134,
                                     },
                                     ExprRoot {
-                                        kind: EvalExpr,
+                                        kind: LetStmtInitialValue,
+                                        expr_idx: 136,
+                                    },
+                                    ExprRoot {
+                                        kind: Condition,
                                         expr_idx: 140,
                                     },
                                     ExprRoot {
                                         kind: EvalExpr,
-                                        expr_idx: 150,
+                                        expr_idx: 152,
                                     },
                                     ExprRoot {
                                         kind: EvalExpr,
-                                        expr_idx: 171,
+                                        expr_idx: 164,
+                                    },
+                                    ExprRoot {
+                                        kind: EvalExpr,
+                                        expr_idx: 187,
                                     },
                                     ExprRoot {
                                         kind: Condition,
-                                        expr_idx: 174,
-                                    },
-                                    ExprRoot {
-                                        kind: LetStmtInitialValue,
-                                        expr_idx: 180,
-                                    },
-                                    ExprRoot {
-                                        kind: LetStmtInitialValue,
-                                        expr_idx: 182,
-                                    },
-                                    ExprRoot {
-                                        kind: LetStmtInitialValue,
                                         expr_idx: 190,
                                     },
                                     ExprRoot {
                                         kind: LetStmtInitialValue,
-                                        expr_idx: 192,
+                                        expr_idx: 196,
+                                    },
+                                    ExprRoot {
+                                        kind: LetStmtInitialValue,
+                                        expr_idx: 198,
+                                    },
+                                    ExprRoot {
+                                        kind: LetStmtInitialValue,
+                                        expr_idx: 206,
+                                    },
+                                    ExprRoot {
+                                        kind: LetStmtInitialValue,
+                                        expr_idx: 208,
                                     },
                                     ExprRoot {
                                         kind: EvalExpr,
-                                        expr_idx: 200,
+                                        expr_idx: 216,
                                     },
                                     ExprRoot {
                                         kind: Condition,
-                                        expr_idx: 203,
+                                        expr_idx: 219,
                                     },
                                     ExprRoot {
                                         kind: LetStmtInitialValue,
-                                        expr_idx: 205,
-                                    },
-                                    ExprRoot {
-                                        kind: LetStmtInitialValue,
-                                        expr_idx: 207,
-                                    },
-                                    ExprRoot {
-                                        kind: LetStmtInitialValue,
-                                        expr_idx: 210,
-                                    },
-                                    ExprRoot {
-                                        kind: LetStmtInitialValue,
-                                        expr_idx: 213,
-                                    },
-                                    ExprRoot {
-                                        kind: Condition,
-                                        expr_idx: 217,
-                                    },
-                                    ExprRoot {
-                                        kind: Condition,
-                                        expr_idx: 220,
-                                    },
-                                    ExprRoot {
-                                        kind: EvalExpr,
                                         expr_idx: 221,
                                     },
                                     ExprRoot {
+                                        kind: LetStmtInitialValue,
+                                        expr_idx: 223,
+                                    },
+                                    ExprRoot {
+                                        kind: LetStmtInitialValue,
+                                        expr_idx: 226,
+                                    },
+                                    ExprRoot {
+                                        kind: LetStmtInitialValue,
+                                        expr_idx: 229,
+                                    },
+                                    ExprRoot {
+                                        kind: Condition,
+                                        expr_idx: 233,
+                                    },
+                                    ExprRoot {
+                                        kind: Condition,
+                                        expr_idx: 236,
+                                    },
+                                    ExprRoot {
+                                        kind: EvalExpr,
+                                        expr_idx: 237,
+                                    },
+                                    ExprRoot {
                                         kind: BlockExpr,
-                                        expr_idx: 222,
+                                        expr_idx: 238,
                                     },
                                 ],
                             },
@@ -5566,10 +5992,7 @@ Ok(
                                             lpar_token_idx: TokenIdx(
                                                 505,
                                             ),
-                                            items: ArenaIdxRange(
-                                                1..1,
-                                            ),
-                                            commas: [],
+                                            items: [],
                                             rpar_token_idx: TokenIdx(
                                                 506,
                                             ),
@@ -6224,10 +6647,7 @@ Ok(
                                             lpar_token_idx: TokenIdx(
                                                 534,
                                             ),
-                                            items: ArenaIdxRange(
-                                                1..1,
-                                            ),
-                                            commas: [],
+                                            items: [],
                                             rpar_token_idx: TokenIdx(
                                                 535,
                                             ),
@@ -6297,10 +6717,7 @@ Ok(
                                             lpar_token_idx: TokenIdx(
                                                 546,
                                             ),
-                                            items: ArenaIdxRange(
-                                                7..7,
-                                            ),
-                                            commas: [],
+                                            items: [],
                                             rpar_token_idx: TokenIdx(
                                                 547,
                                             ),
@@ -6912,10 +7329,7 @@ Ok(
                                             lpar_token_idx: TokenIdx(
                                                 568,
                                             ),
-                                            items: ArenaIdxRange(
-                                                1..1,
-                                            ),
-                                            commas: [],
+                                            items: [],
                                             rpar_token_idx: TokenIdx(
                                                 569,
                                             ),

@@ -8,8 +8,7 @@ impl<'a> ExprTypeEngine<'a> {
         self_argument: ExprIdx,
         ident_token: IdentToken,
         implicit_arguments: Option<&ImplicitArgumentList>,
-        items: ExprIdxRange,
-        commas: &[TokenIdx],
+        explicit_arguments: &[CommaListItem],
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         let Some(self_expr_ty) =
             self.infer_new_expr_ty( self_argument, ExpectAnyOriginal)
@@ -17,8 +16,8 @@ impl<'a> ExprTypeEngine<'a> {
                 if let Some(implicit_arguments) = implicit_arguments {
                     todo!()
                 }
-                for argument in items {
-                    self.infer_new_expr_ty_discarded(argument, ExpectAnyDerived);
+                for argument in explicit_arguments {
+                    self.infer_new_expr_ty_discarded(argument.expr_idx(), ExpectAnyDerived);
                 }
                 return Err(DerivedExprTypeError::MethodOwnerTypeNotInferred.into())
             };
@@ -33,10 +32,7 @@ impl<'a> ExprTypeEngine<'a> {
                 self.calc_ritchie_call_nonself_arguments_expr_ty(
                     expr_idx,
                     signature.nonself_parameter_contracted_tys(),
-                    items
-                        .into_iter()
-                        .enumerate()
-                        .map(|(i, item)| CallListItem::new_regular(item, commas.get(i).copied())),
+                    explicit_arguments.iter().copied().map(Into::into),
                 );
                 signature.return_ty()
             }
