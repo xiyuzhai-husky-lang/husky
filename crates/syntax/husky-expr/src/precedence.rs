@@ -25,6 +25,7 @@ pub(crate) enum Precedence {
     ListItem = 11,
     LambdaHead = 3,
     Method = 2,
+    Assign = 1,
     None = 0,
 }
 
@@ -64,7 +65,7 @@ impl From<BinaryOpr> for Precedence {
                 BinaryShortcuitLogicOpr::Or => Precedence::Or,
             },
             BinaryOpr::Assign | BinaryOpr::AssignClosed(_) | BinaryOpr::AssignShift(_) => {
-                Precedence::None
+                Precedence::Assign
             }
             BinaryOpr::ScopeResolution => Precedence::ScopeResolution,
             BinaryOpr::Curry => Precedence::Curry,

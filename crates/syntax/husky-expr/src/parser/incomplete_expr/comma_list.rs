@@ -28,6 +28,7 @@ pub(in crate::parser) enum IncompleteCommaListOpr {
         dot_token_idx: TokenIdx,
         ident_token: IdentToken,
     },
+    #[deprecated(note = "move this to CallList")]
     MethodApplicationOrCall {
         self_expr: ExprIdx,
         dot_token_idx: TokenIdx,

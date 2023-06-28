@@ -279,13 +279,12 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     ))
                 }
                 IncompleteExpr::LambdaHead { inputs, start } => todo!(),
-                IncompleteExpr::CallList {
-                    lpar_token_idx: bra_token_idx,
-                    ..
-                } => {
+                IncompleteExpr::CallList { lpar_token_idx, .. } => {
+                    p!(prev_precedence, next_precedence);
+                    todo!();
                     self.stack.complete_expr = Some(Expr::Err(
                         OriginalExprError::UnterminatedFunctionCallKeyedArgumentList {
-                            bra_token_idx,
+                            bra_token_idx: lpar_token_idx,
                         }
                         .into(),
                     ))
