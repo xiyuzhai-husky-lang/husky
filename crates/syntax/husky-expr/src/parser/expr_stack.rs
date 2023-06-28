@@ -147,12 +147,12 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         self.stack.incomplete_exprs.pop().map(|(expr, _)| expr)
     }
 
-    fn push_unfinished_expr(&mut self, unfinished_expr: IncompleteExpr) {
+    fn push_unfinished_expr(&mut self, incomplete_expr: IncompleteExpr) {
         assert!(self.stack.complete_expr.is_none());
-        let precedence = unfinished_expr.precedence();
+        let precedence = incomplete_expr.precedence();
         self.stack
             .incomplete_exprs
-            .push((unfinished_expr, precedence))
+            .push((incomplete_expr, precedence))
     }
 
     pub(super) fn last_incomplete_expr(&self) -> Option<&IncompleteExpr> {
@@ -270,9 +270,6 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         ),
                     })
                 }
-                IncompleteExpr::ListItem {
-                    separator_token_idx,
-                } => todo!(),
                 IncompleteExpr::CommaList { bra_token_idx, .. } => {
                     self.stack.complete_expr = Some(Expr::Err(
                         OriginalExprError::UnterminatedList { bra_token_idx }.into(),

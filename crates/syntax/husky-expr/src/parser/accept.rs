@@ -318,7 +318,15 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     items.push(item);
                     commas.push(comma_token_idx)
                 }
-                IncompleteExpr::CallList { .. } => todo!(),
+                IncompleteExpr::CallList { items, .. } => {
+                    todo!()
+                    // let argument_expr_idx = self.alloc_expr(item);
+                    // items.push(CallListItem {
+                    //     kind: CallListItemKind::Argument,
+                    //     separator: CallListSeparator::Comma(comma_token_idx),
+                    //     argument_expr_idx,
+                    // })
+                }
                 _ => unreachable!(),
             },
             None => unreachable!(),

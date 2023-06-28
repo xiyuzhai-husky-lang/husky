@@ -2,7 +2,7 @@ mod accept;
 mod alloc;
 mod block;
 mod debug;
-mod disambiguate;
+mod disambiguate_token;
 mod env;
 mod expr_stack;
 mod incomplete_expr;
@@ -15,7 +15,7 @@ pub use self::root::*;
 use self::incomplete_expr::*;
 use crate::symbol::*;
 use crate::*;
-use disambiguate::*;
+use disambiguate_token::*;
 use expr_stack::*;
 use husky_ast::{Ast, AstIdxRange, AstSheet};
 use husky_entity_tree::*;
@@ -177,7 +177,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 else {
                     break
                 };
-            match self.resolve_token(token_idx, token) {
+            match self.disambiguate_token(token_idx, token) {
                 ControlFlow::Continue(resolved_token) => self.accept_token(resolved_token),
                 ControlFlow::Break(_) => {
                     self.rollback_raw(token_idx);
@@ -208,7 +208,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 else {
                     break
                 };
-            match self.resolve_token(token_idx, token) {
+            match self.disambiguate_token(token_idx, token) {
                 ControlFlow::Continue(resolved_token) => self.accept_token(resolved_token),
                 ControlFlow::Break(_) => {
                     self.rollback_raw(token_idx);
@@ -241,7 +241,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 else {
                     break
                 };
-            match self.resolve_token(token_idx, token) {
+            match self.disambiguate_token(token_idx, token) {
                 ControlFlow::Continue(resolved_token) => self.accept_token(resolved_token),
                 ControlFlow::Break(_) => {
                     self.rollback_raw(token_idx);

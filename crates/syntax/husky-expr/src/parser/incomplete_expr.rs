@@ -16,16 +16,13 @@ pub(super) enum IncompleteExpr {
         punctuation: BinaryOpr,
         punctuation_token_idx: TokenIdx,
     },
-    ListItem {
-        separator_token_idx: Option<TokenIdx>,
-    },
     Prefix {
         punctuation: PrefixOpr,
         punctuation_token_idx: TokenIdx,
     },
     /// list separated by commas
     /// ```husky
-    /// A { a, b, }
+    /// A(a, b, c)
     /// ```
     CommaList {
         opr: IncompleteCommaListOpr,
@@ -106,9 +103,7 @@ impl IncompleteExpr {
         match self {
             IncompleteExpr::Binary { punctuation, .. } => (*punctuation).into(),
             IncompleteExpr::Prefix { .. } => Precedence::Prefix,
-            IncompleteExpr::ListItem { .. }
-            | IncompleteExpr::CommaList { .. }
-            | IncompleteExpr::CallList { .. } => Precedence::None,
+            IncompleteExpr::CommaList { .. } | IncompleteExpr::CallList { .. } => Precedence::List,
             IncompleteExpr::LambdaHead { .. } => Precedence::LambdaHead,
             IncompleteExpr::Application { .. } => Precedence::Application,
             IncompleteExpr::Ritchie { .. } => Precedence::Curry,
