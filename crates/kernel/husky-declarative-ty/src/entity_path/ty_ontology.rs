@@ -15,7 +15,7 @@ pub fn ty_constructor_path_declarative_ty(
     };
     match signature {
         TypeDeclarativeSignatureTemplate::Enum(_) => Err(todo!()),
-        TypeDeclarativeSignatureTemplate::RegularStruct(signature) => Ok(
+        TypeDeclarativeSignatureTemplate::PropsStruct(signature) => Ok(
             regular_struct_ty_constructor_path_declarative_ty(db, path, variances, signature),
         ),
         TypeDeclarativeSignatureTemplate::UnitStruct(_) => todo!(),
@@ -36,7 +36,7 @@ fn regular_struct_ty_constructor_path_declarative_ty(
     db: &dyn DeclarativeTypeDb,
     path: TypePath,
     variances: &[Variance],
-    signature: RegularStructDeclarativeSignatureTemplate,
+    signature: PropsStructDeclarativeSignatureTemplate,
 ) -> DeclarativeTerm {
     let implicit_parameters = &signature.implicit_parameters(db);
     let self_ty = construct_self_ty(db, path, implicit_parameters);
@@ -44,7 +44,7 @@ fn regular_struct_ty_constructor_path_declarative_ty(
         .fields(db)
         .iter()
         .copied()
-        .map(RegularStructFieldDeclarativeSignatureTemplate::into_ritchie_parameter_contracted_ty)
+        .map(PropsStructFieldDeclarativeSignatureTemplate::into_ritchie_parameter_contracted_ty)
         .collect();
     let constructor_ty =
         DeclarativeTermRitchie::new(db, RitchieKind::FnType, parameter_tys, self_ty);

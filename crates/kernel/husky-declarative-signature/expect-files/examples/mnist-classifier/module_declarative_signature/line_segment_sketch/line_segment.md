@@ -8,17 +8,17 @@
         Ok(
             SignatureTemplate::ModuleItem(
                 ModuleItemDeclarativeSignatureTemplate::Type(
-                    TypeDeclarativeSignatureTemplate::RegularStruct(
-                        RegularStructDeclarativeSignatureTemplate {
+                    TypeDeclarativeSignatureTemplate::PropsStruct(
+                        PropsStructDeclarativeSignatureTemplate {
                             implicit_parameters: ImplicitParameterDeclarativeSignatures {
                                 data: [],
                             },
                             fields: [
-                                RegularStructFieldDeclarativeSignatureTemplate {
+                                PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `start`,
                                     ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
                                 },
-                                RegularStructFieldDeclarativeSignatureTemplate {
+                                PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `end`,
                                     ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
                                 },

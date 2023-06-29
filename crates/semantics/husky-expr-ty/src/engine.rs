@@ -141,7 +141,7 @@ impl<'a> ExprTypeEngine<'a> {
                 ExprRootKind::SelfType
                 | ExprRootKind::ReturnType
                 | ExprRootKind::VarType
-                | ExprRootKind::RegularStructFieldType { .. }
+                | ExprRootKind::PropsStructFieldType { .. }
                 | ExprRootKind::TupleStructFieldType
                 | ExprRootKind::ConstantImplicitParameterType
                 | ExprRootKind::ExplicitParameterType => self.infer_new_expr_ty_discarded(

@@ -140,7 +140,7 @@ impl<'a> InferEngine<'a> {
             TypeNodeDefn::Record(defn) => self.visit_record_ty(defn),
             TypeNodeDefn::UnitStruct(defn) => self.visit_unit_struct_ty(defn),
             TypeNodeDefn::TupleStruct(defn) => self.visit_tuple_struct_ty(defn),
-            TypeNodeDefn::RegularStruct(defn) => self.visit_props_struct_ty(defn),
+            TypeNodeDefn::PropsStruct(defn) => self.visit_props_struct_ty(defn),
             TypeNodeDefn::Structure(defn) => self.visit_structure_ty(defn),
             TypeNodeDefn::Extern(defn) => self.visit_alias_ty(defn),
             TypeNodeDefn::Union(_) => todo!(),
@@ -167,7 +167,7 @@ impl<'a> InferEngine<'a> {
         // todo!()
     }
 
-    fn visit_props_struct_ty(&mut self, _defn: RegularStructTypeNodeDefn) {
+    fn visit_props_struct_ty(&mut self, _defn: PropsStructTypeNodeDefn) {
         // todo!()
     }
 

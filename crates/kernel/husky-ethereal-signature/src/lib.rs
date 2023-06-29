@@ -32,7 +32,7 @@ pub struct EtherealSignatureJar(
     ExternEtherealSignatureTemplate,
     InductiveEtherealSignatureTemplate,
     RecordEtherealSignatureTemplate,
-    RegularStructEtherealSignatureTemplate,
+    PropsStructEtherealSignatureTemplate,
     StructureEtherealSignatureTemplate,
     TupleStructEtherealSignatureTemplate,
     UnionEtherealSignatureTemplate,

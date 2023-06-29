@@ -52,17 +52,17 @@
         Ok(
             SignatureTemplate::ModuleItem(
                 ModuleItemDeclarativeSignatureTemplate::Type(
-                    TypeDeclarativeSignatureTemplate::RegularStruct(
-                        RegularStructDeclarativeSignatureTemplate {
+                    TypeDeclarativeSignatureTemplate::PropsStruct(
+                        PropsStructDeclarativeSignatureTemplate {
                             implicit_parameters: ImplicitParameterDeclarativeSignatures {
                                 data: [],
                             },
                             fields: [
-                                RegularStructFieldDeclarativeSignatureTemplate {
+                                PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `contour`,
                                     ty: DeclarativeTerm(`~ mnist_classifier::raw_contour::RawContour`),
                                 },
-                                RegularStructFieldDeclarativeSignatureTemplate {
+                                PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `strokes`,
                                     ty: DeclarativeTerm(`[] mnist_classifier::line_segment_sketch::LineSegmentStroke`),
                                 },

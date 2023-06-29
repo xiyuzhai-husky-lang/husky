@@ -2,14 +2,14 @@ Ok(
     [
         Defn::ModuleItem(
             ModuleItemDefn::Type(
-                TypeDefn::RegularStruct(
-                    RegularStructTypeDefn {
+                TypeDefn::PropsStruct(
+                    PropsStructTypeDefn {
                         path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                        decl: RegularStructTypeDecl {
+                        decl: PropsStructTypeDecl {
                             path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                             implicit_parameters: [],
                             fields: [
-                                RegularStructFieldDeclPattern {
+                                PropFieldDeclPattern {
                                     decorators: [],
                                     visibility: None,
                                     ident_token: IdentToken {
@@ -26,7 +26,7 @@ Ok(
                                     ty_expr_idx: 4,
                                     initialization: None,
                                 },
-                                RegularStructFieldDeclPattern {
+                                PropFieldDeclPattern {
                                     decorators: [],
                                     visibility: None,
                                     ident_token: IdentToken {
@@ -196,7 +196,7 @@ Ok(
                                     },
                                     roots: [
                                         ExprRoot {
-                                            kind: RegularStructFieldType {
+                                            kind: PropsStructFieldType {
                                                 ident_token: IdentToken {
                                                     ident: Ident(
                                                         Word(
@@ -213,7 +213,7 @@ Ok(
                                             expr_idx: 4,
                                         },
                                         ExprRoot {
-                                            kind: RegularStructFieldType {
+                                            kind: PropsStructFieldType {
                                                 ident_token: IdentToken {
                                                     ident: Ident(
                                                         Word(

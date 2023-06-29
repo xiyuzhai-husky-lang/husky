@@ -4,12 +4,12 @@ use super::*;
 pub struct PropsVariantNodeDefn {
     #[id]
     pub node_path: TypeVariantNodePath,
-    pub node_decl: PropsVariantNodeDecl,
+    pub node_decl: PropsTypeVariantNodeDecl,
 }
 
 #[salsa::tracked(db = DefnDb, jar = DefnJar)]
 pub struct PropsVariantDefn {
     #[id]
     pub path: TypeVariantPath,
-    pub decl: PropsVariantDecl,
+    pub decl: PropsTypeVariantDecl,
 }

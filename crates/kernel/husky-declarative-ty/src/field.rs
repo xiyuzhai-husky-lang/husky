@@ -12,7 +12,7 @@ pub fn ty_path_field_declarative_ty(
         Err(_) => return Err(DerivedDeclarativeTypeError::SignatureError.into()),
     };
     Ok(match signature {
-        TypeDeclarativeSignatureTemplate::RegularStruct(signature) => signature
+        TypeDeclarativeSignatureTemplate::PropsStruct(signature) => signature
             .fields(db)
             .iter()
             .find_map(|field| (field.ident() == ident).then_some(field.ty())),

@@ -177,7 +177,7 @@ impl<'a> DeclarativeTermEngine<'a> {
     fn init_expr_roots(&mut self) {
         for expr_root in self.expr_region_data.roots() {
             match expr_root.kind() {
-                ExprRootKind::RegularStructFieldType { .. }
+                ExprRootKind::PropsStructFieldType { .. }
                 | ExprRootKind::SelfType
                 | ExprRootKind::Trait
                 | ExprRootKind::ReturnType

@@ -2,15 +2,15 @@ Ok(
     [
         NodeDefn::ModuleItem(
             ModuleItemNodeDefn::Type(
-                TypeNodeDefn::RegularStruct(
-                    RegularStructTypeNodeDefn {
+                TypeNodeDefn::PropsStruct(
+                    PropsStructTypeNodeDefn {
                         node_path: TypeNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: RegularStructTypeNodeDecl {
+                        node_decl: PropsStructTypeNodeDecl {
                             node_path: TypeNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -22,7 +22,7 @@ Ok(
                                 None,
                             ),
                             lcurl: Ok(
-                                RegularStructLeftCurlyBrace(
+                                PropsStructLeftCurlyBrace(
                                     LeftCurlyBraceToken(
                                         TokenIdx(
                                             25,
@@ -30,10 +30,10 @@ Ok(
                                     ),
                                 ),
                             ),
-                            struct_fields: Ok(
+                            fields: Ok(
                                 SeparatedSmallList {
                                     elements: [
-                                        RegularStructFieldDeclPattern {
+                                        PropFieldDeclPattern {
                                             decorators: [],
                                             visibility: None,
                                             ident_token: IdentToken {
@@ -56,7 +56,7 @@ Ok(
                                             ty_expr_idx: 1,
                                             initialization: None,
                                         },
-                                        RegularStructFieldDeclPattern {
+                                        PropFieldDeclPattern {
                                             decorators: [],
                                             visibility: None,
                                             ident_token: IdentToken {
@@ -96,7 +96,7 @@ Ok(
                                 },
                             ),
                             rcurl: Ok(
-                                RegularStructRightCurlyBraceToken(
+                                PropsStructRightCurlyBraceToken(
                                     RightCurlyBraceToken(
                                         TokenIdx(
                                             37,
@@ -229,7 +229,7 @@ Ok(
                                     },
                                     roots: [
                                         ExprRoot {
-                                            kind: RegularStructFieldType {
+                                            kind: PropsStructFieldType {
                                                 ident_token: IdentToken {
                                                     ident: Ident(
                                                         Word(
@@ -246,7 +246,7 @@ Ok(
                                             expr_idx: 1,
                                         },
                                         ExprRoot {
-                                            kind: RegularStructFieldType {
+                                            kind: PropsStructFieldType {
                                                 ident_token: IdentToken {
                                                     ident: Ident(
                                                         Word(
@@ -5918,15 +5918,15 @@ Ok(
         ),
         NodeDefn::ModuleItem(
             ModuleItemNodeDefn::Type(
-                TypeNodeDefn::RegularStruct(
-                    RegularStructTypeNodeDefn {
+                TypeNodeDefn::PropsStruct(
+                    PropsStructTypeNodeDefn {
                         node_path: TypeNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: RegularStructTypeNodeDecl {
+                        node_decl: PropsStructTypeNodeDecl {
                             node_path: TypeNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
@@ -5938,7 +5938,7 @@ Ok(
                                 None,
                             ),
                             lcurl: Ok(
-                                RegularStructLeftCurlyBrace(
+                                PropsStructLeftCurlyBrace(
                                     LeftCurlyBraceToken(
                                         TokenIdx(
                                             877,
@@ -5946,10 +5946,10 @@ Ok(
                                     ),
                                 ),
                             ),
-                            struct_fields: Ok(
+                            fields: Ok(
                                 SeparatedSmallList {
                                     elements: [
-                                        RegularStructFieldDeclPattern {
+                                        PropFieldDeclPattern {
                                             decorators: [],
                                             visibility: None,
                                             ident_token: IdentToken {
@@ -5972,7 +5972,7 @@ Ok(
                                             ty_expr_idx: 0,
                                             initialization: None,
                                         },
-                                        RegularStructFieldDeclPattern {
+                                        PropFieldDeclPattern {
                                             decorators: [],
                                             visibility: None,
                                             ident_token: IdentToken {
@@ -6012,7 +6012,7 @@ Ok(
                                 },
                             ),
                             rcurl: Ok(
-                                RegularStructRightCurlyBraceToken(
+                                PropsStructRightCurlyBraceToken(
                                     RightCurlyBraceToken(
                                         TokenIdx(
                                             886,
@@ -6125,7 +6125,7 @@ Ok(
                                     },
                                     roots: [
                                         ExprRoot {
-                                            kind: RegularStructFieldType {
+                                            kind: PropsStructFieldType {
                                                 ident_token: IdentToken {
                                                     ident: Ident(
                                                         Word(
@@ -6142,7 +6142,7 @@ Ok(
                                             expr_idx: 0,
                                         },
                                         ExprRoot {
-                                            kind: RegularStructFieldType {
+                                            kind: PropsStructFieldType {
                                                 ident_token: IdentToken {
                                                     ident: Ident(
                                                         Word(

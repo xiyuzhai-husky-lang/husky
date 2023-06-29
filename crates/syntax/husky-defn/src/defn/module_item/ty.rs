@@ -27,7 +27,7 @@ pub enum TypeNodeDefn {
     Enum(EnumTypeNodeDefn),
     Inductive(InductiveTypeNodeDefn),
     Record(RecordTypeNodeDefn),
-    RegularStruct(RegularStructTypeNodeDefn),
+    PropsStruct(PropsStructTypeNodeDefn),
     TupleStruct(TupleStructTypeNodeDefn),
     UnitStruct(UnitStructTypeNodeDefn),
     Structure(StructureTypeNodeDefn),
@@ -43,7 +43,7 @@ impl TypeNodeDefn {
             TypeNodeDefn::Record(node_defn) => node_defn.node_decl(db).into(),
             TypeNodeDefn::UnitStruct(node_defn) => node_defn.node_decl(db).into(),
             TypeNodeDefn::TupleStruct(node_defn) => node_defn.node_decl(db).into(),
-            TypeNodeDefn::RegularStruct(node_defn) => node_defn.node_decl(db).into(),
+            TypeNodeDefn::PropsStruct(node_defn) => node_defn.node_decl(db).into(),
             TypeNodeDefn::Structure(node_defn) => node_defn.node_decl(db).into(),
             TypeNodeDefn::Extern(node_defn) => node_defn.node_decl(db).into(),
             TypeNodeDefn::Union(node_defn) => node_defn.node_decl(db).into(),
@@ -58,7 +58,7 @@ impl TypeNodeDefn {
         //     TypeDefn::Record(defn) => defn.path(db),
         //     TypeDefn::UnitStruct(defn) => defn.path(db),
         //     TypeDefn::TupleStruct(defn) => defn.path(db),
-        //     TypeDefn::RegularStruct(defn) => defn.path(db),
+        //     TypeDefn::PropsStruct(defn) => defn.path(db),
         //     TypeDefn::Structure(defn) => defn.path(db),
         //     TypeDefn::Extern(defn) => defn.path(db),
         //     TypeDefn::Union(defn) => defn.path(db),
@@ -78,8 +78,8 @@ impl HasNodeDefn for TypeNodePath {
 pub(crate) fn ty_node_defn(db: &dyn DefnDb, node_path: TypeNodePath) -> TypeNodeDefn {
     match node_path.node_decl(db) {
         TypeNodeDecl::Enum(node_decl) => EnumTypeNodeDefn::new(db, node_path, node_decl).into(),
-        TypeNodeDecl::RegularStruct(node_decl) => {
-            RegularStructTypeNodeDefn::new(db, node_path, node_decl).into()
+        TypeNodeDecl::PropsStruct(node_decl) => {
+            PropsStructTypeNodeDefn::new(db, node_path, node_decl).into()
         }
         TypeNodeDecl::TupleStruct(node_decl) => {
             TupleStructTypeNodeDefn::new(db, node_path, node_decl).into()
@@ -106,7 +106,7 @@ pub enum TypeDefn {
     Enum(EnumTypeDefn),
     Inductive(InductiveTypeDefn),
     Record(RecordTypeDefn),
-    RegularStruct(RegularStructTypeDefn),
+    PropsStruct(PropsStructTypeDefn),
     TupleStruct(TupleStructTypeDefn),
     UnitStruct(UnitStructTypeDefn),
     Structure(StructureTypeDefn),
@@ -122,7 +122,7 @@ impl TypeDefn {
             TypeDefn::Record(defn) => defn.decl(db).into(),
             TypeDefn::UnitStruct(defn) => defn.decl(db).into(),
             TypeDefn::TupleStruct(defn) => defn.decl(db).into(),
-            TypeDefn::RegularStruct(defn) => defn.decl(db).into(),
+            TypeDefn::PropsStruct(defn) => defn.decl(db).into(),
             TypeDefn::Structure(defn) => defn.decl(db).into(),
             TypeDefn::Extern(defn) => defn.decl(db).into(),
             TypeDefn::Union(defn) => defn.decl(db).into(),
@@ -137,7 +137,7 @@ impl TypeDefn {
         //     TypeDefn::Record(defn) => defn.path(db),
         //     TypeDefn::UnitStruct(defn) => defn.path(db),
         //     TypeDefn::TupleStruct(defn) => defn.path(db),
-        //     TypeDefn::RegularStruct(defn) => defn.path(db),
+        //     TypeDefn::PropsStruct(defn) => defn.path(db),
         //     TypeDefn::Structure(defn) => defn.path(db),
         //     TypeDefn::Extern(defn) => defn.path(db),
         //     TypeDefn::Union(defn) => defn.path(db),
@@ -157,7 +157,7 @@ impl HasDefn for TypePath {
 pub(crate) fn ty_defn(db: &dyn DefnDb, path: TypePath) -> DefnResult<TypeDefn> {
     Ok(match path.decl(db)? {
         TypeDecl::Enum(decl) => EnumTypeDefn::new(db, path, decl).into(),
-        TypeDecl::RegularStruct(decl) => RegularStructTypeDefn::new(db, path, decl).into(),
+        TypeDecl::PropsStruct(decl) => PropsStructTypeDefn::new(db, path, decl).into(),
         TypeDecl::TupleStruct(decl) => TupleStructTypeDefn::new(db, path, decl).into(),
         TypeDecl::UnitStruct(decl) => UnitStructTypeDefn::new(db, path, decl).into(),
         TypeDecl::Record(decl) => RecordTypeDefn::new(db, path, decl).into(),

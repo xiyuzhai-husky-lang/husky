@@ -249,6 +249,7 @@ pub fn ty_variant_path_declarative_ty(
     db: &dyn DeclarativeTypeDb,
     path: TypeVariantPath,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
+    // todo: GADT
     let declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();
     let decl = match path.decl(db) {
         Ok(decl) => decl,

@@ -29,7 +29,7 @@ use husky_word::Ident;
 #[enum_class::from_variants]
 pub enum TypeEtherealSignatureTemplate {
     Enum(EnumEtherealSignatureTemplate),
-    RegularStruct(RegularStructEtherealSignatureTemplate),
+    PropsStruct(PropsStructEtherealSignatureTemplate),
     UnitStruct(UnitStructEtherealSignatureTemplate),
     TupleStruct(TupleStructEtherealSignatureTemplate),
     Record(RecordEtherealSignatureTemplate),
@@ -61,11 +61,9 @@ impl HasEtherealSignatureTemplate for TypeDeclarativeSignatureTemplate {
     ) -> EtherealSignatureResult<Self::EtherealSignatureTemplate> {
         match self {
             TypeDeclarativeSignatureTemplate::Enum(_) => todo!(),
-            TypeDeclarativeSignatureTemplate::RegularStruct(signature_template) => {
-                signature_template
-                    .ethereal_signature_template(db)
-                    .map(Into::into)
-            }
+            TypeDeclarativeSignatureTemplate::PropsStruct(signature_template) => signature_template
+                .ethereal_signature_template(db)
+                .map(Into::into),
             TypeDeclarativeSignatureTemplate::UnitStruct(_) => todo!(),
             TypeDeclarativeSignatureTemplate::TupleStruct(_) => todo!(),
             TypeDeclarativeSignatureTemplate::Record(_) => todo!(),
@@ -81,7 +79,7 @@ impl HasEtherealSignatureTemplate for TypeDeclarativeSignatureTemplate {
 #[salsa::derive_debug_with_db(db = EtherealSignatureDb)]
 #[enum_class::from_variants]
 pub enum RegularFieldEtherealSignature {
-    RegularStruct(RegularStructFieldEtherealSignature),
+    PropsStruct(PropsStructFieldEtherealSignature),
 }
 
 pub trait HasRegularFieldEtherealSignature: Copy {
@@ -114,7 +112,7 @@ impl HasRegularFieldEtherealSignature for TypeEtherealSignatureTemplate {
     ) -> EtherealSignatureMaybeResult<RegularFieldEtherealSignature> {
         match self {
             TypeEtherealSignatureTemplate::Enum(_) => todo!(),
-            TypeEtherealSignatureTemplate::RegularStruct(signature_template) => {
+            TypeEtherealSignatureTemplate::PropsStruct(signature_template) => {
                 signature_template.regular_field_ethereal_signature(db, arguments, ident)
             }
             TypeEtherealSignatureTemplate::UnitStruct(_) => todo!(),
@@ -131,7 +129,7 @@ impl HasRegularFieldEtherealSignature for TypeEtherealSignatureTemplate {
 impl RegularFieldEtherealSignature {
     pub fn ty(self) -> EtherealTerm {
         match self {
-            RegularFieldEtherealSignature::RegularStruct(signature) => signature.ty(),
+            RegularFieldEtherealSignature::PropsStruct(signature) => signature.ty(),
         }
     }
 }

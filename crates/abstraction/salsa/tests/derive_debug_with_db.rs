@@ -3,7 +3,7 @@ struct A(usize, usize);
 
 #[salsa::derive_debug_with_db(db = Db, jar = Jar)]
 enum Enum {
-    RegularStructVariant { a: i32 },
+    PropsStructVariant { a: i32 },
     TupleStructVariant(usize),
     Dog,
 }
