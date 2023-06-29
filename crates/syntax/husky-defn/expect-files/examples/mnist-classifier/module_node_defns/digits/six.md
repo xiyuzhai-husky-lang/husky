@@ -1150,6 +1150,22 @@ Ok(
                                                         ),
                                                     ),
                                                 },
+                                                CallListItem {
+                                                    kind: KeyedArgument {
+                                                        key_token_idx: TokenIdx(
+                                                            95,
+                                                        ),
+                                                        key: Ident(
+                                                            Word(
+                                                                Id {
+                                                                    value: 443,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                    argument_expr_idx: 25,
+                                                    separator: None,
+                                                },
                                             ],
                                             rpar_token_idx: TokenIdx(
                                                 98,
@@ -1494,6 +1510,22 @@ Ok(
                                                         ),
                                                     ),
                                                 },
+                                                CallListItem {
+                                                    kind: KeyedArgument {
+                                                        key_token_idx: TokenIdx(
+                                                            163,
+                                                        ),
+                                                        key: Ident(
+                                                            Word(
+                                                                Id {
+                                                                    value: 443,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                    argument_expr_idx: 56,
+                                                    separator: None,
+                                                },
                                             ],
                                             rpar_token_idx: TokenIdx(
                                                 166,
@@ -1728,6 +1760,22 @@ Ok(
                                                         ),
                                                     ),
                                                 },
+                                                CallListItem {
+                                                    kind: KeyedArgument {
+                                                        key_token_idx: TokenIdx(
+                                                            202,
+                                                        ),
+                                                        key: Ident(
+                                                            Word(
+                                                                Id {
+                                                                    value: 443,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                    argument_expr_idx: 72,
+                                                    separator: None,
+                                                },
                                             ],
                                             rpar_token_idx: TokenIdx(
                                                 205,
@@ -1857,6 +1905,22 @@ Ok(
                                                             227,
                                                         ),
                                                     ),
+                                                },
+                                                CallListItem {
+                                                    kind: KeyedArgument {
+                                                        key_token_idx: TokenIdx(
+                                                            228,
+                                                        ),
+                                                        key: Ident(
+                                                            Word(
+                                                                Id {
+                                                                    value: 443,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                    argument_expr_idx: 84,
+                                                    separator: None,
                                                 },
                                             ],
                                             rpar_token_idx: TokenIdx(

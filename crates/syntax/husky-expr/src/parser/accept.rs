@@ -302,29 +302,52 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
     }
 
     fn accept_comma(&mut self, comma_token_idx: TokenIdx) {
-        let item = self.take_complete_expr().unwrap_or(Expr::Err(
-            OriginalExprError::ExpectedItemBeforeComma { comma_token_idx }.into(),
-        ));
-        let item = self.alloc_expr(item);
-        match self.last_incomplete_expr_mut() {
-            Some(expr) => match expr {
-                IncompleteExpr::CommaList {
-                    opr,
-                    bra,
-                    bra_token_idx,
-                    items,
-                } => items.push(CommaListItem {
-                    expr_idx: item,
-                    comma_token_idx: Some(comma_token_idx),
-                }),
-                IncompleteExpr::CallList { items, .. } => items.push(CallListItem {
-                    kind: CallListItemKind::Argument,
-                    separator: CallListSeparator::Comma(comma_token_idx),
-                    argument_expr_idx: item,
-                }),
-                _ => unreachable!(),
+        match self.take_complete_expr() {
+            Some(item) => {
+                let item = self.alloc_expr(item);
+                match self.last_incomplete_expr_mut() {
+                    Some(expr) => match expr {
+                        IncompleteExpr::CommaList {
+                            opr,
+                            bra,
+                            bra_token_idx,
+                            items,
+                        } => items.push(CommaListItem {
+                            expr_idx: item,
+                            comma_token_idx: Some(comma_token_idx),
+                        }),
+                        IncompleteExpr::CallList { items, .. } => items.push(CallListItem {
+                            kind: CallListItemKind::Argument,
+                            separator: CallListSeparator::Comma(comma_token_idx),
+                            argument_expr_idx: item,
+                        }),
+                        _ => unreachable!(),
+                    },
+                    None => unreachable!(),
+                }
+            }
+            None => match self.last_incomplete_expr_mut() {
+                Some(expr) => match expr {
+                    IncompleteExpr::CommaList {
+                        opr,
+                        bra,
+                        bra_token_idx,
+                        items,
+                    } => todo!(),
+                    IncompleteExpr::CallList { items, .. } => match items.last_mut() {
+                        Some(last_item) => match last_item.separator {
+                            CallListSeparator::None => {
+                                last_item.separator = CallListSeparator::Comma(comma_token_idx)
+                            }
+                            CallListSeparator::Comma(_) => todo!(),
+                            CallListSeparator::Semicolon(_) => todo!(),
+                        },
+                        None => todo!(),
+                    },
+                    _ => unreachable!(),
+                },
+                None => unreachable!(),
             },
-            None => unreachable!(),
         }
     }
 
