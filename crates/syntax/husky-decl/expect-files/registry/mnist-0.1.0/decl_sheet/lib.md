@@ -86,7 +86,7 @@ Ok(
                                 path: TypePath(`mnist::BinaryImage28`, `Struct`),
                                 implicit_parameters: [],
                                 fields: [
-                                    TupleStructFieldDeclPattern {
+                                    TupleFieldDeclPattern {
                                         decorators: [],
                                         visibility: None,
                                         ty: 3,

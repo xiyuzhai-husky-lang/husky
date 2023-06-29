@@ -15,7 +15,7 @@ Ok(
                                 path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                                 implicit_parameters: [],
                                 fields: [
-                                    PropFieldDeclPattern {
+                                    PropsFieldDeclPattern {
                                         decorators: [],
                                         visibility: None,
                                         ident_token: IdentToken {
@@ -32,7 +32,7 @@ Ok(
                                         ty_expr_idx: 0,
                                         initialization: None,
                                     },
-                                    PropFieldDeclPattern {
+                                    PropsFieldDeclPattern {
                                         decorators: [],
                                         visibility: None,
                                         ident_token: IdentToken {
@@ -49,7 +49,7 @@ Ok(
                                         ty_expr_idx: 1,
                                         initialization: None,
                                     },
-                                    PropFieldDeclPattern {
+                                    PropsFieldDeclPattern {
                                         decorators: [],
                                         visibility: None,
                                         ident_token: IdentToken {
@@ -66,7 +66,7 @@ Ok(
                                         ty_expr_idx: 2,
                                         initialization: None,
                                     },
-                                    PropFieldDeclPattern {
+                                    PropsFieldDeclPattern {
                                         decorators: [],
                                         visibility: None,
                                         ident_token: IdentToken {
@@ -327,7 +327,7 @@ Ok(
                                 path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                                 implicit_parameters: [],
                                 fields: [
-                                    PropFieldDeclPattern {
+                                    PropsFieldDeclPattern {
                                         decorators: [],
                                         visibility: None,
                                         ident_token: IdentToken {
@@ -703,7 +703,7 @@ Ok(
                                 path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                 implicit_parameters: [],
                                 fields: [
-                                    PropFieldDeclPattern {
+                                    PropsFieldDeclPattern {
                                         decorators: [],
                                         visibility: None,
                                         ident_token: IdentToken {

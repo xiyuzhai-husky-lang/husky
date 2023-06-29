@@ -12,7 +12,7 @@ pub struct PropsStructTypeNodeDecl {
     #[return_ref]
     lcurl: DeclExprResult<PropsStructLeftCurlyBrace>,
     #[return_ref]
-    fields: DeclExprResult<SeparatedSmallList<PropFieldDeclPattern, CommaToken, 4, DeclExprError>>,
+    fields: DeclExprResult<SeparatedSmallList<PropsFieldDeclPattern, CommaToken, 4, DeclExprError>>,
     #[return_ref]
     rcurl: DeclExprResult<PropsStructRightCurlyBraceToken>,
     pub expr_region: ExprRegion,
@@ -58,7 +58,7 @@ pub struct PropsStructTypeDecl {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterDeclPatterns,
     #[return_ref]
-    pub fields: SmallVec<[PropFieldDeclPattern; 4]>,
+    pub fields: SmallVec<[PropsFieldDeclPattern; 4]>,
     pub expr_region: ExprRegion,
 }
 

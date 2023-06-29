@@ -26,9 +26,9 @@ pub enum TermTypeExpectation {
 /// disambiguate between type itself (or template) and its instance or constructor
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum TypePathDisambiguation {
-    Ontology,
+    OntologyConstructor,
     /// if type is a unit struct, this will become an instance,
     ///
     /// otherwise constructor
-    Constructor,
+    InstanceConstructor,
 }

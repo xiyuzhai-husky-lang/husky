@@ -59,7 +59,11 @@ fn major_entity_declarative_tys(
         .map(|path| {
             (
                 path.into(),
-                entity_path_declarative_ty(db, TypePathDisambiguation::Ontology, path.into()),
+                entity_path_declarative_ty(
+                    db,
+                    TypePathDisambiguation::OntologyConstructor,
+                    path.into(),
+                ),
             )
         })
         .collect()

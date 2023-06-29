@@ -11,7 +11,7 @@ pub struct PropsTypeVariantNodeDecl {
     #[return_ref]
     lcurl: DeclExprResult<PropsTypeVariantLeftCurlyBrace>,
     #[return_ref]
-    fields: DeclExprResult<SeparatedSmallList<PropFieldDeclPattern, CommaToken, 4, DeclExprError>>,
+    fields: DeclExprResult<SeparatedSmallList<PropsFieldDeclPattern, CommaToken, 4, DeclExprError>>,
     #[return_ref]
     rcurl: DeclExprResult<PropsTypeVariantRightCurlyBraceToken>,
     pub expr_region: ExprRegion,

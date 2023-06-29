@@ -9,7 +9,7 @@ Ok(
                             path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                             implicit_parameters: [],
                             fields: [
-                                PropFieldDeclPattern {
+                                PropsFieldDeclPattern {
                                     decorators: [],
                                     visibility: None,
                                     ident_token: IdentToken {
@@ -26,7 +26,7 @@ Ok(
                                     ty_expr_idx: 1,
                                     initialization: None,
                                 },
-                                PropFieldDeclPattern {
+                                PropsFieldDeclPattern {
                                     decorators: [],
                                     visibility: None,
                                     ident_token: IdentToken {

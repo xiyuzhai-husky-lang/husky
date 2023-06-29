@@ -24,29 +24,22 @@ use smallvec::*;
 
 type SmallVecImpl<T> = SmallVec<[T; 2]>;
 
+// todo: remove unnecessary tracked functions
+// replace them by associated functions
 #[salsa::jar(db = DeclarativeSignatureDb)]
 pub struct DeclarativeSignatureJar(
     declarative_term_region,
     // type
     ty_declarative_signature_template,
     EnumDeclarativeSignatureTemplate,
-    enum_declarative_signature_template,
     UnitStructDeclarativeSignatureTemplate,
-    unit_struct_declarative_signature_template,
     TupleStructDeclarativeSignatureTemplate,
-    tuple_struct_declarative_signature_template,
     PropsStructDeclarativeSignatureTemplate,
-    regular_struct_declarative_signature_template,
     RecordDeclarativeSignatureTemplate,
-    record_declarative_signature_template,
     InductiveDeclarativeSignatureTemplate,
-    inductive_declarative_signature_template,
     StructureDeclarativeSignatureTemplate,
-    structure_declarative_signature_template,
     ExternDeclarativeSignatureTemplate,
-    extern_declarative_signature_template,
     UnionDeclarativeSignatureTemplate,
-    union_declarative_signature_template,
     // trait
     TraitDeclarativeSignatureTemplate,
     trai_declarative_signature_template,
@@ -67,7 +60,8 @@ pub struct DeclarativeSignatureJar(
     ty_impl_block_declarative_signature_template,
     TraitForTypeImplBlockDeclarativeSignatureTemplate,
     trai_for_ty_impl_block_declarative_signature_template,
-    // variant
+    // type variant
+    ty_variant_declarative_signature_template,
     UnitVariantDeclarativeSignatureTemplate,
     PropsTypeVariantDeclarativeSignatureTemplate,
     TupleTypeVariantDeclarativeSignatureTemplate,

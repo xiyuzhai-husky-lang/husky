@@ -132,8 +132,10 @@ impl<'a> ExprTypeEngine<'a> {
                         .map_err(|_| DerivedExprTermError::AmbiguousTypePath)?
                     {
                         ExprDisambiguation::TypePath(disambiguation) => Ok(match disambiguation {
-                            TypePathDisambiguation::Ontology => TermEntityPath::TypeOntology(path),
-                            TypePathDisambiguation::Constructor => {
+                            TypePathDisambiguation::OntologyConstructor => {
+                                TermEntityPath::TypeOntology(path)
+                            }
+                            TypePathDisambiguation::InstanceConstructor => {
                                 TermEntityPath::TypeInstance(path)
                             }
                         }

@@ -89,10 +89,10 @@ pub trait ExpectFluffyTerm: Into<ExpectationData> + Clone {
         terms: &FluffyTerms,
     ) -> TypePathDisambiguation {
         match self.final_destination_inner(db, terms) {
-            FinalDestination::Sort => TypePathDisambiguation::Ontology,
+            FinalDestination::Sort => TypePathDisambiguation::OntologyConstructor,
             FinalDestination::TypeOntology
             | FinalDestination::AnyOriginal
-            | FinalDestination::AnyDerived => TypePathDisambiguation::Constructor,
+            | FinalDestination::AnyDerived => TypePathDisambiguation::InstanceConstructor,
         }
     }
 

@@ -1,18 +1,18 @@
 mod r#enum;
 mod r#extern;
 mod inductive;
+mod props_struct;
 mod record;
-mod regular_struct;
 mod structure;
 mod tuple_struct;
 mod union;
 mod unit_struct;
 
 pub use self::inductive::*;
+pub use self::props_struct::*;
 pub use self::r#enum::*;
 pub use self::r#extern::*;
 pub use self::record::*;
-pub use self::regular_struct::*;
 pub use self::structure::*;
 pub use self::tuple_struct::*;
 pub use self::union::*;
@@ -86,25 +86,25 @@ pub(crate) fn ty_declarative_signature_template(
     path: TypePath,
 ) -> DeclarativeSignatureResult<TypeDeclarativeSignatureTemplate> {
     let decl = path.decl(db)?;
-    match decl {
-        TypeDecl::Enum(decl) => enum_declarative_signature_template(db, decl).map(Into::into),
+    Ok(match decl {
+        TypeDecl::Enum(decl) => EnumDeclarativeSignatureTemplate::from_decl(db, decl)?.into(),
         TypeDecl::PropsStruct(decl) => {
-            regular_struct_declarative_signature_template(db, decl).map(Into::into)
+            PropsStructDeclarativeSignatureTemplate::from_decl(db, decl)?.into()
         }
         TypeDecl::UnitStruct(decl) => {
-            unit_struct_declarative_signature_template(db, decl).map(Into::into)
+            UnitStructDeclarativeSignatureTemplate::from_decl(db, decl)?.into()
         }
         TypeDecl::TupleStruct(decl) => {
-            tuple_struct_declarative_signature_template(db, decl).map(Into::into)
+            TupleStructDeclarativeSignatureTemplate::from_decl(db, decl)?.into()
         }
-        TypeDecl::Record(decl) => record_declarative_signature_template(db, decl).map(Into::into),
+        TypeDecl::Record(decl) => RecordDeclarativeSignatureTemplate::from_decl(db, decl)?.into(),
         TypeDecl::Inductive(decl) => {
-            inductive_declarative_signature_template(db, decl).map(Into::into)
+            InductiveDeclarativeSignatureTemplate::from_decl(db, decl)?.into()
         }
         TypeDecl::Structure(decl) => {
-            structure_declarative_signature_template(db, decl).map(Into::into)
+            StructureDeclarativeSignatureTemplate::from_decl(db, decl)?.into()
         }
-        TypeDecl::Extern(decl) => extern_declarative_signature_template(db, decl).map(Into::into),
-        TypeDecl::Union(decl) => union_declarative_signature_template(db, decl).map(Into::into),
-    }
+        TypeDecl::Extern(decl) => ExternDeclarativeSignatureTemplate::from_decl(db, decl)?.into(),
+        TypeDecl::Union(decl) => UnionDeclarativeSignatureTemplate::from_decl(db, decl)?.into(),
+    })
 }

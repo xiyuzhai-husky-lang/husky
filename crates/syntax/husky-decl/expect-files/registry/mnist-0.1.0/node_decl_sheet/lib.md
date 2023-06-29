@@ -119,7 +119,7 @@ Ok(
                                 field_comma_list: Ok(
                                     SeparatedSmallList {
                                         elements: [
-                                            TupleStructFieldDeclPattern {
+                                            TupleFieldDeclPattern {
                                                 decorators: [],
                                                 visibility: None,
                                                 ty: 3,

@@ -4,17 +4,17 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
-pub struct PropFieldDeclPattern {
+pub struct PropsFieldDeclPattern {
     decorators: Vec<FieldDecorator>,
     visibility: Option<FieldVisibilityExpr>,
     ident_token: IdentToken,
     colon: ColonToken,
     ty_expr_idx: ExprIdx,
-    initialization: Option<PropFieldInitialization>,
+    initialization: Option<PropsFieldInitialization>,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum PropFieldInitialization {
+pub enum PropsFieldInitialization {
     Bind {
         colon_eq_token: ColonEqToken,
         value: ExprIdx,
@@ -22,7 +22,7 @@ pub enum PropFieldInitialization {
     Default {},
 }
 
-impl PropFieldDeclPattern {
+impl PropsFieldDeclPattern {
     pub fn ident(&self) -> Ident {
         self.ident_token.ident()
     }
@@ -36,7 +36,9 @@ impl PropFieldDeclPattern {
     }
 }
 
-impl<'a, 'b> parsec::TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for PropFieldDeclPattern {
+impl<'a, 'b> parsec::TryParseOptionalFromStream<ExprParseContext<'a, 'b>>
+    for PropsFieldDeclPattern
+{
     type Error = ExprError;
 
     fn try_parse_stream_optional_from_without_guaranteed_rollback(
@@ -55,7 +57,7 @@ impl<'a, 'b> parsec::TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for Pr
         );
         let initialization =
             if let Some(colon_eq_token) = ctx.try_parse_optional::<ColonEqToken>()? {
-                Some(PropFieldInitialization::Bind {
+                Some(PropsFieldInitialization::Bind {
                     colon_eq_token,
                     value: ctx.parse_expr_expected2(
                         None,
@@ -69,7 +71,7 @@ impl<'a, 'b> parsec::TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for Pr
                 None
             };
         let access_start = ctx.save_state().next_token_idx();
-        Ok(Some(PropFieldDeclPattern {
+        Ok(Some(PropsFieldDeclPattern {
             decorators,
             visibility,
             ident_token,

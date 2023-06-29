@@ -39,7 +39,7 @@ Ok(
                                 fields: Ok(
                                     SeparatedSmallList {
                                         elements: [
-                                            PropFieldDeclPattern {
+                                            PropsFieldDeclPattern {
                                                 decorators: [],
                                                 visibility: None,
                                                 ident_token: IdentToken {
@@ -62,7 +62,7 @@ Ok(
                                                 ty_expr_idx: 1,
                                                 initialization: None,
                                             },
-                                            PropFieldDeclPattern {
+                                            PropsFieldDeclPattern {
                                                 decorators: [],
                                                 visibility: None,
                                                 ident_token: IdentToken {
