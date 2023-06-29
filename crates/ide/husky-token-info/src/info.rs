@@ -1,7 +1,7 @@
 use crate::*;
 use husky_entity_path::EntityPath;
 use husky_entity_taxonomy::EntityKind;
-use husky_entity_tree::{UseExprIdx, UseExprRuleIdx, UseExprRuleState};
+use husky_entity_tree::{OnceUseRuleIdx, OnceUseRuleState, UseExprIdx};
 use husky_expr::{
     CurrentSymbolIdx, CurrentSymbolKind, ExprRegion, InheritedSymbolIdx, InheritedSymbolKind,
 };
@@ -31,8 +31,8 @@ pub enum TokenInfo {
     UseExprStar,
     UseExpr {
         use_expr_idx: UseExprIdx,
-        rule_idx: UseExprRuleIdx,
-        state: UseExprRuleState,
+        rule_idx: OnceUseRuleIdx,
+        state: OnceUseRuleState,
     },
     HtmlFunctionIdent,
     HtmlPropertyIdent,

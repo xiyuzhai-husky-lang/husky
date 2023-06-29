@@ -1742,15 +1742,15 @@ Ok(
                 ),
             ),
         ],
-        use_expr_rules: UseExprRules(
+        once_use_rules: OnceUseRules(
             [
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 21,
                     use_expr_idx: 1,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::fermi`,
                     ),
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
@@ -1763,21 +1763,21 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: UseExprRuleState::Resolved {
-                        original_symbol: EntitySymbol::CrateRoot {
-                            root_module_path: `mnist_classifier`,
-                        },
+                    state: OnceUseRuleState::Resolved {
+                        original_symbol: Some(
+                            EntitySymbol::CrateRoot {
+                                root_module_path: `mnist_classifier`,
+                            },
+                        ),
                     },
                 },
             ],
         ),
-        use_all_rules: UseAllRules(
+        use_all_rules: UseAllModuleSymbolsRules(
             [
-                UseAllRule {
-                    parent: KinshipedModulePath {
-                        kinship: Inside,
-                        path: `mnist_classifier`,
-                    },
+                UseAllModuleSymbolsRule {
+                    parent_module_path: `mnist_classifier`,
+                    is_same_crate: true,
                     ast_idx: 21,
                     use_expr_idx: 0,
                     visibility: Scope::PubUnder(

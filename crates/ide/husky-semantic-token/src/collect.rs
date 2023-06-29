@@ -1,5 +1,5 @@
 use husky_entity_taxonomy::{EntityKind, ModuleItemConnectionKind, ModuleItemKind, TypeKind};
-use husky_entity_tree::UseExprRuleState;
+use husky_entity_tree::OnceUseRuleState;
 use husky_expr::{CurrentSymbolKind, InheritedSymbolKind};
 
 use crate::*;
@@ -67,11 +67,10 @@ fn token_to_semantic_token(
             })
         }
         TokenInfo::UseExpr { state, .. } => match state {
-            UseExprRuleState::Unresolved => return None,
-            UseExprRuleState::Erroneous => return None,
-            UseExprRuleState::Resolved { original_symbol } => {
-                SemanticToken::Entity(original_symbol.path(db).entity_kind(db))
-            }
+            OnceUseRuleState::Resolved {
+                original_symbol: Some(original_symbol),
+            } => SemanticToken::Entity(original_symbol.path(db).entity_kind(db)),
+            _ => return None,
         },
         TokenInfo::UseExprStar => SemanticToken::Special,
         TokenInfo::HtmlFunctionIdent => SemanticToken::HtmlFunctionIdent,

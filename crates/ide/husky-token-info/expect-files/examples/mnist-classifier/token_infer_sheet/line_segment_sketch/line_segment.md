@@ -4,43 +4,47 @@ Ok(
             TokenInfo::None,
             TokenInfo::UseExpr {
                 use_expr_idx: 2,
-                rule_idx: UseExprRuleIdx(
+                rule_idx: OnceUseRuleIdx(
                     0,
                 ),
-                state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::CrateRoot {
-                        root_module_path: `mnist_classifier`,
-                    },
+                state: OnceUseRuleState::Resolved {
+                    original_symbol: Some(
+                        EntitySymbol::CrateRoot {
+                            root_module_path: `mnist_classifier`,
+                        },
+                    ),
                 },
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
                 use_expr_idx: 1,
-                rule_idx: UseExprRuleIdx(
+                rule_idx: OnceUseRuleIdx(
                     1,
                 ),
-                state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::Submodule {
-                        submodule_path: `mnist_classifier::geom2d`,
-                        node: SubmoduleNode {
-                            node_path: SubmoduleNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: `mnist_classifier::geom2d`,
-                                    disambiguator: 0,
+                state: OnceUseRuleState::Resolved {
+                    original_symbol: Some(
+                        EntitySymbol::Submodule {
+                            submodule_path: `mnist_classifier::geom2d`,
+                            node: SubmoduleNode {
+                                node_path: SubmoduleNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: `mnist_classifier::geom2d`,
+                                        disambiguator: 0,
+                                    },
+                                },
+                                visibility: Scope::PubUnder(
+                                    `mnist_classifier`,
+                                ),
+                                ast_idx: 13,
+                                ident_token: IdentToken {
+                                    ident: `geom2d`,
+                                    token_idx: TokenIdx(
+                                        5,
+                                    ),
                                 },
                             },
-                            visibility: Scope::PubUnder(
-                                `mnist_classifier`,
-                            ),
-                            ast_idx: 13,
-                            ident_token: IdentToken {
-                                ident: `geom2d`,
-                                token_idx: TokenIdx(
-                                    5,
-                                ),
-                            },
                         },
-                    },
+                    ),
                 },
             },
             TokenInfo::None,

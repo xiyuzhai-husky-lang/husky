@@ -70,7 +70,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 2;\n\ntoken_line_group_idx = 0\n\ntoken = Token::Ident(\n    `core`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 2,\n    rule_idx: UseExprRuleIdx(\n        0,\n    ),\n    state: UseExprRuleState::Erroneous,\n};\n\nuse\n",
+                                value: "\ntoken_idx = 2;\n\ntoken_line_group_idx = 0\n\ntoken = Token::Ident(\n    `core`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 2,\n    rule_idx: OnceUseRuleIdx(\n        0,\n    ),\n    state: OnceUseRuleState::Erroneous,\n};\n\nuse\n",
                             },
                         ),
                         range: Some(

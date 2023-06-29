@@ -1,7 +1,7 @@
 Ok(
     EntityTreePresheet {
         module_path: `mnist_classifier::digits::three`,
-        node_table: MajorEntityNodeTable {
+        major_entity_node_table: MajorEntityNodeTable {
             entries: [
                 EntityNodeEntry {
                     node: EntityNode::ModuleItem(
@@ -195,15 +195,15 @@ Ok(
                 },
             ],
         },
-        use_one_trackers: UseExprRules(
+        use_one_trackers: OnceUseRules(
             [
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 27,
                     use_expr_idx: 1,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::digits::three`,
                     ),
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::Super(
                             SuperToken {
                                 token_idx: TokenIdx(
@@ -216,11 +216,11 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: UseExprRuleState::Unresolved,
+                    state: OnceUseRuleState::Unresolved,
                 },
             ],
         ),
-        use_all_trackers: UseAllRules(
+        use_all_trackers: UseAllModuleSymbolsRules(
             [],
         ),
         use_expr_arena: Arena {

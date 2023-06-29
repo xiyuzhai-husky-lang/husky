@@ -21,7 +21,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `T`,
                                                 token_idx: TokenIdx(
-                                                    4,
+                                                    9,
                                                 ),
                                             },
                                             traits: None,
@@ -77,7 +77,7 @@ Ok(
                                                     CurrentSymbol {
                                                         modifier: Const,
                                                         access_start: TokenIdx(
-                                                            5,
+                                                            10,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ImplicitParameter {
@@ -85,7 +85,7 @@ Ok(
                                                                 ident_token: IdentToken {
                                                                     ident: `T`,
                                                                     token_idx: TokenIdx(
-                                                                        4,
+                                                                        9,
                                                                     ),
                                                                 },
                                                             },

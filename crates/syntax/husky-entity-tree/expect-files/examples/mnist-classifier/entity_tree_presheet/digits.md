@@ -1,7 +1,7 @@
 Ok(
     EntityTreePresheet {
         module_path: `mnist_classifier::digits`,
-        node_table: MajorEntityNodeTable {
+        major_entity_node_table: MajorEntityNodeTable {
             entries: [
                 EntityNodeEntry {
                     node: EntityNode::Submodule(
@@ -345,13 +345,13 @@ Ok(
                 },
             ],
         },
-        use_one_trackers: UseExprRules(
+        use_one_trackers: OnceUseRules(
             [
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 10,
                     use_expr_idx: 1,
                     visibility: Scope::Pub,
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `one`,
@@ -365,15 +365,15 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: UseExprRuleState::Unresolved,
+                    state: OnceUseRuleState::Unresolved,
                 },
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 11,
                     use_expr_idx: 4,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::digits`,
                     ),
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::SelfMod(
                             SelfModToken {
                                 token_idx: TokenIdx(
@@ -386,15 +386,15 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: UseExprRuleState::Unresolved,
+                    state: OnceUseRuleState::Unresolved,
                 },
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 12,
                     use_expr_idx: 7,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::digits`,
                     ),
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::SelfMod(
                             SelfModToken {
                                 token_idx: TokenIdx(
@@ -407,15 +407,15 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: UseExprRuleState::Unresolved,
+                    state: OnceUseRuleState::Unresolved,
                 },
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 13,
                     use_expr_idx: 10,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::digits`,
                     ),
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::SelfMod(
                             SelfModToken {
                                 token_idx: TokenIdx(
@@ -428,15 +428,15 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: UseExprRuleState::Unresolved,
+                    state: OnceUseRuleState::Unresolved,
                 },
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 14,
                     use_expr_idx: 13,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::digits`,
                     ),
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::SelfMod(
                             SelfModToken {
                                 token_idx: TokenIdx(
@@ -449,15 +449,15 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: UseExprRuleState::Unresolved,
+                    state: OnceUseRuleState::Unresolved,
                 },
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 15,
                     use_expr_idx: 16,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::digits`,
                     ),
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::SelfMod(
                             SelfModToken {
                                 token_idx: TokenIdx(
@@ -470,15 +470,15 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: UseExprRuleState::Unresolved,
+                    state: OnceUseRuleState::Unresolved,
                 },
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 16,
                     use_expr_idx: 19,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::digits`,
                     ),
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::SelfMod(
                             SelfModToken {
                                 token_idx: TokenIdx(
@@ -491,15 +491,15 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: UseExprRuleState::Unresolved,
+                    state: OnceUseRuleState::Unresolved,
                 },
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 17,
                     use_expr_idx: 22,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::digits`,
                     ),
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::SelfMod(
                             SelfModToken {
                                 token_idx: TokenIdx(
@@ -512,15 +512,15 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: UseExprRuleState::Unresolved,
+                    state: OnceUseRuleState::Unresolved,
                 },
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 18,
                     use_expr_idx: 25,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::digits`,
                     ),
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::SelfMod(
                             SelfModToken {
                                 token_idx: TokenIdx(
@@ -533,15 +533,15 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: UseExprRuleState::Unresolved,
+                    state: OnceUseRuleState::Unresolved,
                 },
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 19,
                     use_expr_idx: 27,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::digits`,
                     ),
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
@@ -554,11 +554,11 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: UseExprRuleState::Unresolved,
+                    state: OnceUseRuleState::Unresolved,
                 },
             ],
         ),
-        use_all_trackers: UseAllRules(
+        use_all_trackers: UseAllModuleSymbolsRules(
             [],
         ),
         use_expr_arena: Arena {

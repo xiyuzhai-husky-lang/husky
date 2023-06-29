@@ -5,10 +5,10 @@ Ok(
             TokenInfo::None,
             TokenInfo::UseExpr {
                 use_expr_idx: 2,
-                rule_idx: UseExprRuleIdx(
+                rule_idx: OnceUseRuleIdx(
                     0,
                 ),
-                state: UseExprRuleState::Erroneous,
+                state: OnceUseRuleState::Erroneous,
             },
             TokenInfo::None,
             TokenInfo::None,

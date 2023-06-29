@@ -91,6 +91,10 @@ where
         }
     }
 
+    pub(crate) fn crate_path(&self) -> CratePath {
+        self.crate_path
+    }
+
     pub(crate) fn crate_root(&self) -> ModulePath {
         self.crate_root
     }

@@ -8,13 +8,13 @@ Ok(
             [],
         ),
         impl_block_node_table: [],
-        use_expr_rules: UseExprRules(
+        once_use_rules: OnceUseRules(
             [
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 0,
                     use_expr_idx: 2,
                     visibility: Scope::Pub,
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `core`,
@@ -28,11 +28,11 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: UseExprRuleState::Erroneous,
+                    state: OnceUseRuleState::Erroneous,
                 },
             ],
         ),
-        use_all_rules: UseAllRules(
+        use_all_rules: UseAllModuleSymbolsRules(
             [],
         ),
         errors: [

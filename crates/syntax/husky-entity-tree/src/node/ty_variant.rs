@@ -40,7 +40,7 @@ impl TypeNodePath {
         self,
         db: &'a dyn EntityTreeDb,
     ) -> &'a [(Ident, TypeVariantNodePath, TypeVariantNode)] {
-        ty_variants(db, self)
+        ty_variant_nodes(db, self)
     }
 }
 
@@ -82,7 +82,7 @@ impl TypeVariantNode {
 }
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
-pub(crate) fn ty_variants(
+pub(crate) fn ty_variant_nodes(
     db: &dyn EntityTreeDb,
     ty_node_path: TypeNodePath,
 ) -> Vec<(Ident, TypeVariantNodePath, TypeVariantNode)> {
@@ -148,6 +148,7 @@ impl HasTypeVariantPaths for TypePath {
     }
 }
 
+/// guaranteed that each ident is unique
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub(crate) fn ty_variant_paths(
     db: &dyn EntityTreeDb,

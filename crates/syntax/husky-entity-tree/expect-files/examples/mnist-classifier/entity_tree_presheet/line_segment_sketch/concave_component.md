@@ -1,7 +1,7 @@
 Ok(
     EntityTreePresheet {
         module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-        node_table: MajorEntityNodeTable {
+        major_entity_node_table: MajorEntityNodeTable {
             entries: [
                 EntityNodeEntry {
                     node: EntityNode::ModuleItem(
@@ -73,15 +73,15 @@ Ok(
                 },
             ],
         },
-        use_one_trackers: UseExprRules(
+        use_one_trackers: OnceUseRules(
             [
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 69,
                     use_expr_idx: 2,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
@@ -94,15 +94,15 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: UseExprRuleState::Unresolved,
+                    state: OnceUseRuleState::Unresolved,
                 },
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 70,
                     use_expr_idx: 6,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
@@ -115,15 +115,15 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: UseExprRuleState::Unresolved,
+                    state: OnceUseRuleState::Unresolved,
                 },
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 71,
                     use_expr_idx: 10,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
@@ -136,15 +136,15 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: UseExprRuleState::Unresolved,
+                    state: OnceUseRuleState::Unresolved,
                 },
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 72,
                     use_expr_idx: 13,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
@@ -157,15 +157,15 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: UseExprRuleState::Unresolved,
+                    state: OnceUseRuleState::Unresolved,
                 },
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 73,
                     use_expr_idx: 15,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
@@ -178,11 +178,11 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: UseExprRuleState::Unresolved,
+                    state: OnceUseRuleState::Unresolved,
                 },
             ],
         ),
-        use_all_trackers: UseAllRules(
+        use_all_trackers: UseAllModuleSymbolsRules(
             [],
         ),
         use_expr_arena: Arena {

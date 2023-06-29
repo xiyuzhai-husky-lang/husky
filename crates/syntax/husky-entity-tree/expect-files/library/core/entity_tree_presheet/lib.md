@@ -1,7 +1,7 @@
 Ok(
     EntityTreePresheet {
         module_path: `core`,
-        node_table: MajorEntityNodeTable {
+        major_entity_node_table: MajorEntityNodeTable {
             entries: [
                 EntityNodeEntry {
                     node: EntityNode::Submodule(
@@ -575,10 +575,10 @@ Ok(
                 },
             ],
         },
-        use_one_trackers: UseExprRules(
+        use_one_trackers: OnceUseRules(
             [],
         ),
-        use_all_trackers: UseAllRules(
+        use_all_trackers: UseAllModuleSymbolsRules(
             [],
         ),
         use_expr_arena: Arena {

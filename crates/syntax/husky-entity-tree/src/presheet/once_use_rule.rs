@@ -4,35 +4,35 @@ use husky_word::Ident;
 
 #[derive(Debug, Default, PartialEq, Eq, Clone)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
-pub(crate) struct UseExprRules(Vec<UseExprRule>);
+pub(crate) struct OnceUseRules(Vec<OnceUseRule>);
 
-impl std::ops::Index<UseExprRuleIdx> for UseExprRules {
-    type Output = UseExprRule;
+impl std::ops::Index<OnceUseRuleIdx> for OnceUseRules {
+    type Output = OnceUseRule;
 
-    fn index(&self, index: UseExprRuleIdx) -> &Self::Output {
+    fn index(&self, index: OnceUseRuleIdx) -> &Self::Output {
         &self.0[index.0]
     }
 }
 
-impl std::ops::IndexMut<UseExprRuleIdx> for UseExprRules {
-    fn index_mut(&mut self, index: UseExprRuleIdx) -> &mut Self::Output {
+impl std::ops::IndexMut<OnceUseRuleIdx> for OnceUseRules {
+    fn index_mut(&mut self, index: OnceUseRuleIdx) -> &mut Self::Output {
         &mut self.0[index.0]
     }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct UseExprRuleIdx(usize);
+pub struct OnceUseRuleIdx(usize);
 
-impl UseExprRules {
-    pub(crate) fn push(&mut self, new_rule: UseExprRule) {
+impl OnceUseRules {
+    pub(crate) fn push(&mut self, new_rule: OnceUseRule) {
         self.0.push(new_rule)
     }
 
-    pub(crate) fn indexed_iter(&self) -> impl Iterator<Item = (UseExprRuleIdx, &UseExprRule)> {
+    pub(crate) fn indexed_iter(&self) -> impl Iterator<Item = (OnceUseRuleIdx, &OnceUseRule)> {
         self.0
             .iter()
             .enumerate()
-            .map(|(i, tracker)| (UseExprRuleIdx(i), tracker))
+            .map(|(i, tracker)| (OnceUseRuleIdx(i), tracker))
     }
 
     #[cfg(test)]
@@ -41,11 +41,11 @@ impl UseExprRules {
 
         for tracker in self.0.iter() {
             match tracker.state {
-                UseExprRuleState::Unresolved => {
+                OnceUseRuleState::Unresolved => {
                     p!(tracker.debug(db));
                     panic!()
                 }
-                UseExprRuleState::Resolved { .. } | UseExprRuleState::Erroneous => (),
+                OnceUseRuleState::Resolved { .. } | OnceUseRuleState::Erroneous => (),
             }
         }
     }
@@ -53,18 +53,18 @@ impl UseExprRules {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
-pub struct UseExprRule {
+pub struct OnceUseRule {
     ast_idx: AstIdx,
     use_expr_idx: UseExprIdx,
     visibility: Scope,
-    variant: UseExprRuleVariant,
+    variant: OnceUseRuleVariant,
     parent: Option<EntityPath>,
-    state: UseExprRuleState,
+    state: OnceUseRuleState,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
-pub enum UseExprRuleVariant {
+pub enum OnceUseRuleVariant {
     Parent {
         parent_name_token: PathNameToken,
         children: UseExprIdxRange,
@@ -72,17 +72,22 @@ pub enum UseExprRuleVariant {
     Leaf {
         ident_token: IdentToken,
     },
+    UseAllTypeVariants {
+        parent_ty_path: TypePath,
+    },
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
-pub enum UseExprRuleState {
+pub enum OnceUseRuleState {
     Unresolved,
-    Resolved { original_symbol: EntitySymbol },
+    Resolved {
+        original_symbol: Option<EntitySymbol>,
+    },
     Erroneous,
 }
 
-impl UseExprRule {
+impl OnceUseRule {
     pub fn new_root(
         ast_idx: AstIdx,
         use_expr_root: UseExprRoot,
@@ -101,8 +106,8 @@ impl UseExprRule {
             use_expr_idx: parent_use_expr_idx.into(),
             visibility: visibility_expr.visibility(),
             parent: None,
-            state: UseExprRuleState::Unresolved,
-            variant: UseExprRuleVariant::Parent {
+            state: OnceUseRuleState::Unresolved,
+            variant: OnceUseRuleVariant::Parent {
                 parent_name_token: *parent_name_token,
                 children: children.as_ref().ok()?.idx_range(),
             },
@@ -112,39 +117,45 @@ impl UseExprRule {
         &self,
         use_expr_idx: UseExprIdx,
         parent: EntityPath,
-        variant: UseExprRuleVariant,
+        variant: OnceUseRuleVariant,
     ) -> Self {
         Self {
             ast_idx: self.ast_idx,
             use_expr_idx,
             visibility: self.visibility,
             parent: Some(parent),
-            state: UseExprRuleState::Unresolved,
+            state: OnceUseRuleState::Unresolved,
             variant,
         }
     }
 
+    #[inline(always)]
     pub fn ast_idx(&self) -> AstIdx {
         self.ast_idx
     }
 
-    pub fn state(&self) -> UseExprRuleState {
+    #[inline(always)]
+    pub fn state(&self) -> OnceUseRuleState {
         self.state
     }
 
-    pub(crate) fn mark_as_resolved(&mut self, original_symbol: EntitySymbol) {
-        self.state = UseExprRuleState::Resolved { original_symbol }
+    #[inline(always)]
+    pub(crate) fn mark_as_resolved(&mut self, original_symbol: impl Into<Option<EntitySymbol>>) {
+        self.state = OnceUseRuleState::Resolved {
+            original_symbol: original_symbol.into(),
+        }
     }
 
+    #[inline(always)]
     pub(crate) fn is_unresolved(&self) -> bool {
-        self.state == UseExprRuleState::Unresolved
+        self.state == OnceUseRuleState::Unresolved
     }
 
     pub(crate) fn parent(&self) -> Option<EntityPath> {
         self.parent
     }
 
-    pub(crate) fn variant(&self) -> &UseExprRuleVariant {
+    pub(crate) fn variant(&self) -> &OnceUseRuleVariant {
         &self.variant
     }
 
@@ -158,7 +169,7 @@ impl UseExprRule {
     }
 
     pub(crate) fn mark_as_erroneous(&mut self) {
-        self.state = UseExprRuleState::Erroneous
+        self.state = OnceUseRuleState::Erroneous
     }
 
     pub fn use_expr_idx(&self) -> ArenaIdx<UseExpr> {
@@ -167,12 +178,26 @@ impl UseExprRule {
 
     pub(crate) fn ident(&self) -> Option<Ident> {
         match self.variant {
-            UseExprRuleVariant::Parent {
+            OnceUseRuleVariant::Parent {
                 parent_name_token: PathNameToken::Ident(ident_token),
                 ..
             }
-            | UseExprRuleVariant::Leaf { ident_token } => Some(ident_token.ident()),
+            | OnceUseRuleVariant::Leaf { ident_token } => Some(ident_token.ident()),
             _ => None,
         }
+    }
+}
+
+impl<'a> std::ops::Index<OnceUseRuleIdx> for EntityTreePresheetMut<'a> {
+    type Output = OnceUseRule;
+
+    fn index(&self, index: OnceUseRuleIdx) -> &Self::Output {
+        &self.once_use_rules[index]
+    }
+}
+
+impl<'a> std::ops::IndexMut<OnceUseRuleIdx> for EntityTreePresheetMut<'a> {
+    fn index_mut(&mut self, index: OnceUseRuleIdx) -> &mut Self::Output {
+        &mut self.once_use_rules[index]
     }
 }

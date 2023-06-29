@@ -1145,15 +1145,15 @@ Ok(
             ],
         ),
         impl_block_node_table: [],
-        use_expr_rules: UseExprRules(
+        once_use_rules: OnceUseRules(
             [
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 19,
                     use_expr_idx: 2,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
@@ -1166,19 +1166,21 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: UseExprRuleState::Resolved {
-                        original_symbol: EntitySymbol::CrateRoot {
-                            root_module_path: `mnist_classifier`,
-                        },
+                    state: OnceUseRuleState::Resolved {
+                        original_symbol: Some(
+                            EntitySymbol::CrateRoot {
+                                root_module_path: `mnist_classifier`,
+                            },
+                        ),
                     },
                 },
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 20,
                     use_expr_idx: 5,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
@@ -1191,19 +1193,21 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: UseExprRuleState::Resolved {
-                        original_symbol: EntitySymbol::CrateRoot {
-                            root_module_path: `mnist_classifier`,
-                        },
+                    state: OnceUseRuleState::Resolved {
+                        original_symbol: Some(
+                            EntitySymbol::CrateRoot {
+                                root_module_path: `mnist_classifier`,
+                            },
+                        ),
                     },
                 },
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 21,
                     use_expr_idx: 8,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
@@ -1216,19 +1220,21 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: UseExprRuleState::Resolved {
-                        original_symbol: EntitySymbol::CrateRoot {
-                            root_module_path: `mnist_classifier`,
-                        },
+                    state: OnceUseRuleState::Resolved {
+                        original_symbol: Some(
+                            EntitySymbol::CrateRoot {
+                                root_module_path: `mnist_classifier`,
+                            },
+                        ),
                     },
                 },
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 19,
                     use_expr_idx: 1,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `line_segment_sketch`,
@@ -1246,37 +1252,39 @@ Ok(
                             `mnist_classifier`,
                         ),
                     ),
-                    state: UseExprRuleState::Resolved {
-                        original_symbol: EntitySymbol::Submodule {
-                            submodule_path: `mnist_classifier::line_segment_sketch`,
-                            node: SubmoduleNode {
-                                node_path: SubmoduleNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: `mnist_classifier::line_segment_sketch`,
-                                        disambiguator: 0,
+                    state: OnceUseRuleState::Resolved {
+                        original_symbol: Some(
+                            EntitySymbol::Submodule {
+                                submodule_path: `mnist_classifier::line_segment_sketch`,
+                                node: SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `mnist_classifier::line_segment_sketch`,
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    visibility: Scope::PubUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 14,
+                                    ident_token: IdentToken {
+                                        ident: `line_segment_sketch`,
+                                        token_idx: TokenIdx(
+                                            7,
+                                        ),
                                     },
                                 },
-                                visibility: Scope::PubUnder(
-                                    `mnist_classifier`,
-                                ),
-                                ast_idx: 14,
-                                ident_token: IdentToken {
-                                    ident: `line_segment_sketch`,
-                                    token_idx: TokenIdx(
-                                        7,
-                                    ),
-                                },
                             },
-                        },
+                        ),
                     },
                 },
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 20,
                     use_expr_idx: 4,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `raw_contour`,
@@ -1294,37 +1302,39 @@ Ok(
                             `mnist_classifier`,
                         ),
                     ),
-                    state: UseExprRuleState::Resolved {
-                        original_symbol: EntitySymbol::Submodule {
-                            submodule_path: `mnist_classifier::raw_contour`,
-                            node: SubmoduleNode {
-                                node_path: SubmoduleNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: `mnist_classifier::raw_contour`,
-                                        disambiguator: 0,
+                    state: OnceUseRuleState::Resolved {
+                        original_symbol: Some(
+                            EntitySymbol::Submodule {
+                                submodule_path: `mnist_classifier::raw_contour`,
+                                node: SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `mnist_classifier::raw_contour`,
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    visibility: Scope::PubUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 12,
+                                    ident_token: IdentToken {
+                                        ident: `raw_contour`,
+                                        token_idx: TokenIdx(
+                                            3,
+                                        ),
                                     },
                                 },
-                                visibility: Scope::PubUnder(
-                                    `mnist_classifier`,
-                                ),
-                                ast_idx: 12,
-                                ident_token: IdentToken {
-                                    ident: `raw_contour`,
-                                    token_idx: TokenIdx(
-                                        3,
-                                    ),
-                                },
                             },
-                        },
+                        ),
                     },
                 },
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 21,
                     use_expr_idx: 7,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `geom2d`,
@@ -1342,39 +1352,39 @@ Ok(
                             `mnist_classifier`,
                         ),
                     ),
-                    state: UseExprRuleState::Resolved {
-                        original_symbol: EntitySymbol::Submodule {
-                            submodule_path: `mnist_classifier::geom2d`,
-                            node: SubmoduleNode {
-                                node_path: SubmoduleNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: `mnist_classifier::geom2d`,
-                                        disambiguator: 0,
+                    state: OnceUseRuleState::Resolved {
+                        original_symbol: Some(
+                            EntitySymbol::Submodule {
+                                submodule_path: `mnist_classifier::geom2d`,
+                                node: SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `mnist_classifier::geom2d`,
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    visibility: Scope::PubUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 13,
+                                    ident_token: IdentToken {
+                                        ident: `geom2d`,
+                                        token_idx: TokenIdx(
+                                            5,
+                                        ),
                                     },
                                 },
-                                visibility: Scope::PubUnder(
-                                    `mnist_classifier`,
-                                ),
-                                ast_idx: 13,
-                                ident_token: IdentToken {
-                                    ident: `geom2d`,
-                                    token_idx: TokenIdx(
-                                        5,
-                                    ),
-                                },
                             },
-                        },
+                        ),
                     },
                 },
             ],
         ),
-        use_all_rules: UseAllRules(
+        use_all_rules: UseAllModuleSymbolsRules(
             [
-                UseAllRule {
-                    parent: KinshipedModulePath {
-                        kinship: Inside,
-                        path: `mnist_classifier::line_segment_sketch`,
-                    },
+                UseAllModuleSymbolsRule {
+                    parent_module_path: `mnist_classifier::line_segment_sketch`,
+                    is_same_crate: true,
                     ast_idx: 19,
                     use_expr_idx: 0,
                     visibility: Scope::PubUnder(
@@ -1384,11 +1394,9 @@ Ok(
                         21,
                     ),
                 },
-                UseAllRule {
-                    parent: KinshipedModulePath {
-                        kinship: Inside,
-                        path: `mnist_classifier::raw_contour`,
-                    },
+                UseAllModuleSymbolsRule {
+                    parent_module_path: `mnist_classifier::raw_contour`,
+                    is_same_crate: true,
                     ast_idx: 20,
                     use_expr_idx: 3,
                     visibility: Scope::PubUnder(
@@ -1398,11 +1406,9 @@ Ok(
                         46,
                     ),
                 },
-                UseAllRule {
-                    parent: KinshipedModulePath {
-                        kinship: Inside,
-                        path: `mnist_classifier::geom2d`,
-                    },
+                UseAllModuleSymbolsRule {
+                    parent_module_path: `mnist_classifier::geom2d`,
+                    is_same_crate: true,
                     ast_idx: 21,
                     use_expr_idx: 6,
                     visibility: Scope::PubUnder(

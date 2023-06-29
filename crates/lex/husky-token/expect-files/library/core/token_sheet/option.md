@@ -5,6 +5,27 @@ Ok(
                 Keyword::Pub,
             ),
             Token::Keyword(
+                Keyword::Use,
+            ),
+            Token::Ident(
+                `Option`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        ScopeResolution,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Star,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
                 Keyword::TypeEntity(
                     Enum,
                 ),
@@ -61,10 +82,12 @@ Ok(
         ],
         group_starts: [
             0,
-            6,
+            5,
             11,
+            16,
         ],
         indents: [
+            0,
             0,
             0,
             0,

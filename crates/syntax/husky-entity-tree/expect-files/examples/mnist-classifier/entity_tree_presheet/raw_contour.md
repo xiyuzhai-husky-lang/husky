@@ -1,7 +1,7 @@
 Ok(
     EntityTreePresheet {
         module_path: `mnist_classifier::raw_contour`,
-        node_table: MajorEntityNodeTable {
+        major_entity_node_table: MajorEntityNodeTable {
             entries: [
                 EntityNodeEntry {
                     node: EntityNode::ModuleItem(
@@ -415,15 +415,15 @@ Ok(
                 },
             ],
         },
-        use_one_trackers: UseExprRules(
+        use_one_trackers: OnceUseRules(
             [
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 199,
                     use_expr_idx: 2,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::raw_contour`,
                     ),
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
@@ -436,15 +436,15 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: UseExprRuleState::Unresolved,
+                    state: OnceUseRuleState::Unresolved,
                 },
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 200,
                     use_expr_idx: 5,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::raw_contour`,
                     ),
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
@@ -457,15 +457,15 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: UseExprRuleState::Unresolved,
+                    state: OnceUseRuleState::Unresolved,
                 },
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 201,
                     use_expr_idx: 8,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::raw_contour`,
                     ),
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
@@ -478,15 +478,15 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: UseExprRuleState::Unresolved,
+                    state: OnceUseRuleState::Unresolved,
                 },
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 202,
                     use_expr_idx: 10,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::raw_contour`,
                     ),
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
@@ -499,11 +499,11 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: UseExprRuleState::Unresolved,
+                    state: OnceUseRuleState::Unresolved,
                 },
             ],
         ),
-        use_all_trackers: UseAllRules(
+        use_all_trackers: UseAllModuleSymbolsRules(
             [],
         ),
         use_expr_arena: Arena {

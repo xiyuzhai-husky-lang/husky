@@ -1,7 +1,7 @@
 Ok(
     EntityTreePresheet {
         module_path: `core::option`,
-        node_table: MajorEntityNodeTable {
+        major_entity_node_table: MajorEntityNodeTable {
             entries: [
                 EntityNodeEntry {
                     node: EntityNode::ModuleItem(
@@ -15,11 +15,11 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 2,
+                            ast_idx: 3,
                             ident_token: IdentToken {
                                 ident: `Option`,
                                 token_idx: TokenIdx(
-                                    2,
+                                    7,
                                 ),
                             },
                         },
@@ -39,14 +39,67 @@ Ok(
                 },
             ],
         },
-        use_one_trackers: UseExprRules(
-            [],
+        use_one_trackers: OnceUseRules(
+            [
+                OnceUseRule {
+                    ast_idx: 2,
+                    use_expr_idx: 1,
+                    visibility: Scope::Pub,
+                    variant: OnceUseRuleVariant::Parent {
+                        parent_name_token: PathNameToken::Ident(
+                            IdentToken {
+                                ident: `Option`,
+                                token_idx: TokenIdx(
+                                    2,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
+                            0..1,
+                        ),
+                    },
+                    parent: None,
+                    state: OnceUseRuleState::Unresolved,
+                },
+            ],
         ),
-        use_all_trackers: UseAllRules(
+        use_all_trackers: UseAllModuleSymbolsRules(
             [],
         ),
         use_expr_arena: Arena {
-            data: [],
+            data: [
+                UseExpr::All {
+                    star_token: StarToken(
+                        TokenIdx(
+                            4,
+                        ),
+                    ),
+                },
+                UseExpr::Parent(
+                    ParentUseExpr {
+                        parent_name_token: PathNameToken::Ident(
+                            IdentToken {
+                                ident: `Option`,
+                                token_idx: TokenIdx(
+                                    2,
+                                ),
+                            },
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    3,
+                                ),
+                            ),
+                        ),
+                        children: Ok(
+                            UseExprChildren::Single {
+                                child: 0,
+                            },
+                        ),
+                    },
+                ),
+            ],
         },
         errors: [],
     },

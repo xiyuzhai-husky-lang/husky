@@ -158,7 +158,7 @@ impl<'a> EntityTreeCollector<'a> {
                 path_name_token: name_token,
                 symbol,
             } => self.presheets[module_path].resolve_use_expr(db, rule_idx, name_token, symbol),
-            PresheetAction::UpdateUseAll {
+            PresheetAction::UpdateUseAllFromModuleRule {
                 module_path,
                 rule_idx,
             } => {
@@ -166,7 +166,8 @@ impl<'a> EntityTreeCollector<'a> {
                 let progress = rule
                     .progress()
                     .expect("should be okay otherwise there shouldn't be an action");
-                let parent_symbols = match rule.parent().module_symbols(db, &self.presheets) {
+                let parent_symbols = match rule.parent_module_specific_symbols(db, &self.presheets)
+                {
                     Ok(parent_symbols) => parent_symbols.data(),
                     Err(e) => {
                         self.presheets[module_path].mark_use_all_rule_as_erroneous(rule_idx, e);
@@ -180,13 +181,34 @@ impl<'a> EntityTreeCollector<'a> {
                     .filter_map(|entry| entry.export_via_use_all(db, module_path, rule))
                     .collect();
                 let progress = parent_symbols.len();
-                self.presheets[module_path].update_use_all(rule_idx, new_uses, progress)
+                self.presheets[module_path].update_module_use_all_rule(rule_idx, new_uses, progress)
+            }
+            PresheetAction::UseAllTypeVariants {
+                module_path,
+                rule_idx,
+                parent_ty_path,
+            } => {
+                let entity_tree_presheet = &mut self.presheets[module_path];
+                let new_uses: Vec<EntitySymbolEntry> = parent_ty_path
+                    .ty_variant_paths(db)
+                    .iter()
+                    .copied()
+                    .map(|(ident, ty_variant_path)| {
+                        EntitySymbolEntry::new_use_ty_variant_entry(
+                            db,
+                            &entity_tree_presheet[rule_idx],
+                            ident,
+                            ty_variant_path,
+                        )
+                    })
+                    .collect();
+                entity_tree_presheet.update_use_all_ty_variants_rule(rule_idx, new_uses)
             }
             PresheetAction::Err {
                 module_path,
                 rule_idx,
                 error,
-            } => self.presheets[module_path].mark_use_expr_rule_as_erroneous(rule_idx, error),
+            } => self.presheets[module_path].mark_once_use_rule_as_erroneous(rule_idx, error),
         }
     }
 }

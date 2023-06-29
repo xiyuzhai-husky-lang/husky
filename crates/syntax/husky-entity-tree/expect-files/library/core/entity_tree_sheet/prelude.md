@@ -1179,13 +1179,13 @@ Ok(
             ],
         ),
         impl_block_node_table: [],
-        use_expr_rules: UseExprRules(
+        once_use_rules: OnceUseRules(
             [
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 0,
                     use_expr_idx: 2,
                     visibility: Scope::Pub,
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
@@ -1198,17 +1198,19 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: UseExprRuleState::Resolved {
-                        original_symbol: EntitySymbol::CrateRoot {
-                            root_module_path: `core`,
-                        },
+                    state: OnceUseRuleState::Resolved {
+                        original_symbol: Some(
+                            EntitySymbol::CrateRoot {
+                                root_module_path: `core`,
+                            },
+                        ),
                     },
                 },
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 1,
                     use_expr_idx: 5,
                     visibility: Scope::Pub,
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
@@ -1221,17 +1223,19 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: UseExprRuleState::Resolved {
-                        original_symbol: EntitySymbol::CrateRoot {
-                            root_module_path: `core`,
-                        },
+                    state: OnceUseRuleState::Resolved {
+                        original_symbol: Some(
+                            EntitySymbol::CrateRoot {
+                                root_module_path: `core`,
+                            },
+                        ),
                     },
                 },
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 2,
                     use_expr_idx: 8,
                     visibility: Scope::Pub,
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
@@ -1244,17 +1248,19 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: UseExprRuleState::Resolved {
-                        original_symbol: EntitySymbol::CrateRoot {
-                            root_module_path: `core`,
-                        },
+                    state: OnceUseRuleState::Resolved {
+                        original_symbol: Some(
+                            EntitySymbol::CrateRoot {
+                                root_module_path: `core`,
+                            },
+                        ),
                     },
                 },
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 3,
                     use_expr_idx: 11,
                     visibility: Scope::Pub,
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
@@ -1267,17 +1273,19 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: UseExprRuleState::Resolved {
-                        original_symbol: EntitySymbol::CrateRoot {
-                            root_module_path: `core`,
-                        },
+                    state: OnceUseRuleState::Resolved {
+                        original_symbol: Some(
+                            EntitySymbol::CrateRoot {
+                                root_module_path: `core`,
+                            },
+                        ),
                     },
                 },
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 4,
                     use_expr_idx: 14,
                     visibility: Scope::Pub,
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
@@ -1290,17 +1298,19 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: UseExprRuleState::Resolved {
-                        original_symbol: EntitySymbol::CrateRoot {
-                            root_module_path: `core`,
-                        },
+                    state: OnceUseRuleState::Resolved {
+                        original_symbol: Some(
+                            EntitySymbol::CrateRoot {
+                                root_module_path: `core`,
+                            },
+                        ),
                     },
                 },
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 5,
                     use_expr_idx: 17,
                     visibility: Scope::Pub,
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
@@ -1313,17 +1323,19 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: UseExprRuleState::Resolved {
-                        original_symbol: EntitySymbol::CrateRoot {
-                            root_module_path: `core`,
-                        },
+                    state: OnceUseRuleState::Resolved {
+                        original_symbol: Some(
+                            EntitySymbol::CrateRoot {
+                                root_module_path: `core`,
+                            },
+                        ),
                     },
                 },
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 6,
                     use_expr_idx: 20,
                     visibility: Scope::Pub,
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
@@ -1336,17 +1348,19 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: UseExprRuleState::Resolved {
-                        original_symbol: EntitySymbol::CrateRoot {
-                            root_module_path: `core`,
-                        },
+                    state: OnceUseRuleState::Resolved {
+                        original_symbol: Some(
+                            EntitySymbol::CrateRoot {
+                                root_module_path: `core`,
+                            },
+                        ),
                     },
                 },
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 7,
                     use_expr_idx: 23,
                     visibility: Scope::Pub,
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
@@ -1359,17 +1373,19 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: UseExprRuleState::Resolved {
-                        original_symbol: EntitySymbol::CrateRoot {
-                            root_module_path: `core`,
-                        },
+                    state: OnceUseRuleState::Resolved {
+                        original_symbol: Some(
+                            EntitySymbol::CrateRoot {
+                                root_module_path: `core`,
+                            },
+                        ),
                     },
                 },
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 0,
                     use_expr_idx: 1,
                     visibility: Scope::Pub,
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `basic`,
@@ -1387,33 +1403,35 @@ Ok(
                             `core`,
                         ),
                     ),
-                    state: UseExprRuleState::Resolved {
-                        original_symbol: EntitySymbol::Submodule {
-                            submodule_path: `core::basic`,
-                            node: SubmoduleNode {
-                                node_path: SubmoduleNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: `core::basic`,
-                                        disambiguator: 0,
+                    state: OnceUseRuleState::Resolved {
+                        original_symbol: Some(
+                            EntitySymbol::Submodule {
+                                submodule_path: `core::basic`,
+                                node: SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `core::basic`,
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    visibility: Scope::Pub,
+                                    ast_idx: 1,
+                                    ident_token: IdentToken {
+                                        ident: `basic`,
+                                        token_idx: TokenIdx(
+                                            5,
+                                        ),
                                     },
                                 },
-                                visibility: Scope::Pub,
-                                ast_idx: 1,
-                                ident_token: IdentToken {
-                                    ident: `basic`,
-                                    token_idx: TokenIdx(
-                                        5,
-                                    ),
-                                },
                             },
-                        },
+                        ),
                     },
                 },
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 1,
                     use_expr_idx: 4,
                     visibility: Scope::Pub,
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `num`,
@@ -1431,33 +1449,35 @@ Ok(
                             `core`,
                         ),
                     ),
-                    state: UseExprRuleState::Resolved {
-                        original_symbol: EntitySymbol::Submodule {
-                            submodule_path: `core::num`,
-                            node: SubmoduleNode {
-                                node_path: SubmoduleNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: `core::num`,
-                                        disambiguator: 0,
+                    state: OnceUseRuleState::Resolved {
+                        original_symbol: Some(
+                            EntitySymbol::Submodule {
+                                submodule_path: `core::num`,
+                                node: SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `core::num`,
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    visibility: Scope::Pub,
+                                    ast_idx: 10,
+                                    ident_token: IdentToken {
+                                        ident: `num`,
+                                        token_idx: TokenIdx(
+                                            32,
+                                        ),
                                     },
                                 },
-                                visibility: Scope::Pub,
-                                ast_idx: 10,
-                                ident_token: IdentToken {
-                                    ident: `num`,
-                                    token_idx: TokenIdx(
-                                        32,
-                                    ),
-                                },
                             },
-                        },
+                        ),
                     },
                 },
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 2,
                     use_expr_idx: 7,
                     visibility: Scope::Pub,
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `raw_bits`,
@@ -1475,33 +1495,35 @@ Ok(
                             `core`,
                         ),
                     ),
-                    state: UseExprRuleState::Resolved {
-                        original_symbol: EntitySymbol::Submodule {
-                            submodule_path: `core::raw_bits`,
-                            node: SubmoduleNode {
-                                node_path: SubmoduleNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: `core::raw_bits`,
-                                        disambiguator: 0,
+                    state: OnceUseRuleState::Resolved {
+                        original_symbol: Some(
+                            EntitySymbol::Submodule {
+                                submodule_path: `core::raw_bits`,
+                                node: SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `core::raw_bits`,
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    visibility: Scope::Pub,
+                                    ast_idx: 14,
+                                    ident_token: IdentToken {
+                                        ident: `raw_bits`,
+                                        token_idx: TokenIdx(
+                                            44,
+                                        ),
                                     },
                                 },
-                                visibility: Scope::Pub,
-                                ast_idx: 14,
-                                ident_token: IdentToken {
-                                    ident: `raw_bits`,
-                                    token_idx: TokenIdx(
-                                        44,
-                                    ),
-                                },
                             },
-                        },
+                        ),
                     },
                 },
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 3,
                     use_expr_idx: 10,
                     visibility: Scope::Pub,
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `fmt`,
@@ -1519,33 +1541,35 @@ Ok(
                             `core`,
                         ),
                     ),
-                    state: UseExprRuleState::Resolved {
-                        original_symbol: EntitySymbol::Submodule {
-                            submodule_path: `core::fmt`,
-                            node: SubmoduleNode {
-                                node_path: SubmoduleNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: `core::fmt`,
-                                        disambiguator: 0,
+                    state: OnceUseRuleState::Resolved {
+                        original_symbol: Some(
+                            EntitySymbol::Submodule {
+                                submodule_path: `core::fmt`,
+                                node: SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `core::fmt`,
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    visibility: Scope::Pub,
+                                    ast_idx: 5,
+                                    ident_token: IdentToken {
+                                        ident: `fmt`,
+                                        token_idx: TokenIdx(
+                                            17,
+                                        ),
                                     },
                                 },
-                                visibility: Scope::Pub,
-                                ast_idx: 5,
-                                ident_token: IdentToken {
-                                    ident: `fmt`,
-                                    token_idx: TokenIdx(
-                                        17,
-                                    ),
-                                },
                             },
-                        },
+                        ),
                     },
                 },
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 4,
                     use_expr_idx: 13,
                     visibility: Scope::Pub,
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `visual`,
@@ -1563,33 +1587,35 @@ Ok(
                             `core`,
                         ),
                     ),
-                    state: UseExprRuleState::Resolved {
-                        original_symbol: EntitySymbol::Submodule {
-                            submodule_path: `core::visual`,
-                            node: SubmoduleNode {
-                                node_path: SubmoduleNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: `core::visual`,
-                                        disambiguator: 0,
+                    state: OnceUseRuleState::Resolved {
+                        original_symbol: Some(
+                            EntitySymbol::Submodule {
+                                submodule_path: `core::visual`,
+                                node: SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `core::visual`,
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    visibility: Scope::Pub,
+                                    ast_idx: 18,
+                                    ident_token: IdentToken {
+                                        ident: `visual`,
+                                        token_idx: TokenIdx(
+                                            56,
+                                        ),
                                     },
                                 },
-                                visibility: Scope::Pub,
-                                ast_idx: 18,
-                                ident_token: IdentToken {
-                                    ident: `visual`,
-                                    token_idx: TokenIdx(
-                                        56,
-                                    ),
-                                },
                             },
-                        },
+                        ),
                     },
                 },
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 5,
                     use_expr_idx: 16,
                     visibility: Scope::Pub,
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `marker`,
@@ -1607,33 +1633,35 @@ Ok(
                             `core`,
                         ),
                     ),
-                    state: UseExprRuleState::Resolved {
-                        original_symbol: EntitySymbol::Submodule {
-                            submodule_path: `core::marker`,
-                            node: SubmoduleNode {
-                                node_path: SubmoduleNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: `core::marker`,
-                                        disambiguator: 0,
+                    state: OnceUseRuleState::Resolved {
+                        original_symbol: Some(
+                            EntitySymbol::Submodule {
+                                submodule_path: `core::marker`,
+                                node: SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `core::marker`,
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    visibility: Scope::Pub,
+                                    ast_idx: 8,
+                                    ident_token: IdentToken {
+                                        ident: `marker`,
+                                        token_idx: TokenIdx(
+                                            26,
+                                        ),
                                     },
                                 },
-                                visibility: Scope::Pub,
-                                ast_idx: 8,
-                                ident_token: IdentToken {
-                                    ident: `marker`,
-                                    token_idx: TokenIdx(
-                                        26,
-                                    ),
-                                },
                             },
-                        },
+                        ),
                     },
                 },
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 6,
                     use_expr_idx: 19,
                     visibility: Scope::Pub,
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `clone`,
@@ -1651,33 +1679,35 @@ Ok(
                             `core`,
                         ),
                     ),
-                    state: UseExprRuleState::Resolved {
-                        original_symbol: EntitySymbol::Submodule {
-                            submodule_path: `core::clone`,
-                            node: SubmoduleNode {
-                                node_path: SubmoduleNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: `core::clone`,
-                                        disambiguator: 0,
+                    state: OnceUseRuleState::Resolved {
+                        original_symbol: Some(
+                            EntitySymbol::Submodule {
+                                submodule_path: `core::clone`,
+                                node: SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `core::clone`,
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    visibility: Scope::Pub,
+                                    ast_idx: 2,
+                                    ident_token: IdentToken {
+                                        ident: `clone`,
+                                        token_idx: TokenIdx(
+                                            8,
+                                        ),
                                     },
                                 },
-                                visibility: Scope::Pub,
-                                ast_idx: 2,
-                                ident_token: IdentToken {
-                                    ident: `clone`,
-                                    token_idx: TokenIdx(
-                                        8,
-                                    ),
-                                },
                             },
-                        },
+                        ),
                     },
                 },
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 7,
                     use_expr_idx: 22,
                     visibility: Scope::Pub,
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `cmp`,
@@ -1695,37 +1725,37 @@ Ok(
                             `core`,
                         ),
                     ),
-                    state: UseExprRuleState::Resolved {
-                        original_symbol: EntitySymbol::Submodule {
-                            submodule_path: `core::cmp`,
-                            node: SubmoduleNode {
-                                node_path: SubmoduleNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: `core::cmp`,
-                                        disambiguator: 0,
+                    state: OnceUseRuleState::Resolved {
+                        original_symbol: Some(
+                            EntitySymbol::Submodule {
+                                submodule_path: `core::cmp`,
+                                node: SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `core::cmp`,
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    visibility: Scope::Pub,
+                                    ast_idx: 3,
+                                    ident_token: IdentToken {
+                                        ident: `cmp`,
+                                        token_idx: TokenIdx(
+                                            11,
+                                        ),
                                     },
                                 },
-                                visibility: Scope::Pub,
-                                ast_idx: 3,
-                                ident_token: IdentToken {
-                                    ident: `cmp`,
-                                    token_idx: TokenIdx(
-                                        11,
-                                    ),
-                                },
                             },
-                        },
+                        ),
                     },
                 },
             ],
         ),
-        use_all_rules: UseAllRules(
+        use_all_rules: UseAllModuleSymbolsRules(
             [
-                UseAllRule {
-                    parent: KinshipedModulePath {
-                        kinship: Inside,
-                        path: `core::basic`,
-                    },
+                UseAllModuleSymbolsRule {
+                    parent_module_path: `core::basic`,
+                    is_same_crate: true,
                     ast_idx: 0,
                     use_expr_idx: 0,
                     visibility: Scope::Pub,
@@ -1733,11 +1763,9 @@ Ok(
                         5,
                     ),
                 },
-                UseAllRule {
-                    parent: KinshipedModulePath {
-                        kinship: Inside,
-                        path: `core::num`,
-                    },
+                UseAllModuleSymbolsRule {
+                    parent_module_path: `core::num`,
+                    is_same_crate: true,
                     ast_idx: 1,
                     use_expr_idx: 3,
                     visibility: Scope::Pub,
@@ -1745,11 +1773,9 @@ Ok(
                         15,
                     ),
                 },
-                UseAllRule {
-                    parent: KinshipedModulePath {
-                        kinship: Inside,
-                        path: `core::raw_bits`,
-                    },
+                UseAllModuleSymbolsRule {
+                    parent_module_path: `core::raw_bits`,
+                    is_same_crate: true,
                     ast_idx: 2,
                     use_expr_idx: 6,
                     visibility: Scope::Pub,
@@ -1757,11 +1783,9 @@ Ok(
                         1,
                     ),
                 },
-                UseAllRule {
-                    parent: KinshipedModulePath {
-                        kinship: Inside,
-                        path: `core::fmt`,
-                    },
+                UseAllModuleSymbolsRule {
+                    parent_module_path: `core::fmt`,
+                    is_same_crate: true,
                     ast_idx: 3,
                     use_expr_idx: 9,
                     visibility: Scope::Pub,
@@ -1769,11 +1793,9 @@ Ok(
                         1,
                     ),
                 },
-                UseAllRule {
-                    parent: KinshipedModulePath {
-                        kinship: Inside,
-                        path: `core::visual`,
-                    },
+                UseAllModuleSymbolsRule {
+                    parent_module_path: `core::visual`,
+                    is_same_crate: true,
                     ast_idx: 4,
                     use_expr_idx: 12,
                     visibility: Scope::Pub,
@@ -1781,11 +1803,9 @@ Ok(
                         2,
                     ),
                 },
-                UseAllRule {
-                    parent: KinshipedModulePath {
-                        kinship: Inside,
-                        path: `core::marker`,
-                    },
+                UseAllModuleSymbolsRule {
+                    parent_module_path: `core::marker`,
+                    is_same_crate: true,
                     ast_idx: 5,
                     use_expr_idx: 15,
                     visibility: Scope::Pub,
@@ -1793,11 +1813,9 @@ Ok(
                         2,
                     ),
                 },
-                UseAllRule {
-                    parent: KinshipedModulePath {
-                        kinship: Inside,
-                        path: `core::clone`,
-                    },
+                UseAllModuleSymbolsRule {
+                    parent_module_path: `core::clone`,
+                    is_same_crate: true,
                     ast_idx: 6,
                     use_expr_idx: 18,
                     visibility: Scope::Pub,
@@ -1805,11 +1823,9 @@ Ok(
                         1,
                     ),
                 },
-                UseAllRule {
-                    parent: KinshipedModulePath {
-                        kinship: Inside,
-                        path: `core::cmp`,
-                    },
+                UseAllModuleSymbolsRule {
+                    parent_module_path: `core::cmp`,
+                    is_same_crate: true,
                     ast_idx: 7,
                     use_expr_idx: 21,
                     visibility: Scope::Pub,

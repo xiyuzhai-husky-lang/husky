@@ -1,9 +1,9 @@
 mod action;
-mod use_all_rule;
-mod use_expr_rule;
+mod module_use_all_rule;
+mod once_use_rule;
 
-pub use use_all_rule::*;
-pub use use_expr_rule::*;
+pub use module_use_all_rule::*;
+pub use once_use_rule::*;
 
 pub(crate) use action::*;
 
@@ -30,9 +30,9 @@ fn entity_tree_presheet_works() {
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub struct EntityTreePresheet {
     module_path: ModulePath,
-    node_table: MajorEntityNodeTable,
-    use_one_trackers: UseExprRules,
-    use_all_trackers: UseAllRules,
+    major_entity_node_table: MajorEntityNodeTable,
+    use_one_trackers: OnceUseRules,
+    use_all_trackers: UseAllModuleSymbolsRules,
     use_expr_arena: UseExprArena,
     errors: Vec<EntityTreeError>,
 }
@@ -52,13 +52,17 @@ impl EntityTreePresheet {
     ) -> EntityTreePresheetMut<'a> {
         EntityTreePresheetMut {
             module_path: self.module_path,
-            node_table: self.node_table.clone(),
-            symbol_table: self.node_table.entity_symbol_table(db),
-            use_expr_rules: self.use_one_trackers.clone(),
-            use_all_rules: self.use_all_trackers.clone(),
+            node_table: self.major_entity_node_table.clone(),
+            symbol_table: self.major_entity_node_table.entity_symbol_table(db),
+            once_use_rules: self.use_one_trackers.clone(),
+            all_module_items_use_rules: self.use_all_trackers.clone(),
             errors: self.errors.clone(),
             use_expr_arena: &self.use_expr_arena,
         }
+    }
+
+    pub(crate) fn major_entity_node(&self, node_path: EntityNodePath) -> Option<EntityNode> {
+        self.major_entity_node_table.node(node_path)
     }
 }
 
@@ -67,8 +71,8 @@ pub(crate) struct EntityTreePresheetMut<'a> {
     module_path: ModulePath,
     node_table: MajorEntityNodeTable,
     symbol_table: EntitySymbolTable,
-    use_expr_rules: UseExprRules,
-    use_all_rules: UseAllRules,
+    once_use_rules: OnceUseRules,
+    all_module_items_use_rules: UseAllModuleSymbolsRules,
     errors: Vec<EntityTreeError>,
     use_expr_arena: &'a UseExprArena,
 }
@@ -91,8 +95,8 @@ impl<'a> EntityTreePresheetMut<'a> {
             self.module_path,
             self.node_table,
             self.symbol_table,
-            self.use_expr_rules,
-            self.use_all_rules,
+            self.once_use_rules,
+            self.all_module_items_use_rules,
             self.errors,
             impl_block_node_table,
         )
@@ -100,12 +104,12 @@ impl<'a> EntityTreePresheetMut<'a> {
 
     #[cfg(test)]
     pub(crate) fn check_done(&self, db: &dyn EntityTreeDb) {
-        self.use_expr_rules.check_done(db)
+        self.once_use_rules.check_done(db)
     }
 
     #[cfg(test)]
-    pub(crate) fn use_all_rules(&self) -> &UseAllRules {
-        &self.use_all_rules
+    pub(crate) fn use_all_rules(&self) -> &UseAllModuleSymbolsRules {
+        &self.all_module_items_use_rules
     }
 }
 
@@ -127,7 +131,7 @@ struct EntityTreePresheetBuilder<'a> {
     token_sheet_data: &'a TokenSheetData,
     entity_node_table: MajorEntityNodeTable,
     use_expr_arena: UseExprArena,
-    entity_use_trackers: UseExprRules,
+    entity_use_trackers: OnceUseRules,
     registry: EntityNodeRegistry,
 }
 
@@ -151,7 +155,7 @@ impl<'a> EntityTreePresheetBuilder<'a> {
         }
         EntityTreePresheet {
             module_path: self.module_path,
-            node_table: self.entity_node_table,
+            major_entity_node_table: self.entity_node_table,
             use_one_trackers: self.entity_use_trackers,
             use_all_trackers: Default::default(),
             use_expr_arena: self.use_expr_arena,
@@ -173,7 +177,7 @@ impl<'a> EntityTreePresheetBuilder<'a> {
                     parse_use_expr_root(&mut token_stream, &mut self.use_expr_arena) else {
                         return
                     };
-                if let Some(new_rule) = UseExprRule::new_root(
+                if let Some(new_rule) = OnceUseRule::new_root(
                     ast_idx,
                     use_expr_root,
                     visibility_expr,

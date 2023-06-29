@@ -1904,15 +1904,15 @@ Ok(
                 ),
             ),
         ],
-        use_expr_rules: UseExprRules(
+        once_use_rules: OnceUseRules(
             [
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 118,
                     use_expr_idx: 2,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::connected_component`,
                     ),
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
@@ -1925,19 +1925,21 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: UseExprRuleState::Resolved {
-                        original_symbol: EntitySymbol::CrateRoot {
-                            root_module_path: `mnist_classifier`,
-                        },
+                    state: OnceUseRuleState::Resolved {
+                        original_symbol: Some(
+                            EntitySymbol::CrateRoot {
+                                root_module_path: `mnist_classifier`,
+                            },
+                        ),
                     },
                 },
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 119,
                     use_expr_idx: 4,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::connected_component`,
                     ),
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
@@ -1950,19 +1952,21 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: UseExprRuleState::Resolved {
-                        original_symbol: EntitySymbol::CrateRoot {
-                            root_module_path: `mnist_classifier`,
-                        },
+                    state: OnceUseRuleState::Resolved {
+                        original_symbol: Some(
+                            EntitySymbol::CrateRoot {
+                                root_module_path: `mnist_classifier`,
+                            },
+                        ),
                     },
                 },
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 118,
                     use_expr_idx: 1,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::connected_component`,
                     ),
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `raw_contour`,
@@ -1980,39 +1984,39 @@ Ok(
                             `mnist_classifier`,
                         ),
                     ),
-                    state: UseExprRuleState::Resolved {
-                        original_symbol: EntitySymbol::Submodule {
-                            submodule_path: `mnist_classifier::raw_contour`,
-                            node: SubmoduleNode {
-                                node_path: SubmoduleNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: `mnist_classifier::raw_contour`,
-                                        disambiguator: 0,
+                    state: OnceUseRuleState::Resolved {
+                        original_symbol: Some(
+                            EntitySymbol::Submodule {
+                                submodule_path: `mnist_classifier::raw_contour`,
+                                node: SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `mnist_classifier::raw_contour`,
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    visibility: Scope::PubUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 12,
+                                    ident_token: IdentToken {
+                                        ident: `raw_contour`,
+                                        token_idx: TokenIdx(
+                                            3,
+                                        ),
                                     },
                                 },
-                                visibility: Scope::PubUnder(
-                                    `mnist_classifier`,
-                                ),
-                                ast_idx: 12,
-                                ident_token: IdentToken {
-                                    ident: `raw_contour`,
-                                    token_idx: TokenIdx(
-                                        3,
-                                    ),
-                                },
                             },
-                        },
+                        ),
                     },
                 },
             ],
         ),
-        use_all_rules: UseAllRules(
+        use_all_rules: UseAllModuleSymbolsRules(
             [
-                UseAllRule {
-                    parent: KinshipedModulePath {
-                        kinship: Inside,
-                        path: `mnist_classifier`,
-                    },
+                UseAllModuleSymbolsRule {
+                    parent_module_path: `mnist_classifier`,
+                    is_same_crate: true,
                     ast_idx: 119,
                     use_expr_idx: 3,
                     visibility: Scope::PubUnder(
@@ -2022,11 +2026,9 @@ Ok(
                         31,
                     ),
                 },
-                UseAllRule {
-                    parent: KinshipedModulePath {
-                        kinship: Inside,
-                        path: `mnist_classifier::raw_contour`,
-                    },
+                UseAllModuleSymbolsRule {
+                    parent_module_path: `mnist_classifier::raw_contour`,
+                    is_same_crate: true,
                     ast_idx: 118,
                     use_expr_idx: 0,
                     visibility: Scope::PubUnder(

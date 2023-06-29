@@ -1,7 +1,7 @@
 Ok(
     EntityTreePresheet {
         module_path: `mnist_classifier::line_segment_sketch`,
-        node_table: MajorEntityNodeTable {
+        major_entity_node_table: MajorEntityNodeTable {
             entries: [
                 EntityNodeEntry {
                     node: EntityNode::Submodule(
@@ -399,13 +399,13 @@ Ok(
                 },
             ],
         },
-        use_one_trackers: UseExprRules(
+        use_one_trackers: OnceUseRules(
             [
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 163,
                     use_expr_idx: 1,
                     visibility: Scope::Pub,
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `concave_component`,
@@ -419,13 +419,13 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: UseExprRuleState::Unresolved,
+                    state: OnceUseRuleState::Unresolved,
                 },
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 164,
                     use_expr_idx: 3,
                     visibility: Scope::Pub,
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `convex_component`,
@@ -439,13 +439,13 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: UseExprRuleState::Unresolved,
+                    state: OnceUseRuleState::Unresolved,
                 },
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 165,
                     use_expr_idx: 5,
                     visibility: Scope::Pub,
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `line_segment`,
@@ -459,15 +459,15 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: UseExprRuleState::Unresolved,
+                    state: OnceUseRuleState::Unresolved,
                 },
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 166,
                     use_expr_idx: 8,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
@@ -480,15 +480,15 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: UseExprRuleState::Unresolved,
+                    state: OnceUseRuleState::Unresolved,
                 },
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 167,
                     use_expr_idx: 11,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
@@ -501,15 +501,15 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: UseExprRuleState::Unresolved,
+                    state: OnceUseRuleState::Unresolved,
                 },
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 168,
                     use_expr_idx: 13,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `line_segment`,
@@ -523,11 +523,11 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: UseExprRuleState::Unresolved,
+                    state: OnceUseRuleState::Unresolved,
                 },
             ],
         ),
-        use_all_trackers: UseAllRules(
+        use_all_trackers: UseAllModuleSymbolsRules(
             [],
         ),
         use_expr_arena: Arena {

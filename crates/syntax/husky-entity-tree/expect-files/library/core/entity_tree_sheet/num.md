@@ -2000,15 +2000,15 @@ Ok(
                 ),
             ),
         ],
-        use_expr_rules: UseExprRules(
+        once_use_rules: OnceUseRules(
             [
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 29,
                     use_expr_idx: 2,
                     visibility: Scope::PubUnder(
                         `core::num`,
                     ),
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
@@ -2021,19 +2021,21 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: UseExprRuleState::Resolved {
-                        original_symbol: EntitySymbol::CrateRoot {
-                            root_module_path: `core`,
-                        },
+                    state: OnceUseRuleState::Resolved {
+                        original_symbol: Some(
+                            EntitySymbol::CrateRoot {
+                                root_module_path: `core`,
+                            },
+                        ),
                     },
                 },
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 29,
                     use_expr_idx: 1,
                     visibility: Scope::PubUnder(
                         `core::num`,
                     ),
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `ops`,
@@ -2051,35 +2053,37 @@ Ok(
                             `core`,
                         ),
                     ),
-                    state: UseExprRuleState::Resolved {
-                        original_symbol: EntitySymbol::Submodule {
-                            submodule_path: `core::ops`,
-                            node: SubmoduleNode {
-                                node_path: SubmoduleNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: `core::ops`,
-                                        disambiguator: 0,
+                    state: OnceUseRuleState::Resolved {
+                        original_symbol: Some(
+                            EntitySymbol::Submodule {
+                                submodule_path: `core::ops`,
+                                node: SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `core::ops`,
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    visibility: Scope::Pub,
+                                    ast_idx: 11,
+                                    ident_token: IdentToken {
+                                        ident: `ops`,
+                                        token_idx: TokenIdx(
+                                            35,
+                                        ),
                                     },
                                 },
-                                visibility: Scope::Pub,
-                                ast_idx: 11,
-                                ident_token: IdentToken {
-                                    ident: `ops`,
-                                    token_idx: TokenIdx(
-                                        35,
-                                    ),
-                                },
                             },
-                        },
+                        ),
                     },
                 },
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 29,
                     use_expr_idx: 0,
                     visibility: Scope::PubUnder(
                         `core::num`,
                     ),
-                    variant: UseExprRuleVariant::Leaf {
+                    variant: OnceUseRuleVariant::Leaf {
                         ident_token: IdentToken {
                             ident: `Add`,
                             token_idx: TokenIdx(
@@ -2092,35 +2096,37 @@ Ok(
                             `core::ops`,
                         ),
                     ),
-                    state: UseExprRuleState::Resolved {
-                        original_symbol: EntitySymbol::ModuleItem {
-                            module_item_path: ModuleItemPath::Trait(
-                                TraitPath(`core::ops::Add`),
-                            ),
-                            node: ModuleItemNode {
-                                node_path: ModuleItemNodePath::Trait(
-                                    TraitNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitPath(`core::ops::Add`),
-                                            disambiguator: 0,
-                                        },
-                                    },
+                    state: OnceUseRuleState::Resolved {
+                        original_symbol: Some(
+                            EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Trait(
+                                    TraitPath(`core::ops::Add`),
                                 ),
-                                visibility: Scope::Pub,
-                                ast_idx: 30,
-                                ident_token: IdentToken {
-                                    ident: `Add`,
-                                    token_idx: TokenIdx(
-                                        9,
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Trait(
+                                        TraitNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::ops::Add`),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 30,
+                                    ident_token: IdentToken {
+                                        ident: `Add`,
+                                        token_idx: TokenIdx(
+                                            9,
+                                        ),
+                                    },
                                 },
                             },
-                        },
+                        ),
                     },
                 },
             ],
         ),
-        use_all_rules: UseAllRules(
+        use_all_rules: UseAllModuleSymbolsRules(
             [],
         ),
         errors: [],
