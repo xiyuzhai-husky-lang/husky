@@ -1664,6 +1664,22 @@ Ok(
                                                         ),
                                                     ),
                                                 },
+                                                CallListItem {
+                                                    kind: KeyedArgument {
+                                                        key_token_idx: TokenIdx(
+                                                            145,
+                                                        ),
+                                                        key: Ident(
+                                                            Word(
+                                                                Id {
+                                                                    value: 443,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                    argument_expr_idx: 42,
+                                                    separator: None,
+                                                },
                                             ],
                                             rpar_token_idx: TokenIdx(
                                                 148,

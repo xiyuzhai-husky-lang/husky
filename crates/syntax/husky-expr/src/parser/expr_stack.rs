@@ -316,11 +316,11 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     key,
                     eq_token,
                 } => {
-                    self.reduce_aux(|this, argument, incomplete_expr| {
-                        let Some(argument) =  argument else {
+                    self.reduce_aux(|this, opt_complete_expr, incomplete_expr| {
+                        let Some(argument_expr) =  opt_complete_expr else {
                             todo!()
                         };
-                        let argument = this.alloc_expr(argument);
+                        let argument_expr_idx = this.alloc_expr(argument_expr);
                         match incomplete_expr {
                             IncompleteExpr::CommaList {
                                 opr: IncompleteCommaListOpr::FunctionApplicationOrCall { function },
@@ -328,24 +328,20 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                                 bra_token_idx,
                                 mut items,
                             } => {
+                                let mut items: SmallVec<[CallListItem; 4]> =
+                                    items.into_iter().map(Into::into).collect();
+                                items.push(CallListItem {
+                                    kind: CallListItemKind::KeyedArgument { key_token_idx, key },
+                                    argument_expr_idx,
+                                    separator: CallListSeparator::None,
+                                });
                                 IncompleteExpr::CallList {
                                     opr: IncompleteCallListOpr::FunctionCall {
-                                    function,
-                                    implicit_arguments: /* ad hoc */ None,
-                                },
+                                        function,
+                                        implicit_arguments: /* ad hoc */ None,
+                                    },
                                     lpar_token_idx: bra_token_idx,
-                                    items: items.into_iter().map(Into::into).collect(),
-                                    // function,
-                                    // implicit_arguments: /* ad hoc */ None,
-                                    // bra,
-                                    // lpar_token_idx: bra_token_idx,
-                                    // arguments: this.alloc_expr_batch(items),
-                                    // keyed_arguments: smallvec![KeyedArgumentExpr {
-                                    //     key_token_idx,
-                                    //     key,
-                                    //     argument
-                                    // }],
-                                    // commas,
+                                    items,
                                 }
                                 .into()
                             }
@@ -365,22 +361,6 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             _ => unreachable!(),
                         }
                     })
-                    // self.stack.finished_expr = Some(match finished_expr {
-                    //     Some(return_ty) => Expr::Ritchie {
-                    //         ritchie_kind_token_idx,
-                    //         ritchie_kind,
-                    //         lpar_token,
-                    //         parameter_ty_exprs: argument_tys,
-                    //         commas,
-                    //         rpar_token_idx,
-                    //         light_arrow_token: Some(light_arrow_token),
-                    //         return_ty_expr: Some(self.alloc_expr(return_ty)),
-                    //     },
-                    //     None => Expr::Err(
-                    //         OriginalExprError::ExpectedTypeAfterLightArrow { light_arrow_token }
-                    //             .into(),
-                    //     ),
-                    // })
                 }
             }
         }
