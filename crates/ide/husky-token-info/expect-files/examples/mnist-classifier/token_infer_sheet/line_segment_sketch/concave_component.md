@@ -4,43 +4,47 @@ Ok(
             TokenInfo::None,
             TokenInfo::UseExpr {
                 use_expr_idx: 2,
-                rule_idx: UseExprRuleIdx(
+                rule_idx: OnceUseRuleIdx(
                     0,
                 ),
-                state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::CrateRoot {
-                        root_module_path: `mnist_classifier`,
-                    },
+                state: OnceUseRuleState::Resolved {
+                    original_symbol: Some(
+                        EntitySymbol::CrateRoot {
+                            root_module_path: `mnist_classifier`,
+                        },
+                    ),
                 },
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
                 use_expr_idx: 1,
-                rule_idx: UseExprRuleIdx(
+                rule_idx: OnceUseRuleIdx(
                     5,
                 ),
-                state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::Submodule {
-                        submodule_path: `mnist_classifier::line_segment_sketch`,
-                        node: SubmoduleNode {
-                            node_path: SubmoduleNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: `mnist_classifier::line_segment_sketch`,
-                                    disambiguator: 0,
+                state: OnceUseRuleState::Resolved {
+                    original_symbol: Some(
+                        EntitySymbol::Submodule {
+                            submodule_path: `mnist_classifier::line_segment_sketch`,
+                            node: SubmoduleNode {
+                                node_path: SubmoduleNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: `mnist_classifier::line_segment_sketch`,
+                                        disambiguator: 0,
+                                    },
+                                },
+                                visibility: Scope::PubUnder(
+                                    `mnist_classifier`,
+                                ),
+                                ast_idx: 14,
+                                ident_token: IdentToken {
+                                    ident: `line_segment_sketch`,
+                                    token_idx: TokenIdx(
+                                        7,
+                                    ),
                                 },
                             },
-                            visibility: Scope::PubUnder(
-                                `mnist_classifier`,
-                            ),
-                            ast_idx: 14,
-                            ident_token: IdentToken {
-                                ident: `line_segment_sketch`,
-                                token_idx: TokenIdx(
-                                    7,
-                                ),
-                            },
                         },
-                    },
+                    ),
                 },
             },
             TokenInfo::None,
@@ -48,73 +52,79 @@ Ok(
             TokenInfo::None,
             TokenInfo::UseExpr {
                 use_expr_idx: 6,
-                rule_idx: UseExprRuleIdx(
+                rule_idx: OnceUseRuleIdx(
                     1,
                 ),
-                state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::CrateRoot {
-                        root_module_path: `mnist_classifier`,
-                    },
+                state: OnceUseRuleState::Resolved {
+                    original_symbol: Some(
+                        EntitySymbol::CrateRoot {
+                            root_module_path: `mnist_classifier`,
+                        },
+                    ),
                 },
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
                 use_expr_idx: 5,
-                rule_idx: UseExprRuleIdx(
+                rule_idx: OnceUseRuleIdx(
                     6,
                 ),
-                state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::Submodule {
-                        submodule_path: `mnist_classifier::line_segment_sketch`,
-                        node: SubmoduleNode {
-                            node_path: SubmoduleNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: `mnist_classifier::line_segment_sketch`,
-                                    disambiguator: 0,
+                state: OnceUseRuleState::Resolved {
+                    original_symbol: Some(
+                        EntitySymbol::Submodule {
+                            submodule_path: `mnist_classifier::line_segment_sketch`,
+                            node: SubmoduleNode {
+                                node_path: SubmoduleNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: `mnist_classifier::line_segment_sketch`,
+                                        disambiguator: 0,
+                                    },
+                                },
+                                visibility: Scope::PubUnder(
+                                    `mnist_classifier`,
+                                ),
+                                ast_idx: 14,
+                                ident_token: IdentToken {
+                                    ident: `line_segment_sketch`,
+                                    token_idx: TokenIdx(
+                                        7,
+                                    ),
                                 },
                             },
-                            visibility: Scope::PubUnder(
-                                `mnist_classifier`,
-                            ),
-                            ast_idx: 14,
-                            ident_token: IdentToken {
-                                ident: `line_segment_sketch`,
-                                token_idx: TokenIdx(
-                                    7,
-                                ),
-                            },
                         },
-                    },
+                    ),
                 },
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
                 use_expr_idx: 4,
-                rule_idx: UseExprRuleIdx(
+                rule_idx: OnceUseRuleIdx(
                     9,
                 ),
-                state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::Submodule {
-                        submodule_path: `mnist_classifier::line_segment_sketch::line_segment`,
-                        node: SubmoduleNode {
-                            node_path: SubmoduleNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: `mnist_classifier::line_segment_sketch::line_segment`,
-                                    disambiguator: 0,
+                state: OnceUseRuleState::Resolved {
+                    original_symbol: Some(
+                        EntitySymbol::Submodule {
+                            submodule_path: `mnist_classifier::line_segment_sketch::line_segment`,
+                            node: SubmoduleNode {
+                                node_path: SubmoduleNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: `mnist_classifier::line_segment_sketch::line_segment`,
+                                        disambiguator: 0,
+                                    },
+                                },
+                                visibility: Scope::PubUnder(
+                                    `mnist_classifier::line_segment_sketch`,
+                                ),
+                                ast_idx: 162,
+                                ident_token: IdentToken {
+                                    ident: `line_segment`,
+                                    token_idx: TokenIdx(
+                                        7,
+                                    ),
                                 },
                             },
-                            visibility: Scope::PubUnder(
-                                `mnist_classifier::line_segment_sketch`,
-                            ),
-                            ast_idx: 162,
-                            ident_token: IdentToken {
-                                ident: `line_segment`,
-                                token_idx: TokenIdx(
-                                    7,
-                                ),
-                            },
                         },
-                    },
+                    ),
                 },
             },
             TokenInfo::None,
@@ -122,73 +132,79 @@ Ok(
             TokenInfo::None,
             TokenInfo::UseExpr {
                 use_expr_idx: 10,
-                rule_idx: UseExprRuleIdx(
+                rule_idx: OnceUseRuleIdx(
                     2,
                 ),
-                state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::CrateRoot {
-                        root_module_path: `mnist_classifier`,
-                    },
+                state: OnceUseRuleState::Resolved {
+                    original_symbol: Some(
+                        EntitySymbol::CrateRoot {
+                            root_module_path: `mnist_classifier`,
+                        },
+                    ),
                 },
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
                 use_expr_idx: 9,
-                rule_idx: UseExprRuleIdx(
+                rule_idx: OnceUseRuleIdx(
                     7,
                 ),
-                state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::Submodule {
-                        submodule_path: `mnist_classifier::line_segment_sketch`,
-                        node: SubmoduleNode {
-                            node_path: SubmoduleNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: `mnist_classifier::line_segment_sketch`,
-                                    disambiguator: 0,
+                state: OnceUseRuleState::Resolved {
+                    original_symbol: Some(
+                        EntitySymbol::Submodule {
+                            submodule_path: `mnist_classifier::line_segment_sketch`,
+                            node: SubmoduleNode {
+                                node_path: SubmoduleNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: `mnist_classifier::line_segment_sketch`,
+                                        disambiguator: 0,
+                                    },
+                                },
+                                visibility: Scope::PubUnder(
+                                    `mnist_classifier`,
+                                ),
+                                ast_idx: 14,
+                                ident_token: IdentToken {
+                                    ident: `line_segment_sketch`,
+                                    token_idx: TokenIdx(
+                                        7,
+                                    ),
                                 },
                             },
-                            visibility: Scope::PubUnder(
-                                `mnist_classifier`,
-                            ),
-                            ast_idx: 14,
-                            ident_token: IdentToken {
-                                ident: `line_segment_sketch`,
-                                token_idx: TokenIdx(
-                                    7,
-                                ),
-                            },
                         },
-                    },
+                    ),
                 },
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
                 use_expr_idx: 8,
-                rule_idx: UseExprRuleIdx(
+                rule_idx: OnceUseRuleIdx(
                     10,
                 ),
-                state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::Submodule {
-                        submodule_path: `mnist_classifier::line_segment_sketch::convexity`,
-                        node: SubmoduleNode {
-                            node_path: SubmoduleNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: `mnist_classifier::line_segment_sketch::convexity`,
-                                    disambiguator: 0,
+                state: OnceUseRuleState::Resolved {
+                    original_symbol: Some(
+                        EntitySymbol::Submodule {
+                            submodule_path: `mnist_classifier::line_segment_sketch::convexity`,
+                            node: SubmoduleNode {
+                                node_path: SubmoduleNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: `mnist_classifier::line_segment_sketch::convexity`,
+                                        disambiguator: 0,
+                                    },
+                                },
+                                visibility: Scope::PubUnder(
+                                    `mnist_classifier::line_segment_sketch`,
+                                ),
+                                ast_idx: 161,
+                                ident_token: IdentToken {
+                                    ident: `convexity`,
+                                    token_idx: TokenIdx(
+                                        5,
+                                    ),
                                 },
                             },
-                            visibility: Scope::PubUnder(
-                                `mnist_classifier::line_segment_sketch`,
-                            ),
-                            ast_idx: 161,
-                            ident_token: IdentToken {
-                                ident: `convexity`,
-                                token_idx: TokenIdx(
-                                    5,
-                                ),
-                            },
                         },
-                    },
+                    ),
                 },
             },
             TokenInfo::None,
@@ -196,43 +212,47 @@ Ok(
             TokenInfo::None,
             TokenInfo::UseExpr {
                 use_expr_idx: 13,
-                rule_idx: UseExprRuleIdx(
+                rule_idx: OnceUseRuleIdx(
                     3,
                 ),
-                state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::CrateRoot {
-                        root_module_path: `mnist_classifier`,
-                    },
+                state: OnceUseRuleState::Resolved {
+                    original_symbol: Some(
+                        EntitySymbol::CrateRoot {
+                            root_module_path: `mnist_classifier`,
+                        },
+                    ),
                 },
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
                 use_expr_idx: 12,
-                rule_idx: UseExprRuleIdx(
+                rule_idx: OnceUseRuleIdx(
                     8,
                 ),
-                state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::Submodule {
-                        submodule_path: `mnist_classifier::geom2d`,
-                        node: SubmoduleNode {
-                            node_path: SubmoduleNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: `mnist_classifier::geom2d`,
-                                    disambiguator: 0,
+                state: OnceUseRuleState::Resolved {
+                    original_symbol: Some(
+                        EntitySymbol::Submodule {
+                            submodule_path: `mnist_classifier::geom2d`,
+                            node: SubmoduleNode {
+                                node_path: SubmoduleNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: `mnist_classifier::geom2d`,
+                                        disambiguator: 0,
+                                    },
+                                },
+                                visibility: Scope::PubUnder(
+                                    `mnist_classifier`,
+                                ),
+                                ast_idx: 13,
+                                ident_token: IdentToken {
+                                    ident: `geom2d`,
+                                    token_idx: TokenIdx(
+                                        5,
+                                    ),
                                 },
                             },
-                            visibility: Scope::PubUnder(
-                                `mnist_classifier`,
-                            ),
-                            ast_idx: 13,
-                            ident_token: IdentToken {
-                                ident: `geom2d`,
-                                token_idx: TokenIdx(
-                                    5,
-                                ),
-                            },
                         },
-                    },
+                    ),
                 },
             },
             TokenInfo::None,
@@ -240,13 +260,15 @@ Ok(
             TokenInfo::None,
             TokenInfo::UseExpr {
                 use_expr_idx: 15,
-                rule_idx: UseExprRuleIdx(
+                rule_idx: OnceUseRuleIdx(
                     4,
                 ),
-                state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::CrateRoot {
-                        root_module_path: `mnist_classifier`,
-                    },
+                state: OnceUseRuleState::Resolved {
+                    original_symbol: Some(
+                        EntitySymbol::CrateRoot {
+                            root_module_path: `mnist_classifier`,
+                        },
+                    ),
                 },
             },
             TokenInfo::None,

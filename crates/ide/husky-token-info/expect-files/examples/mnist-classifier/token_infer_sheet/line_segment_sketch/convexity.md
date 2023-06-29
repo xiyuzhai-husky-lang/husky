@@ -4,43 +4,47 @@ Ok(
             TokenInfo::None,
             TokenInfo::UseExpr {
                 use_expr_idx: 2,
-                rule_idx: UseExprRuleIdx(
+                rule_idx: OnceUseRuleIdx(
                     0,
                 ),
-                state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::CrateRoot {
-                        root_module_path: `mnist_classifier`,
-                    },
+                state: OnceUseRuleState::Resolved {
+                    original_symbol: Some(
+                        EntitySymbol::CrateRoot {
+                            root_module_path: `mnist_classifier`,
+                        },
+                    ),
                 },
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
                 use_expr_idx: 1,
-                rule_idx: UseExprRuleIdx(
+                rule_idx: OnceUseRuleIdx(
                     3,
                 ),
-                state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::Submodule {
-                        submodule_path: `mnist_classifier::line_segment_sketch`,
-                        node: SubmoduleNode {
-                            node_path: SubmoduleNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: `mnist_classifier::line_segment_sketch`,
-                                    disambiguator: 0,
+                state: OnceUseRuleState::Resolved {
+                    original_symbol: Some(
+                        EntitySymbol::Submodule {
+                            submodule_path: `mnist_classifier::line_segment_sketch`,
+                            node: SubmoduleNode {
+                                node_path: SubmoduleNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: `mnist_classifier::line_segment_sketch`,
+                                        disambiguator: 0,
+                                    },
+                                },
+                                visibility: Scope::PubUnder(
+                                    `mnist_classifier`,
+                                ),
+                                ast_idx: 14,
+                                ident_token: IdentToken {
+                                    ident: `line_segment_sketch`,
+                                    token_idx: TokenIdx(
+                                        7,
+                                    ),
                                 },
                             },
-                            visibility: Scope::PubUnder(
-                                `mnist_classifier`,
-                            ),
-                            ast_idx: 14,
-                            ident_token: IdentToken {
-                                ident: `line_segment_sketch`,
-                                token_idx: TokenIdx(
-                                    7,
-                                ),
-                            },
                         },
-                    },
+                    ),
                 },
             },
             TokenInfo::None,
@@ -48,43 +52,47 @@ Ok(
             TokenInfo::None,
             TokenInfo::UseExpr {
                 use_expr_idx: 5,
-                rule_idx: UseExprRuleIdx(
+                rule_idx: OnceUseRuleIdx(
                     1,
                 ),
-                state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::CrateRoot {
-                        root_module_path: `mnist_classifier`,
-                    },
+                state: OnceUseRuleState::Resolved {
+                    original_symbol: Some(
+                        EntitySymbol::CrateRoot {
+                            root_module_path: `mnist_classifier`,
+                        },
+                    ),
                 },
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
                 use_expr_idx: 4,
-                rule_idx: UseExprRuleIdx(
+                rule_idx: OnceUseRuleIdx(
                     4,
                 ),
-                state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::Submodule {
-                        submodule_path: `mnist_classifier::raw_contour`,
-                        node: SubmoduleNode {
-                            node_path: SubmoduleNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: `mnist_classifier::raw_contour`,
-                                    disambiguator: 0,
+                state: OnceUseRuleState::Resolved {
+                    original_symbol: Some(
+                        EntitySymbol::Submodule {
+                            submodule_path: `mnist_classifier::raw_contour`,
+                            node: SubmoduleNode {
+                                node_path: SubmoduleNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: `mnist_classifier::raw_contour`,
+                                        disambiguator: 0,
+                                    },
+                                },
+                                visibility: Scope::PubUnder(
+                                    `mnist_classifier`,
+                                ),
+                                ast_idx: 12,
+                                ident_token: IdentToken {
+                                    ident: `raw_contour`,
+                                    token_idx: TokenIdx(
+                                        3,
+                                    ),
                                 },
                             },
-                            visibility: Scope::PubUnder(
-                                `mnist_classifier`,
-                            ),
-                            ast_idx: 12,
-                            ident_token: IdentToken {
-                                ident: `raw_contour`,
-                                token_idx: TokenIdx(
-                                    3,
-                                ),
-                            },
                         },
-                    },
+                    ),
                 },
             },
             TokenInfo::None,
@@ -92,43 +100,47 @@ Ok(
             TokenInfo::None,
             TokenInfo::UseExpr {
                 use_expr_idx: 8,
-                rule_idx: UseExprRuleIdx(
+                rule_idx: OnceUseRuleIdx(
                     2,
                 ),
-                state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::CrateRoot {
-                        root_module_path: `mnist_classifier`,
-                    },
+                state: OnceUseRuleState::Resolved {
+                    original_symbol: Some(
+                        EntitySymbol::CrateRoot {
+                            root_module_path: `mnist_classifier`,
+                        },
+                    ),
                 },
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
                 use_expr_idx: 7,
-                rule_idx: UseExprRuleIdx(
+                rule_idx: OnceUseRuleIdx(
                     5,
                 ),
-                state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::Submodule {
-                        submodule_path: `mnist_classifier::geom2d`,
-                        node: SubmoduleNode {
-                            node_path: SubmoduleNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: `mnist_classifier::geom2d`,
-                                    disambiguator: 0,
+                state: OnceUseRuleState::Resolved {
+                    original_symbol: Some(
+                        EntitySymbol::Submodule {
+                            submodule_path: `mnist_classifier::geom2d`,
+                            node: SubmoduleNode {
+                                node_path: SubmoduleNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: `mnist_classifier::geom2d`,
+                                        disambiguator: 0,
+                                    },
+                                },
+                                visibility: Scope::PubUnder(
+                                    `mnist_classifier`,
+                                ),
+                                ast_idx: 13,
+                                ident_token: IdentToken {
+                                    ident: `geom2d`,
+                                    token_idx: TokenIdx(
+                                        5,
+                                    ),
                                 },
                             },
-                            visibility: Scope::PubUnder(
-                                `mnist_classifier`,
-                            ),
-                            ast_idx: 13,
-                            ident_token: IdentToken {
-                                ident: `geom2d`,
-                                token_idx: TokenIdx(
-                                    5,
-                                ),
-                            },
                         },
-                    },
+                    ),
                 },
             },
             TokenInfo::None,

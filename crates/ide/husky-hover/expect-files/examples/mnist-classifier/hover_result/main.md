@@ -280,7 +280,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 36;\n\ntoken_line_group_idx = 10\n\ntoken = Token::Ident(\n    `raw_contour`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 10,\n    rule_idx: UseExprRuleIdx(\n        11,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: EntitySymbol::Submodule {\n            submodule_path: `mnist_classifier::raw_contour`,\n            node: SubmoduleNode {\n                node_path: SubmoduleNodePath {\n                    maybe_ambiguous_path: MaybeAmbiguousPath {\n                        path: `mnist_classifier::raw_contour`,\n                        disambiguator: 0,\n                    },\n                },\n                visibility: Scope::PubUnder(\n                    `mnist_classifier`,\n                ),\n                ast_idx: 12,\n                ident_token: IdentToken {\n                    ident: `raw_contour`,\n                    token_idx: TokenIdx(\n                        3,\n                    ),\n                },\n            },\n        },\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 36;\n\ntoken_line_group_idx = 10\n\ntoken = Token::Ident(\n    `raw_contour`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 10,\n    rule_idx: OnceUseRuleIdx(\n        11,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::Submodule {\n                submodule_path: `mnist_classifier::raw_contour`,\n                node: SubmoduleNode {\n                    node_path: SubmoduleNodePath {\n                        maybe_ambiguous_path: MaybeAmbiguousPath {\n                            path: `mnist_classifier::raw_contour`,\n                            disambiguator: 0,\n                        },\n                    },\n                    visibility: Scope::PubUnder(\n                        `mnist_classifier`,\n                    ),\n                    ast_idx: 12,\n                    ident_token: IdentToken {\n                        ident: `raw_contour`,\n                        token_idx: TokenIdx(\n                            3,\n                        ),\n                    },\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -310,7 +310,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 40;\n\ntoken_line_group_idx = 11\n\ntoken = Token::Keyword(\n    Keyword::Pronoun(\n        SelfValue,\n    ),\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 14,\n    rule_idx: UseExprRuleIdx(\n        4,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: EntitySymbol::SelfModule {\n            module_path: `mnist_classifier`,\n        },\n    },\n};\n\nuse\n",
+                                value: "Other\ntoken_idx = 40;\n\ntoken_line_group_idx = 11\n\ntoken = Token::Keyword(\n    Keyword::Pronoun(\n        SelfValue,\n    ),\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 14,\n    rule_idx: OnceUseRuleIdx(\n        4,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::SelfModule {\n                module_path: `mnist_classifier`,\n            },\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -370,7 +370,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 48;\n\ntoken_line_group_idx = 12\n\ntoken = Token::Ident(\n    `connected_component`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 16,\n    rule_idx: UseExprRuleIdx(\n        13,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: EntitySymbol::Submodule {\n            submodule_path: `mnist_classifier::connected_component`,\n            node: SubmoduleNode {\n                node_path: SubmoduleNodePath {\n                    maybe_ambiguous_path: MaybeAmbiguousPath {\n                        path: `mnist_classifier::connected_component`,\n                        disambiguator: 0,\n                    },\n                },\n                visibility: Scope::PubUnder(\n                    `mnist_classifier`,\n                ),\n                ast_idx: 11,\n                ident_token: IdentToken {\n                    ident: `connected_component`,\n                    token_idx: TokenIdx(\n                        1,\n                    ),\n                },\n            },\n        },\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 48;\n\ntoken_line_group_idx = 12\n\ntoken = Token::Ident(\n    `connected_component`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 16,\n    rule_idx: OnceUseRuleIdx(\n        13,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::Submodule {\n                submodule_path: `mnist_classifier::connected_component`,\n                node: SubmoduleNode {\n                    node_path: SubmoduleNodePath {\n                        maybe_ambiguous_path: MaybeAmbiguousPath {\n                            path: `mnist_classifier::connected_component`,\n                            disambiguator: 0,\n                        },\n                    },\n                    visibility: Scope::PubUnder(\n                        `mnist_classifier`,\n                    ),\n                    ast_idx: 11,\n                    ident_token: IdentToken {\n                        ident: `connected_component`,\n                        token_idx: TokenIdx(\n                            1,\n                        ),\n                    },\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -400,7 +400,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 52;\n\ntoken_line_group_idx = 13\n\ntoken = Token::Ident(\n    `malamute`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 19,\n    rule_idx: UseExprRuleIdx(\n        6,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: EntitySymbol::PackageDependency {\n            entity_path: EntityPath::Module(\n                `malamute`,\n            ),\n        },\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 52;\n\ntoken_line_group_idx = 13\n\ntoken = Token::Ident(\n    `malamute`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 19,\n    rule_idx: OnceUseRuleIdx(\n        6,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::PackageDependency {\n                entity_path: EntityPath::Module(\n                    `malamute`,\n                ),\n            },\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -430,7 +430,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 56;\n\ntoken_line_group_idx = 14\n\ntoken = Token::Ident(\n    `mnist`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 21,\n    rule_idx: UseExprRuleIdx(\n        7,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: EntitySymbol::PackageDependency {\n            entity_path: EntityPath::Module(\n                `mnist`,\n            ),\n        },\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 56;\n\ntoken_line_group_idx = 14\n\ntoken = Token::Ident(\n    `mnist`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 21,\n    rule_idx: OnceUseRuleIdx(\n        7,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::PackageDependency {\n                entity_path: EntityPath::Module(\n                    `mnist`,\n                ),\n            },\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(

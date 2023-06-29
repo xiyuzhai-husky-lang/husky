@@ -50,10 +50,12 @@ impl From<TypeNodePath> for EntityNodePath {
 #[salsa::tracked(jar = EntityTreeJar)]
 pub(crate) fn ty_node(db: &dyn EntityTreeDb, node_path: TypeNodePath) -> ModuleItemNode {
     let module_path = node_path.module_path(db);
-    let entity_sheet = module_path
-        .entity_tree_sheet(db)
+    // it's important to use presheet instead of sheet
+    // otherwise cyclic when use all type variant paths
+    let entity_presheet = db
+        .entity_tree_presheet(module_path)
         .expect("should correspond to valid node");
-    let Some(major_entity_node) = entity_sheet
+    let Some(major_entity_node) = entity_presheet
         .major_entity_node(node_path.into()) else { 
         p!(node_path.debug(db));
         unreachable!("should be some, must be some erros in library")

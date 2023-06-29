@@ -42,6 +42,9 @@ pub enum EntitySymbol {
         module_item_path: ModuleItemPath,
         node: ModuleItemNode,
     },
+    TypeVariant {
+        ty_variant_path: TypeVariantPath,
+    },
     Use(UseSymbol),
 }
 
@@ -64,30 +67,6 @@ impl EntitySymbol {
 }
 
 impl EntitySymbol {
-    pub(crate) fn is_visible_from(
-        self,
-        db: &dyn EntityTreeDb,
-        reference_module_path: ReferenceModulePath,
-    ) -> bool {
-        self.visibility(db)
-            .is_visible_from(db, reference_module_path)
-    }
-
-    fn visibility(self, db: &dyn EntityTreeDb) -> Scope {
-        match self {
-            EntitySymbol::CrateRoot { root_module_path } => Scope::PubUnder(root_module_path),
-            EntitySymbol::SelfModule { module_path } => Scope::Private(module_path),
-            EntitySymbol::SuperModule {
-                current_module_path,
-                ..
-            } => Scope::Private(current_module_path),
-            EntitySymbol::PackageDependency { .. } => Scope::Pub,
-            EntitySymbol::Submodule { node, .. } => node.visibility(db),
-            EntitySymbol::ModuleItem { node, .. } => node.visibility(db),
-            EntitySymbol::Use(symbol) => symbol.visibility(db),
-        }
-    }
-
     pub fn path(self, db: &dyn EntityTreeDb) -> EntityPath {
         match self {
             EntitySymbol::CrateRoot { root_module_path } => root_module_path.into(),
@@ -102,6 +81,7 @@ impl EntitySymbol {
             } => module_item_path.into(),
             // symbol.path(db).into(),
             EntitySymbol::Use(symbol) => symbol.path(db).into(),
+            EntitySymbol::TypeVariant { ty_variant_path } => ty_variant_path.into(),
         }
     }
 

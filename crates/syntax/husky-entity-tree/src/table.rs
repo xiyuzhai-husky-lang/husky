@@ -113,7 +113,7 @@ impl EntitySymbolEntry {
     pub(crate) fn new_use_symbol_entry(
         db: &dyn EntityTreeDb,
         original_symbol: EntitySymbol,
-        rule: &mut UseExprRule,
+        rule: &mut OnceUseRule,
     ) -> Self {
         rule.mark_as_resolved(original_symbol);
         let visibility = rule.visibility();
@@ -132,11 +132,33 @@ impl EntitySymbolEntry {
         }
     }
 
+    pub(crate) fn new_use_ty_variant_entry(
+        db: &dyn EntityTreeDb,
+        parent_rule: &OnceUseRule,
+        ident: Ident,
+        ty_variant_path: TypeVariantPath,
+    ) -> Self {
+        let visibility = parent_rule.visibility();
+        Self {
+            ident,
+            visibility,
+            symbol: UseSymbol::new(
+                db,
+                EntitySymbol::TypeVariant { ty_variant_path },
+                ty_variant_path.into(),
+                visibility,
+                parent_rule.ast_idx(),
+                parent_rule.use_expr_idx(),
+            )
+            .into(),
+        }
+    }
+
     pub(crate) fn export_via_use_all(
         &self,
         db: &dyn EntityTreeDb,
         reference_module_path: ModulePath,
-        rule: &UseAllRule,
+        rule: &UseAllModuleSymbolsRule,
     ) -> Option<Self> {
         self.is_visible_from(db, reference_module_path.into())
             .then_some(EntitySymbolEntry {

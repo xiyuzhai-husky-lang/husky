@@ -10,8 +10,8 @@ pub struct EntityTreeSheet {
     entity_symbol_table: EntitySymbolTable,
     // todo: split this into ty impl block and trai for ty impl block
     impl_block_node_table: VecPairMap<ImplBlockNodePath, ImplBlockNode>,
-    use_expr_rules: UseExprRules,
-    use_all_rules: UseAllRules,
+    once_use_rules: OnceUseRules,
+    use_all_rules: UseAllModuleSymbolsRules,
     errors: Vec<EntityTreeError>,
 }
 
@@ -35,8 +35,8 @@ impl EntityTreeSheet {
         module_path: ModulePath,
         major_entity_node_table: MajorEntityNodeTable,
         entity_symbol_table: EntitySymbolTable,
-        use_expr_rules: UseExprRules,
-        use_all_rules: UseAllRules,
+        once_use_rules: OnceUseRules,
+        use_all_rules: UseAllModuleSymbolsRules,
         errors: Vec<EntityTreeError>,
         impl_block_node_table: VecPairMap<ImplBlockNodePath, ImplBlockNode>,
     ) -> Self {
@@ -45,7 +45,7 @@ impl EntityTreeSheet {
             major_entity_node_table,
             entity_symbol_table,
             impl_block_node_table,
-            use_expr_rules,
+            once_use_rules,
             use_all_rules,
             errors,
         }
@@ -59,10 +59,10 @@ impl EntityTreeSheet {
         &self.errors
     }
 
-    pub fn use_expr_rule_indexed_iter<'a>(
+    pub fn once_use_rule_indexed_iter<'a>(
         &'a self,
-    ) -> impl Iterator<Item = (UseExprRuleIdx, &'a UseExprRule)> + 'a {
-        self.use_expr_rules.indexed_iter()
+    ) -> impl Iterator<Item = (OnceUseRuleIdx, &'a OnceUseRule)> + 'a {
+        self.once_use_rules.indexed_iter()
     }
 
     pub fn module_path(&self) -> ModulePath {

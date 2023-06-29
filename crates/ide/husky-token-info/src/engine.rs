@@ -35,7 +35,7 @@ impl<'a> InferEngine<'a> {
 
     pub(crate) fn visit_all(mut self) -> EntityTreeResult<TokenInfoSheet> {
         self.visit_nodes()?;
-        self.visit_use_expr_rules();
+        self.visit_once_use_rules();
         Ok(self.sheet)
     }
 
@@ -46,13 +46,13 @@ impl<'a> InferEngine<'a> {
         Ok(())
     }
 
-    fn visit_use_expr_rules(&mut self) {
-        for (rule_idx, rule) in self.entity_tree_sheet.use_expr_rule_indexed_iter() {
-            self.visit_use_expr_rule(rule, rule_idx);
+    fn visit_once_use_rules(&mut self) {
+        for (rule_idx, rule) in self.entity_tree_sheet.once_use_rule_indexed_iter() {
+            self.visit_once_use_rule(rule, rule_idx);
         }
     }
 
-    fn visit_use_expr_rule(&mut self, rule: &UseExprRule, rule_idx: UseExprRuleIdx) {
+    fn visit_once_use_rule(&mut self, rule: &OnceUseRule, rule_idx: OnceUseRuleIdx) {
         let use_expr_idx = rule.use_expr_idx();
         let use_expr = &self.entity_tree_presheet[use_expr_idx];
         match use_expr {

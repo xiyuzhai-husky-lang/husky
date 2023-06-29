@@ -1,23 +1,30 @@
 use super::*;
 use crate::ParentUseExpr;
+use husky_entity_taxonomy::TypeKind;
 use husky_token::{PathNameToken, TokenIdx};
+use smallvec::SmallVec;
 
 #[derive(Debug)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub(crate) enum PresheetAction {
     ResolveUseExpr {
         module_path: ModulePath,
-        rule_idx: UseExprRuleIdx,
+        rule_idx: OnceUseRuleIdx,
         path_name_token: PathNameToken,
         symbol: EntitySymbol,
     },
-    UpdateUseAll {
+    UpdateUseAllFromModuleRule {
         module_path: ModulePath,
-        rule_idx: UseAllRuleIdx,
+        rule_idx: UseAllModuleSymbolsRuleIdx,
+    },
+    UseAllTypeVariants {
+        module_path: ModulePath,
+        rule_idx: OnceUseRuleIdx,
+        parent_ty_path: TypePath,
     },
     Err {
         module_path: ModulePath,
-        rule_idx: UseExprRuleIdx,
+        rule_idx: OnceUseRuleIdx,
         error: EntityTreeError,
     },
 }
@@ -26,8 +33,9 @@ impl PresheetAction {
     pub(crate) fn module_path(&self) -> ModulePath {
         match self {
             PresheetAction::ResolveUseExpr { module_path, .. }
-            | PresheetAction::UpdateUseAll { module_path, .. }
+            | PresheetAction::UpdateUseAllFromModuleRule { module_path, .. }
             | PresheetAction::Err { module_path, .. } => *module_path,
+            PresheetAction::UseAllTypeVariants { .. } => todo!(),
         }
     }
 }
@@ -38,12 +46,12 @@ impl<'a> EntityTreePresheetMut<'a> {
         ctx: EntityTreeSymbolContext<'a, '_>,
         actions: &mut Vec<PresheetAction>,
     ) {
-        for (rule_idx, rule) in self.use_expr_rules.indexed_iter() {
+        for (rule_idx, rule) in self.once_use_rules.indexed_iter() {
             if rule.is_unresolved() {
-                let (name_token, symbol) = match rule.parent() {
+                let (path_name_token, symbol) = match rule.parent() {
                     Some(parent) => match rule.variant() {
-                        UseExprRuleVariant::Leaf { ident_token }
-                        | UseExprRuleVariant::Parent {
+                        OnceUseRuleVariant::Leaf { ident_token }
+                        | OnceUseRuleVariant::Parent {
                             parent_name_token: PathNameToken::Ident(ident_token),
                             ..
                         } => (
@@ -51,29 +59,37 @@ impl<'a> EntityTreePresheetMut<'a> {
                             ctx.resolve_subentity(parent, ident_token.ident())
                                 .ok_or(*ident_token),
                         ),
-                        UseExprRuleVariant::Parent {
+                        OnceUseRuleVariant::Parent {
                             parent_name_token: PathNameToken::SelfMod(self_mod_token),
                             children: _,
                         } => {
                             todo!()
                         }
-                        UseExprRuleVariant::Parent {
+                        OnceUseRuleVariant::Parent {
                             parent_name_token: PathNameToken::Super(_),
                             children: _,
                         } => {
                             todo!()
                         }
-                        UseExprRuleVariant::Parent {
+                        OnceUseRuleVariant::Parent {
                             parent_name_token: PathNameToken::CrateRoot(_crate_token),
                             children: _,
                         } => {
                             // todo: prevent this in the parsing stage
                             todo!()
                         }
+                        OnceUseRuleVariant::UseAllTypeVariants { parent_ty_path } => {
+                            actions.push(PresheetAction::UseAllTypeVariants {
+                                module_path: self.module_path,
+                                rule_idx,
+                                parent_ty_path: *parent_ty_path,
+                            });
+                            continue;
+                        }
                     },
                     None => match rule.variant() {
-                        UseExprRuleVariant::Leaf { ident_token }
-                        | UseExprRuleVariant::Parent {
+                        OnceUseRuleVariant::Leaf { ident_token }
+                        | OnceUseRuleVariant::Parent {
                             parent_name_token: PathNameToken::Ident(ident_token),
                             ..
                         } => {
@@ -83,7 +99,7 @@ impl<'a> EntityTreePresheetMut<'a> {
                                 ctx.resolve_root_ident(ident_token).ok_or(ident_token),
                             )
                         }
-                        UseExprRuleVariant::Parent {
+                        OnceUseRuleVariant::Parent {
                             parent_name_token: PathNameToken::SelfMod(self_value_token),
                             children: _,
                         } => (
@@ -92,7 +108,7 @@ impl<'a> EntityTreePresheetMut<'a> {
                                 module_path: self.module_path,
                             }),
                         ),
-                        UseExprRuleVariant::Parent {
+                        OnceUseRuleVariant::Parent {
                             parent_name_token: PathNameToken::Super(super_token),
                             children: _,
                         } => match self.module_path.parent(ctx.db()) {
@@ -105,7 +121,7 @@ impl<'a> EntityTreePresheetMut<'a> {
                             ),
                             None => todo!(),
                         },
-                        UseExprRuleVariant::Parent {
+                        OnceUseRuleVariant::Parent {
                             parent_name_token: PathNameToken::CrateRoot(crate_token),
                             children: _,
                         } => (
@@ -114,6 +130,7 @@ impl<'a> EntityTreePresheetMut<'a> {
                                 root_module_path: ctx.crate_root(),
                             }),
                         ),
+                        OnceUseRuleVariant::UseAllTypeVariants { parent_ty_path } => todo!(),
                     },
                 };
                 actions.push(match symbol {
@@ -121,7 +138,7 @@ impl<'a> EntityTreePresheetMut<'a> {
                         module_path: self.module_path,
                         rule_idx,
                         symbol,
-                        path_name_token: name_token,
+                        path_name_token,
                     },
                     Err(ident_token) => PresheetAction::Err {
                         module_path: self.module_path,
@@ -131,9 +148,9 @@ impl<'a> EntityTreePresheetMut<'a> {
                 })
             }
         }
-        for (rule_idx, rule) in self.use_all_rules.indexed_iter() {
+        for (rule_idx, rule) in self.all_module_items_use_rules.indexed_iter() {
             if rule.is_unresolved(&ctx) {
-                actions.push(PresheetAction::UpdateUseAll {
+                actions.push(PresheetAction::UpdateUseAllFromModuleRule {
                     module_path: self.module_path,
                     rule_idx,
                 })
@@ -144,58 +161,68 @@ impl<'a> EntityTreePresheetMut<'a> {
     pub(crate) fn resolve_use_expr(
         &mut self,
         db: &dyn EntityTreeDb,
-        rule_idx: UseExprRuleIdx,
+        rule_idx: OnceUseRuleIdx,
         name_token: PathNameToken,
         original_symbol: EntitySymbol,
     ) {
-        let rule = &mut self.use_expr_rules[rule_idx];
+        let rule = &mut self.once_use_rules[rule_idx];
         #[cfg(test)]
         assert!(rule.is_unresolved());
         rule.mark_as_resolved(original_symbol);
-        // if !original_symbol.is_visible_from(db, self.module_path) {
-        //     self.errors.push(
-        //         OriginalEntityTreeError::SymbolExistsButNotAccessible(
-        //             name_token.ident_token().unwrap(),
-        //         )
-        //         .into(),
-        //     );
-        // }
         let path = original_symbol.path(db);
         match rule.variant() {
-            UseExprRuleVariant::Parent {
+            OnceUseRuleVariant::Parent {
                 parent_name_token: _,
                 children,
             } => {
-                for use_expr_idx in children {
-                    let use_expr = &self.use_expr_arena[use_expr_idx];
-                    let rule = &self.use_expr_rules[rule_idx];
+                for child_use_expr_idx in children {
+                    let use_expr = &self.use_expr_arena[child_use_expr_idx];
+                    let rule = &self.once_use_rules[rule_idx];
                     match use_expr {
                         UseExpr::All { star_token: _ } => match path {
-                            EntityPath::Module(path) => {
-                                let new_rule = UseAllRule::new(
+                            EntityPath::Module(parent_path) => self
+                                .all_module_items_use_rules
+                                .push(UseAllModuleSymbolsRule::new(
                                     db,
                                     self,
-                                    path,
+                                    parent_path,
                                     rule.ast_idx(),
-                                    use_expr_idx,
+                                    child_use_expr_idx,
                                     rule.visibility(),
-                                );
-                                self.use_all_rules.push(new_rule)
+                                )),
+                            EntityPath::ModuleItem(parent_module_item_path) => {
+                                match parent_module_item_path {
+                                    ModuleItemPath::Type(parent_ty_path) => {
+                                        match parent_ty_path.ty_kind(db) {
+                                            TypeKind::Enum | TypeKind::Inductive => {
+                                                self.once_use_rules.push(rule.new_nonroot(
+                                                    child_use_expr_idx,
+                                                    parent_ty_path.into(),
+                                                    OnceUseRuleVariant::UseAllTypeVariants {
+                                                        parent_ty_path,
+                                                    },
+                                                ))
+                                            }
+                                            _ => todo!(),
+                                        }
+                                    }
+                                    ModuleItemPath::Trait(_) => todo!(),
+                                    ModuleItemPath::Fugitive(_) => todo!(),
+                                }
                             }
-                            EntityPath::ModuleItem(_) => todo!(),
                             EntityPath::AssociatedItem(_) => todo!(),
                             EntityPath::TypeVariant(_) => todo!(),
                             EntityPath::ImplBlock(_) => todo!(),
                         },
                         UseExpr::Leaf { ident_token } => {
                             let new_rule = rule.new_nonroot(
-                                use_expr_idx,
+                                child_use_expr_idx,
                                 path,
-                                UseExprRuleVariant::Leaf {
+                                OnceUseRuleVariant::Leaf {
                                     ident_token: *ident_token,
                                 },
                             );
-                            self.use_expr_rules.push(new_rule)
+                            self.once_use_rules.push(new_rule)
                         }
                         UseExpr::Parent(ParentUseExpr {
                             parent_name_token,
@@ -203,14 +230,14 @@ impl<'a> EntityTreePresheetMut<'a> {
                             children: Ok(children),
                         }) => {
                             let new_rule = rule.new_nonroot(
-                                use_expr_idx,
+                                child_use_expr_idx,
                                 path,
-                                UseExprRuleVariant::Parent {
+                                OnceUseRuleVariant::Parent {
                                     parent_name_token: *parent_name_token,
                                     children: children.idx_range(),
                                 },
                             );
-                            self.use_expr_rules.push(new_rule)
+                            self.once_use_rules.push(new_rule)
                         }
                         UseExpr::Parent(ParentUseExpr {
                             children: Err(_), ..
@@ -220,7 +247,7 @@ impl<'a> EntityTreePresheetMut<'a> {
                     }
                 }
             }
-            UseExprRuleVariant::Leaf { ident_token: _ } => {
+            OnceUseRuleVariant::Leaf { ident_token: _ } => {
                 match self
                     .symbol_table
                     .insert(EntitySymbolEntry::new_use_symbol_entry(
@@ -232,39 +259,51 @@ impl<'a> EntityTreePresheetMut<'a> {
                     Err(_) => todo!(),
                 }
             }
+            OnceUseRuleVariant::UseAllTypeVariants { parent_ty_path } => todo!(),
         }
     }
 
-    pub(crate) fn update_use_all(
+    pub(crate) fn update_module_use_all_rule(
         &mut self,
-        rule_idx: UseAllRuleIdx,
+        rule_idx: UseAllModuleSymbolsRuleIdx,
         new_uses: Vec<EntitySymbolEntry>,
         progress: usize,
     ) {
-        let rule = &mut self.use_all_rules[rule_idx];
-        rule.set_progress(progress);
+        self.all_module_items_use_rules[rule_idx].set_progress(progress);
         match self.symbol_table.extend(new_uses) {
             Ok(_) => (),
             Err(_) => todo!(),
         }
     }
 
-    pub(crate) fn mark_use_expr_rule_as_erroneous(
+    pub(crate) fn update_use_all_ty_variants_rule(
         &mut self,
-        rule_idx: UseExprRuleIdx,
+        rule_idx: OnceUseRuleIdx,
+        new_uses: Vec<EntitySymbolEntry>,
+    ) {
+        self.once_use_rules[rule_idx].mark_as_resolved(None);
+        match self.symbol_table.extend(new_uses) {
+            Ok(_) => (),
+            Err(_) => todo!(),
+        }
+    }
+
+    pub(crate) fn mark_once_use_rule_as_erroneous(
+        &mut self,
+        rule_idx: OnceUseRuleIdx,
         error: EntityTreeError,
     ) {
-        let rule = &mut self.use_expr_rules[rule_idx];
+        let rule = &mut self.once_use_rules[rule_idx];
         self.errors.push(error);
         rule.mark_as_erroneous()
     }
 
     pub(crate) fn mark_use_all_rule_as_erroneous(
         &mut self,
-        rule_idx: UseAllRuleIdx,
+        rule_idx: UseAllModuleSymbolsRuleIdx,
         error: EntityTreeError,
     ) {
-        let rule = &mut self.use_all_rules[rule_idx];
+        let rule = &mut self.all_module_items_use_rules[rule_idx];
         self.errors.push(error);
         rule.mark_as_erroneous()
     }

@@ -4,14 +4,16 @@ Ok(
             TokenInfo::None,
             TokenInfo::UseExpr {
                 use_expr_idx: 1,
-                rule_idx: UseExprRuleIdx(
+                rule_idx: OnceUseRuleIdx(
                     0,
                 ),
-                state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::SuperModule {
-                        current_module_path: `mnist_classifier::digits::seven`,
-                        super_module_path: `mnist_classifier::digits`,
-                    },
+                state: OnceUseRuleState::Resolved {
+                    original_symbol: Some(
+                        EntitySymbol::SuperModule {
+                            current_module_path: `mnist_classifier::digits::seven`,
+                            super_module_path: `mnist_classifier::digits`,
+                        },
+                    ),
                 },
             },
             TokenInfo::None,

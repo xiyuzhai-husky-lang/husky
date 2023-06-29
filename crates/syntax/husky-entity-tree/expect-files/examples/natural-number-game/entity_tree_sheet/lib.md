@@ -252,10 +252,10 @@ Ok(
                 ),
             ),
         ],
-        use_expr_rules: UseExprRules(
+        once_use_rules: OnceUseRules(
             [],
         ),
-        use_all_rules: UseAllRules(
+        use_all_rules: UseAllModuleSymbolsRules(
             [],
         ),
         errors: [],

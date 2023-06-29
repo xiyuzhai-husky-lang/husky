@@ -17,13 +17,13 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 2,
+                            ast_idx: 3,
                             implicit_parameter_decl_list: Ok(
                                 Some(
                                     ImplicitParameterDeclList {
                                         langle: LeftAngleBracketOrLessThanToken(
                                             TokenIdx(
-                                                3,
+                                                8,
                                             ),
                                         ),
                                         implicit_parameters: [
@@ -34,7 +34,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `T`,
                                                         token_idx: TokenIdx(
-                                                            4,
+                                                            9,
                                                         ),
                                                     },
                                                     traits: None,
@@ -47,7 +47,7 @@ Ok(
                                         ),
                                         rangle: RightAngleBracketToken(
                                             TokenIdx(
-                                                5,
+                                                10,
                                             ),
                                         ),
                                     },
@@ -102,7 +102,7 @@ Ok(
                                                 CurrentSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
-                                                        5,
+                                                        10,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSymbolVariant::ImplicitParameter {
@@ -110,7 +110,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `T`,
                                                                 token_idx: TokenIdx(
-                                                                    4,
+                                                                    9,
                                                                 ),
                                                             },
                                                         },

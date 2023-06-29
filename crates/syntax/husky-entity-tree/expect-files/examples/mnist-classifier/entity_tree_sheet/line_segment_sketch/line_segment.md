@@ -364,15 +364,15 @@ Ok(
                 ),
             ),
         ],
-        use_expr_rules: UseExprRules(
+        once_use_rules: OnceUseRules(
             [
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 15,
                     use_expr_idx: 2,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::line_segment`,
                     ),
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
@@ -385,19 +385,21 @@ Ok(
                         ),
                     },
                     parent: None,
-                    state: UseExprRuleState::Resolved {
-                        original_symbol: EntitySymbol::CrateRoot {
-                            root_module_path: `mnist_classifier`,
-                        },
+                    state: OnceUseRuleState::Resolved {
+                        original_symbol: Some(
+                            EntitySymbol::CrateRoot {
+                                root_module_path: `mnist_classifier`,
+                            },
+                        ),
                     },
                 },
-                UseExprRule {
+                OnceUseRule {
                     ast_idx: 15,
                     use_expr_idx: 1,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::line_segment`,
                     ),
-                    variant: UseExprRuleVariant::Parent {
+                    variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::Ident(
                             IdentToken {
                                 ident: `geom2d`,
@@ -415,39 +417,39 @@ Ok(
                             `mnist_classifier`,
                         ),
                     ),
-                    state: UseExprRuleState::Resolved {
-                        original_symbol: EntitySymbol::Submodule {
-                            submodule_path: `mnist_classifier::geom2d`,
-                            node: SubmoduleNode {
-                                node_path: SubmoduleNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: `mnist_classifier::geom2d`,
-                                        disambiguator: 0,
+                    state: OnceUseRuleState::Resolved {
+                        original_symbol: Some(
+                            EntitySymbol::Submodule {
+                                submodule_path: `mnist_classifier::geom2d`,
+                                node: SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `mnist_classifier::geom2d`,
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    visibility: Scope::PubUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 13,
+                                    ident_token: IdentToken {
+                                        ident: `geom2d`,
+                                        token_idx: TokenIdx(
+                                            5,
+                                        ),
                                     },
                                 },
-                                visibility: Scope::PubUnder(
-                                    `mnist_classifier`,
-                                ),
-                                ast_idx: 13,
-                                ident_token: IdentToken {
-                                    ident: `geom2d`,
-                                    token_idx: TokenIdx(
-                                        5,
-                                    ),
-                                },
                             },
-                        },
+                        ),
                     },
                 },
             ],
         ),
-        use_all_rules: UseAllRules(
+        use_all_rules: UseAllModuleSymbolsRules(
             [
-                UseAllRule {
-                    parent: KinshipedModulePath {
-                        kinship: Inside,
-                        path: `mnist_classifier::geom2d`,
-                    },
+                UseAllModuleSymbolsRule {
+                    parent_module_path: `mnist_classifier::geom2d`,
+                    is_same_crate: true,
                     ast_idx: 15,
                     use_expr_idx: 0,
                     visibility: Scope::PubUnder(

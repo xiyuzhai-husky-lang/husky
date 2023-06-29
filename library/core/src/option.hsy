@@ -1,4 +1,4 @@
-// pub use Option::*
+pub use Option::*
 
 pub enum Option<T>
 | Some(T)

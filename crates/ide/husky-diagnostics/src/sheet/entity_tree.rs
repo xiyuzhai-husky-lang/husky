@@ -1,7 +1,7 @@
 use super::*;
 use husky_entity_tree::{
     EntityTreeError, IllFormedImplBlockNode, ImplBlockIllForm, MajorPathExprError,
-    OriginalEntityTreeError, OriginalMajorPathExprError, UseExprRuleState,
+    OnceUseRuleState, OriginalEntityTreeError, OriginalMajorPathExprError,
 };
 use salsa::DebugWithDb;
 
