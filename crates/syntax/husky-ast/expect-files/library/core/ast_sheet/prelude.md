@@ -186,14 +186,37 @@ Ok(
                         },
                     ),
                 },
+                Ast::Use {
+                    token_group_idx: TokenGroupIdx(
+                        8,
+                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    56,
+                                ),
+                            },
+                        },
+                    },
+                    state_after_visibility_expr: Some(
+                        TokenStreamState {
+                            next_token_idx: TokenIdx(
+                                57,
+                            ),
+                            drained: false,
+                        },
+                    ),
+                },
             ],
         },
         top_level_asts: ArenaIdxRange(
-            0..8,
+            0..9,
         ),
         siblings: [
             ArenaIdxRange(
-                0..8,
+                0..9,
             ),
         ],
     },

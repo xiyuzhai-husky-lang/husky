@@ -10,7 +10,13 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_diagnostic_sheet: ExprDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "Syntax Error: unrecognized identifier",
+                severity: Error,
+                range: [40:25, 40:29),
+            },
+        ],
     },
     decl_diagnostic_sheet: DeclDiagnosticSheet {
         diagnostics: [],
@@ -24,11 +30,6 @@ DiagnosticSheet {
                 message: "Type Error: no method named `clone` for type `FluffyTerm::Solid(SolidTerm(0))`",
                 severity: Error,
                 range: [128:30, 128:35),
-            },
-            Diagnostic {
-                message: "type path mismatch: expect core::option::Option, but got core::mem::Leash instead",
-                severity: Error,
-                range: [40:25, 40:32),
             },
         ],
     },
