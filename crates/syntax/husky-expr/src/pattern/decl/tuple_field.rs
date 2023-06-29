@@ -4,20 +4,20 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
-pub struct TupleStructFieldDeclPattern {
+pub struct TupleFieldDeclPattern {
     decorators: Vec<FieldDecorator>,
     visibility: Option<FieldVisibilityExpr>,
     ty: ExprIdx,
 }
 
-impl TupleStructFieldDeclPattern {
+impl TupleFieldDeclPattern {
     pub fn ty(&self) -> ExprIdx {
         self.ty
     }
 }
 
 impl<'a, 'b> parsec::TryParseOptionalFromStream<ExprParseContext<'a, 'b>>
-    for TupleStructFieldDeclPattern
+    for TupleFieldDeclPattern
 {
     type Error = ExprError;
 
@@ -31,7 +31,7 @@ impl<'a, 'b> parsec::TryParseOptionalFromStream<ExprParseContext<'a, 'b>>
             ExprRootKind::TupleStructFieldType,
             OriginalExprError::ExpectedFieldType,
         );
-        Ok(Some(TupleStructFieldDeclPattern {
+        Ok(Some(TupleFieldDeclPattern {
             decorators,
             visibility,
             ty,

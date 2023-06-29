@@ -1,7 +1,7 @@
 use super::*;
 
 #[salsa::tracked(jar = DeclarativeTypeJar)]
-pub fn ty_constructor_path_declarative_ty(
+pub fn ty_instance_constructor_path_declarative_ty(
     db: &dyn DeclarativeTypeDb,
     path: TypePath,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
@@ -15,9 +15,11 @@ pub fn ty_constructor_path_declarative_ty(
     };
     match signature {
         TypeDeclarativeSignatureTemplate::Enum(_) => Err(todo!()),
-        TypeDeclarativeSignatureTemplate::PropsStruct(signature) => Ok(
-            regular_struct_ty_constructor_path_declarative_ty(db, path, variances, signature),
-        ),
+        TypeDeclarativeSignatureTemplate::PropsStruct(signature) => {
+            Ok(props_struct_ty_instance_constructor_path_declarative_ty(
+                db, path, variances, signature,
+            ))
+        }
         TypeDeclarativeSignatureTemplate::UnitStruct(_) => todo!(),
         TypeDeclarativeSignatureTemplate::TupleStruct(signature) => Ok(
             tuple_struct_ty_constructor_path_declarative_ty(db, path, variances, signature),
@@ -32,7 +34,7 @@ pub fn ty_constructor_path_declarative_ty(
     }
 }
 
-fn regular_struct_ty_constructor_path_declarative_ty(
+fn props_struct_ty_instance_constructor_path_declarative_ty(
     db: &dyn DeclarativeTypeDb,
     path: TypePath,
     variances: &[Variance],
@@ -46,14 +48,14 @@ fn regular_struct_ty_constructor_path_declarative_ty(
         .copied()
         .map(PropsStructFieldDeclarativeSignatureTemplate::into_ritchie_parameter_contracted_ty)
         .collect();
-    let constructor_ty =
+    let instance_constructor_ty =
         DeclarativeTermRitchie::new(db, RitchieKind::FnType, parameter_tys, self_ty);
     curry_from_implicit_parameters(
         db,
         CurryKind::Implicit,
         variances,
         implicit_parameters,
-        constructor_ty,
+        instance_constructor_ty,
     )
 }
 

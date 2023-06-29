@@ -1,22 +1,24 @@
 use super::*;
 
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
-pub struct TupleStructDeclarativeSignatureTemplate {
+pub struct PropsStructDeclarativeSignatureTemplate {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterDeclarativeSignatures,
     #[return_ref]
-    pub fields: SmallVec<[TupleStructFieldDeclarativeSignatureTemplate; 4]>,
+    pub fields: SmallVec<[PropsStructFieldDeclarativeSignatureTemplate; 4]>,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub struct TupleStructFieldDeclarativeSignatureTemplate {
+#[salsa::derive_debug_with_db(db = DeclarativeSignatureDb, jar= DeclarativeSignatureJar)]
+pub struct PropsStructFieldDeclarativeSignatureTemplate {
+    ident: Ident,
     ty: DeclarativeTerm,
 }
 
-impl TupleStructDeclarativeSignatureTemplate {
-    pub fn from_decl(
+impl PropsStructDeclarativeSignatureTemplate {
+    pub(super) fn from_decl(
         db: &dyn DeclarativeSignatureDb,
-        decl: TupleStructTypeDecl,
+        decl: PropsStructTypeDecl,
     ) -> DeclarativeSignatureResult<Self> {
         let expr_region = decl.expr_region(db);
         let declarative_term_region = declarative_term_region(db, expr_region);
@@ -32,8 +34,9 @@ impl TupleStructDeclarativeSignatureTemplate {
                 .iter()
                 .enumerate()
                 .map(|(i, field)| {
-                    Ok(TupleStructFieldDeclarativeSignatureTemplate {
-                        ty: match declarative_term_region.expr_term(field.ty()) {
+                    Ok(PropsStructFieldDeclarativeSignatureTemplate {
+                        ident: field.ident(),
+                        ty: match declarative_term_region.expr_term(field.ty_expr_idx()) {
                             Ok(ty) => ty,
                             Err(_) => {
                                 return Err(
@@ -50,7 +53,15 @@ impl TupleStructDeclarativeSignatureTemplate {
     }
 }
 
-impl TupleStructFieldDeclarativeSignatureTemplate {
+impl PropsStructFieldDeclarativeSignatureTemplate {
+    pub fn ident(&self) -> Ident {
+        self.ident
+    }
+
+    pub fn ty(&self) -> DeclarativeTerm {
+        self.ty
+    }
+
     pub fn into_ritchie_parameter_contracted_ty(
         self,
     ) -> DeclarativeTermRitchieParameterContractedType {
@@ -60,4 +71,4 @@ impl TupleStructFieldDeclarativeSignatureTemplate {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclarativeSignatureDb)]
-pub struct TupleStructTypeDeclarativeSignature {}
+pub struct PropsStructDeclarativeSignature {}

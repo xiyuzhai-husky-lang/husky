@@ -68,9 +68,21 @@ impl<'a> DeclParser<'a> {
         let mut parser =
             self.expr_parser(node_path, None, AllowSelfType::True, AllowSelfValue::False);
         let mut ctx = parser.ctx(None, token_group_idx, Some(state_after));
+        let state = ctx.save_state();
         match ctx.next() {
             Some(Token::Punctuation(Punctuation::LPAR)) => {
-                TupleTypeVariantNodeDecl::new(db, node_path, ast_idx, parser.finish()).into()
+                let field_comma_list = ctx.try_parse();
+                let rpar = ctx.try_parse();
+                TupleTypeVariantNodeDecl::new(
+                    db,
+                    node_path,
+                    ast_idx,
+                    state.next_token_idx(),
+                    field_comma_list,
+                    rpar,
+                    parser.finish(),
+                )
+                .into()
             }
             Some(Token::Punctuation(Punctuation::LCURL)) => todo!(),
             None => UnitTypeVariantNodeDecl::new(db, node_path, ast_idx, parser.finish()).into(),

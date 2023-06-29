@@ -3,11 +3,11 @@ mod explicit_parameter;
 mod form_ty_expr;
 mod implicit_parameter;
 mod let_variables;
-mod prop_field;
+mod props_field;
 mod return_ty_expr;
 mod self_parameter;
 mod trai_expr;
-mod tuple_struct_field;
+mod tuple_field;
 mod ty_expr;
 
 pub use self::be_variables::*;
@@ -15,11 +15,11 @@ pub use self::explicit_parameter::*;
 pub use self::form_ty_expr::*;
 pub use self::implicit_parameter::*;
 pub use self::let_variables::*;
-pub use self::prop_field::*;
+pub use self::props_field::*;
 pub use self::return_ty_expr::*;
 pub use self::self_parameter::*;
 pub use self::trai_expr::*;
-pub use self::tuple_struct_field::*;
+pub use self::tuple_field::*;
 pub use self::ty_expr::*;
 
 use super::*;

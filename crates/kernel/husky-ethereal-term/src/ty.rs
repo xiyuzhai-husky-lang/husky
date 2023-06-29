@@ -70,12 +70,13 @@ impl HasTypeGivenDisambiguation for TypePath {
         disambiguation: TypePathDisambiguation,
     ) -> EtherealTermResult<EtherealTerm> {
         match disambiguation {
-            TypePathDisambiguation::Ontology => {
+            TypePathDisambiguation::OntologyConstructor => {
                 EtherealTerm::ty_from_declarative(db, ty_ontology_path_declarative_ty(db, self)?)
             }
-            TypePathDisambiguation::Constructor => {
-                EtherealTerm::ty_from_declarative(db, ty_constructor_path_declarative_ty(db, self)?)
-            }
+            TypePathDisambiguation::InstanceConstructor => EtherealTerm::ty_from_declarative(
+                db,
+                ty_instance_constructor_path_declarative_ty(db, self)?,
+            ),
         }
     }
 }
@@ -161,7 +162,7 @@ impl EtherealTerm {
                     RawType::Declarative(ty_ontology_path_declarative_ty(db, path)?)
                 }
                 TermEntityPath::TypeInstance(path) => {
-                    RawType::Declarative(ty_constructor_path_declarative_ty(db, path)?)
+                    RawType::Declarative(ty_instance_constructor_path_declarative_ty(db, path)?)
                 }
             },
             EtherealTerm::Category(cat) => RawType::Declarative(cat.ty()?.into()),

@@ -9,12 +9,10 @@ pub struct TupleStructTypeNodeDecl {
     pub ast_idx: AstIdx,
     #[return_ref]
     implicit_parameter_decl_list: DeclExprResult<Option<ImplicitParameterDeclList>>,
-    #[return_ref]
     lpar: LeftParenthesisToken,
     #[return_ref]
-    field_comma_list: DeclExprResult<
-        SeparatedSmallList<TupleStructFieldDeclPattern, CommaToken, 4, DeclExprError>,
-    >,
+    field_comma_list:
+        DeclExprResult<SeparatedSmallList<TupleFieldDeclPattern, CommaToken, 4, DeclExprError>>,
     #[return_ref]
     rpar: DeclExprResult<TupleStructRightParenthesisToken>,
     pub expr_region: ExprRegion,
@@ -44,7 +42,7 @@ pub struct TupleStructTypeDecl {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterDeclPatterns,
     #[return_ref]
-    pub fields: SmallVec<[TupleStructFieldDeclPattern; 4]>,
+    pub fields: SmallVec<[TupleFieldDeclPattern; 4]>,
     pub expr_region: ExprRegion,
 }
 

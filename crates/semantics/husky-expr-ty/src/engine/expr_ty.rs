@@ -256,7 +256,7 @@ impl<'a> ExprTypeEngine<'a> {
             } => self.calc_index_or_compose_with_list_expr_ty(expr_idx, owner, indices),
             Expr::List { ref items, .. } => {
                 Ok(match expr_ty_expectation.disambiguate_ty_path(self) {
-                    TypePathDisambiguation::Ontology => {
+                    TypePathDisambiguation::OntologyConstructor => {
                         // ad hoc, assume universe is 1
                         match items.len() {
                             0 => (
@@ -273,7 +273,7 @@ impl<'a> ExprTypeEngine<'a> {
                             }
                         }
                     }
-                    TypePathDisambiguation::Constructor => {
+                    TypePathDisambiguation::InstanceConstructor => {
                         let element_ty: FluffyTerm = match expr_ty_expectation
                             .destination_term_data(self.db(), self.fluffy_term_region.terms())
                         {

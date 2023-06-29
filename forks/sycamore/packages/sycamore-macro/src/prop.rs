@@ -130,7 +130,7 @@ mod struct_info {
             } = *self;
             let (impl_generics, ty_generics, where_clause) = self.generics.split_for_impl();
             let all_fields_param = syn::GenericParam::Type(
-                syn::Ident::new("PropFields", proc_macro2::Span::call_site()).into(),
+                syn::Ident::new("PropsFields", proc_macro2::Span::call_site()).into(),
             );
             let b_generics = self.modify_generics(|g| {
                 g.params.insert(0, all_fields_param.clone());
@@ -201,7 +201,7 @@ mod struct_info {
             let (b_generics_impl, b_generics_ty, b_generics_where_extras_predicates) =
                 b_generics.split_for_impl();
             let mut b_generics_where: syn::WhereClause = syn::parse2(quote! {
-                where PropFields: Clone
+                where PropsFields: Clone
             })?;
             if let Some(predicates) = b_generics_where_extras_predicates {
                 b_generics_where

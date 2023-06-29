@@ -85,7 +85,7 @@ Ok(
                             fields: Ok(
                                 SeparatedSmallList {
                                     elements: [
-                                        PropFieldDeclPattern {
+                                        PropsFieldDeclPattern {
                                             decorators: [],
                                             visibility: None,
                                             ident_token: IdentToken {
@@ -108,7 +108,7 @@ Ok(
                                             ty_expr_idx: 4,
                                             initialization: None,
                                         },
-                                        PropFieldDeclPattern {
+                                        PropsFieldDeclPattern {
                                             decorators: [],
                                             visibility: None,
                                             ident_token: IdentToken {
@@ -140,7 +140,7 @@ Ok(
                                                 },
                                             ),
                                         },
-                                        PropFieldDeclPattern {
+                                        PropsFieldDeclPattern {
                                             decorators: [],
                                             visibility: None,
                                             ident_token: IdentToken {
@@ -602,7 +602,7 @@ Ok(
                             fields: Ok(
                                 SeparatedSmallList {
                                     elements: [
-                                        PropFieldDeclPattern {
+                                        PropsFieldDeclPattern {
                                             decorators: [],
                                             visibility: None,
                                             ident_token: IdentToken {
@@ -625,7 +625,7 @@ Ok(
                                             ty_expr_idx: 1,
                                             initialization: None,
                                         },
-                                        PropFieldDeclPattern {
+                                        PropsFieldDeclPattern {
                                             decorators: [],
                                             visibility: None,
                                             ident_token: IdentToken {

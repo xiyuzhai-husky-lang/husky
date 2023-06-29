@@ -9,7 +9,7 @@ Ok(
                             path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                             implicit_parameters: [],
                             fields: [
-                                PropFieldDeclPattern {
+                                PropsFieldDeclPattern {
                                     decorators: [],
                                     visibility: None,
                                     ident_token: IdentToken {
@@ -26,7 +26,7 @@ Ok(
                                     ty_expr_idx: 1,
                                     initialization: None,
                                 },
-                                PropFieldDeclPattern {
+                                PropsFieldDeclPattern {
                                     decorators: [],
                                     visibility: None,
                                     ident_token: IdentToken {
@@ -5491,7 +5491,7 @@ Ok(
                             path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
                             implicit_parameters: [],
                             fields: [
-                                PropFieldDeclPattern {
+                                PropsFieldDeclPattern {
                                     decorators: [],
                                     visibility: None,
                                     ident_token: IdentToken {
@@ -5508,7 +5508,7 @@ Ok(
                                     ty_expr_idx: 0,
                                     initialization: None,
                                 },
-                                PropFieldDeclPattern {
+                                PropsFieldDeclPattern {
                                     decorators: [],
                                     visibility: None,
                                     ident_token: IdentToken {

@@ -38,11 +38,11 @@ impl HasEtherealSignatureTemplate for PropsStructDeclarativeSignatureTemplate {
         self,
         db: &dyn EtherealSignatureDb,
     ) -> EtherealSignatureResult<Self::EtherealSignatureTemplate> {
-        regular_struct_ethereal_signature_template(db, self)
+        props_struct_ethereal_signature_template(db, self)
     }
 }
 
-pub(crate) fn regular_struct_ethereal_signature_template(
+pub(crate) fn props_struct_ethereal_signature_template(
     db: &dyn EtherealSignatureDb,
     declarative_signature_template: PropsStructDeclarativeSignatureTemplate,
 ) -> EtherealSignatureResult<PropsStructEtherealSignatureTemplate> {

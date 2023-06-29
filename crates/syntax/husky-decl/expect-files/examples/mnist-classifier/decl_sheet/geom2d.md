@@ -15,7 +15,7 @@ Ok(
                                 path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                 implicit_parameters: [],
                                 fields: [
-                                    PropFieldDeclPattern {
+                                    PropsFieldDeclPattern {
                                         decorators: [],
                                         visibility: None,
                                         ident_token: IdentToken {
@@ -32,7 +32,7 @@ Ok(
                                         ty_expr_idx: 0,
                                         initialization: None,
                                     },
-                                    PropFieldDeclPattern {
+                                    PropsFieldDeclPattern {
                                         decorators: [],
                                         visibility: None,
                                         ident_token: IdentToken {
@@ -209,7 +209,7 @@ Ok(
                                 path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                 implicit_parameters: [],
                                 fields: [
-                                    PropFieldDeclPattern {
+                                    PropsFieldDeclPattern {
                                         decorators: [],
                                         visibility: None,
                                         ident_token: IdentToken {
@@ -226,7 +226,7 @@ Ok(
                                         ty_expr_idx: 0,
                                         initialization: None,
                                     },
-                                    PropFieldDeclPattern {
+                                    PropsFieldDeclPattern {
                                         decorators: [],
                                         visibility: None,
                                         ident_token: IdentToken {
@@ -403,7 +403,7 @@ Ok(
                                 path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                 implicit_parameters: [],
                                 fields: [
-                                    PropFieldDeclPattern {
+                                    PropsFieldDeclPattern {
                                         decorators: [],
                                         visibility: None,
                                         ident_token: IdentToken {
@@ -420,7 +420,7 @@ Ok(
                                         ty_expr_idx: 0,
                                         initialization: None,
                                     },
-                                    PropFieldDeclPattern {
+                                    PropsFieldDeclPattern {
                                         decorators: [],
                                         visibility: None,
                                         ident_token: IdentToken {
@@ -597,7 +597,7 @@ Ok(
                                 path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                 implicit_parameters: [],
                                 fields: [
-                                    PropFieldDeclPattern {
+                                    PropsFieldDeclPattern {
                                         decorators: [],
                                         visibility: None,
                                         ident_token: IdentToken {
@@ -614,7 +614,7 @@ Ok(
                                         ty_expr_idx: 0,
                                         initialization: None,
                                     },
-                                    PropFieldDeclPattern {
+                                    PropsFieldDeclPattern {
                                         decorators: [],
                                         visibility: None,
                                         ident_token: IdentToken {
@@ -791,7 +791,7 @@ Ok(
                                 path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                 implicit_parameters: [],
                                 fields: [
-                                    PropFieldDeclPattern {
+                                    PropsFieldDeclPattern {
                                         decorators: [],
                                         visibility: Some(
                                             FieldVisibilityExpr::Pub,
@@ -810,7 +810,7 @@ Ok(
                                         ty_expr_idx: 0,
                                         initialization: None,
                                     },
-                                    PropFieldDeclPattern {
+                                    PropsFieldDeclPattern {
                                         decorators: [],
                                         visibility: Some(
                                             FieldVisibilityExpr::Pub,
@@ -989,7 +989,7 @@ Ok(
                                 path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                 implicit_parameters: [],
                                 fields: [
-                                    PropFieldDeclPattern {
+                                    PropsFieldDeclPattern {
                                         decorators: [],
                                         visibility: None,
                                         ident_token: IdentToken {
@@ -1006,7 +1006,7 @@ Ok(
                                         ty_expr_idx: 0,
                                         initialization: None,
                                     },
-                                    PropFieldDeclPattern {
+                                    PropsFieldDeclPattern {
                                         decorators: [],
                                         visibility: None,
                                         ident_token: IdentToken {

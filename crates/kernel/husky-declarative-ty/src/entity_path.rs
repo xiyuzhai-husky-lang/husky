@@ -2,14 +2,14 @@ mod associated_item;
 mod fugitive;
 mod trai;
 mod ty_constructor;
-mod ty_ontology;
+mod ty_instance_constructor;
 mod utils;
 
 pub use self::associated_item::*;
 pub use self::fugitive::*;
 pub use self::trai::*;
 pub use self::ty_constructor::*;
-pub use self::ty_ontology::*;
+pub use self::ty_instance_constructor::*;
 
 use crate::*;
 use husky_decl::{HasDecl, TypeVariantDecl};
@@ -40,8 +40,12 @@ pub fn entity_path_declarative_ty(
         EntityPath::Module(_) => Ok(declarative_term_menu.module()),
         EntityPath::ModuleItem(path) => match path {
             ModuleItemPath::Type(path) => match disambiguation {
-                TypePathDisambiguation::Ontology => ty_ontology_path_declarative_ty(db, path),
-                TypePathDisambiguation::Constructor => ty_constructor_path_declarative_ty(db, path),
+                TypePathDisambiguation::OntologyConstructor => {
+                    ty_ontology_path_declarative_ty(db, path)
+                }
+                TypePathDisambiguation::InstanceConstructor => {
+                    ty_instance_constructor_path_declarative_ty(db, path)
+                }
             },
             ModuleItemPath::Trait(path) => trai_path_declarative_ty(db, path),
             ModuleItemPath::Fugitive(path) => form_path_declarative_ty(db, path),
@@ -71,7 +75,7 @@ fn entity_path_declarative_ty_works() {
         db,
         entity_path_declarative_ty(
             &db,
-            TypePathDisambiguation::Ontology,
+            TypePathDisambiguation::OntologyConstructor,
             entity_path_menu.bool_ty_path().into(),
         ),
         Ok(declarative_term_menu.ty0().into())
@@ -80,7 +84,7 @@ fn entity_path_declarative_ty_works() {
         db,
         entity_path_declarative_ty(
             &db,
-            TypePathDisambiguation::Ontology,
+            TypePathDisambiguation::OntologyConstructor,
             entity_path_menu.core_ops_add().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -89,7 +93,7 @@ fn entity_path_declarative_ty_works() {
         db,
         entity_path_declarative_ty(
             &db,
-            TypePathDisambiguation::Ontology,
+            TypePathDisambiguation::OntologyConstructor,
             entity_path_menu.core_ops_add_assign().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -98,7 +102,7 @@ fn entity_path_declarative_ty_works() {
         db,
         entity_path_declarative_ty(
             &db,
-            TypePathDisambiguation::Ontology,
+            TypePathDisambiguation::OntologyConstructor,
             entity_path_menu.core_ops_bit_and().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -107,7 +111,7 @@ fn entity_path_declarative_ty_works() {
         db,
         entity_path_declarative_ty(
             &db,
-            TypePathDisambiguation::Ontology,
+            TypePathDisambiguation::OntologyConstructor,
             entity_path_menu.core_ops_bit_and_assign().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -116,7 +120,7 @@ fn entity_path_declarative_ty_works() {
         db,
         entity_path_declarative_ty(
             &db,
-            TypePathDisambiguation::Ontology,
+            TypePathDisambiguation::OntologyConstructor,
             entity_path_menu.core_ops_bit_or().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -125,7 +129,7 @@ fn entity_path_declarative_ty_works() {
         db,
         entity_path_declarative_ty(
             &db,
-            TypePathDisambiguation::Ontology,
+            TypePathDisambiguation::OntologyConstructor,
             entity_path_menu.core_ops_bit_or_assign().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -134,7 +138,7 @@ fn entity_path_declarative_ty_works() {
         db,
         entity_path_declarative_ty(
             &db,
-            TypePathDisambiguation::Ontology,
+            TypePathDisambiguation::OntologyConstructor,
             entity_path_menu.core_ops_bit_xor().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -143,7 +147,7 @@ fn entity_path_declarative_ty_works() {
         db,
         entity_path_declarative_ty(
             &db,
-            TypePathDisambiguation::Ontology,
+            TypePathDisambiguation::OntologyConstructor,
             entity_path_menu.core_ops_bit_xor_assign().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -152,7 +156,7 @@ fn entity_path_declarative_ty_works() {
         db,
         entity_path_declarative_ty(
             &db,
-            TypePathDisambiguation::Ontology,
+            TypePathDisambiguation::OntologyConstructor,
             entity_path_menu.core_ops_div().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -161,7 +165,7 @@ fn entity_path_declarative_ty_works() {
         db,
         entity_path_declarative_ty(
             &db,
-            TypePathDisambiguation::Ontology,
+            TypePathDisambiguation::OntologyConstructor,
             entity_path_menu.core_ops_div_assign().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -170,7 +174,7 @@ fn entity_path_declarative_ty_works() {
         db,
         entity_path_declarative_ty(
             &db,
-            TypePathDisambiguation::Ontology,
+            TypePathDisambiguation::OntologyConstructor,
             entity_path_menu.core_ops_mul().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -179,7 +183,7 @@ fn entity_path_declarative_ty_works() {
         db,
         entity_path_declarative_ty(
             &db,
-            TypePathDisambiguation::Ontology,
+            TypePathDisambiguation::OntologyConstructor,
             entity_path_menu.core_ops_mul_assign().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -188,7 +192,7 @@ fn entity_path_declarative_ty_works() {
         db,
         entity_path_declarative_ty(
             &db,
-            TypePathDisambiguation::Ontology,
+            TypePathDisambiguation::OntologyConstructor,
             entity_path_menu.core_ops_neg().into(),
         ),
         Ok(trai_ty)
@@ -197,7 +201,7 @@ fn entity_path_declarative_ty_works() {
         db,
         entity_path_declarative_ty(
             &db,
-            TypePathDisambiguation::Ontology,
+            TypePathDisambiguation::OntologyConstructor,
             entity_path_menu.core_ops_not().into(),
         ),
         Ok(trai_ty)
@@ -244,6 +248,8 @@ fn ty_ontology_path_declarative_ty_works() {
     // todo!()
 }
 
+// todo: this should return a template
+#[deprecated(note = "it's better to use signature directly instead of invoking this function")]
 #[salsa::tracked(jar = DeclarativeTypeJar)]
 pub fn ty_variant_path_declarative_ty(
     db: &dyn DeclarativeTypeDb,
@@ -251,21 +257,29 @@ pub fn ty_variant_path_declarative_ty(
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
     // todo: GADT
     let declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();
-    let decl = match path.decl(db) {
-        Ok(decl) => decl,
-        Err(_e) => {
-            todo!()
-        }
+    let signature_template = match path.declarative_signature_template(db) {
+        Ok(signature) => signature,
+        Err(_) => return Err(DerivedDeclarativeTypeError::SignatureError.into()),
     };
-    match decl {
-        TypeVariantDecl::Props(_) => todo!(),
-        TypeVariantDecl::Unit(_) => Ok(path.ty_path(db).into()),
-        TypeVariantDecl::Tuple(_) => todo!(),
-    }
-    // let signature = match path.declarative_signature_template(db) {
-    //     Ok(signature) => signature,
-    //     Err(_) => return Err(DerivedDeclarativeTypeError::SignatureError.into()),
-    // };
+    Ok(match signature_template {
+        TypeVariantDeclarativeSignatureTemplate::Props(_) => todo!(),
+        TypeVariantDeclarativeSignatureTemplate::Unit(signature_template) => {
+            // ad hoc
+            signature_template.ty(db)
+        }
+        TypeVariantDeclarativeSignatureTemplate::Tuple(signature_template) => {
+            // ad hoc
+            signature_template.ty(db)
+        }
+    })
+    // match decl {
+    //     TypeVariantDecl::Props(_) => todo!(),
+    //     TypeVariantDecl::Unit(_) => Ok(path.ty_path(db).into()),
+    //     TypeVariantDecl::Tuple(decl) => {
+    //         // let signature =
+    //         todo!()
+    //     }
+    // }
     // let Ok(variances) =  ty_entity_variances(db, path) else {
     //     todo!()
     // };

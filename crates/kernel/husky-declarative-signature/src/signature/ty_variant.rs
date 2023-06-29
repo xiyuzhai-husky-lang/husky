@@ -1,10 +1,10 @@
-mod props;
-mod tuple;
-mod unit;
+mod props_ty_variant;
+mod tuple_ty_variant;
+mod unit_ty_variant;
 
-pub use props::*;
-pub use tuple::*;
-pub use unit::*;
+pub use self::props_ty_variant::*;
+pub use self::tuple_ty_variant::*;
+pub use self::unit_ty_variant::*;
 
 use super::*;
 
@@ -38,6 +38,20 @@ impl HasDeclarativeSignatureTemplate for TypeVariantPath {
         self,
         db: &dyn DeclarativeSignatureDb,
     ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
-        todo!()
+        ty_variant_declarative_signature_template(db, self)
     }
+}
+
+#[salsa::tracked(jar = DeclarativeSignatureJar)]
+pub(crate) fn ty_variant_declarative_signature_template(
+    db: &dyn DeclarativeSignatureDb,
+    path: TypeVariantPath,
+) -> DeclarativeSignatureResult<TypeVariantDeclarativeSignatureTemplate> {
+    Ok(match path.decl(db)? {
+        TypeVariantDecl::Props(_) => todo!(),
+        TypeVariantDecl::Unit(_) => todo!(),
+        TypeVariantDecl::Tuple(decl) => {
+            TupleTypeVariantDeclarativeSignatureTemplate::from_decl(db, decl)?.into()
+        }
+    })
 }

@@ -34,7 +34,7 @@ use map_collect::*;
 #[salsa::jar(db = DeclarativeTypeDb)]
 pub struct DeclarativeTypeJar(
     ty_ontology_path_declarative_ty,
-    ty_constructor_path_declarative_ty,
+    ty_instance_constructor_path_declarative_ty,
     trai_path_declarative_ty,
     form_path_declarative_ty,
     ty_item_path_declarative_ty,
