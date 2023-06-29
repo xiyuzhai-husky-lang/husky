@@ -249,6 +249,8 @@ pub fn module_entity_node_paths(
 }
 
 // include submodules, module items, associated items
+// todo: type variants
+// todo: trait item
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub fn module_entity_paths(
     db: &dyn EntityTreeDb,
@@ -261,7 +263,6 @@ pub fn module_entity_paths(
             paths.push(path)
         }
     }
-    // todo: trait item
     for node_path in entity_tree_sheet.impl_block_node_paths() {
         if let Some(path) = node_path.path(db) {
             paths.push(path.into());
