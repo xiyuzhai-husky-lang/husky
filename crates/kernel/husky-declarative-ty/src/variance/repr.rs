@@ -73,7 +73,7 @@ pub(crate) fn ty_entity_variance_reprs(
         // ad hoc: todo
         // match signature {
         //      TypeDeclarativeSignatureTemplate::Enum(_) => todo!(),
-        //      TypeDeclarativeSignatureTemplate::RegularStruct(_) => todo!(),
+        //      TypeDeclarativeSignatureTemplate::PropsStruct(_) => todo!(),
         //      TypeDeclarativeSignatureTemplate::UnitStruct(_) => todo!(),
         //      TypeDeclarativeSignatureTemplate::TupleStruct(_) => todo!(),
         //      TypeDeclarativeSignatureTemplate::Record(_) => todo!(),

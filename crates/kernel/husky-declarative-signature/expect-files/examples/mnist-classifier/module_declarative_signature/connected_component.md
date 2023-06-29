@@ -8,25 +8,25 @@
         Ok(
             SignatureTemplate::ModuleItem(
                 ModuleItemDeclarativeSignatureTemplate::Type(
-                    TypeDeclarativeSignatureTemplate::RegularStruct(
-                        RegularStructDeclarativeSignatureTemplate {
+                    TypeDeclarativeSignatureTemplate::PropsStruct(
+                        PropsStructDeclarativeSignatureTemplate {
                             implicit_parameters: ImplicitParameterDeclarativeSignatures {
                                 data: [],
                             },
                             fields: [
-                                RegularStructFieldDeclarativeSignatureTemplate {
+                                PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `row_start`,
                                     ty: DeclarativeTerm(`core::num::i32`),
                                 },
-                                RegularStructFieldDeclarativeSignatureTemplate {
+                                PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `row_end`,
                                     ty: DeclarativeTerm(`core::num::i32`),
                                 },
-                                RegularStructFieldDeclarativeSignatureTemplate {
+                                PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `upper_mass`,
                                     ty: DeclarativeTerm(`core::num::i32`),
                                 },
-                                RegularStructFieldDeclarativeSignatureTemplate {
+                                PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `lower_mass`,
                                     ty: DeclarativeTerm(`core::num::i32`),
                                 },
@@ -46,13 +46,13 @@
         Ok(
             SignatureTemplate::ModuleItem(
                 ModuleItemDeclarativeSignatureTemplate::Type(
-                    TypeDeclarativeSignatureTemplate::RegularStruct(
-                        RegularStructDeclarativeSignatureTemplate {
+                    TypeDeclarativeSignatureTemplate::PropsStruct(
+                        PropsStructDeclarativeSignatureTemplate {
                             implicit_parameters: ImplicitParameterDeclarativeSignatures {
                                 data: [],
                             },
                             fields: [
-                                RegularStructFieldDeclarativeSignatureTemplate {
+                                PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `matches`,
                                     ty: DeclarativeTerm(`[] core::option::Option ~ mnist_classifier::raw_contour::RawContour`),
                                 },
@@ -107,13 +107,13 @@
         Ok(
             SignatureTemplate::ModuleItem(
                 ModuleItemDeclarativeSignatureTemplate::Type(
-                    TypeDeclarativeSignatureTemplate::RegularStruct(
-                        RegularStructDeclarativeSignatureTemplate {
+                    TypeDeclarativeSignatureTemplate::PropsStruct(
+                        PropsStructDeclarativeSignatureTemplate {
                             implicit_parameters: ImplicitParameterDeclarativeSignatures {
                                 data: [],
                             },
                             fields: [
-                                RegularStructFieldDeclarativeSignatureTemplate {
+                                PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `mask`,
                                     ty: DeclarativeTerm(`mnist::BinaryImage28`),
                                 },

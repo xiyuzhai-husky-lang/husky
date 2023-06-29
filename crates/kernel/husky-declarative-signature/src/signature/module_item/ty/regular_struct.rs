@@ -2,25 +2,25 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclarativeSignatureDb)]
-pub struct RegularStructDeclarativeSignature {}
+pub struct PropsStructDeclarativeSignature {}
 
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
-pub struct RegularStructDeclarativeSignatureTemplate {
+pub struct PropsStructDeclarativeSignatureTemplate {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterDeclarativeSignatures,
     #[return_ref]
-    pub fields: SmallVec<[RegularStructFieldDeclarativeSignatureTemplate; 4]>,
+    pub fields: SmallVec<[PropsStructFieldDeclarativeSignatureTemplate; 4]>,
 }
 
 #[salsa::tracked(jar = DeclarativeSignatureJar)]
 pub fn regular_struct_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
-    decl: RegularStructTypeDecl,
-) -> DeclarativeSignatureResult<RegularStructDeclarativeSignatureTemplate> {
+    decl: PropsStructTypeDecl,
+) -> DeclarativeSignatureResult<PropsStructDeclarativeSignatureTemplate> {
     let expr_region = decl.expr_region(db);
     let declarative_term_region = declarative_term_region(db, expr_region);
     let declarative_term_menu = db.declarative_term_menu(expr_region.toolchain(db)).unwrap();
-    Ok(RegularStructDeclarativeSignatureTemplate::new(
+    Ok(PropsStructDeclarativeSignatureTemplate::new(
         db,
         ImplicitParameterDeclarativeSignatures::from_decl(
             decl.implicit_parameters(db),
@@ -31,7 +31,7 @@ pub fn regular_struct_declarative_signature_template(
             .iter()
             .enumerate()
             .map(|(i, field)| {
-                Ok(RegularStructFieldDeclarativeSignatureTemplate {
+                Ok(PropsStructFieldDeclarativeSignatureTemplate {
                     ident: field.ident(),
                     ty: match declarative_term_region.expr_term(field.ty_expr_idx()) {
                         Ok(ty) => ty,
@@ -49,12 +49,12 @@ pub fn regular_struct_declarative_signature_template(
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclarativeSignatureDb, jar= DeclarativeSignatureJar)]
-pub struct RegularStructFieldDeclarativeSignatureTemplate {
+pub struct PropsStructFieldDeclarativeSignatureTemplate {
     ident: Ident,
     ty: DeclarativeTerm,
 }
 
-impl RegularStructFieldDeclarativeSignatureTemplate {
+impl PropsStructFieldDeclarativeSignatureTemplate {
     pub fn ident(&self) -> Ident {
         self.ident
     }

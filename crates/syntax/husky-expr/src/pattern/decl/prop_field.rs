@@ -4,17 +4,17 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
-pub struct RegularStructFieldDeclPattern {
+pub struct PropFieldDeclPattern {
     decorators: Vec<FieldDecorator>,
     visibility: Option<FieldVisibilityExpr>,
     ident_token: IdentToken,
     colon: ColonToken,
     ty_expr_idx: ExprIdx,
-    initialization: Option<RegularStructFieldInitialization>,
+    initialization: Option<PropFieldInitialization>,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum RegularStructFieldInitialization {
+pub enum PropFieldInitialization {
     Bind {
         colon_eq_token: ColonEqToken,
         value: ExprIdx,
@@ -22,7 +22,7 @@ pub enum RegularStructFieldInitialization {
     Default {},
 }
 
-impl RegularStructFieldDeclPattern {
+impl PropFieldDeclPattern {
     pub fn ident(&self) -> Ident {
         self.ident_token.ident()
     }
@@ -36,9 +36,7 @@ impl RegularStructFieldDeclPattern {
     }
 }
 
-impl<'a, 'b> parsec::TryParseOptionalFromStream<ExprParseContext<'a, 'b>>
-    for RegularStructFieldDeclPattern
-{
+impl<'a, 'b> parsec::TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for PropFieldDeclPattern {
     type Error = ExprError;
 
     fn try_parse_stream_optional_from_without_guaranteed_rollback(
@@ -52,12 +50,12 @@ impl<'a, 'b> parsec::TryParseOptionalFromStream<ExprParseContext<'a, 'b>>
         let colon: ColonToken = ctx.try_parse_expected(OriginalExprError::ExpectedColon)?;
         let ty_expr_idx = ctx.parse_expr_expected2(
             None,
-            ExprRootKind::RegularStructFieldType { ident_token },
+            ExprRootKind::PropsStructFieldType { ident_token },
             OriginalExprError::ExpectedFieldType,
         );
         let initialization =
             if let Some(colon_eq_token) = ctx.try_parse_optional::<ColonEqToken>()? {
-                Some(RegularStructFieldInitialization::Bind {
+                Some(PropFieldInitialization::Bind {
                     colon_eq_token,
                     value: ctx.parse_expr_expected2(
                         None,
@@ -71,7 +69,7 @@ impl<'a, 'b> parsec::TryParseOptionalFromStream<ExprParseContext<'a, 'b>>
                 None
             };
         let access_start = ctx.save_state().next_token_idx();
-        Ok(Some(RegularStructFieldDeclPattern {
+        Ok(Some(PropFieldDeclPattern {
             decorators,
             visibility,
             ident_token,

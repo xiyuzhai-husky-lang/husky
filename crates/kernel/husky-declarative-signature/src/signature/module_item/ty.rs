@@ -24,7 +24,7 @@ use super::*;
 #[salsa::derive_debug_with_db(db = DeclarativeSignatureDb)]
 pub enum TypeDeclarativeSignature {
     Enum(EnumTypeDeclarativeSignature),
-    RegularStruct(RegularStructDeclarativeSignature),
+    PropsStruct(PropsStructDeclarativeSignature),
     UnitStruct(UnitStructTypeDeclarativeSignature),
     TupleStruct(TupleStructTypeDeclarativeSignature),
     Record(RecordTypeDeclarativeSignature),
@@ -39,7 +39,7 @@ pub enum TypeDeclarativeSignature {
 #[enum_class::from_variants]
 pub enum TypeDeclarativeSignatureTemplate {
     Enum(EnumDeclarativeSignatureTemplate),
-    RegularStruct(RegularStructDeclarativeSignatureTemplate),
+    PropsStruct(PropsStructDeclarativeSignatureTemplate),
     UnitStruct(UnitStructDeclarativeSignatureTemplate),
     TupleStruct(TupleStructDeclarativeSignatureTemplate),
     Record(RecordDeclarativeSignatureTemplate),
@@ -58,7 +58,7 @@ impl TypeDeclarativeSignatureTemplate {
             TypeDeclarativeSignatureTemplate::Enum(decl) => decl.implicit_parameters(db),
             TypeDeclarativeSignatureTemplate::UnitStruct(decl) => decl.implicit_parameters(db),
             TypeDeclarativeSignatureTemplate::TupleStruct(decl) => decl.implicit_parameters(db),
-            TypeDeclarativeSignatureTemplate::RegularStruct(decl) => decl.implicit_parameters(db),
+            TypeDeclarativeSignatureTemplate::PropsStruct(decl) => decl.implicit_parameters(db),
             TypeDeclarativeSignatureTemplate::Record(decl) => decl.implicit_parameters(db),
             TypeDeclarativeSignatureTemplate::Inductive(decl) => decl.implicit_parameters(db),
             TypeDeclarativeSignatureTemplate::Structure(decl) => decl.implicit_parameters(db),
@@ -88,7 +88,7 @@ pub(crate) fn ty_declarative_signature_template(
     let decl = path.decl(db)?;
     match decl {
         TypeDecl::Enum(decl) => enum_declarative_signature_template(db, decl).map(Into::into),
-        TypeDecl::RegularStruct(decl) => {
+        TypeDecl::PropsStruct(decl) => {
             regular_struct_declarative_signature_template(db, decl).map(Into::into)
         }
         TypeDecl::UnitStruct(decl) => {

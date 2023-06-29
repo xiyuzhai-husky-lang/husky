@@ -8,17 +8,17 @@
         Ok(
             SignatureTemplate::ModuleItem(
                 ModuleItemDeclarativeSignatureTemplate::Type(
-                    TypeDeclarativeSignatureTemplate::RegularStruct(
-                        RegularStructDeclarativeSignatureTemplate {
+                    TypeDeclarativeSignatureTemplate::PropsStruct(
+                        PropsStructDeclarativeSignatureTemplate {
                             implicit_parameters: ImplicitParameterDeclarativeSignatures {
                                 data: [],
                             },
                             fields: [
-                                RegularStructFieldDeclarativeSignatureTemplate {
+                                PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `matches`,
                                     ty: DeclarativeTerm(`[] core::option::Option ~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                                 },
-                                RegularStructFieldDeclarativeSignatureTemplate {
+                                PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `others`,
                                     ty: DeclarativeTerm(`[] ~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                                 },

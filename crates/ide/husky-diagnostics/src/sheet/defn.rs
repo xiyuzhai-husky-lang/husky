@@ -37,7 +37,7 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
             Defn::ModuleItem(_) => (),
             // Defn::Type(Defn) => match Defn {
             //     TypeDefn::Enum(_Defn) => (),
-            //     TypeDefn::RegularStruct(_Defn) => (),
+            //     TypeDefn::PropsStruct(_Defn) => (),
             //     TypeDefn::UnitStruct(_Defn) => (),
             //     TypeDefn::TupleStruct(_Defn) => (),
             //     TypeDefn::Record(_Defn) => (),

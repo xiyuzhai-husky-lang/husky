@@ -12,9 +12,9 @@ use super::*;
 #[salsa::derive_debug_with_db(db = DeclarativeSignatureDb)]
 #[enum_class::from_variants]
 pub enum TypeVariantDeclarativeSignatureTemplate {
-    Props(PropsVariantDeclarativeSignatureTemplate),
+    Props(PropsTypeVariantDeclarativeSignatureTemplate),
     Unit(UnitVariantDeclarativeSignatureTemplate),
-    Tuple(TupleVariantDeclarativeSignatureTemplate),
+    Tuple(TupleTypeVariantDeclarativeSignatureTemplate),
 }
 
 pub(crate) fn variant_signature_template_from_decl(

@@ -2,14 +2,14 @@ Ok(
     [
         Defn::ModuleItem(
             ModuleItemDefn::Type(
-                TypeDefn::RegularStruct(
-                    RegularStructTypeDefn {
+                TypeDefn::PropsStruct(
+                    PropsStructTypeDefn {
                         path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                        decl: RegularStructTypeDecl {
+                        decl: PropsStructTypeDecl {
                             path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                             implicit_parameters: [],
                             fields: [
-                                RegularStructFieldDeclPattern {
+                                PropsStructFieldDeclPattern {
                                     decorators: [],
                                     visibility: None,
                                     ident_token: IdentToken {
@@ -26,7 +26,7 @@ Ok(
                                     ty_expr_idx: 0,
                                     initialization: None,
                                 },
-                                RegularStructFieldDeclPattern {
+                                PropsStructFieldDeclPattern {
                                     decorators: [],
                                     visibility: None,
                                     ident_token: IdentToken {
@@ -149,7 +149,7 @@ Ok(
                                     },
                                     roots: [
                                         ExprRoot {
-                                            kind: RegularStructFieldType {
+                                            kind: PropsStructFieldType {
                                                 ident_token: IdentToken {
                                                     ident: Ident(
                                                         Word(
@@ -166,7 +166,7 @@ Ok(
                                             expr_idx: 0,
                                         },
                                         ExprRoot {
-                                            kind: RegularStructFieldType {
+                                            kind: PropsStructFieldType {
                                                 ident_token: IdentToken {
                                                     ident: Ident(
                                                         Word(
@@ -192,14 +192,14 @@ Ok(
         ),
         Defn::ModuleItem(
             ModuleItemDefn::Type(
-                TypeDefn::RegularStruct(
-                    RegularStructTypeDefn {
+                TypeDefn::PropsStruct(
+                    PropsStructTypeDefn {
                         path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
-                        decl: RegularStructTypeDecl {
+                        decl: PropsStructTypeDecl {
                             path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                             implicit_parameters: [],
                             fields: [
-                                RegularStructFieldDeclPattern {
+                                PropsStructFieldDeclPattern {
                                     decorators: [],
                                     visibility: None,
                                     ident_token: IdentToken {
@@ -216,7 +216,7 @@ Ok(
                                     ty_expr_idx: 0,
                                     initialization: None,
                                 },
-                                RegularStructFieldDeclPattern {
+                                PropsStructFieldDeclPattern {
                                     decorators: [],
                                     visibility: None,
                                     ident_token: IdentToken {
@@ -339,7 +339,7 @@ Ok(
                                     },
                                     roots: [
                                         ExprRoot {
-                                            kind: RegularStructFieldType {
+                                            kind: PropsStructFieldType {
                                                 ident_token: IdentToken {
                                                     ident: Ident(
                                                         Word(
@@ -356,7 +356,7 @@ Ok(
                                             expr_idx: 0,
                                         },
                                         ExprRoot {
-                                            kind: RegularStructFieldType {
+                                            kind: PropsStructFieldType {
                                                 ident_token: IdentToken {
                                                     ident: Ident(
                                                         Word(
@@ -382,14 +382,14 @@ Ok(
         ),
         Defn::ModuleItem(
             ModuleItemDefn::Type(
-                TypeDefn::RegularStruct(
-                    RegularStructTypeDefn {
+                TypeDefn::PropsStruct(
+                    PropsStructTypeDefn {
                         path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                        decl: RegularStructTypeDecl {
+                        decl: PropsStructTypeDecl {
                             path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                             implicit_parameters: [],
                             fields: [
-                                RegularStructFieldDeclPattern {
+                                PropsStructFieldDeclPattern {
                                     decorators: [],
                                     visibility: None,
                                     ident_token: IdentToken {
@@ -406,7 +406,7 @@ Ok(
                                     ty_expr_idx: 0,
                                     initialization: None,
                                 },
-                                RegularStructFieldDeclPattern {
+                                PropsStructFieldDeclPattern {
                                     decorators: [],
                                     visibility: None,
                                     ident_token: IdentToken {
@@ -529,7 +529,7 @@ Ok(
                                     },
                                     roots: [
                                         ExprRoot {
-                                            kind: RegularStructFieldType {
+                                            kind: PropsStructFieldType {
                                                 ident_token: IdentToken {
                                                     ident: Ident(
                                                         Word(
@@ -546,7 +546,7 @@ Ok(
                                             expr_idx: 0,
                                         },
                                         ExprRoot {
-                                            kind: RegularStructFieldType {
+                                            kind: PropsStructFieldType {
                                                 ident_token: IdentToken {
                                                     ident: Ident(
                                                         Word(
@@ -572,14 +572,14 @@ Ok(
         ),
         Defn::ModuleItem(
             ModuleItemDefn::Type(
-                TypeDefn::RegularStruct(
-                    RegularStructTypeDefn {
+                TypeDefn::PropsStruct(
+                    PropsStructTypeDefn {
                         path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                        decl: RegularStructTypeDecl {
+                        decl: PropsStructTypeDecl {
                             path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                             implicit_parameters: [],
                             fields: [
-                                RegularStructFieldDeclPattern {
+                                PropsStructFieldDeclPattern {
                                     decorators: [],
                                     visibility: None,
                                     ident_token: IdentToken {
@@ -596,7 +596,7 @@ Ok(
                                     ty_expr_idx: 0,
                                     initialization: None,
                                 },
-                                RegularStructFieldDeclPattern {
+                                PropsStructFieldDeclPattern {
                                     decorators: [],
                                     visibility: None,
                                     ident_token: IdentToken {
@@ -719,7 +719,7 @@ Ok(
                                     },
                                     roots: [
                                         ExprRoot {
-                                            kind: RegularStructFieldType {
+                                            kind: PropsStructFieldType {
                                                 ident_token: IdentToken {
                                                     ident: Ident(
                                                         Word(
@@ -736,7 +736,7 @@ Ok(
                                             expr_idx: 0,
                                         },
                                         ExprRoot {
-                                            kind: RegularStructFieldType {
+                                            kind: PropsStructFieldType {
                                                 ident_token: IdentToken {
                                                     ident: Ident(
                                                         Word(
@@ -762,14 +762,14 @@ Ok(
         ),
         Defn::ModuleItem(
             ModuleItemDefn::Type(
-                TypeDefn::RegularStruct(
-                    RegularStructTypeDefn {
+                TypeDefn::PropsStruct(
+                    PropsStructTypeDefn {
                         path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                        decl: RegularStructTypeDecl {
+                        decl: PropsStructTypeDecl {
                             path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                             implicit_parameters: [],
                             fields: [
-                                RegularStructFieldDeclPattern {
+                                PropsStructFieldDeclPattern {
                                     decorators: [],
                                     visibility: Some(
                                         FieldVisibilityExpr::Pub,
@@ -788,7 +788,7 @@ Ok(
                                     ty_expr_idx: 0,
                                     initialization: None,
                                 },
-                                RegularStructFieldDeclPattern {
+                                PropsStructFieldDeclPattern {
                                     decorators: [],
                                     visibility: Some(
                                         FieldVisibilityExpr::Pub,
@@ -913,7 +913,7 @@ Ok(
                                     },
                                     roots: [
                                         ExprRoot {
-                                            kind: RegularStructFieldType {
+                                            kind: PropsStructFieldType {
                                                 ident_token: IdentToken {
                                                     ident: Ident(
                                                         Word(
@@ -930,7 +930,7 @@ Ok(
                                             expr_idx: 0,
                                         },
                                         ExprRoot {
-                                            kind: RegularStructFieldType {
+                                            kind: PropsStructFieldType {
                                                 ident_token: IdentToken {
                                                     ident: Ident(
                                                         Word(
@@ -956,14 +956,14 @@ Ok(
         ),
         Defn::ModuleItem(
             ModuleItemDefn::Type(
-                TypeDefn::RegularStruct(
-                    RegularStructTypeDefn {
+                TypeDefn::PropsStruct(
+                    PropsStructTypeDefn {
                         path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                        decl: RegularStructTypeDecl {
+                        decl: PropsStructTypeDecl {
                             path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                             implicit_parameters: [],
                             fields: [
-                                RegularStructFieldDeclPattern {
+                                PropsStructFieldDeclPattern {
                                     decorators: [],
                                     visibility: None,
                                     ident_token: IdentToken {
@@ -980,7 +980,7 @@ Ok(
                                     ty_expr_idx: 0,
                                     initialization: None,
                                 },
-                                RegularStructFieldDeclPattern {
+                                PropsStructFieldDeclPattern {
                                     decorators: [],
                                     visibility: None,
                                     ident_token: IdentToken {
@@ -1103,7 +1103,7 @@ Ok(
                                     },
                                     roots: [
                                         ExprRoot {
-                                            kind: RegularStructFieldType {
+                                            kind: PropsStructFieldType {
                                                 ident_token: IdentToken {
                                                     ident: Ident(
                                                         Word(
@@ -1120,7 +1120,7 @@ Ok(
                                             expr_idx: 0,
                                         },
                                         ExprRoot {
-                                            kind: RegularStructFieldType {
+                                            kind: PropsStructFieldType {
                                                 ident_token: IdentToken {
                                                     ident: Ident(
                                                         Word(

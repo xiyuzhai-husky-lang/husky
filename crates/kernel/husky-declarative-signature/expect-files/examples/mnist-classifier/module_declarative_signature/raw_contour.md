@@ -8,17 +8,17 @@
         Ok(
             SignatureTemplate::ModuleItem(
                 ModuleItemDeclarativeSignatureTemplate::Type(
-                    TypeDeclarativeSignatureTemplate::RegularStruct(
-                        RegularStructDeclarativeSignatureTemplate {
+                    TypeDeclarativeSignatureTemplate::PropsStruct(
+                        PropsStructDeclarativeSignatureTemplate {
                             implicit_parameters: ImplicitParameterDeclarativeSignatures {
                                 data: [],
                             },
                             fields: [
-                                RegularStructFieldDeclarativeSignatureTemplate {
+                                PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `cc`,
                                     ty: DeclarativeTerm(`core::mem::Ref mnist_classifier::connected_component::ConnectedComponent`),
                                 },
-                                RegularStructFieldDeclarativeSignatureTemplate {
+                                PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `points`,
                                     ty: DeclarativeTerm(`[] mnist_classifier::geom2d::Point2d`),
                                 },
@@ -388,17 +388,17 @@
         Ok(
             SignatureTemplate::ModuleItem(
                 ModuleItemDeclarativeSignatureTemplate::Type(
-                    TypeDeclarativeSignatureTemplate::RegularStruct(
-                        RegularStructDeclarativeSignatureTemplate {
+                    TypeDeclarativeSignatureTemplate::PropsStruct(
+                        PropsStructDeclarativeSignatureTemplate {
                             implicit_parameters: ImplicitParameterDeclarativeSignatures {
                                 data: [],
                             },
                             fields: [
-                                RegularStructFieldDeclarativeSignatureTemplate {
+                                PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `prev1`,
                                     ty: DeclarativeTerm(`core::num::i32`),
                                 },
-                                RegularStructFieldDeclarativeSignatureTemplate {
+                                PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `prev2`,
                                     ty: DeclarativeTerm(`core::num::i32`),
                                 },

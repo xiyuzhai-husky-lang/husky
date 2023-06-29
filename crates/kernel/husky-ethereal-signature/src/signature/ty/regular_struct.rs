@@ -1,17 +1,17 @@
 use super::*;
 use husky_declarative_signature::{
-    RegularStructDeclarativeSignatureTemplate, RegularStructFieldDeclarativeSignatureTemplate,
+    PropsStructDeclarativeSignatureTemplate, PropsStructFieldDeclarativeSignatureTemplate,
 };
 
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
-pub struct RegularStructEtherealSignatureTemplate {
+pub struct PropsStructEtherealSignatureTemplate {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterEtherealSignatures,
     #[return_ref]
     pub fields: SmallVec<[RegularFieldEtherealSignatureTemplate; 4]>,
 }
 
-impl HasRegularFieldEtherealSignature for RegularStructEtherealSignatureTemplate {
+impl HasRegularFieldEtherealSignature for PropsStructEtherealSignatureTemplate {
     fn regular_field_ethereal_signature(
         self,
         db: &dyn EtherealSignatureDb,
@@ -31,8 +31,8 @@ impl HasRegularFieldEtherealSignature for RegularStructEtherealSignatureTemplate
     }
 }
 
-impl HasEtherealSignatureTemplate for RegularStructDeclarativeSignatureTemplate {
-    type EtherealSignatureTemplate = RegularStructEtherealSignatureTemplate;
+impl HasEtherealSignatureTemplate for PropsStructDeclarativeSignatureTemplate {
+    type EtherealSignatureTemplate = PropsStructEtherealSignatureTemplate;
 
     fn ethereal_signature_template(
         self,
@@ -44,8 +44,8 @@ impl HasEtherealSignatureTemplate for RegularStructDeclarativeSignatureTemplate 
 
 pub(crate) fn regular_struct_ethereal_signature_template(
     db: &dyn EtherealSignatureDb,
-    declarative_signature_template: RegularStructDeclarativeSignatureTemplate,
-) -> EtherealSignatureResult<RegularStructEtherealSignatureTemplate> {
+    declarative_signature_template: PropsStructDeclarativeSignatureTemplate,
+) -> EtherealSignatureResult<PropsStructEtherealSignatureTemplate> {
     let implicit_parameters = ImplicitParameterEtherealSignatures::from_declarative(
         db,
         declarative_signature_template.implicit_parameters(db),
@@ -61,7 +61,7 @@ pub(crate) fn regular_struct_ethereal_signature_template(
             )
         })
         .collect::<EtherealSignatureResult<_>>()?;
-    Ok(RegularStructEtherealSignatureTemplate::new(
+    Ok(PropsStructEtherealSignatureTemplate::new(
         db,
         implicit_parameters,
         fields,
@@ -78,7 +78,7 @@ pub struct RegularFieldEtherealSignatureTemplate {
 impl RegularFieldEtherealSignatureTemplate {
     fn from_declarative(
         db: &dyn EtherealSignatureDb,
-        declarative_signature_template: RegularStructFieldDeclarativeSignatureTemplate,
+        declarative_signature_template: PropsStructFieldDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {
         Ok(Self {
             ident: declarative_signature_template.ident(),
@@ -90,13 +90,13 @@ impl RegularFieldEtherealSignatureTemplate {
         self,
         implicit_parameters: &ImplicitParameterEtherealSignatures,
         arguments: &[EtherealTerm],
-    ) -> RegularStructFieldEtherealSignature {
+    ) -> PropsStructFieldEtherealSignature {
         if implicit_parameters.data().len() != arguments.len() {
             todo!()
         }
 
         if implicit_parameters.data().len() == 0 {
-            return RegularStructFieldEtherealSignature {
+            return PropsStructFieldEtherealSignature {
                 ident: self.ident,
                 ty: self.ty,
             };
@@ -107,12 +107,12 @@ impl RegularFieldEtherealSignatureTemplate {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = EtherealSignatureDb)]
-pub struct RegularStructFieldEtherealSignature {
+pub struct PropsStructFieldEtherealSignature {
     ident: Ident,
     ty: EtherealTerm,
 }
 
-impl RegularStructFieldEtherealSignature {
+impl PropsStructFieldEtherealSignature {
     pub fn ident(&self) -> Ident {
         self.ident
     }

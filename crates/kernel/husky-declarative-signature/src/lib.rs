@@ -35,7 +35,7 @@ pub struct DeclarativeSignatureJar(
     unit_struct_declarative_signature_template,
     TupleStructDeclarativeSignatureTemplate,
     tuple_struct_declarative_signature_template,
-    RegularStructDeclarativeSignatureTemplate,
+    PropsStructDeclarativeSignatureTemplate,
     regular_struct_declarative_signature_template,
     RecordDeclarativeSignatureTemplate,
     record_declarative_signature_template,
@@ -69,8 +69,8 @@ pub struct DeclarativeSignatureJar(
     trai_for_ty_impl_block_declarative_signature_template,
     // variant
     UnitVariantDeclarativeSignatureTemplate,
-    PropsVariantDeclarativeSignatureTemplate,
-    TupleVariantDeclarativeSignatureTemplate,
+    PropsTypeVariantDeclarativeSignatureTemplate,
+    TupleTypeVariantDeclarativeSignatureTemplate,
     // associated items
     // associated_item_declarative_signature_from_decl,
     // type item

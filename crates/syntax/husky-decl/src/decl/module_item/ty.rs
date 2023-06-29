@@ -1,18 +1,18 @@
 mod r#enum;
 mod r#extern;
 mod inductive;
+mod props_struct;
 mod record;
-mod regular_struct;
 mod structure;
 mod tuple_struct;
 mod union;
 mod unit_struct;
 
 pub use self::inductive::*;
+pub use self::props_struct::*;
 pub use self::r#enum::*;
 pub use self::r#extern::*;
 pub use self::record::*;
-pub use self::regular_struct::*;
 pub use self::structure::*;
 pub use self::tuple_struct::*;
 pub use self::union::*;
@@ -27,7 +27,7 @@ use parsec::parse_separated_list2;
 #[enum_class::from_variants]
 pub enum TypeNodeDecl {
     Enum(EnumTypeNodeDecl),
-    RegularStruct(RegularStructTypeNodeDecl),
+    PropsStruct(PropsStructTypeNodeDecl),
     UnitStruct(UnitStructTypeNodeDecl),
     TupleStruct(TupleStructTypeNodeDecl),
     Record(RecordTypeNodeDecl),
@@ -44,7 +44,7 @@ impl TypeNodeDecl {
             TypeNodeDecl::Inductive(node_decl) => node_decl.node_path(db),
             TypeNodeDecl::Record(node_decl) => node_decl.node_path(db),
             TypeNodeDecl::UnitStruct(node_decl) => node_decl.node_path(db),
-            TypeNodeDecl::RegularStruct(node_decl) => node_decl.node_path(db),
+            TypeNodeDecl::PropsStruct(node_decl) => node_decl.node_path(db),
             TypeNodeDecl::TupleStruct(node_decl) => node_decl.node_path(db),
             TypeNodeDecl::Structure(node_decl) => node_decl.node_path(db),
             TypeNodeDecl::Extern(node_decl) => node_decl.node_path(db),
@@ -57,7 +57,7 @@ impl TypeNodeDecl {
             TypeNodeDecl::Enum(node_decl) => node_decl.ast_idx(db),
             TypeNodeDecl::UnitStruct(node_decl) => node_decl.ast_idx(db),
             TypeNodeDecl::TupleStruct(node_decl) => node_decl.ast_idx(db),
-            TypeNodeDecl::RegularStruct(node_decl) => node_decl.ast_idx(db),
+            TypeNodeDecl::PropsStruct(node_decl) => node_decl.ast_idx(db),
             TypeNodeDecl::Record(node_decl) => node_decl.ast_idx(db),
             TypeNodeDecl::Inductive(node_decl) => node_decl.ast_idx(db),
             TypeNodeDecl::Structure(node_decl) => node_decl.ast_idx(db),
@@ -71,7 +71,7 @@ impl TypeNodeDecl {
             TypeNodeDecl::Enum(node_decl) => node_decl.expr_region(db),
             TypeNodeDecl::UnitStruct(node_decl) => node_decl.expr_region(db),
             TypeNodeDecl::TupleStruct(node_decl) => node_decl.expr_region(db),
-            TypeNodeDecl::RegularStruct(node_decl) => node_decl.expr_region(db),
+            TypeNodeDecl::PropsStruct(node_decl) => node_decl.expr_region(db),
             TypeNodeDecl::Record(node_decl) => node_decl.expr_region(db),
             TypeNodeDecl::Inductive(node_decl) => node_decl.expr_region(db),
             TypeNodeDecl::Structure(node_decl) => node_decl.expr_region(db),
@@ -216,7 +216,7 @@ impl<'a> DeclParser<'a> {
             let lcurl = ctx.try_parse();
             let field_comma_list = ctx.try_parse();
             let rcurl = ctx.try_parse();
-            RegularStructTypeNodeDecl::new(
+            PropsStructTypeNodeDecl::new(
                 db,
                 node_path,
                 ast_idx,
@@ -236,7 +236,7 @@ impl<'a> DeclParser<'a> {
 #[enum_class::from_variants]
 pub enum TypeDecl {
     Enum(EnumTypeDecl),
-    RegularStruct(RegularStructTypeDecl),
+    PropsStruct(PropsStructTypeDecl),
     UnitStruct(UnitStructTypeDecl),
     TupleStruct(TupleStructTypeDecl),
     Record(RecordTypeDecl),
@@ -253,7 +253,7 @@ impl TypeDecl {
             TypeDecl::Inductive(decl) => decl.path(db),
             TypeDecl::Record(decl) => decl.path(db),
             TypeDecl::UnitStruct(decl) => decl.path(db),
-            TypeDecl::RegularStruct(decl) => decl.path(db),
+            TypeDecl::PropsStruct(decl) => decl.path(db),
             TypeDecl::TupleStruct(decl) => decl.path(db),
             TypeDecl::Structure(decl) => decl.path(db),
             TypeDecl::Extern(decl) => decl.path(db),
@@ -266,7 +266,7 @@ impl TypeDecl {
             TypeDecl::Enum(decl) => decl.implicit_parameters(db),
             TypeDecl::UnitStruct(decl) => decl.implicit_parameters(db),
             TypeDecl::TupleStruct(decl) => decl.implicit_parameters(db),
-            TypeDecl::RegularStruct(decl) => decl.implicit_parameters(db),
+            TypeDecl::PropsStruct(decl) => decl.implicit_parameters(db),
             TypeDecl::Record(decl) => decl.implicit_parameters(db),
             TypeDecl::Inductive(decl) => decl.implicit_parameters(db),
             TypeDecl::Structure(decl) => decl.implicit_parameters(db),
@@ -280,7 +280,7 @@ impl TypeDecl {
             TypeDecl::Enum(decl) => decl.expr_region(db),
             TypeDecl::UnitStruct(decl) => decl.expr_region(db),
             TypeDecl::TupleStruct(decl) => decl.expr_region(db),
-            TypeDecl::RegularStruct(decl) => decl.expr_region(db),
+            TypeDecl::PropsStruct(decl) => decl.expr_region(db),
             TypeDecl::Record(decl) => decl.expr_region(db),
             TypeDecl::Inductive(decl) => decl.expr_region(db),
             TypeDecl::Structure(decl) => decl.expr_region(db),
@@ -299,8 +299,8 @@ impl TypeDecl {
             TypeNodeDecl::Enum(node_decl) => {
                 EnumTypeDecl::from_node_decl(db, path, node_decl)?.into()
             }
-            TypeNodeDecl::RegularStruct(node_decl) => {
-                RegularStructTypeDecl::from_node_decl(db, path, node_decl)?.into()
+            TypeNodeDecl::PropsStruct(node_decl) => {
+                PropsStructTypeDecl::from_node_decl(db, path, node_decl)?.into()
             }
             TypeNodeDecl::UnitStruct(node_decl) => {
                 UnitStructTypeDecl::from_node_decl(db, path, node_decl)?.into()

@@ -9,7 +9,7 @@ pub struct FluffyFieldSignature {
 impl FluffyFieldSignature {
     pub fn ty(self) -> FluffyTerm {
         // match self {
-        //     FieldEtherealSignature::RegularStruct(_) => todo!(),
+        //     FieldEtherealSignature::PropsStruct(_) => todo!(),
         // }
         self.ty
     }

@@ -34,14 +34,14 @@ Ok(
         ),
         Defn::ModuleItem(
             ModuleItemDefn::Type(
-                TypeDefn::RegularStruct(
-                    RegularStructTypeDefn {
+                TypeDefn::PropsStruct(
+                    PropsStructTypeDefn {
                         path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                        decl: RegularStructTypeDecl {
+                        decl: PropsStructTypeDecl {
                             path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                             implicit_parameters: [],
                             fields: [
-                                RegularStructFieldDeclPattern {
+                                PropsStructFieldDeclPattern {
                                     decorators: [],
                                     visibility: None,
                                     ident_token: IdentToken {
@@ -58,7 +58,7 @@ Ok(
                                     ty_expr_idx: 4,
                                     initialization: None,
                                 },
-                                RegularStructFieldDeclPattern {
+                                PropsStructFieldDeclPattern {
                                     decorators: [],
                                     visibility: None,
                                     ident_token: IdentToken {
@@ -84,7 +84,7 @@ Ok(
                                         },
                                     ),
                                 },
-                                RegularStructFieldDeclPattern {
+                                PropsStructFieldDeclPattern {
                                     decorators: [],
                                     visibility: None,
                                     ident_token: IdentToken {
@@ -417,7 +417,7 @@ Ok(
                                     },
                                     roots: [
                                         ExprRoot {
-                                            kind: RegularStructFieldType {
+                                            kind: PropsStructFieldType {
                                                 ident_token: IdentToken {
                                                     ident: Ident(
                                                         Word(
@@ -434,7 +434,7 @@ Ok(
                                             expr_idx: 4,
                                         },
                                         ExprRoot {
-                                            kind: RegularStructFieldType {
+                                            kind: PropsStructFieldType {
                                                 ident_token: IdentToken {
                                                     ident: Ident(
                                                         Word(
@@ -457,7 +457,7 @@ Ok(
                                             expr_idx: 10,
                                         },
                                         ExprRoot {
-                                            kind: RegularStructFieldType {
+                                            kind: PropsStructFieldType {
                                                 ident_token: IdentToken {
                                                     ident: Ident(
                                                         Word(
@@ -489,14 +489,14 @@ Ok(
         ),
         Defn::ModuleItem(
             ModuleItemDefn::Type(
-                TypeDefn::RegularStruct(
-                    RegularStructTypeDefn {
+                TypeDefn::PropsStruct(
+                    PropsStructTypeDefn {
                         path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                        decl: RegularStructTypeDecl {
+                        decl: PropsStructTypeDecl {
                             path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                             implicit_parameters: [],
                             fields: [
-                                RegularStructFieldDeclPattern {
+                                PropsStructFieldDeclPattern {
                                     decorators: [],
                                     visibility: None,
                                     ident_token: IdentToken {
@@ -513,7 +513,7 @@ Ok(
                                     ty_expr_idx: 1,
                                     initialization: None,
                                 },
-                                RegularStructFieldDeclPattern {
+                                PropsStructFieldDeclPattern {
                                     decorators: [],
                                     visibility: None,
                                     ident_token: IdentToken {
@@ -658,7 +658,7 @@ Ok(
                                     },
                                     roots: [
                                         ExprRoot {
-                                            kind: RegularStructFieldType {
+                                            kind: PropsStructFieldType {
                                                 ident_token: IdentToken {
                                                     ident: Ident(
                                                         Word(
@@ -675,7 +675,7 @@ Ok(
                                             expr_idx: 1,
                                         },
                                         ExprRoot {
-                                            kind: RegularStructFieldType {
+                                            kind: PropsStructFieldType {
                                                 ident_token: IdentToken {
                                                     ident: Ident(
                                                         Word(
