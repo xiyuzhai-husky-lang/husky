@@ -2011,7 +2011,7 @@
                                     ),
                                 ),
                                 token_idx: TokenIdx(
-                                    681,
+                                    684,
                                 ),
                             },
                         },
@@ -6041,6 +6041,14 @@
                 ),
             },
             ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    Derived(
+                        ExprError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
@@ -6056,6 +6064,14 @@
                 expectation_rule_idx: Some(
                     14,
                 ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    Derived(
+                        ApplicationOrRitchieCallFunctionTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
@@ -6077,7 +6093,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    16,
+                    15,
                 ),
             },
             ExprTypeInfo {
@@ -6098,7 +6114,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    17,
+                    16,
                 ),
             },
         ],
@@ -6637,7 +6653,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 23,
+                                expr_idx: 24,
                                 kind: Expr,
                             },
                             expectee: Solid(
@@ -6645,76 +6661,14 @@
                                     0,
                                 ),
                             ),
-                            data: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
-                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
-                                        kind: Regular,
-                                        contract: Move,
-                                        ty: Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 19,
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                },
+                            data: AnyDerived(
+                                ExpectAnyDerived,
                             ),
-                            resolve_progress: Resolved(
-                                Ok(
-                                    ImplicitlyConvertible(
-                                        Trivial,
-                                    ),
-                                ),
-                            ),
+                            resolve_progress: Unresolved,
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 23,
-                                kind: Expectation(
-                                    14,
-                                ),
-                            },
-                            expectee: Application(
-                                EtherealTermApplication(
-                                    Id {
-                                        value: 16,
-                                    },
-                                ),
-                            ),
-                            data: EqsExactly(
-                                ExpectSubtype {
-                                    expected: Application(
-                                        EtherealTermApplication(
-                                            Id {
-                                                value: 18,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                            resolve_progress: Resolved(
-                                Err(
-                                    Original(
-                                        TypePathMismatch {
-                                            expected_path: TypePath(
-                                                Id {
-                                                    value: 64,
-                                                },
-                                            ),
-                                            expectee_path: TypePath(
-                                                Id {
-                                                    value: 48,
-                                                },
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            ),
-                        },
-                        ExpectationEntry {
-                            src: ExpectationSource {
-                                expr_idx: 24,
+                                expr_idx: 26,
                                 kind: Expr,
                             },
                             expectee: EntityPath(
@@ -6733,7 +6687,7 @@
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
-                                expr_idx: 25,
+                                expr_idx: 27,
                                 kind: Expr,
                             },
                             expectee: EntityPath(

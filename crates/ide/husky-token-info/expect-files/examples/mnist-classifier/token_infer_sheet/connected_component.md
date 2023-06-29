@@ -540,6 +540,8 @@ Ok(
                 ),
             ),
             TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
                 current_symbol_kind: CurrentSymbolKind::LetVariable {
@@ -547,6 +549,7 @@ Ok(
                 },
                 expr_region: ExprRegionLeash(_),
             },
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::EntityNode(

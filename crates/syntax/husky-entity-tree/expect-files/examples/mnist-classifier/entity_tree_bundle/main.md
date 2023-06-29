@@ -1498,7 +1498,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `find_connected_components`,
                                                 token_idx: TokenIdx(
-                                                    654,
+                                                    657,
                                                 ),
                                             },
                                         },
@@ -2309,7 +2309,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `horizontal_extend`,
                                         token_idx: TokenIdx(
-                                            568,
+                                            571,
                                         ),
                                     },
                                 },
@@ -2345,7 +2345,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `find_connected_components`,
                                         token_idx: TokenIdx(
-                                            654,
+                                            657,
                                         ),
                                     },
                                 },
@@ -2504,7 +2504,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `horizontal_extend`,
                                         token_idx: TokenIdx(
-                                            568,
+                                            571,
                                         ),
                                     },
                                 },
@@ -2531,7 +2531,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `find_connected_components`,
                                         token_idx: TokenIdx(
-                                            654,
+                                            657,
                                         ),
                                     },
                                 },
@@ -5797,7 +5797,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `find_connected_components`,
                                                 token_idx: TokenIdx(
-                                                    654,
+                                                    657,
                                                 ),
                                             },
                                         },
@@ -11674,7 +11674,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `find_connected_components`,
                                                         token_idx: TokenIdx(
-                                                            654,
+                                                            657,
                                                         ),
                                                     },
                                                 },
@@ -17151,7 +17151,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `find_connected_components`,
                                                         token_idx: TokenIdx(
-                                                            654,
+                                                            657,
                                                         ),
                                                     },
                                                 },
@@ -19875,7 +19875,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `find_connected_components`,
                                                         token_idx: TokenIdx(
-                                                            654,
+                                                            657,
                                                         ),
                                                     },
                                                 },
@@ -24111,7 +24111,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `find_connected_components`,
                                                                 token_idx: TokenIdx(
-                                                                    654,
+                                                                    657,
                                                                 ),
                                                             },
                                                         },
@@ -27397,7 +27397,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `find_connected_components`,
                                                                 token_idx: TokenIdx(
-                                                                    654,
+                                                                    657,
                                                                 ),
                                                             },
                                                         },
@@ -30687,7 +30687,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `find_connected_components`,
                                                                 token_idx: TokenIdx(
-                                                                    654,
+                                                                    657,
                                                                 ),
                                                             },
                                                         },
@@ -33977,7 +33977,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `find_connected_components`,
                                                                 token_idx: TokenIdx(
-                                                                    654,
+                                                                    657,
                                                                 ),
                                                             },
                                                         },
@@ -37464,7 +37464,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `find_connected_components`,
                                                                 token_idx: TokenIdx(
-                                                                    654,
+                                                                    657,
                                                                 ),
                                                             },
                                                         },
@@ -40478,7 +40478,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `find_connected_components`,
                                                                 token_idx: TokenIdx(
-                                                                    654,
+                                                                    657,
                                                                 ),
                                                             },
                                                         },
@@ -43837,7 +43837,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `find_connected_components`,
                                                                 token_idx: TokenIdx(
-                                                                    654,
+                                                                    657,
                                                                 ),
                                                             },
                                                         },
@@ -46989,7 +46989,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `find_connected_components`,
                                                                 token_idx: TokenIdx(
-                                                                    654,
+                                                                    657,
                                                                 ),
                                                             },
                                                         },
@@ -50279,7 +50279,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `find_connected_components`,
                                                                 token_idx: TokenIdx(
-                                                                    654,
+                                                                    657,
                                                                 ),
                                                             },
                                                         },
@@ -53569,7 +53569,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `find_connected_components`,
                                                                 token_idx: TokenIdx(
-                                                                    654,
+                                                                    657,
                                                                 ),
                                                             },
                                                         },
@@ -55359,7 +55359,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `find_connected_components`,
                                                         token_idx: TokenIdx(
-                                                            654,
+                                                            657,
                                                         ),
                                                     },
                                                 },
