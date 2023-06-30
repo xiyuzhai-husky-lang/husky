@@ -109,11 +109,12 @@ impl HollowTerms {
                         // we can't proceed if any argument is unresolved hollow
                         HollowTermResolveProgress::UnresolvedHollow => return,
                         HollowTermResolveProgress::ResolvedEthereal(_) => (),
-                        HollowTermResolveProgress::ResolvedSolid(_) => todo!(),
+                        HollowTermResolveProgress::ResolvedSolid(_) => solid_flag = true,
                         HollowTermResolveProgress::Err => todo!(),
                     }
                 }
                 if solid_flag {
+                    p!(path.debug(db));
                     todo!()
                 } else {
                     self.entries[idx].resolve_progress = match EtherealTerm::new_ty_ontology(
