@@ -9,6 +9,12 @@ pub struct HollowTerms {
     first_unresolved_term_idx: usize,
 }
 
+#[derive(Debug, PartialEq, Eq)]
+pub enum HoleConstraint {
+    ImplicitlyConvertibleFrom { target: FluffyTerm },
+    ImplicitlyConvertibleTo { target: FluffyTerm },
+}
+
 impl HollowTerms {
     // for ide
     pub fn errors(&self) -> impl Iterator<Item = (HoleSource, &OriginalHollowTermResolveError)> {
@@ -45,9 +51,25 @@ impl HollowTerms {
         &self.entries[hollow_term.idx()]
     }
 
+    pub(in crate::region) fn add_hole_constraint(
+        &mut self,
+        hole: Hole,
+        hole_constraint: HoleConstraint,
+    ) {
+        let mut hole_entry = &mut self.entries[hole.idx()];
+        match hole_entry.data {
+            HollowTermData::Hole {
+                ref mut constraints,
+                ..
+            } => constraints.push(hole_constraint),
+            _ => unreachable!(),
+        }
+    }
+
+    #[deprecated]
     pub(crate) fn fill_hole(&mut self, db: &dyn FluffyTermDb, hole: Hole, term: FluffyTerm) {
-        let mut hollow_term_entry = &mut self.entries[hole.idx()];
-        match hollow_term_entry.data {
+        let mut hole_entry = &mut self.entries[hole.idx()];
+        match hole_entry.data {
             HollowTermData::Hole { ref mut fill, .. } => *fill = Some(term),
             HollowTermData::Hole { fill: Some(_), .. } => unreachable!(),
             _ => unreachable!(),
@@ -55,12 +77,10 @@ impl HollowTerms {
         // update progress if term is resolved
         match term.nested() {
             NestedFluffyTerm::Ethereal(term) => {
-                hollow_term_entry.resolve_progress =
-                    HollowTermResolveProgressBuf::ResolvedEthereal(term)
+                hole_entry.resolve_progress = HollowTermResolveProgressBuf::ResolvedEthereal(term)
             }
             NestedFluffyTerm::Solid(term) => {
-                hollow_term_entry.resolve_progress =
-                    HollowTermResolveProgressBuf::ResolvedSolid(term)
+                hole_entry.resolve_progress = HollowTermResolveProgressBuf::ResolvedSolid(term)
             }
             NestedFluffyTerm::Hollow(_) => (),
         }

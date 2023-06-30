@@ -79,6 +79,7 @@ impl FluffyTerms {
             hole_source,
             hole_kind,
             fill: None,
+            constraints: smallvec![],
         })
     }
 

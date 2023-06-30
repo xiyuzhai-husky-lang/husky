@@ -44,6 +44,7 @@ impl HollowTerm {
                 hole_source: src.into(),
                 hole_kind,
                 fill: None,
+                constraints: smallvec![],
             },
         )
     }

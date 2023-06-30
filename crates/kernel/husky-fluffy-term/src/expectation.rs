@@ -56,27 +56,23 @@ impl Expectation {
     pub(crate) fn resolve(
         &self,
         db: &dyn FluffyTermDb,
-        state: &mut ExpectationMeta,
+        meta: &mut ExpectationMeta,
         terms: &mut FluffyTerms,
     ) -> Option<ExpectationEffect> {
         match self {
-            Expectation::ExplicitlyConvertible(expectation) => {
-                expectation.resolve(db, state, terms)
-            }
-            Expectation::ImplicitlyConvertible(expectation) => {
-                expectation.resolve(db, state, terms)
-            }
-            Expectation::EqsSort(expectation) => expectation.resolve(db, state, terms),
+            Expectation::ExplicitlyConvertible(epn) => epn.resolve(db, meta, terms),
+            Expectation::ImplicitlyConvertible(epn) => epn.resolve(db, meta, terms),
+            Expectation::EqsSort(epn) => epn.resolve(db, meta, terms),
             Expectation::FrameVariableType => todo!(),
-            Expectation::EqsFunctionType(expectation) => expectation.resolve(db, state, terms),
-            Expectation::EqsRitchieType(expectation) => expectation.resolve(db, state, terms),
-            Expectation::InsSort(expectation) => expectation.resolve(db, state, terms),
-            Expectation::EqsExactly(expectation) => expectation.resolve(db, state, terms),
-            Expectation::AnyOriginal(expectation) => expectation.resolve(db, state, terms),
-            Expectation::AnyDerived(expectation) => expectation.resolve(db, state, terms),
-            Expectation::NumType(expectation) => expectation.resolve(db, state, terms),
-            Expectation::FinalDestination(expectation) => expectation.resolve(db, state, terms),
-            Expectation::CurryDestination(expectation) => expectation.resolve(db, state, terms),
+            Expectation::EqsFunctionType(epn) => epn.resolve(db, meta, terms),
+            Expectation::EqsRitchieType(epn) => epn.resolve(db, meta, terms),
+            Expectation::InsSort(epn) => epn.resolve(db, meta, terms),
+            Expectation::EqsExactly(epn) => epn.resolve(db, meta, terms),
+            Expectation::AnyOriginal(epn) => epn.resolve(db, meta, terms),
+            Expectation::AnyDerived(epn) => epn.resolve(db, meta, terms),
+            Expectation::NumType(epn) => epn.resolve(db, meta, terms),
+            Expectation::FinalDestination(epn) => epn.resolve(db, meta, terms),
+            Expectation::CurryDestination(epn) => epn.resolve(db, meta, terms),
         }
     }
 }
