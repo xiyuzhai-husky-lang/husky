@@ -27,8 +27,8 @@ impl FluffyTermRegion {
         db: &dyn FluffyTermDb,
         level: FluffyTermResolveLevel,
     ) {
-        while let Some((rule_idx, effect)) = self.next_expectation_effect(db, level) {
-            if let Some(actions) = self.expectations.take_effect(rule_idx, effect) {
+        while let Some((expectation_idx, effect)) = self.next_expectation_effect(db, level) {
+            if let Some(actions) = self.expectations.take_effect(expectation_idx, effect) {
                 for action in actions {
                     match action {
                         FluffyTermResolveAction::FillHole { hole, term } => {

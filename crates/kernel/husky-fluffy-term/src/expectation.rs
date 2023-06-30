@@ -142,17 +142,18 @@ impl FluffyTermExpectationOutcome {
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = FluffyTermDb)]
-pub enum ExpectationResolveProgress {
-    Unresolved,
+pub enum ExpectationProgress {
+    Intact,
+    Holed,
     Resolved(FluffyTermExpectationResult<FluffyTermExpectationOutcome>),
 }
 
-impl ExpectationResolveProgress {
+impl ExpectationProgress {
     pub fn outcome<E: ExpectFluffyTerm>(&self) -> Option<&E::Outcome> {
         match self {
-            ExpectationResolveProgress::Unresolved => None,
-            ExpectationResolveProgress::Resolved(Ok(outcome)) => Some(E::retrieve_outcome(outcome)),
-            ExpectationResolveProgress::Resolved(Err(_)) => None,
+            ExpectationProgress::Intact | ExpectationProgress::Holed => None,
+            ExpectationProgress::Resolved(Ok(outcome)) => Some(E::retrieve_outcome(outcome)),
+            ExpectationProgress::Resolved(Err(_)) => None,
         }
     }
 }
@@ -207,29 +208,6 @@ pub enum DerivedFluffyTermExpectationError {
         ty_path: TypePath,
         error: EtherealTermError,
     },
-}
-
-impl ExpectationResolveProgress {
-    // it will use derived type error
-    pub fn duplicate(&self, src: FluffyTermExpectationIdx) -> Self {
-        match self {
-            ExpectationResolveProgress::Unresolved => ExpectationResolveProgress::Unresolved,
-            ExpectationResolveProgress::Resolved(result) => match result {
-                Ok(outcome) => ExpectationResolveProgress::Resolved(Ok(outcome.clone())),
-                Err(_) => ExpectationResolveProgress::Resolved(Err(
-                    DerivedFluffyTermExpectationError::Duplication(src).into(),
-                )),
-            },
-        }
-    }
-
-    pub(crate) fn reduced_term(&self) -> Option<EtherealTerm> {
-        match self {
-            ExpectationResolveProgress::Unresolved
-            | ExpectationResolveProgress::Resolved(Err(_)) => None,
-            ExpectationResolveProgress::Resolved(Ok(result)) => result.resolved(),
-        }
-    }
 }
 
 pub(super) struct FluffyTermExpectationEffect {
