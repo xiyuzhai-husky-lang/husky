@@ -18,6 +18,7 @@ pub enum HollowTermData {
         hole_source: HoleSource,
         hole_kind: HoleKind,
         fill: Option<FluffyTerm>,
+        constraints: SmallVec<[HoleConstraint; 2]>,
     },
     Ritchie {
         ritchie_kind: RitchieKind,

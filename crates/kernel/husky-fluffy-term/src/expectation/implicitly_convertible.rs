@@ -141,7 +141,7 @@ impl ExpectFluffyTerm for ExpectImplicitlyConvertible {
     fn resolve(
         &self,
         db: &dyn FluffyTermDb,
-        state: &mut ExpectationMeta,
+        meta: &mut ExpectationMeta,
         terms: &mut FluffyTerms,
     ) -> Option<ExpectationEffect> {
         match self.ty().data_inner(db, terms) {
@@ -153,31 +153,25 @@ impl ExpectFluffyTerm for ExpectImplicitlyConvertible {
                 ..
             } => self.resolve_convertible_to_ty_ontology(
                 db,
-                state,
+                meta,
                 terms,
                 path,
                 refined_path,
                 arguments,
             ),
             FluffyTermData::Curry { .. } => todo!(),
-            FluffyTermData::Hole(_, hole) => todo!(),
-            // match level {
-            //     FluffyTermResolveLevel::Weak => None,
-            //     FluffyTermResolveLevel::Strong => Some(FluffyTermExpectationEffect {
-            //         actions: smallvec![FluffyTermResolveAction::FillHole {
-            //             hole,
-            //             term: expectee,
-            //         }],
-            //         result: Ok(ImplicitConversion::Trivial.into()),
-            //     }),
-            // },
+            FluffyTermData::Hole(_, hole) => meta.set_holed(terms, hole, |meta| {
+                HoleConstraint::ImplicitlyConvertibleFrom {
+                    target: meta.expectee(),
+                }
+            }),
             FluffyTermData::Category(_) => match self.contract() {
                 Contract::Pure => todo!(),
                 Contract::Move => todo!(),
                 Contract::BorrowMut => todo!(),
                 Contract::Const => {
-                    if state.expectee() == self.ty() {
-                        return state.set_ok(ImplicitConversion::Trivial, smallvec![]);
+                    if meta.expectee() == self.ty() {
+                        return meta.set_ok(ImplicitConversion::Trivial, smallvec![]);
                     }
                     todo!()
                 }
@@ -191,7 +185,7 @@ impl ExpectFluffyTerm for ExpectImplicitlyConvertible {
                 ..
             } => self.resolve_convertible_to_place_ty_ontology(
                 db,
-                state,
+                meta,
                 terms,
                 place,
                 path,
@@ -214,24 +208,24 @@ impl ExpectImplicitlyConvertible {
     fn resolve_convertible_to_ty_ontology(
         &self,
         db: &dyn FluffyTermDb,
-        state: &mut ExpectationMeta,
-        fluffy_terms: &FluffyTerms,
+        meta: &mut ExpectationMeta,
+        terms: &mut FluffyTerms,
         dst_path: TypePath,
         dst_refined_path: Either<PreludeTypePath, CustomTypePath>,
         dst_argument_tys: &[FluffyTerm],
     ) -> Option<ExpectationEffect> {
-        match state.expectee().data_inner(db, fluffy_terms) {
+        match meta.expectee().data_inner(db, terms) {
             FluffyTermData::TypeOntology {
                 refined_ty_path: Left(PreludeTypePath::NEVER),
                 ..
-            } => state.set_ok(ImplicitConversion::Never, smallvec![]),
+            } => meta.set_ok(ImplicitConversion::Never, smallvec![]),
             FluffyTermData::TypeOntology {
                 refined_ty_path: src_path,
                 arguments: src_argument_tys,
                 ..
             } if dst_refined_path == src_path => {
                 if dst_argument_tys.len() != src_argument_tys.len() {
-                    p!(state.expectee().debug(db), self.ty().debug(db));
+                    p!(meta.expectee().debug(db), self.ty().debug(db));
                     todo!()
                 }
                 let mut actions = smallvec![];
@@ -241,15 +235,15 @@ impl ExpectImplicitlyConvertible {
                 ) {
                     if src_argument_ty != dst_argument_ty {
                         actions.push(FluffyTermResolveAction::AddExpectation {
-                            src: state.child_src(),
+                            src: meta.child_src(),
                             expectee: src_argument_ty,
                             expectation: ExpectSubtype::new(dst_argument_ty).into(),
                         })
                     }
                 }
                 match self.parameter_contracted_ty.contract() {
-                    Contract::Pure => state.set_ok(ImplicitConversion::Trivial, actions),
-                    Contract::Move => state.set_ok(ImplicitConversion::Trivial, actions),
+                    Contract::Pure => meta.set_ok(ImplicitConversion::Trivial, actions),
+                    Contract::Move => meta.set_ok(ImplicitConversion::Trivial, actions),
                     Contract::BorrowMut => todo!(),
                     Contract::Const => todo!(),
                 }
@@ -259,7 +253,7 @@ impl ExpectImplicitlyConvertible {
                 refined_ty_path: src_refined_path,
                 arguments: src_arguments,
                 ..
-            } => state.set_err(
+            } => meta.set_err(
                 OriginalFluffyTermExpectationError::TypePathMismatch {
                     expected_path: dst_path,
                     expectee_path: src_path,
@@ -273,7 +267,7 @@ impl ExpectImplicitlyConvertible {
                 ..
             } if dst_refined_path == src_path => {
                 if dst_argument_tys.len() != src_argument_tys.len() {
-                    p!(state.expectee().debug(db), self.ty().debug(db));
+                    p!(meta.expectee().debug(db), self.ty().debug(db));
                     todo!()
                 }
                 let mut actions = smallvec![];
@@ -283,15 +277,15 @@ impl ExpectImplicitlyConvertible {
                 ) {
                     if src_argument_ty != dst_argument_ty {
                         actions.push(FluffyTermResolveAction::AddExpectation {
-                            src: state.child_src(),
+                            src: meta.child_src(),
                             expectee: src_argument_ty,
                             expectation: ExpectSubtype::new(dst_argument_ty).into(),
                         })
                     }
                 }
                 match self.parameter_contracted_ty.contract() {
-                    Contract::Pure => state.set_ok(ImplicitConversion::Trivial, actions),
-                    Contract::Move => state.set_ok(ImplicitConversion::Trivial, actions),
+                    Contract::Pure => meta.set_ok(ImplicitConversion::Trivial, actions),
+                    Contract::Move => meta.set_ok(ImplicitConversion::Trivial, actions),
                     Contract::BorrowMut => todo!(),
                     Contract::Const => todo!(),
                 }
@@ -303,7 +297,7 @@ impl ExpectImplicitlyConvertible {
                 ..
             } => {
                 // todo: consider `Deref` and `DerefMut`
-                state.set_err(
+                meta.set_err(
                     OriginalFluffyTermExpectationError::TypePathMismatch {
                         expected_path: dst_path,
                         expectee_path: src_path,
@@ -311,23 +305,15 @@ impl ExpectImplicitlyConvertible {
                     smallvec![],
                 )
             }
-            FluffyTermData::Hole(_, hole) => todo!(),
-            // match level {
-            //     FluffyTermResolveLevel::Weak => None,
-            //     FluffyTermResolveLevel::Strong => Some(FluffyTermExpectationEffect {
-            //         result: Ok(FluffyTermExpectationOutcome::ImplicitlyConvertible(
-            //             ImplicitConversion::Trivial,
-            //         )),
-            //         actions: smallvec![FluffyTermResolveAction::FillHole {
-            //             hole,
-            //             term: self.parameter_contracted_ty.ty(), // ad hoc
-            //         }],
-            //     }),
-            // },
+            FluffyTermData::Hole(_, hole) => meta.set_holed(terms, hole, |meta| {
+                HoleConstraint::ImplicitlyConvertibleTo {
+                    target: meta.expectee(),
+                }
+            }),
             _ => {
                 p!(
-                    state.expectee().data_inner(db, fluffy_terms).debug(db),
-                    self.ty().data_inner(db, fluffy_terms).debug(db)
+                    meta.expectee().data_inner(db, terms).debug(db),
+                    self.ty().data_inner(db, terms).debug(db)
                 );
                 // Some(FluffyTermExpectationEffect {
                 //     result: Err(todo!()),

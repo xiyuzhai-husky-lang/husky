@@ -129,12 +129,32 @@ impl ExpectationMeta {
         self.expectee
     }
 
-    pub fn resolve_progress(&self) -> &ExpectationProgress {
+    pub(crate) fn resolve_progress(&self) -> &ExpectationProgress {
         &self.resolve_progress
     }
 
-    pub fn idx(&self) -> ExpectationIdx {
+    pub(crate) fn idx(&self) -> ExpectationIdx {
         self.idx
+    }
+
+    pub(crate) fn set_holed(
+        &mut self,
+        terms: &mut FluffyTerms,
+        hole: Hole,
+        gen_hole_constraint: impl FnOnce(&mut Self) -> HoleConstraint,
+    ) -> Option<ExpectationEffect> {
+        match self.resolve_progress {
+            ExpectationProgress::Holed => return None,
+            ExpectationProgress::Resolved(_) => unreachable!(),
+            ExpectationProgress::Intact => (),
+        }
+        self.resolve_progress = ExpectationProgress::Holed;
+        terms
+            .hollow_terms_mut()
+            .add_hole_constraint(hole, gen_hole_constraint(self));
+        Some(ExpectationEffect {
+            subsequent_actions: smallvec![],
+        })
     }
 
     /// returns option for convenience
