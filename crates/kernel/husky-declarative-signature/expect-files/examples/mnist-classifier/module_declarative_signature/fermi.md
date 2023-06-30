@@ -13,6 +13,7 @@
                             implicit_parameters: ImplicitParameterDeclarativeSignatures {
                                 data: [],
                             },
+                            self_ty: DeclarativeTerm(`mnist_classifier::fermi::FermiMatchResult`),
                             fields: [
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `matches`,

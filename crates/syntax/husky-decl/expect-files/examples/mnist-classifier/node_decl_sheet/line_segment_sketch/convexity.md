@@ -120,8 +120,8 @@ Ok(
                                             data: [
                                                 Expr::PrincipalEntityPath {
                                                     entity_path_expr: 0,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                             ),
@@ -130,8 +130,8 @@ Ok(
                                                 },
                                                 Expr::PrincipalEntityPath {
                                                     entity_path_expr: 1,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::num::i32`, `Extern`),
                                                             ),
@@ -140,8 +140,8 @@ Ok(
                                                 },
                                                 Expr::PrincipalEntityPath {
                                                     entity_path_expr: 2,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::basic::bool`, `Extern`),
                                                             ),
@@ -150,9 +150,9 @@ Ok(
                                                 },
                                             ],
                                         },
-                                        entity_path_expr_arena: Arena {
+                                        principal_entity_path_expr_arena: Arena {
                                             data: [
-                                                EntityPathExpr::Root {
+                                                PrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameToken::Ident(
                                                         IdentToken {
                                                             ident: `LineSegmentSketch`,
@@ -161,13 +161,13 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    entity_path: EntityPath::ModuleItem(
+                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                         ),
                                                     ),
                                                 },
-                                                EntityPathExpr::Root {
+                                                PrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameToken::Ident(
                                                         IdentToken {
                                                             ident: `i32`,
@@ -176,13 +176,13 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    entity_path: EntityPath::ModuleItem(
+                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`core::num::i32`, `Extern`),
                                                         ),
                                                     ),
                                                 },
-                                                EntityPathExpr::Root {
+                                                PrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameToken::Ident(
                                                         IdentToken {
                                                             ident: `bool`,
@@ -191,7 +191,7 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    entity_path: EntityPath::ModuleItem(
+                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`core::basic::bool`, `Extern`),
                                                         ),

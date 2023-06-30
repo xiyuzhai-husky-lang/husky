@@ -7,7 +7,7 @@ Ok(
                         1,
                     ),
                     variant_path: TypeVariantPath {
-                        ty_path: TypePath(`core::result::Result`, `Enum`),
+                        parent_ty_path: TypePath(`core::result::Result`, `Enum`),
                         ident: `Ok`,
                     },
                     vertical_token: VerticalToken(
@@ -33,7 +33,7 @@ Ok(
                         2,
                     ),
                     variant_path: TypeVariantPath {
-                        ty_path: TypePath(`core::result::Result`, `Enum`),
+                        parent_ty_path: TypePath(`core::result::Result`, `Enum`),
                         ident: `Err`,
                     },
                     vertical_token: VerticalToken(

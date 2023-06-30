@@ -32,7 +32,7 @@ Ok(
                                     expr_arena: Arena {
                                         data: [],
                                     },
-                                    entity_path_expr_arena: Arena {
+                                    principal_entity_path_expr_arena: Arena {
                                         data: [],
                                     },
                                     stmt_arena: Arena {
@@ -102,7 +102,7 @@ Ok(
                                     expr_arena: Arena {
                                         data: [],
                                     },
-                                    entity_path_expr_arena: Arena {
+                                    principal_entity_path_expr_arena: Arena {
                                         data: [],
                                     },
                                     stmt_arena: Arena {
@@ -172,7 +172,7 @@ Ok(
                                     expr_arena: Arena {
                                         data: [],
                                     },
-                                    entity_path_expr_arena: Arena {
+                                    principal_entity_path_expr_arena: Arena {
                                         data: [],
                                     },
                                     stmt_arena: Arena {
@@ -242,7 +242,7 @@ Ok(
                                     expr_arena: Arena {
                                         data: [],
                                     },
-                                    entity_path_expr_arena: Arena {
+                                    principal_entity_path_expr_arena: Arena {
                                         data: [],
                                     },
                                     stmt_arena: Arena {

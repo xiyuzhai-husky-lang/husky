@@ -32,8 +32,8 @@ Ok(
                                         data: [
                                             Expr::PrincipalEntityPath {
                                                 entity_path_expr: 0,
-                                                path: Some(
-                                                    EntityPath::ModuleItem(
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                                         ),
@@ -42,9 +42,9 @@ Ok(
                                             },
                                         ],
                                     },
-                                    entity_path_expr_arena: Arena {
+                                    principal_entity_path_expr_arena: Arena {
                                         data: [
-                                            EntityPathExpr::Root {
+                                            PrincipalEntityPathExpr::Root {
                                                 path_name_token: PathNameToken::Ident(
                                                     IdentToken {
                                                         ident: `FermiMatchResult`,
@@ -53,7 +53,7 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                entity_path: EntityPath::ModuleItem(
+                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                     ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                                     ),
@@ -122,8 +122,8 @@ Ok(
                                     data: [
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 0,
-                                            path: Some(
-                                                EntityPath::ModuleItem(
+                                            opt_path: Some(
+                                                PrincipalEntityPath::ModuleItem(
                                                     ModuleItemPath::Fugitive(
                                                         FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                                     ),
@@ -132,8 +132,8 @@ Ok(
                                         },
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 1,
-                                            path: Some(
-                                                EntityPath::ModuleItem(
+                                            opt_path: Some(
+                                                PrincipalEntityPath::ModuleItem(
                                                     ModuleItemPath::Fugitive(
                                                         FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                                                     ),
@@ -142,8 +142,8 @@ Ok(
                                         },
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 2,
-                                            path: Some(
-                                                EntityPath::ModuleItem(
+                                            opt_path: Some(
+                                                PrincipalEntityPath::ModuleItem(
                                                     ModuleItemPath::Fugitive(
                                                         FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
                                                     ),
@@ -152,8 +152,8 @@ Ok(
                                         },
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 3,
-                                            path: Some(
-                                                EntityPath::ModuleItem(
+                                            opt_path: Some(
+                                                PrincipalEntityPath::ModuleItem(
                                                     ModuleItemPath::Fugitive(
                                                         FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
                                                     ),
@@ -213,9 +213,9 @@ Ok(
                                         },
                                     ],
                                 },
-                                entity_path_expr_arena: Arena {
+                                principal_entity_path_expr_arena: Arena {
                                     data: [
-                                        EntityPathExpr::Root {
+                                        PrincipalEntityPathExpr::Root {
                                             path_name_token: PathNameToken::Ident(
                                                 IdentToken {
                                                     ident: `fermi_match`,
@@ -224,13 +224,13 @@ Ok(
                                                     ),
                                                 },
                                             ),
-                                            entity_path: EntityPath::ModuleItem(
+                                            principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                 ModuleItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                                 ),
                                             ),
                                         },
-                                        EntityPathExpr::Root {
+                                        PrincipalEntityPathExpr::Root {
                                             path_name_token: PathNameToken::Ident(
                                                 IdentToken {
                                                     ident: `major_concave_components`,
@@ -239,13 +239,13 @@ Ok(
                                                     ),
                                                 },
                                             ),
-                                            entity_path: EntityPath::ModuleItem(
+                                            principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                 ModuleItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                                                 ),
                                             ),
                                         },
-                                        EntityPathExpr::Root {
+                                        PrincipalEntityPathExpr::Root {
                                             path_name_token: PathNameToken::Ident(
                                                 IdentToken {
                                                     ident: `left_coordinate_max`,
@@ -254,13 +254,13 @@ Ok(
                                                     ),
                                                 },
                                             ),
-                                            entity_path: EntityPath::ModuleItem(
+                                            principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                 ModuleItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
                                                 ),
                                             ),
                                         },
-                                        EntityPathExpr::Root {
+                                        PrincipalEntityPathExpr::Root {
                                             path_name_token: PathNameToken::Ident(
                                                 IdentToken {
                                                     ident: `left_coordinate_max`,
@@ -269,7 +269,7 @@ Ok(
                                                     ),
                                                 },
                                             ),
-                                            entity_path: EntityPath::ModuleItem(
+                                            principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                 ModuleItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
                                                 ),
@@ -373,8 +373,8 @@ Ok(
                                         data: [
                                             Expr::PrincipalEntityPath {
                                                 entity_path_expr: 0,
-                                                path: Some(
-                                                    EntityPath::ModuleItem(
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         ),
@@ -390,8 +390,8 @@ Ok(
                                             },
                                             Expr::PrincipalEntityPath {
                                                 entity_path_expr: 1,
-                                                path: Some(
-                                                    EntityPath::ModuleItem(
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`core::num::f32`, `Extern`),
                                                         ),
@@ -407,9 +407,9 @@ Ok(
                                             },
                                         ],
                                     },
-                                    entity_path_expr_arena: Arena {
+                                    principal_entity_path_expr_arena: Arena {
                                         data: [
-                                            EntityPathExpr::Root {
+                                            PrincipalEntityPathExpr::Root {
                                                 path_name_token: PathNameToken::Ident(
                                                     IdentToken {
                                                         ident: `ConcaveComponent`,
@@ -418,13 +418,13 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                entity_path: EntityPath::ModuleItem(
+                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                     ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     ),
                                                 ),
                                             },
-                                            EntityPathExpr::Root {
+                                            PrincipalEntityPathExpr::Root {
                                                 path_name_token: PathNameToken::Ident(
                                                     IdentToken {
                                                         ident: `f32`,
@@ -433,7 +433,7 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                entity_path: EntityPath::ModuleItem(
+                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                     ModuleItemPath::Type(
                                                         TypePath(`core::num::f32`, `Extern`),
                                                     ),
@@ -558,8 +558,8 @@ Ok(
                                                 data: [
                                                     Expr::PrincipalEntityPath {
                                                         entity_path_expr: 0,
-                                                        path: Some(
-                                                            EntityPath::ModuleItem(
+                                                        opt_path: Some(
+                                                            PrincipalEntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                                 ),
@@ -575,8 +575,8 @@ Ok(
                                                     },
                                                     Expr::PrincipalEntityPath {
                                                         entity_path_expr: 1,
-                                                        path: Some(
-                                                            EntityPath::ModuleItem(
+                                                        opt_path: Some(
+                                                            PrincipalEntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`core::num::f32`, `Extern`),
                                                                 ),
@@ -592,9 +592,9 @@ Ok(
                                                     },
                                                 ],
                                             },
-                                            entity_path_expr_arena: Arena {
+                                            principal_entity_path_expr_arena: Arena {
                                                 data: [
-                                                    EntityPathExpr::Root {
+                                                    PrincipalEntityPathExpr::Root {
                                                         path_name_token: PathNameToken::Ident(
                                                             IdentToken {
                                                                 ident: `ConcaveComponent`,
@@ -603,13 +603,13 @@ Ok(
                                                                 ),
                                                             },
                                                         ),
-                                                        entity_path: EntityPath::ModuleItem(
+                                                        principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                             ),
                                                         ),
                                                     },
-                                                    EntityPathExpr::Root {
+                                                    PrincipalEntityPathExpr::Root {
                                                         path_name_token: PathNameToken::Ident(
                                                             IdentToken {
                                                                 ident: `f32`,
@@ -618,7 +618,7 @@ Ok(
                                                                 ),
                                                             },
                                                         ),
-                                                        entity_path: EntityPath::ModuleItem(
+                                                        principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::num::f32`, `Extern`),
                                                             ),
@@ -781,7 +781,7 @@ Ok(
                                         },
                                     ],
                                 },
-                                entity_path_expr_arena: Arena {
+                                principal_entity_path_expr_arena: Arena {
                                     data: [],
                                 },
                                 stmt_arena: Arena {
@@ -876,8 +876,8 @@ Ok(
                                         data: [
                                             Expr::PrincipalEntityPath {
                                                 entity_path_expr: 0,
-                                                path: Some(
-                                                    EntityPath::ModuleItem(
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                                         ),
@@ -886,9 +886,9 @@ Ok(
                                             },
                                         ],
                                     },
-                                    entity_path_expr_arena: Arena {
+                                    principal_entity_path_expr_arena: Arena {
                                         data: [
-                                            EntityPathExpr::Root {
+                                            PrincipalEntityPathExpr::Root {
                                                 path_name_token: PathNameToken::Ident(
                                                     IdentToken {
                                                         ident: `FermiMatchResult`,
@@ -897,7 +897,7 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                entity_path: EntityPath::ModuleItem(
+                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                     ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                                     ),
@@ -966,8 +966,8 @@ Ok(
                                     data: [
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 0,
-                                            path: Some(
-                                                EntityPath::ModuleItem(
+                                            opt_path: Some(
+                                                PrincipalEntityPath::ModuleItem(
                                                     ModuleItemPath::Fugitive(
                                                         FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                                     ),
@@ -976,8 +976,8 @@ Ok(
                                         },
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 1,
-                                            path: Some(
-                                                EntityPath::ModuleItem(
+                                            opt_path: Some(
+                                                PrincipalEntityPath::ModuleItem(
                                                     ModuleItemPath::Fugitive(
                                                         FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                                                     ),
@@ -986,8 +986,8 @@ Ok(
                                         },
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 2,
-                                            path: Some(
-                                                EntityPath::ModuleItem(
+                                            opt_path: Some(
+                                                PrincipalEntityPath::ModuleItem(
                                                     ModuleItemPath::Fugitive(
                                                         FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `Fn`),
                                                     ),
@@ -1039,9 +1039,9 @@ Ok(
                                         },
                                     ],
                                 },
-                                entity_path_expr_arena: Arena {
+                                principal_entity_path_expr_arena: Arena {
                                     data: [
-                                        EntityPathExpr::Root {
+                                        PrincipalEntityPathExpr::Root {
                                             path_name_token: PathNameToken::Ident(
                                                 IdentToken {
                                                     ident: `fermi_match`,
@@ -1050,13 +1050,13 @@ Ok(
                                                     ),
                                                 },
                                             ),
-                                            entity_path: EntityPath::ModuleItem(
+                                            principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                 ModuleItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                                 ),
                                             ),
                                         },
-                                        EntityPathExpr::Root {
+                                        PrincipalEntityPathExpr::Root {
                                             path_name_token: PathNameToken::Ident(
                                                 IdentToken {
                                                     ident: `major_concave_components`,
@@ -1065,13 +1065,13 @@ Ok(
                                                     ),
                                                 },
                                             ),
-                                            entity_path: EntityPath::ModuleItem(
+                                            principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                 ModuleItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                                                 ),
                                             ),
                                         },
-                                        EntityPathExpr::Root {
+                                        PrincipalEntityPathExpr::Root {
                                             path_name_token: PathNameToken::Ident(
                                                 IdentToken {
                                                     ident: `displacement_downwards`,
@@ -1080,7 +1080,7 @@ Ok(
                                                     ),
                                                 },
                                             ),
-                                            entity_path: EntityPath::ModuleItem(
+                                            principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                 ModuleItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `Fn`),
                                                 ),
@@ -1170,8 +1170,8 @@ Ok(
                                         data: [
                                             Expr::PrincipalEntityPath {
                                                 entity_path_expr: 0,
-                                                path: Some(
-                                                    EntityPath::ModuleItem(
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                                         ),
@@ -1180,9 +1180,9 @@ Ok(
                                             },
                                         ],
                                     },
-                                    entity_path_expr_arena: Arena {
+                                    principal_entity_path_expr_arena: Arena {
                                         data: [
-                                            EntityPathExpr::Root {
+                                            PrincipalEntityPathExpr::Root {
                                                 path_name_token: PathNameToken::Ident(
                                                     IdentToken {
                                                         ident: `FermiMatchResult`,
@@ -1191,7 +1191,7 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                entity_path: EntityPath::ModuleItem(
+                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                     ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                                     ),
@@ -1260,8 +1260,8 @@ Ok(
                                     data: [
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 0,
-                                            path: Some(
-                                                EntityPath::ModuleItem(
+                                            opt_path: Some(
+                                                PrincipalEntityPath::ModuleItem(
                                                     ModuleItemPath::Fugitive(
                                                         FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                                     ),
@@ -1270,8 +1270,8 @@ Ok(
                                         },
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 1,
-                                            path: Some(
-                                                EntityPath::ModuleItem(
+                                            opt_path: Some(
+                                                PrincipalEntityPath::ModuleItem(
                                                     ModuleItemPath::Fugitive(
                                                         FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                                                     ),
@@ -1280,8 +1280,8 @@ Ok(
                                         },
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 2,
-                                            path: Some(
-                                                EntityPath::ModuleItem(
+                                            opt_path: Some(
+                                                PrincipalEntityPath::ModuleItem(
                                                     ModuleItemPath::Fugitive(
                                                         FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `Fn`),
                                                     ),
@@ -1333,9 +1333,9 @@ Ok(
                                         },
                                     ],
                                 },
-                                entity_path_expr_arena: Arena {
+                                principal_entity_path_expr_arena: Arena {
                                     data: [
-                                        EntityPathExpr::Root {
+                                        PrincipalEntityPathExpr::Root {
                                             path_name_token: PathNameToken::Ident(
                                                 IdentToken {
                                                     ident: `fermi_match`,
@@ -1344,13 +1344,13 @@ Ok(
                                                     ),
                                                 },
                                             ),
-                                            entity_path: EntityPath::ModuleItem(
+                                            principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                 ModuleItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                                 ),
                                             ),
                                         },
-                                        EntityPathExpr::Root {
+                                        PrincipalEntityPathExpr::Root {
                                             path_name_token: PathNameToken::Ident(
                                                 IdentToken {
                                                     ident: `major_concave_components`,
@@ -1359,13 +1359,13 @@ Ok(
                                                     ),
                                                 },
                                             ),
-                                            entity_path: EntityPath::ModuleItem(
+                                            principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                 ModuleItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                                                 ),
                                             ),
                                         },
-                                        EntityPathExpr::Root {
+                                        PrincipalEntityPathExpr::Root {
                                             path_name_token: PathNameToken::Ident(
                                                 IdentToken {
                                                     ident: `cc_box_heights`,
@@ -1374,7 +1374,7 @@ Ok(
                                                     ),
                                                 },
                                             ),
-                                            entity_path: EntityPath::ModuleItem(
+                                            principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                 ModuleItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `Fn`),
                                                 ),
@@ -1464,8 +1464,8 @@ Ok(
                                         data: [
                                             Expr::PrincipalEntityPath {
                                                 entity_path_expr: 0,
-                                                path: Some(
-                                                    EntityPath::ModuleItem(
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`mnist::MnistLabel`, `Enum`),
                                                         ),
@@ -1481,9 +1481,9 @@ Ok(
                                             },
                                         ],
                                     },
-                                    entity_path_expr_arena: Arena {
+                                    principal_entity_path_expr_arena: Arena {
                                         data: [
-                                            EntityPathExpr::Root {
+                                            PrincipalEntityPathExpr::Root {
                                                 path_name_token: PathNameToken::Ident(
                                                     IdentToken {
                                                         ident: `MnistLabel`,
@@ -1492,7 +1492,7 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                entity_path: EntityPath::ModuleItem(
+                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                     ModuleItemPath::Type(
                                                         TypePath(`mnist::MnistLabel`, `Enum`),
                                                     ),
@@ -1561,8 +1561,8 @@ Ok(
                                     data: [
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 0,
-                                            path: Some(
-                                                EntityPath::ModuleItem(
+                                            opt_path: Some(
+                                                PrincipalEntityPath::ModuleItem(
                                                     ModuleItemPath::Fugitive(
                                                         FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
                                                     ),
@@ -1620,8 +1620,8 @@ Ok(
                                         },
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 1,
-                                            path: Some(
-                                                EntityPath::ModuleItem(
+                                            opt_path: Some(
+                                                PrincipalEntityPath::ModuleItem(
                                                     ModuleItemPath::Fugitive(
                                                         FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
                                                     ),
@@ -1679,8 +1679,8 @@ Ok(
                                         },
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 2,
-                                            path: Some(
-                                                EntityPath::ModuleItem(
+                                            opt_path: Some(
+                                                PrincipalEntityPath::ModuleItem(
                                                     ModuleItemPath::Fugitive(
                                                         FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                                     ),
@@ -1760,8 +1760,8 @@ Ok(
                                         },
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 3,
-                                            path: Some(
-                                                EntityPath::ModuleItem(
+                                            opt_path: Some(
+                                                PrincipalEntityPath::ModuleItem(
                                                     ModuleItemPath::Fugitive(
                                                         FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                                                     ),
@@ -1871,8 +1871,8 @@ Ok(
                                         },
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 4,
-                                            path: Some(
-                                                EntityPath::ModuleItem(
+                                            opt_path: Some(
+                                                PrincipalEntityPath::ModuleItem(
                                                     ModuleItemPath::Fugitive(
                                                         FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                                     ),
@@ -1881,8 +1881,8 @@ Ok(
                                         },
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 5,
-                                            path: Some(
-                                                EntityPath::ModuleItem(
+                                            opt_path: Some(
+                                                PrincipalEntityPath::ModuleItem(
                                                     ModuleItemPath::Fugitive(
                                                         FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                                     ),
@@ -2012,8 +2012,8 @@ Ok(
                                         },
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 6,
-                                            path: Some(
-                                                EntityPath::ModuleItem(
+                                            opt_path: Some(
+                                                PrincipalEntityPath::ModuleItem(
                                                     ModuleItemPath::Fugitive(
                                                         FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                                                     ),
@@ -2060,8 +2060,8 @@ Ok(
                                         },
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 7,
-                                            path: Some(
-                                                EntityPath::ModuleItem(
+                                            opt_path: Some(
+                                                PrincipalEntityPath::ModuleItem(
                                                     ModuleItemPath::Fugitive(
                                                         FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                                                     ),
@@ -2129,8 +2129,8 @@ Ok(
                                         },
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 8,
-                                            path: Some(
-                                                EntityPath::ModuleItem(
+                                            opt_path: Some(
+                                                PrincipalEntityPath::ModuleItem(
                                                     ModuleItemPath::Fugitive(
                                                         FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                                                     ),
@@ -2169,8 +2169,8 @@ Ok(
                                         },
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 9,
-                                            path: Some(
-                                                EntityPath::ModuleItem(
+                                            opt_path: Some(
+                                                PrincipalEntityPath::ModuleItem(
                                                     ModuleItemPath::Fugitive(
                                                         FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                                     ),
@@ -2179,8 +2179,8 @@ Ok(
                                         },
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 10,
-                                            path: Some(
-                                                EntityPath::ModuleItem(
+                                            opt_path: Some(
+                                                PrincipalEntityPath::ModuleItem(
                                                     ModuleItemPath::Fugitive(
                                                         FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                                     ),
@@ -2223,8 +2223,8 @@ Ok(
                                         },
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 11,
-                                            path: Some(
-                                                EntityPath::ModuleItem(
+                                            opt_path: Some(
+                                                PrincipalEntityPath::ModuleItem(
                                                     ModuleItemPath::Fugitive(
                                                         FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                                                     ),
@@ -2399,8 +2399,8 @@ Ok(
                                         },
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 12,
-                                            path: Some(
-                                                EntityPath::ModuleItem(
+                                            opt_path: Some(
+                                                PrincipalEntityPath::ModuleItem(
                                                     ModuleItemPath::Fugitive(
                                                         FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                                                     ),
@@ -2439,8 +2439,8 @@ Ok(
                                         },
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 13,
-                                            path: Some(
-                                                EntityPath::ModuleItem(
+                                            opt_path: Some(
+                                                PrincipalEntityPath::ModuleItem(
                                                     ModuleItemPath::Fugitive(
                                                         FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                                     ),
@@ -2538,10 +2538,10 @@ Ok(
                                         },
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 15,
-                                            path: Some(
-                                                EntityPath::TypeVariant(
+                                            opt_path: Some(
+                                                PrincipalEntityPath::TypeVariant(
                                                     TypeVariantPath {
-                                                        ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                        parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                                                         ident: `Four`,
                                                     },
                                                 ),
@@ -2549,10 +2549,10 @@ Ok(
                                         },
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 17,
-                                            path: Some(
-                                                EntityPath::TypeVariant(
+                                            opt_path: Some(
+                                                PrincipalEntityPath::TypeVariant(
                                                     TypeVariantPath {
-                                                        ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                        parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                                                         ident: `Four`,
                                                     },
                                                 ),
@@ -2565,9 +2565,9 @@ Ok(
                                         },
                                     ],
                                 },
-                                entity_path_expr_arena: Arena {
+                                principal_entity_path_expr_arena: Arena {
                                     data: [
-                                        EntityPathExpr::Root {
+                                        PrincipalEntityPathExpr::Root {
                                             path_name_token: PathNameToken::Ident(
                                                 IdentToken {
                                                     ident: `left_components`,
@@ -2576,13 +2576,13 @@ Ok(
                                                     ),
                                                 },
                                             ),
-                                            entity_path: EntityPath::ModuleItem(
+                                            principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                 ModuleItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
                                                 ),
                                             ),
                                         },
-                                        EntityPathExpr::Root {
+                                        PrincipalEntityPathExpr::Root {
                                             path_name_token: PathNameToken::Ident(
                                                 IdentToken {
                                                     ident: `left_components`,
@@ -2591,13 +2591,13 @@ Ok(
                                                     ),
                                                 },
                                             ),
-                                            entity_path: EntityPath::ModuleItem(
+                                            principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                 ModuleItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
                                                 ),
                                             ),
                                         },
-                                        EntityPathExpr::Root {
+                                        PrincipalEntityPathExpr::Root {
                                             path_name_token: PathNameToken::Ident(
                                                 IdentToken {
                                                     ident: `major_connected_component`,
@@ -2606,13 +2606,13 @@ Ok(
                                                     ),
                                                 },
                                             ),
-                                            entity_path: EntityPath::ModuleItem(
+                                            principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                 ModuleItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                                 ),
                                             ),
                                         },
-                                        EntityPathExpr::Root {
+                                        PrincipalEntityPathExpr::Root {
                                             path_name_token: PathNameToken::Ident(
                                                 IdentToken {
                                                     ident: `components_max_downwards`,
@@ -2621,13 +2621,13 @@ Ok(
                                                     ),
                                                 },
                                             ),
-                                            entity_path: EntityPath::ModuleItem(
+                                            principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                 ModuleItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                                                 ),
                                             ),
                                         },
-                                        EntityPathExpr::Root {
+                                        PrincipalEntityPathExpr::Root {
                                             path_name_token: PathNameToken::Ident(
                                                 IdentToken {
                                                     ident: `major_connected_component`,
@@ -2636,13 +2636,13 @@ Ok(
                                                     ),
                                                 },
                                             ),
-                                            entity_path: EntityPath::ModuleItem(
+                                            principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                 ModuleItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                                 ),
                                             ),
                                         },
-                                        EntityPathExpr::Root {
+                                        PrincipalEntityPathExpr::Root {
                                             path_name_token: PathNameToken::Ident(
                                                 IdentToken {
                                                     ident: `major_connected_component`,
@@ -2651,13 +2651,13 @@ Ok(
                                                     ),
                                                 },
                                             ),
-                                            entity_path: EntityPath::ModuleItem(
+                                            principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                 ModuleItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                                 ),
                                             ),
                                         },
-                                        EntityPathExpr::Root {
+                                        PrincipalEntityPathExpr::Root {
                                             path_name_token: PathNameToken::Ident(
                                                 IdentToken {
                                                     ident: `major_concave_components`,
@@ -2666,13 +2666,13 @@ Ok(
                                                     ),
                                                 },
                                             ),
-                                            entity_path: EntityPath::ModuleItem(
+                                            principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                 ModuleItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                                                 ),
                                             ),
                                         },
-                                        EntityPathExpr::Root {
+                                        PrincipalEntityPathExpr::Root {
                                             path_name_token: PathNameToken::Ident(
                                                 IdentToken {
                                                     ident: `components_max_heights`,
@@ -2681,13 +2681,13 @@ Ok(
                                                     ),
                                                 },
                                             ),
-                                            entity_path: EntityPath::ModuleItem(
+                                            principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                 ModuleItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                                                 ),
                                             ),
                                         },
-                                        EntityPathExpr::Root {
+                                        PrincipalEntityPathExpr::Root {
                                             path_name_token: PathNameToken::Ident(
                                                 IdentToken {
                                                     ident: `components_max_heights`,
@@ -2696,13 +2696,13 @@ Ok(
                                                     ),
                                                 },
                                             ),
-                                            entity_path: EntityPath::ModuleItem(
+                                            principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                 ModuleItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                                                 ),
                                             ),
                                         },
-                                        EntityPathExpr::Root {
+                                        PrincipalEntityPathExpr::Root {
                                             path_name_token: PathNameToken::Ident(
                                                 IdentToken {
                                                     ident: `major_connected_component`,
@@ -2711,13 +2711,13 @@ Ok(
                                                     ),
                                                 },
                                             ),
-                                            entity_path: EntityPath::ModuleItem(
+                                            principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                 ModuleItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                                 ),
                                             ),
                                         },
-                                        EntityPathExpr::Root {
+                                        PrincipalEntityPathExpr::Root {
                                             path_name_token: PathNameToken::Ident(
                                                 IdentToken {
                                                     ident: `major_connected_component`,
@@ -2726,13 +2726,13 @@ Ok(
                                                     ),
                                                 },
                                             ),
-                                            entity_path: EntityPath::ModuleItem(
+                                            principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                 ModuleItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                                 ),
                                             ),
                                         },
-                                        EntityPathExpr::Root {
+                                        PrincipalEntityPathExpr::Root {
                                             path_name_token: PathNameToken::Ident(
                                                 IdentToken {
                                                     ident: `components_max_heights`,
@@ -2741,13 +2741,13 @@ Ok(
                                                     ),
                                                 },
                                             ),
-                                            entity_path: EntityPath::ModuleItem(
+                                            principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                 ModuleItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                                                 ),
                                             ),
                                         },
-                                        EntityPathExpr::Root {
+                                        PrincipalEntityPathExpr::Root {
                                             path_name_token: PathNameToken::Ident(
                                                 IdentToken {
                                                     ident: `components_max_heights`,
@@ -2756,13 +2756,13 @@ Ok(
                                                     ),
                                                 },
                                             ),
-                                            entity_path: EntityPath::ModuleItem(
+                                            principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                 ModuleItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                                                 ),
                                             ),
                                         },
-                                        EntityPathExpr::Root {
+                                        PrincipalEntityPathExpr::Root {
                                             path_name_token: PathNameToken::Ident(
                                                 IdentToken {
                                                     ident: `major_connected_component`,
@@ -2771,13 +2771,13 @@ Ok(
                                                     ),
                                                 },
                                             ),
-                                            entity_path: EntityPath::ModuleItem(
+                                            principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                 ModuleItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                                 ),
                                             ),
                                         },
-                                        EntityPathExpr::Root {
+                                        PrincipalEntityPathExpr::Root {
                                             path_name_token: PathNameToken::Ident(
                                                 IdentToken {
                                                     ident: `MnistLabel`,
@@ -2786,13 +2786,13 @@ Ok(
                                                     ),
                                                 },
                                             ),
-                                            entity_path: EntityPath::ModuleItem(
+                                            principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                 ModuleItemPath::Type(
                                                     TypePath(`mnist::MnistLabel`, `Enum`),
                                                 ),
                                             ),
                                         },
-                                        EntityPathExpr::Subentity {
+                                        PrincipalEntityPathExpr::Subentity {
                                             parent: 14,
                                             scope_resolution_token: ScopeResolutionToken(
                                                 TokenIdx(
@@ -2808,15 +2808,15 @@ Ok(
                                                 },
                                             ),
                                             path: Ok(
-                                                EntityPath::TypeVariant(
+                                                PrincipalEntityPath::TypeVariant(
                                                     TypeVariantPath {
-                                                        ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                        parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                                                         ident: `Four`,
                                                     },
                                                 ),
                                             ),
                                         },
-                                        EntityPathExpr::Root {
+                                        PrincipalEntityPathExpr::Root {
                                             path_name_token: PathNameToken::Ident(
                                                 IdentToken {
                                                     ident: `MnistLabel`,
@@ -2825,13 +2825,13 @@ Ok(
                                                     ),
                                                 },
                                             ),
-                                            entity_path: EntityPath::ModuleItem(
+                                            principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                 ModuleItemPath::Type(
                                                     TypePath(`mnist::MnistLabel`, `Enum`),
                                                 ),
                                             ),
                                         },
-                                        EntityPathExpr::Subentity {
+                                        PrincipalEntityPathExpr::Subentity {
                                             parent: 16,
                                             scope_resolution_token: ScopeResolutionToken(
                                                 TokenIdx(
@@ -2847,9 +2847,9 @@ Ok(
                                                 },
                                             ),
                                             path: Ok(
-                                                EntityPath::TypeVariant(
+                                                PrincipalEntityPath::TypeVariant(
                                                     TypeVariantPath {
-                                                        ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                        parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                                                         ident: `Four`,
                                                     },
                                                 ),
@@ -3986,8 +3986,8 @@ Ok(
                                         data: [
                                             Expr::PrincipalEntityPath {
                                                 entity_path_expr: 0,
-                                                path: Some(
-                                                    EntityPath::ModuleItem(
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         ),
@@ -4003,8 +4003,8 @@ Ok(
                                             },
                                             Expr::PrincipalEntityPath {
                                                 entity_path_expr: 1,
-                                                path: Some(
-                                                    EntityPath::ModuleItem(
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`core::num::f32`, `Extern`),
                                                         ),
@@ -4020,9 +4020,9 @@ Ok(
                                             },
                                         ],
                                     },
-                                    entity_path_expr_arena: Arena {
+                                    principal_entity_path_expr_arena: Arena {
                                         data: [
-                                            EntityPathExpr::Root {
+                                            PrincipalEntityPathExpr::Root {
                                                 path_name_token: PathNameToken::Ident(
                                                     IdentToken {
                                                         ident: `ConcaveComponent`,
@@ -4031,13 +4031,13 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                entity_path: EntityPath::ModuleItem(
+                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                     ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     ),
                                                 ),
                                             },
-                                            EntityPathExpr::Root {
+                                            PrincipalEntityPathExpr::Root {
                                                 path_name_token: PathNameToken::Ident(
                                                     IdentToken {
                                                         ident: `f32`,
@@ -4046,7 +4046,7 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                entity_path: EntityPath::ModuleItem(
+                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                     ModuleItemPath::Type(
                                                         TypePath(`core::num::f32`, `Extern`),
                                                     ),
@@ -4171,8 +4171,8 @@ Ok(
                                                 data: [
                                                     Expr::PrincipalEntityPath {
                                                         entity_path_expr: 0,
-                                                        path: Some(
-                                                            EntityPath::ModuleItem(
+                                                        opt_path: Some(
+                                                            PrincipalEntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                                 ),
@@ -4188,8 +4188,8 @@ Ok(
                                                     },
                                                     Expr::PrincipalEntityPath {
                                                         entity_path_expr: 1,
-                                                        path: Some(
-                                                            EntityPath::ModuleItem(
+                                                        opt_path: Some(
+                                                            PrincipalEntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`core::num::f32`, `Extern`),
                                                                 ),
@@ -4205,9 +4205,9 @@ Ok(
                                                     },
                                                 ],
                                             },
-                                            entity_path_expr_arena: Arena {
+                                            principal_entity_path_expr_arena: Arena {
                                                 data: [
-                                                    EntityPathExpr::Root {
+                                                    PrincipalEntityPathExpr::Root {
                                                         path_name_token: PathNameToken::Ident(
                                                             IdentToken {
                                                                 ident: `ConcaveComponent`,
@@ -4216,13 +4216,13 @@ Ok(
                                                                 ),
                                                             },
                                                         ),
-                                                        entity_path: EntityPath::ModuleItem(
+                                                        principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                             ),
                                                         ),
                                                     },
-                                                    EntityPathExpr::Root {
+                                                    PrincipalEntityPathExpr::Root {
                                                         path_name_token: PathNameToken::Ident(
                                                             IdentToken {
                                                                 ident: `f32`,
@@ -4231,7 +4231,7 @@ Ok(
                                                                 ),
                                                             },
                                                         ),
-                                                        entity_path: EntityPath::ModuleItem(
+                                                        principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::num::f32`, `Extern`),
                                                             ),
@@ -4444,7 +4444,7 @@ Ok(
                                         },
                                     ],
                                 },
-                                entity_path_expr_arena: Arena {
+                                principal_entity_path_expr_arena: Arena {
                                     data: [],
                                 },
                                 stmt_arena: Arena {
@@ -4641,8 +4641,8 @@ Ok(
                                         data: [
                                             Expr::PrincipalEntityPath {
                                                 entity_path_expr: 0,
-                                                path: Some(
-                                                    EntityPath::ModuleItem(
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         ),
@@ -4658,8 +4658,8 @@ Ok(
                                             },
                                             Expr::PrincipalEntityPath {
                                                 entity_path_expr: 1,
-                                                path: Some(
-                                                    EntityPath::ModuleItem(
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`core::num::f32`, `Extern`),
                                                         ),
@@ -4675,9 +4675,9 @@ Ok(
                                             },
                                         ],
                                     },
-                                    entity_path_expr_arena: Arena {
+                                    principal_entity_path_expr_arena: Arena {
                                         data: [
-                                            EntityPathExpr::Root {
+                                            PrincipalEntityPathExpr::Root {
                                                 path_name_token: PathNameToken::Ident(
                                                     IdentToken {
                                                         ident: `ConcaveComponent`,
@@ -4686,13 +4686,13 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                entity_path: EntityPath::ModuleItem(
+                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                     ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     ),
                                                 ),
                                             },
-                                            EntityPathExpr::Root {
+                                            PrincipalEntityPathExpr::Root {
                                                 path_name_token: PathNameToken::Ident(
                                                     IdentToken {
                                                         ident: `f32`,
@@ -4701,7 +4701,7 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                entity_path: EntityPath::ModuleItem(
+                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                     ModuleItemPath::Type(
                                                         TypePath(`core::num::f32`, `Extern`),
                                                     ),
@@ -4826,8 +4826,8 @@ Ok(
                                                 data: [
                                                     Expr::PrincipalEntityPath {
                                                         entity_path_expr: 0,
-                                                        path: Some(
-                                                            EntityPath::ModuleItem(
+                                                        opt_path: Some(
+                                                            PrincipalEntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                                 ),
@@ -4843,8 +4843,8 @@ Ok(
                                                     },
                                                     Expr::PrincipalEntityPath {
                                                         entity_path_expr: 1,
-                                                        path: Some(
-                                                            EntityPath::ModuleItem(
+                                                        opt_path: Some(
+                                                            PrincipalEntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`core::num::f32`, `Extern`),
                                                                 ),
@@ -4860,9 +4860,9 @@ Ok(
                                                     },
                                                 ],
                                             },
-                                            entity_path_expr_arena: Arena {
+                                            principal_entity_path_expr_arena: Arena {
                                                 data: [
-                                                    EntityPathExpr::Root {
+                                                    PrincipalEntityPathExpr::Root {
                                                         path_name_token: PathNameToken::Ident(
                                                             IdentToken {
                                                                 ident: `ConcaveComponent`,
@@ -4871,13 +4871,13 @@ Ok(
                                                                 ),
                                                             },
                                                         ),
-                                                        entity_path: EntityPath::ModuleItem(
+                                                        principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                             ),
                                                         ),
                                                     },
-                                                    EntityPathExpr::Root {
+                                                    PrincipalEntityPathExpr::Root {
                                                         path_name_token: PathNameToken::Ident(
                                                             IdentToken {
                                                                 ident: `f32`,
@@ -4886,7 +4886,7 @@ Ok(
                                                                 ),
                                                             },
                                                         ),
-                                                        entity_path: EntityPath::ModuleItem(
+                                                        principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::num::f32`, `Extern`),
                                                             ),
@@ -5179,7 +5179,7 @@ Ok(
                                         },
                                     ],
                                 },
-                                entity_path_expr_arena: Arena {
+                                principal_entity_path_expr_arena: Arena {
                                     data: [],
                                 },
                                 stmt_arena: Arena {

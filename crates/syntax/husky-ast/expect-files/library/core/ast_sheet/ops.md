@@ -979,7 +979,7 @@ Ok(
                         59,
                     ),
                     variant_path: TypeVariantPath {
-                        ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
+                        parent_ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
                         ident: `Return`,
                     },
                     vertical_token: VerticalToken(
@@ -1005,7 +1005,7 @@ Ok(
                         60,
                     ),
                     variant_path: TypeVariantPath {
-                        ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
+                        parent_ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
                         ident: `Continue`,
                     },
                     vertical_token: VerticalToken(

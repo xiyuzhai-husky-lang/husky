@@ -1,22 +1,20 @@
 #![feature(trait_upcasting)]
 #![feature(const_trait_impl)]
 mod db;
-mod entity_path;
 mod error;
 mod field;
-mod has_declarative_ty;
 mod method;
+mod principal_entity_path;
 mod term;
 #[cfg(test)]
 mod tests;
 mod variance;
 
 pub use self::db::*;
-pub use self::entity_path::*;
 pub use self::error::*;
 pub use self::field::*;
-pub use self::has_declarative_ty::*;
 pub use self::method::*;
+pub use self::principal_entity_path::*;
 pub use self::term::*;
 
 #[cfg(test)]
@@ -37,9 +35,8 @@ pub struct DeclarativeTypeJar(
     ty_instance_constructor_path_declarative_ty,
     trai_path_declarative_ty,
     form_path_declarative_ty,
-    ty_item_path_declarative_ty,
-    ty_entity_variances,
-    ty_entity_variance_reprs,
+    ty_implicit_parameter_variances,
+    ty_implicit_parameter_variance_reprs,
     declarative_ty_entity_variance_crate_dependencies,
     trai_entity_variances,
     trai_entity_variance_reprs,
@@ -56,3 +53,7 @@ pub struct DeclarativeTypeJar(
     application_declarative_term_declarative_ty,
     ty_variant_path_declarative_ty,
 );
+
+pub trait HasDeclarativeType: Copy {
+    fn declarative_ty(self, db: &dyn DeclarativeTypeDb) -> DeclarativeTypeResult<DeclarativeTerm>;
+}

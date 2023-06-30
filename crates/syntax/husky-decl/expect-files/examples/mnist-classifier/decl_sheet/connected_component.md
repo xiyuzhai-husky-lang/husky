@@ -103,8 +103,8 @@ Ok(
                                             data: [
                                                 Expr::PrincipalEntityPath {
                                                     entity_path_expr: 0,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::num::i32`, `Extern`),
                                                             ),
@@ -113,8 +113,8 @@ Ok(
                                                 },
                                                 Expr::PrincipalEntityPath {
                                                     entity_path_expr: 1,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::num::i32`, `Extern`),
                                                             ),
@@ -123,8 +123,8 @@ Ok(
                                                 },
                                                 Expr::PrincipalEntityPath {
                                                     entity_path_expr: 2,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::num::i32`, `Extern`),
                                                             ),
@@ -133,8 +133,8 @@ Ok(
                                                 },
                                                 Expr::PrincipalEntityPath {
                                                     entity_path_expr: 3,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::num::i32`, `Extern`),
                                                             ),
@@ -143,9 +143,9 @@ Ok(
                                                 },
                                             ],
                                         },
-                                        entity_path_expr_arena: Arena {
+                                        principal_entity_path_expr_arena: Arena {
                                             data: [
-                                                EntityPathExpr::Root {
+                                                PrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameToken::Ident(
                                                         IdentToken {
                                                             ident: `i32`,
@@ -154,13 +154,13 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    entity_path: EntityPath::ModuleItem(
+                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`core::num::i32`, `Extern`),
                                                         ),
                                                     ),
                                                 },
-                                                EntityPathExpr::Root {
+                                                PrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameToken::Ident(
                                                         IdentToken {
                                                             ident: `i32`,
@@ -169,13 +169,13 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    entity_path: EntityPath::ModuleItem(
+                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`core::num::i32`, `Extern`),
                                                         ),
                                                     ),
                                                 },
-                                                EntityPathExpr::Root {
+                                                PrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameToken::Ident(
                                                         IdentToken {
                                                             ident: `i32`,
@@ -184,13 +184,13 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    entity_path: EntityPath::ModuleItem(
+                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`core::num::i32`, `Extern`),
                                                         ),
                                                     ),
                                                 },
-                                                EntityPathExpr::Root {
+                                                PrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameToken::Ident(
                                                         IdentToken {
                                                             ident: `i32`,
@@ -199,7 +199,7 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    entity_path: EntityPath::ModuleItem(
+                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`core::num::i32`, `Extern`),
                                                         ),
@@ -364,8 +364,8 @@ Ok(
                                             data: [
                                                 Expr::PrincipalEntityPath {
                                                     entity_path_expr: 0,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                             ),
@@ -401,9 +401,9 @@ Ok(
                                                 },
                                             ],
                                         },
-                                        entity_path_expr_arena: Arena {
+                                        principal_entity_path_expr_arena: Arena {
                                             data: [
-                                                EntityPathExpr::Root {
+                                                PrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameToken::Ident(
                                                         IdentToken {
                                                             ident: `RawContour`,
@@ -412,7 +412,7 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    entity_path: EntityPath::ModuleItem(
+                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                         ),
@@ -526,8 +526,8 @@ Ok(
                                             data: [
                                                 Expr::PrincipalEntityPath {
                                                     entity_path_expr: 0,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                             ),
@@ -543,8 +543,8 @@ Ok(
                                                 },
                                                 Expr::PrincipalEntityPath {
                                                     entity_path_expr: 1,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::num::f32`, `Extern`),
                                                             ),
@@ -560,9 +560,9 @@ Ok(
                                                 },
                                             ],
                                         },
-                                        entity_path_expr_arena: Arena {
+                                        principal_entity_path_expr_arena: Arena {
                                             data: [
-                                                EntityPathExpr::Root {
+                                                PrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameToken::Ident(
                                                         IdentToken {
                                                             ident: `RawContour`,
@@ -571,13 +571,13 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    entity_path: EntityPath::ModuleItem(
+                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                         ),
                                                     ),
                                                 },
-                                                EntityPathExpr::Root {
+                                                PrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameToken::Ident(
                                                         IdentToken {
                                                             ident: `f32`,
@@ -586,7 +586,7 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    entity_path: EntityPath::ModuleItem(
+                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`core::num::f32`, `Extern`),
                                                         ),
@@ -740,8 +740,8 @@ Ok(
                                             data: [
                                                 Expr::PrincipalEntityPath {
                                                     entity_path_expr: 0,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`mnist::BinaryImage28`, `Struct`),
                                                             ),
@@ -750,9 +750,9 @@ Ok(
                                                 },
                                             ],
                                         },
-                                        entity_path_expr_arena: Arena {
+                                        principal_entity_path_expr_arena: Arena {
                                             data: [
-                                                EntityPathExpr::Root {
+                                                PrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameToken::Ident(
                                                         IdentToken {
                                                             ident: `BinaryImage28`,
@@ -761,7 +761,7 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    entity_path: EntityPath::ModuleItem(
+                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`mnist::BinaryImage28`, `Struct`),
                                                         ),
@@ -887,8 +887,8 @@ Ok(
                                             data: [
                                                 Expr::PrincipalEntityPath {
                                                     entity_path_expr: 0,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::raw_bits::r32`, `Extern`),
                                                             ),
@@ -897,8 +897,8 @@ Ok(
                                                 },
                                                 Expr::PrincipalEntityPath {
                                                     entity_path_expr: 1,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::raw_bits::r32`, `Extern`),
                                                             ),
@@ -907,8 +907,8 @@ Ok(
                                                 },
                                                 Expr::PrincipalEntityPath {
                                                     entity_path_expr: 2,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::raw_bits::r32`, `Extern`),
                                                             ),
@@ -917,9 +917,9 @@ Ok(
                                                 },
                                             ],
                                         },
-                                        entity_path_expr_arena: Arena {
+                                        principal_entity_path_expr_arena: Arena {
                                             data: [
-                                                EntityPathExpr::Root {
+                                                PrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameToken::Ident(
                                                         IdentToken {
                                                             ident: `r32`,
@@ -928,13 +928,13 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    entity_path: EntityPath::ModuleItem(
+                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`core::raw_bits::r32`, `Extern`),
                                                         ),
                                                     ),
                                                 },
-                                                EntityPathExpr::Root {
+                                                PrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameToken::Ident(
                                                         IdentToken {
                                                             ident: `r32`,
@@ -943,13 +943,13 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    entity_path: EntityPath::ModuleItem(
+                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`core::raw_bits::r32`, `Extern`),
                                                         ),
                                                     ),
                                                 },
-                                                EntityPathExpr::Root {
+                                                PrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameToken::Ident(
                                                         IdentToken {
                                                             ident: `r32`,
@@ -958,7 +958,7 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    entity_path: EntityPath::ModuleItem(
+                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`core::raw_bits::r32`, `Extern`),
                                                         ),
@@ -1157,8 +1157,8 @@ Ok(
                                             data: [
                                                 Expr::PrincipalEntityPath {
                                                     entity_path_expr: 0,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`mnist::BinaryImage28`, `Struct`),
                                                             ),
@@ -1176,8 +1176,8 @@ Ok(
                                                 },
                                                 Expr::PrincipalEntityPath {
                                                     entity_path_expr: 1,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                             ),
@@ -1190,9 +1190,9 @@ Ok(
                                                 },
                                             ],
                                         },
-                                        entity_path_expr_arena: Arena {
+                                        principal_entity_path_expr_arena: Arena {
                                             data: [
-                                                EntityPathExpr::Root {
+                                                PrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameToken::Ident(
                                                         IdentToken {
                                                             ident: `BinaryImage28`,
@@ -1201,13 +1201,13 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    entity_path: EntityPath::ModuleItem(
+                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`mnist::BinaryImage28`, `Struct`),
                                                         ),
                                                     ),
                                                 },
-                                                EntityPathExpr::Root {
+                                                PrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameToken::Ident(
                                                         IdentToken {
                                                             ident: `ConnectedComponent`,
@@ -1216,7 +1216,7 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    entity_path: EntityPath::ModuleItem(
+                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                         ),
@@ -1367,8 +1367,8 @@ Ok(
                                         data: [
                                             Expr::PrincipalEntityPath {
                                                 entity_path_expr: 0,
-                                                path: Some(
-                                                    EntityPath::ModuleItem(
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Trait(
                                                             TraitPath(`core::visual::Visualize`),
                                                         ),
@@ -1377,8 +1377,8 @@ Ok(
                                             },
                                             Expr::PrincipalEntityPath {
                                                 entity_path_expr: 1,
-                                                path: Some(
-                                                    EntityPath::ModuleItem(
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                         ),
@@ -1387,9 +1387,9 @@ Ok(
                                             },
                                         ],
                                     },
-                                    entity_path_expr_arena: Arena {
+                                    principal_entity_path_expr_arena: Arena {
                                         data: [
-                                            EntityPathExpr::Root {
+                                            PrincipalEntityPathExpr::Root {
                                                 path_name_token: PathNameToken::Ident(
                                                     IdentToken {
                                                         ident: `Visualize`,
@@ -1398,13 +1398,13 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                entity_path: EntityPath::ModuleItem(
+                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                     ModuleItemPath::Trait(
                                                         TraitPath(`core::visual::Visualize`),
                                                     ),
                                                 ),
                                             },
-                                            EntityPathExpr::Root {
+                                            PrincipalEntityPathExpr::Root {
                                                 path_name_token: PathNameToken::Ident(
                                                     IdentToken {
                                                         ident: `ConnectedComponent`,
@@ -1413,7 +1413,7 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                entity_path: EntityPath::ModuleItem(
+                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                     ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     ),
@@ -1528,8 +1528,8 @@ Ok(
                                                         data: [
                                                             Expr::PrincipalEntityPath {
                                                                 entity_path_expr: 0,
-                                                                path: Some(
-                                                                    EntityPath::ModuleItem(
+                                                                opt_path: Some(
+                                                                    PrincipalEntityPath::ModuleItem(
                                                                         ModuleItemPath::Trait(
                                                                             TraitPath(`core::visual::Visualize`),
                                                                         ),
@@ -1538,8 +1538,8 @@ Ok(
                                                             },
                                                             Expr::PrincipalEntityPath {
                                                                 entity_path_expr: 1,
-                                                                path: Some(
-                                                                    EntityPath::ModuleItem(
+                                                                opt_path: Some(
+                                                                    PrincipalEntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                         ),
@@ -1548,9 +1548,9 @@ Ok(
                                                             },
                                                         ],
                                                     },
-                                                    entity_path_expr_arena: Arena {
+                                                    principal_entity_path_expr_arena: Arena {
                                                         data: [
-                                                            EntityPathExpr::Root {
+                                                            PrincipalEntityPathExpr::Root {
                                                                 path_name_token: PathNameToken::Ident(
                                                                     IdentToken {
                                                                         ident: `Visualize`,
@@ -1559,13 +1559,13 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                entity_path: EntityPath::ModuleItem(
+                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                                     ModuleItemPath::Trait(
                                                                         TraitPath(`core::visual::Visualize`),
                                                                     ),
                                                                 ),
                                                             },
-                                                            EntityPathExpr::Root {
+                                                            PrincipalEntityPathExpr::Root {
                                                                 path_name_token: PathNameToken::Ident(
                                                                     IdentToken {
                                                                         ident: `ConnectedComponent`,
@@ -1574,7 +1574,7 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                entity_path: EntityPath::ModuleItem(
+                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
                                                                         TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                     ),
@@ -1650,8 +1650,8 @@ Ok(
                                             data: [
                                                 Expr::PrincipalEntityPath {
                                                     entity_path_expr: 0,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::visual::Html`, `Extern`),
                                                             ),
@@ -1660,9 +1660,9 @@ Ok(
                                                 },
                                             ],
                                         },
-                                        entity_path_expr_arena: Arena {
+                                        principal_entity_path_expr_arena: Arena {
                                             data: [
-                                                EntityPathExpr::Root {
+                                                PrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameToken::Ident(
                                                         IdentToken {
                                                             ident: `Html`,
@@ -1671,7 +1671,7 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    entity_path: EntityPath::ModuleItem(
+                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`core::visual::Html`, `Extern`),
                                                         ),
@@ -1764,8 +1764,8 @@ Ok(
                                         data: [
                                             Expr::PrincipalEntityPath {
                                                 entity_path_expr: 0,
-                                                path: Some(
-                                                    EntityPath::ModuleItem(
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                         ),
@@ -1774,9 +1774,9 @@ Ok(
                                             },
                                         ],
                                     },
-                                    entity_path_expr_arena: Arena {
+                                    principal_entity_path_expr_arena: Arena {
                                         data: [
-                                            EntityPathExpr::Root {
+                                            PrincipalEntityPathExpr::Root {
                                                 path_name_token: PathNameToken::Ident(
                                                     IdentToken {
                                                         ident: `ConnectedComponent`,
@@ -1785,7 +1785,7 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                entity_path: EntityPath::ModuleItem(
+                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                     ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     ),
@@ -1891,8 +1891,8 @@ Ok(
                                                         data: [
                                                             Expr::PrincipalEntityPath {
                                                                 entity_path_expr: 0,
-                                                                path: Some(
-                                                                    EntityPath::ModuleItem(
+                                                                opt_path: Some(
+                                                                    PrincipalEntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                         ),
@@ -1901,9 +1901,9 @@ Ok(
                                                             },
                                                         ],
                                                     },
-                                                    entity_path_expr_arena: Arena {
+                                                    principal_entity_path_expr_arena: Arena {
                                                         data: [
-                                                            EntityPathExpr::Root {
+                                                            PrincipalEntityPathExpr::Root {
                                                                 path_name_token: PathNameToken::Ident(
                                                                     IdentToken {
                                                                         ident: `ConnectedComponent`,
@@ -1912,7 +1912,7 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                entity_path: EntityPath::ModuleItem(
+                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
                                                                         TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                     ),
@@ -1992,8 +1992,8 @@ Ok(
                                                 },
                                                 Expr::PrincipalEntityPath {
                                                     entity_path_expr: 0,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                             ),
@@ -2006,9 +2006,9 @@ Ok(
                                                 },
                                             ],
                                         },
-                                        entity_path_expr_arena: Arena {
+                                        principal_entity_path_expr_arena: Arena {
                                             data: [
-                                                EntityPathExpr::Root {
+                                                PrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameToken::Ident(
                                                         IdentToken {
                                                             ident: `RawContour`,
@@ -2017,7 +2017,7 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    entity_path: EntityPath::ModuleItem(
+                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                         ),
@@ -2124,8 +2124,8 @@ Ok(
                                                         data: [
                                                             Expr::PrincipalEntityPath {
                                                                 entity_path_expr: 0,
-                                                                path: Some(
-                                                                    EntityPath::ModuleItem(
+                                                                opt_path: Some(
+                                                                    PrincipalEntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                         ),
@@ -2134,9 +2134,9 @@ Ok(
                                                             },
                                                         ],
                                                     },
-                                                    entity_path_expr_arena: Arena {
+                                                    principal_entity_path_expr_arena: Arena {
                                                         data: [
-                                                            EntityPathExpr::Root {
+                                                            PrincipalEntityPathExpr::Root {
                                                                 path_name_token: PathNameToken::Ident(
                                                                     IdentToken {
                                                                         ident: `ConnectedComponent`,
@@ -2145,7 +2145,7 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                entity_path: EntityPath::ModuleItem(
+                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
                                                                         TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                     ),
@@ -2216,8 +2216,8 @@ Ok(
                                             data: [
                                                 Expr::PrincipalEntityPath {
                                                     entity_path_expr: 0,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                                                             ),
@@ -2226,9 +2226,9 @@ Ok(
                                                 },
                                             ],
                                         },
-                                        entity_path_expr_arena: Arena {
+                                        principal_entity_path_expr_arena: Arena {
                                             data: [
-                                                EntityPathExpr::Root {
+                                                PrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameToken::Ident(
                                                         IdentToken {
                                                             ident: `EffHoles`,
@@ -2237,7 +2237,7 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    entity_path: EntityPath::ModuleItem(
+                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                                                         ),
@@ -2344,8 +2344,8 @@ Ok(
                                                         data: [
                                                             Expr::PrincipalEntityPath {
                                                                 entity_path_expr: 0,
-                                                                path: Some(
-                                                                    EntityPath::ModuleItem(
+                                                                opt_path: Some(
+                                                                    PrincipalEntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                         ),
@@ -2354,9 +2354,9 @@ Ok(
                                                             },
                                                         ],
                                                     },
-                                                    entity_path_expr_arena: Arena {
+                                                    principal_entity_path_expr_arena: Arena {
                                                         data: [
-                                                            EntityPathExpr::Root {
+                                                            PrincipalEntityPathExpr::Root {
                                                                 path_name_token: PathNameToken::Ident(
                                                                     IdentToken {
                                                                         ident: `ConnectedComponent`,
@@ -2365,7 +2365,7 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                entity_path: EntityPath::ModuleItem(
+                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
                                                                         TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                     ),
@@ -2436,8 +2436,8 @@ Ok(
                                             data: [
                                                 Expr::PrincipalEntityPath {
                                                     entity_path_expr: 0,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::num::f32`, `Extern`),
                                                             ),
@@ -2446,9 +2446,9 @@ Ok(
                                                 },
                                             ],
                                         },
-                                        entity_path_expr_arena: Arena {
+                                        principal_entity_path_expr_arena: Arena {
                                             data: [
-                                                EntityPathExpr::Root {
+                                                PrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameToken::Ident(
                                                         IdentToken {
                                                             ident: `f32`,
@@ -2457,7 +2457,7 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    entity_path: EntityPath::ModuleItem(
+                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`core::num::f32`, `Extern`),
                                                         ),
@@ -2564,8 +2564,8 @@ Ok(
                                                         data: [
                                                             Expr::PrincipalEntityPath {
                                                                 entity_path_expr: 0,
-                                                                path: Some(
-                                                                    EntityPath::ModuleItem(
+                                                                opt_path: Some(
+                                                                    PrincipalEntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                         ),
@@ -2574,9 +2574,9 @@ Ok(
                                                             },
                                                         ],
                                                     },
-                                                    entity_path_expr_arena: Arena {
+                                                    principal_entity_path_expr_arena: Arena {
                                                         data: [
-                                                            EntityPathExpr::Root {
+                                                            PrincipalEntityPathExpr::Root {
                                                                 path_name_token: PathNameToken::Ident(
                                                                     IdentToken {
                                                                         ident: `ConnectedComponent`,
@@ -2585,7 +2585,7 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                entity_path: EntityPath::ModuleItem(
+                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
                                                                         TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                     ),
@@ -2656,8 +2656,8 @@ Ok(
                                             data: [
                                                 Expr::PrincipalEntityPath {
                                                     entity_path_expr: 0,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::num::f32`, `Extern`),
                                                             ),
@@ -2666,9 +2666,9 @@ Ok(
                                                 },
                                             ],
                                         },
-                                        entity_path_expr_arena: Arena {
+                                        principal_entity_path_expr_arena: Arena {
                                             data: [
-                                                EntityPathExpr::Root {
+                                                PrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameToken::Ident(
                                                         IdentToken {
                                                             ident: `f32`,
@@ -2677,7 +2677,7 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    entity_path: EntityPath::ModuleItem(
+                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`core::num::f32`, `Extern`),
                                                         ),
@@ -2784,8 +2784,8 @@ Ok(
                                                         data: [
                                                             Expr::PrincipalEntityPath {
                                                                 entity_path_expr: 0,
-                                                                path: Some(
-                                                                    EntityPath::ModuleItem(
+                                                                opt_path: Some(
+                                                                    PrincipalEntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                         ),
@@ -2794,9 +2794,9 @@ Ok(
                                                             },
                                                         ],
                                                     },
-                                                    entity_path_expr_arena: Arena {
+                                                    principal_entity_path_expr_arena: Arena {
                                                         data: [
-                                                            EntityPathExpr::Root {
+                                                            PrincipalEntityPathExpr::Root {
                                                                 path_name_token: PathNameToken::Ident(
                                                                     IdentToken {
                                                                         ident: `ConnectedComponent`,
@@ -2805,7 +2805,7 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                entity_path: EntityPath::ModuleItem(
+                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
                                                                         TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                     ),
@@ -2876,8 +2876,8 @@ Ok(
                                             data: [
                                                 Expr::PrincipalEntityPath {
                                                     entity_path_expr: 0,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::num::f32`, `Extern`),
                                                             ),
@@ -2886,9 +2886,9 @@ Ok(
                                                 },
                                             ],
                                         },
-                                        entity_path_expr_arena: Arena {
+                                        principal_entity_path_expr_arena: Arena {
                                             data: [
-                                                EntityPathExpr::Root {
+                                                PrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameToken::Ident(
                                                         IdentToken {
                                                             ident: `f32`,
@@ -2897,7 +2897,7 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    entity_path: EntityPath::ModuleItem(
+                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`core::num::f32`, `Extern`),
                                                         ),
@@ -3004,8 +3004,8 @@ Ok(
                                                         data: [
                                                             Expr::PrincipalEntityPath {
                                                                 entity_path_expr: 0,
-                                                                path: Some(
-                                                                    EntityPath::ModuleItem(
+                                                                opt_path: Some(
+                                                                    PrincipalEntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                         ),
@@ -3014,9 +3014,9 @@ Ok(
                                                             },
                                                         ],
                                                     },
-                                                    entity_path_expr_arena: Arena {
+                                                    principal_entity_path_expr_arena: Arena {
                                                         data: [
-                                                            EntityPathExpr::Root {
+                                                            PrincipalEntityPathExpr::Root {
                                                                 path_name_token: PathNameToken::Ident(
                                                                     IdentToken {
                                                                         ident: `ConnectedComponent`,
@@ -3025,7 +3025,7 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                entity_path: EntityPath::ModuleItem(
+                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
                                                                         TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                     ),
@@ -3096,8 +3096,8 @@ Ok(
                                             data: [
                                                 Expr::PrincipalEntityPath {
                                                     entity_path_expr: 0,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                                                             ),
@@ -3106,9 +3106,9 @@ Ok(
                                                 },
                                             ],
                                         },
-                                        entity_path_expr_arena: Arena {
+                                        principal_entity_path_expr_arena: Arena {
                                             data: [
-                                                EntityPathExpr::Root {
+                                                PrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameToken::Ident(
                                                         IdentToken {
                                                             ident: `ConnectedComponentDistribution`,
@@ -3117,7 +3117,7 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    entity_path: EntityPath::ModuleItem(
+                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                                                         ),
@@ -3224,8 +3224,8 @@ Ok(
                                                         data: [
                                                             Expr::PrincipalEntityPath {
                                                                 entity_path_expr: 0,
-                                                                path: Some(
-                                                                    EntityPath::ModuleItem(
+                                                                opt_path: Some(
+                                                                    PrincipalEntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                         ),
@@ -3234,9 +3234,9 @@ Ok(
                                                             },
                                                         ],
                                                     },
-                                                    entity_path_expr_arena: Arena {
+                                                    principal_entity_path_expr_arena: Arena {
                                                         data: [
-                                                            EntityPathExpr::Root {
+                                                            PrincipalEntityPathExpr::Root {
                                                                 path_name_token: PathNameToken::Ident(
                                                                     IdentToken {
                                                                         ident: `ConnectedComponent`,
@@ -3245,7 +3245,7 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                entity_path: EntityPath::ModuleItem(
+                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
                                                                         TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                     ),
@@ -3316,8 +3316,8 @@ Ok(
                                             data: [
                                                 Expr::PrincipalEntityPath {
                                                     entity_path_expr: 0,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::num::f32`, `Extern`),
                                                             ),
@@ -3326,9 +3326,9 @@ Ok(
                                                 },
                                             ],
                                         },
-                                        entity_path_expr_arena: Arena {
+                                        principal_entity_path_expr_arena: Arena {
                                             data: [
-                                                EntityPathExpr::Root {
+                                                PrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameToken::Ident(
                                                         IdentToken {
                                                             ident: `f32`,
@@ -3337,7 +3337,7 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    entity_path: EntityPath::ModuleItem(
+                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`core::num::f32`, `Extern`),
                                                         ),
@@ -3444,8 +3444,8 @@ Ok(
                                                         data: [
                                                             Expr::PrincipalEntityPath {
                                                                 entity_path_expr: 0,
-                                                                path: Some(
-                                                                    EntityPath::ModuleItem(
+                                                                opt_path: Some(
+                                                                    PrincipalEntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                         ),
@@ -3454,9 +3454,9 @@ Ok(
                                                             },
                                                         ],
                                                     },
-                                                    entity_path_expr_arena: Arena {
+                                                    principal_entity_path_expr_arena: Arena {
                                                         data: [
-                                                            EntityPathExpr::Root {
+                                                            PrincipalEntityPathExpr::Root {
                                                                 path_name_token: PathNameToken::Ident(
                                                                     IdentToken {
                                                                         ident: `ConnectedComponent`,
@@ -3465,7 +3465,7 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                entity_path: EntityPath::ModuleItem(
+                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
                                                                         TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                     ),
@@ -3536,8 +3536,8 @@ Ok(
                                             data: [
                                                 Expr::PrincipalEntityPath {
                                                     entity_path_expr: 0,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::num::f32`, `Extern`),
                                                             ),
@@ -3546,9 +3546,9 @@ Ok(
                                                 },
                                             ],
                                         },
-                                        entity_path_expr_arena: Arena {
+                                        principal_entity_path_expr_arena: Arena {
                                             data: [
-                                                EntityPathExpr::Root {
+                                                PrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameToken::Ident(
                                                         IdentToken {
                                                             ident: `f32`,
@@ -3557,7 +3557,7 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    entity_path: EntityPath::ModuleItem(
+                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`core::num::f32`, `Extern`),
                                                         ),
@@ -3679,8 +3679,8 @@ Ok(
                                                         data: [
                                                             Expr::PrincipalEntityPath {
                                                                 entity_path_expr: 0,
-                                                                path: Some(
-                                                                    EntityPath::ModuleItem(
+                                                                opt_path: Some(
+                                                                    PrincipalEntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                         ),
@@ -3689,9 +3689,9 @@ Ok(
                                                             },
                                                         ],
                                                     },
-                                                    entity_path_expr_arena: Arena {
+                                                    principal_entity_path_expr_arena: Arena {
                                                         data: [
-                                                            EntityPathExpr::Root {
+                                                            PrincipalEntityPathExpr::Root {
                                                                 path_name_token: PathNameToken::Ident(
                                                                     IdentToken {
                                                                         ident: `ConnectedComponent`,
@@ -3700,7 +3700,7 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                entity_path: EntityPath::ModuleItem(
+                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
                                                                         TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                     ),
@@ -3771,8 +3771,8 @@ Ok(
                                             data: [
                                                 Expr::PrincipalEntityPath {
                                                     entity_path_expr: 0,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::num::i32`, `Extern`),
                                                             ),
@@ -3781,8 +3781,8 @@ Ok(
                                                 },
                                                 Expr::PrincipalEntityPath {
                                                     entity_path_expr: 1,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::num::f32`, `Extern`),
                                                             ),
@@ -3791,9 +3791,9 @@ Ok(
                                                 },
                                             ],
                                         },
-                                        entity_path_expr_arena: Arena {
+                                        principal_entity_path_expr_arena: Arena {
                                             data: [
-                                                EntityPathExpr::Root {
+                                                PrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameToken::Ident(
                                                         IdentToken {
                                                             ident: `i32`,
@@ -3802,13 +3802,13 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    entity_path: EntityPath::ModuleItem(
+                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`core::num::i32`, `Extern`),
                                                         ),
                                                     ),
                                                 },
-                                                EntityPathExpr::Root {
+                                                PrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameToken::Ident(
                                                         IdentToken {
                                                             ident: `f32`,
@@ -3817,7 +3817,7 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    entity_path: EntityPath::ModuleItem(
+                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`core::num::f32`, `Extern`),
                                                         ),
@@ -3992,8 +3992,8 @@ Ok(
                                                         data: [
                                                             Expr::PrincipalEntityPath {
                                                                 entity_path_expr: 0,
-                                                                path: Some(
-                                                                    EntityPath::ModuleItem(
+                                                                opt_path: Some(
+                                                                    PrincipalEntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                         ),
@@ -4002,9 +4002,9 @@ Ok(
                                                             },
                                                         ],
                                                     },
-                                                    entity_path_expr_arena: Arena {
+                                                    principal_entity_path_expr_arena: Arena {
                                                         data: [
-                                                            EntityPathExpr::Root {
+                                                            PrincipalEntityPathExpr::Root {
                                                                 path_name_token: PathNameToken::Ident(
                                                                     IdentToken {
                                                                         ident: `ConnectedComponent`,
@@ -4013,7 +4013,7 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                entity_path: EntityPath::ModuleItem(
+                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
                                                                         TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                     ),
@@ -4084,8 +4084,8 @@ Ok(
                                             data: [
                                                 Expr::PrincipalEntityPath {
                                                     entity_path_expr: 0,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::num::i32`, `Extern`),
                                                             ),
@@ -4094,8 +4094,8 @@ Ok(
                                                 },
                                                 Expr::PrincipalEntityPath {
                                                     entity_path_expr: 1,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::num::f32`, `Extern`),
                                                             ),
@@ -4104,9 +4104,9 @@ Ok(
                                                 },
                                             ],
                                         },
-                                        entity_path_expr_arena: Arena {
+                                        principal_entity_path_expr_arena: Arena {
                                             data: [
-                                                EntityPathExpr::Root {
+                                                PrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameToken::Ident(
                                                         IdentToken {
                                                             ident: `i32`,
@@ -4115,13 +4115,13 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    entity_path: EntityPath::ModuleItem(
+                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`core::num::i32`, `Extern`),
                                                         ),
                                                     ),
                                                 },
-                                                EntityPathExpr::Root {
+                                                PrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameToken::Ident(
                                                         IdentToken {
                                                             ident: `f32`,
@@ -4130,7 +4130,7 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    entity_path: EntityPath::ModuleItem(
+                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`core::num::f32`, `Extern`),
                                                         ),

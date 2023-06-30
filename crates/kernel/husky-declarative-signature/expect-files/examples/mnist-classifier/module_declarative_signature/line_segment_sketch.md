@@ -57,6 +57,7 @@
                             implicit_parameters: ImplicitParameterDeclarativeSignatures {
                                 data: [],
                             },
+                            self_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
                             fields: [
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `contour`,

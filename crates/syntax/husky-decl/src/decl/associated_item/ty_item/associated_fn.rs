@@ -26,10 +26,9 @@ impl<'a> DeclParser<'a> {
         saved_stream_state: TokenStreamState,
     ) -> TypeAssociatedFnNodeDecl {
         let db = self.db();
-        let impl_block_node_decl = node_path.impl_block(db).node_decl(db);
         let mut parser = self.expr_parser(
             node_path,
-            Some(impl_block_node_decl.expr_region(db)),
+            Some(node_path.impl_block(db).node_decl(db).expr_region(db)),
             AllowSelfType::True,
             AllowSelfValue::True,
         );

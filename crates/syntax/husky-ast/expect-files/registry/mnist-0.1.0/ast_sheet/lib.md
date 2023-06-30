@@ -7,7 +7,7 @@ Ok(
                         1,
                     ),
                     variant_path: TypeVariantPath {
-                        ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                        parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                         ident: `Zero`,
                     },
                     vertical_token: VerticalToken(
@@ -33,7 +33,7 @@ Ok(
                         2,
                     ),
                     variant_path: TypeVariantPath {
-                        ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                        parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                         ident: `One`,
                     },
                     vertical_token: VerticalToken(
@@ -59,7 +59,7 @@ Ok(
                         3,
                     ),
                     variant_path: TypeVariantPath {
-                        ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                        parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                         ident: `Two`,
                     },
                     vertical_token: VerticalToken(
@@ -85,7 +85,7 @@ Ok(
                         4,
                     ),
                     variant_path: TypeVariantPath {
-                        ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                        parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                         ident: `Three`,
                     },
                     vertical_token: VerticalToken(
@@ -111,7 +111,7 @@ Ok(
                         5,
                     ),
                     variant_path: TypeVariantPath {
-                        ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                        parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                         ident: `Four`,
                     },
                     vertical_token: VerticalToken(
@@ -137,7 +137,7 @@ Ok(
                         6,
                     ),
                     variant_path: TypeVariantPath {
-                        ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                        parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                         ident: `Five`,
                     },
                     vertical_token: VerticalToken(
@@ -163,7 +163,7 @@ Ok(
                         7,
                     ),
                     variant_path: TypeVariantPath {
-                        ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                        parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                         ident: `Six`,
                     },
                     vertical_token: VerticalToken(
@@ -189,7 +189,7 @@ Ok(
                         8,
                     ),
                     variant_path: TypeVariantPath {
-                        ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                        parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                         ident: `Seven`,
                     },
                     vertical_token: VerticalToken(
@@ -215,7 +215,7 @@ Ok(
                         9,
                     ),
                     variant_path: TypeVariantPath {
-                        ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                        parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                         ident: `Eight`,
                     },
                     vertical_token: VerticalToken(
@@ -241,7 +241,7 @@ Ok(
                         10,
                     ),
                     variant_path: TypeVariantPath {
-                        ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                        parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                         ident: `Nine`,
                     },
                     vertical_token: VerticalToken(

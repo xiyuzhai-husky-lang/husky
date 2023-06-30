@@ -13,6 +13,7 @@
                             implicit_parameters: ImplicitParameterDeclarativeSignatures {
                                 data: [],
                             },
+                            self_ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponentDistribution`),
                             fields: [
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `row_start`,
@@ -51,6 +52,7 @@
                             implicit_parameters: ImplicitParameterDeclarativeSignatures {
                                 data: [],
                             },
+                            self_ty: DeclarativeTerm(`mnist_classifier::connected_component::EffHoles`),
                             fields: [
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `matches`,
@@ -112,6 +114,7 @@
                             implicit_parameters: ImplicitParameterDeclarativeSignatures {
                                 data: [],
                             },
+                            self_ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
                             fields: [
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `mask`,

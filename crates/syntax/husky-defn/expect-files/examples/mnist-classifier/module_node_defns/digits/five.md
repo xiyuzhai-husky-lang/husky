@@ -61,8 +61,8 @@ Ok(
                                         data: [
                                             Expr::PrincipalEntityPath {
                                                 entity_path_expr: 0,
-                                                path: Some(
-                                                    EntityPath::ModuleItem(
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`mnist::MnistLabel`, `Enum`),
                                                         ),
@@ -78,9 +78,9 @@ Ok(
                                             },
                                         ],
                                     },
-                                    entity_path_expr_arena: Arena {
+                                    principal_entity_path_expr_arena: Arena {
                                         data: [
-                                            EntityPathExpr::Root {
+                                            PrincipalEntityPathExpr::Root {
                                                 path_name_token: PathNameToken::Ident(
                                                     IdentToken {
                                                         ident: `MnistLabel`,
@@ -89,7 +89,7 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                entity_path: EntityPath::ModuleItem(
+                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                     ModuleItemPath::Type(
                                                         TypePath(`mnist::MnistLabel`, `Enum`),
                                                     ),
@@ -158,10 +158,10 @@ Ok(
                                     data: [
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 1,
-                                            path: Some(
-                                                EntityPath::TypeVariant(
+                                            opt_path: Some(
+                                                PrincipalEntityPath::TypeVariant(
                                                     TypeVariantPath {
-                                                        ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                        parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                                                         ident: `Five`,
                                                     },
                                                 ),
@@ -174,9 +174,9 @@ Ok(
                                         },
                                     ],
                                 },
-                                entity_path_expr_arena: Arena {
+                                principal_entity_path_expr_arena: Arena {
                                     data: [
-                                        EntityPathExpr::Root {
+                                        PrincipalEntityPathExpr::Root {
                                             path_name_token: PathNameToken::Ident(
                                                 IdentToken {
                                                     ident: `MnistLabel`,
@@ -185,13 +185,13 @@ Ok(
                                                     ),
                                                 },
                                             ),
-                                            entity_path: EntityPath::ModuleItem(
+                                            principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                 ModuleItemPath::Type(
                                                     TypePath(`mnist::MnistLabel`, `Enum`),
                                                 ),
                                             ),
                                         },
-                                        EntityPathExpr::Subentity {
+                                        PrincipalEntityPathExpr::Subentity {
                                             parent: 0,
                                             scope_resolution_token: ScopeResolutionToken(
                                                 TokenIdx(
@@ -207,9 +207,9 @@ Ok(
                                                 },
                                             ),
                                             path: Ok(
-                                                EntityPath::TypeVariant(
+                                                PrincipalEntityPath::TypeVariant(
                                                     TypeVariantPath {
-                                                        ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                        parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                                                         ident: `Five`,
                                                     },
                                                 ),

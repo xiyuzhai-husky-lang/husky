@@ -32,7 +32,7 @@ Ok(
                                         expr_arena: Arena {
                                             data: [],
                                         },
-                                        entity_path_expr_arena: Arena {
+                                        principal_entity_path_expr_arena: Arena {
                                             data: [],
                                         },
                                         stmt_arena: Arena {
@@ -103,7 +103,7 @@ Ok(
                                         expr_arena: Arena {
                                             data: [],
                                         },
-                                        entity_path_expr_arena: Arena {
+                                        principal_entity_path_expr_arena: Arena {
                                             data: [],
                                         },
                                         stmt_arena: Arena {
@@ -174,7 +174,7 @@ Ok(
                                         expr_arena: Arena {
                                             data: [],
                                         },
-                                        entity_path_expr_arena: Arena {
+                                        principal_entity_path_expr_arena: Arena {
                                             data: [],
                                         },
                                         stmt_arena: Arena {
@@ -257,8 +257,8 @@ Ok(
                                         data: [
                                             Expr::PrincipalEntityPath {
                                                 entity_path_expr: 0,
-                                                path: Some(
-                                                    EntityPath::ModuleItem(
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`natural_number_game::Nat`, `Inductive`),
                                                         ),
@@ -267,9 +267,9 @@ Ok(
                                             },
                                         ],
                                     },
-                                    entity_path_expr_arena: Arena {
+                                    principal_entity_path_expr_arena: Arena {
                                         data: [
-                                            EntityPathExpr::Root {
+                                            PrincipalEntityPathExpr::Root {
                                                 path_name_token: PathNameToken::Ident(
                                                     IdentToken {
                                                         ident: `Nat`,
@@ -278,7 +278,7 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                entity_path: EntityPath::ModuleItem(
+                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                     ModuleItemPath::Type(
                                                         TypePath(`natural_number_game::Nat`, `Inductive`),
                                                     ),

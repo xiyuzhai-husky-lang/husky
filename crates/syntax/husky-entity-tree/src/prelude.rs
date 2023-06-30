@@ -73,7 +73,7 @@ fn crate_symbol_context_works() {
                         crate_symbol_context.debug(db)
                     ),
                 };
-            if symbol.path(db) != path {
+            if path != symbol.path(db).into() {
                 panic!(
                     "symbol.path(db)({:?}) should be equal to path({:?})",
                     symbol.path(db).debug(db),

@@ -32,7 +32,7 @@ pub(crate) fn entity_variance_reprs(
     match path {
         EntityPath::Module(_) => todo!(),
         EntityPath::ModuleItem(path) => match path {
-            ModuleItemPath::Type(path) => ty_entity_variance_reprs(db, path),
+            ModuleItemPath::Type(path) => ty_implicit_parameter_variance_reprs(db, path),
             ModuleItemPath::Trait(path) => trai_entity_variance_reprs(db, path),
             ModuleItemPath::Fugitive(path) => form_entity_variance_reprs(db, path),
         },
@@ -49,7 +49,7 @@ pub(crate) fn entity_variance_reprs(
 }
 
 #[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
-pub(crate) fn ty_entity_variance_reprs(
+pub(crate) fn ty_implicit_parameter_variance_reprs(
     db: &dyn DeclarativeTypeDb,
     path: TypePath,
 ) -> VarianceResult<Vec<VarianceRepr>> {

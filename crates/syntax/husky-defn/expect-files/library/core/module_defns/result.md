@@ -53,7 +53,7 @@ Ok(
                                     expr_arena: Arena {
                                         data: [],
                                     },
-                                    entity_path_expr_arena: Arena {
+                                    principal_entity_path_expr_arena: Arena {
                                         data: [],
                                     },
                                     stmt_arena: Arena {
@@ -232,8 +232,8 @@ Ok(
                                 data: [
                                     Expr::PrincipalEntityPath {
                                         entity_path_expr: 2,
-                                        path: Some(
-                                            EntityPath::ModuleItem(
+                                        opt_path: Some(
+                                            PrincipalEntityPath::ModuleItem(
                                                 ModuleItemPath::Trait(
                                                     TraitPath(`core::ops::Unveil`),
                                                 ),
@@ -242,8 +242,8 @@ Ok(
                                     },
                                     Expr::PrincipalEntityPath {
                                         entity_path_expr: 3,
-                                        path: Some(
-                                            EntityPath::ModuleItem(
+                                        opt_path: Some(
+                                            PrincipalEntityPath::ModuleItem(
                                                 ModuleItemPath::Type(
                                                     TypePath(`core::result::Result`, `Enum`),
                                                 ),
@@ -298,8 +298,8 @@ Ok(
                                     },
                                     Expr::PrincipalEntityPath {
                                         entity_path_expr: 4,
-                                        path: Some(
-                                            EntityPath::ModuleItem(
+                                        opt_path: Some(
+                                            PrincipalEntityPath::ModuleItem(
                                                 ModuleItemPath::Type(
                                                     TypePath(`core::result::Result`, `Enum`),
                                                 ),
@@ -350,9 +350,9 @@ Ok(
                                     },
                                 ],
                             },
-                            entity_path_expr_arena: Arena {
+                            principal_entity_path_expr_arena: Arena {
                                 data: [
-                                    EntityPathExpr::Root {
+                                    PrincipalEntityPathExpr::Root {
                                         path_name_token: PathNameToken::CrateRoot(
                                             CrateToken {
                                                 token_idx: TokenIdx(
@@ -360,11 +360,11 @@ Ok(
                                                 ),
                                             },
                                         ),
-                                        entity_path: EntityPath::Module(
+                                        principal_entity_path: PrincipalEntityPath::Module(
                                             `core`,
                                         ),
                                     },
-                                    EntityPathExpr::Subentity {
+                                    PrincipalEntityPathExpr::Subentity {
                                         parent: 0,
                                         scope_resolution_token: ScopeResolutionToken(
                                             TokenIdx(
@@ -380,12 +380,12 @@ Ok(
                                             },
                                         ),
                                         path: Ok(
-                                            EntityPath::Module(
+                                            PrincipalEntityPath::Module(
                                                 `core::ops`,
                                             ),
                                         ),
                                     },
-                                    EntityPathExpr::Subentity {
+                                    PrincipalEntityPathExpr::Subentity {
                                         parent: 1,
                                         scope_resolution_token: ScopeResolutionToken(
                                             TokenIdx(
@@ -401,14 +401,14 @@ Ok(
                                             },
                                         ),
                                         path: Ok(
-                                            EntityPath::ModuleItem(
+                                            PrincipalEntityPath::ModuleItem(
                                                 ModuleItemPath::Trait(
                                                     TraitPath(`core::ops::Unveil`),
                                                 ),
                                             ),
                                         ),
                                     },
-                                    EntityPathExpr::Root {
+                                    PrincipalEntityPathExpr::Root {
                                         path_name_token: PathNameToken::Ident(
                                             IdentToken {
                                                 ident: `Result`,
@@ -417,13 +417,13 @@ Ok(
                                                 ),
                                             },
                                         ),
-                                        entity_path: EntityPath::ModuleItem(
+                                        principal_entity_path: PrincipalEntityPath::ModuleItem(
                                             ModuleItemPath::Type(
                                                 TypePath(`core::result::Result`, `Enum`),
                                             ),
                                         ),
                                     },
-                                    EntityPathExpr::Root {
+                                    PrincipalEntityPathExpr::Root {
                                         path_name_token: PathNameToken::Ident(
                                             IdentToken {
                                                 ident: `Result`,
@@ -432,7 +432,7 @@ Ok(
                                                 ),
                                             },
                                         ),
-                                        entity_path: EntityPath::ModuleItem(
+                                        principal_entity_path: PrincipalEntityPath::ModuleItem(
                                             ModuleItemPath::Type(
                                                 TypePath(`core::result::Result`, `Enum`),
                                             ),
@@ -629,8 +629,8 @@ Ok(
                                                     data: [
                                                         Expr::PrincipalEntityPath {
                                                             entity_path_expr: 2,
-                                                            path: Some(
-                                                                EntityPath::ModuleItem(
+                                                            opt_path: Some(
+                                                                PrincipalEntityPath::ModuleItem(
                                                                     ModuleItemPath::Trait(
                                                                         TraitPath(`core::ops::Unveil`),
                                                                     ),
@@ -639,8 +639,8 @@ Ok(
                                                         },
                                                         Expr::PrincipalEntityPath {
                                                             entity_path_expr: 3,
-                                                            path: Some(
-                                                                EntityPath::ModuleItem(
+                                                            opt_path: Some(
+                                                                PrincipalEntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
                                                                         TypePath(`core::result::Result`, `Enum`),
                                                                     ),
@@ -695,8 +695,8 @@ Ok(
                                                         },
                                                         Expr::PrincipalEntityPath {
                                                             entity_path_expr: 4,
-                                                            path: Some(
-                                                                EntityPath::ModuleItem(
+                                                            opt_path: Some(
+                                                                PrincipalEntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
                                                                         TypePath(`core::result::Result`, `Enum`),
                                                                     ),
@@ -747,9 +747,9 @@ Ok(
                                                         },
                                                     ],
                                                 },
-                                                entity_path_expr_arena: Arena {
+                                                principal_entity_path_expr_arena: Arena {
                                                     data: [
-                                                        EntityPathExpr::Root {
+                                                        PrincipalEntityPathExpr::Root {
                                                             path_name_token: PathNameToken::CrateRoot(
                                                                 CrateToken {
                                                                     token_idx: TokenIdx(
@@ -757,11 +757,11 @@ Ok(
                                                                     ),
                                                                 },
                                                             ),
-                                                            entity_path: EntityPath::Module(
+                                                            principal_entity_path: PrincipalEntityPath::Module(
                                                                 `core`,
                                                             ),
                                                         },
-                                                        EntityPathExpr::Subentity {
+                                                        PrincipalEntityPathExpr::Subentity {
                                                             parent: 0,
                                                             scope_resolution_token: ScopeResolutionToken(
                                                                 TokenIdx(
@@ -777,12 +777,12 @@ Ok(
                                                                 },
                                                             ),
                                                             path: Ok(
-                                                                EntityPath::Module(
+                                                                PrincipalEntityPath::Module(
                                                                     `core::ops`,
                                                                 ),
                                                             ),
                                                         },
-                                                        EntityPathExpr::Subentity {
+                                                        PrincipalEntityPathExpr::Subentity {
                                                             parent: 1,
                                                             scope_resolution_token: ScopeResolutionToken(
                                                                 TokenIdx(
@@ -798,14 +798,14 @@ Ok(
                                                                 },
                                                             ),
                                                             path: Ok(
-                                                                EntityPath::ModuleItem(
+                                                                PrincipalEntityPath::ModuleItem(
                                                                     ModuleItemPath::Trait(
                                                                         TraitPath(`core::ops::Unveil`),
                                                                     ),
                                                                 ),
                                                             ),
                                                         },
-                                                        EntityPathExpr::Root {
+                                                        PrincipalEntityPathExpr::Root {
                                                             path_name_token: PathNameToken::Ident(
                                                                 IdentToken {
                                                                     ident: `Result`,
@@ -814,13 +814,13 @@ Ok(
                                                                     ),
                                                                 },
                                                             ),
-                                                            entity_path: EntityPath::ModuleItem(
+                                                            principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`core::result::Result`, `Enum`),
                                                                 ),
                                                             ),
                                                         },
-                                                        EntityPathExpr::Root {
+                                                        PrincipalEntityPathExpr::Root {
                                                             path_name_token: PathNameToken::Ident(
                                                                 IdentToken {
                                                                     ident: `Result`,
@@ -829,7 +829,7 @@ Ok(
                                                                     ),
                                                                 },
                                                             ),
-                                                            entity_path: EntityPath::ModuleItem(
+                                                            principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`core::result::Result`, `Enum`),
                                                                 ),
@@ -998,7 +998,7 @@ Ok(
                                     expr_arena: Arena {
                                         data: [],
                                     },
-                                    entity_path_expr_arena: Arena {
+                                    principal_entity_path_expr_arena: Arena {
                                         data: [],
                                     },
                                     stmt_arena: Arena {
@@ -1107,8 +1107,8 @@ Ok(
                                                             data: [
                                                                 Expr::PrincipalEntityPath {
                                                                     entity_path_expr: 2,
-                                                                    path: Some(
-                                                                        EntityPath::ModuleItem(
+                                                                    opt_path: Some(
+                                                                        PrincipalEntityPath::ModuleItem(
                                                                             ModuleItemPath::Trait(
                                                                                 TraitPath(`core::ops::Unveil`),
                                                                             ),
@@ -1117,8 +1117,8 @@ Ok(
                                                                 },
                                                                 Expr::PrincipalEntityPath {
                                                                     entity_path_expr: 3,
-                                                                    path: Some(
-                                                                        EntityPath::ModuleItem(
+                                                                    opt_path: Some(
+                                                                        PrincipalEntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
                                                                                 TypePath(`core::result::Result`, `Enum`),
                                                                             ),
@@ -1173,8 +1173,8 @@ Ok(
                                                                 },
                                                                 Expr::PrincipalEntityPath {
                                                                     entity_path_expr: 4,
-                                                                    path: Some(
-                                                                        EntityPath::ModuleItem(
+                                                                    opt_path: Some(
+                                                                        PrincipalEntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
                                                                                 TypePath(`core::result::Result`, `Enum`),
                                                                             ),
@@ -1225,9 +1225,9 @@ Ok(
                                                                 },
                                                             ],
                                                         },
-                                                        entity_path_expr_arena: Arena {
+                                                        principal_entity_path_expr_arena: Arena {
                                                             data: [
-                                                                EntityPathExpr::Root {
+                                                                PrincipalEntityPathExpr::Root {
                                                                     path_name_token: PathNameToken::CrateRoot(
                                                                         CrateToken {
                                                                             token_idx: TokenIdx(
@@ -1235,11 +1235,11 @@ Ok(
                                                                             ),
                                                                         },
                                                                     ),
-                                                                    entity_path: EntityPath::Module(
+                                                                    principal_entity_path: PrincipalEntityPath::Module(
                                                                         `core`,
                                                                     ),
                                                                 },
-                                                                EntityPathExpr::Subentity {
+                                                                PrincipalEntityPathExpr::Subentity {
                                                                     parent: 0,
                                                                     scope_resolution_token: ScopeResolutionToken(
                                                                         TokenIdx(
@@ -1255,12 +1255,12 @@ Ok(
                                                                         },
                                                                     ),
                                                                     path: Ok(
-                                                                        EntityPath::Module(
+                                                                        PrincipalEntityPath::Module(
                                                                             `core::ops`,
                                                                         ),
                                                                     ),
                                                                 },
-                                                                EntityPathExpr::Subentity {
+                                                                PrincipalEntityPathExpr::Subentity {
                                                                     parent: 1,
                                                                     scope_resolution_token: ScopeResolutionToken(
                                                                         TokenIdx(
@@ -1276,14 +1276,14 @@ Ok(
                                                                         },
                                                                     ),
                                                                     path: Ok(
-                                                                        EntityPath::ModuleItem(
+                                                                        PrincipalEntityPath::ModuleItem(
                                                                             ModuleItemPath::Trait(
                                                                                 TraitPath(`core::ops::Unveil`),
                                                                             ),
                                                                         ),
                                                                     ),
                                                                 },
-                                                                EntityPathExpr::Root {
+                                                                PrincipalEntityPathExpr::Root {
                                                                     path_name_token: PathNameToken::Ident(
                                                                         IdentToken {
                                                                             ident: `Result`,
@@ -1292,13 +1292,13 @@ Ok(
                                                                             ),
                                                                         },
                                                                     ),
-                                                                    entity_path: EntityPath::ModuleItem(
+                                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`core::result::Result`, `Enum`),
                                                                         ),
                                                                     ),
                                                                 },
-                                                                EntityPathExpr::Root {
+                                                                PrincipalEntityPathExpr::Root {
                                                                     path_name_token: PathNameToken::Ident(
                                                                         IdentToken {
                                                                             ident: `Result`,
@@ -1307,7 +1307,7 @@ Ok(
                                                                             ),
                                                                         },
                                                                     ),
-                                                                    entity_path: EntityPath::ModuleItem(
+                                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`core::result::Result`, `Enum`),
                                                                         ),
@@ -1476,7 +1476,7 @@ Ok(
                                             expr_arena: Arena {
                                                 data: [],
                                             },
-                                            entity_path_expr_arena: Arena {
+                                            principal_entity_path_expr_arena: Arena {
                                                 data: [],
                                             },
                                             stmt_arena: Arena {
@@ -1582,7 +1582,7 @@ Ok(
                                 expr_arena: Arena {
                                     data: [],
                                 },
-                                entity_path_expr_arena: Arena {
+                                principal_entity_path_expr_arena: Arena {
                                     data: [],
                                 },
                                 stmt_arena: Arena {
@@ -1737,8 +1737,8 @@ Ok(
                                                     data: [
                                                         Expr::PrincipalEntityPath {
                                                             entity_path_expr: 2,
-                                                            path: Some(
-                                                                EntityPath::ModuleItem(
+                                                            opt_path: Some(
+                                                                PrincipalEntityPath::ModuleItem(
                                                                     ModuleItemPath::Trait(
                                                                         TraitPath(`core::ops::Unveil`),
                                                                     ),
@@ -1747,8 +1747,8 @@ Ok(
                                                         },
                                                         Expr::PrincipalEntityPath {
                                                             entity_path_expr: 3,
-                                                            path: Some(
-                                                                EntityPath::ModuleItem(
+                                                            opt_path: Some(
+                                                                PrincipalEntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
                                                                         TypePath(`core::result::Result`, `Enum`),
                                                                     ),
@@ -1803,8 +1803,8 @@ Ok(
                                                         },
                                                         Expr::PrincipalEntityPath {
                                                             entity_path_expr: 4,
-                                                            path: Some(
-                                                                EntityPath::ModuleItem(
+                                                            opt_path: Some(
+                                                                PrincipalEntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
                                                                         TypePath(`core::result::Result`, `Enum`),
                                                                     ),
@@ -1855,9 +1855,9 @@ Ok(
                                                         },
                                                     ],
                                                 },
-                                                entity_path_expr_arena: Arena {
+                                                principal_entity_path_expr_arena: Arena {
                                                     data: [
-                                                        EntityPathExpr::Root {
+                                                        PrincipalEntityPathExpr::Root {
                                                             path_name_token: PathNameToken::CrateRoot(
                                                                 CrateToken {
                                                                     token_idx: TokenIdx(
@@ -1865,11 +1865,11 @@ Ok(
                                                                     ),
                                                                 },
                                                             ),
-                                                            entity_path: EntityPath::Module(
+                                                            principal_entity_path: PrincipalEntityPath::Module(
                                                                 `core`,
                                                             ),
                                                         },
-                                                        EntityPathExpr::Subentity {
+                                                        PrincipalEntityPathExpr::Subentity {
                                                             parent: 0,
                                                             scope_resolution_token: ScopeResolutionToken(
                                                                 TokenIdx(
@@ -1885,12 +1885,12 @@ Ok(
                                                                 },
                                                             ),
                                                             path: Ok(
-                                                                EntityPath::Module(
+                                                                PrincipalEntityPath::Module(
                                                                     `core::ops`,
                                                                 ),
                                                             ),
                                                         },
-                                                        EntityPathExpr::Subentity {
+                                                        PrincipalEntityPathExpr::Subentity {
                                                             parent: 1,
                                                             scope_resolution_token: ScopeResolutionToken(
                                                                 TokenIdx(
@@ -1906,14 +1906,14 @@ Ok(
                                                                 },
                                                             ),
                                                             path: Ok(
-                                                                EntityPath::ModuleItem(
+                                                                PrincipalEntityPath::ModuleItem(
                                                                     ModuleItemPath::Trait(
                                                                         TraitPath(`core::ops::Unveil`),
                                                                     ),
                                                                 ),
                                                             ),
                                                         },
-                                                        EntityPathExpr::Root {
+                                                        PrincipalEntityPathExpr::Root {
                                                             path_name_token: PathNameToken::Ident(
                                                                 IdentToken {
                                                                     ident: `Result`,
@@ -1922,13 +1922,13 @@ Ok(
                                                                     ),
                                                                 },
                                                             ),
-                                                            entity_path: EntityPath::ModuleItem(
+                                                            principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`core::result::Result`, `Enum`),
                                                                 ),
                                                             ),
                                                         },
-                                                        EntityPathExpr::Root {
+                                                        PrincipalEntityPathExpr::Root {
                                                             path_name_token: PathNameToken::Ident(
                                                                 IdentToken {
                                                                     ident: `Result`,
@@ -1937,7 +1937,7 @@ Ok(
                                                                     ),
                                                                 },
                                                             ),
-                                                            entity_path: EntityPath::ModuleItem(
+                                                            principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`core::result::Result`, `Enum`),
                                                                 ),
@@ -2107,8 +2107,8 @@ Ok(
                                         data: [
                                             Expr::PrincipalEntityPath {
                                                 entity_path_expr: 0,
-                                                path: Some(
-                                                    EntityPath::ModuleItem(
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`core::result::Result`, `Enum`),
                                                         ),
@@ -2149,8 +2149,8 @@ Ok(
                                             },
                                             Expr::PrincipalEntityPath {
                                                 entity_path_expr: 1,
-                                                path: Some(
-                                                    EntityPath::ModuleItem(
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`core::result::Result`, `Enum`),
                                                         ),
@@ -2191,9 +2191,9 @@ Ok(
                                             },
                                         ],
                                     },
-                                    entity_path_expr_arena: Arena {
+                                    principal_entity_path_expr_arena: Arena {
                                         data: [
-                                            EntityPathExpr::Root {
+                                            PrincipalEntityPathExpr::Root {
                                                 path_name_token: PathNameToken::Ident(
                                                     IdentToken {
                                                         ident: `Result`,
@@ -2202,13 +2202,13 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                entity_path: EntityPath::ModuleItem(
+                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                     ModuleItemPath::Type(
                                                         TypePath(`core::result::Result`, `Enum`),
                                                     ),
                                                 ),
                                             },
-                                            EntityPathExpr::Root {
+                                            PrincipalEntityPathExpr::Root {
                                                 path_name_token: PathNameToken::Ident(
                                                     IdentToken {
                                                         ident: `Result`,
@@ -2217,7 +2217,7 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                entity_path: EntityPath::ModuleItem(
+                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                     ModuleItemPath::Type(
                                                         TypePath(`core::result::Result`, `Enum`),
                                                     ),
@@ -2392,8 +2392,8 @@ Ok(
                                                             data: [
                                                                 Expr::PrincipalEntityPath {
                                                                     entity_path_expr: 2,
-                                                                    path: Some(
-                                                                        EntityPath::ModuleItem(
+                                                                    opt_path: Some(
+                                                                        PrincipalEntityPath::ModuleItem(
                                                                             ModuleItemPath::Trait(
                                                                                 TraitPath(`core::ops::Unveil`),
                                                                             ),
@@ -2402,8 +2402,8 @@ Ok(
                                                                 },
                                                                 Expr::PrincipalEntityPath {
                                                                     entity_path_expr: 3,
-                                                                    path: Some(
-                                                                        EntityPath::ModuleItem(
+                                                                    opt_path: Some(
+                                                                        PrincipalEntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
                                                                                 TypePath(`core::result::Result`, `Enum`),
                                                                             ),
@@ -2458,8 +2458,8 @@ Ok(
                                                                 },
                                                                 Expr::PrincipalEntityPath {
                                                                     entity_path_expr: 4,
-                                                                    path: Some(
-                                                                        EntityPath::ModuleItem(
+                                                                    opt_path: Some(
+                                                                        PrincipalEntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
                                                                                 TypePath(`core::result::Result`, `Enum`),
                                                                             ),
@@ -2510,9 +2510,9 @@ Ok(
                                                                 },
                                                             ],
                                                         },
-                                                        entity_path_expr_arena: Arena {
+                                                        principal_entity_path_expr_arena: Arena {
                                                             data: [
-                                                                EntityPathExpr::Root {
+                                                                PrincipalEntityPathExpr::Root {
                                                                     path_name_token: PathNameToken::CrateRoot(
                                                                         CrateToken {
                                                                             token_idx: TokenIdx(
@@ -2520,11 +2520,11 @@ Ok(
                                                                             ),
                                                                         },
                                                                     ),
-                                                                    entity_path: EntityPath::Module(
+                                                                    principal_entity_path: PrincipalEntityPath::Module(
                                                                         `core`,
                                                                     ),
                                                                 },
-                                                                EntityPathExpr::Subentity {
+                                                                PrincipalEntityPathExpr::Subentity {
                                                                     parent: 0,
                                                                     scope_resolution_token: ScopeResolutionToken(
                                                                         TokenIdx(
@@ -2540,12 +2540,12 @@ Ok(
                                                                         },
                                                                     ),
                                                                     path: Ok(
-                                                                        EntityPath::Module(
+                                                                        PrincipalEntityPath::Module(
                                                                             `core::ops`,
                                                                         ),
                                                                     ),
                                                                 },
-                                                                EntityPathExpr::Subentity {
+                                                                PrincipalEntityPathExpr::Subentity {
                                                                     parent: 1,
                                                                     scope_resolution_token: ScopeResolutionToken(
                                                                         TokenIdx(
@@ -2561,14 +2561,14 @@ Ok(
                                                                         },
                                                                     ),
                                                                     path: Ok(
-                                                                        EntityPath::ModuleItem(
+                                                                        PrincipalEntityPath::ModuleItem(
                                                                             ModuleItemPath::Trait(
                                                                                 TraitPath(`core::ops::Unveil`),
                                                                             ),
                                                                         ),
                                                                     ),
                                                                 },
-                                                                EntityPathExpr::Root {
+                                                                PrincipalEntityPathExpr::Root {
                                                                     path_name_token: PathNameToken::Ident(
                                                                         IdentToken {
                                                                             ident: `Result`,
@@ -2577,13 +2577,13 @@ Ok(
                                                                             ),
                                                                         },
                                                                     ),
-                                                                    entity_path: EntityPath::ModuleItem(
+                                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`core::result::Result`, `Enum`),
                                                                         ),
                                                                     ),
                                                                 },
-                                                                EntityPathExpr::Root {
+                                                                PrincipalEntityPathExpr::Root {
                                                                     path_name_token: PathNameToken::Ident(
                                                                         IdentToken {
                                                                             ident: `Result`,
@@ -2592,7 +2592,7 @@ Ok(
                                                                             ),
                                                                         },
                                                                     ),
-                                                                    entity_path: EntityPath::ModuleItem(
+                                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`core::result::Result`, `Enum`),
                                                                         ),
@@ -2762,8 +2762,8 @@ Ok(
                                                 data: [
                                                     Expr::PrincipalEntityPath {
                                                         entity_path_expr: 0,
-                                                        path: Some(
-                                                            EntityPath::ModuleItem(
+                                                        opt_path: Some(
+                                                            PrincipalEntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`core::result::Result`, `Enum`),
                                                                 ),
@@ -2804,8 +2804,8 @@ Ok(
                                                     },
                                                     Expr::PrincipalEntityPath {
                                                         entity_path_expr: 1,
-                                                        path: Some(
-                                                            EntityPath::ModuleItem(
+                                                        opt_path: Some(
+                                                            PrincipalEntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`core::result::Result`, `Enum`),
                                                                 ),
@@ -2846,9 +2846,9 @@ Ok(
                                                     },
                                                 ],
                                             },
-                                            entity_path_expr_arena: Arena {
+                                            principal_entity_path_expr_arena: Arena {
                                                 data: [
-                                                    EntityPathExpr::Root {
+                                                    PrincipalEntityPathExpr::Root {
                                                         path_name_token: PathNameToken::Ident(
                                                             IdentToken {
                                                                 ident: `Result`,
@@ -2857,13 +2857,13 @@ Ok(
                                                                 ),
                                                             },
                                                         ),
-                                                        entity_path: EntityPath::ModuleItem(
+                                                        principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::result::Result`, `Enum`),
                                                             ),
                                                         ),
                                                     },
-                                                    EntityPathExpr::Root {
+                                                    PrincipalEntityPathExpr::Root {
                                                         path_name_token: PathNameToken::Ident(
                                                             IdentToken {
                                                                 ident: `Result`,
@@ -2872,7 +2872,7 @@ Ok(
                                                                 ),
                                                             },
                                                         ),
-                                                        entity_path: EntityPath::ModuleItem(
+                                                        principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::result::Result`, `Enum`),
                                                             ),
@@ -3063,7 +3063,7 @@ Ok(
                                         },
                                     ],
                                 },
-                                entity_path_expr_arena: Arena {
+                                principal_entity_path_expr_arena: Arena {
                                     data: [],
                                 },
                                 stmt_arena: Arena {

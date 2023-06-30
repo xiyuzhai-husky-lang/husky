@@ -180,7 +180,7 @@ impl<'a> EntityTreePresheetMut<'a> {
                     let rule = &self.once_use_rules[rule_idx];
                     match use_expr {
                         UseExpr::All { star_token: _ } => match path {
-                            EntityPath::Module(parent_path) => self
+                            PrincipalEntityPath::Module(parent_path) => self
                                 .all_module_items_use_rules
                                 .push(UseAllModuleSymbolsRule::new(
                                     db,
@@ -190,7 +190,7 @@ impl<'a> EntityTreePresheetMut<'a> {
                                     child_use_expr_idx,
                                     rule.visibility(),
                                 )),
-                            EntityPath::ModuleItem(parent_module_item_path) => {
+                            PrincipalEntityPath::ModuleItem(parent_module_item_path) => {
                                 match parent_module_item_path {
                                     ModuleItemPath::Type(parent_ty_path) => {
                                         match parent_ty_path.ty_kind(db) {
@@ -210,35 +210,39 @@ impl<'a> EntityTreePresheetMut<'a> {
                                     ModuleItemPath::Fugitive(_) => todo!(),
                                 }
                             }
-                            EntityPath::AssociatedItem(_) => todo!(),
-                            EntityPath::TypeVariant(_) => todo!(),
-                            EntityPath::ImplBlock(_) => todo!(),
+                            PrincipalEntityPath::TypeVariant(_) => todo!(),
                         },
-                        UseExpr::Leaf { ident_token } => {
-                            let new_rule = rule.new_nonroot(
-                                child_use_expr_idx,
-                                path,
-                                OnceUseRuleVariant::Leaf {
-                                    ident_token: *ident_token,
-                                },
-                            );
-                            self.once_use_rules.push(new_rule)
-                        }
+                        UseExpr::Leaf { ident_token } => match path.major() {
+                            Some(path) => {
+                                let new_rule = rule.new_nonroot(
+                                    child_use_expr_idx,
+                                    path,
+                                    OnceUseRuleVariant::Leaf {
+                                        ident_token: *ident_token,
+                                    },
+                                );
+                                self.once_use_rules.push(new_rule)
+                            }
+                            None => todo!(),
+                        },
                         UseExpr::Parent(ParentUseExpr {
                             parent_name_token,
                             scope_resolution_token: _,
                             children: Ok(children),
-                        }) => {
-                            let new_rule = rule.new_nonroot(
-                                child_use_expr_idx,
-                                path,
-                                OnceUseRuleVariant::Parent {
-                                    parent_name_token: *parent_name_token,
-                                    children: children.idx_range(),
-                                },
-                            );
-                            self.once_use_rules.push(new_rule)
-                        }
+                        }) => match path.major() {
+                            Some(path) => {
+                                let new_rule = rule.new_nonroot(
+                                    child_use_expr_idx,
+                                    path,
+                                    OnceUseRuleVariant::Parent {
+                                        parent_name_token: *parent_name_token,
+                                        children: children.idx_range(),
+                                    },
+                                );
+                                self.once_use_rules.push(new_rule)
+                            }
+                            None => todo!(),
+                        },
                         UseExpr::Parent(ParentUseExpr {
                             children: Err(_), ..
                         })

@@ -1,10 +1,10 @@
-mod props_ty_variant;
-mod tuple_ty_variant;
-mod unit_ty_variant;
+mod enum_props_ty_variant;
+mod enum_tuple_ty_variant;
+mod enum_unit_ty_variant;
 
-pub use self::props_ty_variant::*;
-pub use self::tuple_ty_variant::*;
-pub use self::unit_ty_variant::*;
+pub use self::enum_props_ty_variant::*;
+pub use self::enum_tuple_ty_variant::*;
+pub use self::enum_unit_ty_variant::*;
 
 use super::*;
 
@@ -12,9 +12,9 @@ use super::*;
 #[salsa::derive_debug_with_db(db = DeclarativeSignatureDb)]
 #[enum_class::from_variants]
 pub enum TypeVariantDeclarativeSignatureTemplate {
-    Props(PropsTypeVariantDeclarativeSignatureTemplate),
-    Unit(UnitVariantDeclarativeSignatureTemplate),
-    Tuple(TupleTypeVariantDeclarativeSignatureTemplate),
+    Props(EnumPropsTypeVariantDeclarativeSignatureTemplate),
+    Unit(EnumUnitVariantDeclarativeSignatureTemplate),
+    Tuple(EnumTupleTypeVariantDeclarativeSignatureTemplate),
 }
 
 pub(crate) fn variant_signature_template_from_decl(
@@ -47,11 +47,22 @@ pub(crate) fn ty_variant_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
     path: TypeVariantPath,
 ) -> DeclarativeSignatureResult<TypeVariantDeclarativeSignatureTemplate> {
-    Ok(match path.decl(db)? {
-        TypeVariantDecl::Props(_) => todo!(),
-        TypeVariantDecl::Unit(_) => todo!(),
-        TypeVariantDecl::Tuple(decl) => {
-            TupleTypeVariantDeclarativeSignatureTemplate::from_decl(db, decl)?.into()
-        }
-    })
+    Ok(
+        match path.parent_ty_path(db).declarative_signature_template(db)? {
+            TypeDeclarativeSignatureTemplate::Enum(parent_ty_template) => match path.decl(db)? {
+                TypeVariantDecl::Props(_) => todo!(),
+                TypeVariantDecl::Unit(_) => todo!(),
+                TypeVariantDecl::Tuple(decl) => {
+                    EnumTupleTypeVariantDeclarativeSignatureTemplate::from_decl(
+                        db,
+                        parent_ty_template,
+                        decl,
+                    )?
+                    .into()
+                }
+            },
+            TypeDeclarativeSignatureTemplate::Inductive(_) => todo!(),
+            _ => todo!(),
+        },
+    )
 }

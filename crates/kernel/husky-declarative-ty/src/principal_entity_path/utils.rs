@@ -3,7 +3,7 @@ use vec_like::{VecPairMap, VecSet};
 use super::*;
 
 pub(super) fn curry_from_implicit_parameters(
-    db: &dyn DeclarativeTypeDb,
+    db: &dyn DeclarativeSignatureDb,
     term_curry_kind: CurryKind,
     variances: &[Variance],
     implicit_parameters: &[ImplicitParameterDeclarativeSignature],

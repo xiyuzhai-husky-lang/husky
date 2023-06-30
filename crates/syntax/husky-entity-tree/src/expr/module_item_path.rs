@@ -11,7 +11,7 @@ use thiserror::Error;
 pub enum ModuleItemPathExpr {
     Root {
         name_token: PathNameToken,
-        entity_path: EntityPath,
+        major_entity_path: MajorEntityPath,
     },
     Subentity {
         name_token: PathNameToken,
@@ -94,17 +94,22 @@ impl<'a, 'b> ModuleItemPathExprParser<'a, 'b> {
     ) -> ModuleItemPathExprResult<(ModuleItemPathExprIdx, ModuleItemPath)> {
         let name_token: PathNameToken =
             self.try_parse_expected(OriginalMajorPathExprError::ExpectedName)?;
-        let entity_path = match name_token {
-            PathNameToken::Ident(ident_token) => self
+        let path = match name_token {
+            PathNameToken::Ident(ident_token) => match self
                 .entity_tree_symbol_context
                 .resolve_root_ident(ident_token)
                 .ok_or(OriginalMajorPathExprError::UnrecognizedIdent(ident_token))?
-                .path(self.db),
+                .path(self.db)
+                .major()
+            {
+                Some(path) => path,
+                None => todo!(),
+            },
             PathNameToken::CrateRoot(_) => self.crate_root_path.into(),
             PathNameToken::SelfMod(_) => todo!(),
             PathNameToken::Super(_) => todo!(),
         };
-        self.parse_major_path_expr_aux(entity_path, name_token)
+        self.parse_major_path_expr_aux(path, name_token)
     }
 
     fn parse_major_path_subexpr(
@@ -113,29 +118,34 @@ impl<'a, 'b> ModuleItemPathExprParser<'a, 'b> {
     ) -> ModuleItemPathExprResult<(ModuleItemPathExprIdx, ModuleItemPath)> {
         let name_token: PathNameToken =
             self.try_parse_expected(OriginalMajorPathExprError::ExpectedName)?;
-        let entity_path = match name_token {
-            PathNameToken::Ident(ident_token) => self
+        let major_entity_path = match name_token {
+            PathNameToken::Ident(ident_token) => match self
                 .entity_tree_symbol_context
                 .resolve_subentity(parent.into(), ident_token.ident())
                 .ok_or(OriginalMajorPathExprError::NoSuchSubentity)?
-                .path(self.db),
+                .path(self.db)
+                .major()
+            {
+                Some(major_entity_path) => major_entity_path,
+                None => todo!(),
+            },
             PathNameToken::CrateRoot(_) => self.crate_root_path.into(),
             PathNameToken::SelfMod(_) => todo!(),
             PathNameToken::Super(_) => todo!(),
         };
-        self.parse_major_path_expr_aux(entity_path, name_token)
+        self.parse_major_path_expr_aux(major_entity_path, name_token)
     }
 
     fn parse_major_path_expr_aux(
         &mut self,
-        entity_path: EntityPath,
+        major_entity_path: MajorEntityPath,
         name_token: PathNameToken,
     ) -> ModuleItemPathExprResult<(ArenaIdx<ModuleItemPathExpr>, ModuleItemPath)> {
         let (expr, module_item_path) = if let Some(scope_resolution_token) =
             self.try_parse_err_as_none::<ScopeResolutionToken>()
         {
-            match entity_path {
-                EntityPath::Module(parent) => {
+            match major_entity_path {
+                MajorEntityPath::Module(parent) => {
                     let (subexpr, module_item_path) = self.parse_major_path_subexpr(parent)?;
                     (
                         ModuleItemPathExpr::Subentity {
@@ -146,19 +156,16 @@ impl<'a, 'b> ModuleItemPathExprParser<'a, 'b> {
                         module_item_path,
                     )
                 }
-                EntityPath::ModuleItem(_) => todo!(),
-                EntityPath::AssociatedItem(_) => todo!(),
-                EntityPath::TypeVariant(_) => todo!(),
-                EntityPath::ImplBlock(_) => todo!(),
+                MajorEntityPath::ModuleItem(_) => todo!(),
             }
         } else {
-            let EntityPath::ModuleItem(module_item_path) = entity_path else {
+            let MajorEntityPath::ModuleItem(module_item_path) = major_entity_path else {
                 todo!()
             };
             (
                 ModuleItemPathExpr::Root {
                     name_token,
-                    entity_path,
+                    major_entity_path,
                 },
                 module_item_path,
             )

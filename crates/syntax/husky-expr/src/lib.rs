@@ -1,12 +1,13 @@
 #![feature(result_flattening)]
 #![feature(trait_upcasting)]
+#![feature(let_chains)]
 mod db;
-mod entity_path;
 mod error;
 mod html;
 mod parser;
 mod pattern;
 mod precedence;
+mod principal_entity_path;
 mod range;
 mod region;
 mod snippet;
@@ -16,17 +17,17 @@ mod symbol;
 mod tests;
 
 pub use self::db::*;
-pub use self::entity_path::*;
 pub use self::error::*;
 pub use self::html::*;
 pub use self::parser::*;
 pub use self::pattern::*;
+pub use self::principal_entity_path::*;
 pub use self::range::*;
 pub use self::region::*;
 pub use self::stmt::*;
 pub use self::symbol::*;
 
-use husky_entity_path::EntityPath;
+use husky_entity_path::{EntityPath, PrincipalEntityPath};
 use husky_entity_tree::*;
 use husky_opn_syntax::*;
 use husky_term_prelude::*;
@@ -78,8 +79,8 @@ impl BaseEntityPathInclination {
 pub enum Expr {
     Literal(TokenIdx, Literal),
     PrincipalEntityPath {
-        entity_path_expr: EntityPathExprIdx,
-        path: Option<EntityPath>,
+        entity_path_expr: PrincipalEntityPathExprIdx,
+        opt_path: Option<PrincipalEntityPath>,
     },
     ScopeResolution {
         parent_expr_idx: ExprIdx,

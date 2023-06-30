@@ -243,7 +243,11 @@ impl<'a> InferContext<'a> {
         for (expr_idx, expr) in self.expr_region_data.expr_arena().indexed_iter() {
             self.visit_expr(expr_idx, expr)
         }
-        for entity_path_expr in self.expr_region_data.entity_path_expr_arena().iter() {
+        for entity_path_expr in self
+            .expr_region_data
+            .principal_entity_path_expr_arena()
+            .iter()
+        {
             self.visit_entity_path_expr(entity_path_expr)
         }
         for (current_symbol_idx, current_symbol) in self
@@ -384,23 +388,24 @@ impl<'a> InferContext<'a> {
         }
     }
 
-    fn visit_entity_path_expr(&mut self, entity_path_expr: &EntityPathExpr) {
+    fn visit_entity_path_expr(&mut self, entity_path_expr: &PrincipalEntityPathExpr) {
         match entity_path_expr {
-            EntityPathExpr::Root {
-                entity_path,
+            PrincipalEntityPathExpr::Root {
+                principal_entity_path,
                 path_name_token,
                 ..
-            } => self
-                .sheet
-                .add(path_name_token.token_idx(), TokenInfo::Entity(*entity_path)),
-            EntityPathExpr::Subentity {
-                path: Ok(entity_path),
+            } => self.sheet.add(
+                path_name_token.token_idx(),
+                TokenInfo::Entity((*principal_entity_path).into()),
+            ),
+            PrincipalEntityPathExpr::Subentity {
+                path: Ok(path),
                 ident_token: Ok(ident_token),
                 ..
             } => self
                 .sheet
-                .add(ident_token.token_idx(), TokenInfo::Entity(*entity_path)),
-            EntityPathExpr::Subentity { .. } => (),
+                .add(ident_token.token_idx(), TokenInfo::Entity((*path).into())),
+            PrincipalEntityPathExpr::Subentity { .. } => (),
         }
     }
 

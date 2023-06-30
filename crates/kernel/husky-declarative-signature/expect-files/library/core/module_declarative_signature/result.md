@@ -32,6 +32,7 @@
                                     },
                                 ],
                             },
+                            self_ty: DeclarativeTerm(`core::result::Result t s`),
                         },
                     ),
                 ),

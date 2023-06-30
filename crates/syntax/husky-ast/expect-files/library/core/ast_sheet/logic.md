@@ -7,7 +7,7 @@ Ok(
                         3,
                     ),
                     variant_path: TypeVariantPath {
-                        ty_path: TypePath(`core::logic::LogicOr`, `Inductive`),
+                        parent_ty_path: TypePath(`core::logic::LogicOr`, `Inductive`),
                         ident: `Left`,
                     },
                     vertical_token: VerticalToken(
@@ -33,7 +33,7 @@ Ok(
                         4,
                     ),
                     variant_path: TypeVariantPath {
-                        ty_path: TypePath(`core::logic::LogicOr`, `Inductive`),
+                        parent_ty_path: TypePath(`core::logic::LogicOr`, `Inductive`),
                         ident: `Right`,
                     },
                     vertical_token: VerticalToken(

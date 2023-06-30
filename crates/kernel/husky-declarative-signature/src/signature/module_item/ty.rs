@@ -87,24 +87,44 @@ pub(crate) fn ty_declarative_signature_template(
 ) -> DeclarativeSignatureResult<TypeDeclarativeSignatureTemplate> {
     let decl = path.decl(db)?;
     Ok(match decl {
-        TypeDecl::Enum(decl) => EnumDeclarativeSignatureTemplate::from_decl(db, decl)?.into(),
+        TypeDecl::Enum(decl) => EnumDeclarativeSignatureTemplate::from_decl(db, path, decl)?.into(),
         TypeDecl::PropsStruct(decl) => {
-            PropsStructDeclarativeSignatureTemplate::from_decl(db, decl)?.into()
+            PropsStructDeclarativeSignatureTemplate::from_decl(db, path, decl)?.into()
         }
         TypeDecl::UnitStruct(decl) => {
-            UnitStructDeclarativeSignatureTemplate::from_decl(db, decl)?.into()
+            UnitStructDeclarativeSignatureTemplate::from_decl(db, path, decl)?.into()
         }
         TypeDecl::TupleStruct(decl) => {
-            TupleStructDeclarativeSignatureTemplate::from_decl(db, decl)?.into()
+            TupleStructDeclarativeSignatureTemplate::from_decl(db, path, decl)?.into()
         }
-        TypeDecl::Record(decl) => RecordDeclarativeSignatureTemplate::from_decl(db, decl)?.into(),
+        TypeDecl::Record(decl) => {
+            RecordDeclarativeSignatureTemplate::from_decl(db, path, decl)?.into()
+        }
         TypeDecl::Inductive(decl) => {
-            InductiveDeclarativeSignatureTemplate::from_decl(db, decl)?.into()
+            InductiveDeclarativeSignatureTemplate::from_decl(db, path, decl)?.into()
         }
         TypeDecl::Structure(decl) => {
-            StructureDeclarativeSignatureTemplate::from_decl(db, decl)?.into()
+            StructureDeclarativeSignatureTemplate::from_decl(db, path, decl)?.into()
         }
-        TypeDecl::Extern(decl) => ExternDeclarativeSignatureTemplate::from_decl(db, decl)?.into(),
-        TypeDecl::Union(decl) => UnionDeclarativeSignatureTemplate::from_decl(db, decl)?.into(),
+        TypeDecl::Extern(decl) => {
+            ExternDeclarativeSignatureTemplate::from_decl(db, path, decl)?.into()
+        }
+        TypeDecl::Union(decl) => {
+            UnionDeclarativeSignatureTemplate::from_decl(db, path, decl)?.into()
+        }
     })
+}
+
+fn construct_self_ty(
+    db: &dyn DeclarativeSignatureDb,
+    path: TypePath,
+    implicit_parameters: &[ImplicitParameterDeclarativeSignature],
+) -> DeclarativeTerm {
+    let mut self_ty: DeclarativeTerm = path.into();
+    for implicit_parameter in implicit_parameters {
+        self_ty =
+            DeclarativeTermExplicitApplication::new(db, self_ty, implicit_parameter.symbol().into())
+                .into()
+    }
+    self_ty
 }
