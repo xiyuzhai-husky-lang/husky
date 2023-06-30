@@ -52,10 +52,10 @@ impl FluffyTermRegion {
     }
 }
 
-impl std::ops::Index<FluffyTermExpectationIdx> for FluffyTermRegion {
+impl std::ops::Index<ExpectationIdx> for FluffyTermRegion {
     type Output = ExpectationEntry;
 
-    fn index(&self, index: FluffyTermExpectationIdx) -> &Self::Output {
+    fn index(&self, index: ExpectationIdx) -> &Self::Output {
         &self.expectations[index]
     }
 }

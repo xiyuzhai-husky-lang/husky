@@ -52,6 +52,7 @@ impl<T> Default for Arena<T> {
 }
 
 impl<T> Arena<T> {
+    #[inline]
     pub fn alloc_batch(&mut self, items: impl IntoIterator<Item = T>) -> ArenaIdxRange<T> {
         let start = ArenaIdx::new(self.data.len());
         self.data.extend(items);
@@ -65,22 +66,31 @@ impl<T> Arena<T> {
         idx
     }
 
+    pub unsafe fn next_idx(&self) -> ArenaIdx<T> {
+        ArenaIdx::new(self.data.len())
+    }
+
+    #[inline]
     pub fn len(&self) -> usize {
         self.data.len()
     }
 
+    #[inline]
     pub fn data(&self) -> &[T] {
         &self.data
     }
 
+    #[inline]
     pub fn set(&mut self, idx: ArenaIdx<T>, new_value: T) {
         self.data[idx.raw] = new_value
     }
 
+    #[inline]
     pub fn update(&mut self, idx: ArenaIdx<T>, f: impl FnOnce(&mut T)) {
         f(&mut self.data[idx.raw])
     }
 
+    #[inline]
     pub fn iter<'a>(&'a self) -> impl Iterator<Item = &'a T> + 'a {
         self.data.iter()
     }

@@ -4,15 +4,38 @@ use super::*;
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct ExpectNumType;
 
-impl ExpectNumType {
+impl ExpectFluffyTerm for ExpectNumType {
+    type Outcome = ExpectNumTypeOutcome;
+
     #[inline(always)]
-    pub(super) fn resolve(
-        self,
+    fn retrieve_outcome(outcome: &FluffyTermExpectationOutcome) -> &Self::Outcome {
+        match outcome {
+            FluffyTermExpectationOutcome::NumType(outcome) => outcome,
+            _ => unreachable!(),
+        }
+    }
+
+    #[inline(always)]
+    fn final_destination_inner(
+        &self,
         db: &dyn FluffyTermDb,
+        terms: &FluffyTerms,
+    ) -> FinalDestination {
+        todo!()
+    }
+
+    #[inline(always)]
+    fn destination(&self) -> Option<FluffyTerm> {
+        None
+    }
+
+    fn resolve(
+        &self,
+        db: &dyn FluffyTermDb,
+        state: &mut ExpectationMeta,
         fluffy_terms: &mut FluffyTerms,
-        expectee: FluffyTerm,
-    ) -> Option<FluffyTermExpectationEffect> {
-        match expectee.data_inner(db, fluffy_terms) {
+    ) -> Option<ExpectationEffect> {
+        match state.expectee().data_inner(db, fluffy_terms) {
             FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology {
                 ty_path: path,
@@ -51,46 +74,17 @@ impl ExpectNumType {
                 hole_kind,
                 hole,
             } => match hole_kind {
-                HoleKind::UnspecifiedIntegerType | HoleKind::UnspecifiedFloatType => {
-                    Some(FluffyTermExpectationEffect {
-                        result: Ok(ExpectNumTypeOutcome {
-                            placeless_num_ty: hole.into(),
-                        }
-                        .into()),
-                        actions: smallvec![],
-                    })
-                }
+                HoleKind::UnspecifiedIntegerType | HoleKind::UnspecifiedFloatType => state.set_ok(
+                    ExpectNumTypeOutcome {
+                        placeless_num_ty: hole.into(),
+                    },
+                    smallvec![],
+                ),
                 HoleKind::ImplicitType => todo!(),
             },
             FluffyTermData::Symbol { ty } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
         }
-    }
-}
-
-impl ExpectFluffyTerm for ExpectNumType {
-    type Outcome = ExpectNumTypeOutcome;
-
-    #[inline(always)]
-    fn retrieve_outcome(outcome: &FluffyTermExpectationOutcome) -> &Self::Outcome {
-        match outcome {
-            FluffyTermExpectationOutcome::NumType(outcome) => outcome,
-            _ => unreachable!(),
-        }
-    }
-
-    #[inline(always)]
-    fn final_destination_inner(
-        &self,
-        db: &dyn FluffyTermDb,
-        terms: &FluffyTerms,
-    ) -> FinalDestination {
-        todo!()
-    }
-
-    #[inline(always)]
-    fn destination(&self) -> Option<FluffyTerm> {
-        None
     }
 }
 

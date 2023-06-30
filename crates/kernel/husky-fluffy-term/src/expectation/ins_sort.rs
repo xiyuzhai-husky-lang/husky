@@ -30,40 +30,14 @@ impl ExpectFluffyTerm for ExpectInsSort {
     fn destination(&self) -> Option<FluffyTerm> {
         None
     }
-}
 
-impl ExpectInsSort {
-    pub(crate) fn new(u: u8) -> Self {
-        ExpectInsSort {
-            smallest_universe: u.into(),
-        }
-    }
-
-    pub(crate) fn smallest_universe(&self) -> TermUniverse {
-        self.smallest_universe
-    }
-}
-
-#[derive(Debug, PartialEq, Eq, Clone)]
-#[salsa::derive_debug_with_db(db = FluffyTermDb)]
-pub struct ExpectInsSortOutcome {
-    destination: FluffyTerm,
-}
-
-impl ExpectInsSortOutcome {
-    pub(crate) fn resolved(&self) -> Option<EtherealTerm> {
-        todo!()
-    }
-}
-
-impl ExpectInsSort {
     /// try to tell if a term is an instance of `Type u` for some universe u
-    pub(super) fn resolve(
+    fn resolve(
         &self,
         db: &dyn FluffyTermDb,
-        porous_terms: &mut FluffyTerms,
-        expectee: FluffyTerm,
-    ) -> Option<FluffyTermExpectationEffect> {
+        meta: &mut ExpectationMeta,
+        fluffy_terms: &mut FluffyTerms,
+    ) -> Option<ExpectationEffect> {
         todo!()
         // match expectee {
         //     FluffyTerm::EtherealTerm(resolved_expectee) => {
@@ -113,3 +87,29 @@ impl ExpectInsSort {
         // }
     }
 }
+
+impl ExpectInsSort {
+    pub(crate) fn new(u: u8) -> Self {
+        ExpectInsSort {
+            smallest_universe: u.into(),
+        }
+    }
+
+    pub(crate) fn smallest_universe(&self) -> TermUniverse {
+        self.smallest_universe
+    }
+}
+
+#[derive(Debug, PartialEq, Eq, Clone)]
+#[salsa::derive_debug_with_db(db = FluffyTermDb)]
+pub struct ExpectInsSortOutcome {
+    destination: FluffyTerm,
+}
+
+impl ExpectInsSortOutcome {
+    pub(crate) fn resolved(&self) -> Option<EtherealTerm> {
+        todo!()
+    }
+}
+
+impl ExpectInsSort {}

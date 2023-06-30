@@ -32,6 +32,16 @@ impl ExpectFluffyTerm for ExpectFinalDestination {
     fn destination(&self) -> Option<FluffyTerm> {
         None
     }
+
+    fn resolve(
+        &self,
+        db: &dyn FluffyTermDb,
+        entry: &mut ExpectationMeta,
+        fluffy_terms: &mut FluffyTerms,
+    ) -> Option<ExpectationEffect> {
+        // ad hoc
+        None
+    }
 }
 
 /// final destination of `A1 -> ... -> An` is equal to that of `An`

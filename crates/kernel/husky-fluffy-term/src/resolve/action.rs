@@ -8,6 +8,7 @@ pub enum FluffyTermResolveAction {
     AddExpectation {
         src: ExpectationSource,
         expectee: FluffyTerm,
-        expectation: ExpectationData,
+        expectation: Expectation,
     },
 }
+pub type FluffyTermResolveActions = SmallVec<[FluffyTermResolveAction; 2]>;

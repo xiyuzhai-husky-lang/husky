@@ -7,7 +7,7 @@ use super::*;
 #[enum_class::from_variants]
 pub enum HoleSource {
     Expr(ExprIdx),
-    Expectation(FluffyTermExpectationIdx),
+    Expectation(ExpectationIdx),
 }
 
 impl HoleSource {
