@@ -13,10 +13,10 @@ impl FluffyTermRegion {
         &mut self,
         db: &dyn FluffyTermDb,
         level: FluffyTermResolveLevel,
-    ) -> Option<(FluffyTermExpectationIdx, FluffyTermExpectationEffect)> {
-        for (idx, rule) in self.expectations.unresolved_rule_iter() {
-            if let Some(action) = rule.resolve_expectation(db, &mut self.terms, idx, level) {
-                return Some((idx, action));
+    ) -> Option<ExpectationEffect> {
+        for expectation in self.expectations.unresolved_expectation_iter_mut() {
+            if let Some(effect) = expectation.resolve(db, &mut self.terms) {
+                return Some(effect);
             }
         }
         None
@@ -27,20 +27,18 @@ impl FluffyTermRegion {
         db: &dyn FluffyTermDb,
         level: FluffyTermResolveLevel,
     ) {
-        while let Some((expectation_idx, effect)) = self.next_expectation_effect(db, level) {
-            if let Some(actions) = self.expectations.take_effect(expectation_idx, effect) {
-                for action in actions {
-                    match action {
-                        FluffyTermResolveAction::FillHole { hole, term } => {
-                            self.hollow_terms_mut().fill_hole(db, hole, term)
-                        }
-                        FluffyTermResolveAction::AddExpectation {
-                            src,
-                            expectee,
-                            expectation,
-                        } => {
-                            self.add_expectation(src, expectee, expectation);
-                        }
+        while let Some(effect) = self.next_expectation_effect(db, level) {
+            for action in effect.take_subsequent_actions() {
+                match action {
+                    FluffyTermResolveAction::FillHole { hole, term } => {
+                        self.hollow_terms_mut().fill_hole(db, hole, term)
+                    }
+                    FluffyTermResolveAction::AddExpectation {
+                        src,
+                        expectee,
+                        expectation,
+                    } => {
+                        self.add_expectation(src, expectee, expectation);
                     }
                 }
             }

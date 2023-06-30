@@ -14,10 +14,10 @@ impl ExpectExplicitlyConvertible {
 
     pub(crate) fn try_substitute_unresolved_fluffy_term<'a>(
         &self,
-        porous_terms: &'a FluffyTerms,
-    ) -> Result<Option<ExpectationData>, &'a HollowTermResolveError> {
+        fluffy_terms: &'a FluffyTerms,
+    ) -> Result<Option<Expectation>, &'a HollowTermResolveError> {
         todo!()
-        // match porous_terms.try_reduce_fluffy_term(self.destination)? {
+        // match fluffy_terms.try_reduce_fluffy_term(self.destination)? {
         //     Some(destination) => Ok(Some(ExpectExplicitlyConvertible { destination }.into())),
         //     None => Ok(None),
         // }
@@ -54,16 +54,13 @@ impl ExpectFluffyTerm for ExpectExplicitlyConvertible {
     fn destination(&self) -> Option<FluffyTerm> {
         Some(self.destination)
     }
-}
 
-impl ExpectExplicitlyConvertible {
-    pub(super) fn resolve(
+    fn resolve(
         &self,
         db: &dyn FluffyTermDb,
-        porous_terms: &mut FluffyTerms,
-        expectee: FluffyTerm,
-        level: FluffyTermResolveLevel,
-    ) -> Option<FluffyTermExpectationEffect> {
+        meta: &mut ExpectationMeta,
+        fluffy_terms: &mut FluffyTerms,
+    ) -> Option<ExpectationEffect> {
         // todo
         None
     }

@@ -49,34 +49,30 @@ impl ExpectFluffyTerm for ExpectEqsCategory {
     fn destination(&self) -> Option<FluffyTerm> {
         None
     }
-}
 
-impl ExpectEqsCategory {
-    pub(super) fn resolve(
+    fn resolve(
         &self,
         db: &dyn FluffyTermDb,
-        expectee: FluffyTerm,
-        porous_terms: &mut FluffyTerms,
-    ) -> Option<FluffyTermExpectationEffect> {
-        match expectee {
+        state: &mut ExpectationMeta,
+        fluffy_terms: &mut FluffyTerms,
+    ) -> Option<ExpectationEffect> {
+        match state.expectee() {
             FluffyTerm::Hollow(_) => todo!(),
             FluffyTerm::Solid(_) => todo!(),
-            FluffyTerm::Category(cat) => Some(match cat.universe() >= self.smallest_universe {
-                true => FluffyTermExpectationEffect {
-                    result: Ok(FluffyTermExpectationOutcome::EqsSort(cat.universe())),
-                    actions: smallvec![],
-                },
-                false => FluffyTermExpectationEffect {
-                    result: Err(todo!()),
-                    actions: smallvec![],
-                },
-            }),
-            _ => Some(FluffyTermExpectationEffect {
-                result: Err(
-                    OriginalFluffyTermExpectationError::ExpectedCategory { expectee }.into(),
+            FluffyTerm::Category(cat) => match cat.universe() >= self.smallest_universe {
+                true => state.set_ok(
+                    FluffyTermExpectationOutcome::EqsSort(cat.universe()),
+                    smallvec![],
                 ),
-                actions: smallvec![],
-            }),
+                false => todo!(),
+                // state.set_err(todo!(), smallvec![]),
+            },
+            _ => state.set_err(
+                OriginalFluffyTermExpectationError::ExpectedCategory {
+                    expectee: state.expectee(),
+                },
+                smallvec![],
+            ),
         }
     }
 }

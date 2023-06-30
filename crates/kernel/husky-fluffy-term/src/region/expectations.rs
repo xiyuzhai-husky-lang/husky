@@ -7,21 +7,21 @@ pub struct Expectations {
     first_unresolved_expectation: usize,
 }
 
-impl std::ops::Index<FluffyTermExpectationIdx> for Expectations {
+impl std::ops::Index<ExpectationIdx> for Expectations {
     type Output = ExpectationEntry;
 
-    fn index(&self, index: FluffyTermExpectationIdx) -> &Self::Output {
+    fn index(&self, index: ExpectationIdx) -> &Self::Output {
         &self.arena[index]
     }
 }
 
 impl Expectations {
-    pub(crate) fn unresolved_rule_iter(
-        &self,
-    ) -> impl Iterator<Item = (FluffyTermExpectationIdx, &ExpectationEntry)> {
+    pub(crate) fn unresolved_expectation_iter_mut(
+        &mut self,
+    ) -> impl Iterator<Item = &mut ExpectationEntry> {
         self.arena
-            .indexed_iter_with_start(self.first_unresolved_expectation)
-            .filter(|(_, rule)| match rule.resolve_progress() {
+            .iter_mut_with_start(self.first_unresolved_expectation)
+            .filter(|entry| match entry.meta.resolve_progress() {
                 ExpectationProgress::Intact | ExpectationProgress::Holed => true,
                 ExpectationProgress::Resolved(_) => false,
             })
@@ -31,33 +31,8 @@ impl Expectations {
         self.arena.iter()
     }
 
-    pub(crate) fn unresolved_indexed_iter_mut(
-        &mut self,
-    ) -> impl Iterator<Item = (FluffyTermExpectationIdx, &mut ExpectationEntry)> {
-        self.arena
-            .indexed_iter_mut_with_start(self.first_unresolved_expectation)
-            .filter(|(_, rule)| match rule.resolve_progress() {
-                ExpectationProgress::Intact | ExpectationProgress::Holed => true,
-                ExpectationProgress::Resolved(_) => false,
-            })
-    }
-
-    pub(super) fn alloc_expectation(
-        &mut self,
-        entry: ExpectationEntry,
-    ) -> FluffyTermExpectationIdx {
+    pub(super) fn alloc_expectation(&mut self, entry: ExpectationEntry) -> ExpectationIdx {
         self.arena.alloc_one(entry)
-    }
-
-    pub(crate) fn take_effect(
-        &mut self,
-        expectation_idx: FluffyTermExpectationIdx,
-        effect: FluffyTermExpectationEffect,
-    ) -> Option<SmallVec<[FluffyTermResolveAction; 2]>> {
-        self.arena.update(expectation_idx, |expectation_entry| {
-            expectation_entry.set_resolved(effect.result)
-        });
-        Some(effect.actions)
     }
 }
 
@@ -75,7 +50,7 @@ impl ExpectationSource {
         }
     }
 
-    pub(crate) fn child_src(self, idx: FluffyTermExpectationIdx) -> Self {
+    pub(crate) fn child_src(self, idx: ExpectationIdx) -> Self {
         Self {
             expr_idx: self.expr_idx,
             kind: ExpectationSourceKind::Expectation(idx),
@@ -86,7 +61,7 @@ impl ExpectationSource {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum ExpectationSourceKind {
     Expr,
-    Expectation(FluffyTermExpectationIdx),
+    Expectation(ExpectationIdx),
 }
 
 impl ExpectationSource {
@@ -98,43 +73,108 @@ impl ExpectationSource {
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = FluffyTermDb)]
 pub struct ExpectationEntry {
+    expectation: Expectation,
+    meta: ExpectationMeta,
+}
+
+#[derive(Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = FluffyTermDb)]
+pub struct ExpectationMeta {
+    idx: ExpectationIdx,
     src: ExpectationSource,
     expectee: FluffyTerm,
-    data: ExpectationData,
     resolve_progress: ExpectationProgress,
 }
 
 impl ExpectationEntry {
-    pub fn src(&self) -> ExpectationSource {
-        self.src
+    pub(crate) fn resolve(
+        &mut self,
+        db: &dyn FluffyTermDb,
+        terms: &mut FluffyTerms,
+    ) -> Option<ExpectationEffect> {
+        self.expectation.resolve(db, &mut self.meta, terms)
     }
 
-    pub(crate) fn expectee(&self) -> FluffyTerm {
-        self.expectee
-    }
-
-    pub(crate) fn data(&self) -> &ExpectationData {
-        &self.data
-    }
-
+    #[inline]
     pub fn resolve_progress(&self) -> &ExpectationProgress {
-        &self.resolve_progress
+        &self.meta.resolve_progress
     }
 
+    #[inline]
+    pub fn src(&self) -> ExpectationSource {
+        self.meta.src
+    }
+
+    #[inline]
     pub fn original_error(&self) -> Option<&OriginalFluffyTermExpectationError> {
-        match self.resolve_progress {
+        match self.meta.resolve_progress {
             ExpectationProgress::Resolved(Err(FluffyTermExpectationError::Original(ref e))) => {
                 Some(e)
             }
             _ => None,
         }
     }
+}
 
-    pub(crate) fn set_resolved(
+impl ExpectationMeta {
+    pub fn src(&self) -> ExpectationSource {
+        self.src
+    }
+
+    pub(crate) fn child_src(&self) -> ExpectationSource {
+        self.src.child_src(self.idx())
+    }
+
+    pub(crate) fn expectee(&self) -> FluffyTerm {
+        self.expectee
+    }
+
+    pub fn resolve_progress(&self) -> &ExpectationProgress {
+        &self.resolve_progress
+    }
+
+    pub fn idx(&self) -> ExpectationIdx {
+        self.idx
+    }
+
+    /// returns option for convenience
+    pub(crate) fn set_ok(
         &mut self,
-        result: FluffyTermExpectationResult<FluffyTermExpectationOutcome>,
-    ) {
-        self.resolve_progress = ExpectationProgress::Resolved(result)
+        outcome: impl Into<FluffyTermExpectationOutcome>,
+        subsequent_actions: FluffyTermResolveActions,
+    ) -> Option<ExpectationEffect> {
+        #[cfg(test)]
+        match self.resolve_progress {
+            ExpectationProgress::Resolved(_) => unreachable!(),
+            _ => (),
+        }
+        self.resolve_progress = ExpectationProgress::Resolved(Ok(outcome.into()));
+        Some(ExpectationEffect { subsequent_actions })
+    }
+
+    pub(crate) fn set_err(
+        &mut self,
+        e: impl Into<FluffyTermExpectationError>,
+        subsequent_actions: FluffyTermResolveActions,
+    ) -> Option<ExpectationEffect> {
+        #[cfg(test)]
+        match self.resolve_progress {
+            ExpectationProgress::Resolved(_) => unreachable!(),
+            _ => (),
+        }
+        self.resolve_progress = ExpectationProgress::Resolved(Err(e.into()));
+        Some(ExpectationEffect { subsequent_actions })
+    }
+}
+
+#[derive(Default)]
+pub struct ExpectationEffect {
+    subsequent_actions: FluffyTermResolveActions,
+}
+
+impl ExpectationEffect {
+    pub(crate) fn take_subsequent_actions(self) -> FluffyTermResolveActions {
+        self.subsequent_actions
     }
 }
 
@@ -143,14 +183,18 @@ impl FluffyTermRegion {
         &mut self,
         src: ExpectationSource,
         expectee: FluffyTerm,
-        expectation: impl Into<ExpectationData>,
+        expectation: impl Into<Expectation>,
     ) -> OptionFluffyTermExpectationIdx {
+        let idx = unsafe { self.expectations.arena.next_idx() };
         self.expectations
             .alloc_expectation(ExpectationEntry {
-                src,
-                expectee: expectee.into(),
-                data: expectation.into(),
-                resolve_progress: ExpectationProgress::Intact,
+                expectation: expectation.into(),
+                meta: ExpectationMeta {
+                    idx,
+                    src,
+                    expectee: expectee.into(),
+                    resolve_progress: ExpectationProgress::Intact,
+                },
             })
             .into()
     }

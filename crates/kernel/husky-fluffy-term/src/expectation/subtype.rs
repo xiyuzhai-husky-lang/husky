@@ -38,62 +38,46 @@ impl ExpectFluffyTerm for ExpectSubtype {
     fn destination(&self) -> Option<FluffyTerm> {
         Some(self.expected)
     }
-}
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct ExpectSubtypeOutcome {
-    // todo: change this to option lifetime subtype constraint
-}
-
-impl ExpectSubtypeOutcome {
-    pub(crate) fn resolved(&self) -> Option<EtherealTerm> {
-        todo!()
-    }
-}
-
-impl ExpectSubtype {
-    pub(super) fn resolve(
+    fn resolve(
         &self,
         db: &dyn FluffyTermDb,
-        fluffy_terms: &mut FluffyTerms,
-        expectee: FluffyTerm,
-    ) -> Option<FluffyTermExpectationEffect> {
-        if expectee == self.expected {
-            return Some(FluffyTermExpectationEffect {
-                result: Ok(ExpectSubtypeOutcome {}.into()),
-                actions: smallvec![],
-            });
+        state: &mut ExpectationMeta,
+        terms: &mut FluffyTerms,
+    ) -> Option<ExpectationEffect> {
+        if state.expectee() == self.expected {
+            return state.set_ok(ExpectSubtypeOutcome {}, smallvec![]);
         }
-        match self.expected.data_inner(db, fluffy_terms) {
+        match self.expected.data_inner(db, terms) {
             FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology {
                 ty_path: expected_path,
-                arguments: argument_tys,
+                arguments,
                 ..
-            } => match expectee.data_inner(db, fluffy_terms) {
+            } => match state.expectee().data_inner(db, terms) {
                 FluffyTermData::TypeOntology {
                     ty_path: expectee_path,
-                    arguments: argument_tys,
+                    arguments,
                     ..
                 } => {
                     if expected_path == expectee_path {
                         todo!()
                     } else {
-                        Some(FluffyTermExpectationEffect {
-                            result: Err(OriginalFluffyTermExpectationError::TypePathMismatch {
+                        state.set_err(
+                            OriginalFluffyTermExpectationError::TypePathMismatch {
                                 expected_path,
                                 expectee_path,
-                            }
-                            .into()),
-                            actions: smallvec![],
-                        })
+                            },
+                            smallvec![],
+                        )
                     }
                 }
                 FluffyTermData::Hole(_, _) => todo!(),
-                _ => Some(FluffyTermExpectationEffect {
-                    result: Err(todo!()),
-                    actions: smallvec![],
-                }),
+                _ => todo!()
+                // Some(FluffyTermExpectationEffect {
+                //     result: Err(todo!()),
+                //     actions: smallvec![],
+                // }),
             },
             FluffyTermData::Curry {
                 curry_kind,
@@ -104,22 +88,22 @@ impl ExpectSubtype {
                 ty_ethereal_term,
             } => todo!(),
             FluffyTermData::Hole(_, hole) => {
-                Some(FluffyTermExpectationEffect {
-                    result: Ok(ExpectSubtypeOutcome {}.into()),
-                    actions: smallvec![FluffyTermResolveAction::FillHole {
+                state.set_ok(
+                    ExpectSubtypeOutcome {},
+                    smallvec![FluffyTermResolveAction::FillHole {
                         // todo: check hole kind
                         hole,
                         // todo: check subtype
-                        term: expectee
+                        term: state.expectee()
                     }],
-                })
+                )
             }
-            FluffyTermData::Category(_) => Some(FluffyTermExpectationEffect {
-                result: Err(
-                    OriginalFluffyTermExpectationError::ExpectedSubtype { expectee }.into(),
-                ),
-                actions: smallvec![],
-            }),
+            FluffyTermData::Category(_) => state.set_err(
+                OriginalFluffyTermExpectationError::ExpectedSubtype {
+                    expectee: state.expectee(),
+                },
+                smallvec![],
+            ),
             FluffyTermData::Ritchie {
                 ritchie_kind,
                 parameter_contracted_tys,
@@ -135,5 +119,16 @@ impl ExpectSubtype {
             FluffyTermData::Symbol { ty } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
         }
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct ExpectSubtypeOutcome {
+    // todo: change this to option lifetime subtype constraint
+}
+
+impl ExpectSubtypeOutcome {
+    pub(crate) fn resolved(&self) -> Option<EtherealTerm> {
+        todo!()
     }
 }

@@ -34,7 +34,7 @@ use thiserror::Error;
 #[non_exhaustive]
 #[salsa::derive_debug_with_db(db = FluffyTermDb)]
 #[enum_class::from_variants]
-pub enum ExpectationData {
+pub enum Expectation {
     ExplicitlyConvertible(ExpectExplicitlyConvertible),
     ImplicitlyConvertible(ExpectImplicitlyConvertible),
     /// expect term to be an instance of Type u for some universe
@@ -51,7 +51,37 @@ pub enum ExpectationData {
     CurryDestination(ExpectCurryDestination),
 }
 
-pub trait ExpectFluffyTerm: Into<ExpectationData> + Clone {
+impl Expectation {
+    /// basically enum version of virtual method dispath
+    pub(crate) fn resolve(
+        &self,
+        db: &dyn FluffyTermDb,
+        state: &mut ExpectationMeta,
+        terms: &mut FluffyTerms,
+    ) -> Option<ExpectationEffect> {
+        match self {
+            Expectation::ExplicitlyConvertible(expectation) => {
+                expectation.resolve(db, state, terms)
+            }
+            Expectation::ImplicitlyConvertible(expectation) => {
+                expectation.resolve(db, state, terms)
+            }
+            Expectation::EqsSort(expectation) => expectation.resolve(db, state, terms),
+            Expectation::FrameVariableType => todo!(),
+            Expectation::EqsFunctionType(expectation) => expectation.resolve(db, state, terms),
+            Expectation::EqsRitchieType(expectation) => expectation.resolve(db, state, terms),
+            Expectation::InsSort(expectation) => expectation.resolve(db, state, terms),
+            Expectation::EqsExactly(expectation) => expectation.resolve(db, state, terms),
+            Expectation::AnyOriginal(expectation) => expectation.resolve(db, state, terms),
+            Expectation::AnyDerived(expectation) => expectation.resolve(db, state, terms),
+            Expectation::NumType(expectation) => expectation.resolve(db, state, terms),
+            Expectation::FinalDestination(expectation) => expectation.resolve(db, state, terms),
+            Expectation::CurryDestination(expectation) => expectation.resolve(db, state, terms),
+        }
+    }
+}
+
+pub trait ExpectFluffyTerm: Into<Expectation> + Clone {
     type Outcome: Clone;
 
     fn retrieve_outcome(outcome: &FluffyTermExpectationOutcome) -> &Self::Outcome;
@@ -106,9 +136,17 @@ pub trait ExpectFluffyTerm: Into<ExpectationData> + Clone {
         self.destination()
             .map(|destination| destination.data_inner(db, fluffy_terms))
     }
+
+    /// needs to return option to indicate whether something has been changed
+    fn resolve(
+        &self,
+        db: &dyn FluffyTermDb,
+        state: &mut ExpectationMeta,
+        fluffy_terms: &mut FluffyTerms,
+    ) -> Option<ExpectationEffect>;
 }
 
-pub type FluffyTermExpectationIdx = ArenaIdx<ExpectationEntry>;
+pub type ExpectationIdx = ArenaIdx<ExpectationEntry>;
 pub type OptionFluffyTermExpectationIdx = OptionArenaIdx<ExpectationEntry>;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -200,7 +238,7 @@ pub enum DerivedFluffyTermExpectationError {
     #[error("target substitution failure")]
     TargetSubstitutionFailure,
     #[error("duplication")]
-    Duplication(FluffyTermExpectationIdx),
+    Duplication(ExpectationIdx),
     #[error("unresolved local term")]
     UnresolvedLocalTerm,
     #[error("type path {ty_path:?} type error {error}")]
@@ -208,54 +246,4 @@ pub enum DerivedFluffyTermExpectationError {
         ty_path: TypePath,
         error: EtherealTermError,
     },
-}
-
-pub(super) struct FluffyTermExpectationEffect {
-    pub(super) result: FluffyTermExpectationResult<FluffyTermExpectationOutcome>,
-    pub(super) actions: SmallVec<[FluffyTermResolveAction; 2]>,
-}
-
-impl ExpectationEntry {
-    pub(super) fn resolve_expectation(
-        &self,
-        db: &dyn FluffyTermDb,
-        terms: &mut FluffyTerms,
-        idx: FluffyTermExpectationIdx,
-        level: FluffyTermResolveLevel,
-    ) -> Option<FluffyTermExpectationEffect> {
-        match self.data() {
-            ExpectationData::ExplicitlyConvertible(ref expectation) => {
-                expectation.resolve(db, terms, self.expectee(), level)
-            }
-            ExpectationData::ImplicitlyConvertible(expectation) => {
-                expectation.resolve(db, terms, self.src().child_src(idx), self.expectee(), level)
-            }
-            ExpectationData::EqsSort(ref expectation) => {
-                expectation.resolve(db, self.expectee(), terms)
-            }
-            ExpectationData::FrameVariableType => todo!(),
-            ExpectationData::EqsFunctionType(ref expectation) => {
-                expectation.resolve(db, terms, idx, self.expectee())
-            }
-            ExpectationData::EqsRitchieType(ref expectation) => {
-                expectation.resolve(db, terms, idx, self.expectee())
-            }
-            ExpectationData::InsSort(ref expectation) => {
-                expectation.resolve(db, terms, self.expectee())
-            }
-            ExpectationData::EqsExactly(ref expectation) => {
-                expectation.resolve(db, terms, self.expectee())
-            }
-            ExpectationData::AnyOriginal(_) => None,
-            ExpectationData::AnyDerived(_) => None,
-            ExpectationData::NumType(expectation) => {
-                expectation.resolve(db, terms, self.expectee())
-            }
-            ExpectationData::FinalDestination(_) => None,
-            ExpectationData::CurryDestination(_) => {
-                /* ad hoc */
-                None
-            }
-        }
-    }
 }

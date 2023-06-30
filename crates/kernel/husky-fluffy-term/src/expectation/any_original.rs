@@ -24,4 +24,13 @@ impl ExpectFluffyTerm for ExpectAnyOriginal {
     fn destination(&self) -> Option<FluffyTerm> {
         None
     }
+
+    fn resolve(
+        &self,
+        db: &dyn FluffyTermDb,
+        entry: &mut ExpectationMeta,
+        fluffy_terms: &mut FluffyTerms,
+    ) -> Option<ExpectationEffect> {
+        None
+    }
 }
