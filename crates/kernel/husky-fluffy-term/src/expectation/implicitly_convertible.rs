@@ -148,12 +148,6 @@ impl ExpectImplicitlyConvertible {
         expectee: FluffyTerm,
         level: FluffyTermResolveLevel,
     ) -> Option<FluffyTermExpectationEffect> {
-        // if expectee == self.expected {
-        //     return Some(FluffyTermExpectationEffect {
-        //         result: Ok(ImplicitConversion::None.into()),
-        //         actions: smallvec![],
-        //     });
-        // }
         match self.ty().data_inner(db, terms) {
             FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology {
@@ -172,16 +166,17 @@ impl ExpectImplicitlyConvertible {
                 arguments,
             ),
             FluffyTermData::Curry { .. } => todo!(),
-            FluffyTermData::Hole(_, hole) => match level {
-                FluffyTermResolveLevel::Weak => None,
-                FluffyTermResolveLevel::Strong => Some(FluffyTermExpectationEffect {
-                    actions: smallvec![FluffyTermResolveAction::FillHole {
-                        hole,
-                        term: expectee,
-                    }],
-                    result: Ok(ImplicitConversion::Trivial.into()),
-                }),
-            },
+            FluffyTermData::Hole(_, hole) => todo!(),
+            // match level {
+            //     FluffyTermResolveLevel::Weak => None,
+            //     FluffyTermResolveLevel::Strong => Some(FluffyTermExpectationEffect {
+            //         actions: smallvec![FluffyTermResolveAction::FillHole {
+            //             hole,
+            //             term: expectee,
+            //         }],
+            //         result: Ok(ImplicitConversion::Trivial.into()),
+            //     }),
+            // },
             FluffyTermData::Category(_) => match self.contract() {
                 Contract::Pure => todo!(),
                 Contract::Move => todo!(),
@@ -334,18 +329,19 @@ impl ExpectImplicitlyConvertible {
                     actions: smallvec![],
                 })
             }
-            FluffyTermData::Hole(_, hole) => match level {
-                FluffyTermResolveLevel::Weak => None,
-                FluffyTermResolveLevel::Strong => Some(FluffyTermExpectationEffect {
-                    result: Ok(FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                        ImplicitConversion::Trivial,
-                    )),
-                    actions: smallvec![FluffyTermResolveAction::FillHole {
-                        hole,
-                        term: self.parameter_contracted_ty.ty(), // ad hoc
-                    }],
-                }),
-            },
+            FluffyTermData::Hole(_, hole) => todo!(),
+            // match level {
+            //     FluffyTermResolveLevel::Weak => None,
+            //     FluffyTermResolveLevel::Strong => Some(FluffyTermExpectationEffect {
+            //         result: Ok(FluffyTermExpectationOutcome::ImplicitlyConvertible(
+            //             ImplicitConversion::Trivial,
+            //         )),
+            //         actions: smallvec![FluffyTermResolveAction::FillHole {
+            //             hole,
+            //             term: self.parameter_contracted_ty.ty(), // ad hoc
+            //         }],
+            //     }),
+            // },
             _ => {
                 p!(
                     expectee.data_inner(db, fluffy_terms).debug(db),
