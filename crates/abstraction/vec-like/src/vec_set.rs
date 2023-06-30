@@ -138,6 +138,7 @@ impl<K> VecSet<K> {
         }
     }
 
+    /// no assumptions
     pub fn extend(&mut self, other: &Self)
     where
         K: Copy + PartialEq + Eq,

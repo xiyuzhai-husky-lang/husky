@@ -65,8 +65,17 @@ impl<'a> DeclParser<'a> {
         } = self.ast_sheet()[ast_idx] else {
             unreachable!()
         };
-        let mut parser =
-            self.expr_parser(node_path, None, AllowSelfType::True, AllowSelfValue::False);
+        let mut parser = self.expr_parser(
+            node_path,
+            Some(
+                node_path
+                    .parent_ty_node_path(db)
+                    .node_decl(db)
+                    .expr_region(db),
+            ),
+            AllowSelfType::True,
+            AllowSelfValue::False,
+        );
         let mut ctx = parser.ctx(None, token_group_idx, Some(state_after));
         let state = ctx.save_state();
         match ctx.next() {

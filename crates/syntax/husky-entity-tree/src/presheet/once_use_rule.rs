@@ -58,7 +58,7 @@ pub struct OnceUseRule {
     use_expr_idx: UseExprIdx,
     visibility: Scope,
     variant: OnceUseRuleVariant,
-    parent: Option<EntityPath>,
+    parent: Option<MajorEntityPath>,
     state: OnceUseRuleState,
 }
 
@@ -116,7 +116,7 @@ impl OnceUseRule {
     pub fn new_nonroot(
         &self,
         use_expr_idx: UseExprIdx,
-        parent: EntityPath,
+        parent: MajorEntityPath,
         variant: OnceUseRuleVariant,
     ) -> Self {
         Self {
@@ -151,7 +151,7 @@ impl OnceUseRule {
         self.state == OnceUseRuleState::Unresolved
     }
 
-    pub(crate) fn parent(&self) -> Option<EntityPath> {
+    pub(crate) fn parent(&self) -> Option<MajorEntityPath> {
         self.parent
     }
 

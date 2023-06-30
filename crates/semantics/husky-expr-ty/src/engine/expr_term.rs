@@ -27,8 +27,8 @@ impl<'a> ExprTypeEngine<'a> {
             Expr::Literal(_, _) => todo!(),
             Expr::PrincipalEntityPath {
                 entity_path_expr,
-                path,
-            } => self.calc_entity_path_term(expr_idx, path),
+                opt_path,
+            } => self.calc_entity_path_term(expr_idx, opt_path),
             Expr::ScopeResolution {
                 parent_expr_idx,
                 scope_resolution_token,
@@ -121,12 +121,12 @@ impl<'a> ExprTypeEngine<'a> {
     fn calc_entity_path_term(
         &mut self,
         expr_idx: ExprIdx,
-        path: Option<EntityPath>,
+        path: Option<PrincipalEntityPath>,
     ) -> ExprTermResult<FluffyTerm> {
         match path {
             Some(path) => match path {
-                EntityPath::Module(_) => todo!(),
-                EntityPath::ModuleItem(path) => match path {
+                PrincipalEntityPath::Module(_) => todo!(),
+                PrincipalEntityPath::ModuleItem(path) => match path {
                     ModuleItemPath::Type(path) => match self
                         .expr_ty_info_variant(expr_idx)
                         .map_err(|_| DerivedExprTermError::AmbiguousTypePath)?
@@ -145,9 +145,7 @@ impl<'a> ExprTypeEngine<'a> {
                     ModuleItemPath::Trait(_) => todo!(),
                     ModuleItemPath::Fugitive(_) => todo!(),
                 },
-                EntityPath::AssociatedItem(_) => todo!(),
-                EntityPath::TypeVariant(_) => todo!(),
-                EntityPath::ImplBlock(_) => todo!(),
+                PrincipalEntityPath::TypeVariant(_) => todo!(),
             },
             None => todo!(),
         }

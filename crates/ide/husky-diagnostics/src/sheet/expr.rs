@@ -1,12 +1,10 @@
+use super::*;
 use husky_defn::HasDefns;
 use husky_expr::{
-    EntityPathExpr, EntityPathExprError, Expr, ExprError, ExprRegion, OriginalEntityPathExprError,
-    OriginalExprError, Stmt, StmtError,
+    Expr, ExprError, ExprRegion, OriginalExprError, OriginalPrincipalEntityPathExprError,
+    PrincipalEntityPathExpr, PrincipalEntityPathExprError, Stmt, StmtError,
 };
-
 use salsa::DebugWithDb;
-
-use super::*;
 
 #[salsa::tracked(db = DiagnosticsDb, jar = DiagnosticsJar)]
 pub struct ExprDiagnosticSheet {
@@ -52,18 +50,18 @@ impl<'a> SheetDiagnosticsCollector<'a> {
                 _ => (),
             }
         }
-        for entity_path_expr in expr_region_data.entity_path_expr_arena().data() {
+        for entity_path_expr in expr_region_data.principal_entity_path_expr_arena().data() {
             match entity_path_expr {
-                EntityPathExpr::Root { .. } => (),
-                EntityPathExpr::Subentity {
+                PrincipalEntityPathExpr::Root { .. } => (),
+                PrincipalEntityPathExpr::Subentity {
                     ident_token, path, ..
                 } => {
                     match ident_token {
-                        Err(EntityPathExprError::Original(e)) => self.visit_atom(e),
+                        Err(PrincipalEntityPathExprError::Original(e)) => self.visit_atom(e),
                         _ => (),
                     }
                     match path {
-                        Err(EntityPathExprError::Original(e)) => self.visit_atom(e),
+                        Err(PrincipalEntityPathExprError::Original(e)) => self.visit_atom(e),
                         _ => (),
                     }
                 }
@@ -204,28 +202,28 @@ impl Diagnose for OriginalExprError {
     }
 }
 
-impl Diagnose for OriginalEntityPathExprError {
+impl Diagnose for OriginalPrincipalEntityPathExprError {
     type Context<'a> = SheetDiagnosticsContext<'a>;
 
     fn message(&self, ctx: &SheetDiagnosticsContext) -> String {
         match self {
-            OriginalEntityPathExprError::EntityTree {
+            OriginalPrincipalEntityPathExprError::EntityTree {
                 token_idx: _,
                 error,
             } => {
                 format!("entity tree error {:?}", error.debug(ctx.db()))
             }
-            OriginalEntityPathExprError::ExpectIdentAfterScopeResolution(_) => todo!(),
+            OriginalPrincipalEntityPathExprError::ExpectIdentAfterScopeResolution(_) => todo!(),
         }
     }
 
     fn severity(&self) -> DiagnosticSeverity {
         match self {
-            OriginalEntityPathExprError::EntityTree {
+            OriginalPrincipalEntityPathExprError::EntityTree {
                 token_idx: _,
                 error: _,
             } => DiagnosticSeverity::Error,
-            OriginalEntityPathExprError::ExpectIdentAfterScopeResolution(_) => {
+            OriginalPrincipalEntityPathExprError::ExpectIdentAfterScopeResolution(_) => {
                 DiagnosticSeverity::Error
             }
         }
@@ -233,11 +231,11 @@ impl Diagnose for OriginalEntityPathExprError {
 
     fn range(&self, ctx: &SheetDiagnosticsContext) -> TextRange {
         match self {
-            OriginalEntityPathExprError::EntityTree {
+            OriginalPrincipalEntityPathExprError::EntityTree {
                 token_idx,
                 error: _,
             } => ctx.token_idx_text_range(*token_idx),
-            OriginalEntityPathExprError::ExpectIdentAfterScopeResolution(_) => todo!(),
+            OriginalPrincipalEntityPathExprError::ExpectIdentAfterScopeResolution(_) => todo!(),
         }
     }
 }

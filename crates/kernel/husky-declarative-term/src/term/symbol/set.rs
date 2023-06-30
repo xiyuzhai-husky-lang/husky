@@ -15,14 +15,22 @@ impl DeclarativeTermSymbols {
         self.symbols(db).has(symbol)
     }
 
-    fn merge(fst: impl Into<Option<Self>>, snd: impl Into<Option<Self>>) -> Option<Self> {
+    fn merge(
+        db: &dyn DeclarativeTermDb,
+        fst: impl Into<Option<Self>>,
+        snd: impl Into<Option<Self>>,
+    ) -> Option<Self> {
         let fst: Option<_> = fst.into();
         let snd: Option<_> = snd.into();
         match (fst, snd) {
             (None, None) => None,
             (None, Some(snd)) => Some(snd),
             (Some(fst), None) => Some(fst),
-            (Some(_fst), Some(_snd)) => todo!(),
+            (Some(fst), Some(snd)) => {
+                let mut symbols = fst.symbols(db).clone();
+                symbols.extend(snd.symbols(db));
+                Some(DeclarativeTermSymbols::new(db, symbols))
+            }
         }
     }
 }
@@ -82,7 +90,7 @@ pub(crate) fn declarative_term_curry_symbols(
 ) -> Option<DeclarativeTermSymbols> {
     let parameter_ty_symbols = calc_declarative_term_symbols(db, declarative_term.parameter_ty(db));
     let return_ty_symbols = calc_declarative_term_symbols(db, declarative_term.return_ty(db));
-    DeclarativeTermSymbols::merge(parameter_ty_symbols, return_ty_symbols)
+    DeclarativeTermSymbols::merge(db, parameter_ty_symbols, return_ty_symbols)
 }
 
 #[salsa::tracked(jar = DeclarativeTermJar)]
@@ -93,11 +101,13 @@ pub(crate) fn declarative_term_ritchie_symbols(
     let mut symbols: Option<DeclarativeTermSymbols> = None;
     for parameter_declarative_ty in declarative_term.parameter_tys(db) {
         symbols = DeclarativeTermSymbols::merge(
+            db,
             symbols,
             calc_declarative_term_symbols(db, parameter_declarative_ty.ty()),
         )
     }
     DeclarativeTermSymbols::merge(
+        db,
         symbols,
         calc_declarative_term_symbols(db, declarative_term.return_ty(db)),
     )
@@ -109,6 +119,7 @@ pub(crate) fn declarative_term_application_symbols(
     declarative_term: DeclarativeTermExplicitApplication,
 ) -> Option<DeclarativeTermSymbols> {
     DeclarativeTermSymbols::merge(
+        db,
         calc_declarative_term_symbols(db, declarative_term.function(db)),
         calc_declarative_term_symbols(db, declarative_term.argument(db)),
     )

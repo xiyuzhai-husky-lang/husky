@@ -13,6 +13,7 @@
                             implicit_parameters: ImplicitParameterDeclarativeSignatures {
                                 data: [],
                             },
+                            self_ty: DeclarativeTerm(`mnist_classifier::raw_contour::RawContour`),
                             fields: [
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `cc`,
@@ -43,6 +44,7 @@
                             implicit_parameters: ImplicitParameterDeclarativeSignatures {
                                 data: [],
                             },
+                            self_ty: DeclarativeTerm(`mnist_classifier::raw_contour::Direction`),
                         },
                     ),
                 ),
@@ -393,6 +395,7 @@
                             implicit_parameters: ImplicitParameterDeclarativeSignatures {
                                 data: [],
                             },
+                            self_ty: DeclarativeTerm(`mnist_classifier::raw_contour::StreakCache`),
                             fields: [
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `prev1`,

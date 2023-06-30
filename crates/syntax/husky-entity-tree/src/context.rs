@@ -56,7 +56,7 @@ where
     // associated items not included
     pub(crate) fn resolve_subentity(
         &self,
-        parent: EntityPath,
+        parent: MajorEntityPath,
         ident: Ident,
     ) -> Option<EntitySymbol> {
         let query_crate_path = parent.crate_path(self.db);
@@ -66,7 +66,7 @@ where
         //      This is easy, we just use db, because it's guaranteed that there will be no cycle.
         if query_crate_path == self.crate_path {
             match parent {
-                EntityPath::Module(module_path) => {
+                MajorEntityPath::Module(module_path) => {
                     // 如果出现 unwrap None的错误，就是因为module_path对应的文件不存在
                     // 后面应该通过某些东西保证每个module_path对应的文件都存在
                     let module_sheet = &self.presheets[module_path];
@@ -76,15 +76,14 @@ where
                         ident,
                     )
                 }
-                EntityPath::ModuleItem(_) => todo!(),
-                EntityPath::AssociatedItem(_) => todo!(),
-                EntityPath::TypeVariant(_) => todo!(),
-                EntityPath::ImplBlock(_) => todo!(),
+                MajorEntityPath::ModuleItem(_) => todo!(),
             }
         } else {
             match self.db.subentity_path(parent, ident).ok()? {
-                SubentityPath::NonAssociated(entity_path) => {
-                    Some(EntitySymbol::PackageDependency { entity_path })
+                SubentityPath::Principal(principal_entity_path) => {
+                    Some(EntitySymbol::PackageDependency {
+                        entity_path: principal_entity_path,
+                    })
                 }
                 SubentityPath::Associated => todo!(),
             }

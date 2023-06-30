@@ -275,11 +275,11 @@ impl<'a> DeclarativeTermEngine<'a> {
             },
             Expr::PrincipalEntityPath {
                 entity_path_expr: _,
-                path: entity_path,
-            } => match entity_path {
-                Some(entity_path) => Ok(DeclarativeTerm::EntityPath(match entity_path {
-                    EntityPath::Module(_) => todo!(),
-                    EntityPath::ModuleItem(path) => match path {
+                opt_path,
+            } => match opt_path {
+                Some(path) => Ok(DeclarativeTerm::EntityPath(match path {
+                    PrincipalEntityPath::Module(_) => todo!(),
+                    PrincipalEntityPath::ModuleItem(path) => match path {
                         ModuleItemPath::Type(path) => {
                             /* ad hoc */
                             DeclarativeTermEntityPath::Type(path)
@@ -287,9 +287,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                         ModuleItemPath::Trait(path) => path.into(),
                         ModuleItemPath::Fugitive(path) => path.into(),
                     },
-                    EntityPath::AssociatedItem(_) => todo!(),
-                    EntityPath::TypeVariant(_) => todo!(),
-                    EntityPath::ImplBlock(_) => todo!(),
+                    PrincipalEntityPath::TypeVariant(_) => todo!(),
                 })),
                 None => Err(DerivedDeclarativeTermError2::InvalidEntityPath.into()),
             },

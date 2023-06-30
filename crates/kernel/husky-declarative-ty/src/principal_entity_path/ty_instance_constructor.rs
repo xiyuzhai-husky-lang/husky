@@ -10,7 +10,7 @@ pub fn ty_instance_constructor_path_declarative_ty(
         Ok(signature) => signature,
         Err(_) => return Err(DerivedDeclarativeTypeError::SignatureError.into()),
     };
-    let Ok(variances) =  ty_entity_variances(db, path) else {
+    let Ok(variances) =  ty_implicit_parameter_variances(db, path) else {
         todo!()
     };
     match signature {
@@ -41,7 +41,7 @@ fn props_struct_ty_instance_constructor_path_declarative_ty(
     signature: PropsStructDeclarativeSignatureTemplate,
 ) -> DeclarativeTerm {
     let implicit_parameters = &signature.implicit_parameters(db);
-    let self_ty = construct_self_ty(db, path, implicit_parameters);
+    let self_ty = signature.self_ty(db);
     let parameter_tys = signature
         .fields(db)
         .iter()
@@ -66,7 +66,7 @@ fn tuple_struct_ty_constructor_path_declarative_ty(
     signature: TupleStructDeclarativeSignatureTemplate,
 ) -> DeclarativeTerm {
     let implicit_parameters = &signature.implicit_parameters(db);
-    let self_ty = construct_self_ty(db, path, implicit_parameters);
+    let self_ty = signature.self_ty(db);
     let parameter_tys = signature
         .fields(db)
         .iter()
@@ -82,18 +82,4 @@ fn tuple_struct_ty_constructor_path_declarative_ty(
         implicit_parameters,
         constructor_ty,
     )
-}
-
-fn construct_self_ty(
-    db: &dyn DeclarativeTypeDb,
-    path: TypePath,
-    implicit_parameters: &[ImplicitParameterDeclarativeSignature],
-) -> DeclarativeTerm {
-    let mut self_ty: DeclarativeTerm = path.into();
-    for implicit_parameter in implicit_parameters {
-        self_ty =
-            DeclarativeTermExplicitApplication::new(db, self_ty, implicit_parameter.symbol().into())
-                .into()
-    }
-    self_ty
 }

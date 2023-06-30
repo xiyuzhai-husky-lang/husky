@@ -23,6 +23,7 @@
                                     },
                                 ],
                             },
+                            self_ty: DeclarativeTerm(`core::option::Option t`),
                         },
                     ),
                 ),

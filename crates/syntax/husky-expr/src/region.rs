@@ -13,7 +13,7 @@ pub struct ExprRegionData {
     parent: Option<ExprRegion>,
     path: RegionPath,
     expr_arena: ExprArena,
-    entity_path_expr_arena: EntityPathExprArena,
+    principal_entity_path_expr_arena: PrincipalEntityPathExprArena,
     stmt_arena: StmtArena,
     pattern_expr_region: PatternExprRegion,
     symbol_region: SymbolRegion,
@@ -25,7 +25,7 @@ impl ExprRegionData {
         parent: Option<ExprRegion>,
         path: RegionPath,
         expr_arena: ExprArena,
-        entity_path_expr_arena: EntityPathExprArena,
+        entity_path_expr_arena: PrincipalEntityPathExprArena,
         stmt_arena: StmtArena,
         pattern_expr_region: PatternExprRegion,
         symbol_region: SymbolRegion,
@@ -35,7 +35,7 @@ impl ExprRegionData {
             parent,
             path,
             expr_arena,
-            entity_path_expr_arena,
+            principal_entity_path_expr_arena: entity_path_expr_arena,
             stmt_arena,
             pattern_expr_region,
             symbol_region,
@@ -59,8 +59,8 @@ impl ExprRegionData {
         &self.expr_arena
     }
 
-    pub fn entity_path_expr_arena(&self) -> &EntityPathExprArena {
-        &self.entity_path_expr_arena
+    pub fn principal_entity_path_expr_arena(&self) -> &PrincipalEntityPathExprArena {
+        &self.principal_entity_path_expr_arena
     }
 
     pub fn pattern_expr_arena(&self) -> &PatternExprArena {

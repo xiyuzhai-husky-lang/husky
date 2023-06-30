@@ -460,6 +460,7 @@
                                     },
                                 ],
                             },
+                            self_ty: DeclarativeTerm(`core::ops::ControlFlow t s`),
                         },
                     ),
                 ),

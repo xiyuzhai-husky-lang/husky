@@ -32,7 +32,10 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             .alloc_one_pattern_expr(expr, env)
     }
 
-    pub(crate) fn alloc_entity_path_expr(&mut self, expr: EntityPathExpr) -> EntityPathExprIdx {
-        self.parser.entity_path_expr_arena.alloc_one(expr)
+    pub(crate) fn alloc_entity_path_expr(
+        &mut self,
+        expr: PrincipalEntityPathExpr,
+    ) -> PrincipalEntityPathExprIdx {
+        self.parser.principal_entity_path_expr_arena.alloc_one(expr)
     }
 }

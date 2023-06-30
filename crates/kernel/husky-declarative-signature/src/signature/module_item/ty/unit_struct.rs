@@ -9,6 +9,7 @@ pub struct UnitStructDeclarativeSignatureTemplate {
 impl UnitStructDeclarativeSignatureTemplate {
     pub(super) fn from_decl(
         db: &dyn DeclarativeSignatureDb,
+        path: TypePath,
         decl: UnitStructTypeDecl,
     ) -> DeclarativeSignatureResult<Self> {
         let expr_region = decl.expr_region(db);

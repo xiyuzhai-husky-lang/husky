@@ -3,34 +3,34 @@ use original_error::IntoError;
 
 #[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = ExprDb)]
-pub enum EntityPathExprError {
+pub enum PrincipalEntityPathExprError {
     #[error("original `{0}`")]
-    Original(OriginalEntityPathExprError),
+    Original(OriginalPrincipalEntityPathExprError),
     #[error("derived `{0}`")]
-    Derived(DerivedEntityPathExprError),
+    Derived(DerivedPrincipalEntityPathExprError),
 }
 
-impl From<TokenError> for EntityPathExprError {
+impl From<TokenError> for PrincipalEntityPathExprError {
     fn from(value: TokenError) -> Self {
-        EntityPathExprError::Derived(value.into())
+        PrincipalEntityPathExprError::Derived(value.into())
     }
 }
 
-impl From<OriginalEntityPathExprError> for EntityPathExprError {
-    fn from(v: OriginalEntityPathExprError) -> Self {
+impl From<OriginalPrincipalEntityPathExprError> for PrincipalEntityPathExprError {
+    fn from(v: OriginalPrincipalEntityPathExprError) -> Self {
         Self::Original(v)
     }
 }
 
-impl From<DerivedEntityPathExprError> for EntityPathExprError {
-    fn from(v: DerivedEntityPathExprError) -> Self {
+impl From<DerivedPrincipalEntityPathExprError> for PrincipalEntityPathExprError {
+    fn from(v: DerivedPrincipalEntityPathExprError) -> Self {
         Self::Derived(v)
     }
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = ExprDb)]
-pub enum OriginalEntityPathExprError {
+pub enum OriginalPrincipalEntityPathExprError {
     #[error("entity tree")]
     EntityTree {
         token_idx: TokenIdx,
@@ -40,11 +40,11 @@ pub enum OriginalEntityPathExprError {
     ExpectIdentAfterScopeResolution(TokenStreamState),
 }
 
-impl IntoError for OriginalEntityPathExprError {
-    type Error = EntityPathExprError;
+impl IntoError for OriginalPrincipalEntityPathExprError {
+    type Error = PrincipalEntityPathExprError;
 }
 
-impl From<OriginalExprError> for OriginalEntityPathExprError {
+impl From<OriginalExprError> for OriginalPrincipalEntityPathExprError {
     fn from(value: OriginalExprError) -> Self {
         todo!()
     }
@@ -52,11 +52,11 @@ impl From<OriginalExprError> for OriginalEntityPathExprError {
 
 #[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = ExprDb)]
-pub enum DerivedEntityPathExprError {
+pub enum DerivedPrincipalEntityPathExprError {
     #[error("derived from expr error {0}")]
     AbortFromExprError(#[from] OriginalExprError),
     #[error("token error {0}")]
     TokenError(#[from] TokenError),
 }
 
-pub type EntityPathExprResult<T> = Result<T, EntityPathExprError>;
+pub type PrincipalEntityPathExprResult<T> = Result<T, PrincipalEntityPathExprError>;

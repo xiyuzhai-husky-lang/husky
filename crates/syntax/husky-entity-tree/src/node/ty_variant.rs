@@ -4,7 +4,7 @@ use husky_word::IdentPairMap;
 
 #[salsa::interned(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
 pub struct TypeVariantNodePath {
-    pub ty_node_path: TypeNodePath,
+    pub parent_ty_node_path: TypeNodePath,
     pub maybe_ambiguous_path: MaybeAmbiguousPath<TypeVariantPath>,
 }
 
@@ -50,7 +50,7 @@ impl HasNodePath for TypeVariantPath {
     fn node_path(self, db: &dyn EntityTreeDb) -> Self::NodePath {
         TypeVariantNodePath::new_inner(
             db,
-            self.ty_path(db).node_path(db),
+            self.parent_ty_path(db).node_path(db),
             MaybeAmbiguousPath::from_path(self),
         )
     }
@@ -131,7 +131,7 @@ pub(crate) fn ty_variant_node(
     node_path: TypeVariantNodePath,
 ) -> TypeVariantNode {
     node_path
-        .ty_node_path(db)
+        .parent_ty_node_path(db)
         .ty_variant_nodes(db)
         .iter()
         .copied()

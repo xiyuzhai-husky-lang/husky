@@ -101,8 +101,8 @@ impl<'a> ExprTypeEngine<'a> {
             )),
             Expr::PrincipalEntityPath {
                 entity_path_expr,
-                path,
-            } => self.calc_entity_path_expr_ty(path, expr_ty_expectation),
+                opt_path: path,
+            } => self.calc_principal_entity_path_expr_ty(path, expr_ty_expectation),
             Expr::ScopeResolution {
                 parent_expr_idx,
                 scope_resolution_token,
@@ -374,9 +374,9 @@ impl<'a> ExprTypeEngine<'a> {
         }
     }
 
-    fn calc_entity_path_expr_ty(
+    fn calc_principal_entity_path_expr_ty(
         &mut self,
-        path: Option<EntityPath>,
+        path: Option<PrincipalEntityPath>,
         expr_ty_expectation: &impl ExpectFluffyTerm,
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         let disambiguation = expr_ty_expectation.disambiguate_ty_path(self);

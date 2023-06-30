@@ -7,7 +7,7 @@ Ok(
                         1,
                     ),
                     variant_path: TypeVariantPath {
-                        ty_path: TypePath(`natural_number_game::Nat`, `Inductive`),
+                        parent_ty_path: TypePath(`natural_number_game::Nat`, `Inductive`),
                         ident: `Zero`,
                     },
                     vertical_token: VerticalToken(
@@ -33,7 +33,7 @@ Ok(
                         2,
                     ),
                     variant_path: TypeVariantPath {
-                        ty_path: TypePath(`natural_number_game::Nat`, `Inductive`),
+                        parent_ty_path: TypePath(`natural_number_game::Nat`, `Inductive`),
                         ident: `Succ`,
                     },
                     vertical_token: VerticalToken(

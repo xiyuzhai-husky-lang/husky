@@ -5,7 +5,7 @@ use husky_token::{IdentToken, TokenIdx};
 pub struct UseSymbol {
     #[id]
     pub original_symbol: EntitySymbol,
-    pub path: EntityPath,
+    pub path: PrincipalEntityPath,
     pub visibility: Scope,
     pub ast_idx: AstIdx,
     pub use_expr_idx: UseExprIdx,
@@ -32,7 +32,7 @@ pub enum EntitySymbol {
         super_module_path: ModulePath,
     },
     PackageDependency {
-        entity_path: EntityPath,
+        entity_path: PrincipalEntityPath,
     },
     Submodule {
         submodule_path: ModulePath,
@@ -67,7 +67,7 @@ impl EntitySymbol {
 }
 
 impl EntitySymbol {
-    pub fn path(self, db: &dyn EntityTreeDb) -> EntityPath {
+    pub fn path(self, db: &dyn EntityTreeDb) -> PrincipalEntityPath {
         match self {
             EntitySymbol::CrateRoot { root_module_path } => root_module_path.into(),
             EntitySymbol::SelfModule { module_path } => module_path.into(),

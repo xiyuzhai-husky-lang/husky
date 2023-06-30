@@ -13,6 +13,7 @@
                             implicit_parameters: ImplicitParameterDeclarativeSignatures {
                                 data: [],
                             },
+                            self_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`),
                             fields: [
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `start`,

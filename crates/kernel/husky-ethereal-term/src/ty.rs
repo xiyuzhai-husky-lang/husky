@@ -19,20 +19,18 @@ pub trait HasTypeGivenDisambiguation: Copy {
     ) -> EtherealTermResult<EtherealTerm>;
 }
 
-impl HasTypeGivenDisambiguation for EntityPath {
+impl HasTypeGivenDisambiguation for PrincipalEntityPath {
     fn ty(
         self,
         db: &dyn EtherealTermDb,
         disambiguation: TypePathDisambiguation,
     ) -> EtherealTermResult<EtherealTerm> {
         match self {
-            EntityPath::Module(path) => Ok(db
+            PrincipalEntityPath::Module(path) => Ok(db
                 .ethereal_term_menu(path.toolchain(db))
                 .module_ty_ontology()),
-            EntityPath::ModuleItem(path) => path.ty(db, disambiguation),
-            EntityPath::AssociatedItem(path) => path.ty(db),
-            EntityPath::TypeVariant(path) => path.ty(db),
-            EntityPath::ImplBlock(_) => todo!(),
+            PrincipalEntityPath::ModuleItem(path) => path.ty(db, disambiguation),
+            PrincipalEntityPath::TypeVariant(path) => path.ty(db),
         }
     }
 }
@@ -78,34 +76,6 @@ impl HasTypeGivenDisambiguation for TypePath {
                 ty_instance_constructor_path_declarative_ty(db, self)?,
             ),
         }
-    }
-}
-
-impl HasType for AssociatedItemPath {
-    fn ty(self, db: &dyn EtherealTermDb) -> EtherealTermResult<EtherealTerm> {
-        match self {
-            AssociatedItemPath::TypeItem(path) => path.ty(db),
-            AssociatedItemPath::TraitItem(path) => path.ty(db),
-            AssociatedItemPath::TraitForTypeItem(path) => path.ty(db),
-        }
-    }
-}
-
-impl HasType for TypeItemPath {
-    fn ty(self, db: &dyn EtherealTermDb) -> EtherealTermResult<EtherealTerm> {
-        EtherealTerm::ty_from_declarative(db, self.declarative_ty(db)?)
-    }
-}
-
-impl HasType for TraitItemPath {
-    fn ty(self, db: &dyn EtherealTermDb) -> EtherealTermResult<EtherealTerm> {
-        todo!()
-    }
-}
-
-impl HasType for TraitForTypeItemPath {
-    fn ty(self, db: &dyn EtherealTermDb) -> EtherealTermResult<EtherealTerm> {
-        todo!()
     }
 }
 

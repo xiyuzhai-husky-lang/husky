@@ -4,11 +4,13 @@ use super::*;
 pub struct EnumDeclarativeSignatureTemplate {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterDeclarativeSignatures,
+    pub self_ty: DeclarativeTerm,
 }
 
 impl EnumDeclarativeSignatureTemplate {
     pub fn from_decl(
         db: &dyn DeclarativeSignatureDb,
+        path: TypePath,
         decl: EnumTypeDecl,
     ) -> DeclarativeSignatureResult<Self> {
         let expr_region = decl.expr_region(db);
@@ -19,7 +21,8 @@ impl EnumDeclarativeSignatureTemplate {
             &declarative_term_region,
             declarative_term_menu,
         );
-        Ok(Self::new(db, implicit_parameters))
+        let self_ty = construct_self_ty(db, path, &implicit_parameters);
+        Ok(Self::new(db, implicit_parameters, self_ty))
     }
 }
 

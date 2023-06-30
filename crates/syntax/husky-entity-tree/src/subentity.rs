@@ -15,18 +15,18 @@ pub(crate) fn module_subentity_path(
 #[enum_class::from_variants]
 pub enum SubentityPath {
     // submodules, module items, type variants
-    NonAssociated(EntityPath),
+    Principal(PrincipalEntityPath),
     // associated items
     Associated,
 }
 
 pub(crate) fn subentity_path(
     db: &dyn EntityTreeDb,
-    parent: EntityPath,
+    parent: MajorEntityPath,
     ident: Ident,
 ) -> EntityTreeResult<SubentityPath> {
     match parent {
-        EntityPath::Module(module_path) => {
+        MajorEntityPath::Module(module_path) => {
             match db
                 .entity_tree_sheet(module_path)?
                 .module_symbols()
@@ -36,13 +36,13 @@ pub(crate) fn subentity_path(
                 None => Err(OriginalEntityTreeError::NoVisibleSubentity)?,
             }
         }
-        EntityPath::ModuleItem(module_item_path) => {
+        MajorEntityPath::ModuleItem(module_item_path) => {
             let crate_path = module_item_path.crate_path(db);
             let _entity_tree_crate_bundle = db.entity_tree_bundle(crate_path)?;
             match module_item_path {
                 ModuleItemPath::Type(path) => {
                     if let Some((_, path)) = path.ty_variant_paths(db).get_entry(ident).copied() {
-                        Ok(SubentityPath::NonAssociated(path.into()))
+                        Ok(SubentityPath::Principal(path.into()))
                     } else if let Some((_, node)) = path.item_node_paths(db)?.get_entry(ident) {
                         Ok(SubentityPath::Associated)
                     } else {
@@ -54,8 +54,5 @@ pub(crate) fn subentity_path(
                 ModuleItemPath::Fugitive(_) => todo!(),
             }
         }
-        EntityPath::AssociatedItem(_) => todo!(),
-        EntityPath::TypeVariant(_) => todo!(),
-        EntityPath::ImplBlock(_) => todo!(),
     }
 }

@@ -1,11 +1,9 @@
-mod associated_item;
 mod fugitive;
 mod trai;
 mod ty_constructor;
 mod ty_instance_constructor;
 mod utils;
 
-pub use self::associated_item::*;
 pub use self::fugitive::*;
 pub use self::trai::*;
 pub use self::ty_constructor::*;
@@ -223,7 +221,7 @@ pub fn ty_ontology_path_declarative_ty(
         Ok(signature) => signature,
         Err(_) => return Err(DerivedDeclarativeTypeError::SignatureError.into()),
     };
-    let Ok(variances) =  ty_entity_variances(db, path) else {
+    let Ok(variances) =  ty_implicit_parameter_variances(db, path) else {
         todo!()
     };
     Ok(curry_from_implicit_parameters(
@@ -264,12 +262,34 @@ pub fn ty_variant_path_declarative_ty(
     Ok(match signature_template {
         TypeVariantDeclarativeSignatureTemplate::Props(_) => todo!(),
         TypeVariantDeclarativeSignatureTemplate::Unit(signature_template) => {
-            // ad hoc
-            signature_template.ty(db)
+            let Ok(parent_ty_implicit_parameter_variances) =  ty_implicit_parameter_variances(db, path.parent_ty_path(db)) else {
+                todo!()
+            };
+            // todo: variant implicit parameters
+            curry_from_implicit_parameters(
+                db,
+                CurryKind::Implicit,
+                parent_ty_implicit_parameter_variances,
+                signature_template
+                    .parent_ty_template(db)
+                    .implicit_parameters(db),
+                signature_template.ty(db),
+            )
         }
         TypeVariantDeclarativeSignatureTemplate::Tuple(signature_template) => {
-            // ad hoc
-            signature_template.ty(db)
+            let Ok(parent_ty_implicit_parameter_variances) =  ty_implicit_parameter_variances(db, path.parent_ty_path(db)) else {
+                todo!()
+            };
+            // todo: variant implicit parameters
+            curry_from_implicit_parameters(
+                db,
+                CurryKind::Implicit,
+                parent_ty_implicit_parameter_variances,
+                signature_template
+                    .parent_ty_template(db)
+                    .implicit_parameters(db),
+                signature_template.instance_constructor_ty(db),
+            )
         }
     })
     // match decl {

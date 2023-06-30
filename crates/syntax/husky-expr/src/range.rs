@@ -23,10 +23,10 @@ pub(crate) fn expr_range_region(db: &dyn ExprDb, expr_region: ExprRegion) -> Exp
 //     DB::default().ast_expect_test_debug_with_db("expr_range_sheet", todo!());
 // }
 
-impl std::ops::Index<EntityPathExprIdx> for ExprRangeRegion {
+impl std::ops::Index<PrincipalEntityPathExprIdx> for ExprRangeRegion {
     type Output = TokenIdxRange;
 
-    fn index(&self, index: EntityPathExprIdx) -> &Self::Output {
+    fn index(&self, index: PrincipalEntityPathExprIdx) -> &Self::Output {
         &self.entity_path_expr_ranges[index.raw()]
     }
 }
@@ -56,18 +56,18 @@ struct ExprRangeCalculator<'a> {
     stmt_ranges: StmtMap<TokenIdxRange>,
 }
 
-impl<'a> std::ops::Index<EntityPathExprIdx> for ExprRangeCalculator<'a> {
+impl<'a> std::ops::Index<PrincipalEntityPathExprIdx> for ExprRangeCalculator<'a> {
     type Output = TokenIdxRange;
 
-    fn index(&self, index: EntityPathExprIdx) -> &Self::Output {
+    fn index(&self, index: PrincipalEntityPathExprIdx) -> &Self::Output {
         &self.entity_path_expr_ranges[index.raw()]
     }
 }
 
-impl<'a> std::ops::Index<&EntityPathExprIdx> for ExprRangeCalculator<'a> {
+impl<'a> std::ops::Index<&PrincipalEntityPathExprIdx> for ExprRangeCalculator<'a> {
     type Output = TokenIdxRange;
 
-    fn index(&self, index: &EntityPathExprIdx) -> &Self::Output {
+    fn index(&self, index: &PrincipalEntityPathExprIdx) -> &Self::Output {
         &self.entity_path_expr_ranges[index.raw()]
     }
 }
@@ -129,9 +129,16 @@ impl<'a> ExprRangeCalculator<'a> {
 
     fn calc_all(mut self) -> ExprRangeRegion {
         // order matters
-        self.entity_path_expr_ranges
-            .reserve(self.expr_region_data.entity_path_expr_arena().len());
-        for entity_path_expr in self.expr_region_data.entity_path_expr_arena().iter() {
+        self.entity_path_expr_ranges.reserve(
+            self.expr_region_data
+                .principal_entity_path_expr_arena()
+                .len(),
+        );
+        for entity_path_expr in self
+            .expr_region_data
+            .principal_entity_path_expr_arena()
+            .iter()
+        {
             self.entity_path_expr_ranges
                 .push(self.calc_entity_path_expr_range(entity_path_expr))
         }
@@ -159,13 +166,13 @@ impl<'a> ExprRangeCalculator<'a> {
         }
     }
 
-    fn calc_entity_path_expr_range(&self, expr: &EntityPathExpr) -> TokenIdxRange {
+    fn calc_entity_path_expr_range(&self, expr: &PrincipalEntityPathExpr) -> TokenIdxRange {
         match expr {
-            EntityPathExpr::Root {
+            PrincipalEntityPathExpr::Root {
                 path_name_token,
-                entity_path,
+                principal_entity_path: entity_path,
             } => TokenIdxRange::new_single(path_name_token.token_idx()),
-            EntityPathExpr::Subentity {
+            PrincipalEntityPathExpr::Subentity {
                 parent,
                 scope_resolution_token,
                 ident_token,
@@ -226,7 +233,7 @@ impl<'a> ExprRangeCalculator<'a> {
             Expr::Binary { lopd, ropd, .. } => self[lopd].join(self[ropd]),
             Expr::PrincipalEntityPath {
                 entity_path_expr,
-                path: entity_path,
+                opt_path: entity_path,
             } => self[*entity_path_expr],
             Expr::ScopeResolution {
                 parent_expr_idx,

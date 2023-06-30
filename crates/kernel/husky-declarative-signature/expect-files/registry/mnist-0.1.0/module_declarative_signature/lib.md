@@ -13,6 +13,7 @@
                             implicit_parameters: ImplicitParameterDeclarativeSignatures {
                                 data: [],
                             },
+                            self_ty: DeclarativeTerm(`mnist::MnistLabel`),
                         },
                     ),
                 ),
@@ -33,6 +34,7 @@
                             implicit_parameters: ImplicitParameterDeclarativeSignatures {
                                 data: [],
                             },
+                            self_ty: DeclarativeTerm(`mnist::BinaryImage28`),
                             fields: [
                                 TupleStructFieldDeclarativeSignatureTemplate {
                                     ty: ExplicitApplication(

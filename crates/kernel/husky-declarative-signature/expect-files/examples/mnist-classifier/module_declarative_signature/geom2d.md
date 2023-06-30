@@ -13,6 +13,7 @@
                             implicit_parameters: ImplicitParameterDeclarativeSignatures {
                                 data: [],
                             },
+                            self_ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
                             fields: [
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `x`,
@@ -43,6 +44,7 @@
                             implicit_parameters: ImplicitParameterDeclarativeSignatures {
                                 data: [],
                             },
+                            self_ty: DeclarativeTerm(`mnist_classifier::geom2d::RelativePoint2d`),
                             fields: [
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `x`,
@@ -73,6 +75,7 @@
                             implicit_parameters: ImplicitParameterDeclarativeSignatures {
                                 data: [],
                             },
+                            self_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                             fields: [
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `x`,
@@ -103,6 +106,7 @@
                             implicit_parameters: ImplicitParameterDeclarativeSignatures {
                                 data: [],
                             },
+                            self_ty: DeclarativeTerm(`mnist_classifier::geom2d::ClosedRange`),
                             fields: [
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `min`,
@@ -133,6 +137,7 @@
                             implicit_parameters: ImplicitParameterDeclarativeSignatures {
                                 data: [],
                             },
+                            self_ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
                             fields: [
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `xrange`,
@@ -163,6 +168,7 @@
                             implicit_parameters: ImplicitParameterDeclarativeSignatures {
                                 data: [],
                             },
+                            self_ty: DeclarativeTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
                             fields: [
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `xrange`,

@@ -1,1 +1,1 @@
-pub type EntityPathExprIdx = ();
+pub type PrincipalEntityPathExprIdx = ();

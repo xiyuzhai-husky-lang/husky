@@ -53,10 +53,8 @@ impl Expr {
     pub fn base_entity_path(&self, db: &dyn WordDb, arena: &ExprArena) -> BaseEntityPath {
         match self {
             Expr::Literal(_, _) => BaseEntityPath::None,
-            Expr::PrincipalEntityPath {
-                path: entity_path, ..
-            } => match entity_path {
-                Some(entity_path) => BaseEntityPath::Some(*entity_path),
+            Expr::PrincipalEntityPath { opt_path: path, .. } => match *path {
+                Some(path) => BaseEntityPath::Some(path.into()),
                 None => todo!(),
             },
             Expr::ScopeResolution {
