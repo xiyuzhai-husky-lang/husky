@@ -13,7 +13,7 @@ use super::*;
 #[enum_class::from_variants]
 pub enum TypeVariantDeclarativeSignatureTemplate {
     Props(EnumPropsTypeVariantDeclarativeSignatureTemplate),
-    Unit(EnumUnitVariantDeclarativeSignatureTemplate),
+    Unit(EnumUnitTypeVariantDeclarativeSignatureTemplate),
     Tuple(EnumTupleTypeVariantDeclarativeSignatureTemplate),
 }
 
@@ -51,7 +51,14 @@ pub(crate) fn ty_variant_declarative_signature_template(
         match path.parent_ty_path(db).declarative_signature_template(db)? {
             TypeDeclarativeSignatureTemplate::Enum(parent_ty_template) => match path.decl(db)? {
                 TypeVariantDecl::Props(_) => todo!(),
-                TypeVariantDecl::Unit(_) => todo!(),
+                TypeVariantDecl::Unit(decl) => {
+                    EnumUnitTypeVariantDeclarativeSignatureTemplate::from_decl(
+                        db,
+                        parent_ty_template,
+                        decl,
+                    )?
+                    .into()
+                }
                 TypeVariantDecl::Tuple(decl) => {
                     EnumTupleTypeVariantDeclarativeSignatureTemplate::from_decl(
                         db,

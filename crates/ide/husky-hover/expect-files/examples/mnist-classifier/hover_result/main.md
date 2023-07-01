@@ -400,7 +400,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 52;\n\ntoken_line_group_idx = 13\n\ntoken = Token::Ident(\n    `malamute`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 19,\n    rule_idx: OnceUseRuleIdx(\n        6,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::PackageDependency {\n                entity_path: EntityPath::Module(\n                    `malamute`,\n                ),\n            },\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 52;\n\ntoken_line_group_idx = 13\n\ntoken = Token::Ident(\n    `malamute`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 19,\n    rule_idx: OnceUseRuleIdx(\n        6,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::PackageDependency {\n                entity_path: PrincipalEntityPath::Module(\n                    `malamute`,\n                ),\n            },\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -430,7 +430,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 56;\n\ntoken_line_group_idx = 14\n\ntoken = Token::Ident(\n    `mnist`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 21,\n    rule_idx: OnceUseRuleIdx(\n        7,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::PackageDependency {\n                entity_path: EntityPath::Module(\n                    `mnist`,\n                ),\n            },\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 56;\n\ntoken_line_group_idx = 14\n\ntoken = Token::Ident(\n    `mnist`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 21,\n    rule_idx: OnceUseRuleIdx(\n        7,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::PackageDependency {\n                entity_path: PrincipalEntityPath::Module(\n                    `mnist`,\n                ),\n            },\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(

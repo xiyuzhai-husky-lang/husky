@@ -139,7 +139,6 @@ impl ExpectationMeta {
 
     pub(crate) fn set_holed(
         &mut self,
-        terms: &mut FluffyTerms,
         hole: Hole,
         gen_hole_constraint: impl FnOnce(&mut Self) -> HoleConstraint,
     ) -> Option<ExpectationEffect> {
@@ -149,11 +148,11 @@ impl ExpectationMeta {
             ExpectationProgress::Intact => (),
         }
         self.resolve_progress = ExpectationProgress::Holed;
-        terms
-            .hollow_terms_mut()
-            .add_hole_constraint(hole, gen_hole_constraint(self));
         Some(ExpectationEffect {
-            subsequent_actions: smallvec![],
+            subsequent_actions: smallvec![FluffyTermResolveAction::AddHoleConstraint {
+                hole,
+                hole_constraint: gen_hole_constraint(self)
+            }],
         })
     }
 

@@ -62,7 +62,7 @@ pub struct DeclarativeSignatureJar(
     trai_for_ty_impl_block_declarative_signature_template,
     // type variant
     ty_variant_declarative_signature_template,
-    EnumUnitVariantDeclarativeSignatureTemplate,
+    EnumUnitTypeVariantDeclarativeSignatureTemplate,
     EnumPropsTypeVariantDeclarativeSignatureTemplate,
     EnumTupleTypeVariantDeclarativeSignatureTemplate,
     // associated items

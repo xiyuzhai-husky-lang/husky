@@ -34,7 +34,7 @@ Ok(
                                     },
                                 },
                             },
-                            path: EntityPath::ModuleItem(
+                            path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Type(
                                     TypePath(`core::basic::bool`, `Extern`),
                                 ),
@@ -73,7 +73,7 @@ Ok(
                                     },
                                 },
                             },
-                            path: EntityPath::ModuleItem(
+                            path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Type(
                                     TypePath(`core::basic::never`, `Extern`),
                                 ),
@@ -112,7 +112,7 @@ Ok(
                                     },
                                 },
                             },
-                            path: EntityPath::ModuleItem(
+                            path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Type(
                                     TypePath(`core::basic::unit`, `Extern`),
                                 ),
@@ -151,7 +151,7 @@ Ok(
                                     },
                                 },
                             },
-                            path: EntityPath::ModuleItem(
+                            path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Type(
                                     TypePath(`core::basic::Trait`, `Extern`),
                                 ),
@@ -190,7 +190,7 @@ Ok(
                                     },
                                 },
                             },
-                            path: EntityPath::ModuleItem(
+                            path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Type(
                                     TypePath(`core::basic::Module`, `Extern`),
                                 ),
@@ -229,7 +229,7 @@ Ok(
                                     },
                                 },
                             },
-                            path: EntityPath::ModuleItem(
+                            path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Type(
                                     TypePath(`core::num::i8`, `Extern`),
                                 ),
@@ -268,7 +268,7 @@ Ok(
                                     },
                                 },
                             },
-                            path: EntityPath::ModuleItem(
+                            path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Type(
                                     TypePath(`core::num::i16`, `Extern`),
                                 ),
@@ -307,7 +307,7 @@ Ok(
                                     },
                                 },
                             },
-                            path: EntityPath::ModuleItem(
+                            path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Type(
                                     TypePath(`core::num::i32`, `Extern`),
                                 ),
@@ -346,7 +346,7 @@ Ok(
                                     },
                                 },
                             },
-                            path: EntityPath::ModuleItem(
+                            path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Type(
                                     TypePath(`core::num::i64`, `Extern`),
                                 ),
@@ -385,7 +385,7 @@ Ok(
                                     },
                                 },
                             },
-                            path: EntityPath::ModuleItem(
+                            path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Type(
                                     TypePath(`core::num::i128`, `Extern`),
                                 ),
@@ -424,7 +424,7 @@ Ok(
                                     },
                                 },
                             },
-                            path: EntityPath::ModuleItem(
+                            path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Type(
                                     TypePath(`core::num::isize`, `Extern`),
                                 ),
@@ -463,7 +463,7 @@ Ok(
                                     },
                                 },
                             },
-                            path: EntityPath::ModuleItem(
+                            path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Type(
                                     TypePath(`core::num::u8`, `Extern`),
                                 ),
@@ -502,7 +502,7 @@ Ok(
                                     },
                                 },
                             },
-                            path: EntityPath::ModuleItem(
+                            path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Type(
                                     TypePath(`core::num::u16`, `Extern`),
                                 ),
@@ -541,7 +541,7 @@ Ok(
                                     },
                                 },
                             },
-                            path: EntityPath::ModuleItem(
+                            path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Type(
                                     TypePath(`core::num::u32`, `Extern`),
                                 ),
@@ -580,7 +580,7 @@ Ok(
                                     },
                                 },
                             },
-                            path: EntityPath::ModuleItem(
+                            path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Type(
                                     TypePath(`core::num::u64`, `Extern`),
                                 ),
@@ -619,7 +619,7 @@ Ok(
                                     },
                                 },
                             },
-                            path: EntityPath::ModuleItem(
+                            path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Type(
                                     TypePath(`core::num::u128`, `Extern`),
                                 ),
@@ -658,7 +658,7 @@ Ok(
                                     },
                                 },
                             },
-                            path: EntityPath::ModuleItem(
+                            path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Type(
                                     TypePath(`core::num::usize`, `Extern`),
                                 ),
@@ -697,7 +697,7 @@ Ok(
                                     },
                                 },
                             },
-                            path: EntityPath::ModuleItem(
+                            path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Type(
                                     TypePath(`core::num::f32`, `Extern`),
                                 ),
@@ -736,7 +736,7 @@ Ok(
                                     },
                                 },
                             },
-                            path: EntityPath::ModuleItem(
+                            path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Type(
                                     TypePath(`core::num::f64`, `Extern`),
                                 ),
@@ -775,7 +775,7 @@ Ok(
                                     },
                                 },
                             },
-                            path: EntityPath::ModuleItem(
+                            path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Type(
                                     TypePath(`core::raw_bits::r32`, `Extern`),
                                 ),
@@ -814,7 +814,7 @@ Ok(
                                     },
                                 },
                             },
-                            path: EntityPath::ModuleItem(
+                            path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Trait(
                                     TraitPath(`core::fmt::Debug`),
                                 ),
@@ -853,7 +853,7 @@ Ok(
                                     },
                                 },
                             },
-                            path: EntityPath::ModuleItem(
+                            path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Trait(
                                     TraitPath(`core::visual::Visualize`),
                                 ),
@@ -892,7 +892,7 @@ Ok(
                                     },
                                 },
                             },
-                            path: EntityPath::ModuleItem(
+                            path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Type(
                                     TypePath(`core::visual::Html`, `Extern`),
                                 ),
@@ -931,7 +931,7 @@ Ok(
                                     },
                                 },
                             },
-                            path: EntityPath::ModuleItem(
+                            path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Trait(
                                     TraitPath(`core::marker::Copy`),
                                 ),
@@ -970,7 +970,7 @@ Ok(
                                     },
                                 },
                             },
-                            path: EntityPath::ModuleItem(
+                            path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Trait(
                                     TraitPath(`core::marker::Sized`),
                                 ),
@@ -1009,7 +1009,7 @@ Ok(
                                     },
                                 },
                             },
-                            path: EntityPath::ModuleItem(
+                            path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Trait(
                                     TraitPath(`core::clone::Clone`),
                                 ),
@@ -1017,6 +1017,117 @@ Ok(
                             visibility: Scope::Pub,
                             ast_idx: 6,
                             use_expr_idx: 18,
+                        },
+                    ),
+                },
+                EntitySymbolEntry {
+                    ident: `Option`,
+                    visibility: Scope::Pub,
+                    symbol: EntitySymbol::Use(
+                        UseSymbol {
+                            original_symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`core::option::Option`, `Enum`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::option::Option`, `Enum`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 3,
+                                    ident_token: IdentToken {
+                                        ident: `Option`,
+                                        token_idx: TokenIdx(
+                                            7,
+                                        ),
+                                    },
+                                },
+                            },
+                            path: PrincipalEntityPath::ModuleItem(
+                                ModuleItemPath::Type(
+                                    TypePath(`core::option::Option`, `Enum`),
+                                ),
+                            ),
+                            visibility: Scope::Pub,
+                            ast_idx: 7,
+                            use_expr_idx: 21,
+                        },
+                    ),
+                },
+                EntitySymbolEntry {
+                    ident: `Some`,
+                    visibility: Scope::Pub,
+                    symbol: EntitySymbol::Use(
+                        UseSymbol {
+                            original_symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::TypeVariant {
+                                        ty_variant_path: TypeVariantPath {
+                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                            ident: `Some`,
+                                        },
+                                    },
+                                    path: PrincipalEntityPath::TypeVariant(
+                                        TypeVariantPath {
+                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                            ident: `Some`,
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 2,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                            path: PrincipalEntityPath::TypeVariant(
+                                TypeVariantPath {
+                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                    ident: `Some`,
+                                },
+                            ),
+                            visibility: Scope::Pub,
+                            ast_idx: 7,
+                            use_expr_idx: 21,
+                        },
+                    ),
+                },
+                EntitySymbolEntry {
+                    ident: `None`,
+                    visibility: Scope::Pub,
+                    symbol: EntitySymbol::Use(
+                        UseSymbol {
+                            original_symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::TypeVariant {
+                                        ty_variant_path: TypeVariantPath {
+                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                            ident: `None`,
+                                        },
+                                    },
+                                    path: PrincipalEntityPath::TypeVariant(
+                                        TypeVariantPath {
+                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                            ident: `None`,
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 2,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                            path: PrincipalEntityPath::TypeVariant(
+                                TypeVariantPath {
+                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                    ident: `None`,
+                                },
+                            ),
+                            visibility: Scope::Pub,
+                            ast_idx: 7,
+                            use_expr_idx: 21,
                         },
                     ),
                 },
@@ -1048,14 +1159,14 @@ Ok(
                                     },
                                 },
                             },
-                            path: EntityPath::ModuleItem(
+                            path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Trait(
                                     TraitPath(`core::cmp::PartialEq`),
                                 ),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 7,
-                            use_expr_idx: 21,
+                            ast_idx: 8,
+                            use_expr_idx: 24,
                         },
                     ),
                 },
@@ -1087,14 +1198,14 @@ Ok(
                                     },
                                 },
                             },
-                            path: EntityPath::ModuleItem(
+                            path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Trait(
                                     TraitPath(`core::cmp::Eq`),
                                 ),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 7,
-                            use_expr_idx: 21,
+                            ast_idx: 8,
+                            use_expr_idx: 24,
                         },
                     ),
                 },
@@ -1126,14 +1237,14 @@ Ok(
                                     },
                                 },
                             },
-                            path: EntityPath::ModuleItem(
+                            path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Trait(
                                     TraitPath(`core::cmp::PartialOrd`),
                                 ),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 7,
-                            use_expr_idx: 21,
+                            ast_idx: 8,
+                            use_expr_idx: 24,
                         },
                     ),
                 },
@@ -1165,14 +1276,14 @@ Ok(
                                     },
                                 },
                             },
-                            path: EntityPath::ModuleItem(
+                            path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Trait(
                                     TraitPath(`core::cmp::Ord`),
                                 ),
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 7,
-                            use_expr_idx: 21,
+                            ast_idx: 8,
+                            use_expr_idx: 24,
                         },
                     ),
                 },
@@ -1382,6 +1493,31 @@ Ok(
                     },
                 },
                 OnceUseRule {
+                    ast_idx: 8,
+                    use_expr_idx: 26,
+                    visibility: Scope::Pub,
+                    variant: OnceUseRuleVariant::Parent {
+                        parent_name_token: PathNameToken::CrateRoot(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    58,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
+                            25..26,
+                        ),
+                    },
+                    parent: None,
+                    state: OnceUseRuleState::Resolved {
+                        original_symbol: Some(
+                            EntitySymbol::CrateRoot {
+                                root_module_path: `core`,
+                            },
+                        ),
+                    },
+                },
+                OnceUseRule {
                     ast_idx: 0,
                     use_expr_idx: 1,
                     visibility: Scope::Pub,
@@ -1399,7 +1535,7 @@ Ok(
                         ),
                     },
                     parent: Some(
-                        EntityPath::Module(
+                        MajorEntityPath::Module(
                             `core`,
                         ),
                     ),
@@ -1445,7 +1581,7 @@ Ok(
                         ),
                     },
                     parent: Some(
-                        EntityPath::Module(
+                        MajorEntityPath::Module(
                             `core`,
                         ),
                     ),
@@ -1491,7 +1627,7 @@ Ok(
                         ),
                     },
                     parent: Some(
-                        EntityPath::Module(
+                        MajorEntityPath::Module(
                             `core`,
                         ),
                     ),
@@ -1537,7 +1673,7 @@ Ok(
                         ),
                     },
                     parent: Some(
-                        EntityPath::Module(
+                        MajorEntityPath::Module(
                             `core`,
                         ),
                     ),
@@ -1583,7 +1719,7 @@ Ok(
                         ),
                     },
                     parent: Some(
-                        EntityPath::Module(
+                        MajorEntityPath::Module(
                             `core`,
                         ),
                     ),
@@ -1629,7 +1765,7 @@ Ok(
                         ),
                     },
                     parent: Some(
-                        EntityPath::Module(
+                        MajorEntityPath::Module(
                             `core`,
                         ),
                     ),
@@ -1675,7 +1811,7 @@ Ok(
                         ),
                     },
                     parent: Some(
-                        EntityPath::Module(
+                        MajorEntityPath::Module(
                             `core`,
                         ),
                     ),
@@ -1710,7 +1846,7 @@ Ok(
                     variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::Ident(
                             IdentToken {
-                                ident: `cmp`,
+                                ident: `option`,
                                 token_idx: TokenIdx(
                                     53,
                                 ),
@@ -1721,7 +1857,53 @@ Ok(
                         ),
                     },
                     parent: Some(
-                        EntityPath::Module(
+                        MajorEntityPath::Module(
+                            `core`,
+                        ),
+                    ),
+                    state: OnceUseRuleState::Resolved {
+                        original_symbol: Some(
+                            EntitySymbol::Submodule {
+                                submodule_path: `core::option`,
+                                node: SubmoduleNode {
+                                    node_path: SubmoduleNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: `core::option`,
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    visibility: Scope::Pub,
+                                    ast_idx: 12,
+                                    ident_token: IdentToken {
+                                        ident: `option`,
+                                        token_idx: TokenIdx(
+                                            38,
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                    },
+                },
+                OnceUseRule {
+                    ast_idx: 8,
+                    use_expr_idx: 25,
+                    visibility: Scope::Pub,
+                    variant: OnceUseRuleVariant::Parent {
+                        parent_name_token: PathNameToken::Ident(
+                            IdentToken {
+                                ident: `cmp`,
+                                token_idx: TokenIdx(
+                                    60,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
+                            24..25,
+                        ),
+                    },
+                    parent: Some(
+                        MajorEntityPath::Module(
                             `core`,
                         ),
                     ),
@@ -1824,10 +2006,20 @@ Ok(
                     ),
                 },
                 UseAllModuleSymbolsRule {
-                    parent_module_path: `core::cmp`,
+                    parent_module_path: `core::option`,
                     is_same_crate: true,
                     ast_idx: 7,
                     use_expr_idx: 21,
+                    visibility: Scope::Pub,
+                    progress: Ok(
+                        3,
+                    ),
+                },
+                UseAllModuleSymbolsRule {
+                    parent_module_path: `core::cmp`,
+                    is_same_crate: true,
+                    ast_idx: 8,
+                    use_expr_idx: 24,
                     visibility: Scope::Pub,
                     progress: Ok(
                         4,

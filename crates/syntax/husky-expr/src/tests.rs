@@ -72,7 +72,7 @@ fn parse_expr_works() {
                         ),
                     ],
                 },
-                entity_path_expr_arena: Arena {
+                principal_entity_path_expr_arena: Arena {
                     data: [],
                 },
                 stmt_arena: Arena {
@@ -151,7 +151,7 @@ fn parse_expr_works() {
                         },
                     ],
                 },
-                entity_path_expr_arena: Arena {
+                principal_entity_path_expr_arena: Arena {
                     data: [],
                 },
                 stmt_arena: Arena {
@@ -225,7 +225,7 @@ fn parse_expr_works() {
                         ),
                     ],
                 },
-                entity_path_expr_arena: Arena {
+                principal_entity_path_expr_arena: Arena {
                     data: [],
                 },
                 stmt_arena: Arena {
@@ -299,7 +299,7 @@ fn parse_expr_works() {
                         ),
                     ],
                 },
-                entity_path_expr_arena: Arena {
+                principal_entity_path_expr_arena: Arena {
                     data: [],
                 },
                 stmt_arena: Arena {
@@ -370,7 +370,7 @@ fn parse_expr_works() {
                         ),
                     ],
                 },
-                entity_path_expr_arena: Arena {
+                principal_entity_path_expr_arena: Arena {
                     data: [],
                 },
                 stmt_arena: Arena {
@@ -460,7 +460,7 @@ fn parse_expr_works() {
                         },
                     ],
                 },
-                entity_path_expr_arena: Arena {
+                principal_entity_path_expr_arena: Arena {
                     data: [],
                 },
                 stmt_arena: Arena {
@@ -533,7 +533,7 @@ fn parse_expr_works() {
                         },
                         PrincipalEntityPath {
                             entity_path_expr: 0,
-                            path: Some(
+                            opt_path: Some(
                                 ModuleItem(
                                     Type(
                                         TypePath(
@@ -551,7 +551,7 @@ fn parse_expr_works() {
                         },
                     ],
                 },
-                entity_path_expr_arena: Arena {
+                principal_entity_path_expr_arena: Arena {
                     data: [
                         Root {
                             path_name_token: Ident(
@@ -568,7 +568,7 @@ fn parse_expr_works() {
                                     ),
                                 },
                             ),
-                            entity_path: ModuleItem(
+                            principal_entity_path: ModuleItem(
                                 Type(
                                     TypePath(
                                         Id {
@@ -663,7 +663,7 @@ fn parse_expr_works() {
                         },
                         PrincipalEntityPath {
                             entity_path_expr: 0,
-                            path: Some(
+                            opt_path: Some(
                                 ModuleItem(
                                     Type(
                                         TypePath(
@@ -681,7 +681,7 @@ fn parse_expr_works() {
                         },
                     ],
                 },
-                entity_path_expr_arena: Arena {
+                principal_entity_path_expr_arena: Arena {
                     data: [
                         Root {
                             path_name_token: Ident(
@@ -698,7 +698,7 @@ fn parse_expr_works() {
                                     ),
                                 },
                             ),
-                            entity_path: ModuleItem(
+                            principal_entity_path: ModuleItem(
                                 Type(
                                     TypePath(
                                         Id {
@@ -771,7 +771,7 @@ fn parse_expr_works() {
                     data: [
                         PrincipalEntityPath {
                             entity_path_expr: 0,
-                            path: Some(
+                            opt_path: Some(
                                 ModuleItem(
                                     Type(
                                         TypePath(
@@ -785,7 +785,7 @@ fn parse_expr_works() {
                         },
                         PrincipalEntityPath {
                             entity_path_expr: 1,
-                            path: Some(
+                            opt_path: Some(
                                 ModuleItem(
                                     Type(
                                         TypePath(
@@ -821,7 +821,7 @@ fn parse_expr_works() {
                         },
                     ],
                 },
-                entity_path_expr_arena: Arena {
+                principal_entity_path_expr_arena: Arena {
                     data: [
                         Root {
                             path_name_token: Ident(
@@ -838,7 +838,7 @@ fn parse_expr_works() {
                                     ),
                                 },
                             ),
-                            entity_path: ModuleItem(
+                            principal_entity_path: ModuleItem(
                                 Type(
                                     TypePath(
                                         Id {
@@ -863,7 +863,7 @@ fn parse_expr_works() {
                                     ),
                                 },
                             ),
-                            entity_path: ModuleItem(
+                            principal_entity_path: ModuleItem(
                                 Type(
                                     TypePath(
                                         Id {
@@ -1028,7 +1028,7 @@ fn parse_expr_works() {
                         },
                     ],
                 },
-                entity_path_expr_arena: Arena {
+                principal_entity_path_expr_arena: Arena {
                     data: [],
                 },
                 stmt_arena: Arena {
@@ -1134,7 +1134,7 @@ fn parse_expr_works() {
                         },
                     ],
                 },
-                entity_path_expr_arena: Arena {
+                principal_entity_path_expr_arena: Arena {
                     data: [],
                 },
                 stmt_arena: Arena {
@@ -1235,7 +1235,7 @@ fn parse_application_expr_works() {
                         },
                     ],
                 },
-                entity_path_expr_arena: Arena {
+                principal_entity_path_expr_arena: Arena {
                     data: [],
                 },
                 stmt_arena: Arena {

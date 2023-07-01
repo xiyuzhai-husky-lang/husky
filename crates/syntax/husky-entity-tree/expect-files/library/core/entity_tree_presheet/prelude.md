@@ -158,6 +158,25 @@ Ok(
                     parent: None,
                     state: OnceUseRuleState::Unresolved,
                 },
+                OnceUseRule {
+                    ast_idx: 8,
+                    use_expr_idx: 26,
+                    visibility: Scope::Pub,
+                    variant: OnceUseRuleVariant::Parent {
+                        parent_name_token: PathNameToken::CrateRoot(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    58,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
+                            25..26,
+                        ),
+                    },
+                    parent: None,
+                    state: OnceUseRuleState::Unresolved,
+                },
             ],
         ),
         use_all_trackers: UseAllModuleSymbolsRules(
@@ -554,7 +573,7 @@ Ok(
                     ParentUseExpr {
                         parent_name_token: PathNameToken::Ident(
                             IdentToken {
-                                ident: `cmp`,
+                                ident: `option`,
                                 token_idx: TokenIdx(
                                     53,
                                 ),
@@ -593,6 +612,60 @@ Ok(
                         children: Ok(
                             UseExprChildren::Single {
                                 child: 22,
+                            },
+                        ),
+                    },
+                ),
+                UseExpr::All {
+                    star_token: StarToken(
+                        TokenIdx(
+                            62,
+                        ),
+                    ),
+                },
+                UseExpr::Parent(
+                    ParentUseExpr {
+                        parent_name_token: PathNameToken::Ident(
+                            IdentToken {
+                                ident: `cmp`,
+                                token_idx: TokenIdx(
+                                    60,
+                                ),
+                            },
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    61,
+                                ),
+                            ),
+                        ),
+                        children: Ok(
+                            UseExprChildren::Single {
+                                child: 24,
+                            },
+                        ),
+                    },
+                ),
+                UseExpr::Parent(
+                    ParentUseExpr {
+                        parent_name_token: PathNameToken::CrateRoot(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    58,
+                                ),
+                            },
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    59,
+                                ),
+                            ),
+                        ),
+                        children: Ok(
+                            UseExprChildren::Single {
+                                child: 25,
                             },
                         ),
                     },

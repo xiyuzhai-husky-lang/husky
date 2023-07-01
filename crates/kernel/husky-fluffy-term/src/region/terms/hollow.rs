@@ -51,11 +51,7 @@ impl HollowTerms {
         &self.entries[hollow_term.idx()]
     }
 
-    pub(in crate::region) fn add_hole_constraint(
-        &mut self,
-        hole: Hole,
-        hole_constraint: HoleConstraint,
-    ) {
+    pub(crate) fn add_hole_constraint(&mut self, hole: Hole, hole_constraint: HoleConstraint) {
         let mut hole_entry = &mut self.entries[hole.idx()];
         match hole_entry.data {
             HollowTermData::Hole {

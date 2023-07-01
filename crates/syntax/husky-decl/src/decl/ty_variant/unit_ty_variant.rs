@@ -12,6 +12,16 @@ pub struct UnitTypeVariantNodeDecl {
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct UnitTypeVariantDecl {
     #[id]
-    pub node_path: TypeVariantNodePath,
+    pub path: TypeVariantPath,
     pub expr_region: ExprRegion,
+}
+
+impl UnitTypeVariantDecl {
+    pub(super) fn from_node_decl(
+        db: &dyn DeclDb,
+        path: TypeVariantPath,
+        node_decl: UnitTypeVariantNodeDecl,
+    ) -> DeclResult<Self> {
+        Ok(Self::new(db, path, node_decl.expr_region(db)))
+    }
 }

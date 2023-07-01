@@ -75,13 +75,13 @@ Ok(
                         UseSymbol {
                             original_symbol: EntitySymbol::TypeVariant {
                                 ty_variant_path: TypeVariantPath {
-                                    ty_path: TypePath(`core::option::Option`, `Enum`),
+                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
                                     ident: `Some`,
                                 },
                             },
-                            path: EntityPath::TypeVariant(
+                            path: PrincipalEntityPath::TypeVariant(
                                 TypeVariantPath {
-                                    ty_path: TypePath(`core::option::Option`, `Enum`),
+                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
                                     ident: `Some`,
                                 },
                             ),
@@ -98,13 +98,13 @@ Ok(
                         UseSymbol {
                             original_symbol: EntitySymbol::TypeVariant {
                                 ty_variant_path: TypeVariantPath {
-                                    ty_path: TypePath(`core::option::Option`, `Enum`),
+                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
                                     ident: `None`,
                                 },
                             },
-                            path: EntityPath::TypeVariant(
+                            path: PrincipalEntityPath::TypeVariant(
                                 TypeVariantPath {
-                                    ty_path: TypePath(`core::option::Option`, `Enum`),
+                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
                                     ident: `None`,
                                 },
                             ),
@@ -173,7 +173,7 @@ Ok(
                         parent_ty_path: TypePath(`core::option::Option`, `Enum`),
                     },
                     parent: Some(
-                        EntityPath::ModuleItem(
+                        MajorEntityPath::ModuleItem(
                             ModuleItemPath::Type(
                                 TypePath(`core::option::Option`, `Enum`),
                             ),

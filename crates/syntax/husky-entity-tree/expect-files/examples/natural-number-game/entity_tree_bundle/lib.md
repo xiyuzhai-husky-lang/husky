@@ -274,7 +274,7 @@ Ok(
                             ),
                         },
                     ),
-                    entity_path: EntityPath::ModuleItem(
+                    major_entity_path: MajorEntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`natural_number_game::Nat`, `Inductive`),
                         ),

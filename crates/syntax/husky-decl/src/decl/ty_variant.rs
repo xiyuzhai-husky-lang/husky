@@ -119,7 +119,9 @@ impl TypeVariantDecl {
             TypeVariantNodeDecl::Props(node_decl) => {
                 PropsTypeVariantDecl::from_node_decl(db, path, node_decl)?.into()
             }
-            TypeVariantNodeDecl::Unit(_) => todo!(),
+            TypeVariantNodeDecl::Unit(node_decl) => {
+                UnitTypeVariantDecl::from_node_decl(db, path, node_decl)?.into()
+            }
             TypeVariantNodeDecl::Tuple(node_decl) => {
                 TupleTypeVariantDecl::from_node_decl(db, path, node_decl)?.into()
             }
