@@ -462,7 +462,7 @@ Ok(
                                     },
                                 },
                             },
-                            path: EntityPath::Module(
+                            path: PrincipalEntityPath::Module(
                                 `mnist_classifier::connected_component`,
                             ),
                             visibility: Scope::PubUnder(
@@ -501,7 +501,7 @@ Ok(
                                     },
                                 },
                             },
-                            path: EntityPath::Module(
+                            path: PrincipalEntityPath::Module(
                                 `mnist_classifier::raw_contour`,
                             ),
                             visibility: Scope::PubUnder(
@@ -540,7 +540,7 @@ Ok(
                                     },
                                 },
                             },
-                            path: EntityPath::Module(
+                            path: PrincipalEntityPath::Module(
                                 `mnist_classifier::geom2d`,
                             ),
                             visibility: Scope::PubUnder(
@@ -579,7 +579,7 @@ Ok(
                                     },
                                 },
                             },
-                            path: EntityPath::Module(
+                            path: PrincipalEntityPath::Module(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
                             visibility: Scope::PubUnder(
@@ -618,7 +618,7 @@ Ok(
                                     },
                                 },
                             },
-                            path: EntityPath::Module(
+                            path: PrincipalEntityPath::Module(
                                 `mnist_classifier::fermi`,
                             ),
                             visibility: Scope::PubUnder(
@@ -657,7 +657,7 @@ Ok(
                                     },
                                 },
                             },
-                            path: EntityPath::Module(
+                            path: PrincipalEntityPath::Module(
                                 `mnist_classifier::digits`,
                             ),
                             visibility: Scope::PubUnder(
@@ -696,7 +696,7 @@ Ok(
                                     },
                                 },
                             },
-                            path: EntityPath::Module(
+                            path: PrincipalEntityPath::Module(
                                 `mnist_classifier::major`,
                             ),
                             visibility: Scope::PubUnder(
@@ -739,7 +739,7 @@ Ok(
                                             },
                                         },
                                     },
-                                    path: EntityPath::ModuleItem(
+                                    path: PrincipalEntityPath::ModuleItem(
                                         ModuleItemPath::Fugitive(
                                             FugitivePath(`malamute::narrow_down`, `Gn`),
                                         ),
@@ -751,7 +751,7 @@ Ok(
                                     use_expr_idx: 18,
                                 },
                             ),
-                            path: EntityPath::ModuleItem(
+                            path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Fugitive(
                                     FugitivePath(`malamute::narrow_down`, `Gn`),
                                 ),
@@ -796,7 +796,7 @@ Ok(
                                             },
                                         },
                                     },
-                                    path: EntityPath::ModuleItem(
+                                    path: PrincipalEntityPath::ModuleItem(
                                         ModuleItemPath::Type(
                                             TypePath(`mnist::MnistLabel`, `Enum`),
                                         ),
@@ -808,7 +808,7 @@ Ok(
                                     use_expr_idx: 20,
                                 },
                             ),
-                            path: EntityPath::ModuleItem(
+                            path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Type(
                                     TypePath(`mnist::MnistLabel`, `Enum`),
                                 ),
@@ -853,7 +853,7 @@ Ok(
                                             },
                                         },
                                     },
-                                    path: EntityPath::ModuleItem(
+                                    path: PrincipalEntityPath::ModuleItem(
                                         ModuleItemPath::Type(
                                             TypePath(`mnist::BinaryImage28`, `Struct`),
                                         ),
@@ -865,7 +865,7 @@ Ok(
                                     use_expr_idx: 20,
                                 },
                             ),
-                            path: EntityPath::ModuleItem(
+                            path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Type(
                                     TypePath(`mnist::BinaryImage28`, `Struct`),
                                 ),
@@ -912,7 +912,7 @@ Ok(
                                                     },
                                                 },
                                             },
-                                            path: EntityPath::ModuleItem(
+                                            path: PrincipalEntityPath::ModuleItem(
                                                 ModuleItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                                                 ),
@@ -922,7 +922,7 @@ Ok(
                                             use_expr_idx: 0,
                                         },
                                     ),
-                                    path: EntityPath::ModuleItem(
+                                    path: PrincipalEntityPath::ModuleItem(
                                         ModuleItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                                         ),
@@ -934,7 +934,7 @@ Ok(
                                     use_expr_idx: 3,
                                 },
                             ),
-                            path: EntityPath::ModuleItem(
+                            path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
@@ -979,7 +979,7 @@ Ok(
                                             },
                                         },
                                     },
-                                    path: EntityPath::ModuleItem(
+                                    path: PrincipalEntityPath::ModuleItem(
                                         ModuleItemPath::Type(
                                             TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                         ),
@@ -991,7 +991,7 @@ Ok(
                                     use_expr_idx: 6,
                                 },
                             ),
-                            path: EntityPath::ModuleItem(
+                            path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Type(
                                     TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                 ),
@@ -1036,7 +1036,7 @@ Ok(
                                             },
                                         },
                                     },
-                                    path: EntityPath::ModuleItem(
+                                    path: PrincipalEntityPath::ModuleItem(
                                         ModuleItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                         ),
@@ -1048,7 +1048,7 @@ Ok(
                                     use_expr_idx: 6,
                                 },
                             ),
-                            path: EntityPath::ModuleItem(
+                            path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                 ),
@@ -1093,7 +1093,7 @@ Ok(
                                             },
                                         },
                                     },
-                                    path: EntityPath::ModuleItem(
+                                    path: PrincipalEntityPath::ModuleItem(
                                         ModuleItemPath::Type(
                                             TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                         ),
@@ -1105,7 +1105,7 @@ Ok(
                                     use_expr_idx: 9,
                                 },
                             ),
-                            path: EntityPath::ModuleItem(
+                            path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Type(
                                     TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                 ),
@@ -1150,7 +1150,7 @@ Ok(
                                             },
                                         },
                                     },
-                                    path: EntityPath::ModuleItem(
+                                    path: PrincipalEntityPath::ModuleItem(
                                         ModuleItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                                         ),
@@ -1162,7 +1162,7 @@ Ok(
                                     use_expr_idx: 9,
                                 },
                             ),
-                            path: EntityPath::ModuleItem(
+                            path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                                 ),
@@ -1207,7 +1207,7 @@ Ok(
                                             },
                                         },
                                     },
-                                    path: EntityPath::ModuleItem(
+                                    path: PrincipalEntityPath::ModuleItem(
                                         ModuleItemPath::Type(
                                             TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                         ),
@@ -1219,7 +1219,7 @@ Ok(
                                     use_expr_idx: 12,
                                 },
                             ),
-                            path: EntityPath::ModuleItem(
+                            path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Type(
                                     TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                 ),
@@ -1264,7 +1264,7 @@ Ok(
                                             },
                                         },
                                     },
-                                    path: EntityPath::ModuleItem(
+                                    path: PrincipalEntityPath::ModuleItem(
                                         ModuleItemPath::Type(
                                             TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                         ),
@@ -1276,7 +1276,7 @@ Ok(
                                     use_expr_idx: 12,
                                 },
                             ),
-                            path: EntityPath::ModuleItem(
+                            path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Type(
                                     TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                 ),
@@ -1323,7 +1323,7 @@ Ok(
                                                     },
                                                 },
                                             },
-                                            path: EntityPath::ModuleItem(
+                                            path: PrincipalEntityPath::ModuleItem(
                                                 ModuleItemPath::Type(
                                                     TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                 ),
@@ -1333,7 +1333,7 @@ Ok(
                                             use_expr_idx: 0,
                                         },
                                     ),
-                                    path: EntityPath::ModuleItem(
+                                    path: PrincipalEntityPath::ModuleItem(
                                         ModuleItemPath::Type(
                                             TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                         ),
@@ -1345,7 +1345,7 @@ Ok(
                                     use_expr_idx: 12,
                                 },
                             ),
-                            path: EntityPath::ModuleItem(
+                            path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Type(
                                     TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                 ),
@@ -1392,7 +1392,7 @@ Ok(
                                                     },
                                                 },
                                             },
-                                            path: EntityPath::ModuleItem(
+                                            path: PrincipalEntityPath::ModuleItem(
                                                 ModuleItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                                 ),
@@ -1402,7 +1402,7 @@ Ok(
                                             use_expr_idx: 0,
                                         },
                                     ),
-                                    path: EntityPath::ModuleItem(
+                                    path: PrincipalEntityPath::ModuleItem(
                                         ModuleItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                         ),
@@ -1414,7 +1414,7 @@ Ok(
                                     use_expr_idx: 12,
                                 },
                             ),
-                            path: EntityPath::ModuleItem(
+                            path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                 ),
@@ -1461,7 +1461,7 @@ Ok(
                                                     },
                                                 },
                                             },
-                                            path: EntityPath::ModuleItem(
+                                            path: PrincipalEntityPath::ModuleItem(
                                                 ModuleItemPath::Type(
                                                     TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                                 ),
@@ -1471,7 +1471,7 @@ Ok(
                                             use_expr_idx: 4,
                                         },
                                     ),
-                                    path: EntityPath::ModuleItem(
+                                    path: PrincipalEntityPath::ModuleItem(
                                         ModuleItemPath::Type(
                                             TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                         ),
@@ -1483,7 +1483,7 @@ Ok(
                                     use_expr_idx: 12,
                                 },
                             ),
-                            path: EntityPath::ModuleItem(
+                            path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Type(
                                     TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                 ),
@@ -1528,7 +1528,7 @@ Ok(
                                             },
                                         },
                                     },
-                                    path: EntityPath::ModuleItem(
+                                    path: PrincipalEntityPath::ModuleItem(
                                         ModuleItemPath::Type(
                                             TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                                         ),
@@ -1540,7 +1540,7 @@ Ok(
                                     use_expr_idx: 15,
                                 },
                             ),
-                            path: EntityPath::ModuleItem(
+                            path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Type(
                                     TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                                 ),
@@ -1585,7 +1585,7 @@ Ok(
                                             },
                                         },
                                     },
-                                    path: EntityPath::ModuleItem(
+                                    path: PrincipalEntityPath::ModuleItem(
                                         ModuleItemPath::Type(
                                             TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                                         ),
@@ -1597,7 +1597,7 @@ Ok(
                                     use_expr_idx: 15,
                                 },
                             ),
-                            path: EntityPath::ModuleItem(
+                            path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Type(
                                     TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                                 ),
@@ -1642,7 +1642,7 @@ Ok(
                                             },
                                         },
                                     },
-                                    path: EntityPath::ModuleItem(
+                                    path: PrincipalEntityPath::ModuleItem(
                                         ModuleItemPath::Type(
                                             TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                         ),
@@ -1654,7 +1654,7 @@ Ok(
                                     use_expr_idx: 15,
                                 },
                             ),
-                            path: EntityPath::ModuleItem(
+                            path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Type(
                                     TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                 ),
@@ -1699,7 +1699,7 @@ Ok(
                                             },
                                         },
                                     },
-                                    path: EntityPath::ModuleItem(
+                                    path: PrincipalEntityPath::ModuleItem(
                                         ModuleItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
                                         ),
@@ -1711,7 +1711,7 @@ Ok(
                                     use_expr_idx: 15,
                                 },
                             ),
-                            path: EntityPath::ModuleItem(
+                            path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
                                 ),

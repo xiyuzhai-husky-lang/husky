@@ -540,7 +540,14 @@ Ok(
                 ),
             ),
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::TypeVariant(
+                    TypeVariantPath {
+                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                        ident: `Some`,
+                    },
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,

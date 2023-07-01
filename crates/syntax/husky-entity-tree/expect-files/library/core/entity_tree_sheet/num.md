@@ -891,7 +891,7 @@ Ok(
                                     },
                                 },
                             },
-                            path: EntityPath::ModuleItem(
+                            path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Trait(
                                     TraitPath(`core::ops::Add`),
                                 ),
@@ -2049,7 +2049,7 @@ Ok(
                         ),
                     },
                     parent: Some(
-                        EntityPath::Module(
+                        MajorEntityPath::Module(
                             `core`,
                         ),
                     ),
@@ -2092,7 +2092,7 @@ Ok(
                         },
                     },
                     parent: Some(
-                        EntityPath::Module(
+                        MajorEntityPath::Module(
                             `core::ops`,
                         ),
                     ),

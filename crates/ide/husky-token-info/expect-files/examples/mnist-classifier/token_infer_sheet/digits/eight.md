@@ -260,7 +260,7 @@ Ok(
             TokenInfo::Entity(
                 EntityPath::TypeVariant(
                     TypeVariantPath {
-                        ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                        parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                         ident: `Eight`,
                     },
                 ),

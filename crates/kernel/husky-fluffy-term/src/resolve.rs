@@ -30,9 +30,6 @@ impl FluffyTermRegion {
         while let Some(effect) = self.next_expectation_effect(db, level) {
             for action in effect.take_subsequent_actions() {
                 match action {
-                    FluffyTermResolveAction::FillHole { hole, term } => {
-                        self.hollow_terms_mut().fill_hole(db, hole, term)
-                    }
                     FluffyTermResolveAction::AddExpectation {
                         src,
                         expectee,
@@ -40,6 +37,15 @@ impl FluffyTermRegion {
                     } => {
                         self.add_expectation(src, expectee, expectation);
                     }
+                    FluffyTermResolveAction::FillHole { hole, term } => {
+                        self.hollow_terms_mut().fill_hole(db, hole, term)
+                    }
+                    FluffyTermResolveAction::AddHoleConstraint {
+                        hole,
+                        hole_constraint,
+                    } => self
+                        .hollow_terms_mut()
+                        .add_hole_constraint(hole, hole_constraint),
                 }
             }
         }

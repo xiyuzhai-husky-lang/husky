@@ -383,7 +383,7 @@ Ok(
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::PackageDependency {
-                            entity_path: EntityPath::Module(
+                            entity_path: PrincipalEntityPath::Module(
                                 `malamute`,
                             ),
                         },
@@ -401,7 +401,7 @@ Ok(
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::PackageDependency {
-                            entity_path: EntityPath::Module(
+                            entity_path: PrincipalEntityPath::Module(
                                 `mnist`,
                             ),
                         },

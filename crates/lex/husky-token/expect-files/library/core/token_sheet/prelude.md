@@ -251,6 +251,39 @@ Ok(
                 ),
             ),
             Token::Ident(
+                `option`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        ScopeResolution,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Star,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
+                Keyword::Use,
+            ),
+            Token::Keyword(
+                Keyword::Pronoun(
+                    Crate,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        ScopeResolution,
+                    ),
+                ),
+            ),
+            Token::Ident(
                 `cmp`,
             ),
             Token::Punctuation(
@@ -275,8 +308,10 @@ Ok(
             35,
             42,
             49,
+            56,
         ],
         indents: [
+            0,
             0,
             0,
             0,

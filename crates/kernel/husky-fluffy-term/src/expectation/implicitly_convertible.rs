@@ -160,11 +160,11 @@ impl ExpectFluffyTerm for ExpectImplicitlyConvertible {
                 arguments,
             ),
             FluffyTermData::Curry { .. } => todo!(),
-            FluffyTermData::Hole(_, hole) => meta.set_holed(terms, hole, |meta| {
-                HoleConstraint::ImplicitlyConvertibleFrom {
+            FluffyTermData::Hole(_, hole) => {
+                meta.set_holed(hole, |meta| HoleConstraint::ImplicitlyConvertibleFrom {
                     target: meta.expectee(),
-                }
-            }),
+                })
+            }
             FluffyTermData::Category(_) => match self.contract() {
                 Contract::Pure => todo!(),
                 Contract::Move => todo!(),
@@ -209,7 +209,7 @@ impl ExpectImplicitlyConvertible {
         &self,
         db: &dyn FluffyTermDb,
         meta: &mut ExpectationMeta,
-        terms: &mut FluffyTerms,
+        terms: &FluffyTerms,
         dst_path: TypePath,
         dst_refined_path: Either<PreludeTypePath, CustomTypePath>,
         dst_argument_tys: &[FluffyTerm],
@@ -305,11 +305,11 @@ impl ExpectImplicitlyConvertible {
                     smallvec![],
                 )
             }
-            FluffyTermData::Hole(_, hole) => meta.set_holed(terms, hole, |meta| {
-                HoleConstraint::ImplicitlyConvertibleTo {
+            FluffyTermData::Hole(_, hole) => {
+                meta.set_holed(hole, |meta| HoleConstraint::ImplicitlyConvertibleTo {
                     target: meta.expectee(),
-                }
-            }),
+                })
+            }
             _ => {
                 p!(
                     meta.expectee().data_inner(db, terms).debug(db),
