@@ -11,7 +11,7 @@ pub use db::DiagnosticsDb;
 use husky_token::{RangedTokenSheet, TokenSheetData};
 pub use severity::DiagnosticSeverity;
 
-use collector::{RegionDiagnosticsCollector, SheetDiagnosticsCollector};
+use collector::{ModuleDiagnosticsCollector, RegionDiagnosticsCollector};
 use context::*;
 use husky_text::TextRange;
 use husky_vfs::*;

@@ -17,7 +17,7 @@ pub(crate) fn expr_diagnostic_sheet(
     db: &dyn DiagnosticsDb,
     module_path: ModulePath,
 ) -> ExprDiagnosticSheet {
-    let mut sheet_collector = SheetDiagnosticsCollector::new(db, module_path);
+    let mut sheet_collector = ModuleDiagnosticsCollector::new(db, module_path);
     if let (Ok(ranged_token_sheet), Ok(defns)) =
         (db.ranged_token_sheet(module_path), module_path.defns(db))
     {
@@ -35,7 +35,7 @@ pub(crate) fn expr_diagnostic_sheet(
     ExprDiagnosticSheet::new(db, sheet_collector.finish())
 }
 
-impl<'a> SheetDiagnosticsCollector<'a> {
+impl<'a> ModuleDiagnosticsCollector<'a> {
     fn collect_expr_diagnostics(&mut self, expr_region: ExprRegion) {
         let expr_region_data = expr_region.data(self.db());
         for expr in expr_region_data.expr_arena().data() {

@@ -13,25 +13,52 @@ pub(crate) fn decl_diagnostic_sheet(
     db: &dyn DiagnosticsDb,
     module_path: ModulePath,
 ) -> DeclDiagnosticSheet {
-    let mut sheet_collector = SheetDiagnosticsCollector::new(db, module_path);
+    let mut collector = ModuleDiagnosticsCollector::new(db, module_path);
     if let (Ok(ranged_token_sheet), Ok(node_decl_sheet)) = (
         db.ranged_token_sheet(module_path),
         db.node_decl_sheet(module_path),
     ) {
-        let _token_sheet_data = ranged_token_sheet.token_sheet_data(db);
-        for (node_path, node_decl) in node_decl_sheet.decls(db).iter().copied() {
-            // ad hoc
-            match node_decl {
-                NodeDecl::Submodule(_) => (),
-                NodeDecl::ModuleItem(_) => (),
-                NodeDecl::ImplBlock(_) => (),
-                NodeDecl::AssociatedItem(_) => (),
-                NodeDecl::TypeVariant(_) => (),
-            }
+        for (_, node_decl) in node_decl_sheet.decls(db).iter().copied() {
+            collector.visit_node_decl(node_decl)
         }
     }
-    // todo
-    DeclDiagnosticSheet::new(db, sheet_collector.finish())
+    DeclDiagnosticSheet::new(db, collector.finish())
+}
+
+impl<'a> ModuleDiagnosticsCollector<'a> {
+    fn visit_node_decl(&mut self, node_decl: NodeDecl) {
+        match node_decl {
+            NodeDecl::Submodule(node_decl) => (),
+            NodeDecl::ModuleItem(node_decl) => self.visit_module_item_decl(node_decl),
+            NodeDecl::ImplBlock(node_decl) => (),
+            NodeDecl::AssociatedItem(node_decl) => (),
+            NodeDecl::TypeVariant(node_decl) => (),
+        }
+    }
+
+    fn visit_module_item_decl(&mut self, node_decl: ModuleItemNodeDecl) {
+        match node_decl {
+            ModuleItemNodeDecl::Type(node_decl) => self.visit_ty_node_decl(node_decl),
+            ModuleItemNodeDecl::Fugitive(node_decl) => todo!(),
+            ModuleItemNodeDecl::Trait(node_decl) => todo!(),
+        }
+    }
+
+    fn visit_ty_node_decl(&mut self, node_decl: TypeNodeDecl) {
+        match node_decl {
+            TypeNodeDecl::Enum(node_decl) => {
+                todo!()
+            }
+            TypeNodeDecl::PropsStruct(_) => todo!(),
+            TypeNodeDecl::UnitStruct(_) => todo!(),
+            TypeNodeDecl::TupleStruct(_) => todo!(),
+            TypeNodeDecl::Record(_) => todo!(),
+            TypeNodeDecl::Inductive(_) => todo!(),
+            TypeNodeDecl::Structure(_) => todo!(),
+            TypeNodeDecl::Extern(_) => todo!(),
+            TypeNodeDecl::Union(_) => todo!(),
+        }
+    }
 }
 
 // impl Diagnose for OriginalDeclError {
