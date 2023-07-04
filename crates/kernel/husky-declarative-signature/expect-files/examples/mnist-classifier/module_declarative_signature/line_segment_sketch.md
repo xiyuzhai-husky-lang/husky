@@ -38,7 +38,7 @@
             ),
         ),
         Err(
-            FieldTypeDeclarativeTermError(
+            DeclarativeSignatureError::FieldTypeDeclarativeTermError(
                 0,
             ),
         ),

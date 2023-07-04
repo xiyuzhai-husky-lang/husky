@@ -411,7 +411,7 @@ Ok(
                                 None,
                             ),
                             explicit_parameter_decl_list: Ok(
-                                ExplicitParameterDeclList {
+                                SelfParameterAndExplicitParameters {
                                     lpar: LeftParenthesisToken(
                                         TokenIdx(
                                             23,
@@ -1116,7 +1116,7 @@ Ok(
                                 None,
                             ),
                             explicit_parameter_decl_list: Ok(
-                                ExplicitParameterDeclList {
+                                SelfParameterAndExplicitParameters {
                                     lpar: LeftParenthesisToken(
                                         TokenIdx(
                                             52,
@@ -1821,7 +1821,7 @@ Ok(
                                 None,
                             ),
                             explicit_parameter_decl_list: Ok(
-                                ExplicitParameterDeclList {
+                                SelfParameterAndExplicitParameters {
                                     lpar: LeftParenthesisToken(
                                         TokenIdx(
                                             81,

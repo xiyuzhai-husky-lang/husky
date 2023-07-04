@@ -6,7 +6,7 @@
             ),
         ),
         Err(
-            FieldTypeDeclarativeTermError(
+            DeclarativeSignatureError::FieldTypeDeclarativeTermError(
                 1,
             ),
         ),

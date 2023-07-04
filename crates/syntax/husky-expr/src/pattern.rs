@@ -1,11 +1,9 @@
 mod contract;
-mod decl;
 mod region;
 mod symbol;
 
-pub use decl::*;
-pub use region::*;
-pub use symbol::*;
+pub use self::region::*;
+pub use self::symbol::*;
 
 use super::*;
 use husky_entity_path::EntityPath;

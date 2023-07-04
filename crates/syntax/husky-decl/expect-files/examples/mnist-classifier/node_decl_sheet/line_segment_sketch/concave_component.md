@@ -335,7 +335,7 @@ Ok(
                                     None,
                                 ),
                                 explicit_parameter_decl_list: Ok(
-                                    ExplicitParameterDeclList {
+                                    SelfParameterAndExplicitParameters {
                                         lpar: LeftParenthesisToken(
                                             TokenIdx(
                                                 542,
@@ -821,7 +821,7 @@ Ok(
                                     None,
                                 ),
                                 explicit_parameter_decl_list: Ok(
-                                    ExplicitParameterDeclList {
+                                    SelfParameterAndExplicitParameters {
                                         lpar: LeftParenthesisToken(
                                             TokenIdx(
                                                 57,
@@ -2795,7 +2795,7 @@ Ok(
                                     None,
                                 ),
                                 explicit_parameter_decl_list: Ok(
-                                    ExplicitParameterDeclList {
+                                    SelfParameterAndExplicitParameters {
                                         lpar: LeftParenthesisToken(
                                             TokenIdx(
                                                 406,
@@ -3089,7 +3089,7 @@ Ok(
                                     None,
                                 ),
                                 explicit_parameter_decl_list: Ok(
-                                    ExplicitParameterDeclList {
+                                    SelfParameterAndExplicitParameters {
                                         lpar: LeftParenthesisToken(
                                             TokenIdx(
                                                 445,
@@ -3383,7 +3383,7 @@ Ok(
                                     None,
                                 ),
                                 explicit_parameter_decl_list: Ok(
-                                    ExplicitParameterDeclList {
+                                    SelfParameterAndExplicitParameters {
                                         lpar: LeftParenthesisToken(
                                             TokenIdx(
                                                 466,
@@ -3677,7 +3677,7 @@ Ok(
                                     None,
                                 ),
                                 explicit_parameter_decl_list: Ok(
-                                    ExplicitParameterDeclList {
+                                    SelfParameterAndExplicitParameters {
                                         lpar: LeftParenthesisToken(
                                             TokenIdx(
                                                 487,
@@ -3971,7 +3971,7 @@ Ok(
                                     None,
                                 ),
                                 explicit_parameter_decl_list: Ok(
-                                    ExplicitParameterDeclList {
+                                    SelfParameterAndExplicitParameters {
                                         lpar: LeftParenthesisToken(
                                             TokenIdx(
                                                 503,
@@ -4265,7 +4265,7 @@ Ok(
                                     None,
                                 ),
                                 explicit_parameter_decl_list: Ok(
-                                    ExplicitParameterDeclList {
+                                    SelfParameterAndExplicitParameters {
                                         lpar: LeftParenthesisToken(
                                             TokenIdx(
                                                 522,

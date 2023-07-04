@@ -60,7 +60,7 @@ fn module_ancestry_works() {
                 },
                 crate_kind: Library,
             },
-            modules: [
+            module_paths: [
                 `core`,
             ],
         }
@@ -84,7 +84,7 @@ fn module_ancestry_works() {
                 },
                 crate_kind: Library,
             },
-            modules: [
+            module_paths: [
                 `core`,
                 `core::basic`,
             ],
