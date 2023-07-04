@@ -30,7 +30,7 @@ jobs:
       continue-on-error: false
       run: ./scripts/download_cpp_dependencies.sh
     - name: Setup
-      run: ./scripts/ci_setup.sh
+      run: . ./scripts/ci_setup.sh
     - name: Build
       run: cargo build --verbose
     - name: Run tests
